@@ -1,0 +1,322 @@
+{
+ "request_id": "artreq_20261031-0400_room-layers-gemini-next6",
+ "status": "open",
+ "assigned_to": "gemini",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-10-31T04:00:00Z",
+ "start_after": "artreq_20261030-1520_room-layers-gemini (the first three rooms): start these once those 18 files are saved",
+ "why": "Owner, 2026-10-31: 'Load gemini up especially high because I never use my tokens there.' The next six theme rooms, made the same way as the first three (artreq_20261030-1520_room-layers-gemini): one wide photograph, then its upright, depth, light, foreground and clean-background images by editing that same image, so the app can bring each room to life with its own live light, particles, depth and sound.",
+ "global_style": "Real photography: full-frame camera, 24 mm lens at eye height (about 1.6 m), level horizon, natural perspective, deep shadows that still hold detail, true reflections, physically accurate materials, practical light only, rich natural colour, fine film grain. It reads as a photograph in an architecture magazine, never as a video game, a 3D render or an illustration.",
+ "room_rule": "This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges.",
+ "negative": "no readable text, letters, numbers, logos or signs with words; no people, faces or hands; no coins; no watermark or frame; no 3D-render plastic look; no oversaturation or HDR halos; no fisheye or tilted horizon",
+ "instructions": "Gemini: this one is yours (Joseph asked for you by name), after the first three rooms. Follow 'ART_START_HERE (any AI: images + video)'; claim it with artreq_20261031-0400_room-layers-gemini-next6.CLAIMED-gemini.txt. For each room, in order: (1) make the wide photo from its prompt + the global_style sentence, 16:9, highest resolution; look at it and remake it (at most 3 tries) if it has letters, a person, a coin, a crooked horizon or looks like a render. (2) Then work FROM THAT SAME IMAGE with image editing, one edit per step, giving the image back to yourself each time, so every file lines up pixel for pixel: the edit prompts are in 'edits' below. Save every file to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261031-0400_room-layers-gemini-next6/' with the exact names, at the size the tool returns (never upscale or crop), then write artreq_20261031-0400_room-layers-gemini-next6.DONE.txt (one line per file: ok or skipped: reason; model name and date). One room at a time; stop at the first failure or quota warning and say how far you got. Save files in Drive only: Joseph cannot see your chat replies.",
+ "edits": {
+  "upright": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_{id}_upright.png.",
+  "depth": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_{id}_depth.png.",
+  "lights": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_{id}_lights.png.",
+  "foreground": "Using this image, keep only the nearest object or surface ({foreground}) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_{id}_front.png.",
+  "clean_back": "Using this image, remove {foreground} and fill that area naturally with what would be behind it, changing nothing else. Save as room_{id}_back.png."
+ },
+ "images": [
+  {
+   "file_name": "room_supercell_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "medium": "photo",
+   "prompt": "Dusk photograph from the open plains: a rotating supercell thunderstorm fills the sky, its striated base low and dark, a wall cloud hanging beneath it, a curtain of rain on the right lit from behind by the last low orange sun, lightning glowing inside the cloud. Wind-bent tall grass runs to a flat horizon; a weathered wooden fence post with barbed wire stands close to the camera on the left. Empty road far away, no vehicles. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_supercell_upright.png",
+   "priority": 2,
+   "from": "room_supercell_wide.png",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_supercell_upright.png."
+  },
+  {
+   "file_name": "room_supercell_depth.png",
+   "priority": 2,
+   "from": "room_supercell_wide.png",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_supercell_depth.png."
+  },
+  {
+   "file_name": "room_supercell_lights.png",
+   "priority": 2,
+   "from": "room_supercell_wide.png",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_supercell_lights.png."
+  },
+  {
+   "file_name": "room_supercell_front.png",
+   "priority": 2,
+   "from": "room_supercell_wide.png",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "edit": "Using this image, keep only the nearest object or surface (a weathered wooden fence post with barbed wire) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_supercell_front.png."
+  },
+  {
+   "file_name": "room_supercell_back.png",
+   "priority": 2,
+   "from": "room_supercell_wide.png",
+   "world": "Supercell",
+   "theme_id": "supercell",
+   "edit": "Using this image, remove a weathered wooden fence post with barbed wire and fill that area naturally with what would be behind it, changing nothing else. Save as room_supercell_back.png."
+  },
+  {
+   "file_name": "room_glacier_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "Hyperborean Vault",
+   "theme_id": "glacier",
+   "medium": "photo",
+   "prompt": "Night photograph inside an ice cave at the edge of a glacier: walls of deep blue ancient ice with trapped bubbles, a round steel vault door set into the ice at the far end with frost on its rim, a green and violet aurora visible through an opening in the roof, light snow drifting, a block of clear blue glacier ice close to the camera in the foreground. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_glacier_upright.png",
+   "priority": 2,
+   "from": "room_glacier_wide.png",
+   "world": "Hyperborean Vault",
+   "theme_id": "glacier",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_glacier_upright.png."
+  },
+  {
+   "file_name": "room_glacier_depth.png",
+   "priority": 2,
+   "from": "room_glacier_wide.png",
+   "world": "Hyperborean Vault",
+   "theme_id": "glacier",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_glacier_depth.png."
+  },
+  {
+   "file_name": "room_glacier_lights.png",
+   "priority": 2,
+   "from": "room_glacier_wide.png",
+   "world": "Hyperborean Vault",
+   "theme_id": "glacier",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_glacier_lights.png."
+  },
+  {
+   "file_name": "room_glacier_front.png",
+   "priority": 2,
+   "from": "room_glacier_wide.png",
+   "world": "Hyperborean Vault",
+   "theme_id": "glacier",
+   "edit": "Using this image, keep only the nearest object or surface (a block of clear blue glacier ice) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_glacier_front.png."
+  },
+  {
+   "file_name": "room_glacier_back.png",
+   "priority": 2,
+   "from": "room_glacier_wide.png",
+   "world": "Hyperborean Vault",
+   "theme_id": "glacier",
+   "edit": "Using this image, remove a block of clear blue glacier ice and fill that area naturally with what would be behind it, changing nothing else. Save as room_glacier_back.png."
+  },
+  {
+   "file_name": "room_abyss_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "Forty fathoms, at the wreck",
+   "theme_id": "abyss",
+   "medium": "photo",
+   "prompt": "Underwater photograph at forty metres, at the wreck of an old wooden sailing ship lying on white sand: shafts of pale blue-green light come down from the surface far above, the hull's ribs and a fallen mast in soft haze, a few small fish and drifting particles, a coral-crusted ship's railing close to the camera. Calm, deep, quiet. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_abyss_upright.png",
+   "priority": 2,
+   "from": "room_abyss_wide.png",
+   "world": "Forty fathoms, at the wreck",
+   "theme_id": "abyss",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_abyss_upright.png."
+  },
+  {
+   "file_name": "room_abyss_depth.png",
+   "priority": 2,
+   "from": "room_abyss_wide.png",
+   "world": "Forty fathoms, at the wreck",
+   "theme_id": "abyss",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_abyss_depth.png."
+  },
+  {
+   "file_name": "room_abyss_lights.png",
+   "priority": 2,
+   "from": "room_abyss_wide.png",
+   "world": "Forty fathoms, at the wreck",
+   "theme_id": "abyss",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_abyss_lights.png."
+  },
+  {
+   "file_name": "room_abyss_front.png",
+   "priority": 2,
+   "from": "room_abyss_wide.png",
+   "world": "Forty fathoms, at the wreck",
+   "theme_id": "abyss",
+   "edit": "Using this image, keep only the nearest object or surface (a coral-crusted ship's railing) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_abyss_front.png."
+  },
+  {
+   "file_name": "room_abyss_back.png",
+   "priority": 2,
+   "from": "room_abyss_wide.png",
+   "world": "Forty fathoms, at the wreck",
+   "theme_id": "abyss",
+   "edit": "Using this image, remove a coral-crusted ship's railing and fill that area naturally with what would be behind it, changing nothing else. Save as room_abyss_back.png."
+  },
+  {
+   "file_name": "room_colossus_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "The Mint at night",
+   "theme_id": "colossus",
+   "medium": "photo",
+   "prompt": "Night photograph inside an old brick coining room of a historic mint: a crucible of molten silver glowing orange in a furnace, sparks drifting, cast-iron coining presses and leather belts along the walls, tall arched windows with blue night outside, warm lamp light on worn floor planks, a heavy iron coining press lever close to the camera in the foreground. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_colossus_upright.png",
+   "priority": 2,
+   "from": "room_colossus_wide.png",
+   "world": "The Mint at night",
+   "theme_id": "colossus",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_colossus_upright.png."
+  },
+  {
+   "file_name": "room_colossus_depth.png",
+   "priority": 2,
+   "from": "room_colossus_wide.png",
+   "world": "The Mint at night",
+   "theme_id": "colossus",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_colossus_depth.png."
+  },
+  {
+   "file_name": "room_colossus_lights.png",
+   "priority": 2,
+   "from": "room_colossus_wide.png",
+   "world": "The Mint at night",
+   "theme_id": "colossus",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_colossus_lights.png."
+  },
+  {
+   "file_name": "room_colossus_front.png",
+   "priority": 2,
+   "from": "room_colossus_wide.png",
+   "world": "The Mint at night",
+   "theme_id": "colossus",
+   "edit": "Using this image, keep only the nearest object or surface (a heavy iron coining press lever) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_colossus_front.png."
+  },
+  {
+   "file_name": "room_colossus_back.png",
+   "priority": 2,
+   "from": "room_colossus_wide.png",
+   "world": "The Mint at night",
+   "theme_id": "colossus",
+   "edit": "Using this image, remove a heavy iron coining press lever and fill that area naturally with what would be behind it, changing nothing else. Save as room_colossus_back.png."
+  },
+  {
+   "file_name": "room_dynasty_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "The lantern pond",
+   "theme_id": "dynasty",
+   "medium": "photo",
+   "prompt": "Night photograph of a classical Chinese garden pond: a pavilion with upturned eaves lit by red silk lanterns reflects in still black water, paper sky lanterns rising far away, lotus leaves on the water, a zigzag stone bridge, a carved stone lantern on the pond's edge close to the camera. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_dynasty_upright.png",
+   "priority": 2,
+   "from": "room_dynasty_wide.png",
+   "world": "The lantern pond",
+   "theme_id": "dynasty",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_dynasty_upright.png."
+  },
+  {
+   "file_name": "room_dynasty_depth.png",
+   "priority": 2,
+   "from": "room_dynasty_wide.png",
+   "world": "The lantern pond",
+   "theme_id": "dynasty",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_dynasty_depth.png."
+  },
+  {
+   "file_name": "room_dynasty_lights.png",
+   "priority": 2,
+   "from": "room_dynasty_wide.png",
+   "world": "The lantern pond",
+   "theme_id": "dynasty",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_dynasty_lights.png."
+  },
+  {
+   "file_name": "room_dynasty_front.png",
+   "priority": 2,
+   "from": "room_dynasty_wide.png",
+   "world": "The lantern pond",
+   "theme_id": "dynasty",
+   "edit": "Using this image, keep only the nearest object or surface (a carved stone lantern on the pond's edge) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_dynasty_front.png."
+  },
+  {
+   "file_name": "room_dynasty_back.png",
+   "priority": 2,
+   "from": "room_dynasty_wide.png",
+   "world": "The lantern pond",
+   "theme_id": "dynasty",
+   "edit": "Using this image, remove a carved stone lantern on the pond's edge and fill that area naturally with what would be behind it, changing nothing else. Save as room_dynasty_back.png."
+  },
+  {
+   "file_name": "room_valhalla_wide.png",
+   "priority": 1,
+   "takes": 1,
+   "aspect_ratio": "16:9",
+   "world": "The hall by hearthfire",
+   "theme_id": "valhalla",
+   "medium": "photo",
+   "prompt": "Night photograph inside a great Norse longhouse: a long central hearth fire burning, smoke rising to a dark timber roof, carved wooden pillars with knotwork, shields and furs on the walls, long benches and a table set with horn cups (empty of people), a carved wooden pillar close to the camera on one side. This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges."
+  },
+  {
+   "file_name": "room_valhalla_upright.png",
+   "priority": 2,
+   "from": "room_valhalla_wide.png",
+   "world": "The hall by hearthfire",
+   "theme_id": "valhalla",
+   "edit": "Using this image, make a 9:16 upright version of exactly the same place, light and moment, as if the photographer turned the camera to portrait: extend the scene above and below, keep every object, colour and light the same, add nothing new. Save as room_valhalla_upright.png."
+  },
+  {
+   "file_name": "room_valhalla_depth.png",
+   "priority": 2,
+   "from": "room_valhalla_wide.png",
+   "world": "The hall by hearthfire",
+   "theme_id": "valhalla",
+   "edit": "Using this image, make its depth map: the same framing and size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_valhalla_depth.png."
+  },
+  {
+   "file_name": "room_valhalla_lights.png",
+   "priority": 2,
+   "from": "room_valhalla_wide.png",
+   "world": "The hall by hearthfire",
+   "theme_id": "valhalla",
+   "edit": "Using this image, make a light mask: the same framing and size, pure black everywhere except the light sources and the brightest light they throw (windows and moonbeams, lamps, bulbs, neon tubes, the sun and its glow), which are white with soft edges. Save as room_valhalla_lights.png."
+  },
+  {
+   "file_name": "room_valhalla_front.png",
+   "priority": 2,
+   "from": "room_valhalla_wide.png",
+   "world": "The hall by hearthfire",
+   "theme_id": "valhalla",
+   "edit": "Using this image, keep only the nearest object or surface (a carved wooden pillar) exactly where it is and replace everything else with pure flat green #00FF00. Save as room_valhalla_front.png."
+  },
+  {
+   "file_name": "room_valhalla_back.png",
+   "priority": 2,
+   "from": "room_valhalla_wide.png",
+   "world": "The hall by hearthfire",
+   "theme_id": "valhalla",
+   "edit": "Using this image, remove a carved wooden pillar and fill that area naturally with what would be behind it, changing nothing else. Save as room_valhalla_back.png."
+  }
+ ]
+}

@@ -85,7 +85,7 @@
         "web",
         "code"
       ],
-      "capacity": 40,
+      "capacity": 80,
       "kinds": [
         "arbitrate",
         "contradiction",
@@ -103,7 +103,7 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).",
       "inline_sheets": true,
       "full_batches": true,
-      "per_kind": 8,
+      "per_kind": 12,
       "lease_days": 5
     },
     "chatgpt": {

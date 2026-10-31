@@ -1,13 +1,13 @@
 {
  "agent": "gemini",
- "updated": "2026-10-30T15:05:00Z",
+ "updated": "2026-10-31T16:05:18Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-20T16:00:29Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -494,6 +494,13 @@
     }
    ],
    "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ],
    "items_full": [
     {
      "item": "verify:type:SU.Y.126a:issues.0.mintage",
@@ -1651,7 +1658,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-21T22:44:09Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -2138,6 +2145,13 @@
     }
    ],
    "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ],
    "items_full": [
     {
      "item": "verify:type:US.KM.204:series",
@@ -2505,7 +2519,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-21T22:44:09Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -2992,6 +3006,13 @@
     }
    ],
    "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ],
    "items_full": [
     {
      "item": "verify:type:MX.KM.415:catalogs",
@@ -3112,7 +3133,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-22T13:53:57Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -3599,6 +3620,13 @@
     }
    ],
    "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ],
    "items_full": [
     {
      "item": "verify:type:TW.KM.551:catalogs",
@@ -3691,7 +3719,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-22T13:53:57Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -4166,6 +4194,13 @@
     }
    ],
    "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ],
    "items_full": [
     {
      "item": "verify:type:GB.KM.935a:issues.1.mintage",

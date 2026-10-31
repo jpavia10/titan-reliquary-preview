@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-30T15:05:00Z",
+ "updated": "2026-10-31T16:05:18Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -12738,7 +12738,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-20T16:00:29Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -13224,7 +13224,14 @@
      "field": "issue.year"
     }
    ],
-   "parts": 4
+   "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ]
   },
   {
    "id": "HW-gemini-story-check-20261020-1",
@@ -14383,7 +14390,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-21T22:44:09Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -14869,7 +14876,14 @@
      "field": "composition.text"
     }
    ],
-   "parts": 4
+   "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ]
   },
   {
    "id": "HW-muse-story-check-20261021-1",
@@ -14982,7 +14996,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-21T22:44:09Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -15468,7 +15482,14 @@
      "field": "series"
     }
    ],
-   "parts": 4
+   "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ]
   },
   {
    "id": "HW-gemini-story-check-20261021-1",
@@ -15673,7 +15694,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-22T13:53:57Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -16159,14 +16180,21 @@
      "field": "catalogs"
     }
    ],
-   "parts": 4
+   "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ]
   },
   {
    "id": "HW-gemini-verify-20261022-2",
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-10-22T13:53:57Z",
-   "lease_until": "2026-10-31T23:00:00Z",
+   "lease_until": "2026-11-07T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -16640,7 +16668,14 @@
      "field": "denomination.value"
     }
    ],
-   "parts": 4
+   "parts": 4,
+   "extended": [
+    {
+     "from": "2026-10-31T23:00:00Z",
+     "to": "2026-11-07T23:59:00Z",
+     "reason": "owner 2026-10-31: load Gemini up; the sheet is in its Drive folder, a week more"
+    }
+   ]
   },
   {
    "id": "HW-muse-cite-20261022-1",

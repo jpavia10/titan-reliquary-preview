@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-10-30 15:05 UTC)
+# WORK QUEUE for Gemini (updated 2026-10-31 16:05 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -13,6 +13,24 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 Art request artreq_20261030-1520_room-layers-gemini in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Joseph rejected the code-drawn rooms and wants you and Grok to make them as real-looking photographs; the app adds live light, dust, rain and sound on top. For each room: make the wide 16:9 photo from its prompt, then use image editing on THAT image for the upright 9:16 version, a depth map, a light mask, the foreground on flat green and the background with the foreground removed (the exact edit prompts are in the request). 18 files. Save them in Drive only (Joseph cannot see your chat replies) and write the DONE file.
 
 **Done when:** 18 images in 'art-incoming (AI images + video)/artreq_20261030-1520_room-layers-gemini/' and the .DONE.txt next to the request
+
+### NEXT: the six rooms after the first three (Supercell, Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire)  (fix list #128)
+
+Art request artreq_20261031-0400_room-layers-gemini-next6 in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Exactly the same method as task 17: the wide 16:9 photo from its prompt, then image edits of that same image for the upright version, the depth map, the light mask, the foreground on flat green and the background with the foreground removed. 36 files. Start once task 17's 18 files are saved.
+
+**Done when:** 36 images in 'art-incoming (AI images + video)/artreq_20261031-0400_room-layers-gemini-next6/' and the .DONE.txt next to the request
+
+### Theme pictures for the 8 themes that have none (Sketchbook, Marbled Endpapers, Treasury Note, Survey Map, Cathedral Glass, Millennium Chrome, Paper Hills, Free Fall)  (fix list #128)
+
+Art request artreq_20261031-0300_theme-art-eight-missing in the same Drive art-requests folder: a card and a hero for each, 2 takes each (32 files). Their portals in the theme selector show only a colour swatch until these come. Claim it first (another image AI may take it).
+
+**Done when:** the images in 'art-incoming (AI images + video)/artreq_20261031-0300_theme-art-eight-missing/' and the .DONE.txt
+
+### Theme pictures, redo: Obsidian Sun (gold sun, jade, coin) and the Light Well card  (fix list #128)
+
+Art request artreq_20261028-1630_theme-art-obsidian-lightwell-redo in the same folder: read its review_notes first (the earlier Obsidian images showed plain obsidian only). 3 images, 2 takes each.
+
+**Done when:** the images in 'art-incoming (AI images + video)/artreq_20261028-1630_theme-art-obsidian-lightwell-redo/' and the .DONE.txt
 
 ### Numista price estimates for every coin we hold (268 issues of 173 types)  (fix list #62)
 
@@ -47,7 +65,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-gemini-verify-20261020-1 · Second reader · Check 30 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 1. HW-gemini-verify-20261020-1 · Second reader · Check 30 facts another AI wrote · due 2026-11-07  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -122,7 +140,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-20T16:00:29Z", "by": "model:gemini", "entity": "specimen", "id": "C240", "op": "set", "field": "issue.year", "new": null, "source": "FILL (year of C240 · Italy · 100 lire · ITL): the photo file you read it from, e.g. C240_rev.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-20", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261020-1", "run_id": "HW-gemini-verify-20261020-1", "inputs": [{"file": "C240_rev.webp"}]}}
 ```
 
-### 2. HW-gemini-verify-20261021-1 · Second reader · Check 11 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 2. HW-gemini-verify-20261021-1 · Second reader · Check 11 facts another AI wrote · due 2026-11-07  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -159,7 +177,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-21T22:44:09Z", "by": "model:gemini", "entity": "type", "id": "FR.KM.964.1", "op": "set", "field": "composition.text", "old": "bimetallic (Ni center / Al-bronze ring)", "new": "bimetallic (Ni center / Al-bronze ring)", "source": "FILL (composition of C049 · France · 1989 · 10 francs · FRF): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-21", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261021-1", "run_id": "HW-gemini-verify-20261021-1", "inputs": []}}
 ```
 
-### 3. HW-gemini-verify-20261021-2 · Second reader · Check 4 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 3. HW-gemini-verify-20261021-2 · Second reader · Check 4 facts another AI wrote · due 2026-11-07  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -182,7 +200,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-21T22:44:09Z", "by": "model:gemini", "entity": "type", "id": "CO.KM.295", "op": "set", "field": "catalogs", "new": null, "source": "FILL (catalog of C233 · Colombia · 2016 · 50 pesos · COP): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-21", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261021-2", "run_id": "HW-gemini-verify-20261021-2", "inputs": []}}
 ```
 
-### 4. HW-gemini-verify-20261022-1 · Second reader · Check 3 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 4. HW-gemini-verify-20261022-1 · Second reader · Check 3 facts another AI wrote · due 2026-11-07  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -203,7 +221,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-10-22T13:53:57Z", "by": "model:gemini", "entity": "type", "id": "MT.KM.129", "op": "set", "field": "catalogs", "new": null, "source": "FILL (catalog of C043 · Malta · 2008 · 10 euro cent · EUR): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-10-22", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261022-1", "run_id": "HW-gemini-verify-20261022-1", "inputs": []}}
 ```
 
-### 5. HW-gemini-verify-20261022-2 · Second reader · Check 8 facts another AI wrote · due 2026-10-31  (fix list #18)
+### 5. HW-gemini-verify-20261022-2 · Second reader · Check 8 facts another AI wrote · due 2026-11-07  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
