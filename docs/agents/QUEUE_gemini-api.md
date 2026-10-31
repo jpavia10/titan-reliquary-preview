@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini API) -->
-# WORK QUEUE for Gemini API (updated 2026-10-31 18:10 UTC)
+# WORK QUEUE for Gemini API (updated 2026-10-31 19:13 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -10,7 +10,7 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ### Model bake-off: which Gemini model reads coins best  (fix list #4)
 
-Run the main blind photo pack (tools/bakeoff/make_pack.py, 30 coins) through each free model that sees images (gemini-3.8-flash, gemini-3.6-flash, gemini-3.5-flash-lite, gemma-4-31b-it; Gemini 4 Argon has no free-tier quota: limit 0 on 2026-10-31), each as its own sub-source, and score each with tools/bakeoff/score.py --agent gemini-api --key against the locked key. The best model becomes the default for its sheets; a model with an invented rate over 5 % takes no photo work.
+Run the main blind photo pack (tools/bakeoff/make_pack.py, 30 coins) through each free model that sees images (gemini-3.8-flash, gemini-3.6-flash, gemini-3.5-flash-lite, gemma-4-31b-it; Gemini 4 Argon has no free-tier quota: limit 0 on 2026-10-31), each as its own sub-source, and score each with tools/bakeoff/score.py --agent gemini-api --key against the locked key. The best model becomes the default for its sheets; a model with an invented rate over 5 % takes no photo work. First runs (2026-10-31): 3.5 Flash Lite 30 of 30 (74 % core, 36 % invented) and Gemma 4 31B 23 of 30 (47 %) are recorded and take no photo work; 3.6 Flash read 17 of 30 with no real misread of country, year or face value before its free limit of 20 requests a day: it is the default; finish its last 13 photos when its daily quota allows (after its sheets), then record it with --agent gemini-api. 3.8 Flash stalls: try again later.
 
 **Done when:** Each model has a row in collaborators/MODEL_ACCURACY.md and docs/agents/homework/calibration.jsonl.
 

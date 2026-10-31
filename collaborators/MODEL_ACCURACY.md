@@ -33,6 +33,10 @@ What this measures: how well each AI model reads and identifies **these** coins,
 | 2026-10-14 | Gemini (gemini app), blind main pack, 2026-10-12 | main (2026-10-08) | BAKEOFF@2026-10-08 | 30 of 30 | 85% | 63% | 3.0% | 0% | n/a |
 | 2026-10-15 | Muse (muse-spark), blind locked pack, 2026-10-08 | locked (2026-10-08) | BAKEOFF@2026-10-08 | 15 of 15 | 75% | 27% | 7.6% | 0% | n/a |
 | 2026-10-22 | Gemini (gemini app), blind LOCKED pack, 2026-10-21 | locked (2026-10-08) | BAKEOFF@2026-10-08 | 15 of 15 | 76% | 47% | 3.0% | 13% | n/a |
+| 2026-10-31 | Gemini API (3.5 Flash Lite, gemini-3.5-flash-lite, free tier) | main (2026-10-08) | BAKEOFF@2026-10-08 | 30 of 30 | 74% | 3% | 36.1% | 50% | 0 |
+| 2026-10-31 | Gemini API (Gemma 4 31B IT, gemma-4-31b-it, free tier; 7 of 30 photos unanswered) | main (2026-10-08) | BAKEOFF@2026-10-08 | 23 of 30 | 47% | 0% | 23.3% | 52% | 0 |
+
+Gemini API sub-sources, 2026-10-31 (owner: one source, a sub-source per model): **gemini-3.6-flash** answered 17 of 30 before the free key's limit of 20 requests a day stopped it: country 17 of 17, year 17 of 17, face value 12 of 12 (its 3 'wrong' ones only worded differently: 'penny', 'ONE DOLLAR', '10 F'), mint 4 of 5 (a German D read for G); not recorded until it finishes the pack. **gemini-3.8-flash** stalls (3 photos, then time-outs). **Gemini 4 Argon** has no free quota. 3.5 Flash Lite and Gemma 4 misread real years, face values and mint marks (rows above), so they take no photo work; 3.6 Flash is the Gemini API's photo reader.
 
 Caveat for the 2026-10-09 rows: Grok and Muse have both worked on this collection's records (stories, Numista sweep, new coins), so the main pack partly measures recall of familiar coins, not only reading from the photo (Grok's catalogue numbers match the records it had just swept). Use them to compare the two contributors, not as a true accuracy. The real measure is the locked pack (15 coins, never shown to a contributor); it is run once, near the photo-model decision (fix list #19).
 

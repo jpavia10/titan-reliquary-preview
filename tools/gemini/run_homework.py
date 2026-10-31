@@ -2,7 +2,7 @@
 """Answer the Gemini API's homework sheets through the API (owner, 2026-10-31: "Gemini api will be a new source and sub sources based on
 model used"; CLAUDE.md rule 13: the owner's free-tier key, used by Claude from the session).
 
-  python3 tools/gemini/run_homework.py [--model gemini-3.8-flash] [--assignment HW-gemini-api-...] [--dry]
+  python3 tools/gemini/run_homework.py [--model gemini-3.6-flash] [--assignment HW-gemini-api-...] [--dry]
   python3 tools/gemini/run_homework.py --photo photos/p1/C123_obv.webp [--model ...]     a blind first reading of one photo (prints JSON)
   python3 tools/gemini/run_homework.py --pack docs/bakeoff/pack-20261008-main --out FILE --model M    the blind photo test on one model
 
@@ -29,6 +29,12 @@ INCOMING = os.path.join(ROOT, "collection", "_incoming")
 URL = re.compile(r"https?://", re.I)
 LEGEND = re.compile(r"\b[A-ZÀ-ÖØ-Þ]{3,}\b")
 PAUSE = 4.0                # seconds between calls (free-tier requests per minute)
+DEFAULT = "gemini-3.6-flash"   # the photo test, 2026-10-31 (collaborators/MODEL_ACCURACY.md): no real misread of country, year or face value
+NO_PHOTO = {"gemini-3.5-flash-lite": "misread 2 years, 7 face values and 3 mint marks of 30 in the photo test",
+            "gemma-4-31b-it": "misread real years, face values and mint marks in the photo test (47 % core)"}   # they take no photo work
+
+
+class Quota(Exception): pass
 
 SYSTEM = ("You read real coins from photographs for a private collection's records. Answer only from what you can see in the photos. "
           "Never guess: when a detail is worn, hidden or outside the photo, answer null. Answer with one JSON object and nothing else.")
@@ -59,7 +65,8 @@ def json_of(text):
 
 
 def call(model, text, images=(), system=SYSTEM, log=None):
-    ans, finish, usage = A.ask(text, model, 8192, 0.1, system, "low" if "lite" in model or model.startswith("gemini-3") else None, images)
+    try: ans, finish, usage = A.ask(text, model, 8192, 0.1, system, "low" if "lite" in model or model.startswith("gemini-3") else None, images)
+    except SystemExit as e: raise Quota(str(e)[:200])      # the day's free quota (3.6 Flash: 20 requests) or a stalled model: keep what is answered
     if log is not None: log.append({"model": model, "in": usage.get("promptTokenCount"), "out": usage.get("candidatesTokenCount"), "finish": finish})
     time.sleep(PAUSE)
     return (json_of(ans) if finish == "STOP" else None), int((usage.get("promptTokenCount") or 0) + (usage.get("candidatesTokenCount") or 0))
@@ -116,11 +123,11 @@ def rewrite(model, lines, log):
     return res, tok
 
 
-def answer_sheet(model, asg, log):
+def answer_sheet(model, asg, log, out):
     p = os.path.join(SHEETS, asg["id"] + ".jsonl")
     if not os.path.exists(p): print(f"{asg['id']}: no sheet file"); return []
     lines = [json.loads(l) for l in open(p, encoding="utf-8") if l.strip()]
-    stamp = now_utc(); out = []
+    stamp = now_utc(); n0 = len(out)
     def emit(ln, new, source, tok):
         e = dict(ln, ts=stamp, by=f"model:{SOURCE}:{model}", new=new, source=source[:300])
         pv = dict(e.get("provenance") or {}); pv.update(model=model, prompt_version=PROMPT_VERSION, run_id=f"{asg['id']}@{model}", tokens=tok); e["provenance"] = pv
@@ -131,7 +138,8 @@ def answer_sheet(model, asg, log):
             res, tok = rewrite(model, lines[i:i + 8], log)
             for ln in lines[i:i + 8]:
                 if ln["id"] in res: emit(ln, res[ln["id"]], f"plain-English rewrite of the existing story; no facts changed (Gemini API, {model})", tok // max(1, len(res)))
-        return out
+        return len(out) - n0
+    if model in NO_PHOTO: print(f"{asg['id']}: {model} takes no photo work ({NO_PHOTO[model]}); use --model {DEFAULT}"); return 0
     by_coin = {}
     for ln in lines:
         if ln.get("field") in HOW and (ln.get("provenance") or {}).get("inputs"): by_coin.setdefault(ln["id"], []).append(ln)
@@ -142,7 +150,7 @@ def answer_sheet(model, asg, log):
             if ln["field"] in res:
                 v, seen, f = res[ln["field"]]
                 emit(ln, v, f"{f}: {seen} (read by the Gemini API, {model})", tok // max(1, len(res)))
-    return out
+    return len(out) - n0
 
 
 def blind_photo(model, path):
@@ -163,15 +171,16 @@ def run_pack(model, pack, out):
     for f in files:
         k = f[:-5]
         if k in res: continue
-        a, _ = call(model, brief + f"\n\nThis call shows ONE photo: {f}. Answer for it alone, as {{\"{k}\": {{...}}}}.", [os.path.join(pack, f)],
+        try: a, _ = call(model, brief + f"\n\nThis call shows ONE photo: {f}. Answer for it alone, as {{\"{k}\": {{...}}}}.", [os.path.join(pack, f)],
                     system="You read real coins from photographs. Answer with one JSON object and nothing else.", log=log)
+        except Quota as e: print(f"stopped at {k}: {e}"); break
         res[k] = (a or {}).get(k) if isinstance(a, dict) else None
         json.dump(res, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)     # saved after every photo: a stopped run resumes
     print(f"{model}: {sum(1 for v in res.values() if v)} of {len(files)} answered, {sum((x.get('in') or 0) + (x.get('out') or 0) for x in log)} tokens -> {out}")
 
 
 def main():
-    a = argparse.ArgumentParser(); a.add_argument("--model", default="gemini-3.8-flash"); a.add_argument("--assignment"); a.add_argument("--dry", action="store_true")
+    a = argparse.ArgumentParser(); a.add_argument("--model", default=DEFAULT); a.add_argument("--assignment"); a.add_argument("--dry", action="store_true")
     a.add_argument("--photo"); a.add_argument("--pack"); a.add_argument("--out")
     o = a.parse_args()
     if o.pack: run_pack(o.model, o.pack, o.out or f"bakeoff_{SOURCE}-{o.model}.json"); return 0
@@ -182,8 +191,9 @@ def main():
     if not mine: print("the Gemini API has no open homework (python3 tools/agents/homework.py hands it some when its pools have work)"); return 0
     log, lines = [], []
     for asg in mine:
-        got = answer_sheet(o.model, asg, log); lines += got
-        print(f"{asg['id']} ({asg['kind']}): {len(got)} of {len(asg['items'])} items answered")
+        try: got = answer_sheet(o.model, asg, log, lines)
+        except Quota as e: print(f"stopped: {e} (the answers so far are kept; run again tomorrow for the rest)"); break
+        print(f"{asg['id']} ({asg['kind']}): {got} lines answered of {len(asg['items'])} items")
     tok = sum((x.get("in") or 0) + (x.get("out") or 0) for x in log)
     print(f"{len(log)} calls to {o.model}, {tok} tokens; {sum(1 for x in log if x['finish'] != 'STOP')} cut short")
     if not lines or o.dry: return 0

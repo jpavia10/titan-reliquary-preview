@@ -4,3 +4,5 @@
 {"agent": "gemini", "pack": "main", "made": "2026-10-08", "date": "2026-10-14", "core_accuracy": 0.854, "invented_rate": 0.03, "false_confidence": 0.0, "answered": 30, "photos": 30}
 {"agent": "muse", "pack": "locked", "made": "2026-10-08", "date": "2026-10-15", "core_accuracy": 0.745, "invented_rate": 0.076, "false_confidence": 0.0, "answered": 15, "photos": 15}
 {"agent": "gemini", "pack": "locked", "made": "2026-10-08", "date": "2026-10-22", "core_accuracy": 0.765, "invented_rate": 0.03, "false_confidence": 0.125, "answered": 15, "photos": 15}
+{"agent": "gemini-api:gemini-3.5-flash-lite", "pack": "main", "made": "2026-10-08", "date": "2026-10-31", "core_accuracy": 0.738, "invented_rate": 0.361, "false_confidence": 0.5, "answered": 30, "photos": 30}
+{"agent": "gemini-api:gemma-4-31b-it", "pack": "main", "made": "2026-10-08", "date": "2026-10-31", "core_accuracy": 0.466, "invented_rate": 0.233, "false_confidence": 0.524, "answered": 23, "photos": 30}

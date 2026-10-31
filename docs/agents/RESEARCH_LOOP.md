@@ -155,4 +155,6 @@ Every new AI comes in the same way; `python3 tools/agents/new_agent.py ID "Name"
    **One family:** the Gemini app and the API are one vendor and one model family (`provenance.py` `FAMILY`), so a fact both cite is one
    reader, never "Checked"; the loop never hands either one the other's facts to check, and neither settles a disagreement the other is in.
    Models seen on 2026-10-31: gemini-3.8-flash, gemini-3.6-flash, gemini-3.5-flash-lite, gemma-4-31b-it see images on the free tier;
-   Gemini 4 Argon has no free-tier quota (limit 0).
+   Gemini 4 Argon has no free-tier quota (limit 0). The blind photo test the same day (collaborators/MODEL_ACCURACY.md): 3.6 Flash is the
+   photo reader (`run_homework.py` DEFAULT; 20 requests a day on the free key, so a run stops cleanly at the limit and keeps its answers);
+   3.5 Flash Lite and Gemma 4 misread real years, face values and mint marks and take no photo work (`NO_PHOTO`); 3.8 Flash stalls.
