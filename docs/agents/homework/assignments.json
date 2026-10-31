@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-10-31T18:06:17Z",
+ "updated": "2026-10-31T18:10:22Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -117,7 +117,9 @@
   "gemini-plain-story-20261030": 1,
   "gemini-verify-20261030": 1,
   "gemini-cite-20261030": 1,
-  "muse-arbitrate-20261030": 1
+  "muse-arbitrate-20261030": 1,
+  "gemini-api-read-mint-20261031": 1,
+  "gemini-api-verify-20261031": 1
  },
  "assignments": [
   {
@@ -23767,6 +23769,282 @@
      "entity": "specimen",
      "id": "C015",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-api-read-mint-20261031-1",
+   "agent": "gemini-api",
+   "kind": "read-mint",
+   "issued": "2026-10-31T18:10:22Z",
+   "lease_until": "2026-11-07T18:10:22Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C088",
+     "entity": "specimen",
+     "id": "C088",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C037",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-api-verify-20261031-1",
+   "agent": "gemini-api",
+   "kind": "verify",
+   "issued": "2026-10-31T18:10:22Z",
+   "lease_until": "2026-11-07T18:10:22Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:T006:issue.year",
+     "entity": "specimen",
+     "id": "T006",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C258:issue.year",
+     "entity": "specimen",
+     "id": "C258",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C070:issue.year",
+     "entity": "specimen",
+     "id": "C070",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C263:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C263",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C242:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C242",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:CH.KM.27:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C048:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C048",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C212:issue.year",
+     "entity": "specimen",
+     "id": "C212",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C252:issue.year",
+     "entity": "specimen",
+     "id": "C252",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C196:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C196",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C224:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C060:issue.year",
+     "entity": "specimen",
+     "id": "C060",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C021:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C021",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C177:issue.year",
+     "entity": "specimen",
+     "id": "C177",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.KM.1109:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1109",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C228:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C228",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C020:issue.year",
+     "entity": "specimen",
+     "id": "C020",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C022:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C022",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C237:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C237",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:GB.KM.914:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.914",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C225:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C225",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:GB.KM.1107:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1107",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C018:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C018",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.210:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.986:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.986",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:US.KM.195:denomination.value",
+     "entity": "type",
+     "id": "US.KM.195",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.140.1:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C071:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C071",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.214:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.214",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:FR.KM.1289:denomination.value",
+     "entity": "type",
+     "id": "FR.KM.1289",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NL.KM.241:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.241",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C001:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C001",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C080:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C080",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.213:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.213",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.216:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.216",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MT.KM.132:denomination.value",
+     "entity": "type",
+     "id": "MT.KM.132",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C293:issue.year",
+     "entity": "specimen",
+     "id": "C293",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CH.KM.29a:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.29a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C301:issue.year",
+     "entity": "specimen",
+     "id": "C301",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:denomination.value",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "denomination.value"
     }
    ]
   }

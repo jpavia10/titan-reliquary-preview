@@ -716,7 +716,7 @@ def refresh(ctx, roles, queues, state, now, log=None):
                 if kind not in WORDING_KINDS and demoted(agent, roles, metrics): continue     # too many of its own facts were wrong: it checks and rewords, it does not write new facts
                 if sum(1 for a in mine if a["kind"] == kind) > rnd: continue    # at most rnd+1 open assignments of a kind by round rnd
                 kd = roles["kinds"][kind]
-                cand = sorted((it for it in pool.values() if it["kind"] == kind and it["item"] not in busy and it["item"] not in parked
+                cand = sorted((it for it in pool.values() if it["kind"] == kind and it["item"] not in busy and (it["item"] not in parked or ag.get("takes_parked"))
                                and eligible(agent, it, roles, state, metrics)), key=lambda it: it["prio"])
                 size = max(1, kd["batch"] // 2) if ag.get("onboarding") and not ag.get("full_batches") else kd["batch"]
                 batch = []

@@ -80,13 +80,12 @@ def read_photos(model, coin, lines, log):
     files = sorted({x["file"] for ln in lines for x in (ln.get("provenance") or {}).get("inputs", []) if x.get("file")})
     paths = [p for p in (photo_path(f) for f in files) if p]
     if not paths: return {}, 0
-    label = re.sub(r"^FILL \((.*?)\).*$", r"\1", lines[0].get("source") or "", flags=re.S)
+    # the sheet's label hides the fact it asks for (homework.py BLIND); with two lines on one coin, one label would show the other's answer
+    label = re.sub(r"^FILL \((.*?)\).*$", r"\1", lines[0].get("source") or "", flags=re.S) if len(lines) == 1 else ""
     ask_for = {ln["field"]: HOW.get(ln["field"], "what you read") for ln in lines}
     text = (f"Coin {coin}" + (f" (the record calls it: {label})" if label and "·" in label else "") + f". Photos: {', '.join(os.path.basename(p) for p in paths)} (in that order).\n"
             "Read these facts from the photos and answer as JSON: {\"answers\": {field: {\"value\": ..., \"seen\": \"what you saw and on which photo\"}}}.\n"
             + "\n".join(f"- {f}: {h}" for f, h in ask_for.items()))
-    if any(f in ask_for for f in ("issue.year", "denomination.value")):    # a blind reading: the record's year or value is not shown to it
-        text = re.sub(r" \(the record calls it: .*?\)", "", text)
     out, tok = call(model, text, paths, log=log)
     res = {}
     for f, a in ((out or {}).get("answers") or {}).items():

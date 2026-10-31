@@ -232,6 +232,27 @@
      "lines": 1
     }
    ]
+  },
+  "gemini-api": {
+   "name": "Gemini API",
+   "sheets": [
+    {
+     "id": "HW-gemini-api-read-mint-20261031-1",
+     "kind": "read-mint",
+     "due": "2026-11-07",
+     "path": "docs/agents/homework/sheets/HW-gemini-api-read-mint-20261031-1.jsonl",
+     "sha256": "1af5251491dca541455e071e854f348c12e96739fa65cc09d7958f002e75f7b1",
+     "lines": 4
+    },
+    {
+     "id": "HW-gemini-api-verify-20261031-1",
+     "kind": "verify",
+     "due": "2026-11-07",
+     "path": "docs/agents/homework/sheets/HW-gemini-api-verify-20261031-1.jsonl",
+     "sha256": "325d5dbfd81654cbab171d9c22f38cc7f86c5baadd65e3e02b4e380ad2aa2b71",
+     "lines": 40
+    }
+   ]
   }
  }
 }
