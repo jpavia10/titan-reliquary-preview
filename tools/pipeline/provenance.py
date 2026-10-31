@@ -20,8 +20,15 @@ NOT_FROM_PHOTO = {"mintage", "catalog"}                   # nobody can read thes
 NOT_A_READER = {"ledger"}                                 # the v254 import's own notes are not an independent reader
 # who wrote an event -> one contributor id (two ids of one AI are one contributor: Grok's chat and its bot are not two independent readers)
 AGENT_OF = {"model:grok": "grok", "model:grok-bot": "grok", "model:muse-spark": "muse", "model:muse": "muse", "model:claude": "claude", "model:opus-5.5": "claude",
-            "model:sonnet-5.5": "ledger", "model:gemini": "gemini", "model:chatgpt": "chatgpt", "model:gpt": "chatgpt", "script:integrator": "claude"}
-NAMES = {"grok": "Grok", "muse": "Muse", "claude": "Claude", "gemini": "Gemini", "chatgpt": "ChatGPT", "ledger": "Ledger import", "owner": "Owner"}
+            "model:sonnet-5.5": "ledger", "model:gemini": "gemini", "model:gemini-api": "gemini-api", "model:chatgpt": "chatgpt", "model:gpt": "chatgpt", "script:integrator": "claude"}
+NAMES = {"grok": "Grok", "muse": "Muse", "claude": "Claude", "gemini": "Gemini", "gemini-api": "Gemini API", "chatgpt": "ChatGPT", "ledger": "Ledger import", "owner": "Owner"}
+# Sources with sub-sources (owner, 2026-10-31: "Gemini api will be a new source and sub sources based on model used"): an event by
+# "model:gemini-api:gemini-3.8-flash" is the source "gemini-api" (one contributor, its own homework, scores and pages) and the sub-source
+# "gemini-api:gemini-3.8-flash" (each model measured on its own: sub_of()).
+SUB_SOURCES = ("gemini-api",)
+# Readers that are not independent of each other: the Gemini app and the Gemini API are one vendor (same model family, same search), so a fact
+# both of them cite is still one reader for "checked", and the loop never hands one of them the other's facts to check.
+FAMILY = {"gemini-api": "gemini"}
 SRC_MAX = 140
 LEDGER_DAY = "2026-09-30"      # the v254 ledger import; coins logged on or before it came with it
 MAX_HISTORY = 12
@@ -72,16 +79,38 @@ def agent_of(by):
     if by in AGENT_OF: return AGENT_OF[by]
     if by.startswith("model:"):
         m = by[6:].lower()
-        for k, a in (("grok", "grok"), ("muse", "muse"), ("claude", "claude"), ("gemini", "gemini"), ("chatgpt", "chatgpt"), ("gpt", "chatgpt")):
+        for k in SUB_SOURCES:
+            if m.startswith((k + ":", k + "/")): return k
+        for k, a in (("grok", "grok"), ("muse", "muse"), ("claude", "claude"), ("gemini-api", "gemini-api"), ("gemini_api", "gemini-api"), ("gemini", "gemini"),
+                     ("chatgpt", "chatgpt"), ("gpt", "chatgpt")):
             if k in m: return a
         return m
     return by
+
+def sub_of(by):
+    """The sub-source: 'model:gemini-api:gemini-3.8-flash' -> 'gemini-api:gemini-3.8-flash'; a source without sub-sources -> agent_of(by)."""
+    a = agent_of(by); by = _s(by)
+    if a in SUB_SOURCES and by.startswith("model:"):
+        m = by[6:].lower().replace("/", ":", 1)
+        if m.startswith(a + ":") and len(m) > len(a) + 1: return m
+    return a
+
+def model_label(sub):
+    """'gemini-api:gemini-3.8-flash' -> '3.8 Flash'; 'gemini-api:gemma-4-31b-it' -> 'Gemma 4 31B IT'."""
+    m = sub.split(":", 1)[1] if ":" in sub else sub
+    if m.startswith("gemini-"): m = m[7:]
+    return " ".join(w.upper() if w in ("it", "tts") or re.fullmatch(r"\d+[a-z]", w) else w.capitalize() for w in m.split("-"))
+
+def family(a):
+    """Independence: two sources of one family are one reader (FAMILY)."""
+    return FAMILY.get(a, a)
 
 def friendly(by):
     by = _s(by)
     if by.startswith("owner"): return "Owner"
     if by == "script:photo_crop_p1": return "Photo tool"
-    a = agent_of(by)
+    a = agent_of(by); sub = sub_of(by)
+    if sub != a: return f"{NAMES.get(a, a)} ({model_label(sub)})"
     return NAMES.get(a) or (by.split(":")[-1].capitalize() or "Unknown")
 
 def classify(ev):
@@ -258,10 +287,10 @@ def certainty(sid, type_id, ix, facts, questions=(), tokens=None, legacy=False, 
             if ent is not None:
                 ent["links"] = links(best[2].get("source"))
                 srcd = [c for c in support if level_for(c[2], fact) in SOURCED and agent_of(c[2].get("by")) not in NOT_A_READER and not _s(c[2].get("by")).startswith("script:")]
-                who = sorted({agent_of(c[2].get("by")) for c in srcd})
-                if ent["level"] in SOURCED and len(who) >= 2:
+                who = sorted({agent_of(c[2].get("by")) for c in srcd}); fams = {family(a) for a in who}     # the Gemini app and API are one reader (FAMILY)
+                if ent["level"] in SOURCED and len(fams) >= 2:
                     last = max(srcd, key=lambda c: (c[0], c[1]))[2]
-                    ent.update({"level": "checked", "by": " + ".join(NAMES.get(a, a.capitalize()) for a in who), "n": len(who), "ts": _s(last.get("ts"))[:10],
+                    ent.update({"level": "checked", "by": " + ".join(NAMES.get(a, a.capitalize()) for a in who), "n": len(fams), "ts": _s(last.get("ts"))[:10],
                                 "source": TAIL_RE.sub("", _s(last.get("source")))[:SRC_MAX], "links": links(*[c[2].get("source") for c in sorted(srcd, key=lambda c: (c[0], c[1]), reverse=True)])})
                 if not ent["links"]: del ent["links"]
         else:

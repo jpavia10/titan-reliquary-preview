@@ -545,11 +545,40 @@ def measure(ctx):
                 try: c = json.loads(ln)
                 except ValueError: continue
                 row(c.get("agent") or "?")["canaries_" + ("caught" if c.get("outcome") == "caught" else "missed")] += 1
-    for a, r in m.items():
+    subs(ctx, m, row)
+    def rate(r):
         n = r["confirmed"] + r["wrong"]
         r["checked_n"] = n; r["error_rate"] = round(r["wrong"] / n, 3) if n else None
         lo, hi = wilson(r["wrong"], n); r["error_ci95"] = [round(lo, 3), round(hi, 3)] if n else None
+    for a, r in m.items():
+        rate(r)
+        for sr in (r.get("models") or {}).values(): rate(sr)
     return m
+
+
+def subs(ctx, m, row):
+    """Sub-sources (owner, 2026-10-31: the Gemini API, one sub-source per model): the same counts per model, under m[source]["models"][model].
+    confirmed = a fact it wrote that another family later re-stated unchanged, or a disagreement settled its way; wrong = settled against it;
+    checks_done = its unchanged re-statements of another family's facts on a verify sheet."""
+    def srow(by):
+        a = PV.agent_of(by); sub = PV.sub_of(by)
+        if a not in PV.SUB_SOURCES or sub == a: return None
+        return row(a).setdefault("models", {}).setdefault(sub.split(":", 1)[1], {"confirmed": 0, "wrong": 0, "checks_done": 0})
+    for d in ctx["disagreements"]:
+        r = d.get("resolution") or {}
+        if r.get("error_by") and srow(r["error_by"]) is not None: srow(r["error_by"])["wrong"] += 1
+        if r.get("winner") in ("record", "claim") and srow(d[r["winner"]].get("by")) is not None: srow(d[r["winner"]]["by"])["confirmed"] += 1
+    last = {}; done = set()
+    for e in ctx["col"]["events"]:
+        k = (e.get("entity"), e.get("id"), e.get("field")); prev = last.get(k)
+        fam = PV.family(PV.agent_of(e.get("by")))
+        if prev is not None and e.get("old") == e.get("new") == prev.get("new") and PV.family(PV.agent_of(prev.get("by"))) != fam:
+            if srow(prev.get("by")) is not None and ("c",) + k + (prev.get("by"),) not in done:
+                done.add(("c",) + k + (prev.get("by"),)); srow(prev["by"])["confirmed"] += 1
+            pv = e.get("provenance") if isinstance(e.get("provenance"), dict) else {}
+            if srow(e.get("by")) is not None and "-verify-" in str(pv.get("assignment") or "") and ("d",) + k + (e.get("by"),) not in done:
+                done.add(("d",) + k + (e.get("by"),)); srow(e["by"])["checks_done"] += 1
+        if e.get("old") != e.get("new") or prev is None: last[k] = e
 
 
 MODEL_RECHECK_DAYS = 30     # fix list #100: after an AI's model changes, its facts are checked first for this long
@@ -563,7 +592,9 @@ def model_watch(ctx, state, now, log=None):
         pv = e.get("provenance") if isinstance(e.get("provenance"), dict) else {}
         m = str(pv.get("model") or "").strip().lower()
         if not m: continue
-        a = PV.agent_of(e.get("by")); names.setdefault(a, set()).add(m)
+        a = PV.agent_of(e.get("by"))
+        if a in PV.SUB_SOURCES: continue            # each of its models is a sub-source, measured on its own (measure() "models"): a new one never resets the source
+        names.setdefault(a, set()).add(m)
         if (e.get("ts") or "") >= latest.get(a, ("", ""))[0]: latest[a] = (e.get("ts") or "", m)
     for a, (_, m) in latest.items():
         r = seen.get(a)
@@ -599,11 +630,11 @@ def settle(ctx, now):
     done = []
     for d in ctx["disagreements"]:
         if d.get("status") != "open": continue
-        parties = {PV.agent_of(d["record"].get("by")), PV.agent_of(d["claim"].get("by"))}
+        parties = {PV.family(PV.agent_of(d["record"].get("by"))), PV.family(PV.agent_of(d["claim"].get("by")))}
         for e in ctx["col"]["events"]:
             if e.get("entity") != d["entity"] or e.get("id") != d["rid"] or (e.get("ts") or "") < d["opened"] or PV._derived(e): continue
             f = e.get("field") or ""
-            who = PV.agent_of(e.get("by")); owner = who == "owner"
+            who = PV.family(PV.agent_of(e.get("by"))); owner = who == "owner"
             # Grok's review GRK-R-01: a third contributor settles it only by writing the disputed field itself (a write to a parent such
             # as issues.2, made to fix something else, re-states every leaf and says nothing about this one); the owner may settle via a parent.
             if not (f == d["field"] or (owner and d["field"].startswith(f + "."))): continue
@@ -635,9 +666,10 @@ def answered(ctx, owners=None):
 
 def eligible(agent, item, roles, state, metrics):
     ag = roles["agents"][agent]; k = roles["kinds"][item["kind"]]
-    if agent in item["authors"]: return False
+    if PV.family(agent) in {PV.family(a) for a in item["authors"]}: return False      # never its own facts, nor its family's (the Gemini app and API)
     if any(c not in ag.get("caps", []) for c in k.get("needs", [])): return False
     if item["blind"] and "vision" not in ag.get("caps", []): return False
+    if item["kind"] == "verify" and ag.get("verify_blind_only") and not item["blind"]: return False   # no web search (the Gemini API): photo readings only
     if any(t["agent"] == agent for t in state["tried"].get(item["item"], [])): return False
     return True
 
@@ -964,6 +996,8 @@ def overview(roles, queues, state, pool, metrics, parked, ctx, now):
     for a, r in sorted(metrics.items()):
         if not r["checked_n"]: continue
         L.append(f"| {PV.NAMES.get(a, a)} | {r['checked_n']} | {r['confirmed']} | {r['wrong']} | {100 * r['error_rate']:.1f} % | {100 * r['error_ci95'][0]:.0f}-{100 * r['error_ci95'][1]:.0f} % |")
+        for mdl, sr in sorted((r.get("models") or {}).items()):
+            if sr["checked_n"]: L.append(f"| · {PV.model_label(mdl)} | {sr['checked_n']} | {sr['confirmed']} | {sr['wrong']} | {100 * sr['error_rate']:.1f} % | {100 * sr['error_ci95'][0]:.0f}-{100 * sr['error_ci95'][1]:.0f} % |")
     od = [d for d in ctx["disagreements"] if d.get("status") == "open"]
     L += ["", f"## Open disagreements ({len(od)})", ""] + [f"- {d['id']} {d['entity']} {d['rid']} {d['field']}: {_fmt(d['record']['value'], 40)} ({PV.friendly(d['record'].get('by'))}) vs {_fmt(d['claim']['value'], 40)} ({PV.friendly(d['claim'].get('by'))})" for d in od]
     L += ["", f"## Parked (two AIs tried and could not do it: {len(parked)})", ""] + [f"- {i}" for i in sorted(parked)]

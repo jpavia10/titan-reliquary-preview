@@ -473,6 +473,32 @@ class LoopUpgrades(unittest.TestCase):
         try: self.assertEqual(HW.measure(ctx)["gemini"]["checks_done"], 1, "the same fact checked twice by one AI is one check")
         finally: shutil.rmtree(ctx["root"], ignore_errors=True)
 
+    def test_the_gemini_api_is_one_source_with_a_sub_source_per_model(self):
+        """Owner, 2026-10-31: 'Gemini api will be a new source and sub sources based on model used'."""
+        flash, lite = "model:gemini-api:gemini-3.6-flash", "model:gemini-api:gemini-3.5-flash-lite"
+        self.assertEqual({PV.agent_of(flash), PV.agent_of(lite), PV.agent_of("model:gemini-api")}, {"gemini-api"}, "every model is the one source")
+        self.assertEqual(PV.agent_of("model:gemini"), "gemini", "the Gemini app stays its own source")
+        self.assertEqual((PV.sub_of(flash), PV.sub_of(lite)), ("gemini-api:gemini-3.6-flash", "gemini-api:gemini-3.5-flash-lite"))
+        self.assertEqual(PV.friendly(flash), "Gemini API (3.6 Flash)")
+        self.assertEqual(PV.family("gemini-api"), PV.family("gemini"), "the app and the API are one family: never two readers of one fact")
+        # the loop never hands the API the app's facts to check
+        roles = {"agents": {"gemini-api": {"caps": ["vision"], "verify_blind_only": True}}, "kinds": {"verify": {"needs": []}}}
+        item = {"item": "verify:x", "kind": "verify", "authors": ["gemini"], "blind": True}
+        self.assertFalse(HW.eligible("gemini-api", item, roles, {"tried": {}}, {}), "the API checked the app's own fact")
+        self.assertTrue(HW.eligible("gemini-api", dict(item, authors=["grok"]), roles, {"tried": {}}, {}))
+        self.assertFalse(HW.eligible("gemini-api", dict(item, authors=["grok"], blind=False), roles, {"tried": {}}, {}), "no web search: photo readings only")
+        # each model measured on its own: a disagreement settled against one model counts against that model, and against the source
+        d = {"status": "resolved", "record": {"by": "model:grok-bot", "value": 1991}, "claim": {"by": lite, "value": 1961},
+             "resolution": {"winner": "record", "error_by": lite}}
+        ev = {"by": flash, "entity": "specimen", "id": "C213", "field": "issue.year", "old": None, "new": 1991, "ts": "2026-10-31T10:00:00Z"}
+        agree = {"by": "model:grok-bot", "entity": "specimen", "id": "C213", "field": "issue.year", "old": 1991, "new": 1991, "ts": "2026-10-31T11:00:00Z"}
+        ctx = {"details": {}, "disagreements": [d], "col": {"events": [ev, agree], "specs": {}}, "root": tempfile.mkdtemp(prefix="hw_sub_")}
+        try:
+            m = HW.measure(ctx)["gemini-api"]
+            self.assertEqual(m["wrong"], 1)
+            self.assertEqual((m["models"]["gemini-3.5-flash-lite"]["wrong"], m["models"]["gemini-3.6-flash"]["confirmed"]), (1, 1))
+        finally: shutil.rmtree(ctx["root"], ignore_errors=True)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2, warnings="ignore")

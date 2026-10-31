@@ -143,3 +143,16 @@ Every new AI comes in the same way; `python3 tools/agents/new_agent.py ID "Name"
 5. **A new model is a new AI** (#100): when its files name a different model, its facts are checked first again and both photo tests come
    back on its page.
 
+6. **Sources with sub-sources** (owner, 2026-10-31: "Gemini api will be a new source and sub sources based on model used"). The Gemini API
+   is its own source, `gemini-api` (roles.json; separate from the Gemini app, `gemini`), run by Claude from the session with
+   `python3 tools/gemini/run_homework.py --model M` (CLAUDE.md rule 13). Each model it runs on is a sub-source: its lines are written
+   `by: model:gemini-api:<model>` with `provenance.model: <model>` (`provenance.py` `SUB_SOURCES`, `sub_of()`, `model_label()`; the app shows
+   "Gemini API (3.6 Flash)"). The source has one page, one set of sheets and one score; `measure()` also counts each model on its own
+   (`metrics.json` -> `models`, one row per model in QUEUES.md), so a weak model is caught without blaming a good one, and a new model is a
+   new sub-source instead of resetting the source (#100 does not apply to it). It has no web search on the free key (every model answers
+   search with 429) and Numista, NGC, uCoin and Colnect refuse Google's page fetcher, so it takes photo readings, blind photo checks
+   (`verify_blind_only`) and plain-story rewrites only; a line whose source names a web address is dropped before the file is written.
+   **One family:** the Gemini app and the API are one vendor and one model family (`provenance.py` `FAMILY`), so a fact both cite is one
+   reader, never "Checked"; the loop never hands either one the other's facts to check, and neither settles a disagreement the other is in.
+   Models seen on 2026-10-31: gemini-3.8-flash, gemini-3.6-flash, gemini-3.5-flash-lite, gemma-4-31b-it see images on the free tier;
+   Gemini 4 Argon has no free-tier quota (limit 0).

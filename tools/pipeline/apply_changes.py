@@ -575,7 +575,7 @@ class Applier:
             if e["new"] != cur:
                 self.log.append(f"same value, typed differently (counted as agreeing; the record keeps its own form): {ent} {rid} {field}{note}")
                 e["new"] = cur           # set() then logs a re-citation of the record's own value, never the sheet's spelling
-            if setter is not None and PV.agent_of(setter.get("by")) == PV.agent_of(e["by"]):
+            if setter is not None and PV.family(PV.agent_of(setter.get("by"))) == PV.family(PV.agent_of(e["by"])):
                 self.log.append(f"own fact re-stated (a citation, not a cross-check): {ent} {rid} {field}")
             return None
         for d in self.c.disagreements:
