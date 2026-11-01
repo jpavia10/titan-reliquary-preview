@@ -158,3 +158,5 @@ Every new AI comes in the same way; `python3 tools/agents/new_agent.py ID "Name"
    Gemini 4 Argon has no free-tier quota (limit 0). The blind photo test the same day (collaborators/MODEL_ACCURACY.md): 3.6 Flash is the
    photo reader (`run_homework.py` DEFAULT; 20 requests a day on the free key, so a run stops cleanly at the limit and keeps its answers);
    3.5 Flash Lite and Gemma 4 misread real years, face values and mint marks and take no photo work (`NO_PHOTO`); 3.8 Flash stalls.
+   Text-only sheets (plain stories) go to 3.5 Flash Lite (owner, 2026-11-01: "Flash lite should probably be used for text only stuff";
+   `TEXT_MODEL`, `model_for()`), photo sheets to 3.6 Flash; `--model` overrides both. The 2.5 models are retired for new keys (404).

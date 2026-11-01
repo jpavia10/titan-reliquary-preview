@@ -4,8 +4,8 @@
   python3 tools/gemini/ask.py --prompt BRIEF.md [--file F ...] [--model gemini-3.6-flash] [--out OUT] [--code] [--max-tokens N]
   python3 tools/gemini/ask.py --text "one line question"
 
-The key comes from $GEMINI_API_KEY or ~/.gemini_key (never from the repository; a new session copies it from the Drive file named in
-CLAUDE.md rule 13). Each --file is appended as "=== FILE: path ===" + its text; each --image is sent as a picture the model sees. The answer streams (server-sent events), so a long answer
+The keys come from $GEMINI_API_KEY, ~/.gemini_key and ~/.gemini_key_old (never from the repository; a new session copies the first from the
+Drive file named in CLAUDE.md rule 13); a call moves on to the next key when one is out of its day's quota or lacks the model. Each --file is appended as "=== FILE: path ===" + its text; each --image is sent as a picture the model sees. The answer streams (server-sent events), so a long answer
 is not lost to an idle connection; network errors, 429 and 5xx are retried 4 times (2, 4, 8, 16 s). --code keeps only the longest
 fenced code block. --thinking caps the model's thinking (auto: low on 3 Flash and the lite models). One line goes to stdout: model, tokens in/out, finish reason. Exit 0 = the answer finished (STOP); 2 = cut short.
 Everything Gemini writes passes the same checks as any contributor's work before it is used.
@@ -15,12 +15,24 @@ import argparse, base64, json, mimetypes, os, re, ssl, sys, time, urllib.error, 
 API = "https://generativelanguage.googleapis.com/v1beta/models/%s:streamGenerateContent?alt=sse"
 
 
-def key():
-    k = os.environ.get("GEMINI_API_KEY") or ""
-    p = os.path.expanduser("~/.gemini_key")
-    if not k and os.path.exists(p): k = open(p).read().strip()
-    if not k: sys.exit("no key: set GEMINI_API_KEY or write ~/.gemini_key (CLAUDE.md rule 13)")
-    return k
+KEY_FILES = ("~/.gemini_key", "~/.gemini_key_old")   # the owner's keys, session only (CLAUDE.md rule 13); the older one (owner, 2026-11-01) still
+                                                     # reaches gemini-2.5-flash and has its own daily free quota for every model
+
+
+def keys():
+    """Every key this session has, in order: $GEMINI_API_KEY, then the key files. A call moves to the next key when one is out of its day's
+    quota or the model is closed to it ('no longer available to new users')."""
+    out = [os.environ["GEMINI_API_KEY"]] if os.environ.get("GEMINI_API_KEY") else []
+    for f in KEY_FILES:
+        p = os.path.expanduser(f)
+        if os.path.exists(p):
+            k = open(p).read().strip()
+            if k and k not in out: out.append(k)
+    if not out: sys.exit("no key: set GEMINI_API_KEY or write ~/.gemini_key (CLAUDE.md rule 13)")
+    return out
+
+
+def key(): return keys()[0]
 
 
 def context():
@@ -36,10 +48,11 @@ def ask(text, model, max_tokens, temperature, system=None, thinking=None, images
     if thinking: body["generationConfig"]["thinkingConfig"] = {"thinkingLevel": thinking}   # its thinking counts against maxOutputTokens
     if system: body["systemInstruction"] = {"parts": [{"text": system}]}
     data = json.dumps(body).encode()
-    for attempt in range(5):
+    ks = keys(); ki = 0
+    for attempt in range(5 + len(ks)):
         out, finish, usage = [], None, {}
         try:
-            req = urllib.request.Request(API % model, data=data, headers={"Content-Type": "application/json", "x-goog-api-key": key()})
+            req = urllib.request.Request(API % model, data=data, headers={"Content-Type": "application/json", "x-goog-api-key": ks[ki]})
             with urllib.request.urlopen(req, timeout=240, context=context()) as r:   # a stream silent for 4 minutes has stalled
                 for raw in r:
                     line = raw.decode("utf-8", "replace").strip()
@@ -54,9 +67,11 @@ def ask(text, model, max_tokens, temperature, system=None, thinking=None, images
         except urllib.error.HTTPError as e:
             msg = e.read().decode("utf-8", "replace")[:400]
             daily = e.code == 429 and ("free_tier_requests" in msg or "PerDay" in msg)   # the day's quota: waiting does not help
-            if e.code not in (429, 500, 502, 503, 504) or attempt == 4 or daily: sys.exit("HTTP %d: %s" % (e.code, msg))
+            closed = e.code == 404 and "no longer available" in msg                     # a model retired for newer keys
+            if (daily or closed) and ki + 1 < len(ks): ki += 1; continue                  # the next key has its own quota and models
+            if e.code not in (429, 500, 502, 503, 504) or attempt >= 4 + ki or daily: sys.exit("HTTP %d: %s" % (e.code, msg))
         except Exception as e:  # dropped connection, timeout (a stalled model is tried twice, not five times)
-            if attempt == 4 or ("timed out" in str(e) and attempt >= 1): sys.exit("failed: %s" % e)
+            if attempt >= 4 + ki or ("timed out" in str(e) and attempt >= 1 + ki): sys.exit("failed: %s" % e)
         time.sleep(2 ** (attempt + 1))
 
 

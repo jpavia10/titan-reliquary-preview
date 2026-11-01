@@ -2,7 +2,8 @@
 """Answer the Gemini API's homework sheets through the API (owner, 2026-10-31: "Gemini api will be a new source and sub sources based on
 model used"; CLAUDE.md rule 13: the owner's free-tier key, used by Claude from the session).
 
-  python3 tools/gemini/run_homework.py [--model gemini-3.6-flash] [--assignment HW-gemini-api-...] [--dry]
+  python3 tools/gemini/run_homework.py [--model M] [--assignment HW-gemini-api-...] [--dry]     (default: 3.5 Flash Lite for text-only
+                                                                                                   sheets, 3.6 Flash for photo sheets)
   python3 tools/gemini/run_homework.py --photo photos/p1/C123_obv.webp [--model ...]     a blind first reading of one photo (prints JSON)
   python3 tools/gemini/run_homework.py --pack docs/bakeoff/pack-20261008-main --out FILE --model M    the blind photo test on one model
 
@@ -29,7 +30,14 @@ INCOMING = os.path.join(ROOT, "collection", "_incoming")
 URL = re.compile(r"https?://", re.I)
 LEGEND = re.compile(r"\b[A-ZÀ-ÖØ-Þ]{3,}\b")
 PAUSE = 4.0                # seconds between calls (free-tier requests per minute)
-DEFAULT = "gemini-3.6-flash"   # the photo test, 2026-10-31 (collaborators/MODEL_ACCURACY.md): no real misread of country, year or face value
+DEFAULT = "gemini-3.6-flash"   # photo work: the photo test, 2026-10-31 (collaborators/MODEL_ACCURACY.md): no real misread of country, year or face value
+TEXT_MODEL = "gemini-3.5-flash-lite"   # text-only work (owner, 2026-11-01: "Flash lite should probably be used for text only stuff"): fast, its own quota
+TEXT_KINDS = {"plain-story"}           # sheets with no photo: rewording only, every number and inscription checked by same_facts()
+
+
+def model_for(kind, override=None):
+    """--model wins; else Flash Lite for text-only sheets and 3.6 Flash for photo sheets."""
+    return override or (TEXT_MODEL if kind in TEXT_KINDS else DEFAULT)
 NO_PHOTO = {"gemini-3.5-flash-lite": "misread 2 years, 7 face values and 3 mint marks of 30 in the photo test",
             "gemma-4-31b-it": "misread real years, face values and mint marks in the photo test (47 % core)"}   # they take no photo work
 
@@ -180,9 +188,10 @@ def run_pack(model, pack, out):
 
 
 def main():
-    a = argparse.ArgumentParser(); a.add_argument("--model", default=DEFAULT); a.add_argument("--assignment"); a.add_argument("--dry", action="store_true")
+    a = argparse.ArgumentParser(); a.add_argument("--model", help=f"one model for every sheet (default: {TEXT_MODEL} for text-only sheets, {DEFAULT} for photo sheets)"); a.add_argument("--assignment"); a.add_argument("--dry", action="store_true")
     a.add_argument("--photo"); a.add_argument("--pack"); a.add_argument("--out")
     o = a.parse_args()
+    if o.photo or o.pack: o.model = o.model or DEFAULT          # a photo: the photo reader unless named
     if o.pack: run_pack(o.model, o.pack, o.out or f"bakeoff_{SOURCE}-{o.model}.json"); return 0
     if o.photo:
         print(json.dumps({"model": o.model, "by": f"model:{SOURCE}:{o.model}", "reading": blind_photo(o.model, o.photo)}, ensure_ascii=False, indent=1)); return 0
@@ -191,11 +200,11 @@ def main():
     if not mine: print("the Gemini API has no open homework (python3 tools/agents/homework.py hands it some when its pools have work)"); return 0
     log, lines = [], []
     for asg in mine:
-        try: got = answer_sheet(o.model, asg, log, lines)
+        try: got = answer_sheet(model_for(asg["kind"], o.model), asg, log, lines)
         except Quota as e: print(f"stopped: {e} (the answers so far are kept; run again tomorrow for the rest)"); break
         print(f"{asg['id']} ({asg['kind']}): {got} lines answered of {len(asg['items'])} items")
     tok = sum((x.get("in") or 0) + (x.get("out") or 0) for x in log)
-    print(f"{len(log)} calls to {o.model}, {tok} tokens; {sum(1 for x in log if x['finish'] != 'STOP')} cut short")
+    print(f"{len(log)} calls ({', '.join(sorted({x['model'] for x in log})) or 'none'}), {tok} tokens; {sum(1 for x in log if x['finish'] != 'STOP')} cut short")
     if not lines or o.dry: return 0
     os.makedirs(INCOMING, exist_ok=True)
     p = os.path.join(INCOMING, f"changes_{SOURCE}_{datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%d-%H%M')}.jsonl")
