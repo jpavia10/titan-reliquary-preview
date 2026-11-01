@@ -4,7 +4,7 @@
   python3 tools/gemini/ask.py --prompt BRIEF.md [--file F ...] [--model gemini-3.6-flash] [--out OUT] [--code] [--max-tokens N]
   python3 tools/gemini/ask.py --text "one line question"
 
-The keys come from $GEMINI_API_KEY, ~/.gemini_key and ~/.gemini_key_old (never from the repository; a new session copies the first from the
+The keys come from $GEMINI_API_KEY, ~/.gemini_key, ~/.gemini_key_old and ~/.gemini_key_3 (never from the repository; a new session copies the first from the
 Drive file named in CLAUDE.md rule 13); a call moves on to the next key when one is out of its day's quota or lacks the model. Each --file is appended as "=== FILE: path ===" + its text; each --image is sent as a picture the model sees. The answer streams (server-sent events), so a long answer
 is not lost to an idle connection; network errors, 429 and 5xx are retried 4 times (2, 4, 8, 16 s). --code keeps only the longest
 fenced code block. --thinking caps the model's thinking (auto: low on 3 Flash and the lite models). One line goes to stdout: model, tokens in/out, finish reason. Exit 0 = the answer finished (STOP); 2 = cut short.
@@ -15,8 +15,9 @@ import argparse, base64, json, mimetypes, os, re, ssl, sys, time, urllib.error, 
 API = "https://generativelanguage.googleapis.com/v1beta/models/%s:streamGenerateContent?alt=sse"
 
 
-KEY_FILES = ("~/.gemini_key", "~/.gemini_key_old")   # the owner's keys, session only (CLAUDE.md rule 13); the older one (owner, 2026-11-01) still
-                                                     # reaches gemini-2.5-flash and has its own daily free quota for every model
+KEY_FILES = ("~/.gemini_key", "~/.gemini_key_old", "~/.gemini_key_3")   # the owner's three keys, session only (CLAUDE.md rule 13), each its own
+                                                     # Google project with its own daily free quota; the older two (owner, 2026-11-01) still reach
+                                                     # gemini-2.5-flash, the third also gemini-2.5-flash-lite (an 'AQ.' key: the AI Studio address takes it)
 
 
 def keys():
