@@ -177,6 +177,22 @@
      "path": "docs/agents/homework/sheets/HW-muse-arbitrate-20261101-1.jsonl",
      "sha256": "3ee3d2b3be1038baa428e7bc4908d1d24e952ca2f4f6f9fccf76685714f71cd9",
      "lines": 6
+    },
+    {
+     "id": "HW-muse-verify-20261101-1",
+     "kind": "verify",
+     "due": "2026-11-08",
+     "path": "docs/agents/homework/sheets/HW-muse-verify-20261101-1.jsonl",
+     "sha256": "b7fc6055ba5d0f4c7c36117bd619274e4c4e52ed4fc3d0a874a0a04e00c31eb5",
+     "lines": 1
+    },
+    {
+     "id": "HW-muse-arbitrate-20261101-2",
+     "kind": "arbitrate",
+     "due": "2026-11-08",
+     "path": "docs/agents/homework/sheets/HW-muse-arbitrate-20261101-2.jsonl",
+     "sha256": "9e3e93d31e860260123258bc7f37212e11e867fbb1623213e0469207573623a8",
+     "lines": 1
     }
    ]
   },
@@ -238,19 +254,6 @@
      "path": "docs/agents/homework/sheets/HW-grok-arbitrate-20261030-2.jsonl",
      "sha256": "d2b4186ae04421b50f3b7fb8757697f6c94faf497096162e757e08419093398f",
      "lines": 1
-    }
-   ]
-  },
-  "gemini-api": {
-   "name": "Gemini API",
-   "sheets": [
-    {
-     "id": "HW-gemini-api-verify-20261101-1",
-     "kind": "verify",
-     "due": "2026-11-08",
-     "path": "docs/agents/homework/sheets/HW-gemini-api-verify-20261101-1.jsonl",
-     "sha256": "4733f4a4b4508a86b6b7a44b78d9fbbb19a995df4ea149674b8fe88c22f38593",
-     "lines": 15
     }
    ]
   }

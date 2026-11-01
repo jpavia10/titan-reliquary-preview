@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-01T03:44:45Z",
+ "updated": "2026-11-01T04:42:27Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -121,7 +121,8 @@
   "gemini-api-read-mint-20261031": 1,
   "gemini-api-verify-20261031": 1,
   "gemini-api-verify-20261101": 1,
-  "muse-arbitrate-20261101": 1
+  "muse-arbitrate-20261101": 2,
+  "muse-verify-20261101": 1
  },
  "assignments": [
   {
@@ -24064,9 +24065,13 @@
    "kind": "verify",
    "issued": "2026-11-01T03:44:45Z",
    "lease_until": "2026-11-08T03:44:45Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-01T04:40:41Z",
+   "result": {
+    "items": 15,
+    "closed": 2,
+    "left": 13
+   },
    "items": [
     {
      "item": "verify:specimen:C037:issue.mint_marks",
@@ -24205,6 +24210,42 @@
      "entity": "specimen",
      "id": "C018",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261101-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-01T04:40:41Z",
+   "lease_until": "2026-11-08T04:40:41Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C037:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261101-2",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-01T04:40:41Z",
+   "lease_until": "2026-11-08T04:40:41Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0148",
+     "entity": "specimen",
+     "id": "C225",
+     "field": "issue.year"
     }
    ]
   }
@@ -25208,6 +25249,12 @@
     "assignment": "HW-grok-verify-20261015-2",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:GT.KM.239.2:catalogs": [
@@ -25368,6 +25415,12 @@
     "assignment": "HW-muse-verify-20261020-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:BS.X.1-cent:denomination.value": [
@@ -26554,6 +26607,12 @@
     "assignment": "HW-muse-verify-20261020-1",
     "outcome": "left out",
     "ts": "2026-10-24T06:40:21Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:GB.KM.1107:denomination.value": [
@@ -28394,6 +28453,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:specimen:C271:issue.mint_marks": [
@@ -28416,6 +28481,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:DE.KM.107:denomination.value": [
@@ -28430,6 +28501,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:GB.KM.912:denomination.value": [
@@ -28444,6 +28521,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:GB.KM.916:denomination.value": [
@@ -28458,6 +28541,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:specimen:C060:issue.year": [
@@ -28576,6 +28665,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:GB.KM.936:denomination.value": [
@@ -28590,6 +28685,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:specimen:C228:issue.mint_marks": [
@@ -28680,6 +28781,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:type:GB.KM.914:denomination.value": [
@@ -28770,6 +28877,12 @@
     "assignment": "HW-muse-verify-20261028-1",
     "outcome": "attempted",
     "ts": "2026-10-30T06:08:06Z"
+   },
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "left out",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ],
   "verify:specimen:C047:issue.year": [
@@ -28996,6 +29109,14 @@
     "assignment": "HW-muse-verify-20261028-2",
     "outcome": "left out",
     "ts": "2026-10-30T06:08:06Z"
+   }
+  ],
+  "verify:specimen:C037:issue.mint_marks": [
+   {
+    "agent": "gemini-api",
+    "assignment": "HW-gemini-api-verify-20261101-1",
+    "outcome": "attempted",
+    "ts": "2026-11-01T04:40:41Z"
    }
   ]
  },

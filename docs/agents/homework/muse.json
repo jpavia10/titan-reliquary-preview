@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-01T03:44:45Z",
+ "updated": "2026-11-01T04:42:27Z",
  "assignments": [
   {
    "id": "HW-muse-value-20261023-1",
@@ -1023,6 +1023,115 @@
        "by": "model:gemini-api:gemini-3.6-flash",
        "source": "C018_obv.webp: mint mark 'D' at the bottom right of the obverse in C018_obv.webp (read by the Gemini API, gemini-3.6-flash)",
        "ts": "2026-11-01T03:39:26Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261101-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-01T04:40:41Z",
+   "lease_until": "2026-11-08T04:40:41Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C037:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:specimen:C037:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C037",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C037"
+     ],
+     "label": "mint of C037 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [
+      "gemini-api"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini API (3.6 Flash)",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C037_obv.webp",
+        "file": "C037_obv.webp",
+        "original": "C037_Germany_2002_10EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C037_obv.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261101-2",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-01T04:40:41Z",
+   "lease_until": "2026-11-08T04:40:41Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0148",
+     "entity": "specimen",
+     "id": "C225",
+     "field": "issue.year"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0148",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C225",
+     "field": "issue.year",
+     "coins": [
+      "C225"
+     ],
+     "label": "D0148 C225 issue.year",
+     "authors": [
+      "gemini-api",
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:grok-bot",
+       "source": "C225_obv.webp: date '1977' at bottom between dots (faint, zoom crop) [phase 2; confidence high]",
+       "ts": "2026-10-28T02:45:32Z",
+       "value": 1977
+      },
+      "claim": {
+       "value": 1971,
+       "by": "model:gemini-api:gemini-3.6-flash",
+       "source": "C225_obv.webp: year 1971 shown at the bottom of C225_obv.webp (read by the Gemini API, gemini-3.6-flash)",
+       "ts": "2026-11-01T03:54:33Z"
       }
      },
      "blind": false,

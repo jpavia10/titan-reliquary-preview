@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-01T03:44:45Z",
- "content_hash": "e52346d2518139e1",
+ "generated_at": "2026-11-01T04:40:41Z",
+ "content_hash": "39e110dbf651b97b",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:e52346d2518139e1",
+  "ledger_version": "v3:39e110dbf651b97b",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5389.74,
@@ -22216,7 +22216,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-01T03:39:11Z",
+    "phase2_at": "2026-11-01T03:54:33Z",
     "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
@@ -36949,8 +36949,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:55:30Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-01T03:54:33Z",
+    "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
    "sentimental": null,
@@ -77885,7 +77885,7 @@
     "level": "photo",
     "by": "Gemini API (3.6 Flash)",
     "ts": "2026-11-01",
-    "source": "C037_obv.webp: mint mark J to the right of the date on photo C037_obv.webp (read by the Gemini API, gemini-3.6-flash)"
+    "source": "C037_obv.webp: letter J to the right of the date 2002 at the bottom of C037_obv.webp (read by the Gemini API, gemini-3.6-flash)"
    },
    "catalog": {
     "level": "checked",
@@ -90439,10 +90439,11 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-10-30",
-    "source": "Photo read: C199_rev.webp - 50 lire Vulcan reverse dated 1978 with L.50; small R mintmark in the right field below the L.50 (Rome)."
+    "level": "checked",
+    "by": "Gemini API + Muse",
+    "ts": "2026-11-01",
+    "source": "C199_rev.webp: mint mark 'R' to the lower right of Vulcan's leg on C199_rev.webp (read by the Gemini API, gemini-3.6-flash)",
+    "n": 2
    },
    "catalog": {
     "level": "checked",

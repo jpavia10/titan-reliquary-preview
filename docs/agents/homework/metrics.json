@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T03:44:45Z",
+ "updated": "2026-11-01T04:42:27Z",
  "pools": {
   "cite": 26,
   "story-check": 11,
@@ -7,9 +7,9 @@
   "research": 1,
   "value": 1,
   "read-mint": 5,
-  "arbitrate": 15,
+  "arbitrate": 16,
   "fill": 38,
-  "verify": 245
+  "verify": 243
  },
  "agents": {
   "claude": {
@@ -30,7 +30,7 @@
    "confirmed": 982,
    "wrong": 16,
    "checks_done": 272,
-   "disagreements_open": 1,
+   "disagreements_open": 2,
    "canaries_caught": 1,
    "canaries_missed": 0,
    "checked_n": 998,
@@ -55,13 +55,13 @@
    ]
   },
   "muse": {
-   "confirmed": 625,
+   "confirmed": 626,
    "wrong": 16,
    "checks_done": 386,
    "disagreements_open": 1,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 641,
+   "checked_n": 642,
    "error_rate": 0.025,
    "error_ci95": [
     0.015,
@@ -69,27 +69,27 @@
    ]
   },
   "gemini-api": {
-   "confirmed": 2,
+   "confirmed": 3,
    "wrong": 0,
-   "checks_done": 4,
-   "disagreements_open": 6,
+   "checks_done": 6,
+   "disagreements_open": 7,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "models": {
     "gemini-3.6-flash": {
      "confirmed": 0,
      "wrong": 0,
-     "checks_done": 2,
+     "checks_done": 3,
      "checked_n": 0,
      "error_rate": null,
      "error_ci95": null
     }
    },
-   "checked_n": 2,
+   "checked_n": 3,
    "error_rate": 0.0,
    "error_ci95": [
     0.0,
-    0.658
+    0.562
    ]
   },
   "ledger": {
@@ -239,9 +239,9 @@
  ],
  "open_assignments": {
   "grok": 7,
-  "muse": 8,
+  "muse": 10,
   "gemini": 13,
   "chatgpt": 0,
-  "gemini-api": 1
+  "gemini-api": 0
  }
 }

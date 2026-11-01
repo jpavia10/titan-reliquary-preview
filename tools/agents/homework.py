@@ -225,8 +225,11 @@ def pool_catno(ctx):
 
 
 def _author(entry):
+    """A certainty entry's 'by' (a display name) -> the contributor id. A sub-source shows as 'Gemini API (3.6 Flash)': that is the source
+    'gemini-api' (2026-11-01: without this the API was handed its own mint mark to check)."""
     rev = {v: k for k, v in PV.NAMES.items()}
-    return rev.get(entry.get("by"), (entry.get("by") or "").lower())
+    by = re.sub(r" \([^)]*\)$", "", entry.get("by") or "")
+    return rev.get(by, by.lower())
 
 
 RECHECK_DAYS = 365          # fix list #94: a fact cited more than a year ago goes back to a second reader (pages change, links die)

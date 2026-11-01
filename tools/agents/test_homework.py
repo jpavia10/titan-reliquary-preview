@@ -480,6 +480,7 @@ class LoopUpgrades(unittest.TestCase):
         self.assertEqual(PV.agent_of("model:gemini"), "gemini", "the Gemini app stays its own source")
         self.assertEqual((PV.sub_of(flash), PV.sub_of(lite)), ("gemini-api:gemini-3.6-flash", "gemini-api:gemini-3.5-flash-lite"))
         self.assertEqual(PV.friendly(flash), "Gemini API (3.6 Flash)")
+        self.assertEqual(HW._author({"by": "Gemini API (3.6 Flash)"}), "gemini-api", "a fact one of its models wrote is the API's own fact")
         self.assertEqual(PV.family("gemini-api"), PV.family("gemini"), "the app and the API are one family: never two readers of one fact")
         # the loop never hands the API the app's facts to check
         roles = {"agents": {"gemini-api": {"caps": ["vision"], "verify_blind_only": True}}, "kinds": {"verify": {"needs": []}}}

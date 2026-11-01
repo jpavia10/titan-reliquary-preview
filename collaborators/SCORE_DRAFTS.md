@@ -8,3 +8,4 @@ Drafted from the merge and the cross-checks since (rubric: top of `collaborators
 | File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
 |---|---|---|---|---|---|---|---|
 | `changes_gemini-api_20261101-0343.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 12 lines: 6 in the change log, 6 filed as disagreements; answered 11 of 42 items of HW-gemini-api-read-mint-20261031-1, HW-gemini-api-verify-20261031-1 (with its other files for the same sheet); cross-checked so far: 4 held, 0 wrong |
+| `changes_gemini-api_20261101-0356.jsonl` | **7 / 10** | 2 | 2 | 3 | 0 | 0 | 3 lines: 2 in the change log, 1 filed as disagreements; answered 3 of 15 items of HW-gemini-api-verify-20261101-1 (with its other files for the same sheet); 1 verify answer(s) on its own earlier fact; cross-checked so far: 2 held, 0 wrong |
