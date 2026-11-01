@@ -49,3 +49,4 @@
 {"date":"2026-10-29","xag_usd":51.23,"xau_usd":4006.8999,"source":"yahoo finance daily close SI=F+GC=F (futures, not spot)","fetched_at":"2026-10-30T01:58:11Z"}
 {"date":"2026-10-30","xag_usd":49.135,"xau_usd":3884.8999,"source":"yahoo finance daily close SI=F+GC=F (futures, not spot)","fetched_at":"2026-10-31T01:36:36Z"}
 {"date":"2026-10-31","xag_usd":49.254,"xau_usd":3876.3999,"source":"gold-api.com quote (api.gold-api.com XAG + XAU) (provisional until the daily close is available)","fetched_at":"2026-10-31T01:36:26Z","provisional":true}
+{"date":"2026-11-01","xag_usd":49.254,"xau_usd":3876.3999,"source":"gold-api.com quote (api.gold-api.com XAG + XAU) (provisional until the daily close is available)","fetched_at":"2026-11-01T01:12:01Z","provisional":true}
