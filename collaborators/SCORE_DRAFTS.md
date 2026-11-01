@@ -3,4 +3,8 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-Nothing waiting: every outside AI's file is scored.
+## Gemini API
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_gemini-api_20261101-0343.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 12 lines: 6 in the change log, 6 filed as disagreements; answered 11 of 42 items of HW-gemini-api-read-mint-20261031-1, HW-gemini-api-verify-20261031-1 (with its other files for the same sheet); cross-checked so far: 4 held, 0 wrong |

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-01 03:39 UTC)
+# WORK QUEUE for Muse (updated 2026-11-01 03:44 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -145,6 +145,22 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0135 PH.X.1-piso legal_tender.text**: record `current (Philippine piso, 1967–date; New Design Series)` (model:gemini: «https://en.numista.com/catalogue/pieces1681.html (Features: 'Value: 1 Peso (1 piso) (1 PHP = USD 0.016)'; 'Currency: Pi…») vs claim `current (Philippine piso, 1967–date; BSP series)` (model:claude: «C279 is the 1997 1 piso with Rizal, the BSP series (KM#269, https://www.coin-brothers.com/catalog/coin2524), not the Ne…»)
 
+### 8. HW-muse-arbitrate-20261101-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-08  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261101-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0142 C048 issue.mint_marks**: record `["D"]` (None: «null») vs claim `["J"]` (model:gemini-api:gemini-3.6-flash: «C048_rev.webp: mint mark 'J' at the top center above the digit 1 on C048_rev.webp (read by the Gemini API, gemini-3.6-f…»)
+- **D0143 C196 issue.mint_marks**: record `["F"]` (None: «null») vs claim `["G"]` (model:gemini-api:gemini-3.6-flash: «C196_obv.webp: mint mark letter G to the right of the date 1987 on C196_obv.webp (read by the Gemini API, gemini-3.6-fl…»)
+- **D0144 C177 issue.year**: record `2009` (model:grok-bot: «C177_obv.webp: date at bottom of legend reads '2009' (inverted orientation in photo) [phase 2; confidence high]») vs claim `2005` (model:gemini-api:gemini-3.6-flash: «C177_obv.webp: year 2005 visible at the bottom of the obverse in C177_obv.webp (read by the Gemini API, gemini-3.6-flas…»)
+- **D0145 C228 issue.mint_marks**: record `["G"]` (None: «null») vs claim `["J"]` (model:gemini-api:gemini-3.6-flash: «C228_obv.webp: mint mark 'J' after the year 1989 at the bottom of C228_obv.webp (read by the Gemini API, gemini-3.6-fla…»)
+- **D0146 C237 issue.mint_marks**: record `["D"]` (None: «null») vs claim `["G"]` (model:gemini-api:gemini-3.6-flash: «C237_obv.webp: mint mark letter G after 1971 on C237_obv.webp (read by the Gemini API, gemini-3.6-flash)»)
+- **D0147 C018 issue.mint_marks**: record `["G"]` (None: «null») vs claim `["D"]` (model:gemini-api:gemini-3.6-flash: «C018_obv.webp: mint mark 'D' at the bottom right of the obverse in C018_obv.webp (read by the Gemini API, gemini-3.6-fl…»)
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -164,5 +180,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 57; expired: 2.
-- Your facts checked by another contributor: 642 (626 confirmed, 16 wrong; error rate 2.5 %, 95 % range 2-4 %). Checks you did for others: 386. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 8 of 8.
+- Your facts checked by another contributor: 641 (625 confirmed, 16 wrong; error rate 2.5 %, 95 % range 2-4 %). Checks you did for others: 386. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 15 %.

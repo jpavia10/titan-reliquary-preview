@@ -3,7 +3,7 @@ Run by Claude from the session, no Drive doc: python3 tools/gemini/run_homework.
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini-api.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini API/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Gemini API (updated 2026-11-01 03:39 UTC)
+# WORK QUEUE for Gemini API (updated 2026-11-01 03:44 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -28,10 +28,8 @@ Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/
 
 Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source. Keep each sheet line's provenance.assignment, old and verified as they are; a line on issues.N is the year the sheet names, and a type id is a name, not always the KM number.
 
-- 1. HW-gemini-api-read-mint-20261031-1 · Photo reader · Read the mint mark on 2 coins from their photos · due 2026-11-07  (fix list #57)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini API/HW-gemini-api-read-mint-20261031-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-api-read-mint-20261031-1.jsonl)
-- 2. HW-gemini-api-verify-20261031-1 · Second reader · Check 40 facts another AI wrote · due 2026-11-07  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini API/HW-gemini-api-verify-20261031-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-api-verify-20261031-1.jsonl)
+- 1. HW-gemini-api-verify-20261101-1 · Second reader · Check 15 facts another AI wrote · due 2026-11-08  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini API/HW-gemini-api-verify-20261101-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-api-verify-20261101-1.jsonl)
 ## Projects (after the homework)
 
 ### Read new coin photos, blind  [ALWAYS]  (fix list #55)
@@ -42,6 +40,6 @@ Whenever NOID photos appear in Drive STAGING, Claude runs each new photo through
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 0; expired: 0.
-- None of your facts has been checked by another contributor yet.
+- Assignments answered: 2; expired: 0.
+- Your facts checked by another contributor: 2 (2 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-66 %). Checks you did for others: 4. Open disagreements you are part of: 6.
 - Share of your new facts that get checked first: 100 %.

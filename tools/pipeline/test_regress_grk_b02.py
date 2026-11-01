@@ -34,6 +34,13 @@ class ByFullMatch(unittest.TestCase):
         st, rep, _ = dry(ev(by="model:grok-bot\n", source="https://en.numista.com/catalogue/pieces185.html"))
         self.assertEqual(st, "rejected", rep)
 
+    def test_a_sub_source_model_id_passes_the_by_check(self):
+        """Owner, 2026-10-31: the Gemini API is one source with a sub-source per model (model:gemini-api:<model>)."""
+        st, rep, _ = dry(ev(by="model:gemini-api:gemini-3.6-flash", source="https://en.numista.com/catalogue/pieces185.html"))
+        self.assertFalse(any("must be owner, model:<id>" in r for r in rep), rep)
+        st, rep, _ = dry(ev(by="model:gemini-api:gemini-3.6-flash:extra", source="https://en.numista.com/catalogue/pieces185.html"))
+        self.assertTrue(any("must be owner, model:<id>" in r for r in rep), "only one sub-source level")
+
     def test_plain_owner_still_applies(self):
         st, rep, _ = dry(ev(by="owner"))
         self.assertEqual(st, "applied", rep)

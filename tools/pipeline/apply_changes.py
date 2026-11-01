@@ -336,7 +336,7 @@ class Applier:
             errs.append(f"ts '{e['ts']}' is in the future (today is {merge_day()}): use the real time in UTC")
         if e["entity"] not in ENTITIES: errs.append(f"entity '{e['entity']}' must be one of {ENTITIES}")
         if e.get("op", "set") not in ("set", "create"): errs.append(f"op '{e.get('op')}' must be 'set' or 'create'")
-        if not isinstance(e["by"], str) or not re.fullmatch(r"(owner|model:[\w.\-]+|script:[\w.\-]+|person:[\w.\- ]+)", e["by"]): errs.append(f"by '{e['by']}' must be owner, model:<id>, script:<name> or person:<name>")
+        if not isinstance(e["by"], str) or not re.fullmatch(r"(owner|model:[\w.\-]+(?::[\w.\-]+)?|script:[\w.\-]+|person:[\w.\- ]+)", e["by"]): errs.append(f"by '{e['by']}' must be owner, model:<id> (or model:<source>:<model>, a sub-source), script:<name> or person:<name>")
         if e.get("verified") and not (e["by"] == "owner" or e["by"].startswith("person:")): errs.append("only the owner (by: owner / person:<name>) can set verified: true; an AI never verifies its own work")
         if e["by"].startswith("model:"):
             if not (e.get("source") or "").strip(): errs.append("a model's fact needs a real 'source' (photo file, catalog, URL, reference)")

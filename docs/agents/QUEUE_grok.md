@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-01 03:39 UTC)
+# WORK QUEUE for Grok (updated 2026-11-01 03:44 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -244,5 +244,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 35; expired: 11.
-- Your facts checked by another contributor: 997 (981 confirmed, 16 wrong; error rate 1.6 %, 95 % range 1-3 %). Checks you did for others: 272. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 1 of 1.
+- Your facts checked by another contributor: 998 (982 confirmed, 16 wrong; error rate 1.6 %, 95 % range 1-3 %). Checks you did for others: 272. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 1 of 1.
 - Share of your new facts that get checked first: 15 %.

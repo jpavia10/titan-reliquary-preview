@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-01T01:12:01Z",
- "content_hash": "87fcc62fa54f24ef",
+ "generated_at": "2026-11-01T03:44:45Z",
+ "content_hash": "e52346d2518139e1",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:87fcc62fa54f24ef",
+  "ledger_version": "v3:e52346d2518139e1",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5389.74,
@@ -4563,6 +4563,16 @@
      "mint_text": "unknown (photo unclear · A Berlin or J Hamburg)",
      "mintage": 3509935000,
      "mintage_text": null,
+     "qualifier": null,
+     "year": 2002
+    },
+    {
+     "mint_marks": [
+      "J"
+     ],
+     "mint_text": "unknown (mint letter below 2002 date present but not legible at this resolution — unidentifiable bump; cannot confirm A/D/F/G/J)",
+     "mintage": 3509935000,
+     "mintage_text": "all mints: A 696,245,000 + D 721,950,000 + F 838,800,000 + G 494,300,000 + J 758,640,000 = 3,509,935,000 (circulation; BU-set and proof rows excluded)",
      "qualifier": null,
      "year": 2002
     }
@@ -22171,8 +22181,10 @@
    "insurance": null,
    "invoice_ref": null,
    "issue": {
-    "mint_marks": [],
-    "mint_text": "unknown (mint letter below 2002 date present but not legible at this resolution — unidentifiable bump; cannot confirm A/D/F/G/J)",
+    "mint_marks": [
+     "J"
+    ],
+    "mint_text": "J (Hamburg), right of the date",
     "mintage": 3509935000,
     "mintage_text": "all mints: A 696,245,000 + D 721,950,000 + F 838,800,000 + G 494,300,000 + J 758,640,000 = 3,509,935,000 (circulation; BU-set and proof rows excluded)",
     "qualifier": null,
@@ -22204,8 +22216,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-28T02:47:48Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-01T03:39:11Z",
+    "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26949,8 +26961,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:31:53Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-01T03:39:26Z",
+    "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28384,8 +28396,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-15T02:22:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-01T03:39:26Z",
+    "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39998,8 +40010,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-30T02:46:37Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-01T03:39:26Z",
+    "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41154,8 +41166,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-10T17:35:15Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-01T03:39:26Z",
+    "phase2_by": "model:gemini-api:gemini-3.6-flash"
    },
    "seller_type": null,
    "sentimental": null,
@@ -77870,11 +77882,10 @@
     "n": 2
    },
    "mint": {
-    "level": "checked",
-    "by": "Gemini + Muse",
-    "ts": "2026-10-23",
-    "source": "C037_obv.webp (C037_Germany_2002_10EuroCent_rev.jpeg): inspected at 4x zoom directly below the 2002 date under the Brandenburg Gate (above t",
-    "n": 2
+    "level": "photo",
+    "by": "Gemini API (3.6 Flash)",
+    "ts": "2026-11-01",
+    "source": "C037_obv.webp: mint mark J to the right of the date on photo C037_obv.webp (read by the Gemini API, gemini-3.6-flash)"
    },
    "catalog": {
     "level": "checked",
@@ -79658,6 +79669,12 @@
    }
   },
   "C060": {
+   "year": {
+    "level": "photo",
+    "by": "Gemini API (3.6 Flash)",
+    "ts": "2026-11-01",
+    "source": "C060_rev.webp: 1971 at the bottom of C060_rev.webp (read by the Gemini API, gemini-3.6-flash)"
+   },
    "denomination": {
     "level": "checked",
     "by": "Claude + Gemini",
@@ -80469,6 +80486,12 @@
    }
   },
   "C070": {
+   "year": {
+    "level": "photo",
+    "by": "Gemini API (3.6 Flash)",
+    "ts": "2026-11-01",
+    "source": "C070_obv.webp: Year written vertically as 2002 on C070_obv.webp next to BEATRIX (read by the Gemini API, gemini-3.6-flash)"
+   },
    "denomination": {
     "level": "reference",
     "by": "Muse",
@@ -91531,10 +91554,11 @@
   },
   "C212": {
    "year": {
-    "level": "photo",
-    "by": "Claude",
-    "ts": "2026-10-21",
-    "source": "read blind from photo photos/p1/C212_rev.webp (Claude spot check, full size)"
+    "level": "checked",
+    "by": "Claude + Gemini API",
+    "ts": "2026-11-01",
+    "source": "C212_rev.webp: 1997 at the top right of the reverse photo C212_rev.webp (read by the Gemini API, gemini-3.6-flash)",
+    "n": 2
    },
    "denomination": {
     "level": "checked",
@@ -95762,10 +95786,11 @@
     "n": 3
    },
    "mint": {
-    "level": "photo",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "C263_rev.webp: 'Mo' monogram before date 'Mo·1950' at bottom"
+    "level": "checked",
+    "by": "Gemini API + Grok",
+    "ts": "2026-11-01",
+    "source": "C263_rev.webp: Mint mark 'Mo' at the bottom of the reverse on C263_rev.webp (read by the Gemini API, gemini-3.6-flash)",
+    "n": 2
    },
    "catalog": {
     "level": "checked",

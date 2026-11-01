@@ -23,7 +23,7 @@ sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, "tools", "agents
 import ask as A            # noqa: E402  (tools/gemini/ask.py: key, retries, streaming)
 
 SOURCE = "gemini-api"
-PROMPT_VERSION = "GEMINI-API-HOMEWORK@2026-10-31"
+PROMPT_VERSION = "GEMINI-API-HOMEWORK@2026-11-01"
 SHEETS = os.path.join(ROOT, "docs", "agents", "homework", "sheets")
 STATE = os.path.join(ROOT, "docs", "agents", "homework", "assignments.json")
 INCOMING = os.path.join(ROOT, "collection", "_incoming")
@@ -45,7 +45,10 @@ NO_PHOTO = {"gemini-3.5-flash-lite": "misread 2 years, 7 face values and 3 mint 
 class Quota(Exception): pass
 
 SYSTEM = ("You read real coins from photographs for a private collection's records. Answer only from what you can see in the photos. "
-          "Never guess: when a detail is worn, hidden or outside the photo, answer null. Answer with one JSON object and nothing else.")
+          "Never guess: when a detail is worn, hidden or outside the photo, answer null. A mint mark is often on the OTHER side of the coin "
+          "(German pfennig and mark coins: the value side or the eagle side): when the side shown carries no letter you can point to, the "
+          "answer is null, never a letter you expect. Never name a letter at a spot where the photo shows none. Answer with one JSON object and nothing else.")
+# 2026-11-01, first sheet run: two of six German mint answers named a letter at a blank spot (C048 '1 DM, above the 1'; C018 '1 Pf, bottom right')
 HOW = {"issue.year": "the year on the coin as a number (the Western year: convert a Hijri, Showa, Heisei or ROC date and say so in `seen`)",
        "issue.mint_marks": 'the mint letters as a list, e.g. ["D"], or [] when you can see the whole coin and it has none',
        "issue.mint_text": 'one short phrase: the mark and where it is, e.g. "D (Denver), right of the date", or "no mint mark"',
