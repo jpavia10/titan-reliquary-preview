@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-02 01:30 UTC)
+# WORK QUEUE for Muse (updated 2026-11-03 03:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -59,18 +59,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-muse-value-20261023-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-02  (fix list #62)
-
-For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
-
-**Done when:** One change file; coins without a price page left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-value-20261023-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
-
-### 2. HW-muse-fill-20261028-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-07  (fix list #72)
+### 1. HW-muse-fill-20261028-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-07  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -82,7 +71,7 @@ Items:
 - **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces42670.html
 - **C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces14370.html
 
-### 3. HW-muse-read-mint-20261028-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-04  (fix list #57)
+### 2. HW-muse-read-mint-20261028-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-04  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -93,7 +82,7 @@ Phase 1 cannot finish until every coin's mint mark is read. Open each coin's pho
 Items:
 - **C298 · Italy · 1978 · 50 lire · ITL**: mint text now «not visible on the Vulcan side». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp. Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 
-### 4. HW-muse-read-mint-20261029-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-05  (fix list #57)
+### 3. HW-muse-read-mint-20261029-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-05  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -106,7 +95,7 @@ Items:
 - **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: mint text now «unknown (letter under date unclear (soft D/G candidate))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp (original: https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
 - **C287 · Italy · 1979 · 50 lire · ITL**: mint text now «not read on photo». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
 
-### 5. HW-muse-cite-20261030-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-06  (fix list #72)
+### 4. HW-muse-cite-20261030-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-06  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -120,7 +109,7 @@ Items:
 - **JM 10 dollars (JM.KM.190)** coins C230. Ask: issues.0.mintage: 2015
 - **TT 25 cents (TT.KM.32)** coins C204. Ask: issues.0.mintage: 2014
 
-### 6. HW-muse-verify-20261030-1 · Second reader · Check 4 facts another AI wrote · due 2026-11-06  (fix list #18)
+### 5. HW-muse-verify-20261030-1 · Second reader · Check 4 facts another AI wrote · due 2026-11-06  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -134,7 +123,7 @@ Items:
 - **mintage of C053 · Germany · 2011 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.255 issues.2.mintage`
 - **mintage of C102 · Germany · 2015 · 20 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.255 issues.3.mintage`
 
-### 7. HW-muse-arbitrate-20261030-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
+### 6. HW-muse-arbitrate-20261030-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -145,7 +134,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0135 PH.X.1-piso legal_tender.text**: record `current (Philippine piso, 1967–date; New Design Series)` (model:gemini: «https://en.numista.com/catalogue/pieces1681.html (Features: 'Value: 1 Peso (1 piso) (1 PHP = USD 0.016)'; 'Currency: Pi…») vs claim `current (Philippine piso, 1967–date; BSP series)` (model:claude: «C279 is the 1997 1 piso with Rizal, the BSP series (KM#269, https://www.coin-brothers.com/catalog/coin2524), not the Ne…»)
 
-### 8. HW-muse-arbitrate-20261101-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-08  (fix list #18)
+### 7. HW-muse-arbitrate-20261101-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-08  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -161,7 +150,7 @@ Items:
 - **D0146 C237 issue.mint_marks**: record `["D"]` (None: «null») vs claim `["G"]` (model:gemini-api:gemini-3.6-flash: «C237_obv.webp: mint mark letter G after 1971 on C237_obv.webp (read by the Gemini API, gemini-3.6-flash)»)
 - **D0147 C018 issue.mint_marks**: record `["G"]` (None: «null») vs claim `["D"]` (model:gemini-api:gemini-3.6-flash: «C018_obv.webp: mint mark 'D' at the bottom right of the obverse in C018_obv.webp (read by the Gemini API, gemini-3.6-fl…»)
 
-### 9. HW-muse-verify-20261101-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-08  (fix list #18)
+### 8. HW-muse-verify-20261101-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-08  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -172,7 +161,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **mint of C037 · Germany · 2002 · 10 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C037 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C037_obv.webp (original: https://drive.google.com/file/d/1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c/view)
 
-### 10. HW-muse-arbitrate-20261101-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-08  (fix list #18)
+### 9. HW-muse-arbitrate-20261101-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-08  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -201,6 +190,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 57; expired: 2.
+- Assignments answered: 57; expired: 3.
 - Your facts checked by another contributor: 642 (626 confirmed, 16 wrong; error rate 2.5 %, 95 % range 2-4 %). Checks you did for others: 386. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 15 %.

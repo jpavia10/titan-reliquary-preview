@@ -1,51 +1,7 @@
 {
  "agent": "muse",
- "updated": "2026-11-02T01:30:24Z",
+ "updated": "2026-11-03T03:28:36Z",
  "assignments": [
-  {
-   "id": "HW-muse-value-20261023-1",
-   "agent": "muse",
-   "kind": "value",
-   "issued": "2026-10-23T17:49:40Z",
-   "lease_until": "2026-11-02T17:49:40Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "value:C300",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "value"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "value:C300",
-     "kind": "value",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "value",
-     "coins": [
-      "C300"
-     ],
-     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
-     "authors": [],
-     "payload": {
-      "est_usd": 0.25,
-      "confidence": "low",
-      "silver_oz": null,
-      "melt_usd": null,
-      "photos": [],
-      "stale_since": null,
-      "numista_prices": null,
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
   {
    "id": "HW-muse-fill-20261028-1",
    "agent": "muse",

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-02 01:30 UTC)
+# WORK QUEUE for Grok (updated 2026-11-03 03:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -47,18 +47,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-grok-research-20261023-1 · Researcher · Answer 1 open research questions · due 2026-11-02  (fix list #3)
-
-Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.
-
-**Done when:** One change file; questions you could not settle left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-research-20261023-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C300 · Bahamas · 1984 · 25 cents · BSD** (BS.X.25-cents): «Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "refs": "KM#63.1 · Schön#38 · Numista#9352", "metal": "nickel · 6.90 g · 24.26 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "unknown", "design": "obverse coat…»
-
-### 2. HW-grok-arbitrate-20261030-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-06  (fix list #18)
+### 1. HW-grok-arbitrate-20261030-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-06  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -70,7 +59,7 @@ Items:
 - **D0126 DE.X.spielmarke-20-gr design.text**: record `obverse Fraktur monogram GR in a ring of stars (15 on T002; T001's count is an open owner…` (model:claude: «photos T002_Germany_ND_Spielmarke20_obv.jpeg + T002_Germany_ND_Spielmarke20_rev.jpeg (photos/p1/T002_obv.webp, T002_rev…») vs claim `obverse Gothic monogram GR within ring of 16 five-pointed stars · reverse 20 within laure…` (model:gemini: «T002_Germany_ND_Spielmarke20_obv.jpeg and T002_Germany_ND_Spielmarke20_rev.jpeg (also visible in album slot labeled 'Sp…»)
 - **D0128 C031 issue.mint_marks**: record `["S"]` (None: «null») vs claim `[]` (model:muse-spark: «Photo read: C031_rev.webp - reverse reads AUSTRALIA / 19|43 / THREE PENCE between the wheat ears; the mint-letter posit…»)
 
-### 3. HW-grok-cite-20261030-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-06  (fix list #72)
+### 2. HW-grok-cite-20261030-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-06  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -81,7 +70,7 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 Items:
 - **MX 20 pesos (MX.X.20-pesos)** coins C304. Ask: issues.1.mintage: 1981 Mo
 
-### 4. HW-grok-story-check-20261030-1 · Fact-checker · Fact-check 3 coin stories · due 2026-11-06  (fix list #73)
+### 3. HW-grok-story-check-20261030-1 · Fact-checker · Fact-check 3 coin stories · due 2026-11-06  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -94,7 +83,7 @@ Items:
 - **C257 · Mexico · 1967 · 20 centavos · MXP**: «A 1967 20-centavo coin from Mexico. The front shows the coat of arms of Mexico. The back shows the Pyramid of the Sun at Teotihuacan. Two volcanoes stand behind it. Their names are Popocatépetl and Iztaccíhuatl. A liberty cap shines above the pyramid. The back also has a big 20, the word CENTAVOS, the date 1967, and the Mo mint mark. The coin is made of brass. The brass is 95% copper and 5% zinc.» Record: «{"country": "Mexico", "year": "1967", "denom": "20 centavos · MXP", "mint": "Mo", "refs": "KM#440 · Schön#51 · Numista#959", "metal": "bronze · 10.00 g · 28.5 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness unknown · coin alignment · same Teotihuacan type as C244", "mintage": "46,847,000 (1967 Mo)", "design": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztac…»
 - **C279 · Philippines · 1997 · 1 piso · PHP**: «A 1997 1-piso coin from the Philippines. The side in the photo shows José Rizal. He is a national hero of the Philippines. The coin says Republika ng Pilipinas. That means Republic of the Philippines in English. It also has a big 1, the word PISO, and the date 1997.» Record: «{"country": "Philippines", "year": "1997", "denom": "1 piso · PHP", "mint": "no mint mark visible", "refs": "KM#269 · Schön#119 · Numista#1681", "metal": "copper-nickel · 6.10 g · 24 mm · reeded", "specs": "thickness 1.75 mm · medal alignment", "mintage": "unknown", "design": "obverse bust of José Rizal right · 1 PISO · REPUBLIKA NG PILIPINAS · reverse Bangko Sentral ng Pilipinas seal · date", "p…»
 
-### 5. HW-grok-verify-20261030-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-06  (fix list #18)
+### 4. HW-grok-verify-20261030-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-06  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -179,7 +168,7 @@ Items:
 - **ruler of C140 · Spain · 2008 · 1 euro cent · EUR** `type ES.KM.1040 ruler` = `Juan Carlos I` (written by Muse: «https://en.numista.com/catalogue/pieces81.html (Numista N#81) Features Issuer line: 'Spain King Juan Carlos I ( 1975-2014 )'. Record had no»)
 - **ruler of C142 · Netherlands · 2000 · 1 euro cent · EUR** `type NL.KM.234 ruler` = `Beatrix` (written by Muse: «https://en.numista.com/catalogue/pieces145.html (Numista N#145) Features Issuer line: 'Netherlands Queen Beatrix ( 1980-2013 )'. Record had»)
 
-### 6. HW-grok-verify-20261030-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-06  (fix list #18)
+### 5. HW-grok-verify-20261030-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-06  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -190,7 +179,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **design of C230 · Jamaica · 2015 · 10 dollars · JMD** `type JM.KM.190 design.text` = `arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date` (written by Claude: «disagreement D0134 settled for the claim (Muse): a type's side text names the varying year as 'date' (the type runs from 2008, https://en.nu»)
 
-### 7. HW-grok-arbitrate-20261030-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
+### 6. HW-grok-arbitrate-20261030-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-06  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -200,6 +189,28 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 
 Items:
 - **D0136 C015 issue.mint_marks**: record `["B"]` (model:gemini: «C015_rev.webp / C015_Switzerland_1971_HalfFranc_rev.jpeg (read mint mark 'B' below the wreath ribbon tie under ½ Fr. 19…») vs claim `[]` (model:claude: «Swiss circulation coins dated 1970-1985 carry no B (Bern left it off; https://coinvarieties.com/index.php/Switzerland_1…»)
+
+### 7. HW-grok-research-20261103-1 · Researcher · Answer 1 open research questions · due 2026-11-13  (fix list #3)
+
+Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.
+
+**Done when:** One change file; questions you could not settle left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-research-20261103-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C300 · Bahamas · 1984 · 25 cents · BSD** (BS.X.25-cents): «Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "refs": "KM#63.1 · Schön#38 · Numista#9352", "metal": "nickel · 6.90 g · 24.26 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "unknown", "design": "obverse coat…»
+
+### 8. HW-grok-value-20261103-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-13  (fix list #62)
+
+For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
+
+**Done when:** One change file; coins without a price page left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-value-20261103-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
 ## Projects (after the homework)
 
@@ -243,6 +254,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 35; expired: 11.
+- Assignments answered: 35; expired: 12.
 - Your facts checked by another contributor: 998 (982 confirmed, 16 wrong; error rate 1.6 %, 95 % range 1-3 %). Checks you did for others: 272. Open disagreements you are part of: 2. Values planted wrong on purpose in your checks: you caught 1 of 1.
 - Share of your new facts that get checked first: 15 %.
