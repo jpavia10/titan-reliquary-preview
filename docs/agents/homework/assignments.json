@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-04T15:35:18Z",
+ "updated": "2026-11-04T15:52:55Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -129,7 +129,7 @@
   "grok-story-check-20261104": 1,
   "grok-verify-20261104": 1,
   "gemini-arbitrate-20261104": 1,
-  "gemini-api-verify-20261104": 1,
+  "gemini-api-verify-20261104": 2,
   "muse-verify-20261104": 1,
   "muse-arbitrate-20261104": 2,
   "grok-arbitrate-20261104": 1
@@ -24571,6 +24571,24 @@
      "item": "arb:D0152",
      "entity": "specimen",
      "id": "C031",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-api-verify-20261104-2",
+   "agent": "gemini-api",
+   "kind": "verify",
+   "issued": "2026-11-04T15:52:55Z",
+   "lease_until": "2026-11-11T15:52:55Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C053:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C053",
      "field": "issue.mint_marks"
     }
    ]

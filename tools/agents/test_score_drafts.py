@@ -87,6 +87,15 @@ class Drafts(unittest.TestCase):
         for st in ("20261015-2244", "20261015-2245", "20261015-2246", "20261019-2316"): self.assertIn(("grok", st), s)
         self.assertIn(("gemini", "20261012-1626"), s); self.assertIn(("gemini", "20261012-1633"), s)
 
+    def test_the_gemini_api_section_is_its_own_source(self):
+        """2026-11-04: '## Gemini API (...)' was read as Gemini, so the API's files never left the drafts page."""
+        card = SCORES + "\n## Gemini API (run by Claude)\n\n| # | Date | Submission | Score | Notes |\n|---|---|---|---|---|\n" \
+            "| 1 | 2026-11-01 | `changes_gemini-api_20261101-0343.jsonl` | **6 / 10** | x |\n| 2 | 2026-11-01 | `-0356` | **6 / 10** | x |\n"
+        s = SD.scored(card)
+        self.assertIn(("gemini-api", "20261101-0343"), s); self.assertIn(("gemini-api", "20261101-0356"), s)
+        self.assertNotIn(("gemini", "20261101-0343"), s)
+        self.assertIn(("gemini", "20261012-1626"), s)
+
     def test_a_claude_file_in_a_row_is_not_the_ais_and_a_late_file_of_the_day_is_drafted(self):
         """2026-10-24: Muse's rows named changes_claude_20261024-0641/-0643, which hid 21 late Muse files stamped before them."""
         card = SCORES.replace("| 2 | 2026-10-17 |", "| 3 | 2026-10-24 | `changes_muse_20261024-0552.jsonl`, corrected by `changes_claude_20261024-0641/-0643` | **10 / 10** | x |\n| 2 | 2026-10-17 |")

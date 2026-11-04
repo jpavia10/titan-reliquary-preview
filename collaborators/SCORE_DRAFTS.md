@@ -3,37 +3,4 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-## Gemini
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_gemini_20261031-1801.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 2 in the change log, 0 filed as disagreements; answered 2 of 2 items of HW-gemini-plain-story-20261030-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261031-1802.jsonl` | **7 / 10** | 2 | 2 | 0 | 2 | 1 | 2 lines: 1 in the change log, 1 filed as disagreements; answered 2 of 2 items of HW-gemini-verify-20261030-1 (with its other files for the same sheet); D0149 went against it (FR.KM.929 issues.1.mintage: D0149 third reader: https://fr.cnumis.com/catalogue/france-franc/type/10-centimes-marianne); cross-checked so far: 1 held, 1 wrong |
-| `changes_gemini_20261031-1803.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 5 lines: 5 in the change log, 0 filed as disagreements; answered 4 of 4 items of HW-gemini-cite-20261030-1 (with its other files for the same sheet); cross-checked so far: 5 held, 0 wrong |
-| `changes_gemini_20261031-1804.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 5 lines: 5 in the change log, 0 filed as disagreements; answered 5 of 5 items of HW-gemini-arbitrate-20261030-2 (with its other files for the same sheet); nothing cross-checked yet |
-
-## Gemini API
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_gemini-api_20261101-0343.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 12 lines: 6 in the change log, 6 filed as disagreements; answered 11 of 42 items of HW-gemini-api-read-mint-20261031-1, HW-gemini-api-verify-20261031-1 (with its other files for the same sheet); cross-checked so far: 4 held, 0 wrong |
-| `changes_gemini-api_20261101-0356.jsonl` | **7 / 10** | 2 | 2 | 3 | 0 | 0 | 3 lines: 2 in the change log, 1 filed as disagreements; answered 3 of 15 items of HW-gemini-api-verify-20261101-1 (with its other files for the same sheet); 1 verify answer(s) on its own earlier fact; cross-checked so far: 2 held, 0 wrong |
-| `changes_gemini-api_20261104-1534.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 0 in the change log, 2 filed as disagreements; answered 2 of 2 items of HW-gemini-api-verify-20261104-1 (with its other files for the same sheet); nothing cross-checked yet |
-
-## Grok
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_grok_20261031-1059.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 2 lines: 2 in the change log, 0 filed as disagreements; answered 2 of 8 items of HW-grok-arbitrate-20261030-1 (with its other files for the same sheet); cross-checked so far: 2 held, 0 wrong |
-| `changes_grok_20261031-1100.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-grok-arbitrate-20261030-2 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_grok_20261031-1101.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-grok-cite-20261030-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
-| `changes_grok_20261031-1102.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 3 lines: 3 in the change log, 0 filed as disagreements; answered 3 of 3 items of HW-grok-story-check-20261030-1 (with its other files for the same sheet); cross-checked so far: 3 held, 0 wrong |
-| `changes_grok_20261031-1103.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 72 lines: 71 in the change log, 1 filed as disagreements; answered 72 of 75 items of HW-grok-verify-20261030-1 (with its other files for the same sheet); cross-checked so far: 76 held, 0 wrong |
-| `changes_grok_20261031-1104.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-grok-verify-20261030-2 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
-
-## Muse
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_muse_20261031-1056.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; answered 4 of 4 items of HW-muse-verify-20261030-1 (with its other files for the same sheet); cross-checked so far: 4 held, 0 wrong |
-| `changes_muse_20261031-1057.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-muse-arbitrate-20261030-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+Nothing waiting: every outside AI's file is scored.

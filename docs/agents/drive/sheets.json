@@ -216,6 +216,19 @@
      "lines": 1
     }
    ]
+  },
+  "gemini-api": {
+   "name": "Gemini API",
+   "sheets": [
+    {
+     "id": "HW-gemini-api-verify-20261104-2",
+     "kind": "verify",
+     "due": "2026-11-11",
+     "path": "docs/agents/homework/sheets/HW-gemini-api-verify-20261104-2.jsonl",
+     "sha256": "020bdb9ba3172e9d348c5bd1bf6e5995850af3fc7713d8ba30e8d31a30e944dd",
+     "lines": 1
+    }
+   ]
   }
  }
 }

@@ -10,9 +10,9 @@ from smoke import ROOT, CHROMIUM
 from playwright.sync_api import sync_playwright
 
 # themes from before portraits were required; they show their CSS swatch. Do not add new ids here.
-LEGACY_NO_ART = {"marbled", "cathedral", "contour", "banknote", "freefall", "sketch", "papercut", "y2k"}
+LEGACY_NO_ART = set()   # the last eight (marbled, cathedral, contour, banknote, freefall, sketch, papercut, y2k) got their art 2026-11-04 (artreq_20261031-0300_theme-art-eight-missing)
 # owner rule 9 (CLAUDE.md): art is never rendered by code; a theme whose card is requested in the art queue shows its CSS swatch until it lands
-AWAITING_ART = {"obsidian"}   # docs/art/requests/artreq_20261028-1630_theme-art-obsidian-lightwell-redo.json (the 2026-10-25 obsidian art missed the gold sun, jade and coin; rejected 2026-10-28)
+AWAITING_ART = set()   # obsidian landed 2026-11-04 (artreq_20261028-1630_theme-art-obsidian-lightwell-redo, Grok take 1)
 LEGACY_NO_ART |= AWAITING_ART
 
 MEASURE = r"""() => {

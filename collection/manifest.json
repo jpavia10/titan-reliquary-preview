@@ -19,7 +19,7 @@
   "photos": 243,
   "valuations": 635,
   "spot_days": 52,
-  "changes": 8299,
+  "changes": 8302,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "9e84faa1625c32057dfd426aed0e90c8745b1c4a54c190c2255cc92826605226",
+ "content_hash": "a6ce9f23df405726309730143d19361b65a0b096b1f13e27f9d3aaf523d184d8",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -79,13 +79,13 @@
   },
   {
    "path": "changes.chain",
-   "sha256": "27a78da975bd5a4143c34d12fb714713b0e7a1b4faac6b822260e2422482731e",
-   "bytes": 326490
+   "sha256": "59d838bf6e40f65771e287f8cd82d61d159451d1979d71c044329117f33b4b0f",
+   "bytes": 326655
   },
   {
    "path": "changes.jsonl",
-   "sha256": "28e679e3322a1166bd3a5e3e75dab45c838ea1cdc6298f179cf38a3ebd2e2130",
-   "bytes": 6290862
+   "sha256": "a71e7fe1c348ebf38a7c6bf1368e9f3c1c562917492900ad5baba199fdbcc0b6",
+   "bytes": 6293160
   },
   {
    "path": "disagreements.jsonl",
@@ -244,8 +244,8 @@
   },
   {
    "path": "specimens/DE.json",
-   "sha256": "28d82a90a659f32dfe3feaf1c3891691f8cd451a503416a193e88c1cc582a282",
-   "bytes": 124633
+   "sha256": "c7fc4964c76b0b2958e0b2122e4dfd1d247d2ac81b9677b6b576706a25cddc8f",
+   "bytes": 124490
   },
   {
    "path": "specimens/EC.json",
@@ -519,8 +519,8 @@
   },
   {
    "path": "types/DE.json",
-   "sha256": "b9fa0d8da9038586039c0c66372543d130b56e831e38315c123a90d22a8115de",
-   "bytes": 39040
+   "sha256": "382bc913fcd314796fff1c931b1bd69ce196e5632a45b96c9f8c5925d9bea8db",
+   "bytes": 39042
   },
   {
    "path": "types/EC.json",

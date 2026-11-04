@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-04T15:34:51Z",
- "content_hash": "9e84faa1625c3205",
+ "generated_at": "2026-11-04T15:52:55Z",
+ "content_hash": "a6ce9f23df405726",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:9e84faa1625c3205",
+  "ledger_version": "v3:a6ce9f23df405726",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5389.74,
@@ -5082,7 +5082,7 @@
      "mint_marks": [
       "F"
      ],
-     "mint_text": "J · Hamburg",
+     "mint_text": "F · Stuttgart",
      "mintage": 39644000,
      "mintage_text": null,
      "qualifier": null,
@@ -5092,7 +5092,7 @@
      "mint_marks": [
       "F"
      ],
-     "mint_text": "G · Karlsruhe",
+     "mint_text": "F · Stuttgart",
      "mintage": 27393000,
      "mintage_text": null,
      "qualifier": null,
@@ -22672,14 +22672,12 @@
    "provenance_chain": null,
    "related_specimens": null,
    "research": {
-    "open_questions": [
-     "Mint letter reads F (Stuttgart) on the Phase 1 photo; the record says J. Confirm at Phase 2 (pro photos); the owner's pen label may be wrong."
-    ],
+    "open_questions": [],
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-24T19:33:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-04T15:58:00Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -79232,7 +79230,7 @@
     "n": 2
    },
    "mint": {
-    "level": "review",
+    "level": "photo",
     "by": "Grok",
     "ts": "2026-10-28",
     "source": "C053_obv.webp (photos/p1): mint letter F under date"

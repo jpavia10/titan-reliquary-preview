@@ -49,8 +49,8 @@ def scored(text):
     follow them in the same row ('changes_muse_20261003-2208/-2215/-2232', '..2249', '-20261019-2316', '-1626/-1633' with the row's date)."""
     out = set(); agent = None
     for row in text.splitlines():
-        h = re.match(r"^##\s+(\w+)", row)
-        if h: agent = _agent(h.group(1).lower()); continue
+        h = re.match(r"^##\s+(\w+(?:\s+API\b)?)", row)          # '## Gemini API (...)' is its own source, not Gemini
+        if h: agent = _agent(re.sub(r"\s+", "-", h.group(1).lower())); continue
         if agent is None or not row.startswith("|"): continue
         dm = re.search(r"\|\s*(\d{4})-(\d{2})-(\d{2})", row); day = "".join(dm.groups()) if dm else None
         prev = None; foreign = False

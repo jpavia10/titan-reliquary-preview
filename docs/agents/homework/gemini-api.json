@@ -1,5 +1,64 @@
 {
  "agent": "gemini-api",
- "updated": "2026-11-04T15:35:18Z",
- "assignments": []
+ "updated": "2026-11-04T15:52:55Z",
+ "assignments": [
+  {
+   "id": "HW-gemini-api-verify-20261104-2",
+   "agent": "gemini-api",
+   "kind": "verify",
+   "issued": "2026-11-04T15:52:55Z",
+   "lease_until": "2026-11-11T15:52:55Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C053:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C053",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:specimen:C053:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C053",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C053"
+     ],
+     "label": "mint of C053 · Germany · 2011 · 20 euro cent · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Grok",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C053_obv.webp",
+        "file": "C053_obv.webp",
+        "original": "C053_Germany_2011-J_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C053_obv.webp"
+     ]
+    }
+   ]
+  }
+ ]
 }
