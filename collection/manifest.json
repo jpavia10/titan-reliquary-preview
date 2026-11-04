@@ -18,7 +18,7 @@
   "countries": 51,
   "photos": 243,
   "valuations": 635,
-  "spot_days": 52,
+  "spot_days": 55,
   "changes": 8302,
   "lots_by_kind": {
    "bullion": 21,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "a6ce9f23df405726309730143d19361b65a0b096b1f13e27f9d3aaf523d184d8",
+ "content_hash": "93496b33a896ab82cbe885a2b1f50bd2119800dc1475fdc8cf4887338d14926b",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -114,7 +114,7 @@
   },
   {
    "path": "prices/latest.json",
-   "sha256": "a03675ad9bb2a863c8afb6a3786c613e224e2b99fddd95506e7148a92b3e4613",
+   "sha256": "b86aa14eee4856af1858ccb5374c0e01eb6df587e3c7640e1878b120ef701892",
    "bytes": 148
   },
   {
@@ -124,8 +124,8 @@
   },
   {
    "path": "prices/spot_daily.jsonl",
-   "sha256": "6d3c88056b05b8ecf4c867c287c986b11c32664e42d05a67755b834447df6d69",
-   "bytes": 8905
+   "sha256": "0b628ee6a412e78a151c4e9b731993682232dbd7ec4f94e1737fec044fc90da0",
+   "bytes": 9202
   },
   {
    "path": "prices/wants_values_gemini_20261024-1910.json",
