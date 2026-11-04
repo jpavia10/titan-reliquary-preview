@@ -7,6 +7,8 @@ splash). On a phone and a desktop, with the opening forced on (?splash=1), for a
   2. no <video> element is ever added to the splash
   3. the opening ends and the app is visible
   4. an Opening setting stored before the change ("both", "film", "mix") reads as the theme's own opening
+Graphics Low is set through the user's choice key tr_quality_v1 (2026-11-04: the test used the tr_quality mirror, which wings/quality.js
+rewrites on load, so desktop ran Supercell at Ultra; on the CI runner a frame took 13-24 s and the opening missed the 90 s wait).
 
   python3 tools/smoke/test_regress_grk_p02.py      (serves this repo itself, like smoke.py; needs playwright + Chromium)
 Exit code 0 = all pass.
@@ -40,7 +42,7 @@ def main():
             for theme, stored in (("supercell", "both"), ("kaleido", "film")):
                 ctx = b.new_context(viewport=vp, is_mobile=mobile, has_touch=mobile); p = ctx.new_page(); vids = []
                 p.on("request", lambda r: vids.append(r.url) if ("/art/splash/" in r.url or r.url.split("?")[0].endswith((".mp4", ".webm"))) else None)
-                p.add_init_script("localStorage.setItem('tr_atmo_v1', %r); localStorage.setItem('titan.opening', %r); localStorage.setItem('tr_quality', 'low');"
+                p.add_init_script("localStorage.setItem('tr_atmo_v1', %r); localStorage.setItem('titan.opening', %r); localStorage.setItem('tr_quality_v1', 'low');"
                                   "new MutationObserver(function (m) { m.forEach(function (r) { r.addedNodes.forEach(function (n) { if (n.tagName === 'VIDEO' && n.closest && n.closest('#tr-splash')) window.__vid = 1; }); }); })"
                                   ".observe(document, { childList: true, subtree: true });" % (theme, stored))
                 p.goto(base + "?splash=1#hall")
