@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini API) -->
-# WORK QUEUE for Gemini API (updated 2026-11-01 04:42 UTC)
+# WORK QUEUE for Gemini API (updated 2026-11-04 15:35 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -14,9 +14,9 @@ Run the main blind photo pack (tools/bakeoff/make_pack.py, 30 coins) through eac
 
 **Done when:** Each model has a row in collaborators/MODEL_ACCURACY.md and docs/agents/homework/calibration.jsonl.
 
-## Calibration test due: the main photo pack (30 coins)  (fix list #4)
+## Calibration test due: the locked photo pack (15 coins)  (fix list #19)
 
-Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-main and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-main/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_gemini-api_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack.
+Open https://github.com/jpavia10/titan-reliquary-preview/tree/main/docs/bakeoff/pack-20261008-locked and follow its PROMPT.md (raw: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/bakeoff/pack-20261008-locked/PROMPT.md). Answer ONLY from the photos: never search this repository or its data for the coins. Save `bakeoff_gemini-api_YYYYMMDD-HHMM.json` in Drive `Titan Reliquary/bakeoff (blind photo test)/` (or reply with it in chat). This is your first time with this pack. Its coin ids exist only in Claude's locked key; it decides which AI reads the Phase 2 pro photos.
 
 **Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.
 
@@ -30,6 +30,6 @@ Whenever NOID photos appear in Drive STAGING, Claude runs each new photo through
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 3; expired: 0.
-- Your facts checked by another contributor: 3 (3 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-56 %). Checks you did for others: 6. Open disagreements you are part of: 7.
+- Assignments answered: 4; expired: 0.
+- Your facts checked by another contributor: 3 (3 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-56 %). Checks you did for others: 6. Open disagreements you are part of: 9.
 - Share of your new facts that get checked first: 100 %.

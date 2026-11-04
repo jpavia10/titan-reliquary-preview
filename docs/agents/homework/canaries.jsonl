@@ -18,3 +18,8 @@
 {"ts": "2026-10-30T02:50:00Z", "assignment": "HW-gemini-verify-20261024-2", "agent": "gemini", "item": "verify:type:DE.X.spielmarke-20-gr:design.text", "outcome": "caught"}
 {"ts": "2026-10-30T02:38:49Z", "assignment": "HW-muse-verify-20261024-2", "agent": "muse", "item": "verify:type:DE.KM.108:composition.text", "outcome": "caught"}
 {"ts": "2026-10-30T02:46:37Z", "assignment": "HW-muse-verify-20261028-2", "agent": "muse", "item": "verify:type:EC.KM.37:design.text", "outcome": "caught"}
+{"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:US.KM.204:period", "outcome": "caught"}
+{"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:KR.KM.35.2:period", "outcome": "caught"}
+{"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:JM.KM.189:ruler", "outcome": "caught"}
+{"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:MX.X.10-centavos:period", "outcome": "caught"}
+{"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:ES.KM.1042:ruler", "outcome": "caught"}

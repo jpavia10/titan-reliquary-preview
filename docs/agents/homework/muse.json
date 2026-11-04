@@ -1,51 +1,7 @@
 {
  "agent": "muse",
- "updated": "2026-11-01T04:42:27Z",
+ "updated": "2026-11-04T15:35:18Z",
  "assignments": [
-  {
-   "id": "HW-muse-value-20261023-1",
-   "agent": "muse",
-   "kind": "value",
-   "issued": "2026-10-23T17:49:40Z",
-   "lease_until": "2026-11-02T17:49:40Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "value:C300",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "value"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "value:C300",
-     "kind": "value",
-     "entity": "specimen",
-     "id": "C300",
-     "field": "value",
-     "coins": [
-      "C300"
-     ],
-     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
-     "authors": [],
-     "payload": {
-      "est_usd": 0.25,
-      "confidence": "low",
-      "silver_oz": null,
-      "melt_usd": null,
-      "photos": [],
-      "stale_since": null,
-      "numista_prices": null,
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
   {
    "id": "HW-muse-fill-20261028-1",
    "agent": "muse",
@@ -545,241 +501,6 @@
    ]
   },
   {
-   "id": "HW-muse-verify-20261030-1",
-   "agent": "muse",
-   "kind": "verify",
-   "issued": "2026-10-30T06:08:06Z",
-   "lease_until": "2026-11-06T06:08:06Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:CH.KM.21a:issues.3.mintage",
-     "entity": "type",
-     "id": "CH.KM.21a",
-     "field": "issues.3.mintage"
-    },
-    {
-     "item": "verify:type:IT.KM.95.1:issues.4.mintage",
-     "entity": "type",
-     "id": "IT.KM.95.1",
-     "field": "issues.4.mintage"
-    },
-    {
-     "item": "verify:type:DE.KM.255:issues.2.mintage",
-     "entity": "type",
-     "id": "DE.KM.255",
-     "field": "issues.2.mintage"
-    },
-    {
-     "item": "verify:type:DE.KM.255:issues.3.mintage",
-     "entity": "type",
-     "id": "DE.KM.255",
-     "field": "issues.3.mintage"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:CH.KM.21a:issues.3.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a",
-     "field": "issues.3.mintage",
-     "coins": [
-      "C014"
-     ],
-     "label": "mintage of C014 · Switzerland · 1974 · 2 francs · CHF",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 1974,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:IT.KM.95.1:issues.4.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.95.1",
-     "field": "issues.4.mintage",
-     "coins": [
-      "C299"
-     ],
-     "label": "mintage of C299 · Italy · 1979 · 50 lire · ITL",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.4.mintage": {
-       "year": 1979,
-       "mint": [
-        "R"
-       ],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:DE.KM.255:issues.2.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.255",
-     "field": "issues.2.mintage",
-     "coins": [
-      "C053"
-     ],
-     "label": "mintage of C053 · Germany · 2011 · 20 euro cent · EUR",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.2.mintage": {
-       "year": 2011,
-       "mint": [
-        "F"
-       ],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:DE.KM.255:issues.3.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "DE.KM.255",
-     "field": "issues.3.mintage",
-     "coins": [
-      "C102"
-     ],
-     "label": "mintage of C102 · Germany · 2015 · 20 euro cent · EUR",
-     "authors": [
-      "grok"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Grok",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 2015,
-       "mint": [
-        "F"
-       ],
-       "qualifier": null
-      }
-     }
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-arbitrate-20261030-1",
-   "agent": "muse",
-   "kind": "arbitrate",
-   "issued": "2026-10-30T06:51:09Z",
-   "lease_until": "2026-11-06T06:51:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0135",
-     "entity": "type",
-     "id": "PH.X.1-piso",
-     "field": "legal_tender.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0135",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "PH.X.1-piso",
-     "field": "legal_tender.text",
-     "coins": [
-      "C279"
-     ],
-     "label": "D0135 PH.X.1-piso legal_tender.text",
-     "authors": [
-      "claude",
-      "gemini"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:gemini",
-       "source": "https://en.numista.com/catalogue/pieces1681.html (Features: 'Value: 1 Peso (1 piso) (1 PHP = USD 0.016)'; 'Currency: Piso (1967-date)'; 'Series: New Design Series') [phase 2; confidence high]",
-       "ts": "2026-10-30T04:57:00Z",
-       "value": "current (Philippine piso, 1967–date; New Design Series)"
-      },
-      "claim": {
-       "value": "current (Philippine piso, 1967–date; BSP series)",
-       "by": "model:claude",
-       "source": "C279 is the 1997 1 piso with Rizal, the BSP series (KM#269, https://www.coin-brothers.com/catalog/coin2524), not the New Design Series (1983-1994); corrects the series named in changes_gemini_20261030-0457",
-       "ts": "2026-10-30T07:10:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
    "id": "HW-muse-arbitrate-20261101-1",
    "agent": "muse",
    "kind": "arbitrate",
@@ -1132,6 +853,204 @@
        "by": "model:gemini-api:gemini-3.6-flash",
        "source": "C225_obv.webp: year 1971 shown at the bottom of C225_obv.webp (read by the Gemini API, gemini-3.6-flash)",
        "ts": "2026-11-01T03:54:33Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261104-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-04T15:27:14Z",
+   "lease_until": "2026-11-11T15:27:14Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:MX.X.20-pesos:issues.1.mintage",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:specimen:C304:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C058:issue.year",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:MX.X.20-pesos:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.20-pesos",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C304"
+     ],
+     "label": "mintage of C304 · Mexico · 1981 · 20 pesos · MXP",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Grok",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1981,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:specimen:C304:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C304",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C304"
+     ],
+     "label": "mint of C304 · Mexico · 1981 · 20 pesos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C304_rev.webp",
+        "file": "C304_rev.webp",
+        "original": "C304_Mexico_1981_20Pesos_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C304_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C058:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year",
+     "coins": [
+      "C058"
+     ],
+     "label": "year of C058 · Germany · 50 Pfennig · DEM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C058_rev.webp",
+        "file": "C058_rev.webp",
+        "original": "C058_Germany_1985_50Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1k0Xkr2HdmExUjMDFmvw1NQWRyr_90Jrb/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C058_rev.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261104-2",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-04T15:34:51Z",
+   "lease_until": "2026-11-11T15:34:51Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0152",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0152",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C031",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C031"
+     ],
+     "label": "D0152 C031 issue.mint_marks",
+     "authors": [
+      "gemini-api",
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:grok-bot",
+       "source": "https://en.numista.com/catalogue/pieces2980.html issues table row '1943 S — 8,000,000' (also rows 1943 no mark 24,912,000; 1943 D 16,000,000); third source https://collections.museumsvictoria.com.au/items/56336 'The mint mark S is below the right end of the ribbon above the final letter E of PENCE'; own read of https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_rev.webp: a small mark is present in that exact spot (below right ribbon end, above PENCE), consistent with S; photo is 512 px so the letter shape is soft (D0128). | note: S vs none: mark present at the S/D position, so not Melbourne (no mark). S vs D not crisply legible at 512 px; ledger S kept. Owner loupe check would settle S vs D. [phase 2; confidence med]",
+       "ts": "2026-10-31T17:58:30Z",
+       "value": [
+        "S"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:gemini-api:gemini-3.6-flash",
+       "source": "C031_obv.webp: no mint mark seen on reverse of C031_rev.webp (read by the Gemini API, gemini-3.6-flash)",
+       "ts": "2026-11-04T15:33:30Z"
       }
      },
      "blind": false,
