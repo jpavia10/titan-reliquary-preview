@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-04] Claude: catch-up after Nov 1-4, full Drive + GitHub scan (owner: "Search the whole drive and my entire GitHub repo, all of them, and then catch up")
+- Merged 12 change files (Grok 6, Gemini 4, Muse 2) + Muse's album-price fix; 9 disagreements settled by them, D0149 by Claude; Muse's DE.KM.255 mint-text flag fixed. Scored (Grok 36-40, Muse 44-47, Gemini 53-56, new Gemini API section); FEEDBACK + WORK QUEUE docs rewritten; drop folder and closed Gemini sheets trashed in Drive.
+- Art (tr272): every one of the 50 themes now has a card and a hero (the eight missing from Grok + Muse, 27 heroes and 4 cards from Muse's own alternates, Obsidian Sun from Grok's redo, Light Well from Muse). Room plates (Grok) and layers (Gemini) kept on the art-intake branch for the image-room build.
+- Other repos scanned read-only (Prometheus Hub, Midas Ledger, Hephaestus Hearth, fleet-command): owner's new projects, nothing for Titan.
+
 ### [2026-10-31] Claude: the Gemini API is its own source, one sub-source per model (owner)
 - Owner: "Gemini api will be a new source and sub sources based on model used." Source `gemini-api` (roles.json, queues.json, page `docs/agents/QUEUE_gemini-api.md`), separate from the Gemini app; lines are `by: model:gemini-api:<model>`, so each model is scored on its own (`metrics.json` `models`) inside one source. Run by Claude: `tools/gemini/run_homework.py` (sheets, `--photo`, `--pack` blind photo test). One family with the Gemini app (`provenance.py` FAMILY): never each other's second reader, never "Checked" together.
 - What the free key can do (tested): no Google Search (429 on every model); Numista, NGC, uCoin, Colnect refuse Google's page fetcher (Wikipedia, Foronum, CoinArchives open); Gemini 4 Argon has no free quota. So: photo reads, blind photo checks, plain stories. Pools are drained (every item is out with Grok, Muse or the app, or parked), so it gets sheets as leases come back.

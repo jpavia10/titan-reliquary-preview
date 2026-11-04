@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-04 15:52 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-04 16:30 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,29 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### FIRST: photograph the rooms for Midnight Gallery, Neon Vault and Zen Garden, then make their depth, light and layer images (Joseph asked for you by name)  (fix list #128)
-
-Art request artreq_20261030-1520_room-layers-gemini in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Joseph rejected the code-drawn rooms and wants you and Grok to make them as real-looking photographs; the app adds live light, dust, rain and sound on top. For each room: make the wide 16:9 photo from its prompt, then use image editing on THAT image for the upright 9:16 version, a depth map, a light mask, the foreground on flat green and the background with the foreground removed (the exact edit prompts are in the request). 18 files. Save them in Drive only (Joseph cannot see your chat replies) and write the DONE file.
-
-**Done when:** 18 images in 'art-incoming (AI images + video)/artreq_20261030-1520_room-layers-gemini/' and the .DONE.txt next to the request
-
 ### NEXT: the six rooms after the first three (Supercell, Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire)  (fix list #128)
 
-Art request artreq_20261031-0400_room-layers-gemini-next6 in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Exactly the same method as task 17: the wide 16:9 photo from its prompt, then image edits of that same image for the upright version, the depth map, the light mask, the foreground on flat green and the background with the foreground removed. 36 files. Start once task 17's 18 files are saved.
+Supercell is done (2026-10-31, 6 files, received). Five rooms left: Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire. Art request artreq_20261031-0400_room-layers-gemini-next6 in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Exactly the same method as task 17: the wide 16:9 photo from its prompt, then image edits of that same image for the upright version, the depth map, the light mask, the foreground on flat green and the background with the foreground removed. 36 files. Start once task 17's 18 files are saved.
 
 **Done when:** 36 images in 'art-incoming (AI images + video)/artreq_20261031-0400_room-layers-gemini-next6/' and the .DONE.txt next to the request
-
-### Theme pictures for the 8 themes that have none (Sketchbook, Marbled Endpapers, Treasury Note, Survey Map, Cathedral Glass, Millennium Chrome, Paper Hills, Free Fall)  (fix list #128)
-
-Art request artreq_20261031-0300_theme-art-eight-missing in the same Drive art-requests folder: a card and a hero for each, 2 takes each (32 files). Their portals in the theme selector show only a colour swatch until these come. Claim it first (another image AI may take it).
-
-**Done when:** the images in 'art-incoming (AI images + video)/artreq_20261031-0300_theme-art-eight-missing/' and the .DONE.txt
-
-### Theme pictures, redo: Obsidian Sun (gold sun, jade, coin) and the Light Well card  (fix list #128)
-
-Art request artreq_20261028-1630_theme-art-obsidian-lightwell-redo in the same folder: read its review_notes first (the earlier Obsidian images showed plain obsidian only). 3 images, 2 takes each.
-
-**Done when:** the images in 'art-incoming (AI images + video)/artreq_20261028-1630_theme-art-obsidian-lightwell-redo/' and the .DONE.txt
 
 ### Numista price estimates for every coin we hold (268 issues of 173 types)  (fix list #62)
 

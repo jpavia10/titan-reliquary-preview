@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-04 15:52 UTC)
+# WORK QUEUE for Muse (updated 2026-11-04 16:30 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -20,29 +20,11 @@ Your round-3 file (2026-10-03) wrote `period`, `ruler` and `series` for 193 type
 
 **Done when:** All 138 types answered (or left out with a reason) across as many files as you need.
 
-### Which side to shoot: the 31 coins whose mint mark is unread  (fix list #57)
-
-31 coins miss the Phase 1 finish line only because their mint mark is not read (data/status.json phase1.missing.mint; the list is data/reshoot.json phase1 rows lacking 'mint'). For each: from the type's catalogue entry, say on which side and where the mint mark sits for that year (or that the type never carries one), and whether the photo we have shows that side. Send shootnotes_muse_{YYYYMMDD-HHMM}.json as [{"id": "C0xx", "mark_side": "obv|rev|none", "where": "below the date", "our_photo_shows_it": true, "source": "exact URL"}]. Where the photo shows that side clearly, also send the reading as a Phase 1 change line (issue.mint_marks + mint_text) with the photo file in source.
-
-**Done when:** One file; Claude moves the 'needs other side' coins to the top of the shoot list.
-
-### Album prices: third reader for the 40 holes in A001-A016 where the first two prices disagree most  (fix list #62)
-
-Grok priced A001-A016 first; Gemini gave a second price on 2026-10-24, and on 637 of 847 holes the two differ by more than 25 %. The 40 biggest gaps in A001-A016 are listed under 'for_muse (A001-A016: Grok priced first)' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/album_price_third_reader_20261028.json (album, hole label, grade, both prices and both sources). For each, price the hole from a THIRD source for the same grade (PCGS CoinFacts price guide, Greysheet retail, Heritage realised prices of the last 3 years, or a dealer listing; not Numista, USA Coin Book or the two sources already named). Send wants_values_muse_{YYYYMMDD-HHMM}.json in the same shape as your earlier album price file (items: album, label, value_usd, grade, source = exact URL + row, confidence); put every hole you could not price in left_out with the reason. Copy no price from the two earlier files.
-
-**Done when:** One file in collection-incoming; Claude spot-checks 5 rows and the median of the three prices becomes the hole's price.
-
 ### Second reader on Grok's Numista batches  (fix list #72)
 
 If you already started this spot check (5 facts from each of Grok's 9 sweep batches, reported in your FEEDBACK doc), finish it the same way. If you have not started, skip it: the 'Second reader' homework below is the same job with a pre-filled answer sheet, and it counts towards your probation.
 
 **Done when:** Either your 45-fact report in the FEEDBACK doc, or the verify homework answered.
-
-### Theme pictures: the 22 wide heroes (priority 2)  (fix list #113)
-
-The request is in Drive 'art-requests (any AI: images + video)/artreq_20261010-1700_theme-thumbnails.json' (repo copy docs/art/requests/artreq_20261010-1700_theme-thumbnails.json). Follow ART_START_HERE: one image at a time (make it, save it to 'art-incoming (AI images + video)/artreq_20261010-1700_theme-thumbnails/' with the exact file name, then the next); stop at the first failure or credit warning and write down how far you got. The pictures must look premium: real-photo look unless the image's `medium` says pixel art, comic, clay or poster; no readable text or numbers anywhere; coins look like real coins. Claude reviews every file and re-requests weak ones. Your part: every image with priority 2 (22 files: world_{theme}_hero.png, 16:10, at least 2560x1600, the top-left third calm because text sits there). Claim it as artreq_20261010-1700_theme-thumbnails.CLAIMED-muse-p2.txt; Grok has the cards (p1) and Gemini the refreshes (p3).
-
-**Done when:** 22 hero files in the output folder (or as many as you could) and artreq_20261010-1700_theme-thumbnails.p2.DONE.txt listing each file: ok or skipped: reason.
 
 ## Homework (generated from the data)
 

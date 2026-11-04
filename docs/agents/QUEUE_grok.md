@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-04 15:52 UTC)
+# WORK QUEUE for Grok (updated 2026-11-04 16:30 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,12 +7,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
-
-### FIRST: photograph the rooms for Midnight Gallery, Neon Vault and Zen Garden (Joseph asked for you by name)  (fix list #128)
-
-Art request artreq_20261030-1520_room-plates-grok in Drive 'Titan Reliquary/art-requests (any AI: images + video)/' (repo copy docs/art/requests/). Joseph rejected the code-drawn rooms and wants you and Gemini to make them as real-looking photographs; the app adds live light, dust, rain and sound on top. Six prompts (a wide 16:9 and an upright 9:16 for each room), 2 takes each, at the highest resolution Grok Imagine offers. Use each prompt exactly as written plus the global_style sentence; pick the aspect ratio in the tool. Check every take before saving (no letters, people, coins, crooked horizon or render look; remake up to 3 times). Save to the art-incoming folder named in the request and write the DONE file.
-
-**Done when:** 12 images in 'art-incoming (AI images + video)/artreq_20261030-1520_room-plates-grok/' and the .DONE.txt next to the request
 
 ### Sound hunt: music and room sounds for your 17 themes (24 pieces of music, 85 field recordings)  (fix list #83)
 
@@ -25,12 +19,6 @@ Every theme is getting its own room (a second space to be in the theme away from
 Every ambience sound the app plays today is an excerpt from the Moodist pack, whose licence is 'CC0 or Pixabay' with no per-file record (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/audio/ambience/CREDITS.md). moodist_replace in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json lists all 45 (id, bed or one-shots, the Moodist file it came from). For each, find a recording of the same kind (rain on a window for rainWindow, a ticking clock for clock, ...) under the rules of SOUND_HUNT.md, at least 60 s for a bed. Put them in the same sound_grok_{YYYYMMDD-HHMM}.json under 'replace' (one or two finds per id, best first), saved in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'.
 
 **Done when:** Each of the 45 ids has a replacement or a not_found line; Claude swaps in the ones that pass, so every ambience file in the app has a licence on record.
-
-### Album prices: third reader for the 40 holes in A017-A033 where the first two prices disagree most  (fix list #62)
-
-Muse priced A017-A033 first; Gemini gave a second price on 2026-10-24, and on 637 of 847 holes the two differ by more than 25 %. The 40 biggest gaps in A017-A033 are listed under 'for_grok (A017-A033: Muse priced first)' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/album_price_third_reader_20261028.json (album, hole label, grade, both prices and both sources). For each, price the hole from a THIRD source for the same grade (PCGS CoinFacts price guide, Greysheet retail, Heritage realised prices of the last 3 years, or a dealer listing; not Numista, USA Coin Book or the two sources already named). Send wants_values_grok_{YYYYMMDD-HHMM}.json in the same shape as your earlier album price file (items: album, label, value_usd, grade, source = exact URL + row, confidence); put every hole you could not price in left_out with the reason. Copy no price from the two earlier files.
-
-**Done when:** One file in collection-incoming; Claude spot-checks 5 rows and the median of the three prices becomes the hole's price.
 
 ## Homework (generated from the data)
 
