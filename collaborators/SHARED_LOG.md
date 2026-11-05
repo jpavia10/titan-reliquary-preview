@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-05] Claude: Muse's 33 chat coins merged as C305-C337 (owner: "Muse did over 30"; "Muse fixed new coin location")
+- Muse's file (owner's photos of 11-02, identified with him in chat) reformatted before merging (Phase 1 type ids, value in the create, face units, `BS.X.1-cent.2` 1974 + `AU.X.10-cents.2` 1966; issuers CZ, RU). Claude read all 35 photos: country, year, denomination hold for all 33; corrections in `changes_claude_20261104-2200` (4 Mexican Mo marks, the Russian monogram, 4 stories, the 1944 5 rappen metal, the UK 10p + German 10 cent confirmed by size). 35 cut-outs live; originals in Drive `_raw_capture/_phase1/coins`.
+- Owner questions: the three 2015 Bahamas cents (C306, C327, C332: three or one), their metal, C313's mint. Muse scored 7 (row 48), FEEDBACK + WORK QUEUE docs updated. Loop fix: a new coin's own story and value were not credited to its author, so Muse had been given its own 33 to check (`homework.py`, test; sheets withdrawn, re-issued to Gemini).
+
 ### [2026-11-04] Claude: catch-up after Nov 1-4, full Drive + GitHub scan (owner: "Search the whole drive and my entire GitHub repo, all of them, and then catch up")
 - Merged 12 change files (Grok 6, Gemini 4, Muse 2) + Muse's album-price fix; 9 disagreements settled by them, D0149 by Claude; Muse's DE.KM.255 mint-text flag fixed. Scored (Grok 36-40, Muse 44-47, Gemini 53-56, new Gemini API section); FEEDBACK + WORK QUEUE docs rewritten; drop folder and closed Gemini sheets trashed in Drive.
 - Art (tr272): every one of the 50 themes now has a card and a hero (the eight missing from Grok + Muse, 27 heroes and 4 cards from Muse's own alternates, Obsidian Sun from Grok's redo, Light Well from Muse). Room plates (Grok) and layers (Gemini) kept on the art-intake branch for the image-room build.
