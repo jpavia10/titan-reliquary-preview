@@ -131,14 +131,6 @@
      "lines": 2
     },
     {
-     "id": "HW-muse-read-mint-20261029-1",
-     "kind": "read-mint",
-     "due": "2026-11-05",
-     "path": "docs/agents/homework/sheets/HW-muse-read-mint-20261029-1.jsonl",
-     "sha256": "ad0cd814d5b3daa491967c28d1d99c3ca6253770b0ae5ff2352fe79a142d024d",
-     "lines": 6
-    },
-    {
      "id": "HW-muse-cite-20261030-1",
      "kind": "cite",
      "due": "2026-11-06",
@@ -201,6 +193,14 @@
      "path": "docs/agents/homework/sheets/HW-muse-fill-20261104-2.jsonl",
      "sha256": "b0b7aeaa88a328fb2d4adf69400592068ff084616f530ea25ca22fe7e3c4c1bd",
      "lines": 40
+    },
+    {
+     "id": "HW-muse-read-mint-20261105-1",
+     "kind": "read-mint",
+     "due": "2026-11-12",
+     "path": "docs/agents/homework/sheets/HW-muse-read-mint-20261105-1.jsonl",
+     "sha256": "979b205449813c9930358730450184d3d3e94ca2557d7f2f1ab5d64748b339ab",
+     "lines": 6
     }
    ]
   },

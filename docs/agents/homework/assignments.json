@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-05T01:10:36Z",
+ "updated": "2026-11-05T02:29:16Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -139,7 +139,8 @@
   "gemini-cite-20261104": 1,
   "muse-fill-20261104": 2,
   "gemini-story-check-20261104": 1,
-  "gemini-value-20261104": 1
+  "gemini-value-20261104": 1,
+  "muse-read-mint-20261105": 1
  },
  "assignments": [
   {
@@ -22930,9 +22931,13 @@
    "kind": "read-mint",
    "issued": "2026-10-29T01:48:54Z",
    "lease_until": "2026-11-05T01:48:54Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-05T02:29:16Z",
+   "result": {
+    "items": 4,
+    "closed": 1,
+    "left": 3
+   },
    "items": [
     {
      "item": "mint:C258",
@@ -26117,6 +26122,36 @@
      "entity": "specimen",
      "id": "C323",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-read-mint-20261105-1",
+   "agent": "muse",
+   "kind": "read-mint",
+   "issued": "2026-11-05T02:29:16Z",
+   "lease_until": "2026-11-12T02:29:16Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C287",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue"
     }
    ]
   }

@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-05T01:10:36Z",
+ "updated": "2026-11-05T02:29:16Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261028-1",
@@ -65,131 +65,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-read-mint-20261029-1",
-   "agent": "muse",
-   "kind": "read-mint",
-   "issued": "2026-10-29T01:48:54Z",
-   "lease_until": "2026-11-05T01:48:54Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "mint:C258",
-     "entity": "specimen",
-     "id": "C258",
-     "field": "issue"
-    },
-    {
-     "item": "mint:C006",
-     "entity": "specimen",
-     "id": "C006",
-     "field": "issue"
-    },
-    {
-     "item": "mint:C050",
-     "entity": "specimen",
-     "id": "C050",
-     "field": "issue"
-    },
-    {
-     "item": "mint:C287",
-     "entity": "specimen",
-     "id": "C287",
-     "field": "issue"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "mint:C006",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C006",
-     "field": "issue",
-     "coins": [
-      "C006"
-     ],
-     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C006_rev.webp",
-        "file": "C006_rev.webp",
-        "original": "C006_Germany_1984_1DeutscheMark.jpeg",
-        "drive": "https://drive.google.com/file/d/1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5/view"
-       }
-      ],
-      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
-      "mint_text_now": "unknown"
-     },
-     "blind": false,
-     "inputs": [
-      "C006_rev.webp"
-     ]
-    },
-    {
-     "item": "mint:C050",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C050",
-     "field": "issue",
-     "coins": [
-      "C050"
-     ],
-     "label": "C050 · Germany · 1982 · 1 Deutsche Mark · DEM",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp",
-        "file": "C050_rev.webp",
-        "original": "C050_Germany_1982_1DeutscheMark_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view"
-       }
-      ],
-      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
-      "mint_text_now": "unknown (letter under date unclear (soft D/G candidate))"
-     },
-     "blind": false,
-     "inputs": [
-      "C050_rev.webp"
-     ]
-    },
-    {
-     "item": "mint:C287",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C287",
-     "field": "issue",
-     "coins": [
-      "C287"
-     ],
-     "label": "C287 · Italy · 1979 · 50 lire · ITL",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp",
-        "file": "C287_rev.webp",
-        "original": "C287_Italy_1979_50Lire_rev.jpg",
-        "drive": "https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view"
-       }
-      ],
-      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
-      "mint_text_now": "not read on photo"
-     },
-     "blind": false,
-     "inputs": [
-      "C287_rev.webp"
-     ]
     }
    ]
   },
@@ -1562,6 +1437,125 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-read-mint-20261105-1",
+   "agent": "muse",
+   "kind": "read-mint",
+   "issued": "2026-11-05T02:29:16Z",
+   "lease_until": "2026-11-12T02:29:16Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C287",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "mint:C006",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue",
+     "coins": [
+      "C006"
+     ],
+     "label": "C006 · Germany · 1984 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C006_rev.webp",
+        "file": "C006_rev.webp",
+        "original": "C006_Germany_1984_1DeutscheMark.jpeg",
+        "drive": "https://drive.google.com/file/d/1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5/view"
+       }
+      ],
+      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
+      "mint_text_now": "unknown"
+     },
+     "blind": false,
+     "inputs": [
+      "C006_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C050",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue",
+     "coins": [
+      "C050"
+     ],
+     "label": "C050 · Germany · 1982 · 1 Deutsche Mark · DEM",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp",
+        "file": "C050_rev.webp",
+        "original": "C050_Germany_1982_1DeutscheMark_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view"
+       }
+      ],
+      "hint": "German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.",
+      "mint_text_now": "unknown (letter under date unclear (soft D/G candidate))"
+     },
+     "blind": false,
+     "inputs": [
+      "C050_rev.webp"
+     ]
+    },
+    {
+     "item": "mint:C287",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue",
+     "coins": [
+      "C287"
+     ],
+     "label": "C287 · Italy · 1979 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp",
+        "file": "C287_rev.webp",
+        "original": "C287_Italy_1979_50Lire_rev.jpg",
+        "drive": "https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view"
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not read on photo"
+     },
+     "blind": false,
+     "inputs": [
+      "C287_rev.webp"
+     ]
     }
    ]
   }
