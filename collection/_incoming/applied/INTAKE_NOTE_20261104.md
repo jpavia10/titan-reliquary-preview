@@ -17,4 +17,5 @@ The owner photographed 33 new coins in flips on 2026-11-02 (19:02-20:52, Galaxy 
 - Photos: 35 round cut-outs `photos/p1/C305_rev.webp` ... (`changes_script_20261104-2147-photos-p1`), crops logged in `docs/photos/p1_crops.jsonl`, originals in `docs/photos/raw_capture_index.json` (Drive `_raw_capture/_phase1/coins`).
 - Owner questions: `q-bahamas-2015-cents` (C306, C327, C332: three coins or one; the camera times suggest three), `q-bahamas-2015-magnet` (zinc or steel), `q-c313-mint` (ММД or ЛМД).
 - Possible double entries (dupes.json): C314 vs C266 (Korea 2012 10 won) and C318 vs C157 (UK 2014 10p): different photo sessions, nothing on the coins to tell; kept as second coins (the owner's rule for Muse's new-coin photos).
+- Owner, 2026-11-05: "I confirmed all years by hand while I labeled": all 33 years owner-verified (`changes_owner_20261105-0110`).
 - Loop fix: a new coin's story and default value were not credited to their author (the create event), so the loop gave Muse its own 33 stories and values to check; fixed in `tools/agents/homework.py` (test), both sheets withdrawn and re-issued to Gemini.

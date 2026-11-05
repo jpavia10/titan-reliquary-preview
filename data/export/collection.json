@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-05T00:50:57Z",
- "content_hash": "417b259f55ac5f62",
+ "generated_at": "2026-11-05T01:10:36Z",
+ "content_hash": "52c67037a495513d",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:417b259f55ac5f62",
+  "ledger_version": "v3:52c67037a495513d",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5406.64,
@@ -105195,8 +105195,10 @@
     "source": "photo NOID_VaticanCity_1958_20Lire_rev.jpeg (pen label: VATICAN CITY 1958 20 LIRE); identified from the owner's chat photo, 2026-11-02; defa"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105231,8 +105233,10 @@
     "source": "photo NOID_Bahamas_2015_1Cent_obv.jpeg (pen label: BAHAMAS 2015 1 CENT); identified from the owner's chat photo, 2026-11-02; default value: "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105306,8 +105310,10 @@
     "source": "photo NOID_SouthKorea_1988_100Won_rev.jpeg (pen label: SOUTH KOREA 1988 100 WON); identified from the owner's chat photo, 2026-11-02; defaul"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -105383,8 +105389,10 @@
     "source": "photo NOID_Switzerland_1968_1Franc_rev.jpeg (pen label: SWITZERLAND 1968 1 FRANC); identified from the owner's chat photo, 2026-11-02; defau"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -105460,8 +105468,10 @@
     "source": "photo NOID_UnitedKingdom_1937_HalfPenny_rev.jpeg (pen label: UNITED KINGDOM 1937 HALF PENNY); identified from the owner's chat photo, 2026-1"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105496,8 +105506,10 @@
     "source": "photo NOID_France_1979_2Francs_rev.jpeg (pen label: FRANCE 1979 2 FRANCS); identified from the owner's chat photo, 2026-11-02; default value"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105532,8 +105544,10 @@
     "source": "photo NOID_SouthKorea_1997_100Won_rev.jpeg (pen label: SOUTH KOREA 1997 100 WON); identified from the owner's chat photo, 2026-11-02; defaul"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -105609,8 +105623,10 @@
     "source": "photo NOID_CzechRepublic_2008_5Korun_obv.jpeg (pen label: CZECH REPUBLIC 2008 5 KORUN); identified from the owner's chat photo, 2026-11-02; "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105645,8 +105661,10 @@
     "source": "photo NOID_Russia_1992_20Roubles_rev.jpeg (pen label: RUSSIA 1992 20 ROUBLES); identified from the owner's chat photo, 2026-11-02; default v"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105685,8 +105703,10 @@
     "source": "photo NOID_SouthKorea_2012_10Won_rev.jpeg (pen label: SOUTH KOREA 2012 10 WON); identified from the owner's chat photo, 2026-11-02; default "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -105766,8 +105786,10 @@
     "source": "photo NOID_Mexico_1998_2Pesos_rev.jpeg (pen label: MEXICO 1998 2 PESOS); identified from the owner's chat photo, 2026-11-02; default value: "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -105842,8 +105864,10 @@
     "source": "photo NOID_UnitedKingdom_2014_20Pence_obv.jpeg (pen label: UNITED KINGDOM 2014 20 PENCE); identified from the owner's chat photo, 2026-11-02"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -105878,8 +105902,10 @@
     "source": "photo NOID_Belize_2015_25Cents_rev.jpeg (pen label: BELIZE 2015 25 CENTS); identified from the owner's chat photo, 2026-11-02; default value"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -105951,8 +105977,10 @@
     "source": "photo NOID_UnitedKingdom_2014_10Pence_obv.jpeg (pen label: UNITED KINGDOM 2014 10 PENCE); identified from the owner's chat photo, 2026-11-02"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106043,8 +106071,10 @@
     "source": "photo NOID_Mexico_1994_2NuevosPesos_rev.jpeg (pen label: MEXICO 1994 2 NUEVOS PESOS); identified from the owner's chat photo, 2026-11-02; de"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106081,8 +106111,10 @@
     "source": "photo NOID_Sweden_1991_1Krona_obv.jpeg (pen label: SWEDEN 1991 1 KRONA); identified from the owner's chat photo, 2026-11-02; default value: "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106117,8 +106149,10 @@
     "source": "photo NOID_France_1988_20Centimes_rev.jpeg (pen label: FRANCE 1988 20 CENTIMES); identified from the owner's chat photo, 2026-11-02; default"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -106194,8 +106228,10 @@
     "source": "photo NOID_Portugal_1970_20Centavos_obv.jpeg (pen label: PORTUGAL 1970 20 CENTAVOS); identified from the owner's chat photo, 2026-11-02; den"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106230,8 +106266,10 @@
     "source": "photo NOID_Mexico_1994_10Centavos_rev.jpeg (pen label: MEXICO 1994 10 CENTAVOS); identified from the owner's chat photo, 2026-11-02; default"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106305,8 +106343,10 @@
     "source": "photo NOID_Mexico_2005_5Pesos_rev.jpeg (pen label: MEXICO 2005 5 PESOS); identified from the owner's chat photo, 2026-11-02; default value: "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106343,8 +106383,10 @@
     "source": "photo NOID_Italy_1955_50Lire_rev.jpeg (pen label: ITALY 1955 50 LIRE); identified from the owner's chat photo, 2026-11-02; default value: ca"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -106417,8 +106459,10 @@
     "source": "photo NOID_Bahamas_1974_1Cent_obv.jpeg (pen label: BAHAMAS 1974 1 CENT); identified from the owner's chat photo, 2026-11-02; denomination co"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106453,8 +106497,10 @@
     "source": "photo NOID_Bahamas_2015_1Cent_obv-2.jpeg (pen label: BAHAMAS 2015 1 CENT); identified from the owner's chat photo, 2026-11-02; default value"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106528,8 +106574,10 @@
     "source": "photo NOID_Switzerland_1976_1Franc_rev.jpeg (pen label: SWITZERLAND 1976 1 FRANC); identified from the owner's chat photo, 2026-11-02; defau"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -106605,8 +106653,10 @@
     "source": "photo NOID_UnitedKingdom_1962_1Shilling_rev.jpeg (pen label: UNITED KINGDOM 1962 1 SHILLING); identified from the owner's chat photo, 2026-1"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106641,8 +106691,10 @@
     "source": "photo NOID_Ireland_1995_10Pence_obv.jpeg (pen label: IRELAND 1995 10 PENCE); identified from the owner's chat photo, 2026-11-02; denominatio"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106677,8 +106729,10 @@
     "source": "photo NOID_Australia_1966_10Cent_obv.jpeg (pen label: AUSTRALIA 1966 10 CENTS); identified from the owner's chat photo, 2026-11-02; reverse "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "reference",
@@ -106713,8 +106767,10 @@
     "source": "photo NOID_Bahamas_2015_1Cent_obv-3.jpeg (pen label: BAHAMAS 2015 1 CENT); identified from the owner's chat photo, 2026-11-02; default value"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106788,8 +106844,10 @@
     "source": "photo NOID_Norway_1977_50Ore_obv.jpeg (pen label: NORWAY 1977 50 ORE); identified from the owner's chat photo, 2026-11-02; default value: ca"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106824,8 +106882,10 @@
     "source": "photo NOID_Spain_1989_5Pesetas_obv.jpeg (pen label: SPAIN 1989 5 PESETAS); identified from the owner's chat photo, 2026-11-02; denomination "
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -106860,8 +106920,10 @@
     "source": "photo NOID_SouthKorea_1994_100Won_rev.jpeg (pen label: SOUTH KOREA 1994 100 WON); identified from the owner's chat photo, 2026-11-02; defaul"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "checked",
@@ -106937,8 +106999,10 @@
     "source": "photo NOID_Germany_2002_10EuroCent_obv.jpeg (pen label: GERMANY 2002 10 EURO CENT); identified from the owner's chat photo, 2026-11-02; defa"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
@@ -107007,8 +107071,10 @@
     "source": "photo NOID_Switzerland_1944_5Rappen_obv.jpeg (pen label: SWITZERLAND 1944 5 RAPPEN); identified from the owner's chat photo, 2026-11-02; den"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "verified",
+    "by": "Owner",
+    "ts": "2026-11-05",
+    "source": "owner in chat 2026-11-05 about the 33 coins of the 2026-11-02 chat photos (C305-C337): \"I confirmed all years by hand while I labeled\""
    },
    "denomination": {
     "level": "photo",
