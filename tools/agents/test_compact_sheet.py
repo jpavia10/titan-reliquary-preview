@@ -2,6 +2,7 @@
 """Tests for compact answer sheets (python3 tools/agents/test_compact_sheet.py). Temp copies only.
 
   - every line of every sheet in a pack gets one code, parts stay under the byte limit, each part carries the rules
+  - a FILL hint keeps its whole example, brackets and all
   - BLIND lines show no value; EMPTY lines say so; a planted value is shown like any other
   - answers: agree copies the shown value, differ takes the AI's own (typed like the old one), cannot is left out;
     no exact page, the sheet's example page, no quote, an agree on a BLIND/EMPTY line, a differ that repeats the shown value,
@@ -56,6 +57,15 @@ class Compact(unittest.TestCase):
         v2 = next(t for t in text.splitlines() if t.startswith("V2 | "))
         self.assertIn("BLIND", v2); self.assertNotIn("Mo", v2.split("|", 3)[3])
         self.assertIn("EMPTY", next(t for t in text.splitlines() if t.startswith("V3 | ")))
+
+    def test_fill_hint_keeps_brackets_inside_the_example(self):
+        ln = line(field="design.designers", old=None, new=None,
+                  source='FILL (C341 · DD · 1968): the exact entry URL (`new` = a list with each side in brackets, e.g. ["Arnold Machin (obverse)", '
+                         '"Stuart Devlin (reverse)"]; leave FILL when the entry does not say)')
+        self.assertIn('"Stuart Devlin (reverse)"]', CS.hint(ln))
+        ln = line(field="legal_tender.text", old=None, new=None,
+                  source="FILL (C341): the exact entry URL (`new` = a few words, e.g. demonetized 2002 (euro); leave FILL when the entry does not say)")
+        self.assertTrue(CS.hint(ln).endswith("demonetized 2002 (euro)"), CS.hint(ln))
 
     def test_answers_keep_only_what_is_shown_on_a_real_page(self):
         url = "https://en.numista.com/catalogue/pieces972.html"

@@ -98,8 +98,8 @@
      "kind": "cite",
      "due": "2026-11-15",
      "path": "docs/agents/homework/sheets/HW-gemini-cite-20261104-1.jsonl",
-     "sha256": "fb1fc0af771b2e4840b4b7b2c04c7b5271c0463c4cff114e523fe6144c9cab97",
-     "lines": 107
+     "sha256": "177618af902e611d8486b4919b87929f5f1d1f4d3bfc63792bc59206fd22c800",
+     "lines": 108
     },
     {
      "id": "HW-gemini-story-check-20261104-1",
@@ -132,6 +132,46 @@
      "path": "docs/agents/homework/sheets/HW-gemini-verify-20261105-2.jsonl",
      "sha256": "92e6db94aa8e498635e6c80c96ae46e00f76adf1b704ffb740ad96e465013137",
      "lines": 80
+    },
+    {
+     "id": "HW-gemini-verify-20261105-3",
+     "kind": "verify",
+     "due": "2026-11-15",
+     "path": "docs/agents/homework/sheets/HW-gemini-verify-20261105-3.jsonl",
+     "sha256": "69df091459db9c08e00663c09d479680b579a90ae4762bbc4f7f4cc1c014d8b4",
+     "lines": 10
+    },
+    {
+     "id": "HW-gemini-value-20261105-1",
+     "kind": "value",
+     "due": "2026-11-15",
+     "path": "docs/agents/homework/sheets/HW-gemini-value-20261105-1.jsonl",
+     "sha256": "2a72761c7d54f05d6ab9be7168ab0c1b5f489242df159d1a7786e1f64f903271",
+     "lines": 10
+    },
+    {
+     "id": "HW-gemini-story-check-20261105-1",
+     "kind": "story-check",
+     "due": "2026-11-15",
+     "path": "docs/agents/homework/sheets/HW-gemini-story-check-20261105-1.jsonl",
+     "sha256": "bcc213c85ba0d5b8b61e89de7f3579c81a3b86e797c8864554d271740be65521",
+     "lines": 5
+    },
+    {
+     "id": "HW-gemini-cite-20261105-1",
+     "kind": "cite",
+     "due": "2026-11-15",
+     "path": "docs/agents/homework/sheets/HW-gemini-cite-20261105-1.jsonl",
+     "sha256": "655df10ab9e4d180ed1127eb240899c734dbf79c9a5e3e581fb0fa051714f066",
+     "lines": 24
+    },
+    {
+     "id": "HW-gemini-fill-20261105-1",
+     "kind": "fill",
+     "due": "2026-11-15",
+     "path": "docs/agents/homework/sheets/HW-gemini-fill-20261105-1.jsonl",
+     "sha256": "953121d828e24f11977fdeda6970a4e1ea79f409749062e438fbbbcf4606867c",
+     "lines": 40
     }
    ]
   },

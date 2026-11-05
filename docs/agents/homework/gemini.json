@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-05T03:43:16Z",
+ "updated": "2026-11-05T16:00:12Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -10868,7 +10868,8 @@
      "coins": [
       "C005",
       "C041",
-      "C321"
+      "C321",
+      "C339"
      ],
      "label": "FR 20 centimes (FR.KM.930)",
      "authors": [],
@@ -10906,6 +10907,17 @@
         "mintage": null,
         "mintage_label": null,
         "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1983,
+        "mint_marks": [],
+        "coins": [
+         "C339"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
        }
       ],
       "catalogs": [
@@ -10926,7 +10938,8 @@
       "diameter_mm": 23.5,
       "composition": "aluminum-bronze (Cu 92 / Al 6 / Ni 2)",
       "ask": [
-       "issues.2.mintage: 1988"
+       "issues.2.mintage: 1988",
+       "issues.3.mintage: 1983"
       ],
       "note": null
      },
@@ -10935,6 +10948,11 @@
      "issue_of": {
       "issues.2.mintage": {
        "year": 1988,
+       "mint": [],
+       "qualifier": null
+      },
+      "issues.3.mintage": {
+       "year": 1983,
        "mint": [],
        "qualifier": null
       }
@@ -17652,7 +17670,8 @@
      "coins": [
       "C005",
       "C041",
-      "C321"
+      "C321",
+      "C339"
      ],
      "label": "design of C005 · France · 1986 · 20 centimes · FRF",
      "authors": [
@@ -19614,6 +19633,1369 @@
       "ai_guess": true
      },
      "blind": true,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261105-3",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C342:issue.year",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:denomination.value",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C339:issue.year",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C341:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C340:issue.year",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:denomination.value",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:denomination.value",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C338:issue.year",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C341:issue.year",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:denomination.value",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "denomination.value"
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-12T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b",
+   "items_full": [
+    {
+     "item": "verify:specimen:C342:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "issue.year",
+     "coins": [
+      "C342"
+     ],
+     "label": "year of C342 · South Korea · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C342_obv.webp",
+        "file": "C342_obv.webp",
+        "original": "NOID_SouthKorea_2001_10Won_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C342_rev.webp",
+        "file": "C342_rev.webp",
+        "original": "NOID_SouthKorea_2001_10Won_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C342_obv.webp",
+      "C342_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "denomination.value",
+     "coins": [
+      "C338"
+     ],
+     "label": "denomination of C338 · Jamaica · 1977",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C338_obv.webp",
+        "file": "C338_obv.webp",
+        "original": "NOID_Jamaica_1977_10Cents_obv.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C338_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C339:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "issue.year",
+     "coins": [
+      "C339"
+     ],
+     "label": "year of C339 · France · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C339_rev.webp",
+        "file": "C339_rev.webp",
+        "original": "NOID_France_1983_20Centimes_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C339_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C341:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C341"
+     ],
+     "label": "mint of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_obv.webp",
+        "file": "C341_obv.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_rev.webp",
+        "file": "C341_rev.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C341_obv.webp",
+      "C341_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C340:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "issue.year",
+     "coins": [
+      "C340"
+     ],
+     "label": "year of C340 · Japan · 100 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C340_obv.webp",
+        "file": "C340_obv.webp",
+        "original": "NOID_Japan_2015_100Yen_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C340_rev.webp",
+        "file": "C340_rev.webp",
+        "original": "NOID_Japan_2015_100Yen_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C340_obv.webp",
+      "C340_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "denomination.value",
+     "coins": [
+      "C340"
+     ],
+     "label": "denomination of C340 · Japan · 2015",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C340_obv.webp",
+        "file": "C340_obv.webp",
+        "original": "NOID_Japan_2015_100Yen_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C340_rev.webp",
+        "file": "C340_rev.webp",
+        "original": "NOID_Japan_2015_100Yen_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C340_obv.webp",
+      "C340_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:KR.X.10-won:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "denomination.value",
+     "coins": [
+      "C342"
+     ],
+     "label": "denomination of C342 · South Korea · 2001",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C342_obv.webp",
+        "file": "C342_obv.webp",
+        "original": "NOID_SouthKorea_2001_10Won_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C342_rev.webp",
+        "file": "C342_rev.webp",
+        "original": "NOID_SouthKorea_2001_10Won_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C342_obv.webp",
+      "C342_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C338:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "issue.year",
+     "coins": [
+      "C338"
+     ],
+     "label": "year of C338 · Jamaica · 10 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C338_obv.webp",
+        "file": "C338_obv.webp",
+        "original": "NOID_Jamaica_1977_10Cents_obv.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C338_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C341:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "issue.year",
+     "coins": [
+      "C341"
+     ],
+     "label": "year of C341 · German Democratic Republic · 10 Pfennig · DDM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_obv.webp",
+        "file": "C341_obv.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_rev.webp",
+        "file": "C341_rev.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C341_obv.webp",
+      "C341_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "denomination.value",
+     "coins": [
+      "C341"
+     ],
+     "label": "denomination of C341 · German Democratic Republic · 1968",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_obv.webp",
+        "file": "C341_obv.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_rev.webp",
+        "file": "C341_rev.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C341_obv.webp",
+      "C341_rev.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-value-20261105-1",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C340",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "value"
+    },
+    {
+     "item": "value:C342",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "value"
+    },
+    {
+     "item": "value:C338",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "value"
+    },
+    {
+     "item": "value:C339",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "value"
+    },
+    {
+     "item": "value:C341",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "value"
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-15T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b",
+   "items_full": [
+    {
+     "item": "value:C340",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "value",
+     "coins": [
+      "C340"
+     ],
+     "label": "C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.9,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C340_obv.webp",
+        "file": "C340_obv.webp",
+        "original": "NOID_Japan_2015_100Yen_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C340_rev.webp",
+        "file": "C340_rev.webp",
+        "original": "NOID_Japan_2015_100Yen_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C342",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "value",
+     "coins": [
+      "C342"
+     ],
+     "label": "C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.25,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C342_obv.webp",
+        "file": "C342_obv.webp",
+        "original": "NOID_SouthKorea_2001_10Won_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C342_rev.webp",
+        "file": "C342_rev.webp",
+        "original": "NOID_SouthKorea_2001_10Won_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C338",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "value",
+     "coins": [
+      "C338"
+     ],
+     "label": "C338 · Jamaica · 1977 · 10 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.2,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C338_obv.webp",
+        "file": "C338_obv.webp",
+        "original": "NOID_Jamaica_1977_10Cents_obv.jpeg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C339",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "value",
+     "coins": [
+      "C339"
+     ],
+     "label": "C339 · France · 1983 · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C339_rev.webp",
+        "file": "C339_rev.webp",
+        "original": "NOID_France_1983_20Centimes_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C341",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "value",
+     "coins": [
+      "C341"
+     ],
+     "label": "C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_obv.webp",
+        "file": "C341_obv.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_obv.jpeg",
+        "drive": null
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C341_rev.webp",
+        "file": "C341_rev.webp",
+        "original": "NOID_EastGermany_1968_10Pfennig_rev.jpeg",
+        "drive": null
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261105-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C338",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "story"
+    },
+    {
+     "item": "story:C339",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "story"
+    },
+    {
+     "item": "story:C340",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "story"
+    },
+    {
+     "item": "story:C341",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "story"
+    },
+    {
+     "item": "story:C342",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "story"
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-12T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b",
+   "items_full": [
+    {
+     "item": "story:C338",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "story",
+     "coins": [
+      "C338"
+     ],
+     "label": "C338 · Jamaica · 1977 · 10 cents · JMD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1977 Jamaican 10 cents bearing the national coat of arms: a crocodile crest above a shield flanked by two supporters, with the motto Out of Many, One People on the scroll below. A butterfly among flowers fills the other side. It was everyday small change in Jamaica in the late 1970s.",
+      "record": {
+       "country": "Jamaica",
+       "year": "1977",
+       "denom": "10 cents · JMD",
+       "mint": "Royal Mint, Llantrisant (no mint mark)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C339",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "story",
+     "coins": [
+      "C339"
+     ],
+     "label": "C339 · France · 1983 · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1983 French 20 centimes, the golden everyday coin of pre-euro France. Marianne in her Phrygian cap of liberty is on the other side; the big 20 on this side sits inside a wreath of laurel and wheat.",
+      "record": {
+       "country": "France",
+       "year": "1983",
+       "denom": "20 centimes · FRF",
+       "mint": "Pessac mint; cornucopia and dolphin privy marks flank the date",
+       "refs": "KM#930 · Schön#230 · Numista#4",
+       "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 4.00 g · 23.5 mm · plain",
+       "specs": "thickness 1.4 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 20 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C340",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "story",
+     "coins": [
+      "C340"
+     ],
+     "label": "C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A Japanese 100 yen coin dated Heisei 27 (2015). One side is filled with cherry blossoms, the sakura, Japan's beloved unofficial national flower; the other carries a big, plain 100. This design has served on the 100 yen since 1967, across three emperors.",
+      "record": {
+       "country": "Japan",
+       "year": "2015",
+       "denom": "100 yen · JPY",
+       "mint": "Japan Mint (not lettered on type)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C341",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "story",
+     "coins": [
+      "C341"
+     ],
+     "label": "C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "An East German 10 pfennig from 1968, feather-light aluminium. One side carries the state emblem, a hammer and compass inside a wreath of wheat, ringed by the words Deutsche Demokratische Republik; the other has a big 10 over an oak leaf. Coins like this were the small change of the DDR until the state itself vanished in 1990.",
+      "record": {
+       "country": "German Democratic Republic",
+       "year": "1968",
+       "denom": "10 Pfennig · DDM",
+       "mint": "Berlin mint (A above the oak leaf on the value side)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C342",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "story",
+     "coins": [
+      "C342"
+     ],
+     "label": "C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A South Korean 10 won from 2001, struck in brass. The Dabotap pagoda of Bulguksa temple stands on one side, a stone pagoda from the 700s and one of Korea's national treasures, with the value in Hangul beside it. The other side carries a big 10, the year, and the Bank of Korea's name. This brass design ran from 1983 to 2006, when a smaller, cheaper copper-colored version took its place; the collection already holds that successor.",
+      "record": {
+       "country": "South Korea",
+       "year": "2001",
+       "denom": "10 won · KRW",
+       "mint": "Korea Minting and Security Printing Corporation, Daejeon (no mint mark)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261105-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:DD.X.10-pfennig",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": null
+    },
+    {
+     "item": "cite:JM.X.10-cents",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "cite:JP.X.100-yen",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null
+    },
+    {
+     "item": "cite:KR.X.10-won",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-12T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b",
+   "items_full": [
+    {
+     "item": "cite:DD.X.10-pfennig",
+     "kind": "cite",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": null,
+     "coins": [
+      "C341"
+     ],
+     "label": "DD 10 Pfennig (DD.X.10-pfennig)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1968,
+        "mint_marks": [
+         "A"
+        ],
+        "coins": [
+         "C341"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1968 A"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1968,
+       "mint": [
+        "A"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:JM.X.10-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": null,
+     "coins": [
+      "C338"
+     ],
+     "label": "JM 10 cents (JM.X.10-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1977,
+        "mint_marks": [],
+        "coins": [
+         "C338"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1977"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1977,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:JP.X.100-yen",
+     "kind": "cite",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null,
+     "coins": [
+      "C340"
+     ],
+     "label": "JP 100 yen (JP.X.100-yen)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2015,
+        "mint_marks": [],
+        "coins": [
+         "C340"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2015"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2015,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:KR.X.10-won",
+     "kind": "cite",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null,
+     "coins": [
+      "C342"
+     ],
+     "label": "KR 10 won (KR.X.10-won)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2001,
+        "mint_marks": [],
+        "coins": [
+         "C342"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2001"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2001,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261105-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:DD.X.10-pfennig",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": null
+    },
+    {
+     "item": "fill:JM.X.10-cents",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:JP.X.100-yen",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null
+    },
+    {
+     "item": "fill:KR.X.10-won",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-15T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b",
+   "items_full": [
+    {
+     "item": "fill:DD.X.10-pfennig",
+     "kind": "fill",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": null,
+     "coins": [
+      "C341"
+     ],
+     "label": "C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JM.X.10-cents",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": null,
+     "coins": [
+      "C338"
+     ],
+     "label": "C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JP.X.100-yen",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null,
+     "coins": [
+      "C340"
+     ],
+     "label": "C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:KR.X.10-won",
+     "kind": "fill",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null,
+     "coins": [
+      "C342"
+     ],
+     "label": "C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
      "inputs": []
     }
    ]

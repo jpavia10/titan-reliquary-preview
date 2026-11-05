@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-05] Claude: tr274, Muse's 5 evening coins merged as C338-C342 with photos (owner: "Any new muse coins?")
+- Muse's `changes_muse_20261104-1827a/b/c` + `-1832` (its own notes: 1818 and 1820 superseded, not used): C338 Jamaica 1977 10 cents, C339 France 1983 20 centimes (FR.KM.930), C340 Japan 2015 100 yen, C341 East Germany 1968 10 pfennig A, C342 South Korea 2001 10 won. Claude read all 8 photos at full zoom: every year, denomination and mint letter holds (1983 not 1963; A above the oak leaf; Heisei 27; Jamaica's size against France's matches the 23.6 mm 10 cents). New issuer DD (1949-1990, successor DE; `changes_claude_20261105-1520`) + atlas entry. 8 round cut-outs, `photos/p1/C338..C342_*.webp`. 344 specimens, 54 countries.
+- Loop issued Gemini 5 small sheets for the new coins; sent as pack HW-gemini-PACK-20261105b (3 Drive parts). `compact_sheet.py` fix: a FILL hint with its own brackets was cut mid-example ("e.g. demonetized 2002 (euro"); test added.
+
 ### [2026-11-05] Claude: Gemini loaded to the limit (owner: "Just load up gemini to retarded level"; "hyper specific so it doesnt artificially complete work")
 - Loop: an AI's unsourced guess (level `ai`, 401 verify items) now goes to a second reader, audit first; roles.json Gemini capacity 400, per_kind 40, lease 10 days, `priority` 10 (filled first in round 0; tests strip it). Gemini holds 16 sheets / 808 items.
 - New `tools/agents/compact_sheet.py` (+ test): several sheets as one numbered pack of small Drive parts; answers are short JSON rows (line, verdict, new, url, quote) converted back to change lines through a frozen code map (`docs/agents/homework/packs/`); no exact page, the example page, no quote, agree on a blind/empty line, differ = shown are left out and listed. Pack HW-gemini-PACK-20261105 (367 lines, 8 parts) and project album_filled_prices_20261105 (890 filled album holes, 6 parts) uploaded to Gemini's Drive sheet folder, sizes checked.

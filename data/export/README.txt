@@ -1,7 +1,7 @@
 Titan Reliquary: plain export of the whole collection
-Made 2026-11-05 from the master record (collection hash daa886b0f5e00d95). Rebuilt on every publish, so this folder is always the current state.
+Made 2026-11-05 from the master record (collection hash c028dd485f9b37fe). Rebuilt on every publish, so this folder is always the current state.
 
-coins.csv          every piece in a 2x2 flip (339 rows: coins C### and tokens T###). Opens in Excel, Numbers or Google Sheets.
+coins.csv          every piece in a 2x2 flip (344 rows: coins C### and tokens T###). Opens in Excel, Numbers or Google Sheets.
                    For the key facts (year, mint, face value, catalogue number, mintage, metal, design, value, story) there is a
                    "how sure" column (verified by the owner, checked by two sources, catalogue source, read from the photo,
                    AI estimate, from the original ledger) and a "source" column with the page or photo it came from.

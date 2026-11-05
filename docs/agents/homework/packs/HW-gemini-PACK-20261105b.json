@@ -1,0 +1,2292 @@
+{
+"pack": "HW-gemini-PACK-20261105b",
+"agent": "gemini",
+"made": "2026-11-05T15:27:25Z",
+"due": "2026-11-15",
+"sheets": [
+"HW-gemini-verify-20261105-3",
+"HW-gemini-cite-20261105-1",
+"HW-gemini-story-check-20261105-1",
+"HW-gemini-value-20261105-1",
+"HW-gemini-fill-20261105-1"
+],
+"parts": 3,
+"lines": {
+"V1": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C342",
+"op": "set",
+"field": "issue.year",
+"new": null,
+"source": "FILL (year of C342 · South Korea · 10 won · KRW): the photo file you read it from, e.g. C342_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C342_obv.webp"
+},
+{
+"file": "C342_rev.webp"
+}
+]
+}
+}
+],
+"V2": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "denomination.value",
+"new": null,
+"source": "FILL (denomination of C338 · Jamaica · 1977): the photo file you read it from, e.g. C338_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C338_obv.webp"
+}
+]
+}
+}
+],
+"V3": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C339",
+"op": "set",
+"field": "issue.year",
+"new": null,
+"source": "FILL (year of C339 · France · 20 centimes · FRF): the photo file you read it from, e.g. C339_rev.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C339_rev.webp"
+}
+]
+}
+}
+],
+"V4": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C341",
+"op": "set",
+"field": "issue.mint_marks",
+"new": null,
+"source": "FILL (mint of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM): the photo file you read it from, e.g. C341_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C341_obv.webp"
+},
+{
+"file": "C341_rev.webp"
+}
+]
+}
+}
+],
+"V5": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C340",
+"op": "set",
+"field": "issue.year",
+"new": null,
+"source": "FILL (year of C340 · Japan · 100 yen · JPY): the photo file you read it from, e.g. C340_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C340_obv.webp"
+},
+{
+"file": "C340_rev.webp"
+}
+]
+}
+}
+],
+"V6": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "denomination.value",
+"new": null,
+"source": "FILL (denomination of C340 · Japan · 2015): the photo file you read it from, e.g. C340_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C340_obv.webp"
+},
+{
+"file": "C340_rev.webp"
+}
+]
+}
+}
+],
+"V7": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "denomination.value",
+"new": null,
+"source": "FILL (denomination of C342 · South Korea · 2001): the photo file you read it from, e.g. C342_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C342_obv.webp"
+},
+{
+"file": "C342_rev.webp"
+}
+]
+}
+}
+],
+"V8": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C338",
+"op": "set",
+"field": "issue.year",
+"new": null,
+"source": "FILL (year of C338 · Jamaica · 10 cents · JMD): the photo file you read it from, e.g. C338_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C338_obv.webp"
+}
+]
+}
+}
+],
+"V9": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C341",
+"op": "set",
+"field": "issue.year",
+"new": null,
+"source": "FILL (year of C341 · German Democratic Republic · 10 Pfennig · DDM): the photo file you read it from, e.g. C341_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C341_obv.webp"
+},
+{
+"file": "C341_rev.webp"
+}
+]
+}
+}
+],
+"V10": [
+"HW-gemini-verify-20261105-3",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "denomination.value",
+"new": null,
+"source": "FILL (denomination of C341 · German Democratic Republic · 1968): the photo file you read it from, e.g. C341_obv.webp, and what you read on the coin (write null in new when you cannot read it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-verify",
+"assignment": "HW-gemini-verify-20261105-3",
+"run_id": "HW-gemini-verify-20261105-3",
+"inputs": [
+{
+"file": "C341_obv.webp"
+},
+{
+"file": "C341_rev.webp"
+}
+]
+}
+}
+],
+"C1": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "catalogs",
+"old": [],
+"new": [],
+"source": "FILL (DD 10 Pfennig (DD.X.10-pfennig)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C2": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "nominal.weight_g",
+"old": null,
+"new": null,
+"source": "FILL (DD 10 Pfennig (DD.X.10-pfennig)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C3": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "nominal.diameter_mm",
+"old": null,
+"new": null,
+"source": "FILL (DD 10 Pfennig (DD.X.10-pfennig)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C4": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "composition.text",
+"old": "",
+"new": "",
+"source": "FILL (DD 10 Pfennig (DD.X.10-pfennig)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C5": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "composition.metal_class",
+"old": "other",
+"new": "other",
+"source": "FILL (DD 10 Pfennig (DD.X.10-pfennig)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C6": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "issues.0.mintage",
+"old": null,
+"new": null,
+"source": "FILL (DD 10 Pfennig (DD.X.10-pfennig)): exact entry URL + the table row you read (this line is the 1968 A issue: read the 1968 A (that mint only, not all mints added) row, not the type's first year)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C7": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "catalogs",
+"old": [],
+"new": [],
+"source": "FILL (JM 10 cents (JM.X.10-cents)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C8": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "nominal.weight_g",
+"old": null,
+"new": null,
+"source": "FILL (JM 10 cents (JM.X.10-cents)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C9": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "nominal.diameter_mm",
+"old": null,
+"new": null,
+"source": "FILL (JM 10 cents (JM.X.10-cents)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C10": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "composition.text",
+"old": "",
+"new": "",
+"source": "FILL (JM 10 cents (JM.X.10-cents)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C11": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "composition.metal_class",
+"old": "other",
+"new": "other",
+"source": "FILL (JM 10 cents (JM.X.10-cents)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C12": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "issues.0.mintage",
+"old": null,
+"new": null,
+"source": "FILL (JM 10 cents (JM.X.10-cents)): exact entry URL + the table row you read (this line is the 1977 issue: read the 1977 row, not the type's first year)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C13": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "catalogs",
+"old": [],
+"new": [],
+"source": "FILL (JP 100 yen (JP.X.100-yen)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C14": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "nominal.weight_g",
+"old": null,
+"new": null,
+"source": "FILL (JP 100 yen (JP.X.100-yen)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C15": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "nominal.diameter_mm",
+"old": null,
+"new": null,
+"source": "FILL (JP 100 yen (JP.X.100-yen)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C16": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "composition.text",
+"old": "",
+"new": "",
+"source": "FILL (JP 100 yen (JP.X.100-yen)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C17": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "composition.metal_class",
+"old": "other",
+"new": "other",
+"source": "FILL (JP 100 yen (JP.X.100-yen)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C18": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "issues.0.mintage",
+"old": null,
+"new": null,
+"source": "FILL (JP 100 yen (JP.X.100-yen)): exact entry URL + the table row you read (this line is the 2015 issue: read the 2015 row, not the type's first year)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C19": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "catalogs",
+"old": [],
+"new": [],
+"source": "FILL (KR 10 won (KR.X.10-won)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C20": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "nominal.weight_g",
+"old": null,
+"new": null,
+"source": "FILL (KR 10 won (KR.X.10-won)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C21": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "nominal.diameter_mm",
+"old": null,
+"new": null,
+"source": "FILL (KR 10 won (KR.X.10-won)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C22": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "composition.text",
+"old": "",
+"new": "",
+"source": "FILL (KR 10 won (KR.X.10-won)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C23": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "composition.metal_class",
+"old": "other",
+"new": "other",
+"source": "FILL (KR 10 won (KR.X.10-won)): exact entry URL + the table row you read",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"C24": [
+"HW-gemini-cite-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "issues.0.mintage",
+"old": null,
+"new": null,
+"source": "FILL (KR 10 won (KR.X.10-won)): exact entry URL + the table row you read (this line is the 2001 issue: read the 2001 row, not the type's first year)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-cite",
+"assignment": "HW-gemini-cite-20261105-1",
+"run_id": "HW-gemini-cite-20261105-1",
+"inputs": []
+}
+}
+],
+"S1": [
+"HW-gemini-story-check-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C338",
+"op": "set",
+"field": "story",
+"old": "A 1977 Jamaican 10 cents bearing the national coat of arms: a crocodile crest above a shield flanked by two supporters, with the motto Out of Many, One People on the scroll below. A butterfly among flowers fills the other side. It was everyday small change in Jamaica in the late 1970s.",
+"new": "A 1977 Jamaican 10 cents bearing the national coat of arms: a crocodile crest above a shield flanked by two supporters, with the motto Out of Many, One People on the scroll below. A butterfly among flowers fills the other side. It was everyday small change in Jamaica in the late 1970s.",
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-story-check",
+"assignment": "HW-gemini-story-check-20261105-1",
+"run_id": "HW-gemini-story-check-20261105-1",
+"inputs": []
+}
+}
+],
+"S2": [
+"HW-gemini-story-check-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C339",
+"op": "set",
+"field": "story",
+"old": "A 1983 French 20 centimes, the golden everyday coin of pre-euro France. Marianne in her Phrygian cap of liberty is on the other side; the big 20 on this side sits inside a wreath of laurel and wheat.",
+"new": "A 1983 French 20 centimes, the golden everyday coin of pre-euro France. Marianne in her Phrygian cap of liberty is on the other side; the big 20 on this side sits inside a wreath of laurel and wheat.",
+"source": "FILL (C339 · France · 1983 · 20 centimes · FRF): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-story-check",
+"assignment": "HW-gemini-story-check-20261105-1",
+"run_id": "HW-gemini-story-check-20261105-1",
+"inputs": []
+}
+}
+],
+"S3": [
+"HW-gemini-story-check-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C340",
+"op": "set",
+"field": "story",
+"old": "A Japanese 100 yen coin dated Heisei 27 (2015). One side is filled with cherry blossoms, the sakura, Japan's beloved unofficial national flower; the other carries a big, plain 100. This design has served on the 100 yen since 1967, across three emperors.",
+"new": "A Japanese 100 yen coin dated Heisei 27 (2015). One side is filled with cherry blossoms, the sakura, Japan's beloved unofficial national flower; the other carries a big, plain 100. This design has served on the 100 yen since 1967, across three emperors.",
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-story-check",
+"assignment": "HW-gemini-story-check-20261105-1",
+"run_id": "HW-gemini-story-check-20261105-1",
+"inputs": []
+}
+}
+],
+"S4": [
+"HW-gemini-story-check-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C341",
+"op": "set",
+"field": "story",
+"old": "An East German 10 pfennig from 1968, feather-light aluminium. One side carries the state emblem, a hammer and compass inside a wreath of wheat, ringed by the words Deutsche Demokratische Republik; the other has a big 10 over an oak leaf. Coins like this were the small change of the DDR until the state itself vanished in 1990.",
+"new": "An East German 10 pfennig from 1968, feather-light aluminium. One side carries the state emblem, a hammer and compass inside a wreath of wheat, ringed by the words Deutsche Demokratische Republik; the other has a big 10 over an oak leaf. Coins like this were the small change of the DDR until the state itself vanished in 1990.",
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-story-check",
+"assignment": "HW-gemini-story-check-20261105-1",
+"run_id": "HW-gemini-story-check-20261105-1",
+"inputs": []
+}
+}
+],
+"S5": [
+"HW-gemini-story-check-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C342",
+"op": "set",
+"field": "story",
+"old": "A South Korean 10 won from 2001, struck in brass. The Dabotap pagoda of Bulguksa temple stands on one side, a stone pagoda from the 700s and one of Korea's national treasures, with the value in Hangul beside it. The other side carries a big 10, the year, and the Bank of Korea's name. This brass design ran from 1983 to 2006, when a smaller, cheaper copper-colored version took its place; the collection already holds that successor.",
+"new": "A South Korean 10 won from 2001, struck in brass. The Dabotap pagoda of Bulguksa temple stands on one side, a stone pagoda from the 700s and one of Korea's national treasures, with the value in Hangul beside it. The other side carries a big 10, the year, and the Bank of Korea's name. This brass design ran from 1983 to 2006, when a smaller, cheaper copper-colored version took its place; the collection already holds that successor.",
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-story-check",
+"assignment": "HW-gemini-story-check-20261105-1",
+"run_id": "HW-gemini-story-check-20261105-1",
+"inputs": []
+}
+}
+],
+"P1": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C340",
+"op": "set",
+"field": "value.est_usd",
+"old": 0.9,
+"new": 0.9,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P2": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C340",
+"op": "set",
+"field": "value.confidence",
+"old": "low",
+"new": "low",
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P3": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C342",
+"op": "set",
+"field": "value.est_usd",
+"old": 0.25,
+"new": 0.25,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P4": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C342",
+"op": "set",
+"field": "value.confidence",
+"old": "low",
+"new": "low",
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P5": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C338",
+"op": "set",
+"field": "value.est_usd",
+"old": 0.2,
+"new": 0.2,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P6": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C338",
+"op": "set",
+"field": "value.confidence",
+"old": "low",
+"new": "low",
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P7": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C339",
+"op": "set",
+"field": "value.est_usd",
+"old": 0.15,
+"new": 0.15,
+"source": "FILL (C339 · France · 1983 · 20 centimes · FRF): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P8": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C339",
+"op": "set",
+"field": "value.confidence",
+"old": "low",
+"new": "low",
+"source": "FILL (C339 · France · 1983 · 20 centimes · FRF): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P9": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C341",
+"op": "set",
+"field": "value.est_usd",
+"old": 0.15,
+"new": 0.15,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"P10": [
+"HW-gemini-value-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "specimen",
+"id": "C341",
+"op": "set",
+"field": "value.confidence",
+"old": "low",
+"new": "low",
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM): exact price page URL + the grade you assumed and why",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-value",
+"assignment": "HW-gemini-value-20261105-1",
+"run_id": "HW-gemini-value-20261105-1",
+"inputs": []
+}
+}
+],
+"F1": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "nominal.edge",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = as the entry words it, e.g. Plain, Reeded, Lettered: ...; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F2": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "nominal.thickness_mm",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = a number in mm; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F3": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "nominal.alignment",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = coin or medal; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F4": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "legal_tender.status",
+"old": "unknown",
+"new": "unknown",
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = current, demonetized, withdrawn, superseded or none; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F5": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "legal_tender.text",
+"old": "",
+"new": "",
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = a few words, e.g. demonetized 2002 (euro); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F6": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "period",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = a historical period or regime, never a country status; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F7": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "ruler",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = the ruler named on the coin; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F8": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "design.designers",
+"old": [],
+"new": [],
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F9": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "design.obverse",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = what the obverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F10": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "DD.X.10-pfennig",
+"op": "set",
+"field": "design.reverse",
+"old": null,
+"new": null,
+"source": "FILL (C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM (DD.X.10-pfennig)): the exact entry URL for the coin we hold + the line you read (`new` = what the reverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F11": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "nominal.edge",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = as the entry words it, e.g. Plain, Reeded, Lettered: ...; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F12": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "nominal.thickness_mm",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = a number in mm; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F13": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "nominal.alignment",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = coin or medal; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F14": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "legal_tender.status",
+"old": "unknown",
+"new": "unknown",
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = current, demonetized, withdrawn, superseded or none; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F15": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "legal_tender.text",
+"old": "",
+"new": "",
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = a few words, e.g. demonetized 2002 (euro); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F16": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "period",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = a historical period or regime, never a country status; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F17": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "ruler",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = the ruler named on the coin; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F18": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "design.designers",
+"old": [],
+"new": [],
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F19": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "design.obverse",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = what the obverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F20": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.X.10-cents",
+"op": "set",
+"field": "design.reverse",
+"old": null,
+"new": null,
+"source": "FILL (C338 · Jamaica · 1977 · 10 cents · JMD (JM.X.10-cents)): the exact entry URL for the coin we hold + the line you read (`new` = what the reverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F21": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "nominal.edge",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = as the entry words it, e.g. Plain, Reeded, Lettered: ...; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F22": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "nominal.thickness_mm",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = a number in mm; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F23": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "nominal.alignment",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = coin or medal; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F24": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "legal_tender.status",
+"old": "unknown",
+"new": "unknown",
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = current, demonetized, withdrawn, superseded or none; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F25": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "legal_tender.text",
+"old": "",
+"new": "",
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = a few words, e.g. demonetized 2002 (euro); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F26": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "period",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = a historical period or regime, never a country status; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F27": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "ruler",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = the ruler named on the coin; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F28": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "design.designers",
+"old": [],
+"new": [],
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F29": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "design.obverse",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = what the obverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F30": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JP.X.100-yen",
+"op": "set",
+"field": "design.reverse",
+"old": null,
+"new": null,
+"source": "FILL (C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)): the exact entry URL for the coin we hold + the line you read (`new` = what the reverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F31": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "nominal.edge",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = as the entry words it, e.g. Plain, Reeded, Lettered: ...; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F32": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "nominal.thickness_mm",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = a number in mm; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F33": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "nominal.alignment",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = coin or medal; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F34": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "legal_tender.status",
+"old": "unknown",
+"new": "unknown",
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = current, demonetized, withdrawn, superseded or none; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F35": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "legal_tender.text",
+"old": "",
+"new": "",
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = a few words, e.g. demonetized 2002 (euro); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F36": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "period",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = a historical period or regime, never a country status; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F37": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "ruler",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = the ruler named on the coin; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F38": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "design.designers",
+"old": [],
+"new": [],
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F39": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "design.obverse",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = what the obverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+],
+"F40": [
+"HW-gemini-fill-20261105-1",
+{
+"ts": "2026-11-05T15:16:31Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "KR.X.10-won",
+"op": "set",
+"field": "design.reverse",
+"old": null,
+"new": null,
+"source": "FILL (C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)): the exact entry URL for the coin we hold + the line you read (`new` = what the reverse shows, then its legend in capitals, joined by ' · '; the text covers every year of the type, so write the year as date and a mint letter that changes from mint to mint as mint mark (never the year or mint of the coin in the entry's photo); leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-05",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261105-1",
+"run_id": "HW-gemini-fill-20261105-1",
+"inputs": []
+}
+}
+]
+}
+}

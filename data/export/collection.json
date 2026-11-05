@@ -1,18 +1,18 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-05T02:29:16Z",
- "content_hash": "daa886b0f5e00d95",
+ "generated_at": "2026-11-05T15:19:17Z",
+ "content_hash": "c028dd485f9b37fe",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:daa886b0f5e00d95",
+  "ledger_version": "v3:c028dd485f9b37fe",
   "vault": 1636,
   "next_soft_beat": 1700,
-  "grand": 5406.64,
-  "grand_raw": "$5,406.64",
+  "grand": 5408.29,
+  "grand_raw": "$5,408.29",
   "flips": {
-   "raw": "$209.84 · 333 cards · white 2×2",
-   "usd": 209.84,
-   "cards": 333
+   "raw": "$211.49 · 338 cards · white 2×2",
+   "usd": 211.49,
+   "cards": 338
   },
   "bullion": {
    "raw": "$2,893.60 · 21 cards · Ag+Au",
@@ -70,12 +70,12 @@
   "spot_au": 4161.5
  },
  "counts": {
-  "flips": 339,
+  "flips": 344,
   "bullion": 21,
   "sets": 2,
   "housing": 4,
   "stamps": 1,
-  "countries": 53,
+  "countries": 54,
   "vault": 1636,
   "albums_families": 62
  },
@@ -3240,6 +3240,79 @@
      "mintage_text": null,
      "qualifier": null,
      "year": 2008
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
+  "DD.X.10-pfennig": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "DD",
+   "denomination": {
+    "currency": "DDM",
+    "display": null,
+    "named": null,
+    "unit": "Pfennig",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "DD.X.10-pfennig",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [
+      "A"
+     ],
+     "mint_text": "Berlin mint (A above the oak leaf on the value side)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1968
     }
    ],
    "legal_tender": {
@@ -7093,6 +7166,14 @@
      "mintage_text": null,
      "qualifier": null,
      "year": 1988
+    },
+    {
+     "mint_marks": [],
+     "mint_text": "Pessac mint; cornucopia and dolphin privy marks flank the date",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1983
     }
    ],
    "legal_tender": {
@@ -12047,6 +12128,148 @@
    "series": null,
    "tags": []
   },
+  "JM.X.10-cents": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "JM",
+   "denomination": {
+    "currency": "JMD",
+    "display": null,
+    "named": null,
+    "unit": "cents",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "JM.X.10-cents",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "Royal Mint, Llantrisant (no mint mark)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1977
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
+  "JP.X.100-yen": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "JP",
+   "denomination": {
+    "currency": "JPY",
+    "display": null,
+    "named": null,
+    "unit": "yen",
+    "value": 100
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "JP.X.100-yen",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "Japan Mint (not lettered on type)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2015
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
   "JP.Y.73a": {
    "catalogs": [
     {
@@ -12528,6 +12751,77 @@
     "weight_min_g": null
    },
    "period": "Republic of Korea",
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
+  "KR.X.10-won": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "KR",
+   "denomination": {
+    "currency": "KRW",
+    "display": null,
+    "named": null,
+    "unit": "won",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "KR.X.10-won",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "Korea Minting and Security Printing Corporation, Daejeon (no mint mark)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2001
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -23397,6 +23691,95 @@
    "want_priority": null,
    "year_raw": "2008"
   },
+  "C341": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-05",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C341",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [
+     "A"
+    ],
+    "mint_text": "Berlin mint (A above the oak leaf on the value side)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1968
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed. The emblem side reads DEUTSCHE DEMOKRATISCHE REPUBLIK around the hammer-and-compass emblem; the value side reads 10 and PFENNIG with the date below, read digit by digit from an enlarged crop as 1968. The Berlin mint letter A sits above the oak leaf on the value side.",
+   "photos": [
+    "C341-obv-p1",
+    "C341-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-05T02:27:08Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "EU-DD-001",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "An East German 10 pfennig from 1968, feather-light aluminium. One side carries the state emblem, a hammer and compass inside a wreath of wheat, ringed by the words Deutsche Demokratische Republik; the other has a big 10 over an oak leaf. Coins like this were the small change of the DDR until the state itself vanished in 1990.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "DD.X.10-pfennig",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.15,
+    "face": {
+     "amount": 10,
+     "currency": "DDM"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1968"
+  },
   "C006": {
    "acquisition": {
     "acquired_on": null,
@@ -32796,6 +33179,92 @@
    "want_priority": null,
    "year_raw": "1988"
   },
+  "C339": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-05",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C339",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Pessac mint; cornucopia and dolphin privy marks flank the date",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1983
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Reverse photo only; LIBERTE EGALITE FRATERNITE, the big 20, CENTIMES and the engraver signature A. DIEUDONNE were read from the photo. The date was read digit by digit from an enlarged crop as 1983 (a first glance at the small photo suggested 1963; the enlargement shows the third digit is an 8). The dolphin privy mark to the right of the date is the Paris mark used 1975-94.",
+   "photos": [
+    "C339-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-05T02:27:03Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "EU-FR-037",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A 1983 French 20 centimes, the golden everyday coin of pre-euro France. Marianne in her Phrygian cap of liberty is on the other side; the big 20 on this side sits inside a wreath of laurel and wheat.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "FR.KM.930",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.15,
+    "face": {
+     "amount": 20,
+     "currency": "FRF"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1983"
+  },
   "C013": {
    "acquisition": {
     "acquired_on": null,
@@ -40787,6 +41256,92 @@
    "want_priority": null,
    "year_raw": "1993"
   },
+  "C338": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-05",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C338",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Royal Mint, Llantrisant (no mint mark)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1977
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Obverse photo only; JAMAICA, the arms and the 1977 date were read from the photo. The denomination is not on the photographed side: it follows from the wide JAMAICA lettering of the circulation type, the copper-nickel metal, and base rates (the 1977 5 cents and the narrow-legend 10 cents were Franklin Mint collector strikes only; no 25 cents was struck in 1977; the 1 cent was aluminium). A reverse photo settles it outright.",
+   "photos": [
+    "C338-obv-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-05T02:27:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "NA-JM-005",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A 1977 Jamaican 10 cents bearing the national coat of arms: a crocodile crest above a shield flanked by two supporters, with the motto Out of Many, One People on the scroll below. A butterfly among flowers fills the other side. It was everyday small change in Jamaica in the late 1970s.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "JM.X.10-cents",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.2,
+    "face": {
+     "amount": 0.1,
+     "currency": "JMD"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1977"
+  },
   "C206": {
    "acquisition": {
     "acquired_on": null,
@@ -41150,6 +41705,93 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "1988"
+  },
+  "C340": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-05",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C340",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Japan Mint (not lettered on type)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2015
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed. The value side reads 100 with the era date below it, read character by character from enlarged crops as Heisei 27 (2015). The blossom side carries the state name and the denomination in kanji around the flowers. Japan Mint; no mint letter on the type.",
+   "photos": [
+    "C340-obv-p1",
+    "C340-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-05T02:27:05Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "AS-JP-005",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A Japanese 100 yen coin dated Heisei 27 (2015). One side is filled with cherry blossoms, the sakura, Japan's beloved unofficial national flower; the other carries a big, plain 100. This design has served on the 100 yen since 1967, across three emperors.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "JP.X.100-yen",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.9,
+    "face": {
+     "amount": 100,
+     "currency": "JPY"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "2015"
   },
   "C210": {
    "acquisition": {
@@ -41854,6 +42496,93 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "1994"
+  },
+  "C342": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-05",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C342",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Korea Minting and Security Printing Corporation, Daejeon (no mint mark)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2001
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed. The value side reads 2001 over a big 10, with the Bank of Korea's name in Hangul along the bottom rim; the pagoda side shows the Dabotap pagoda with the denomination in Hangul on both sides of it. The brass color matches this 1983-2006 type, distinct from the smaller copper-plated aluminium 10 won struck from 2006. The bold value digits match the thicker-digit variant the catalogs list for 2001.",
+   "photos": [
+    "C342-obv-p1",
+    "C342-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-05T02:32:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "AS-KR-009",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A South Korean 10 won from 2001, struck in brass. The Dabotap pagoda of Bulguksa temple stands on one side, a stone pagoda from the 700s and one of Korea's national treasures, with the value in Hangul beside it. The other side carries a big 10, the year, and the Bank of Korea's name. This brass design ran from 1983 to 2006, when a smaller, cheaper copper-colored version took its place; the collection already holds that successor.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "KR.X.10-won",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.25,
+    "face": {
+     "amount": 10,
+     "currency": "KRW"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "2001"
   },
   "C185": {
    "acquisition": {
@@ -79545,6 +80274,246 @@
    "specimen": "C305",
    "superseded_by": null,
    "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 465,
+    "cy": 1252,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 208,
+    "rotation_deg": 0,
+    "source_file": "NOID_Jamaica_1977_10Cents_obv.jpeg",
+    "source_sha256": "b947a3ba035c3e32b8105d2e31a9510101d2b9fb409dbcd5472bd801ecf41216",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C338-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C338_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "f03c584a4ca862abea764d56bf470f77896ef8c454845eef7a8620fcdbbfc669",
+   "side": "obv",
+   "specimen": "C338",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 466,
+    "cy": 1220,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 214,
+    "rotation_deg": 0,
+    "source_file": "NOID_France_1983_20Centimes_rev.jpeg",
+    "source_sha256": "51eee3fda8fe5c74adafe2900680fad82b0f6f8ff6976e38d3fc1165f6257e91",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C339-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C339_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "57cd40d8333c958a0f62e209618c78a7b4d9193e8a987f83ca9ff35500efdc1f",
+   "side": "rev",
+   "specimen": "C339",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 512,
+    "cy": 1425,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 199,
+    "rotation_deg": 335.0,
+    "source_file": "NOID_Japan_2015_100Yen_obv.jpeg",
+    "source_sha256": "c1f67b320cf7ad52406d07ecde26ff2a82ff36096b249989ed136f94fa21e459",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C340-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C340_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "60ec9454b0ee6b76b7dc542c758c651a35079704ab439757178a51da8360c08a",
+   "side": "obv",
+   "specimen": "C340",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 448,
+    "cy": 1261,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 195,
+    "rotation_deg": 30.0,
+    "source_file": "NOID_Japan_2015_100Yen_rev.jpeg",
+    "source_sha256": "1f447ef449f0533269e31839df87c6abd84eb3f9dadc2973c1064b2d75a28044",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C340-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C340_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "b2d69ca70ef3c7f6d199d9511b1eedc6d8733e52214ad961c3f710d9b43a9a9c",
+   "side": "rev",
+   "specimen": "C340",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 368,
+    "cy": 1166,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 187,
+    "rotation_deg": 0,
+    "source_file": "NOID_EastGermany_1968_10Pfennig_obv.jpeg",
+    "source_sha256": "e92d217c601a1f2f8c3c0b8f7d11bc9ab56e3701c048e739bf3959ef9d7f7a5f",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C341-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C341_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "60dd425fc334f0661e25f61c972c634d094acf8f4886c3645248f2ad449a9d25",
+   "side": "obv",
+   "specimen": "C341",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 394,
+    "cy": 1282,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 198,
+    "rotation_deg": 0,
+    "source_file": "NOID_EastGermany_1968_10Pfennig_rev.jpeg",
+    "source_sha256": "2a2e11543b79f144d51cefee0e3dd3297a6c1bc99f440b0c6cacc6e19544b3df",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C341-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C341_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "9aaf2cc48438d896e561f5eac243bd27a27c9e75790f1aba1e3f63aeafea3395",
+   "side": "rev",
+   "specimen": "C341",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 467,
+    "cy": 1209,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 198,
+    "rotation_deg": 0,
+    "source_file": "NOID_SouthKorea_2001_10Won_obv.jpeg",
+    "source_sha256": "784e6c13a29deba99cfe1def826549a03e082eda5a4ede3a9dcee94a1caf9596",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C342-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C342_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "2fc0517fc4c076559462704efb82241850f9a2a5c11bbd4d76364c51920c671f",
+   "side": "obv",
+   "specimen": "C342",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 1400,
+    "cy": 488,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 208,
+    "rotation_deg": 270.0,
+    "source_file": "NOID_SouthKorea_2001_10Won_rev.jpeg",
+    "source_sha256": "41b6f8a7e2322952c9cd6a2a73f08164e439f63d60ec446b578a247798130380",
+    "tool_version": "1",
+    "ts": "2026-11-05T15:17:47Z"
+   },
+   "height": 512,
+   "id": "C342-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C342_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "f5ce9abaed77a1d794ad7f2ecdf9e2cae250b2c85439d1d93565093e9c675047",
+   "side": "rev",
+   "specimen": "C342",
+   "superseded_by": null,
+   "width": 512
   }
  ],
  "issuers": {
@@ -79687,6 +80656,16 @@
    "note": null,
    "successor": null,
    "to": null
+  },
+  "DD": {
+   "continent": "Europe",
+   "from": 1949,
+   "id": "DD",
+   "iso": "DD",
+   "name": "German Democratic Republic",
+   "note": "East Germany (DDR), 1949-1990. Mark der DDR coins, mint letter A = Berlin.",
+   "successor": "DE",
+   "to": 1990
   },
   "DE": {
    "continent": "Europe",
@@ -107136,6 +108115,227 @@
      "https://api.numista.com/v3/types/168"
     ],
     "n": 2
+   }
+  },
+  "C338": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_Jamaica_1977_10Cents_obv.jpeg (pen label: JAMAICA 1977 10 CENTS); identified from the owner's chat photo, 2026-11-04"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_Jamaica_1977_10Cents_obv.jpeg (pen label: JAMAICA 1977 10 CENTS); new type for a chat-photo specimen, 2026-11-04"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_Jamaica_1977_10Cents_obv.jpeg (pen label: JAMAICA 1977 10 CENTS); identified from the owner's chat photo, 2026-11-04"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C339": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_France_1983_20Centimes_rev.jpeg (pen label: FRANCE 1983 20 CENTIMES); identified from the owner's chat photo, 2026-11-04"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "checked",
+    "by": "Claude + Grok",
+    "ts": "2026-10-28",
+    "source": "C005_rev.webp (https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C005_rev.webp): read on coin \"20 CENTIMES 1986\"",
+    "links": [
+     "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C005_rev.webp"
+    ],
+    "n": 2
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "catalog": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-24",
+    "source": "Numista N#4 https://en.numista.com/catalogue/pieces4.html References row (page order): Franc 2014# 156, Gad 1789# 332, Schön# 230, KM# 930; ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4.html"
+    ],
+    "n": 2
+   },
+   "composition": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-24",
+    "source": "Numista N#4 https://en.numista.com/catalogue/pieces4.html Features: Composition 'Aluminium-nickel bronze (92% Copper, 6% Aluminium, 2% Nicke",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4.html"
+    ],
+    "n": 2
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_France_1983_20Centimes_rev.jpeg (pen label: FRANCE 1983 20 CENTIMES); identified from the owner's chat photo, 2026-11-04"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   },
+   "design": {
+    "level": "ai",
+    "by": "Claude",
+    "ts": "2026-10-24",
+    "source": "Correction (Claude, 2026-10-24): the lettering named one coin's year (the coin held or the one in the cited entry's photo), but this text co"
+   },
+   "period": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-31",
+    "source": "https://en.numista.com/catalogue/pieces4.html (via api https://api.numista.com/v3/types/4) title '20 Centimes', issuer 'France', row 'Ruler/",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4.html",
+     "https://api.numista.com/v3/types/4"
+    ],
+    "n": 2
+   }
+  },
+  "C340": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_Japan_2015_100Yen_obv.jpeg (pen label: JAPAN 2015 100 YEN); identified from the owner's chat photo, 2026-11-04"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_Japan_2015_100Yen_obv.jpeg (pen label: JAPAN 2015 100 YEN); new type for a chat-photo specimen, 2026-11-04"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_Japan_2015_100Yen_obv.jpeg (pen label: JAPAN 2015 100 YEN); identified from the owner's chat photo, 2026-11-04"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C341": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_EastGermany_1968_10Pfennig_obv.jpeg (pen label: EAST GERMANY 1968 10 PFENNIG); identified from the owner's chat photo, 2026-11-04"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_EastGermany_1968_10Pfennig_obv.jpeg (pen label: EAST GERMANY 1968 10 PFENNIG); new type for a chat-photo specimen, 2026-11-04"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_EastGermany_1968_10Pfennig_obv.jpeg (pen label: EAST GERMANY 1968 10 PFENNIG); identified from the owner's chat photo, 2026-11-04"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C342": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_SouthKorea_2001_10Won_obv.jpeg (pen label: SOUTH KOREA 2001 10 WON); identified from the owner's chat photos, 2026-11-04"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_SouthKorea_2001_10Won_obv.jpeg (pen label: SOUTH KOREA 2001 10 WON); new type for a chat-photo specimen, 2026-11-04"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-05",
+    "source": "photo NOID_SouthKorea_2001_10Won_obv.jpeg (pen label: SOUTH KOREA 2001 10 WON); identified from the owner's chat photos, 2026-11-04"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
    }
   },
   "T001": {

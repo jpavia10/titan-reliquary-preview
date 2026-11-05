@@ -3,4 +3,11 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-Nothing waiting: every outside AI's file is scored.
+## Muse
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_muse_20261104-1827a.jsonl` | **6 / 7** + accuracy ? | 1 | 2 | ? | 2 | 1 | 3 lines: 1 in the change log, 0 filed as disagreements, 2 not written (stale, no change or already applied); file name is not changes_{agent}_{YYYYMMDD-HHMM}.jsonl; nothing cross-checked yet |
+| `changes_muse_20261104-1827b.jsonl` | **6 / 7** + accuracy ? | 1 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); file name is not changes_{agent}_{YYYYMMDD-HHMM}.jsonl; nothing cross-checked yet |
+| `changes_muse_20261104-1827c.jsonl` | **6 / 7** + accuracy ? | 1 | 2 | ? | 2 | 1 | 3 lines: 2 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); file name is not changes_{agent}_{YYYYMMDD-HHMM}.jsonl; nothing cross-checked yet |
+| `changes_muse_20261104-1832.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |

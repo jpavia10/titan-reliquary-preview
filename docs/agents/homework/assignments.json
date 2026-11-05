@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-05T03:43:16Z",
+ "updated": "2026-11-05T16:00:12Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -143,7 +143,11 @@
   "muse-read-mint-20261105": 1,
   "muse-verify-20261105": 5,
   "grok-verify-20261105": 2,
-  "gemini-verify-20261105": 2
+  "gemini-verify-20261105": 3,
+  "gemini-value-20261105": 1,
+  "gemini-story-check-20261105": 1,
+  "gemini-cite-20261105": 1,
+  "gemini-fill-20261105": 1
  },
  "assignments": [
   {
@@ -29256,6 +29260,279 @@
      "field": "design.text"
     }
    ]
+  },
+  {
+   "id": "HW-gemini-verify-20261105-3",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C342:issue.year",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:denomination.value",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C339:issue.year",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C341:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C340:issue.year",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:denomination.value",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:denomination.value",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C338:issue.year",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C341:issue.year",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:denomination.value",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "denomination.value"
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-12T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b"
+  },
+  {
+   "id": "HW-gemini-value-20261105-1",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C340",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "value"
+    },
+    {
+     "item": "value:C342",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "value"
+    },
+    {
+     "item": "value:C338",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "value"
+    },
+    {
+     "item": "value:C339",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "value"
+    },
+    {
+     "item": "value:C341",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "value"
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-15T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b"
+  },
+  {
+   "id": "HW-gemini-story-check-20261105-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C338",
+     "entity": "specimen",
+     "id": "C338",
+     "field": "story"
+    },
+    {
+     "item": "story:C339",
+     "entity": "specimen",
+     "id": "C339",
+     "field": "story"
+    },
+    {
+     "item": "story:C340",
+     "entity": "specimen",
+     "id": "C340",
+     "field": "story"
+    },
+    {
+     "item": "story:C341",
+     "entity": "specimen",
+     "id": "C341",
+     "field": "story"
+    },
+    {
+     "item": "story:C342",
+     "entity": "specimen",
+     "id": "C342",
+     "field": "story"
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-12T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b"
+  },
+  {
+   "id": "HW-gemini-cite-20261105-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:DD.X.10-pfennig",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": null
+    },
+    {
+     "item": "cite:JM.X.10-cents",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "cite:JP.X.100-yen",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null
+    },
+    {
+     "item": "cite:KR.X.10-won",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-12T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b"
+  },
+  {
+   "id": "HW-gemini-fill-20261105-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-05T15:16:31Z",
+   "lease_until": "2026-11-15T23:59:00Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:DD.X.10-pfennig",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": null
+    },
+    {
+     "item": "fill:JM.X.10-cents",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:JP.X.100-yen",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null
+    },
+    {
+     "item": "fill:KR.X.10-won",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null
+    }
+   ],
+   "extended": [
+    {
+     "from": "2026-11-15T15:16:31Z",
+     "to": "2026-11-15T23:59:00Z",
+     "reason": "sent 2026-11-05 as one compact pack in 3 Drive parts (HW-gemini-PACK-20261105b, tools/agents/compact_sheet.py); answered part by part"
+    }
+   ],
+   "parts": 3,
+   "pack": "HW-gemini-PACK-20261105b"
   }
  ],
  "tried": {

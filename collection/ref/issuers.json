@@ -13,6 +13,7 @@
 {"continent":"North America","from":null,"id":"CR","iso":"CR","name":"Costa Rica","note":null,"successor":null,"to":null},
 {"continent":"North America","from":null,"id":"CU","iso":"CU","name":"Cuba","note":null,"successor":null,"to":null},
 {"continent":"Europe","from":null,"id":"CZ","iso":"CZ","name":"Czech Republic","note":null,"successor":null,"to":null},
+{"continent":"Europe","from":1949,"id":"DD","iso":"DD","name":"German Democratic Republic","note":"East Germany (DDR), 1949-1990. Mark der DDR coins, mint letter A = Berlin.","successor":"DE","to":1990},
 {"continent":"Europe","from":null,"id":"DE","iso":"DE","name":"Germany","note":null,"successor":null,"to":null},
 {"continent":"Europe","from":1871,"id":"DE-EMP","iso":"DE","name":"German Empire","note":"Ledger country name 'Germany (Empire)'. Kaiserreich issues (Mark system) 1871-1918.","successor":null,"to":1918},
 {"continent":"North America","from":null,"id":"EC","iso":"EC","name":"East Caribbean States","note":null,"successor":null,"to":null},

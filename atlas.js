@@ -118,6 +118,16 @@
     "asw": "2.95 oz",
     "flag": "\ud83c\uddef\ud83c\uddf2"
   },
+  "DD": {
+    "lon": 13.4,
+    "lat": 52.52,
+    "region": "Europe",
+    "mint": "Berlin (A)",
+    "notable": "Mark der DDR aluminium coinage",
+    "era": "1949\u20131990 GDR",
+    "asw": "\u2014",
+    "flag": "\ud83c\udde9\ud83c\uddea"
+  },
   "SU": {
     "lon": 37.61,
     "lat": 55.75,

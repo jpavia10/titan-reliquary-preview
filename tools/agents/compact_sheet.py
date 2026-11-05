@@ -78,7 +78,7 @@ def hint(ln):
     out = []
     m = re.search(r"\(this line is the (\d{4}) issue[^)]*\)", src)
     if m: out.append(f"the {m.group(1)} row only")
-    m = re.search(r"`new` = ([^;)]+)", src)
+    m = re.search(r"`new` = (.+?); leave FILL", src) or re.search(r"`new` = ([^;)]+)", src)   # the hint may hold its own ( ) and ;
     f = ln.get("field", "")
     fmt = FORMAT.get(f) or FORMAT.get(f.split(".")[-1]) if not m else None
     if m: out.append("new = " + m.group(1).strip())
