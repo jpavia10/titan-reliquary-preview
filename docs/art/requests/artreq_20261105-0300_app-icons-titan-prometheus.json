@@ -1,0 +1,49 @@
+{
+ "request_id": "artreq_20261105-0300_app-icons-titan-prometheus",
+ "status": "open",
+ "assigned_to": "any (Gemini app first: Joseph pays for its image model; then Grok Imagine)",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-11-05T03:00:00Z",
+ "why": "Joseph wants his phone's home-screen icons upgraded significantly: Titan's is flat gold 'TR' letters in a ring, Prometheus Hub's is a thin white square on black. Both are web apps installed on his Android phone; the phone crops each icon to a circle or rounded square.",
+ "instructions": "Any image AI: follow the Drive doc 'ART_START_HERE (any AI: images + video)'. Claim it with artreq_20261105-0300_app-icons-titan-prometheus.CLAIMED-{model}.txt first. Make the 6 images below, one at a time, at the largest square size your model gives (at least 1024x1024). Save them to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261105-0300_app-icons-titan-prometheus/' with the exact file names, then write artreq_20261105-0300_app-icons-titan-prometheus.DONE.txt next to this request (one line per file: ok or skipped: reason; your model name and date).",
+ "deliverable_spec": {
+  "size": "square 1:1, at least 1024x1024, PNG",
+  "safe_zone": "full-bleed square: the background fills every pixel to the edges (no white corners, no rounded corners, no border). The subject sits inside the central circle of 66 % of the width; nothing important in the outer 17 % on any side, because Android masks the icon to a circle or squircle.",
+  "readability": "it must still read as one clear shape at 48x48 px on a busy wallpaper: one subject, strong silhouette, high contrast against the background"
+ },
+ "global_style": "Premium app icon, the standard of a luxury watch brand or a flagship phone app. Photoreal materials where the take says so (real gold with micro-scratches, real velvet, real glass), soft studio light, rich but not oversaturated. Not cartoon, not clip art, not a 3D-render plastic look, not neon.",
+ "negative": "no text or letters except where a take asks for exactly the letters it names, no watermark, no frame, no rounded corners, no drop shadow outside the subject, no multiple coins, no hands, no faces of real people, no busy background",
+ "images": [
+  {
+   "file_name": "titan_icon_take1.png",
+   "aspect_ratio": "1:1",
+   "prompt": "One heavy antique gold coin seen straight on, in high relief: the laurel-crowned profile of a classical titan, a thick raised rim with fine reeding. Warm key light from the upper left so the relief has bright highlights and deep shadows. It rests in a deep black velvet recess inside a thin polished gold bezel ring. Background deep black with a faint warm vignette. Macro product photography."
+  },
+  {
+   "file_name": "titan_icon_take2.png",
+   "aspect_ratio": "1:1",
+   "prompt": "A small reliquary casket of gold and glass, seen from the front and slightly above, its lid open a hand's width, warm golden light pouring out from a single coin glowing inside. Jewel-like detail on the gold corners. Deep black background with a soft warm glow behind the casket. Macro product photography."
+  },
+  {
+   "file_name": "titan_icon_take3.png",
+   "aspect_ratio": "1:1",
+   "prompt": "The face of a gold coin filling the circle, struck with the two capital letters TR in a classical Roman serif (only these two letters, spelled T then R, deeply engraved, perfectly legible), a beaded border inside a raised rim, warm raking light so the letters cast fine shadows. Deep black background. Macro photography of real struck gold."
+  },
+  {
+   "file_name": "prometheus_icon_take1.png",
+   "aspect_ratio": "1:1",
+   "prompt": "A single flame made of pale gold and white light and fine glowing particles, rising from a thin pearl-white ring that floats in deep midnight space (color #05070e). Faint cyan rim light on the ring, a few drifting particles around it, depth and soft bloom. Futuristic, minimal, elegant: the fire Prometheus gave."
+  },
+  {
+   "file_name": "prometheus_icon_take2.png",
+   "aspect_ratio": "1:1",
+   "prompt": "A slender futuristic torch of brushed titanium and glass held upright in empty deep midnight space (color #05070e), its flame a column of pale gold light breaking into a stream of tiny particles that rise and curl. Cyan and lavender reflections on the metal. Minimal, premium, calm."
+  },
+  {
+   "file_name": "prometheus_icon_take3.png",
+   "aspect_ratio": "1:1",
+   "prompt": "An abstract arc of pearl-white light like a sunrise over a horizon, drawn as a thin glowing half ring, with one bright gold spark at its top that sheds fine particles, in deep midnight space (color #05070e) with a faint lavender haze. Ultra-minimal, futuristic, glassy, high contrast."
+  }
+ ],
+ "after": "Claude picks the best of each, makes the Android sizes (512, 192, maskable 512, 180 apple-touch, 32 favicon) from it by cropping and resizing only, and ships them in both apps; the phone picks the new icon up on its own within a day or on reinstall."
+}
