@@ -255,7 +255,8 @@ def pool_verify(ctx, audit_rate):
                 if fact not in BLIND or not photos_of(ctx, sid): continue
                 e = {"level": "imported", "by": "ledger", "source": "Grok's ledger v254 (imported 2026-09-30, never checked)"}; ledger = True
             recheck = False
-            if not ledger and e.get("level") not in PV.SOURCED:
+            ai_guess = not ledger and e.get("level") == "ai"   # owner, 2026-11-05 ("load up gemini"): an AI's unsourced guess goes to a second reader, who finds its own exact source
+            if not ledger and not ai_guess and e.get("level") not in PV.SOURCED:
                 ts = (e.get("ts") or "")[:10]
                 if e.get("level") != "checked" or not ts or (today - datetime.date.fromisoformat(ts)).days <= RECHECK_DAYS: continue
                 recheck = True
@@ -275,7 +276,7 @@ def pool_verify(ctx, audit_rate):
             if iid in out:
                 out[iid]["coins"].append(sid); continue
             est = max([(x.get("value") or {}).get("est_usd") or 0 for k, x in ctx["live"].items() if (x["type"] == rid if ent == "type" else k == sid)] or [0])
-            audit = ledger or recheck or _h(iid) < audit_rate(author.split(",")[0])
+            audit = ledger or recheck or ai_guess or _h(iid) < audit_rate(author.split(",")[0])
             pics = photos_of(ctx, sid) if fact in BLIND else []
             dec = None
             if fact in CAN.FIELDS and isinstance(val, str):
@@ -286,7 +287,7 @@ def pool_verify(ctx, audit_rate):
                        authors=author.split(","), blind=fact in BLIND, inputs=[p["file"] for p in pics],
                        payload={"fact": fact, "author": e.get("by"), "ledger": ledger, "value": None if fact in BLIND | NUM_BLIND else val,
                                 "their_source": None if fact in BLIND | NUM_BLIND else e.get("source"), "links": [] if fact in BLIND | NUM_BLIND else e.get("links") or [],
-                                "photos": pics, "audit": audit, "lookup_blind": fact in NUM_BLIND, "recheck": recheck, "decoy": dec},
+                                "photos": pics, "audit": audit, "lookup_blind": fact in NUM_BLIND, "recheck": recheck, "decoy": dec, "ai_guess": ai_guess},
                        lines=[(ent, rid, field_n, val)])
             if recheck:
                 if iid in old: old[iid][2]["coins"].append(sid)
@@ -715,14 +716,16 @@ def refresh(ctx, roles, queues, state, now, log=None):
     # others get theirs); later rounds (roles.json `per_kind`, default 1) give a second or third batch where the pool is still deep, so a
     # busy AI is never idle waiting for the next publish
     active = [(agent, ag) for agent, ag in roles["agents"].items() if ag.get("status") == "active"]
+    active.sort(key=lambda x: -(x[1].get("priority") or 0))     # roles.json `priority` (owner, 2026-11-05: Gemini is loaded first) picks first in every round
     for rnd in range(max([1] + [ag.get("per_kind", 1) for _, ag in active])):
         for agent, ag in active:
             if rnd >= max(1, ag.get("per_kind", 1)): continue
             mine = [a for a in state["assignments"] if a["agent"] == agent and a["status"] == "open"]
-            for kind in ag.get("kinds", []):
+            for kind in ag.get("kinds", []) * (ag.get("per_kind", 1) if ag.get("priority") and rnd == 0 else 1):
                 if len(mine) >= ag.get("capacity", 0): break
                 if kind not in WORDING_KINDS and demoted(agent, roles, metrics): continue     # too many of its own facts were wrong: it checks and rewords, it does not write new facts
-                if sum(1 for a in mine if a["kind"] == kind) > rnd: continue    # at most rnd+1 open assignments of a kind by round rnd
+                cap = ag.get("per_kind", 1) if ag.get("priority") else rnd + 1   # a priority AI (roles.json) fills to its per_kind in round 0
+                if sum(1 for a in mine if a["kind"] == kind) >= cap: continue   # others: at most rnd+1 open assignments of a kind by round rnd
                 kd = roles["kinds"][kind]
                 cand = sorted((it for it in pool.values() if it["kind"] == kind and it["item"] not in busy and (it["item"] not in parked or ag.get("takes_parked"))
                                and eligible(agent, it, roles, state, metrics)), key=lambda it: it["prio"])
@@ -762,7 +765,7 @@ def withdraw(state, aid, now, reason):
     raise SystemExit(f"no open assignment {aid}")
 
 
-def extend(state, aid, until, reason, parts=None):
+def extend(state, aid, until, reason, parts=None, pack=None):
     """Move an open assignment's deadline later, e.g. a sheet that was never where its AI could open it (Gemini reads Drive only, and
     the bridge that copies sheets there is not installed). parts = the number of Drive parts it was split into by hand (see refresh)."""
     for a in state["assignments"]:
@@ -771,6 +774,7 @@ def extend(state, aid, until, reason, parts=None):
             a.setdefault("extended", []).append({"from": a["lease_until"], "to": until, "reason": reason})
             a["lease_until"] = until
             if parts: a["parts"] = parts
+            if pack: a["pack"] = pack
             return a
     raise SystemExit(f"no open assignment {aid}")
 
@@ -958,8 +962,11 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
             kd = roles["kinds"][a["kind"]]; items = [pool[x["item"]] for x in a["items"] if x["item"] in pool]
             L += [f"### {n}. {a['id']} · {kd['role']} · {kd['title'].format(n=len(items))} · due {a['lease_until'][:10]}  (fix list {kd['fix']})", "",
                   kd["what"], "", f"**Done when:** {kd['done_when']}", "",
-                  f"**Answer sheet:** {RAW}docs/agents/homework/sheets/{a['id']}.jsonl (save your edited copy as changes_{agent}_YYYYMMDD-HHMM.jsonl)"
-                  + (f"; on Drive in {a['parts']} parts: answer each part into its own change file" if a.get("parts") else ""), "",
+                  (f"**Answer sheet:** in the compact pack {a['pack']} ({a.get('parts') or 1} parts): answer its numbered lines as "
+                   f"answers_{agent}_{a['pack']}_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: {RAW}docs/agents/homework/sheets/{a['id']}.jsonl)"
+                   if a.get("pack") else
+                   f"**Answer sheet:** {RAW}docs/agents/homework/sheets/{a['id']}.jsonl (save your edited copy as changes_{agent}_YYYYMMDD-HHMM.jsonl)"
+                   + (f"; on Drive in {a['parts']} parts: answer each part into its own change file" if a.get("parts") else "")), "",
                   "Items:"] + [item_md(it, a["id"]) for it in items] + [""]
             if ag.get("inline_sheets"):      # an AI that cannot open GitHub gets the sheet in the page itself
                 L += ["Answer sheet (the same as the link):", "", "```jsonl"] + [json.dumps(x, ensure_ascii=False) for x in sheet(a, pool, roles)] + ["```", ""]
@@ -1039,6 +1046,10 @@ def drive_copy(agent, page, note=None, name=None):
                 for k in range(i + 1, min(i + 40, len(L))):
                     if L[k].startswith("### ") or L[k].startswith("## "): break
                     if "**Answer sheet:**" in L[k]:
+                        pk = re.search(r"compact pack (HW-[\w.\-]+) \((\d+) parts\)", L[k])
+                        if pk:           # 2026-11-05: several sheets in one numbered pack (tools/agents/compact_sheet.py)
+                            out.append(f"  **Answer sheet:** the compact pack: Drive `Titan Reliquary/{SHEETS_FOLDER}/{name or agent}/{pk.group(1)} (part 1 of {pk.group(2)}).txt` "
+                                       f"to `(part {pk.group(2)} of {pk.group(2)}).txt`; one answers_{agent}_{pk.group(1)}_partN_YYYYMMDD-HHMM.jsonl per part, one JSON row per line code"); break
                         m = re.search(r"sheets/(HW-[\w.\-]+)\.jsonl", L[k]); np = re.search(r"on Drive in (\d+) parts", L[k])
                         if m and np:     # a big sheet split for Drive by hand: '{id} (part 1 of N).jsonl' ... '(part N of N).jsonl'
                             out.append(f"  **Answer sheet:** Drive `Titan Reliquary/{SHEETS_FOLDER}/{name or agent}/{m.group(1)} (part 1 of {np.group(1)}).jsonl` "

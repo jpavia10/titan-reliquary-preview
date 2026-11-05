@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-05] Claude: Gemini loaded to the limit (owner: "Just load up gemini to retarded level"; "hyper specific so it doesnt artificially complete work")
+- Loop: an AI's unsourced guess (level `ai`, 401 verify items) now goes to a second reader, audit first; roles.json Gemini capacity 400, per_kind 40, lease 10 days, `priority` 10 (filled first in round 0; tests strip it). Gemini holds 16 sheets / 808 items.
+- New `tools/agents/compact_sheet.py` (+ test): several sheets as one numbered pack of small Drive parts; answers are short JSON rows (line, verdict, new, url, quote) converted back to change lines through a frozen code map (`docs/agents/homework/packs/`); no exact page, the example page, no quote, agree on a blind/empty line, differ = shown are left out and listed. Pack HW-gemini-PACK-20261105 (367 lines, 8 parts) and project album_filled_prices_20261105 (890 filled album holes, 6 parts) uploaded to Gemini's Drive sheet folder, sizes checked.
+
 ### [2026-11-05] Claude: tr273, one total everywhere on the Hall (owner's screenshot: two different totals)
 - Headline, caption, tiles, melt bar, simulator, ticker and Market desk now read one quote (`valueNow()` / `window.TitanValueNow`, event `titan:value`): live > price job's latest > history > ledger. The tiles and simulator had been on the Sept 30 ledger quote.
 - Smoke: "headline and Market desk show one total".

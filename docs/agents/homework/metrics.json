@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05T02:29:16Z",
+ "updated": "2026-11-05T03:43:16Z",
  "pools": {
   "cite": 47,
   "story-check": 44,
@@ -8,7 +8,7 @@
   "read-mint": 5,
   "arbitrate": 10,
   "fill": 54,
-  "verify": 194
+  "verify": 401
  },
  "agents": {
   "claude": {
@@ -238,8 +238,8 @@
  ],
  "open_assignments": {
   "grok": 8,
-  "muse": 10,
-  "gemini": 14,
+  "muse": 11,
+  "gemini": 16,
   "chatgpt": 0,
   "gemini-api": 1
  }

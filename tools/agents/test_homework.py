@@ -26,6 +26,10 @@ def sandbox():
     shutil.copytree(os.path.join(ROOT, "collection"), os.path.join(tmp, "collection"), ignore=shutil.ignore_patterns("_incoming"))
     for d in ("docs/agents", "docs/requests", "docs/photos"):
         shutil.copytree(os.path.join(ROOT, d), os.path.join(tmp, d), ignore=shutil.ignore_patterns("homework"))
+    # the tests check the loop's rules, not today's load: a live 'priority' (owner 2026-11-05: Gemini first) would let one AI take every item
+    p = os.path.join(tmp, "docs", "agents", "roles.json"); roles = json.load(open(p, encoding="utf-8"))
+    for ag in roles["agents"].values(): ag.pop("priority", None)
+    with open(p, "w", encoding="utf-8") as fh: json.dump(roles, fh, ensure_ascii=False, indent=2)
     return tmp
 
 
@@ -249,6 +253,34 @@ class LoopUpgrades(unittest.TestCase):
             self.assertTrue(it["payload"]["audit"], "the never-checked ledger goes first")
         nophoto = {sid for sid in ctx["live"] if not HW.photos_of(ctx, sid)}
         self.assertFalse([i for i in led if i["entity"] == "specimen" and set(i["coins"]) <= nophoto])
+
+    def test_an_ais_unsourced_guess_goes_to_a_second_reader_never_its_author(self):
+        """2026-11-05 (owner: "load up gemini"): facts that are only an AI's guess (level ai) are verify items, audit first, never for their author."""
+        tmp = sandbox(); ctx = HW.load_context(tmp)
+        pool = HW.pool_verify(ctx, lambda a: 0.0)
+        guesses = [i for i in pool.values() if i["payload"].get("ai_guess")]
+        self.assertTrue(guesses, "the collection holds AI-guess facts (eras, designs), so there must be second-reader items")
+        roles = json.load(open(os.path.join(tmp, "docs", "agents", "roles.json")))
+        for it in guesses[:60]:
+            self.assertTrue(it["payload"]["audit"], "an unsourced guess is checked first")
+            self.assertTrue(it["authors"] and it["authors"][0] not in ("", "owner", "ledger"))
+            for author in it["authors"]:
+                if author in roles["agents"]:
+                    self.assertFalse(HW.eligible(author, it, roles, {"assignments": [], "tried": {}}, {}), f"{author} must never check its own guess")
+
+    def test_a_priority_ai_is_filled_first(self):
+        """2026-11-05 (owner: "load up gemini"): an AI with 'priority' takes up to per_kind batches of each kind in the first round."""
+        tmp = sandbox(); p = os.path.join(tmp, "docs", "agents", "roles.json")
+        roles = json.load(open(p, encoding="utf-8"))
+        roles["agents"]["gemini"].update(priority=10, per_kind=3, capacity=60, status="active")
+        with open(p, "w", encoding="utf-8") as fh: json.dump(roles, fh)
+        r = run_refresh(tmp, NOW); st = r["state"]
+        gem = [a for a in st["assignments"] if a["agent"] == "gemini" and a["status"] == "open" and a["kind"] == "verify"]
+        others = [a for a in st["assignments"] if a["agent"] != "gemini" and a["status"] == "open" and a["kind"] == "verify"]
+        self.assertGreaterEqual(len(gem), 2, "the priority AI takes more than one verify batch")
+        self.assertLessEqual(len(gem), 3, "never more than its per_kind")
+        mine = {x["item"] for a in gem for x in a["items"]}
+        self.assertFalse(mine & {x["item"] for a in others for x in a["items"]}, "an item is never on two sheets")
 
     def test_recheck_sends_old_checked_facts_back_once_a_year(self):
         tmp = sandbox(); ctx = HW.load_context(tmp)

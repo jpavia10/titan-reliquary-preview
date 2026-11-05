@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-05T02:29:16Z",
+ "updated": "2026-11-05T03:43:16Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261028-1",
@@ -626,7 +626,8 @@
       ],
       "audit": true,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -739,7 +740,8 @@
       "photos": [],
       "audit": true,
       "lookup_blind": true,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": [],
@@ -784,7 +786,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -822,7 +825,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1556,6 +1560,93 @@
      "inputs": [
       "C287_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261105-5",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-05T03:17:36Z",
+   "lease_until": "2026-11-12T03:17:36Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:AT.KM.2826:design.text",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:AT.KM.2826:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AT.KM.2826",
+     "field": "design.text",
+     "coins": [
+      "C023"
+     ],
+     "label": "design of C023 · Austria · 1918 · 20 heller",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse crowned double-headed eagle with the Austrian shield on its breast · reverse large 20 in an oak wreath, date below · no legend (Stefan Schwartz)",
+      "their_source": "Correction (Claude, 2026-10-24): the lettering named one coin's year (the coin held or the one in the cited entry's photo), but this text co",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "design.text",
+     "coins": [
+      "C001",
+      "C093",
+      "C308",
+      "C328"
+     ],
+     "label": "design of C001 · Switzerland · 1969 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "standing Helvetia facing left, spear in right hand, Swiss shield in left, 22 stars (23 from 1983), HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 1 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

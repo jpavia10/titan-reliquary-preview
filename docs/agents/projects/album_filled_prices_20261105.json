@@ -1,0 +1,8916 @@
+{
+ "id": "album_filled_prices_20261105",
+ "made": "2026-11-05",
+ "by": "claude",
+ "about": "Every FILLED album hole with a readable date (of 917 filled of 1,775): coins Joseph already owns in his 33 albums. Their value today is Grok's ledger estimate per album; this gives each hole a cited price. Answer rows: {slot, price_usd, grade, url, quote}. Claude turns accepted rows into collection/prices/album_values_gemini_*.json.",
+ "grade_rule": "VF-20 (album coins were pulled from circulation). When the guide lists no circulated price for that date and mint (most coins after 1964), price_usd = the face value and grade = 'face (no circulated price listed)', with the url of the guide page that shows it.",
+ "sources": [
+  "https://www.pcgs.com/prices (PCGS Price Guide: the page for that exact date and mint)",
+  "https://www.ngccoin.com/price-guide/ (NGC: the page for that exact date and mint)",
+  "for Canada: the NGC world price page or the Numista entry's value table"
+ ],
+ "left_out": "27 filled holes with no readable date (display coins, blank holes)",
+ "count": 890,
+ "rows": [
+  {
+   "slot": "A001-s001",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1941 (no mint mark)",
+   "year": 1941,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s004",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1942 (no mint mark)",
+   "year": 1942,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s005",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1942-D",
+   "year": 1942,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s007",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1943 (no mint mark)",
+   "year": 1943,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s008",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1943-D",
+   "year": 1943,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s009",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1943-S",
+   "year": 1943,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s010",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1944 (no mint mark)",
+   "year": 1944,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s011",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1944-D",
+   "year": 1944,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s013",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1945 (no mint mark)",
+   "year": 1945,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s014",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1945-D",
+   "year": 1945,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s015",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1945-S",
+   "year": 1945,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s016",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1946 (no mint mark)",
+   "year": 1946,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s017",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1946-D",
+   "year": 1946,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s018",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1946-S",
+   "year": 1946,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s020",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1947-D",
+   "year": 1947,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s022",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1948 (no mint mark)",
+   "year": 1948,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s023",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1948-D",
+   "year": 1948,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s024",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1948-S",
+   "year": 1948,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s026",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1949-D",
+   "year": 1949,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s028",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1950 (no mint mark)",
+   "year": 1950,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s029",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1950-D",
+   "year": 1950,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s031",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1951 (no mint mark)",
+   "year": 1951,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s032",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1951-D",
+   "year": 1951,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s033",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1951-S",
+   "year": 1951,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s034",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1952 (no mint mark)",
+   "year": 1952,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s035",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1952-D",
+   "year": 1952,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s037",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1953 (no mint mark)",
+   "year": 1953,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s038",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1953-D",
+   "year": 1953,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s039",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1953-S",
+   "year": 1953,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s040",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1954 (no mint mark)",
+   "year": 1954,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s041",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1954-D",
+   "year": 1954,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s043",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1955 (no mint mark)",
+   "year": 1955,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s044",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1955-D",
+   "year": 1955,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s046",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1956 (no mint mark)",
+   "year": 1956,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s047",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1956-D",
+   "year": 1956,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s048",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1957 (no mint mark)",
+   "year": 1957,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s049",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1957-D",
+   "year": 1957,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s050",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1958 (no mint mark)",
+   "year": 1958,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s051",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1958-D",
+   "year": 1958,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s052",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1959 (no mint mark)",
+   "year": 1959,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s053",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1959-D",
+   "year": 1959,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s054",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1960 (no mint mark)",
+   "year": 1960,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s055",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1960-D",
+   "year": 1960,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s056",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1961 (no mint mark)",
+   "year": 1961,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s057",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1961-D",
+   "year": 1961,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s058",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1962 (no mint mark)",
+   "year": 1962,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s059",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1962-D",
+   "year": 1962,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s060",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1963 (no mint mark)",
+   "year": 1963,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s061",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1963-D",
+   "year": 1963,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s062",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1964 (no mint mark)",
+   "year": 1964,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s063",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1964-D",
+   "year": 1964,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s064",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1965",
+   "year": 1965,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s065",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1966",
+   "year": 1966,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s066",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1967",
+   "year": 1967,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s067",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1968 (no mint mark)",
+   "year": 1968,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s068",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1968-D",
+   "year": 1968,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s069",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1968-S",
+   "year": 1968,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s070",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1969 (no mint mark)",
+   "year": 1969,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s071",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1969-D",
+   "year": 1969,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s072",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1969-S",
+   "year": 1969,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s073",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1970 (no mint mark)",
+   "year": 1970,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s074",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1970-D",
+   "year": 1970,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s075",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1970-S",
+   "year": 1970,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s076",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1971 (no mint mark)",
+   "year": 1971,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s077",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1971-D",
+   "year": 1971,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s078",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1971-S",
+   "year": 1971,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s079",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1972 (no mint mark)",
+   "year": 1972,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s080",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1972-D",
+   "year": 1972,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s081",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1972-S",
+   "year": 1972,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s082",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1973 (no mint mark)",
+   "year": 1973,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s083",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1973-D",
+   "year": 1973,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s084",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1973-S",
+   "year": 1973,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s085",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1974 (no mint mark)",
+   "year": 1974,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s086",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1974-D",
+   "year": 1974,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A001-s087",
+   "album": "A001",
+   "family": "Lincoln cents",
+   "coin": "1974-S",
+   "year": 1974,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Wheat Cent"
+  },
+  {
+   "slot": "A002-s002",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2014",
+   "year": 2014,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s003",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2014-D",
+   "year": 2014,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s004",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2015",
+   "year": 2015,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s005",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2015-D",
+   "year": 2015,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s006",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2016",
+   "year": 2016,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s007",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2016-D",
+   "year": 2016,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s008",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2017-P",
+   "year": 2017,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s009",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2017-D",
+   "year": 2017,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s010",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2018",
+   "year": 2018,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s011",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2018-D",
+   "year": 2018,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s012",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2019",
+   "year": 2019,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s013",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2019-D",
+   "year": 2019,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s015",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2020",
+   "year": 2020,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s016",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2020-D",
+   "year": 2020,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s018",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2021-D",
+   "year": 2021,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s020",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2022-D",
+   "year": 2022,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s022",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2023-D",
+   "year": 2023,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A002-s024",
+   "album": "A002",
+   "family": "Lincoln cents",
+   "coin": "2024-D",
+   "year": 2024,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln"
+  },
+  {
+   "slot": "A003-s001",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2005-P",
+   "year": 2005,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s002",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2005-D",
+   "year": 2005,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s003",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2006-P",
+   "year": 2006,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s004",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2006-D",
+   "year": 2006,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s005",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2007-P",
+   "year": 2007,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s006",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2007-D",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s007",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2008-P",
+   "year": 2008,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s008",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2008-D",
+   "year": 2008,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s009",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2009-P",
+   "year": 2009,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s010",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2009-D",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s011",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2010-P",
+   "year": 2010,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s012",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2010-D",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s013",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2011-P",
+   "year": 2011,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s014",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2011-D",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s015",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2012-P",
+   "year": 2012,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s016",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2012-D",
+   "year": 2012,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s017",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2013-P",
+   "year": 2013,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s018",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2013-D",
+   "year": 2013,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s019",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2014-P",
+   "year": 2014,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s020",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2014-D",
+   "year": 2014,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s021",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2015-P",
+   "year": 2015,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s022",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2015-D",
+   "year": 2015,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s023",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2016-P",
+   "year": 2016,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s024",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2016-D",
+   "year": 2016,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s025",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2017-P",
+   "year": 2017,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s026",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2017-D",
+   "year": 2017,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s027",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2018-P",
+   "year": 2018,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s028",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2018-D",
+   "year": 2018,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s029",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2019-P",
+   "year": 2019,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s030",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2019-D",
+   "year": 2019,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s031",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2020-P",
+   "year": 2020,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s032",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2020-D",
+   "year": 2020,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s033",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2021-P",
+   "year": 2021,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s034",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2021-D",
+   "year": 2021,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s035",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2022-P",
+   "year": 2022,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s036",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2022-D",
+   "year": 2022,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s038",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2023-D",
+   "year": 2023,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A003-s040",
+   "album": "A003",
+   "family": "Roosevelt dimes",
+   "coin": "2024-D",
+   "year": 2024,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s001",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1965",
+   "year": 1965,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s002",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1966",
+   "year": 1966,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s003",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1967",
+   "year": 1967,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s004",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1968",
+   "year": 1968,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s005",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1968-D",
+   "year": 1968,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s007",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1969-D",
+   "year": 1969,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s008",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1970",
+   "year": 1970,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s009",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1970-D",
+   "year": 1970,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s011",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1971-D",
+   "year": 1971,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s012",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1972",
+   "year": 1972,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s013",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1972-D",
+   "year": 1972,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s015",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1973-D",
+   "year": 1973,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s016",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1974",
+   "year": 1974,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s017",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1974-D",
+   "year": 1974,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s018",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1975",
+   "year": 1975,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s019",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1975-D",
+   "year": 1975,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s020",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1976",
+   "year": 1976,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s021",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1976-D",
+   "year": 1976,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s022",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1977",
+   "year": 1977,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s023",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1977-D",
+   "year": 1977,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s024",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1978",
+   "year": 1978,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s025",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1978-D",
+   "year": 1978,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s026",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1979",
+   "year": 1979,
+   "mint": null,
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s027",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1979-D",
+   "year": 1979,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s028",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1980-P",
+   "year": 1980,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s029",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1980-D",
+   "year": 1980,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s030",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1981-P",
+   "year": 1981,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s031",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1981-D",
+   "year": 1981,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s032",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1982-P",
+   "year": 1982,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s033",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1982-D",
+   "year": 1982,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s034",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1983-P",
+   "year": 1983,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s035",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1983-D",
+   "year": 1983,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s036",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1984-P",
+   "year": 1984,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s037",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1984-D",
+   "year": 1984,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s038",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1985-P",
+   "year": 1985,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s039",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1985-D",
+   "year": 1985,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s040",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1986-P",
+   "year": 1986,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s041",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1986-D",
+   "year": 1986,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s042",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1987-P",
+   "year": 1987,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s043",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1987-D",
+   "year": 1987,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s044",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1988-P",
+   "year": 1988,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s045",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1988-D",
+   "year": 1988,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s046",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1989-P",
+   "year": 1989,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s047",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1989-D",
+   "year": 1989,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s048",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1990-P",
+   "year": 1990,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s049",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1990-D",
+   "year": 1990,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s050",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1991-P",
+   "year": 1991,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s051",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1991-D",
+   "year": 1991,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s052",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1992-P",
+   "year": 1992,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s053",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1992-D",
+   "year": 1992,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s054",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1993-P",
+   "year": 1993,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s055",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1993-D",
+   "year": 1993,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s056",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1994-P",
+   "year": 1994,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s057",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1994-D",
+   "year": 1994,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s058",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1995-P",
+   "year": 1995,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s059",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1995-D",
+   "year": 1995,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s060",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1996-P",
+   "year": 1996,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s061",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1996-D",
+   "year": 1996,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s063",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1997-P",
+   "year": 1997,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s064",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1997-D",
+   "year": 1997,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s065",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1998-P",
+   "year": 1998,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s066",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1998-D",
+   "year": 1998,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s067",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1999-P",
+   "year": 1999,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s068",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "1999-D",
+   "year": 1999,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s069",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2000-P",
+   "year": 2000,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s070",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2000-D",
+   "year": 2000,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s071",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2001-P",
+   "year": 2001,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s072",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2001-D",
+   "year": 2001,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s073",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2002-P",
+   "year": 2002,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s074",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2002-D",
+   "year": 2002,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s075",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2003-P",
+   "year": 2003,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s076",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2003-D",
+   "year": 2003,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s077",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2004-P",
+   "year": 2004,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A004-s078",
+   "album": "A004",
+   "family": "Roosevelt dimes",
+   "coin": "2004-D",
+   "year": 2004,
+   "mint": "D",
+   "variety": null,
+   "denomination": "10¢ Roosevelt"
+  },
+  {
+   "slot": "A005-s016",
+   "album": "A005",
+   "family": "Roosevelt dimes",
+   "coin": "1951 (no mint mark)",
+   "year": 1951,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ 90% Silver"
+  },
+  {
+   "slot": "A005-s047",
+   "album": "A005",
+   "family": "Roosevelt dimes",
+   "coin": "1964 (no mint mark)",
+   "year": 1964,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ 90% Silver"
+  },
+  {
+   "slot": "A006-s069",
+   "album": "A006",
+   "family": "Mercury",
+   "coin": "1943 (no mint mark)",
+   "year": 1943,
+   "mint": "P",
+   "variety": null,
+   "denomination": "10¢ Winged Liberty"
+  },
+  {
+   "slot": "A007-s001",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1964 (no mint mark)",
+   "year": 1964,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s004",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1966",
+   "year": 1966,
+   "mint": null,
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s005",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1967",
+   "year": 1967,
+   "mint": null,
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s009",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1971 (no mint mark)",
+   "year": 1971,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s010",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1971-D",
+   "year": 1971,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s011",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1972 (no mint mark)",
+   "year": 1972,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s012",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1972-D",
+   "year": 1972,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s013",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1973 (no mint mark)",
+   "year": 1973,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s014",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1973-D",
+   "year": 1973,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s015",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1974 (no mint mark)",
+   "year": 1974,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s016",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1974-D",
+   "year": 1974,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s017",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1976 (no mint mark)",
+   "year": 1976,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s018",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1976-D",
+   "year": 1976,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s019",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1977 (no mint mark)",
+   "year": 1977,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s020",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1977-D",
+   "year": 1977,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s021",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1978 (no mint mark)",
+   "year": 1978,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s022",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1978-D",
+   "year": 1978,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s023",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1979 (no mint mark)",
+   "year": 1979,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s024",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1979-D",
+   "year": 1979,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s025",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1980-P",
+   "year": 1980,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s026",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1980-D",
+   "year": 1980,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s027",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1981-P",
+   "year": 1981,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s028",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1981-D",
+   "year": 1981,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s029",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1982-P",
+   "year": 1982,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s030",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1982-D",
+   "year": 1982,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s031",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1983-P",
+   "year": 1983,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s032",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1983-D",
+   "year": 1983,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s033",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1984-P",
+   "year": 1984,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s034",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1984-D",
+   "year": 1984,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s035",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1985-P",
+   "year": 1985,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A007-s036",
+   "album": "A007",
+   "family": "Kennedy halves",
+   "coin": "1985-D",
+   "year": 1985,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s001",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1986-P",
+   "year": 1986,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s002",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1986-D",
+   "year": 1986,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s005",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1988-P",
+   "year": 1988,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s006",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1988-D",
+   "year": 1988,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s007",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1989-P",
+   "year": 1989,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s008",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1989-D",
+   "year": 1989,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s009",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1990-P",
+   "year": 1990,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s010",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1990-D",
+   "year": 1990,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s011",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1991-P",
+   "year": 1991,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s012",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1991-D",
+   "year": 1991,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s013",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1992-P",
+   "year": 1992,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s014",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1992-D",
+   "year": 1992,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s015",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1993-P",
+   "year": 1993,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s016",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1993-D",
+   "year": 1993,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s017",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1994-P",
+   "year": 1994,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s018",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1994-D",
+   "year": 1994,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s019",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1995-P",
+   "year": 1995,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s020",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1995-D",
+   "year": 1995,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s021",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1996-P",
+   "year": 1996,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s022",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1996-D",
+   "year": 1996,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s023",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1997-P",
+   "year": 1997,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s024",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1997-D",
+   "year": 1997,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s025",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1998-P",
+   "year": 1998,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s026",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1998-D",
+   "year": 1998,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s027",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1999-P",
+   "year": 1999,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s028",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "1999-D",
+   "year": 1999,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s029",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "2000-P",
+   "year": 2000,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s030",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "2000-D",
+   "year": 2000,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s031",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "2001-P",
+   "year": 2001,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s032",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "2001-D",
+   "year": 2001,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s033",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "2002-P",
+   "year": 2002,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A008-s034",
+   "album": "A008",
+   "family": "Kennedy halves",
+   "coin": "2002-D",
+   "year": 2002,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s002",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2004-D",
+   "year": 2004,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s003",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2005-P",
+   "year": 2005,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s004",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2005-D",
+   "year": 2005,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s008",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2007-D",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s011",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2009-P",
+   "year": 2009,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s012",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2009-D",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s019",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2013-P",
+   "year": 2013,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s024",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2015-D",
+   "year": 2015,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s025",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2016-P",
+   "year": 2016,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s026",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2016-D",
+   "year": 2016,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s028",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2017-D",
+   "year": 2017,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s030",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2018-D",
+   "year": 2018,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s034",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2020-D",
+   "year": 2020,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s035",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2021-P",
+   "year": 2021,
+   "mint": "P",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A009-s036",
+   "album": "A009",
+   "family": "Kennedy halves",
+   "coin": "2021-D",
+   "year": 2021,
+   "mint": "D",
+   "variety": null,
+   "denomination": "50¢ Half Dollar"
+  },
+  {
+   "slot": "A010-s001",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1965",
+   "year": 1965,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s002",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1966",
+   "year": 1966,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s003",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1967",
+   "year": 1967,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s004",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1968",
+   "year": 1968,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s005",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1968-D",
+   "year": 1968,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s006",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1969",
+   "year": 1969,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s007",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1969-D",
+   "year": 1969,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s008",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1970",
+   "year": 1970,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s009",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1970-D",
+   "year": 1970,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s010",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1971",
+   "year": 1971,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s011",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1971-D",
+   "year": 1971,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s012",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1972",
+   "year": 1972,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s013",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1972-D",
+   "year": 1972,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s014",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1973",
+   "year": 1973,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s015",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1973-D",
+   "year": 1973,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s016",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1974",
+   "year": 1974,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s017",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1974-D",
+   "year": 1974,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s018",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1776-1976",
+   "year": 1976,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s019",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1776-1976-D",
+   "year": 1976,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s020",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1977",
+   "year": 1977,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s021",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1977-D",
+   "year": 1977,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s022",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1978",
+   "year": 1978,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s023",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1978-D",
+   "year": 1978,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s024",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1979",
+   "year": 1979,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s025",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1979-D",
+   "year": 1979,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s026",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1980-P",
+   "year": 1980,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s027",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1980-D",
+   "year": 1980,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s028",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1981-P",
+   "year": 1981,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s029",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1981-D",
+   "year": 1981,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s030",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1982-P",
+   "year": 1982,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s031",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1982-D",
+   "year": 1982,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s032",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1983-P",
+   "year": 1983,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s033",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1983-D",
+   "year": 1983,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s034",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1984-P",
+   "year": 1984,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s035",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1984-D",
+   "year": 1984,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s036",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1985-P",
+   "year": 1985,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s037",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1985-D",
+   "year": 1985,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s038",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1986-P",
+   "year": 1986,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s039",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1986-D",
+   "year": 1986,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s040",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1987-P",
+   "year": 1987,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A010-s041",
+   "album": "A010",
+   "family": "Washington quarters",
+   "coin": "1987-D",
+   "year": 1987,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Washington Quarter"
+  },
+  {
+   "slot": "A011-s001",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1988-P",
+   "year": 1988,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s002",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1988-D",
+   "year": 1988,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s003",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1989-P",
+   "year": 1989,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s004",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1989-D",
+   "year": 1989,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s005",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1990-P",
+   "year": 1990,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s006",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1990-D",
+   "year": 1990,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s007",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1991-P",
+   "year": 1991,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s008",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1991-D",
+   "year": 1991,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s009",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1992-P",
+   "year": 1992,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s010",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1992-D",
+   "year": 1992,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s011",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1993-P",
+   "year": 1993,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s012",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1993-D",
+   "year": 1993,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s013",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1994-P",
+   "year": 1994,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s014",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1994-D",
+   "year": 1994,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s015",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1995-P",
+   "year": 1995,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s016",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1995-D",
+   "year": 1995,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s017",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1996-P",
+   "year": 1996,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s018",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1996-D",
+   "year": 1996,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s019",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1997-P",
+   "year": 1997,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s020",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1997-D",
+   "year": 1997,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s021",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1998-P",
+   "year": 1998,
+   "mint": "P",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A011-s022",
+   "album": "A011",
+   "family": "Washington quarters",
+   "coin": "1998-D",
+   "year": 1998,
+   "mint": "D",
+   "variety": null,
+   "denomination": "25¢ Quarter"
+  },
+  {
+   "slot": "A012-s039",
+   "album": "A012",
+   "family": "Washington quarters",
+   "coin": "1964",
+   "year": 1964,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ 90% Silver"
+  },
+  {
+   "slot": "A013-s002",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1996-P",
+   "year": 1996,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s003",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1996-D",
+   "year": 1996,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s004",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1997-P",
+   "year": 1997,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s005",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1997-D",
+   "year": 1997,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s006",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1998-P",
+   "year": 1998,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s007",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1998-D",
+   "year": 1998,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s008",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1999-P",
+   "year": 1999,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s009",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "1999-D",
+   "year": 1999,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s010",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2000-P",
+   "year": 2000,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s011",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2000-D",
+   "year": 2000,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s012",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2001-P",
+   "year": 2001,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s013",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2001-D",
+   "year": 2001,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s014",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2002-P",
+   "year": 2002,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s015",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2002-D",
+   "year": 2002,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s016",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2003-P",
+   "year": 2003,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s017",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2003-D",
+   "year": 2003,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s018",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2004-P · variety: Peace Medal",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Peace Medal",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s019",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2004-D · variety: Peace Medal",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Peace Medal",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s020",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2004-P · variety: Keelboat",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Keelboat",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s021",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2004-D · variety: Keelboat",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Keelboat",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s022",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2005-P · variety: American Bison",
+   "year": 2005,
+   "mint": "P",
+   "variety": "American Bison",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s023",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2005-D · variety: American Bison",
+   "year": 2005,
+   "mint": "D",
+   "variety": "American Bison",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s024",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2005-P · variety: Ocean in View",
+   "year": 2005,
+   "mint": "P",
+   "variety": "Ocean in View",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s025",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2005-D · variety: Ocean in View",
+   "year": 2005,
+   "mint": "D",
+   "variety": "Ocean in View",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s026",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2006-P · variety: Monticello Modified",
+   "year": 2006,
+   "mint": "P",
+   "variety": "Monticello Modified",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s027",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2006-D · variety: Monticello Modified",
+   "year": 2006,
+   "mint": "D",
+   "variety": "Monticello Modified",
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s028",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2007-P",
+   "year": 2007,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s029",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2007-D",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s031",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2008-D",
+   "year": 2008,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s033",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2009-D",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s035",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2010-D",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s036",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2011-P",
+   "year": 2011,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s037",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2011-D",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s038",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2012-P",
+   "year": 2012,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s039",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2012-D",
+   "year": 2012,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s040",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2013-P",
+   "year": 2013,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s041",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2013-D",
+   "year": 2013,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s042",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2014-P",
+   "year": 2014,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s043",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2014-D",
+   "year": 2014,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s044",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2015-P",
+   "year": 2015,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s045",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2015-D",
+   "year": 2015,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s046",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2016-P",
+   "year": 2016,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s047",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2016-D",
+   "year": 2016,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s048",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2017-P",
+   "year": 2017,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s049",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2017-D",
+   "year": 2017,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s050",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2018-P",
+   "year": 2018,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s051",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2018-D",
+   "year": 2018,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s052",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2019-P",
+   "year": 2019,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s053",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2019-D",
+   "year": 2019,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s054",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2020-P",
+   "year": 2020,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s055",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2020-D",
+   "year": 2020,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s058",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2021-D",
+   "year": 2021,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s059",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2022-P",
+   "year": 2022,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s060",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2022-D",
+   "year": 2022,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A013-s062",
+   "album": "A013",
+   "family": "Jefferson nickels",
+   "coin": "2023-D",
+   "year": 2023,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s001",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1962 (no mint mark)",
+   "year": 1962,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s003",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1963 (no mint mark)",
+   "year": 1963,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s005",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1964 (no mint mark)",
+   "year": 1964,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s008",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1966 (no mint mark)",
+   "year": 1966,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s010",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1968-D",
+   "year": 1968,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s012",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1969-D",
+   "year": 1969,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s014",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1970-D",
+   "year": 1970,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s015",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1970-S",
+   "year": 1970,
+   "mint": "S",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s017",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1971-D",
+   "year": 1971,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s018",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1972 (no mint mark)",
+   "year": 1972,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s019",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1972-D",
+   "year": 1972,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s020",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1973 (no mint mark)",
+   "year": 1973,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s022",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1974 (no mint mark)",
+   "year": 1974,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s023",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1974-D",
+   "year": 1974,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s024",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1975 (no mint mark)",
+   "year": 1975,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s025",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1975-D",
+   "year": 1975,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s026",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1976 (no mint mark)",
+   "year": 1976,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s027",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1976-D",
+   "year": 1976,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s028",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1977 (no mint mark)",
+   "year": 1977,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s029",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1977-D",
+   "year": 1977,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s030",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1978 (no mint mark)",
+   "year": 1978,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s031",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1978-D",
+   "year": 1978,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s032",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1979 (no mint mark)",
+   "year": 1979,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s033",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1979-D",
+   "year": 1979,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s034",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1980-P",
+   "year": 1980,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s035",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1980-D",
+   "year": 1980,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s036",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1981-P",
+   "year": 1981,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s037",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1981-D",
+   "year": 1981,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s038",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1982-P",
+   "year": 1982,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s039",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1982-D",
+   "year": 1982,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s040",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1983-P",
+   "year": 1983,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s041",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1983-D",
+   "year": 1983,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s042",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1984-P",
+   "year": 1984,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s043",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1984-D",
+   "year": 1984,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s044",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1985-P",
+   "year": 1985,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s045",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1985-D",
+   "year": 1985,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s047",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1986-D",
+   "year": 1986,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s048",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1987-P",
+   "year": 1987,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s049",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1987-D",
+   "year": 1987,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s050",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1988-P",
+   "year": 1988,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s051",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1988-D",
+   "year": 1988,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s052",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1989-P",
+   "year": 1989,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s053",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1989-D",
+   "year": 1989,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s054",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1990-P",
+   "year": 1990,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s055",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1990-D",
+   "year": 1990,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s056",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1991-P",
+   "year": 1991,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s057",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1991-D",
+   "year": 1991,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s059",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1992-D",
+   "year": 1992,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s060",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1993-P",
+   "year": 1993,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s061",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1993-D",
+   "year": 1993,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s062",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1994-P",
+   "year": 1994,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s063",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1994-D",
+   "year": 1994,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s064",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1995-P",
+   "year": 1995,
+   "mint": "P",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A014-s065",
+   "album": "A014",
+   "family": "Jefferson nickels",
+   "coin": "1995-D",
+   "year": 1995,
+   "mint": "D",
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s004",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1939",
+   "year": 1939,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s007",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1940",
+   "year": 1940,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s029",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1947",
+   "year": 1947,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s035",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1949",
+   "year": 1949,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s052",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1955",
+   "year": 1955,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s054",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1956",
+   "year": 1956,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s060",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1959",
+   "year": 1959,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A015-s064",
+   "album": "A015",
+   "family": "Jefferson nickels",
+   "coin": "1961",
+   "year": 1961,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Jefferson"
+  },
+  {
+   "slot": "A016-s001",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1975 (no mint mark)",
+   "year": 1975,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s002",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1975-D",
+   "year": 1975,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s003",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1976 (no mint mark)",
+   "year": 1976,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s004",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1976-D",
+   "year": 1976,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s005",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1977 (no mint mark)",
+   "year": 1977,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s006",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1977-D",
+   "year": 1977,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s007",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1978 (no mint mark)",
+   "year": 1978,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s008",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1978-D",
+   "year": 1978,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s009",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1979 (no mint mark)",
+   "year": 1979,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s010",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1979-D",
+   "year": 1979,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s011",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1980-P",
+   "year": 1980,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s012",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1980-D",
+   "year": 1980,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s013",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1981-P",
+   "year": 1981,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s014",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1981-D",
+   "year": 1981,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s015",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982 (no mint mark) · variety: Cu large date",
+   "year": 1982,
+   "mint": "P",
+   "variety": "Cu large date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s016",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982 (no mint mark) · variety: Cu small date",
+   "year": 1982,
+   "mint": "P",
+   "variety": "Cu small date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s017",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982 (no mint mark) · variety: Zn large date",
+   "year": 1982,
+   "mint": "P",
+   "variety": "Zn large date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s018",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982 (no mint mark) · variety: Zn small date",
+   "year": 1982,
+   "mint": "P",
+   "variety": "Zn small date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s019",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982-D · variety: Cu large date",
+   "year": 1982,
+   "mint": "D",
+   "variety": "Cu large date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s020",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982-D · variety: Cu small date",
+   "year": 1982,
+   "mint": "D",
+   "variety": "Cu small date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s021",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982-D · variety: Zn large date",
+   "year": 1982,
+   "mint": "D",
+   "variety": "Zn large date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s022",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1982-D · variety: Zn small date",
+   "year": 1982,
+   "mint": "D",
+   "variety": "Zn small date",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s023",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1983-P",
+   "year": 1983,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s024",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1983-D",
+   "year": 1983,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s025",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1984-P",
+   "year": 1984,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s026",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1984-D",
+   "year": 1984,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s027",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1985-P",
+   "year": 1985,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s028",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1985-D",
+   "year": 1985,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s029",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1986-P",
+   "year": 1986,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s030",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1986-D",
+   "year": 1986,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s031",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1987-P",
+   "year": 1987,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s032",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1987-D",
+   "year": 1987,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s033",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1988-P",
+   "year": 1988,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s034",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1988-D",
+   "year": 1988,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s035",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1989-P",
+   "year": 1989,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s036",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1989-D",
+   "year": 1989,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s037",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1990-P",
+   "year": 1990,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s038",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1990-D",
+   "year": 1990,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s039",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1991-P",
+   "year": 1991,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s040",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1991-D",
+   "year": 1991,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s041",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1992-P",
+   "year": 1992,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s042",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1992-D",
+   "year": 1992,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s043",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1993-P",
+   "year": 1993,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s044",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1993-D",
+   "year": 1993,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s045",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1994-P",
+   "year": 1994,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s046",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1994-D",
+   "year": 1994,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s047",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1995-P",
+   "year": 1995,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s048",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1995-D",
+   "year": 1995,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s049",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1996-P",
+   "year": 1996,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s050",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1996-D",
+   "year": 1996,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s051",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1997-P",
+   "year": 1997,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s052",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1997-D",
+   "year": 1997,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s053",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1998-P",
+   "year": 1998,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s054",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1998-D",
+   "year": 1998,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s055",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1999-P",
+   "year": 1999,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s056",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "1999-D",
+   "year": 1999,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s057",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2000-P",
+   "year": 2000,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s058",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2000-D",
+   "year": 2000,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s059",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2001-P",
+   "year": 2001,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s060",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2001-D",
+   "year": 2001,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s061",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2002-P",
+   "year": 2002,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s062",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2002-D",
+   "year": 2002,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s063",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2003-P",
+   "year": 2003,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s064",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2003-D",
+   "year": 2003,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s065",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2004-P",
+   "year": 2004,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s066",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2004-D",
+   "year": 2004,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s067",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2005-P",
+   "year": 2005,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s068",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2005-D",
+   "year": 2005,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s069",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2006-P",
+   "year": 2006,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s070",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2006-D",
+   "year": 2006,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s071",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2007-P",
+   "year": 2007,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s072",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2007-D",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s073",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2008-P",
+   "year": 2008,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s074",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2008-D",
+   "year": 2008,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s076",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2009  (P) · variety: Formative Years",
+   "year": 2009,
+   "mint": "P",
+   "variety": "Formative Years",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s079",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2009  (D) · variety: Birth & Early Childhood",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Birth & Early Childhood",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s080",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2009  (D) · variety: Formative Years",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Formative Years",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s081",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2009  (D) · variety: Professional Life",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Professional Life",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s082",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2009  (D) · variety: Presidency",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Presidency",
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s083",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2010-P",
+   "year": 2010,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s084",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2010-D",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s085",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2011-P",
+   "year": 2011,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s086",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2011-D",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s087",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2012-P",
+   "year": 2012,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s088",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2012-D",
+   "year": 2012,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s089",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2013-P",
+   "year": 2013,
+   "mint": "P",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A016-s090",
+   "album": "A016",
+   "family": "Lincoln cents",
+   "coin": "2013-D",
+   "year": 2013,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Lincoln Cent"
+  },
+  {
+   "slot": "A018-s006",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Ike 1974-D",
+   "year": 1974,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s013",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1979-P",
+   "year": 1979,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s014",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1979-D",
+   "year": 1979,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s015",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1979-S",
+   "year": 1979,
+   "mint": "S",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s016",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1980-P",
+   "year": 1980,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s017",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1980-D",
+   "year": 1980,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s018",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1980-S",
+   "year": 1980,
+   "mint": "S",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s022",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1999-P",
+   "year": 1999,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A018-s023",
+   "album": "A018",
+   "family": "Dollar albums",
+   "coin": "Anthony 1999-D",
+   "year": 1999,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Ike Dollar"
+  },
+  {
+   "slot": "A019-s002",
+   "album": "A019",
+   "family": "Dollar albums",
+   "coin": "2009-D",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 SBA"
+  },
+  {
+   "slot": "A019-s006",
+   "album": "A019",
+   "family": "Dollar albums",
+   "coin": "2011-D",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 SBA"
+  },
+  {
+   "slot": "A020-s001",
+   "album": "A020",
+   "family": "Dollar albums",
+   "coin": "2000-P",
+   "year": 2000,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Sacagawea"
+  },
+  {
+   "slot": "A020-s002",
+   "album": "A020",
+   "family": "Dollar albums",
+   "coin": "2000-D",
+   "year": 2000,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Sacagawea"
+  },
+  {
+   "slot": "A020-s004",
+   "album": "A020",
+   "family": "Dollar albums",
+   "coin": "2001-D",
+   "year": 2001,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Sacagawea"
+  },
+  {
+   "slot": "A021-s001",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-P · variety: Delaware",
+   "year": 1999,
+   "mint": "P",
+   "variety": "Delaware",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s002",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-D · variety: Delaware",
+   "year": 1999,
+   "mint": "D",
+   "variety": "Delaware",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s003",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-P · variety: Pennsylvania",
+   "year": 1999,
+   "mint": "P",
+   "variety": "Pennsylvania",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s004",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-D · variety: Pennsylvania",
+   "year": 1999,
+   "mint": "D",
+   "variety": "Pennsylvania",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s005",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-P · variety: New Jersey",
+   "year": 1999,
+   "mint": "P",
+   "variety": "New Jersey",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s006",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-D · variety: New Jersey",
+   "year": 1999,
+   "mint": "D",
+   "variety": "New Jersey",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s007",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-P · variety: Georgia",
+   "year": 1999,
+   "mint": "P",
+   "variety": "Georgia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s008",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-D · variety: Georgia",
+   "year": 1999,
+   "mint": "D",
+   "variety": "Georgia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s009",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-P · variety: Connecticut",
+   "year": 1999,
+   "mint": "P",
+   "variety": "Connecticut",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s010",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "1999-D · variety: Connecticut",
+   "year": 1999,
+   "mint": "D",
+   "variety": "Connecticut",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s011",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-P · variety: Massachusetts",
+   "year": 2000,
+   "mint": "P",
+   "variety": "Massachusetts",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s012",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-D · variety: Massachusetts",
+   "year": 2000,
+   "mint": "D",
+   "variety": "Massachusetts",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s013",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-P · variety: Maryland",
+   "year": 2000,
+   "mint": "P",
+   "variety": "Maryland",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s014",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-D · variety: Maryland",
+   "year": 2000,
+   "mint": "D",
+   "variety": "Maryland",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s015",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-P · variety: South Carolina",
+   "year": 2000,
+   "mint": "P",
+   "variety": "South Carolina",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s016",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-D · variety: South Carolina",
+   "year": 2000,
+   "mint": "D",
+   "variety": "South Carolina",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s017",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-P · variety: New Hampshire",
+   "year": 2000,
+   "mint": "P",
+   "variety": "New Hampshire",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s018",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-D · variety: New Hampshire",
+   "year": 2000,
+   "mint": "D",
+   "variety": "New Hampshire",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s019",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-P · variety: Virginia",
+   "year": 2000,
+   "mint": "P",
+   "variety": "Virginia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s020",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2000-D · variety: Virginia",
+   "year": 2000,
+   "mint": "D",
+   "variety": "Virginia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s021",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-P · variety: New York",
+   "year": 2001,
+   "mint": "P",
+   "variety": "New York",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s022",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-D · variety: New York",
+   "year": 2001,
+   "mint": "D",
+   "variety": "New York",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s023",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-P · variety: North Carolina",
+   "year": 2001,
+   "mint": "P",
+   "variety": "North Carolina",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s024",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-D · variety: North Carolina",
+   "year": 2001,
+   "mint": "D",
+   "variety": "North Carolina",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s025",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-P · variety: Rhode Island",
+   "year": 2001,
+   "mint": "P",
+   "variety": "Rhode Island",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s026",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-D · variety: Rhode Island",
+   "year": 2001,
+   "mint": "D",
+   "variety": "Rhode Island",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s027",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-P · variety: Vermont",
+   "year": 2001,
+   "mint": "P",
+   "variety": "Vermont",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s028",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-D · variety: Vermont",
+   "year": 2001,
+   "mint": "D",
+   "variety": "Vermont",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s029",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-P · variety: Kentucky",
+   "year": 2001,
+   "mint": "P",
+   "variety": "Kentucky",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s030",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2001-D · variety: Kentucky",
+   "year": 2001,
+   "mint": "D",
+   "variety": "Kentucky",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s031",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-P · variety: Tennessee",
+   "year": 2002,
+   "mint": "P",
+   "variety": "Tennessee",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s032",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-D · variety: Tennessee",
+   "year": 2002,
+   "mint": "D",
+   "variety": "Tennessee",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s033",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-P · variety: Ohio",
+   "year": 2002,
+   "mint": "P",
+   "variety": "Ohio",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s034",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-D · variety: Ohio",
+   "year": 2002,
+   "mint": "D",
+   "variety": "Ohio",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s035",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-P · variety: Louisiana",
+   "year": 2002,
+   "mint": "P",
+   "variety": "Louisiana",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s036",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-D · variety: Louisiana",
+   "year": 2002,
+   "mint": "D",
+   "variety": "Louisiana",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s037",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-P · variety: Indiana",
+   "year": 2002,
+   "mint": "P",
+   "variety": "Indiana",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s038",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-D · variety: Indiana",
+   "year": 2002,
+   "mint": "D",
+   "variety": "Indiana",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s039",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-P · variety: Mississippi",
+   "year": 2002,
+   "mint": "P",
+   "variety": "Mississippi",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s040",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2002-D · variety: Mississippi",
+   "year": 2002,
+   "mint": "D",
+   "variety": "Mississippi",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s041",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-P · variety: Illinois",
+   "year": 2003,
+   "mint": "P",
+   "variety": "Illinois",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s042",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-D · variety: Illinois",
+   "year": 2003,
+   "mint": "D",
+   "variety": "Illinois",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s043",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-P · variety: Alabama",
+   "year": 2003,
+   "mint": "P",
+   "variety": "Alabama",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s046",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-D · variety: Maine",
+   "year": 2003,
+   "mint": "D",
+   "variety": "Maine",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s047",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-P · variety: Missouri",
+   "year": 2003,
+   "mint": "P",
+   "variety": "Missouri",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s048",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-D · variety: Missouri",
+   "year": 2003,
+   "mint": "D",
+   "variety": "Missouri",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s049",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-P · variety: Arkansas",
+   "year": 2003,
+   "mint": "P",
+   "variety": "Arkansas",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s050",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2003-D · variety: Arkansas",
+   "year": 2003,
+   "mint": "D",
+   "variety": "Arkansas",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s051",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-P · variety: Michigan",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Michigan",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s052",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-D · variety: Michigan",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Michigan",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s053",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-P · variety: Florida",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Florida",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s054",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-D · variety: Florida",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Florida",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s055",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-P · variety: Texas",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Texas",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s056",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-D · variety: Texas",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Texas",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s057",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-P · variety: Iowa",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Iowa",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s058",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-D · variety: Iowa",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Iowa",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s059",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-P · variety: Wisconsin",
+   "year": 2004,
+   "mint": "P",
+   "variety": "Wisconsin",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s060",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2004-D · variety: Wisconsin",
+   "year": 2004,
+   "mint": "D",
+   "variety": "Wisconsin",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s061",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-P · variety: California",
+   "year": 2005,
+   "mint": "P",
+   "variety": "California",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s062",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-D · variety: California",
+   "year": 2005,
+   "mint": "D",
+   "variety": "California",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s063",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-P · variety: Minnesota",
+   "year": 2005,
+   "mint": "P",
+   "variety": "Minnesota",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s064",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-D · variety: Minnesota",
+   "year": 2005,
+   "mint": "D",
+   "variety": "Minnesota",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s065",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-P · variety: Oregon",
+   "year": 2005,
+   "mint": "P",
+   "variety": "Oregon",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s066",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-D · variety: Oregon",
+   "year": 2005,
+   "mint": "D",
+   "variety": "Oregon",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s067",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-P · variety: Kansas",
+   "year": 2005,
+   "mint": "P",
+   "variety": "Kansas",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s068",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-D · variety: Kansas",
+   "year": 2005,
+   "mint": "D",
+   "variety": "Kansas",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s069",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-P · variety: West Virginia",
+   "year": 2005,
+   "mint": "P",
+   "variety": "West Virginia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s070",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2005-D · variety: West Virginia",
+   "year": 2005,
+   "mint": "D",
+   "variety": "West Virginia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s071",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-P · variety: Nevada",
+   "year": 2006,
+   "mint": "P",
+   "variety": "Nevada",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s072",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-D · variety: Nevada",
+   "year": 2006,
+   "mint": "D",
+   "variety": "Nevada",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s073",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-P · variety: Nebraska",
+   "year": 2006,
+   "mint": "P",
+   "variety": "Nebraska",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s074",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-D · variety: Nebraska",
+   "year": 2006,
+   "mint": "D",
+   "variety": "Nebraska",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s075",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-P · variety: Colorado",
+   "year": 2006,
+   "mint": "P",
+   "variety": "Colorado",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s076",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-D · variety: Colorado",
+   "year": 2006,
+   "mint": "D",
+   "variety": "Colorado",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s077",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-P · variety: North Dakota",
+   "year": 2006,
+   "mint": "P",
+   "variety": "North Dakota",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s078",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-D · variety: North Dakota",
+   "year": 2006,
+   "mint": "D",
+   "variety": "North Dakota",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s079",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-P · variety: South Dakota",
+   "year": 2006,
+   "mint": "P",
+   "variety": "South Dakota",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s080",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2006-D · variety: South Dakota",
+   "year": 2006,
+   "mint": "D",
+   "variety": "South Dakota",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s081",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-P · variety: Montana",
+   "year": 2007,
+   "mint": "P",
+   "variety": "Montana",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s082",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-D · variety: Montana",
+   "year": 2007,
+   "mint": "D",
+   "variety": "Montana",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s083",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-P · variety: Washington",
+   "year": 2007,
+   "mint": "P",
+   "variety": "Washington",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s084",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-D · variety: Washington",
+   "year": 2007,
+   "mint": "D",
+   "variety": "Washington",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s085",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-P · variety: Idaho",
+   "year": 2007,
+   "mint": "P",
+   "variety": "Idaho",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s086",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-D · variety: Idaho",
+   "year": 2007,
+   "mint": "D",
+   "variety": "Idaho",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s087",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-P · variety: Wyoming",
+   "year": 2007,
+   "mint": "P",
+   "variety": "Wyoming",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s088",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-D · variety: Wyoming",
+   "year": 2007,
+   "mint": "D",
+   "variety": "Wyoming",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s089",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-P · variety: Utah",
+   "year": 2007,
+   "mint": "P",
+   "variety": "Utah",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s090",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2007-D · variety: Utah",
+   "year": 2007,
+   "mint": "D",
+   "variety": "Utah",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s091",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-P · variety: Oklahoma",
+   "year": 2008,
+   "mint": "P",
+   "variety": "Oklahoma",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s092",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-D · variety: Oklahoma",
+   "year": 2008,
+   "mint": "D",
+   "variety": "Oklahoma",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s093",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-P · variety: New Mexico",
+   "year": 2008,
+   "mint": "P",
+   "variety": "New Mexico",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s094",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-D · variety: New Mexico",
+   "year": 2008,
+   "mint": "D",
+   "variety": "New Mexico",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s095",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-P · variety: Arizona",
+   "year": 2008,
+   "mint": "P",
+   "variety": "Arizona",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s096",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-D · variety: Arizona",
+   "year": 2008,
+   "mint": "D",
+   "variety": "Arizona",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s097",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-P · variety: Alaska",
+   "year": 2008,
+   "mint": "P",
+   "variety": "Alaska",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s098",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-D · variety: Alaska",
+   "year": 2008,
+   "mint": "D",
+   "variety": "Alaska",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s099",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-P · variety: Hawaii",
+   "year": 2008,
+   "mint": "P",
+   "variety": "Hawaii",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s100",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2008-D · variety: Hawaii",
+   "year": 2008,
+   "mint": "D",
+   "variety": "Hawaii",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s101",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-P · variety: District of Columbia",
+   "year": 2009,
+   "mint": "P",
+   "variety": "District of Columbia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s102",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-D · variety: District of Columbia",
+   "year": 2009,
+   "mint": "D",
+   "variety": "District of Columbia",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s103",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-P · variety: Puerto Rico",
+   "year": 2009,
+   "mint": "P",
+   "variety": "Puerto Rico",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s104",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-D · variety: Puerto Rico",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Puerto Rico",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s106",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-D · variety: Guam",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Guam",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s107",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-P · variety: American Samoa",
+   "year": 2009,
+   "mint": "P",
+   "variety": "American Samoa",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s109",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-P · variety: US Virgin Islands",
+   "year": 2009,
+   "mint": "P",
+   "variety": "US Virgin Islands",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s110",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-D · variety: US Virgin Islands",
+   "year": 2009,
+   "mint": "D",
+   "variety": "US Virgin Islands",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s111",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-P · variety: Northern Mariana Islands",
+   "year": 2009,
+   "mint": "P",
+   "variety": "Northern Mariana Islands",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A021-s112",
+   "album": "A021",
+   "family": "Washington quarters",
+   "coin": "2009-D · variety: Northern Mariana Islands",
+   "year": 2009,
+   "mint": "D",
+   "variety": "Northern Mariana Islands",
+   "denomination": "25¢ State Quarter"
+  },
+  {
+   "slot": "A022-s001",
+   "album": "A022",
+   "family": "Indian / Flying Eagle",
+   "coin": "1899",
+   "year": 1899,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Indian Cent"
+  },
+  {
+   "slot": "A023-s030",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1918-S",
+   "year": 1918,
+   "mint": "S",
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A023-s060",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1930",
+   "year": 1930,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A023-s067",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1932-D",
+   "year": 1932,
+   "mint": "D",
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A023-s075",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1936",
+   "year": 1936,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A023-s078",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1937",
+   "year": 1937,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A023-s081",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1938",
+   "year": 1938,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A023-s087",
+   "album": "A023",
+   "family": "Lincoln cents",
+   "coin": "1940",
+   "year": 1940,
+   "mint": null,
+   "variety": null,
+   "denomination": "1¢ Shield Cent"
+  },
+  {
+   "slot": "A024-s001",
+   "album": "A024",
+   "family": "Type set",
+   "coin": "1943 steel cent",
+   "year": 1943,
+   "mint": null,
+   "variety": null,
+   "denomination": "Type Set Specimen"
+  },
+  {
+   "slot": "A024-s006",
+   "album": "A024",
+   "family": "Type set",
+   "coin": "1992 birth-year cent",
+   "year": 1992,
+   "mint": null,
+   "variety": null,
+   "denomination": "Type Set Specimen"
+  },
+  {
+   "slot": "A024-s007",
+   "album": "A024",
+   "family": "Type set",
+   "coin": "1992 birth-year nickel",
+   "year": 1992,
+   "mint": null,
+   "variety": null,
+   "denomination": "Type Set Specimen"
+  },
+  {
+   "slot": "A024-s008",
+   "album": "A024",
+   "family": "Type set",
+   "coin": "1992 birth-year dime",
+   "year": 1992,
+   "mint": null,
+   "variety": null,
+   "denomination": "Type Set Specimen"
+  },
+  {
+   "slot": "A024-s009",
+   "album": "A024",
+   "family": "Type set",
+   "coin": "1992 birth-year quarter",
+   "year": 1992,
+   "mint": null,
+   "variety": null,
+   "denomination": "Type Set Specimen"
+  },
+  {
+   "slot": "A024-s010",
+   "album": "A024",
+   "family": "Type set",
+   "coin": "1992 birth-year half",
+   "year": 1992,
+   "mint": null,
+   "variety": null,
+   "denomination": "Type Set Specimen"
+  },
+  {
+   "slot": "A025-s001",
+   "album": "A025",
+   "family": "American Silver Eagles",
+   "coin": "2021",
+   "year": 2021,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A025-s002",
+   "album": "A025",
+   "family": "American Silver Eagles",
+   "coin": "2022",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A025-s003",
+   "album": "A025",
+   "family": "American Silver Eagles",
+   "coin": "2023",
+   "year": 2023,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A025-s004",
+   "album": "A025",
+   "family": "American Silver Eagles",
+   "coin": "2024",
+   "year": 2024,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A025-s005",
+   "album": "A025",
+   "family": "American Silver Eagles",
+   "coin": "Blank hole: 2025 (date read from the coin)",
+   "year": 2025,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A025-s006",
+   "album": "A025",
+   "family": "American Silver Eagles",
+   "coin": "Blank hole: 2026 (date read from the coin)",
+   "year": 2026,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s001",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "1986",
+   "year": 1986,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s002",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "1987",
+   "year": 1987,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s003",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "1992",
+   "year": 1992,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s004",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2001",
+   "year": 2001,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s005",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2002",
+   "year": 2002,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s006",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2005",
+   "year": 2005,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s007",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2006",
+   "year": 2006,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s008",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2007",
+   "year": 2007,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s009",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2008",
+   "year": 2008,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s010",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2013",
+   "year": 2013,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s011",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2014",
+   "year": 2014,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s012",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2015",
+   "year": 2015,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s013",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2016",
+   "year": 2016,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s014",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2017",
+   "year": 2017,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s015",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2018",
+   "year": 2018,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s016",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2019",
+   "year": 2019,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s017",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2020",
+   "year": 2020,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A026-s018",
+   "album": "A026",
+   "family": "American Silver Eagles",
+   "coin": "2021",
+   "year": 2021,
+   "mint": null,
+   "variety": null,
+   "denomination": "$1 Silver Eagle"
+  },
+  {
+   "slot": "A027-s001",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -P · variety: Hot Springs",
+   "year": 2010,
+   "mint": "P",
+   "variety": "Hot Springs",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s002",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -D · variety: Hot Springs",
+   "year": 2010,
+   "mint": "D",
+   "variety": "Hot Springs",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s003",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -P · variety: Yellowstone",
+   "year": 2010,
+   "mint": "P",
+   "variety": "Yellowstone",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s004",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -D · variety: Yellowstone",
+   "year": 2010,
+   "mint": "D",
+   "variety": "Yellowstone",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s006",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -D · variety: Yosemite",
+   "year": 2010,
+   "mint": "D",
+   "variety": "Yosemite",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s007",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -P · variety: Grand Canyon",
+   "year": 2010,
+   "mint": "P",
+   "variety": "Grand Canyon",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s008",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -D · variety: Grand Canyon",
+   "year": 2010,
+   "mint": "D",
+   "variety": "Grand Canyon",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s009",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2010 -P · variety: Mt. Hood",
+   "year": 2010,
+   "mint": "P",
+   "variety": "Mt. Hood",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s011",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -P · variety: Gettysburg",
+   "year": 2011,
+   "mint": "P",
+   "variety": "Gettysburg",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s012",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -D · variety: Gettysburg",
+   "year": 2011,
+   "mint": "D",
+   "variety": "Gettysburg",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s014",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -D · variety: Glacier",
+   "year": 2011,
+   "mint": "D",
+   "variety": "Glacier",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s015",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -P · variety: Olympic",
+   "year": 2011,
+   "mint": "P",
+   "variety": "Olympic",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s016",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -D · variety: Olympic",
+   "year": 2011,
+   "mint": "D",
+   "variety": "Olympic",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s018",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -D · variety: Vicksburg",
+   "year": 2011,
+   "mint": "D",
+   "variety": "Vicksburg",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s019",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -P · variety: Chickasaw",
+   "year": 2011,
+   "mint": "P",
+   "variety": "Chickasaw",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s020",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2011 -D · variety: Chickasaw",
+   "year": 2011,
+   "mint": "D",
+   "variety": "Chickasaw",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s022",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2012 -D · variety: El Yunque",
+   "year": 2012,
+   "mint": "D",
+   "variety": "El Yunque",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s026",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2012 -D · variety: Acadia",
+   "year": 2012,
+   "mint": "D",
+   "variety": "Acadia",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s028",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2012 -D · variety: Hawaii Volcanoes",
+   "year": 2012,
+   "mint": "D",
+   "variety": "Hawaii Volcanoes",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s029",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2012 -P · variety: Denali",
+   "year": 2012,
+   "mint": "P",
+   "variety": "Denali",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s030",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2012 -D · variety: Denali",
+   "year": 2012,
+   "mint": "D",
+   "variety": "Denali",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s031",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -P · variety: White Mountain",
+   "year": 2013,
+   "mint": "P",
+   "variety": "White Mountain",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s032",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -D · variety: White Mountain",
+   "year": 2013,
+   "mint": "D",
+   "variety": "White Mountain",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s033",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -P · variety: Perry's Victory",
+   "year": 2013,
+   "mint": "P",
+   "variety": "Perry's Victory",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s034",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -D · variety: Perry's Victory",
+   "year": 2013,
+   "mint": "D",
+   "variety": "Perry's Victory",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s035",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -P · variety: Great Basin",
+   "year": 2013,
+   "mint": "P",
+   "variety": "Great Basin",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s036",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -D · variety: Great Basin",
+   "year": 2013,
+   "mint": "D",
+   "variety": "Great Basin",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s037",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -P · variety: Fort McHenry",
+   "year": 2013,
+   "mint": "P",
+   "variety": "Fort McHenry",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s038",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -D · variety: Fort McHenry",
+   "year": 2013,
+   "mint": "D",
+   "variety": "Fort McHenry",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s039",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -P · variety: Mount Rushmore",
+   "year": 2013,
+   "mint": "P",
+   "variety": "Mount Rushmore",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s040",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2013 -D · variety: Mount Rushmore",
+   "year": 2013,
+   "mint": "D",
+   "variety": "Mount Rushmore",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s042",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -D · variety: Great Smoky Mountains",
+   "year": 2014,
+   "mint": "D",
+   "variety": "Great Smoky Mountains",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s043",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -P · variety: Shenandoah",
+   "year": 2014,
+   "mint": "P",
+   "variety": "Shenandoah",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s044",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -D · variety: Shenandoah",
+   "year": 2014,
+   "mint": "D",
+   "variety": "Shenandoah",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s045",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -P · variety: Arches",
+   "year": 2014,
+   "mint": "P",
+   "variety": "Arches",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s046",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -D · variety: Arches",
+   "year": 2014,
+   "mint": "D",
+   "variety": "Arches",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s047",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -P · variety: Great Sand Dunes",
+   "year": 2014,
+   "mint": "P",
+   "variety": "Great Sand Dunes",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s048",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -D · variety: Great Sand Dunes",
+   "year": 2014,
+   "mint": "D",
+   "variety": "Great Sand Dunes",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s049",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -P · variety: Everglades",
+   "year": 2014,
+   "mint": "P",
+   "variety": "Everglades",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s050",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2014 -D · variety: Everglades",
+   "year": 2014,
+   "mint": "D",
+   "variety": "Everglades",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s051",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -P · variety: Homestead",
+   "year": 2015,
+   "mint": "P",
+   "variety": "Homestead",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s052",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -D · variety: Homestead",
+   "year": 2015,
+   "mint": "D",
+   "variety": "Homestead",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s053",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -P · variety: Kisatchie",
+   "year": 2015,
+   "mint": "P",
+   "variety": "Kisatchie",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s054",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -D · variety: Kisatchie",
+   "year": 2015,
+   "mint": "D",
+   "variety": "Kisatchie",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s055",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -P · variety: Blue Ridge",
+   "year": 2015,
+   "mint": "P",
+   "variety": "Blue Ridge",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s056",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -D · variety: Blue Ridge",
+   "year": 2015,
+   "mint": "D",
+   "variety": "Blue Ridge",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s057",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -P · variety: Bombay Hook",
+   "year": 2015,
+   "mint": "P",
+   "variety": "Bombay Hook",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s058",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -D · variety: Bombay Hook",
+   "year": 2015,
+   "mint": "D",
+   "variety": "Bombay Hook",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s059",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -P · variety: Saratoga",
+   "year": 2015,
+   "mint": "P",
+   "variety": "Saratoga",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s060",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2015 -D · variety: Saratoga",
+   "year": 2015,
+   "mint": "D",
+   "variety": "Saratoga",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s062",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -D · variety: Shawnee",
+   "year": 2016,
+   "mint": "D",
+   "variety": "Shawnee",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s063",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -P · variety: Cumberland Gap",
+   "year": 2016,
+   "mint": "P",
+   "variety": "Cumberland Gap",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s064",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -D · variety: Cumberland Gap",
+   "year": 2016,
+   "mint": "D",
+   "variety": "Cumberland Gap",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s065",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -P · variety: Harpers Ferry",
+   "year": 2016,
+   "mint": "P",
+   "variety": "Harpers Ferry",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s066",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -D · variety: Harpers Ferry",
+   "year": 2016,
+   "mint": "D",
+   "variety": "Harpers Ferry",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s068",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -D · variety: Theodore Roosevelt",
+   "year": 2016,
+   "mint": "D",
+   "variety": "Theodore Roosevelt",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s069",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -P · variety: Fort Moultrie",
+   "year": 2016,
+   "mint": "P",
+   "variety": "Fort Moultrie",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s070",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2016 -D · variety: Fort Moultrie",
+   "year": 2016,
+   "mint": "D",
+   "variety": "Fort Moultrie",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s072",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -D · variety: Effigy Mounds",
+   "year": 2017,
+   "mint": "D",
+   "variety": "Effigy Mounds",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s073",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -P · variety: Frederick Douglass",
+   "year": 2017,
+   "mint": "P",
+   "variety": "Frederick Douglass",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s074",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -D · variety: Frederick Douglass",
+   "year": 2017,
+   "mint": "D",
+   "variety": "Frederick Douglass",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s075",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -P · variety: Ozark",
+   "year": 2017,
+   "mint": "P",
+   "variety": "Ozark",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s076",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -D · variety: Ozark",
+   "year": 2017,
+   "mint": "D",
+   "variety": "Ozark",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s077",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -P · variety: Ellis Island",
+   "year": 2017,
+   "mint": "P",
+   "variety": "Ellis Island",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s078",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -D · variety: Ellis Island",
+   "year": 2017,
+   "mint": "D",
+   "variety": "Ellis Island",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s079",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -P · variety: George Rogers Clark",
+   "year": 2017,
+   "mint": "P",
+   "variety": "George Rogers Clark",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s080",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2017 -D · variety: George Rogers Clark",
+   "year": 2017,
+   "mint": "D",
+   "variety": "George Rogers Clark",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s081",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -P · variety: Pictured Rocks",
+   "year": 2018,
+   "mint": "P",
+   "variety": "Pictured Rocks",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s082",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -D · variety: Pictured Rocks",
+   "year": 2018,
+   "mint": "D",
+   "variety": "Pictured Rocks",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s083",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -P · variety: Apostle Islands",
+   "year": 2018,
+   "mint": "P",
+   "variety": "Apostle Islands",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s084",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -D · variety: Apostle Islands",
+   "year": 2018,
+   "mint": "D",
+   "variety": "Apostle Islands",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s086",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -D · variety: Voyageurs",
+   "year": 2018,
+   "mint": "D",
+   "variety": "Voyageurs",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s087",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -P · variety: Cumberland Island",
+   "year": 2018,
+   "mint": "P",
+   "variety": "Cumberland Island",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s088",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -D · variety: Cumberland Island",
+   "year": 2018,
+   "mint": "D",
+   "variety": "Cumberland Island",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s089",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -P · variety: Block Island",
+   "year": 2018,
+   "mint": "P",
+   "variety": "Block Island",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s090",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2018 -D · variety: Block Island",
+   "year": 2018,
+   "mint": "D",
+   "variety": "Block Island",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s092",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2019 -D · variety: Lowell",
+   "year": 2019,
+   "mint": "D",
+   "variety": "Lowell",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s094",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2019 -D · variety: American Memorial",
+   "year": 2019,
+   "mint": "D",
+   "variety": "American Memorial",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s095",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2019 -P · variety: War in the Pacific",
+   "year": 2019,
+   "mint": "P",
+   "variety": "War in the Pacific",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s096",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2019 -D · variety: War in the Pacific",
+   "year": 2019,
+   "mint": "D",
+   "variety": "War in the Pacific",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s098",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2019 -D · variety: San Antonio Missions",
+   "year": 2019,
+   "mint": "D",
+   "variety": "San Antonio Missions",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s100",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2019 -D · variety: Frank Church River of No Return",
+   "year": 2019,
+   "mint": "D",
+   "variety": "Frank Church River of No Return",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s101",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -P · variety: Pu'uhonua o Honaunau",
+   "year": 2020,
+   "mint": "P",
+   "variety": "Pu'uhonua o Honaunau",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s102",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -D · variety: Pu'uhonua o Honaunau",
+   "year": 2020,
+   "mint": "D",
+   "variety": "Pu'uhonua o Honaunau",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s103",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -P · variety: Salt River Bay",
+   "year": 2020,
+   "mint": "P",
+   "variety": "Salt River Bay",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s104",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -D · variety: Salt River Bay",
+   "year": 2020,
+   "mint": "D",
+   "variety": "Salt River Bay",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s106",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -D · variety: Weir Farm",
+   "year": 2020,
+   "mint": "D",
+   "variety": "Weir Farm",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s107",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -P · variety: Marsh-Billings-Rockefeller",
+   "year": 2020,
+   "mint": "P",
+   "variety": "Marsh-Billings-Rockefeller",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s108",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -D · variety: Marsh-Billings-Rockefeller",
+   "year": 2020,
+   "mint": "D",
+   "variety": "Marsh-Billings-Rockefeller",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s109",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -P · variety: Tallgrass Prairie",
+   "year": 2020,
+   "mint": "P",
+   "variety": "Tallgrass Prairie",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s110",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2020 -D · variety: Tallgrass Prairie",
+   "year": 2020,
+   "mint": "D",
+   "variety": "Tallgrass Prairie",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A027-s112",
+   "album": "A027",
+   "family": "Washington quarters",
+   "coin": "2021 -D · variety: Tuskegee Airmen",
+   "year": 2021,
+   "mint": "D",
+   "variety": "Tuskegee Airmen",
+   "denomination": "25¢ ATB Quarter"
+  },
+  {
+   "slot": "A028-s001",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2021 Crossing the Delaware P",
+   "year": 2021,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s002",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2021 Crossing the Delaware D",
+   "year": 2021,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s003",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2022 Angelou P",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s004",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2022 Angelou D",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s006",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2022 Ride D",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s007",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2022 Mankiller P",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s008",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2022 Mankiller D",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s010",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2022 Otero-Warren D",
+   "year": 2022,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s014",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2023 Honoree 1 D",
+   "year": 2023,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s016",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2023 Honoree 2 D",
+   "year": 2023,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A028-s018",
+   "album": "A028",
+   "family": "Washington quarters",
+   "coin": "2023 Honoree 3 D",
+   "year": 2023,
+   "mint": null,
+   "variety": null,
+   "denomination": "25¢ AWQ"
+  },
+  {
+   "slot": "A030-s001",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2007 Washington",
+   "year": 2007,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s002",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2007 Adams",
+   "year": 2007,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s003",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2007 Jefferson",
+   "year": 2007,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s004",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2008 J.Q. Adams",
+   "year": 2008,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s005",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2008 Van Buren",
+   "year": 2008,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s006",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2009 Tyler",
+   "year": 2009,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s007",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2010 Fillmore",
+   "year": 2010,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s008",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2010 Pierce",
+   "year": 2010,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s009",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2010 Buchanan",
+   "year": 2010,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s010",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2011 Grant",
+   "year": 2011,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s011",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2011 Garfield",
+   "year": 2011,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s012",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "P 2014 Harding",
+   "year": 2014,
+   "mint": "P",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s013",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2007 Washington",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s014",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2007 Adams",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s015",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2007 Jefferson",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s016",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2007 Madison",
+   "year": 2007,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s017",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2008 Monroe",
+   "year": 2008,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s018",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2008 J.Q. Adams",
+   "year": 2008,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s019",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2008 Jackson",
+   "year": 2008,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s020",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2009 Harrison",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s021",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2009 Tyler",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s022",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2009 Taylor",
+   "year": 2009,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s023",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2010 Fillmore",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s024",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2010 Pierce",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s025",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2010 Buchanan",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s026",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2010 Lincoln",
+   "year": 2010,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s027",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2011 Johnson",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s028",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2011 Grant",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s029",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2011 Hayes",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A030-s030",
+   "album": "A030",
+   "family": "Dollar albums",
+   "coin": "D 2011 Garfield",
+   "year": 2011,
+   "mint": "D",
+   "variety": null,
+   "denomination": "$1 Golden Dollar"
+  },
+  {
+   "slot": "A031-s001",
+   "album": "A031",
+   "family": "Buffalo nickels",
+   "coin": "1936",
+   "year": 1936,
+   "mint": null,
+   "variety": null,
+   "denomination": "5¢ Indian Head / Bison"
+  },
+  {
+   "slot": "A032-s002",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "1989",
+   "year": 1989,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A032-s004",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "1990",
+   "year": 1990,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A032-s012",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "1998",
+   "year": 1998,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A032-s013",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "1999",
+   "year": 1999,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A032-s014",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "2000",
+   "year": 2000,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A032-s015",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "2001",
+   "year": 2001,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A032-s023",
+   "album": "A032",
+   "family": "Canada small cents",
+   "coin": "2004",
+   "year": 2004,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent Small Cent"
+  },
+  {
+   "slot": "A033-s024",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1942",
+   "year": 1942,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s029",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1947",
+   "year": 1947,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s035",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1951",
+   "year": 1951,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s040",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1955",
+   "year": 1955,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s041",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1956",
+   "year": 1956,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s042",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1957",
+   "year": 1957,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s043",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1958",
+   "year": 1958,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s044",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1959",
+   "year": 1959,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s045",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1960",
+   "year": 1960,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s046",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1961",
+   "year": 1961,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s047",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1962",
+   "year": 1962,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s048",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1963",
+   "year": 1963,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s049",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1964",
+   "year": 1964,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s051",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1965 · variety: Small Beads",
+   "year": 1965,
+   "mint": null,
+   "variety": "Small Beads",
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s052",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1966",
+   "year": 1966,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s053",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1967",
+   "year": 1967,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s054",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1968",
+   "year": 1968,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s055",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1969",
+   "year": 1969,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s056",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1970",
+   "year": 1970,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s057",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1971",
+   "year": 1971,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s058",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1972",
+   "year": 1972,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s059",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1973",
+   "year": 1973,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s061",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1975",
+   "year": 1975,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s062",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1976",
+   "year": 1976,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s063",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1977",
+   "year": 1977,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s064",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1978",
+   "year": 1978,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s065",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1979",
+   "year": 1979,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s066",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1980",
+   "year": 1980,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s067",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1981",
+   "year": 1981,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s068",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1982",
+   "year": 1982,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s069",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1983",
+   "year": 1983,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s070",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1984",
+   "year": 1984,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s072",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1985 · variety: Pointed 5",
+   "year": 1985,
+   "mint": null,
+   "variety": "Pointed 5",
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s073",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1986",
+   "year": 1986,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  },
+  {
+   "slot": "A033-s074",
+   "album": "A033",
+   "family": "Canada small cents",
+   "coin": "1987",
+   "year": 1987,
+   "mint": null,
+   "variety": null,
+   "denomination": "1 Cent George V/VI & Elizabeth II"
+  }
+ ]
+}

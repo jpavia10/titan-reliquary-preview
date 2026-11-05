@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-05T02:29:16Z",
+ "updated": "2026-11-05T03:43:16Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -437,7 +437,8 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": [],
@@ -472,7 +473,8 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": [],
@@ -507,7 +509,8 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": [],
@@ -542,7 +545,8 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": [],
@@ -577,7 +581,8 @@
       "photos": [],
       "audit": false,
       "lookup_blind": true,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": [],
@@ -1003,7 +1008,8 @@
       ],
       "audit": true,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1041,7 +1047,8 @@
       ],
       "audit": true,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1079,7 +1086,8 @@
       ],
       "audit": true,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1117,7 +1125,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1155,7 +1164,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1193,7 +1203,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1231,7 +1242,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1269,7 +1281,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1307,7 +1320,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1352,7 +1366,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1391,7 +1406,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1429,7 +1445,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1467,7 +1484,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1512,7 +1530,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1551,7 +1570,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1589,7 +1609,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1627,7 +1648,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1665,7 +1687,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1703,7 +1726,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1741,7 +1765,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1817,7 +1842,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1855,7 +1881,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1893,7 +1920,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [
@@ -1931,7 +1959,8 @@
       ],
       "audit": false,
       "lookup_blind": false,
-      "recheck": false
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": true,
      "inputs": [

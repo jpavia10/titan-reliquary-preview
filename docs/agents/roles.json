@@ -1,7 +1,7 @@
 {
   "schema": "titan-roles/1",
   "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
-  "updated": "2026-10-22",
+  "updated": "2026-11-05",
   "agents": {
     "grok": {
       "name": "Grok",
@@ -85,7 +85,7 @@
         "web",
         "code"
       ],
-      "capacity": 80,
+      "capacity": 400,
       "kinds": [
         "arbitrate",
         "contradiction",
@@ -103,8 +103,10 @@
       "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).",
       "inline_sheets": true,
       "full_batches": true,
-      "per_kind": 12,
-      "lease_days": 5
+      "per_kind": 40,
+      "lease_days": 10,
+      "load_note": "2026-11-05 owner: 'load up gemini to retarded level' / 'a cruel amount of homework ... clear measurable objectives'. Capacity 400 open sheets, up to 40 of a kind, 10-day leases (a load this size needs the time; an ignored sheet still returns to the pool).",
+      "priority": 10
     },
     "chatgpt": {
       "name": "ChatGPT",
@@ -123,8 +125,7 @@
       "kinds": [],
       "strength": "Parked (owner, 2026-10-10: \"Chatgpt is too manual so I dont expect stuff to come from there since it requires me\"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.",
       "reach": "Its page is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md; it takes part only when it can save its files to Drive itself (ChatGPT's Google Drive connector). Joseph never pastes anything for it (owner, 2026-10-23)."
-    }
-,
+    },
     "gemini-api": {
       "name": "Gemini API",
       "status": "active",
