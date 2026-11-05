@@ -594,9 +594,10 @@
     const m = vault.metals || {};
     const p = vault.precious || {};
     const spot = m.spot || {};
-    const LV = liveValue();
-    const ag = LV && LV.agOz ? LV.agMelt / LV.agOz : (spot.ag_usd_oz ?? b.spot_ag ?? b.silver?.spot);
-    const au = LV && LV.auOz ? LV.auMelt / LV.auOz : (spot.au_usd_oz ?? b.spot_au ?? b.gold?.spot);
+    let V = null; try { V = valueNow(); } catch (_) { V = null; }   // the one quote every number on the Hall uses (owner, 2026-11-05)
+    const LV = V ? { total: V.total, agMelt: V.agMelt, auMelt: V.auMelt, agOz: V.agOz, auOz: V.auOz } : liveValue();
+    const ag = V ? V.ag : (LV && LV.agOz ? LV.agMelt / LV.agOz : (spot.ag_usd_oz ?? b.spot_ag ?? b.silver?.spot));
+    const au = V ? V.au : (LV && LV.auOz ? LV.auMelt / LV.auOz : (spot.au_usd_oz ?? b.spot_au ?? b.gold?.spot));
     const phN = vault.photos || {};
     const flipsTotal = vault.counts?.flips || 0;
     const photoPct = flipsTotal ? Math.round(100 * (phN.coins_with_photos ?? 0) / flipsTotal) : 0;
@@ -618,7 +619,7 @@
     const grand = $("#hero-grand");
     const headline = LV ? LV.total : b.grand;
     grand.setAttribute("aria-label", "Estimated collection value " + money(headline));
-    countUp(grand, headline, money);
+    if (grand.dataset.painted) { grand._cuTarget = headline; grand.textContent = money(headline); } else { grand.dataset.painted = "1"; countUp(grand, headline, money); }
 
     // Live melt breakdown calculation
     const agOz = LV ? LV.agOz : (p.combined_silver?.oz ?? 63.27);
@@ -655,8 +656,8 @@
       // #12: say which part is firm (metal at spot) and which part is an estimate (premiums over melt, albums, sets, housing)
       const est = Math.max(0, grandVal - pureMelt);
       const k = (n) => "$" + (n >= 1000 ? (n / 1000).toFixed(n >= 1e4 ? 0 : 1) + "k" : Math.round(n));
-      const when = LV && LV.date ? new Date(LV.date + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "";
-      cap.textContent = `about ${k(grandVal)}: melt ${money(pureMelt)} (firm, metal${when ? " at " + when + " prices" : " at spot"}) plus about ${k(est)} collector premium (estimate)`;
+      const when = V && V.label ? V.label : "";
+      cap.textContent = `about ${k(grandVal)}: melt ${money(pureMelt)} (firm, metal at the ${when || "spot price"}) plus about ${k(est)} collector premium (estimate)`;
       cap.title = `Melt value moves with silver and gold prices and is reliable. The rest (${money(est)}) is the ledger's estimate of what coins, albums, sets and housing are worth above their metal, and could be off either way.`;
     }
 
@@ -680,6 +681,7 @@
 
   let simAgSpot = null;
   let simAuSpot = null;
+  let simTouched = false;   // the sliders follow a new quote until the owner moves one
 
   /** Market Sensitivity Simulator: test portfolio valuation against spot fluctuations. */
   function setupSpotSimulator() {
@@ -699,17 +701,23 @@
 
     if (!btnToggle || !agRange || !auRange || !vault) return;
 
-    const baseSpotAg = Number(vault.metals?.spot?.ag_usd_oz ?? vault.precious?.spot_ag ?? 0);
-    const baseSpotAu = Number(vault.metals?.spot?.au_usd_oz ?? vault.precious?.spot_au ?? 0);
-    const agOz = Number(vault.precious?.combined_silver?.oz ?? 63.27);
-    const auOz = Number(vault.precious?.combined_gold?.oz ?? 0.1322);
-    const baseGrand = Number(vault.board?.grand ?? 0);
-    const spotDate = vault.metals?.as_of || "";
-    const spotLabel = spotDate ? `Spot as of ${spotDate}` : "Spot (dated snapshot)";
+    let V = null; try { V = valueNow(); } catch (_) { V = null; }   // same quote and total as the headline (owner, 2026-11-05)
+    const baseSpotAg = Number(V ? V.ag : (vault.metals?.spot?.ag_usd_oz ?? vault.precious?.spot_ag ?? 0));
+    const baseSpotAu = Number(V ? V.au : (vault.metals?.spot?.au_usd_oz ?? vault.precious?.spot_au ?? 0));
+    const agOz = Number(V ? V.agOz : (vault.precious?.combined_silver?.oz ?? 63.27));
+    const auOz = Number(V ? V.auOz : (vault.precious?.combined_gold?.oz ?? 0.1322));
+    const baseGrand = Number(V ? V.total : (vault.board?.grand ?? 0));
+    const spotDate = V && V.label ? V.label : (vault.metals?.as_of || "");
+    const spotLabel = V && V.label ? V.label.charAt(0).toUpperCase() + V.label.slice(1) : (spotDate ? `Spot as of ${spotDate}` : "Spot (dated snapshot)");
+    if (!simTouched) { simAgSpot = null; simAuSpot = null; }
+    agRange.step = "0.01"; auRange.step = "0.1";   // a coarse step snapped the start off today's quote, so the drawer opened with a fake change
+    const la = $('label[for="sim-ag-range"]'), lu = $('label[for="sim-au-range"]');
+    if (la) la.textContent = `🥈 Silver Spot (${num(agOz, 2)} oz Ag in Vault)`;
+    if (lu) lu.textContent = `🥇 Gold Spot (${num(auOz, 4)} oz Au in Vault)`;
     badge.textContent = spotLabel;
     const lm = $$(".sim-range-marks .live-mark");
-    if (lm[0]) lm[0].textContent = `${money(baseSpotAg)} (spot${spotDate ? " " + spotDate : ""})`;
-    if (lm[1]) lm[1].textContent = `${money(baseSpotAu)} (spot${spotDate ? " " + spotDate : ""})`;
+    if (lm[0]) lm[0].textContent = `${money(baseSpotAg)} (${spotDate || "spot"})`;
+    if (lm[1]) lm[1].textContent = `${money(baseSpotAu)} (${spotDate || "spot"})`;
     
     // Baseline non-metal value (albums, housing, collector premium, stamps, etc.)
     const baseAgMelt = agOz * baseSpotAg;
@@ -725,6 +733,7 @@
     const updateSim = () => {
       const curAg = parseFloat(agRange.value);
       const curAu = parseFloat(auRange.value);
+      simTouched = Math.abs(curAg - baseSpotAg) > 0.005 || Math.abs(curAu - baseSpotAu) > 0.005;
       simAgSpot = curAg;
       simAuSpot = curAu;
 
@@ -767,11 +776,12 @@
       if (segNumis) { segNumis.style.width = numisPct + "%"; }
       const lblAg = $("#lbl-ag"); if (lblAg) lblAg.textContent = `Ag Melt · ${money(dynAgMelt)}`;
       const lblAu = $("#lbl-au"); if (lblAu) lblAu.textContent = `Au · ${money(dynAuMelt)}`;
-      const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Premium · ${money(fixedBaseValue)}`;
+      const lblNumis = $("#lbl-numis"); if (lblNumis) lblNumis.textContent = `Above melt · ${money(fixedBaseValue)}`;
     };
 
     agRange.oninput = updateSim;
     auRange.oninput = updateSim;
+    updateSim();   // the drawer shows today's numbers before a slider moves
 
     btnToggle.onclick = () => {
       const open = !drawer.hidden;
@@ -1349,8 +1359,9 @@
     if (!track || !vault) return;
     // Every figure below is read from the published ledger snapshot; nothing is simulated.
     const m = vault.metals || {};
-    const spotAg = Number(m.spot?.ag_usd_oz ?? vault.board?.spot_ag) || 0;
-    const spotAu = Number(m.spot?.au_usd_oz ?? vault.board?.spot_au) || 0;
+    let V = null; try { V = valueNow(); } catch (_) { V = null; }   // same quote as the headline (owner, 2026-11-05)
+    const spotAg = Number(V ? V.ag : (m.spot?.ag_usd_oz ?? vault.board?.spot_ag)) || 0;
+    const spotAu = Number(V ? V.au : (m.spot?.au_usd_oz ?? vault.board?.spot_au)) || 0;
     const priorAg = Number(m.prior_spot?.ag_usd_oz) || 0;
     const priorAu = Number(m.prior_spot?.au_usd_oz) || 0;
     const ratio = spotAg ? spotAu / spotAg : 0;
@@ -1360,19 +1371,19 @@
       ? { chg: "no prior quote", up: null }
       : { chg: `${Math.abs(p).toFixed(2)}% ${suffix}`, up: Math.abs(p) < 0.005 ? null : p > 0 };
     const LVt = liveValue();
-    const grand = Number(LVt ? LVt.total : (vault.value?.estimated_total ?? vault.board?.grand ?? m.board?.grand)) || 0;
+    const grand = Number(V ? V.total : (LVt ? LVt.total : (vault.value?.estimated_total ?? vault.board?.grand ?? m.board?.grand))) || 0;
     const c = vault.counts || {};
-    const agOz = Number(m.oz?.ag) || 0;
-    const auOz = Number(m.oz?.au) || 0;
-    const melt = (Number(m.melt?.ag_usd) || 0) + (Number(m.melt?.au_usd) || 0);
+    const agOz = Number(V ? V.agOz : m.oz?.ag) || 0;
+    const auOz = Number(V ? V.auOz : m.oz?.au) || 0;
+    const melt = V ? V.agMelt + V.auMelt : (Number(m.melt?.ag_usd) || 0) + (Number(m.melt?.au_usd) || 0);
     const bullionEst = Number(m.board?.bullion) || 0;
     const top = (vault.flips || [])
       .filter((f) => f.status !== "Removed" && (Number(f.est) || 0) > 0)
       .sort((x, y) => (Number(y.est) || 0) - (Number(x.est) || 0))
       .slice(0, 3);
-    const asOf = m.as_of_local || m.as_of || "";
+    const asOf = V && V.label ? V.label : (m.as_of_local || m.as_of || "");
     const items = [
-      { sym: "TITAN VAULT TOTAL", price: money(grand), chg: "ledger estimate", up: null, action: "hub", title: "Collection estimate from the ledger · Click to view the valuation hub" },
+      { sym: "TITAN VAULT TOTAL", price: money(grand), chg: V && V.label ? V.label : "ledger estimate", up: null, action: "hub", title: "Collection estimate from the ledger · Click to view the valuation hub" },
       { sym: "METAL MELT", price: money(melt), chg: `${num(agOz, 2)} oz Ag · ${num(auOz, 4)} oz Au`, up: null, action: "seg-ag", title: "Melt value of physical silver and gold at the published spot · Click to view the allocation" },
       ...top.map((f) => ({
         sym: `${f.country || ""} ${f.year || ""} ${f.denom || ""}`.trim().toUpperCase(),
@@ -1384,7 +1395,7 @@
       { sym: "AU/AG RATIO", price: ratio.toFixed(2), ...chgOf(pct(ratio, priorRatio)), action: "terminal", asset: "ratio", title: "Gold/silver ratio · Click to open the ratio desk" },
       { sym: "BULLION", price: `${intFmt(c.bullion || 0)} lots`, chg: bullionEst ? money(bullionEst) : "—", up: null, action: "vault-reserves", title: "Bullion lots · Click to open the Vault" },
       { sym: "COLLECTION", price: `${intFmt(c.flips || 0)} flips`, chg: `${intFmt(c.countries || 0)} countries · ${intFmt(c.vault || 0)} pieces`, up: null, action: "vault-reserves", title: "Collection size from the ledger" },
-      ...(asOf ? [{ sym: "SPOT AS OF", price: asOf, chg: m.source || "", up: null, action: "terminal", asset: "ag", title: "When and where the spot quote came from" }] : []),
+      ...(asOf ? [{ sym: "SPOT", price: asOf, chg: V && V.kind === "live" ? "gold-api.com" : (m.source || ""), up: null, action: "terminal", asset: "ag", title: "When and where the spot quote came from" }] : []),
     ];
     // Double array to create seamless continuous marquee loop
     const fullItems = [...items, ...items];
@@ -1506,6 +1517,41 @@
     if (p && p.oz && p.oz.ag != null && p.nonmetal_usd != null) return { ag: Number(p.oz.ag), au: Number(p.oz.au) || 0, nonmetal: Number(p.nonmetal_usd), exact: true };
     const ag = Number(m.oz?.ag) || 0, au = Number(m.oz?.au) || 0, grand = Number(vault?.value?.estimated_total) || 0;
     return { ag, au, nonmetal: Math.max(0, grand - (Number(m.melt?.ag_usd) || 0) - (Number(m.melt?.au_usd) || 0)), exact: false };
+  }
+
+  /* 2026-11-05 (owner: "Shows 2 different values for total"): ONE quote and ONE total for every number on the Hall. The headline, melt bar,
+     legend, caption, glance tiles, simulator, ticker and Market desk all read this: the live quote once the page fetched it, else the price
+     job's latest quote, else the value history's last day, else the ledger board. `titan:value` fires when it changes. */
+  function valueNow() {
+    const q = termQuote(), b = termBasis(), LV = liveValue();
+    const lbl = q.kind === "live" ? `live price ${termClock(q.at)}` : (q.kind === "latest" && q.at ? `price of ${termStamp(q.at)}` : "");
+    if (LV && q.kind === "latest" && Math.abs(LV.agOz ? LV.agMelt / LV.agOz - q.ag : 1) < 0.01) {   // the history's last day was priced at this quote
+      return { total: LV.total, agMelt: LV.agMelt, auMelt: LV.auMelt, agOz: LV.agOz, auOz: LV.auOz, nonmetal: Math.max(0, LV.total - LV.agMelt - LV.auMelt),
+               ag: q.ag, au: q.au, kind: q.kind, at: q.at, label: lbl, stale: !!q.stale };
+    }
+    if (b.exact && q.kind !== "board" && q.ag > 0 && q.au > 0) {
+      const agMelt = b.ag * q.ag, auMelt = b.au * q.au;
+      return { total: Math.round((agMelt + auMelt + b.nonmetal) * 100) / 100, agMelt, auMelt, agOz: b.ag, auOz: b.au, nonmetal: b.nonmetal,
+               ag: q.ag, au: q.au, kind: q.kind, at: q.at, label: lbl, stale: !!q.stale };
+    }
+    if (LV) return { total: LV.total, agMelt: LV.agMelt, auMelt: LV.auMelt, agOz: LV.agOz, auOz: LV.auOz, nonmetal: Math.max(0, LV.total - LV.agMelt - LV.auMelt),
+                     ag: LV.agOz ? LV.agMelt / LV.agOz : 0, au: LV.auOz ? LV.auMelt / LV.auOz : 0, kind: "history", at: null,
+                     label: LV.date ? "price of " + termShort(LV.date) : "", stale: false };
+    const m = vault?.metals || {}, grand = Number(vault?.board?.grand) || 0;
+    const agMelt = (Number(m.oz?.ag) || 0) * (Number(m.spot?.ag_usd_oz) || 0), auMelt = (Number(m.oz?.au) || 0) * (Number(m.spot?.au_usd_oz) || 0);
+    return { total: grand, agMelt, auMelt, agOz: Number(m.oz?.ag) || 0, auOz: Number(m.oz?.au) || 0, nonmetal: Math.max(0, grand - agMelt - auMelt),
+             ag: Number(m.spot?.ag_usd_oz) || 0, au: Number(m.spot?.au_usd_oz) || 0, kind: "board", at: null,
+             label: q.asOf || "ledger quote", stale: true };
+  }
+  window.TitanValueNow = () => (vault ? valueNow() : null);
+  window.addEventListener("titan:value", () => { try { if (vault && $("#hero-grand")) { renderHero(); renderMarketTickerTape(); } } catch (_) {} });
+  let lastValueKey = "";
+  function announceValue() {
+    if (!vault) return;
+    const v = valueNow(), key = v.kind + ":" + v.total;
+    if (key === lastValueKey) return;
+    lastValueKey = key;
+    try { window.dispatchEvent(new CustomEvent("titan:value", { detail: v })); } catch (_) {}
   }
 
   async function termFetchLive() {
@@ -1737,9 +1783,9 @@
   /** Headline, badge, as-of line, composition and quote tiles: everything that depends on the current quote. */
   function renderTerminalHead() {
     const m = vault?.metals || {};
-    const q = termQuote(), b = termBasis();
-    const total = b.ag * q.ag + b.au * q.au + b.nonmetal;
-    const agMelt = b.ag * q.ag, auMelt = b.au * q.au, above = Math.max(0, total - agMelt - auMelt);
+    const q = termQuote(), b = termBasis(), V = valueNow();   // the Hall headline's number (owner, 2026-11-05: one total everywhere)
+    const total = V.total;
+    const agMelt = V.agMelt, auMelt = V.auMelt, above = Math.max(0, total - agMelt - auMelt);
     const todayStr = termTodayUTC();
     const pf = vault?.value?.portfolio_daily?.rows || [];
     const base = [...pf].reverse().find((r) => r[0] < todayStr);
@@ -1846,11 +1892,11 @@
         termRefresh();
       });
       document.addEventListener("visibilitychange", () => {
-        if (document.visibilityState === "visible" && term.live && Date.now() - term.live.at.getTime() > 120000) { term.liveTried = false; termFetchLive().then(termRefresh); }
+        if (document.visibilityState === "visible" && term.live && Date.now() - term.live.at.getTime() > 120000) { term.liveTried = false; termFetchLive().then(() => { termRefresh(); announceValue(); }); }
       });
     }
     termRefresh();                                    // first paint from what is already on the page (ledger quote, portfolio series)
-    termLoadPrices().then(() => { termRefresh(); return termFetchLive(); }).then(termRefresh);   // spot history first (same origin), then the live quote
+    termLoadPrices().then(() => { termRefresh(); announceValue(); return termFetchLive(); }).then(() => { termRefresh(); announceValue(); });   // spot history first (same origin), then the live quote
 
     const stage = $("#term-chart-stage"), hud = $("#term-hud");
     if (stage && !stage.dataset.wired) {

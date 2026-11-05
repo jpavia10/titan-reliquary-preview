@@ -67,8 +67,11 @@
     if (isNum(c.flips)) tiles.push({ k: "Flips", v: int(c.flips), s: b.flips?.usd != null ? money0(b.flips.usd) + " est." + (isNum(b.flips.cards) && b.flips.cards !== c.flips ? ` · ${int(b.flips.cards)} of ${int(c.flips)} in the ledger total (${int(c.flips - b.flips.cards)} not yet included)` : "") : "in 2×2 flips", go: "gallery", aria: `${int(c.flips)} flips. Open the Gallery` });
     if (isNum(c.countries)) tiles.push({ k: "Countries", v: int(c.countries), s: continents ? `on ${continents} continents` : "represented", go: "study", aria: `${int(c.countries)} countries. Open the Curator's Study` });
     if (b.albums && isNum(b.albums.folders)) tiles.push({ k: "Albums", v: int(b.albums.folders), s: (isNum(b.albums.coins) ? "~" + int(b.albums.coins) + " coins · " : "") + money0(b.albums.usd), go: "study", aria: `${int(b.albums.folders)} albums. Open the Curator's Study` });
-    if (isNum(agOz)) tiles.push({ k: "Silver", v: `${dec(agOz, 2)}<small> oz</small>`, s: "melt " + money0(pr.combined_silver?.melt), go: "vault", aria: `${dec(agOz, 2)} ounces of silver. Open the Vault` });
-    if (isNum(auOz)) tiles.push({ k: "Gold", v: `${dec(auOz, 4)}<small> oz</small>`, s: "melt " + money0(pr.combined_gold?.melt), go: "vault", aria: `${dec(auOz, 4)} ounces of gold. Open the Vault` });
+    // 2026-11-05 (owner: "Shows 2 different values for total"): melt at the same quote as the headline, never the Sept 30 ledger quote
+    let V = null; try { V = window.TitanValueNow ? window.TitanValueNow() : null; } catch (_) { V = null; }
+    const agMelt = V ? V.agMelt : pr.combined_silver?.melt, auMelt = V ? V.auMelt : pr.combined_gold?.melt;
+    if (isNum(agOz)) tiles.push({ k: "Silver", v: `${dec(agOz, 2)}<small> oz</small>`, s: "melt " + money0(agMelt), go: "vault", aria: `${dec(agOz, 2)} ounces of silver, melt ${money0(agMelt)}. Open the Vault` });
+    if (isNum(auOz)) tiles.push({ k: "Gold", v: `${dec(auOz, 4)}<small> oz</small>`, s: "melt " + money0(auMelt), go: "vault", aria: `${dec(auOz, 4)} ounces of gold, melt ${money0(auMelt)}. Open the Vault` });
     glance.innerHTML = tiles.map(tile).join("");
     glance.hidden = !tiles.length;
   }
@@ -88,7 +91,13 @@
     const bits = [];
     const L = prices && prices.latest;
     const at = L && L.at ? new Date(L.at) : null;
-    if (at && !isNaN(at) && Number(L.xag_usd) > 0) {
+    let V = null; try { V = window.TitanValueNow ? window.TitanValueNow() : null; } catch (_) { V = null; }
+    if (V && V.kind === "live") {
+      // the page fetched a live quote: the headline, tiles and Market desk all use it (2026-11-05)
+      bits.push(V.label);
+      bits.push("Ag " + money(V.ag));
+      bits.push("Au " + money(V.au));
+    } else if (at && !isNaN(at) && Number(L.xag_usd) > 0) {
       // the daily price job's latest quote (data/prices.json); the ledger board quote is only the fallback
       bits.push("spot as of " + at.toLocaleDateString("en-US", { month: "short", day: "numeric" }));
       bits.push("Ag " + money(L.xag_usd));
@@ -100,7 +109,7 @@
     }
     p.textContent = bits.join(" · ");
     // #42: never show an old price as current. The job runs daily at 22:15 UTC; past 36 h it has missed a run.
-    const ageH = at && !isNaN(at) ? (Date.now() - at.getTime()) / 36e5 : null;
+    const ageH = V && V.kind === "live" ? null : (at && !isNaN(at) ? (Date.now() - at.getTime()) / 36e5 : null);
     if (ageH != null && ageH > 36) {
       const w = document.createElement("span");
       w.className = "hall-stale";
@@ -167,6 +176,10 @@
   }
 
   /* ---------- wiring ---------- */
+  // a new quote (prices loaded, live price fetched): repaint the tiles and the as-of line after app.js repainted the hero and ticker
+  window.addEventListener("titan:value", () => setTimeout(() => {
+    try { const v = getVault(); if (!v) return; renderGlance(v); renderAsOf(v); markTickerDupes(); fitMeltLabels(); } catch (_) {}
+  }, 0));
   function paintAll() {
     const v = getVault();
     if (!v) return;

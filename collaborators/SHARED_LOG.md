@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-05] Claude: tr273, one total everywhere on the Hall (owner's screenshot: two different totals)
+- Headline, caption, tiles, melt bar, simulator, ticker and Market desk now read one quote (`valueNow()` / `window.TitanValueNow`, event `titan:value`): live > price job's latest > history > ledger. The tiles and simulator had been on the Sept 30 ledger quote.
+- Smoke: "headline and Market desk show one total".
+
 ### [2026-11-05] Claude: Muse's 33 chat coins merged as C305-C337 (owner: "Muse did over 30"; "Muse fixed new coin location")
 - Muse's file (owner's photos of 11-02, identified with him in chat) reformatted before merging (Phase 1 type ids, value in the create, face units, `BS.X.1-cent.2` 1974 + `AU.X.10-cents.2` 1966; issuers CZ, RU). Claude read all 35 photos: country, year, denomination hold for all 33; corrections in `changes_claude_20261104-2200` (4 Mexican Mo marks, the Russian monogram, 4 stories, the 1944 5 rappen metal, the UK 10p + German 10 cent confirmed by size). 35 cut-outs live; originals in Drive `_raw_capture/_phase1/coins`.
 - Owner: "I confirmed all years by hand while I labeled": the 33 years are owner-verified (`changes_owner_20261105-0110`).

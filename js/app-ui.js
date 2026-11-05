@@ -49,10 +49,11 @@
     const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced || target == null || Number.isNaN(Number(target))) { el.textContent = fmt(target); return; }
     const dur = 1200, t0 = performance.now();
+    el._cuTarget = target;   // a repaint mid-count (a newer quote) changes where it lands instead of being overwritten by the old target
     const step = (now) => {
       const p = Math.min(1, (now - t0) / dur);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(target * eased);
+      el.textContent = fmt(Number(el._cuTarget) * eased);
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
