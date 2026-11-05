@@ -303,7 +303,11 @@ def _story_state(ctx, sid):
     last = None
     for i, e in evs:
         if e.get("old") != e.get("new"): last = (i, e)
-    author = PV.agent_of(last[1].get("by")) if last else "ledger"
+    if last: author = PV.agent_of(last[1].get("by"))
+    else:                       # 2026-11-04: a story written in the coin's own create event is its author's (Muse was handed its 33 new stories to check)
+        made = next((e for e in ctx["col"]["events"] if e.get("entity") == "specimen" and e.get("id") == sid and e.get("field") == "(new record)"
+                     and (e.get("new") or {}).get("story")), None)
+        author = PV.agent_of(made.get("by")) if made else "ledger"
     checked = any(i > (last[0] if last else -1) and e.get("old") == e.get("new") and PV.agent_of(e.get("by")) != author for i, e in evs)
     return author, checked
 
@@ -392,6 +396,7 @@ def pool_value(ctx, now=None):
         asw = (t.get("precious") or {}).get("asw_oz") or 0
         melt = round(asw * (spot.get("xag_usd") or 0), 2) if asw else None
         out.append((-est, sid, _item("value", f"value:{sid}", "specimen", sid, "value", [sid], coin_line(ctx, sid), (-est, sid),
+                                     authors=[_author(ent)],      # 2026-11-04: never re-appraise your own value (Muse was handed its 33 default values)
                                      payload={"est_usd": est, "confidence": (s.get("value") or {}).get("confidence"), "silver_oz": asw or None, "melt_usd": melt,
                                               "photos": photos_of(ctx, sid), "stale_since": ent.get("ts") if stale else None,
                                               "numista_prices": ((nv.get(s["type"]) or {}).get("issues") or {}).get(f"{s['issue'].get('year')} {''.join(s['issue'].get('mint_marks') or [])}".strip()),

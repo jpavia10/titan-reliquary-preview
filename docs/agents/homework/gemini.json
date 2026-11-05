@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-04T16:39:31Z",
+ "updated": "2026-11-05T00:50:57Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -1353,7 +1353,8 @@
      "id": "GB.KM.1110d",
      "field": "denomination.value",
      "coins": [
-      "C157"
+      "C157",
+      "C318"
      ],
      "label": "denomination of C157 · United Kingdom · 2014",
      "authors": [
@@ -2366,7 +2367,10 @@
      "id": "BS.X.1-cent",
      "field": "catalogs",
      "coins": [
-      "C276"
+      "C276",
+      "C306",
+      "C327",
+      "C332"
      ],
      "label": "catalog of C276 · Bahamas · 2015 · 1 cent · BSD",
      "authors": [
@@ -4418,7 +4422,10 @@
      "id": "BS.X.1-cent",
      "field": "denomination.value",
      "coins": [
-      "C276"
+      "C276",
+      "C306",
+      "C327",
+      "C332"
      ],
      "label": "denomination of C276 · Bahamas · 2015",
      "authors": [
@@ -4598,7 +4605,8 @@
      "id": "MX.X.10-centavos",
      "field": null,
      "coins": [
-      "C274"
+      "C274",
+      "C323"
      ],
      "label": "C274 · Mexico · 1995 · 10 centavos · MXN (MX.X.10-centavos)",
      "authors": [],
@@ -4955,7 +4963,8 @@
      "field": null,
      "coins": [
       "C266",
-      "C267"
+      "C267",
+      "C314"
      ],
      "label": "C266 · South Korea · 2012 · 10 won · KRW (KR.KM.103)",
      "authors": [],
@@ -4975,7 +4984,10 @@
      "id": "KR.KM.35.2",
      "field": null,
      "coins": [
-      "C210"
+      "C210",
+      "C307",
+      "C311",
+      "C335"
      ],
      "label": "C210 · South Korea · 2000 · 100 won · KRW (KR.KM.35.2)",
      "authors": [],
@@ -8070,6 +8082,4320 @@
        "source": "https://en.numista.com/catalogue/pieces2940.html (via api https://api.numista.com/v3/types/2940) reverse lettering 'قِرْش وَاحِد / ١ / ١٣٧٨'; obverse 'Saudi Arabia coat of arms at center of legend' lettering 'ملك المملكة العربية السعودية / سعود بن عبد العزيز آل سعود' — the kingdom name is in the arms-side legend, not on the value-side rim as the record says",
        "ts": "2026-10-31T17:58:30Z"
       }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-read-mint-20261104-1",
+   "agent": "gemini",
+   "kind": "read-mint",
+   "issued": "2026-11-04T21:45:09Z",
+   "lease_until": "2026-11-09T21:45:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C298",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "mint:C298",
+     "kind": "read-mint",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue",
+     "coins": [
+      "C298"
+     ],
+     "label": "C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [],
+     "payload": {
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
+        "file": "C298_rev.webp",
+        "original": "C298_Italy_1978_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
+      "mint_text_now": "not visible on the Vulcan side"
+     },
+     "blind": false,
+     "inputs": [
+      "C298_rev.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261104-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-04T21:45:09Z",
+   "lease_until": "2026-11-09T21:45:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:AU.X.10-cents.2",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": null
+    },
+    {
+     "item": "cite:BS.X.1-cent.2",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": null
+    },
+    {
+     "item": "cite:CZ.X.5-korun",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": null
+    },
+    {
+     "item": "cite:ES.X.5-pesetas",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": null
+    },
+    {
+     "item": "cite:FR.X.2-francs",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": null
+    },
+    {
+     "item": "cite:GB.X.1-shilling",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": null
+    },
+    {
+     "item": "cite:GB.X.20-pence",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": null
+    },
+    {
+     "item": "cite:GB.X.half-penny",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": null
+    },
+    {
+     "item": "cite:IE.X.10-pence",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.2-nuevos-pesos",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.5-pesos",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": null
+    },
+    {
+     "item": "cite:NO.X.50-ore",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": null
+    },
+    {
+     "item": "cite:PT.X.20-centavos",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": null
+    },
+    {
+     "item": "cite:RU.X.20-roubles",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null
+    },
+    {
+     "item": "cite:SE.X.1-krona",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": null
+    },
+    {
+     "item": "cite:VA.X.20-lire",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": null
+    },
+    {
+     "item": "cite:KR.KM.35.2",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.24a.1",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": null
+    },
+    {
+     "item": "cite:CH.KM.26",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": null
+    },
+    {
+     "item": "cite:DE.KM.210",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": null
+    },
+    {
+     "item": "cite:FR.KM.930",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": null
+    },
+    {
+     "item": "cite:IT.KM.95.1",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null
+    },
+    {
+     "item": "cite:MX.KM.604",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.10-centavos",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:AU.X.10-cents.2",
+     "kind": "cite",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": null,
+     "coins": [
+      "C331"
+     ],
+     "label": "AU 10 cents (AU.X.10-cents.2)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1966,
+        "mint_marks": [],
+        "coins": [
+         "C331"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1966"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1966,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:BS.X.1-cent.2",
+     "kind": "cite",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": null,
+     "coins": [
+      "C326"
+     ],
+     "label": "BS 1 cent (BS.X.1-cent.2)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1974,
+        "mint_marks": [],
+        "coins": [
+         "C326"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1974"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1974,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:CZ.X.5-korun",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": null,
+     "coins": [
+      "C312"
+     ],
+     "label": "CZ 5 korun (CZ.X.5-korun)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2008,
+        "mint_marks": [],
+        "coins": [
+         "C312"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2008"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2008,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:ES.X.5-pesetas",
+     "kind": "cite",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": null,
+     "coins": [
+      "C334"
+     ],
+     "label": "ES 5 pesetas (ES.X.5-pesetas)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1989,
+        "mint_marks": [],
+        "coins": [
+         "C334"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1989"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1989,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:FR.X.2-francs",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": null,
+     "coins": [
+      "C310"
+     ],
+     "label": "FR 2 francs (FR.X.2-francs)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1979,
+        "mint_marks": [],
+        "coins": [
+         "C310"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1979"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1979,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:GB.X.1-shilling",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": null,
+     "coins": [
+      "C329"
+     ],
+     "label": "GB 1 shilling (GB.X.1-shilling)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1962,
+        "mint_marks": [],
+        "coins": [
+         "C329"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1962"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1962,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:GB.X.20-pence",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": null,
+     "coins": [
+      "C316"
+     ],
+     "label": "GB 20 pence (GB.X.20-pence)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2014,
+        "mint_marks": [],
+        "coins": [
+         "C316"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2014"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2014,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:GB.X.half-penny",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": null,
+     "coins": [
+      "C309"
+     ],
+     "label": "GB 0.5 penny (GB.X.half-penny)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1937,
+        "mint_marks": [],
+        "coins": [
+         "C309"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1937"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1937,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:IE.X.10-pence",
+     "kind": "cite",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": null,
+     "coins": [
+      "C330"
+     ],
+     "label": "IE 10 pence (IE.X.10-pence)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1995,
+        "mint_marks": [],
+        "coins": [
+         "C330"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1995"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1995,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:MX.X.2-nuevos-pesos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": null,
+     "coins": [
+      "C319"
+     ],
+     "label": "MX 2 nuevos pesos (MX.X.2-nuevos-pesos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 1,
+        "year": 1994,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C319"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.1.mintage: 1994 Mo"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1994,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:MX.X.5-pesos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": null,
+     "coins": [
+      "C324"
+     ],
+     "label": "MX 5 pesos (MX.X.5-pesos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 1,
+        "year": 2005,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C324"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.1.mintage: 2005 Mo"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 2005,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:NO.X.50-ore",
+     "kind": "cite",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": null,
+     "coins": [
+      "C333"
+     ],
+     "label": "NO 50 øre (NO.X.50-ore)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1977,
+        "mint_marks": [],
+        "coins": [
+         "C333"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1977"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1977,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:PT.X.20-centavos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": null,
+     "coins": [
+      "C322"
+     ],
+     "label": "PT 20 centavos (PT.X.20-centavos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1970,
+        "mint_marks": [],
+        "coins": [
+         "C322"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1970"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1970,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:RU.X.20-roubles",
+     "kind": "cite",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null,
+     "coins": [
+      "C313"
+     ],
+     "label": "RU 20 roubles (RU.X.20-roubles)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1992,
+        "mint_marks": [],
+        "coins": [
+         "C313"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1992"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1992,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:SE.X.1-krona",
+     "kind": "cite",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": null,
+     "coins": [
+      "C320"
+     ],
+     "label": "SE 1 krona (SE.X.1-krona)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1991,
+        "mint_marks": [],
+        "coins": [
+         "C320"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1991"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1991,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:VA.X.20-lire",
+     "kind": "cite",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": null,
+     "coins": [
+      "C305"
+     ],
+     "label": "VA 20 lire (VA.X.20-lire)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1958,
+        "mint_marks": [],
+        "coins": [
+         "C305"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": null,
+      "diameter_mm": null,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "nominal.weight_g: the catalogue weight as one number (and weight_approx false; weight_min_g/weight_max_g null)",
+       "nominal.diameter_mm",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1958"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1958,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:KR.KM.35.2",
+     "kind": "cite",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": null,
+     "coins": [
+      "C210",
+      "C307",
+      "C311",
+      "C335"
+     ],
+     "label": "KR 100 won (KR.KM.35.2)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2000,
+        "mint_marks": [],
+        "coins": [
+         "C210"
+        ],
+        "mintage": 422985000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1988,
+        "mint_marks": [],
+        "coins": [
+         "C307"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1997,
+        "mint_marks": [],
+        "coins": [
+         "C311"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1994,
+        "mint_marks": [],
+        "coins": [
+         "C335"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "35.2"
+       },
+       {
+        "system": "Schön",
+        "number": "81"
+       },
+       {
+        "system": "Numista",
+        "number": "1052"
+       }
+      ],
+      "weight_g": 5.42,
+      "diameter_mm": 24.0,
+      "composition": "cupronickel",
+      "ask": [
+       "issues.1.mintage: 1988",
+       "issues.2.mintage: 1997",
+       "issues.3.mintage: 1994"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1988,
+       "mint": [],
+       "qualifier": null
+      },
+      "issues.2.mintage": {
+       "year": 1997,
+       "mint": [],
+       "qualifier": null
+      },
+      "issues.3.mintage": {
+       "year": 1994,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:CH.KM.24a.1",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": null,
+     "coins": [
+      "C001",
+      "C093",
+      "C308",
+      "C328"
+     ],
+     "label": "CH 1 franc (CH.KM.24a.1)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1969,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C001"
+        ],
+        "mintage": 37598000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1970,
+        "mint_marks": [],
+        "coins": [
+         "C093"
+        ],
+        "mintage": 24240000,
+        "mintage_label": "reference",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1968,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C308"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       },
+       {
+        "N": 4,
+        "year": 1976,
+        "mint_marks": [],
+        "coins": [
+         "C328"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "24a.1"
+       },
+       {
+        "system": "Numista",
+        "number": "185"
+       }
+      ],
+      "weight_g": 4.4,
+      "diameter_mm": 23.2,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.3.mintage: 1968 B",
+       "issues.4.mintage: 1976"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 1968,
+       "mint": [
+        "B"
+       ],
+       "qualifier": null
+      },
+      "issues.4.mintage": {
+       "year": 1976,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:CH.KM.26",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": null,
+     "coins": [
+      "C002",
+      "C337"
+     ],
+     "label": "CH 5 rappen (CH.KM.26)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1963,
+        "mint_marks": [
+         "B"
+        ],
+        "coins": [
+         "C002"
+        ],
+        "mintage": 29730000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1944,
+        "mint_marks": [],
+        "coins": [
+         "C337"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "26"
+       },
+       {
+        "system": "Schön",
+        "number": "24"
+       },
+       {
+        "system": "Y",
+        "number": "23"
+       },
+       {
+        "system": "Numista",
+        "number": "168"
+       }
+      ],
+      "weight_g": 2.0,
+      "diameter_mm": 17.15,
+      "composition": "CuNi 75/25",
+      "ask": [
+       "issues.1.mintage: 1944"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1944,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:DE.KM.210",
+     "kind": "cite",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": null,
+     "coins": [
+      "C037",
+      "C283",
+      "C336"
+     ],
+     "label": "DE 10 euro cent (DE.KM.210)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2002,
+        "mint_marks": [
+         "D"
+        ],
+        "coins": [
+         "C283"
+        ],
+        "mintage": 721950000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 2002,
+        "mint_marks": [
+         "J"
+        ],
+        "coins": [
+         "C037"
+        ],
+        "mintage": 3509935000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 2002,
+        "mint_marks": [
+         "A"
+        ],
+        "coins": [
+         "C336"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "210"
+       },
+       {
+        "system": "Schön",
+        "number": "209"
+       },
+       {
+        "system": "J",
+        "number": "485"
+       },
+       {
+        "system": "Numista",
+        "number": "108"
+       }
+      ],
+      "weight_g": 4.1,
+      "diameter_mm": 19.75,
+      "composition": "Nordic gold (Cu89Al5Zn5Sn1)",
+      "ask": [
+       "issues.3.mintage: 2002 A"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 2002,
+       "mint": [
+        "A"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:FR.KM.930",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": null,
+     "coins": [
+      "C005",
+      "C041",
+      "C321"
+     ],
+     "label": "FR 20 centimes (FR.KM.930)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1974,
+        "mint_marks": [],
+        "coins": [
+         "C041"
+        ],
+        "mintage": 54348811,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1986,
+        "mint_marks": [],
+        "coins": [
+         "C005"
+        ],
+        "mintage": 40000011,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1988,
+        "mint_marks": [],
+        "coins": [
+         "C321"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "930"
+       },
+       {
+        "system": "Schön",
+        "number": "230"
+       },
+       {
+        "system": "Numista",
+        "number": "4"
+       }
+      ],
+      "weight_g": 4.0,
+      "diameter_mm": 23.5,
+      "composition": "aluminum-bronze (Cu 92 / Al 6 / Ni 2)",
+      "ask": [
+       "issues.2.mintage: 1988"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1988,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:IT.KM.95.1",
+     "kind": "cite",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": null,
+     "coins": [
+      "C011",
+      "C199",
+      "C287",
+      "C298",
+      "C299",
+      "C325"
+     ],
+     "label": "IT 50 lire (IT.KM.95.1)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1970,
+        "mint_marks": [
+         "R"
+        ],
+        "coins": [
+         "C011"
+        ],
+        "mintage": 21411000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1978,
+        "mint_marks": [
+         "R"
+        ],
+        "coins": [
+         "C199"
+        ],
+        "mintage": 416808000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1979,
+        "mint_marks": [],
+        "coins": [
+         "C287"
+        ],
+        "mintage": 315000000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 3,
+        "year": 1978,
+        "mint_marks": [],
+        "coins": [
+         "C298"
+        ],
+        "mintage": 416808000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 4,
+        "year": 1979,
+        "mint_marks": [
+         "R"
+        ],
+        "coins": [
+         "C299"
+        ],
+        "mintage": 315000000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 5,
+        "year": 1955,
+        "mint_marks": [
+         "R"
+        ],
+        "coins": [
+         "C325"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "95.1"
+       },
+       {
+        "system": "Schön",
+        "number": "95"
+       },
+       {
+        "system": "Numista",
+        "number": "724"
+       }
+      ],
+      "weight_g": 6.25,
+      "diameter_mm": 24.8,
+      "composition": "Acmonital stainless steel",
+      "ask": [
+       "issues.5.mintage: 1955 R"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.5.mintage": {
+       "year": 1955,
+       "mint": [
+        "R"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:MX.KM.604",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": null,
+     "coins": [
+      "C236",
+      "C315"
+     ],
+     "label": "MX 2 pesos (MX.KM.604)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2010,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C236"
+        ],
+        "mintage": 34878000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1998,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C315"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "604"
+       },
+       {
+        "system": "Schön",
+        "number": "178"
+       },
+       {
+        "system": "Numista",
+        "number": "587"
+       }
+      ],
+      "weight_g": 5.19,
+      "diameter_mm": 23.0,
+      "composition": "bimetallic (aluminum-bronze center / stainless ring)",
+      "ask": [
+       "issues.2.mintage: 1998 Mo"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1998,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:MX.X.10-centavos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": null,
+     "coins": [
+      "C274",
+      "C323"
+     ],
+     "label": "MX 10 centavos (MX.X.10-centavos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1995,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C274"
+        ],
+        "mintage": 560000000,
+        "mintage_label": "checked",
+        "mint_read": true
+       },
+       {
+        "N": 2,
+        "year": 1994,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C323"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "547"
+       },
+       {
+        "system": "Schön",
+        "number": "143"
+       },
+       {
+        "system": "Numista",
+        "number": "581"
+       }
+      ],
+      "weight_g": 2.08,
+      "diameter_mm": 17.0,
+      "composition": "stainless steel",
+      "ask": [
+       "issues.2.mintage: 1994 Mo"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1994,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261104-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-11-04T21:46:48Z",
+   "lease_until": "2026-11-09T21:46:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C275",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "story"
+    },
+    {
+     "item": "story:C305",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "story"
+    },
+    {
+     "item": "story:C306",
+     "entity": "specimen",
+     "id": "C306",
+     "field": "story"
+    },
+    {
+     "item": "story:C307",
+     "entity": "specimen",
+     "id": "C307",
+     "field": "story"
+    },
+    {
+     "item": "story:C308",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "story"
+    },
+    {
+     "item": "story:C309",
+     "entity": "specimen",
+     "id": "C309",
+     "field": "story"
+    },
+    {
+     "item": "story:C310",
+     "entity": "specimen",
+     "id": "C310",
+     "field": "story"
+    },
+    {
+     "item": "story:C311",
+     "entity": "specimen",
+     "id": "C311",
+     "field": "story"
+    },
+    {
+     "item": "story:C312",
+     "entity": "specimen",
+     "id": "C312",
+     "field": "story"
+    },
+    {
+     "item": "story:C313",
+     "entity": "specimen",
+     "id": "C313",
+     "field": "story"
+    },
+    {
+     "item": "story:C314",
+     "entity": "specimen",
+     "id": "C314",
+     "field": "story"
+    },
+    {
+     "item": "story:C315",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "story"
+    },
+    {
+     "item": "story:C316",
+     "entity": "specimen",
+     "id": "C316",
+     "field": "story"
+    },
+    {
+     "item": "story:C317",
+     "entity": "specimen",
+     "id": "C317",
+     "field": "story"
+    },
+    {
+     "item": "story:C318",
+     "entity": "specimen",
+     "id": "C318",
+     "field": "story"
+    },
+    {
+     "item": "story:C319",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "story"
+    },
+    {
+     "item": "story:C320",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "story"
+    },
+    {
+     "item": "story:C321",
+     "entity": "specimen",
+     "id": "C321",
+     "field": "story"
+    },
+    {
+     "item": "story:C322",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "story"
+    },
+    {
+     "item": "story:C323",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "story"
+    },
+    {
+     "item": "story:C324",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "story"
+    },
+    {
+     "item": "story:C325",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "story"
+    },
+    {
+     "item": "story:C326",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "story"
+    },
+    {
+     "item": "story:C327",
+     "entity": "specimen",
+     "id": "C327",
+     "field": "story"
+    },
+    {
+     "item": "story:C328",
+     "entity": "specimen",
+     "id": "C328",
+     "field": "story"
+    },
+    {
+     "item": "story:C329",
+     "entity": "specimen",
+     "id": "C329",
+     "field": "story"
+    },
+    {
+     "item": "story:C330",
+     "entity": "specimen",
+     "id": "C330",
+     "field": "story"
+    },
+    {
+     "item": "story:C331",
+     "entity": "specimen",
+     "id": "C331",
+     "field": "story"
+    },
+    {
+     "item": "story:C332",
+     "entity": "specimen",
+     "id": "C332",
+     "field": "story"
+    },
+    {
+     "item": "story:C333",
+     "entity": "specimen",
+     "id": "C333",
+     "field": "story"
+    },
+    {
+     "item": "story:C334",
+     "entity": "specimen",
+     "id": "C334",
+     "field": "story"
+    },
+    {
+     "item": "story:C335",
+     "entity": "specimen",
+     "id": "C335",
+     "field": "story"
+    },
+    {
+     "item": "story:C336",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "story"
+    },
+    {
+     "item": "story:C337",
+     "entity": "specimen",
+     "id": "C337",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C275",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C275",
+     "field": "story",
+     "coins": [
+      "C275"
+     ],
+     "label": "C275 · United Kingdom · 1992 · 5 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A British five pence dated 1992, struck in cupronickel for everyday circulation. The obverse shows Raphael Maklouf's crowned portrait of Elizabeth II with the date in the legend. The reverse carries the crowned thistle design marked FIVE PENCE. The Royal Mint at Llantrisant struck about 453 million five pence coins in 1992.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1992",
+       "denom": "5 pence · GBP",
+       "mint": "Royal Mint, Llantrisant (no mint mark on circulation)",
+       "refs": "KM#937b · Schön#452 · Numista#875",
+       "metal": "CuNi 75/25 · 3.25 g · 18 mm · milled",
+       "specs": "thickness 1.7 mm · medal alignment",
+       "mintage": "453,173,500",
+       "design": "obverse Raphael Maklouf Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)",
+       "ruler": "Elizabeth II",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C305",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "story",
+     "coins": [
+      "C305"
+     ],
+     "label": "C305 · Vatican City · 1958 · 20 lire · VAL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1958 Vatican 20 lire showing Charity (Caritas) standing with children. It was struck in Rome for Pope Pius XII and only ever reached collectors inside the Vatican's yearly mint sets.",
+      "record": {
+       "country": "Vatican City",
+       "year": "1958",
+       "denom": "20 lire · VAL",
+       "mint": "no mint letter visible on the shown reverse; Rome mint",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C306",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C306",
+     "field": "story",
+     "coins": [
+      "C306"
+     ],
+     "label": "C306 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2015 Bahamian cent with the national coat of arms - a marlin and a flamingo around a shield with a rising sun. The other side carries three starfish.",
+      "record": {
+       "country": "Bahamas",
+       "year": "2015",
+       "denom": "1 cent · BSD",
+       "mint": "no mint mark on type",
+       "refs": "Schön#190a · Numista#92216",
+       "metal": "Copper plated steel · 1.70 g · 17 mm · Plain",
+       "specs": "thickness 1 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C307",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C307",
+     "field": "story",
+     "coins": [
+      "C307"
+     ],
+     "label": "C307 · South Korea · 1988 · 100 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A South Korean 100 won. The side shown carries the value and the date inside a beaded border, with the Bank of Korea's name below; the other side shows Admiral Yi Sun-sin, the naval hero of the 1590s.",
+      "record": {
+       "country": "South Korea",
+       "year": "1988",
+       "denom": "100 won · KRW",
+       "mint": "no mint mark on type",
+       "refs": "KM#35.2 · Schön#81 · Numista#1052",
+       "metal": "cupronickel · 5.42 g · 24 mm · reeded",
+       "specs": "thickness 1.5 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C308",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "story",
+     "coins": [
+      "C308"
+     ],
+     "label": "C308 · Switzerland · 1968 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1968 Swiss franc. Helvetia stands in an Alpine landscape on the other side; this side carries the value in a wreath. 1968 was the first year this franc was struck in copper-nickel instead of silver.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1968",
+       "denom": "1 franc · CHF",
+       "mint": "B (Bern) below the wreath bow",
+       "refs": "KM#24a.1 · Numista#185",
+       "metal": "CuNi 75/25 · 4.40 g · 23.2 mm · reeded",
+       "specs": "thickness 1.55 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "standing Helvetia facing left, spear in right hand, Swiss shield in left, 22 stars (23 from 1983), HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 1 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C309",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C309",
+     "field": "story",
+     "coins": [
+      "C309"
+     ],
+     "label": "C309 · United Kingdom · 1937 · ½ penny · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1937 British halfpenny showing the Golden Hind, Sir Francis Drake's ship. It was the first halfpenny of George VI's reign.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1937",
+       "denom": "½ penny · GBP",
+       "mint": "no mint mark on type",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C310",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C310",
+     "field": "story",
+     "coins": [
+      "C310"
+     ],
+     "label": "C310 · France · 1979 · 2 francs · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1979 French 2 francs with the Sower scattering seed - the design Oscar Roty created in 1897 that France kept for a century. 1979 was the first year of this nickel 2 francs.",
+      "record": {
+       "country": "France",
+       "year": "1979",
+       "denom": "2 francs · FRF",
+       "mint": "Paris mint; dolphin privy mark beside the date",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C311",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C311",
+     "field": "story",
+     "coins": [
+      "C311"
+     ],
+     "label": "C311 · South Korea · 1997 · 100 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A South Korean 100 won. The side shown carries the value and the date inside a beaded border, with the Bank of Korea's name below; the other side shows Admiral Yi Sun-sin, the naval hero of the 1590s.",
+      "record": {
+       "country": "South Korea",
+       "year": "1997",
+       "denom": "100 won · KRW",
+       "mint": "no mint mark on type",
+       "refs": "KM#35.2 · Schön#81 · Numista#1052",
+       "metal": "cupronickel · 5.42 g · 24 mm · reeded",
+       "specs": "thickness 1.5 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C312",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C312",
+     "field": "story",
+     "coins": [
+      "C312"
+     ],
+     "label": "C312 · Czech Republic · 2008 · 5 korun · CZK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2008 Czech 5 korun showing the Czech lion. The other side carries Charles Bridge over the Vltava river in Prague.",
+      "record": {
+       "country": "Czech Republic",
+       "year": "2008",
+       "denom": "5 korun · CZK",
+       "mint": "Jablonec mint monogram below the lion",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C313",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C313",
+     "field": "story",
+     "coins": [
+      "C313"
+     ],
+     "label": "C313 · Russia · 1992 · 20 roubles · RUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1992 Russian 20 roubles, from the first year of coins after the Soviet Union ended. This side carries the value between two branches, with the date below; the other side shows a double-headed eagle.",
+      "record": {
+       "country": "Russia",
+       "year": "1992",
+       "denom": "20 roubles · RUR",
+       "mint": "mint monogram under РУБЛЕЙ on this side, too small to read in the phone photo (ММД Moscow or ЛМД Leningrad)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C314",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C314",
+     "field": "story",
+     "coins": [
+      "C314"
+     ],
+     "label": "C314 · South Korea · 2012 · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2012 South Korean 10 won - the small copper-coloured coin with the Dabotap pagoda on the other side. This reduced-size version replaced the larger old 10 won in 2006.",
+      "record": {
+       "country": "South Korea",
+       "year": "2012",
+       "denom": "10 won · KRW",
+       "mint": "no mint mark on type",
+       "refs": "KM#103 · Schön#163 · Numista#1654",
+       "metal": "copper-clad aluminium (48% Cu / 52% Al) · 1.22 g · 18 mm · plain",
+       "specs": "thickness 1.2 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse Dabotap Pagoda (십 원) · designer unknown",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C315",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "story",
+     "coins": [
+      "C315"
+     ],
+     "label": "C315 · Mexico · 1998 · 2 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1998 Mexican 2 pesos. The ring on this side carries the Aztec calendar's Ring of Days; the national arms are on the other side.",
+      "record": {
+       "country": "Mexico",
+       "year": "1998",
+       "denom": "2 pesos · MXN",
+       "mint": "Mo",
+       "refs": "KM#604 · Schön#178 · Numista#587",
+       "metal": "bimetallic (aluminum-bronze center / stainless ring) · 5.19 g · 23 mm · reeded",
+       "specs": "thickness 1.4 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "value side $ · big 2 · 2010 · Mo · Aztec Sun Stone / Ring of Days glyphs on outer ring · national arms reverse",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C316",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C316",
+     "field": "story",
+     "coins": [
+      "C316"
+     ],
+     "label": "C316 · United Kingdom · 2014 · 20 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2014 British 20 pence with the fourth portrait of Elizabeth II. The other side shows one piece of the Royal Shield, which only completes when the whole coin set is laid together.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2014",
+       "denom": "20 pence · GBP",
+       "mint": "no mint mark on type",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C317",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C317",
+     "field": "story",
+     "coins": [
+      "C317"
+     ],
+     "label": "C317 · Belize · 2015 · 25 cents · BZD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2015 Belize 25 cents - the 'shilling' of Belize, a name left over from British Honduras days. Queen Elizabeth II is on the other side.",
+      "record": {
+       "country": "Belize",
+       "year": "2015",
+       "denom": "25 cents · BZD",
+       "mint": "Royal Mint, Llantrisant (no mint mark on type)",
+       "refs": "KM#36 · Schön#6 · Numista#2238",
+       "metal": "copper-nickel (75% copper, 25% nickel) · 5.66 g · 23.6 mm · reeded",
+       "specs": "thickness 1.9 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C318",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C318",
+     "field": "story",
+     "coins": [
+      "C318"
+     ],
+     "label": "C318 · United Kingdom · 2014 · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2014 British 10 pence with the fourth portrait of Elizabeth II. This type is struck on nickel-plated steel, so a magnet will pick it up.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "2014",
+       "denom": "10 pence · GBP",
+       "mint": "no mint mark on type",
+       "refs": "KM#1110d · Numista#25746",
+       "metal": "nickel-plated steel · 6.50 g · 24.5 mm · milled",
+       "specs": "thickness 1.85 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse Ian Rank-Broadley Elizabeth II · reverse Royal Shield segment · TEN PENCE (Matthew Dent)",
+       "ruler": "Elizabeth II",
+       "series": "Shield series",
+       "period": "British decimal"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C319",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "story",
+     "coins": [
+      "C319"
+     ],
+     "label": "C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1994 Mexican 2 nuevos pesos, from the short 'new peso' years after Mexico knocked three zeros off its currency in 1993. The N$ on this side is what gives it away.",
+      "record": {
+       "country": "Mexico",
+       "year": "1994",
+       "denom": "2 nuevos pesos · MXN",
+       "mint": "Mo",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C320",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "story",
+     "coins": [
+      "C320"
+     ],
+     "label": "C320 · Sweden · 1991 · 1 krona · SEK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1991 Swedish 1 krona with the double portrait of Carl XVI Gustaf. This design, used from 1986 to 2000, was the last krona of its size before the smaller modern coin.",
+      "record": {
+       "country": "Sweden",
+       "year": "1991",
+       "denom": "1 krona · SEK",
+       "mint": "Eskilstuna mint",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C321",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C321",
+     "field": "story",
+     "coins": [
+      "C321"
+     ],
+     "label": "C321 · France · 1988 · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1988 French 20 centimes. Marianne wearing the Phrygian cap of liberty is on the other side. Coins like this were everyday change in France until the euro arrived in 2002.",
+      "record": {
+       "country": "France",
+       "year": "1988",
+       "denom": "20 centimes · FRF",
+       "mint": "Pessac mint; cornucopia and dolphin privy marks",
+       "refs": "KM#930 · Schön#230 · Numista#4",
+       "metal": "aluminum-bronze (Cu 92 / Al 6 / Ni 2) · 4.00 g · 23.5 mm · plain",
+       "specs": "thickness 1.4 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 20 CENTIMES · olive + wheat · LIBERTE · EGALITE · FRATERNITE · date (Adrien Dieudonné)",
+       "period": "Fifth Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C322",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "story",
+     "coins": [
+      "C322"
+     ],
+     "label": "C322 · Portugal · 1970 · 20 centavos · PTE",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1970 Portuguese 20 centavos with the old republic's coat of arms - the shield and armillary sphere Portugal has carried for centuries.",
+      "record": {
+       "country": "Portugal",
+       "year": "1970",
+       "denom": "20 centavos · PTE",
+       "mint": "Lisbon mint (no mint mark on type)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C323",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "story",
+     "coins": [
+      "C323"
+     ],
+     "label": "C323 · Mexico · 1994 · 10 centavos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1994 Mexican 10 centavos - the small stainless-steel coin with the centre of the Aztec calendar stone on this side.",
+      "record": {
+       "country": "Mexico",
+       "year": "1994",
+       "denom": "10 centavos · MXN",
+       "mint": "Mo",
+       "refs": "KM#547 · Schön#143 · Numista#581",
+       "metal": "stainless steel · 2.08 g · 17 mm · plain",
+       "specs": "thickness 1.33 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the words Estados Unidos Mexicanos. The reverse shows stylized rays from the Aztec sun stone around the denomination and mint mark.",
+       "period": "United Mexican States"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C324",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "story",
+     "coins": [
+      "C324"
+     ],
+     "label": "C324 · Mexico · 2005 · 5 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2005 Mexican 5 pesos. The ring on this side carries the Aztec calendar's Ring of Serpents - the snake ring is how the 5 pesos is told apart from the 2.",
+      "record": {
+       "country": "Mexico",
+       "year": "2005",
+       "denom": "5 pesos · MXN",
+       "mint": "Mo",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C325",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "story",
+     "coins": [
+      "C325"
+     ],
+     "label": "C325 · Italy · 1955 · 50 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1955 Italian 50 lire showing Vulcan, the Roman god of fire, hammering at his anvil. These stainless-steel lire were struck in Rome in the millions during Italy's post-war boom.",
+      "record": {
+       "country": "Italy",
+       "year": "1955",
+       "denom": "50 lire · ITL",
+       "mint": "R - Rome",
+       "refs": "KM#95.1 · Schön#95 · Numista#724",
+       "metal": "Acmonital stainless steel · 6.25 g · 24.8 mm · reeded",
+       "specs": "thickness 1.95 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "obverse Italia / Republic head oak-crowned (Romagnoli) · reverse Vulcan at anvil with hammer · L.50 · date · R (Giampaoli)",
+       "period": "Italian Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C326",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "story",
+     "coins": [
+      "C326"
+     ],
+     "label": "C326 · Bahamas · 1974 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1974 Bahamian cent - the first year the newly independent Bahamas put its own coat of arms on the cent. Three starfish are on the other side.",
+      "record": {
+       "country": "Bahamas",
+       "year": "1974",
+       "denom": "1 cent · BSD",
+       "mint": "no mint mark on type",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C327",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C327",
+     "field": "story",
+     "coins": [
+      "C327"
+     ],
+     "label": "C327 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2015 Bahamian cent with the national coat of arms - a marlin and a flamingo around a shield with a rising sun. The other side carries three starfish.",
+      "record": {
+       "country": "Bahamas",
+       "year": "2015",
+       "denom": "1 cent · BSD",
+       "mint": "no mint mark on type",
+       "refs": "Schön#190a · Numista#92216",
+       "metal": "Copper plated steel · 1.70 g · 17 mm · Plain",
+       "specs": "thickness 1 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C328",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C328",
+     "field": "story",
+     "coins": [
+      "C328"
+     ],
+     "label": "C328 · Switzerland · 1976 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1976 Swiss franc. Helvetia stands in an Alpine landscape on the other side; this side carries the value in a wreath. Only about five million were struck that year, making 1976 one of the scarcer dates of the copper-nickel francs.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1976",
+       "denom": "1 franc · CHF",
+       "mint": "no mint mark (1976 is a no-mark year)",
+       "refs": "KM#24a.1 · Numista#185",
+       "metal": "CuNi 75/25 · 4.40 g · 23.2 mm · reeded",
+       "specs": "thickness 1.55 mm · coin alignment",
+       "mintage": "unknown",
+       "design": "standing Helvetia facing left, spear in right hand, Swiss shield in left, 22 stars (23 from 1983), HELVETIA (obv; engraver Antoine Bovy, designer Albert Walch) · 1 Fr. in oak + alpine rose wreath (rev; engraver Antoine Bovy, designer Friedrich Fisch)",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C329",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C329",
+     "field": "story",
+     "coins": [
+      "C329"
+     ],
+     "label": "C329 · United Kingdom · 1962 · 1 shilling · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1962 British shilling with the English shield - three lions - on this side. Shillings kept working as 5p pieces long after decimalisation, until 1990.",
+      "record": {
+       "country": "United Kingdom",
+       "year": "1962",
+       "denom": "1 shilling · GBP",
+       "mint": "no mint mark on type",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C330",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C330",
+     "field": "story",
+     "coins": [
+      "C330"
+     ],
+     "label": "C330 · Ireland · 1995 · 10 pence · IEP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1995 Irish 10 pence with the Irish harp and EIRE on this side. A leaping salmon is on the other side.",
+      "record": {
+       "country": "Ireland",
+       "year": "1995",
+       "denom": "10 pence · IEP",
+       "mint": "Dublin mint (no mint mark on type)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C331",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C331",
+     "field": "story",
+     "coins": [
+      "C331"
+     ],
+     "label": "C331 · Australia · 1966 · 10 cents · AUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1966 Australian 10 cents from the first year of decimal currency, with a lyrebird fanning its tail on the other side. Arnold Machin's portrait of Elizabeth II is on this side.",
+      "record": {
+       "country": "Australia",
+       "year": "1966",
+       "denom": "10 cents · AUD",
+       "mint": "no mint mark on type",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C332",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C332",
+     "field": "story",
+     "coins": [
+      "C332"
+     ],
+     "label": "C332 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 2015 Bahamian cent with the national coat of arms - a marlin and a flamingo around a shield with a rising sun. The other side carries three starfish.",
+      "record": {
+       "country": "Bahamas",
+       "year": "2015",
+       "denom": "1 cent · BSD",
+       "mint": "no mint mark on type",
+       "refs": "Schön#190a · Numista#92216",
+       "metal": "Copper plated steel · 1.70 g · 17 mm · Plain",
+       "specs": "thickness 1 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "The obverse shows the coat of arms of The Bahamas, with a marlin and a flamingo holding a shield, and the words Commonwealth of The Bahamas with the date below. The reverse shows three starfish with the words 1 Cent.",
+       "ruler": "Elizabeth II"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C333",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C333",
+     "field": "story",
+     "coins": [
+      "C333"
+     ],
+     "label": "C333 · Norway · 1977 · 50 øre · NOK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1977 Norwegian 50 ore with the crowned coat of arms on one side and the value on the other. Both sides of this coin were photographed, which is still rare in this collection.",
+      "record": {
+       "country": "Norway",
+       "year": "1977",
+       "denom": "50 øre · NOK",
+       "mint": "Kongsberg mint; crossed-hammers mint mark",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C334",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C334",
+     "field": "story",
+     "coins": [
+      "C334"
+     ],
+     "label": "C334 · Spain · 1989 · 5 pesetas · ESP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A 1989 Spanish 5 pesetas with King Juan Carlos I on this side. The other side carries the king's personal coat of arms.",
+      "record": {
+       "country": "Spain",
+       "year": "1989",
+       "denom": "5 pesetas · ESP",
+       "mint": "Madrid mint (no mint mark on type)",
+       "specs": "thickness unknown",
+       "mintage": "unknown"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C335",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C335",
+     "field": "story",
+     "coins": [
+      "C335"
+     ],
+     "label": "C335 · South Korea · 1994 · 100 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A South Korean 100 won. The side shown carries the value and the date inside a beaded border, with the Bank of Korea's name below; the other side shows Admiral Yi Sun-sin, the naval hero of the 1590s.",
+      "record": {
+       "country": "South Korea",
+       "year": "1994",
+       "denom": "100 won · KRW",
+       "mint": "no mint mark on type",
+       "refs": "KM#35.2 · Schön#81 · Numista#1052",
+       "metal": "cupronickel · 5.42 g · 24 mm · reeded",
+       "specs": "thickness 1.5 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
+       "period": "Republic of Korea"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C336",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "story",
+     "coins": [
+      "C336"
+     ],
+     "label": "C336 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "story": "A German 10 euro cent from 2002, the euro's first year, with Berlin's Brandenburg Gate on this side.",
+      "record": {
+       "country": "Germany",
+       "year": "2002",
+       "denom": "10 euro cent · EUR",
+       "mint": "A - Berlin",
+       "refs": "KM#210 · Schön#209 · J#485 · Numista#108",
+       "metal": "Nordic gold (Cu89Al5Zn5Sn1) · 4.10 g · 19.75 mm · reeded (fine scallops)",
+       "specs": "thickness 1.93 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "national Brandenburg Gate (Reinhart Heinsdorff) + 12 EU stars · common map side (Luc Luycx)",
+       "period": "Eurozone"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C337",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C337",
+     "field": "story",
+     "coins": [
+      "C337"
+     ],
+     "label": "C337 · Switzerland · 1944 · 5 rappen · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A 1944 Swiss 5 rappen with the head of Libertas, struck while the Second World War surrounded neutral Switzerland. These small copper-nickel coins were the country's wartime pocket change.",
+      "record": {
+       "country": "Switzerland",
+       "year": "1944",
+       "denom": "5 rappen · CHF",
+       "mint": "Bern mint (the mint mark is on the reverse, not photographed)",
+       "refs": "KM#26 · Schön#24 · Y#23 · Numista#168",
+       "metal": "CuNi 75/25 · 2.00 g · 17.15 mm · plain",
+       "specs": "thickness 1.25 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "Libertas right (obv, designer Karl Schwenzer) · 5 in grapevine wreath (rev, designer Carl Friedrich Voigt)",
+       "period": "Swiss Confederation"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-value-20261104-1",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-11-04T21:46:49Z",
+   "lease_until": "2026-11-09T21:46:49Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C305",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "value"
+    },
+    {
+     "item": "value:C328",
+     "entity": "specimen",
+     "id": "C328",
+     "field": "value"
+    },
+    {
+     "item": "value:C308",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "value"
+    },
+    {
+     "item": "value:C313",
+     "entity": "specimen",
+     "id": "C313",
+     "field": "value"
+    },
+    {
+     "item": "value:C324",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "value"
+    },
+    {
+     "item": "value:C319",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "value"
+    },
+    {
+     "item": "value:C337",
+     "entity": "specimen",
+     "id": "C337",
+     "field": "value"
+    },
+    {
+     "item": "value:C310",
+     "entity": "specimen",
+     "id": "C310",
+     "field": "value"
+    },
+    {
+     "item": "value:C331",
+     "entity": "specimen",
+     "id": "C331",
+     "field": "value"
+    },
+    {
+     "item": "value:C315",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "value"
+    },
+    {
+     "item": "value:C309",
+     "entity": "specimen",
+     "id": "C309",
+     "field": "value"
+    },
+    {
+     "item": "value:C307",
+     "entity": "specimen",
+     "id": "C307",
+     "field": "value"
+    },
+    {
+     "item": "value:C311",
+     "entity": "specimen",
+     "id": "C311",
+     "field": "value"
+    },
+    {
+     "item": "value:C317",
+     "entity": "specimen",
+     "id": "C317",
+     "field": "value"
+    },
+    {
+     "item": "value:C325",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "value"
+    },
+    {
+     "item": "value:C329",
+     "entity": "specimen",
+     "id": "C329",
+     "field": "value"
+    },
+    {
+     "item": "value:C335",
+     "entity": "specimen",
+     "id": "C335",
+     "field": "value"
+    },
+    {
+     "item": "value:C312",
+     "entity": "specimen",
+     "id": "C312",
+     "field": "value"
+    },
+    {
+     "item": "value:C316",
+     "entity": "specimen",
+     "id": "C316",
+     "field": "value"
+    },
+    {
+     "item": "value:C320",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "value"
+    },
+    {
+     "item": "value:C333",
+     "entity": "specimen",
+     "id": "C333",
+     "field": "value"
+    },
+    {
+     "item": "value:C322",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "value"
+    },
+    {
+     "item": "value:C330",
+     "entity": "specimen",
+     "id": "C330",
+     "field": "value"
+    },
+    {
+     "item": "value:C334",
+     "entity": "specimen",
+     "id": "C334",
+     "field": "value"
+    },
+    {
+     "item": "value:C314",
+     "entity": "specimen",
+     "id": "C314",
+     "field": "value"
+    },
+    {
+     "item": "value:C318",
+     "entity": "specimen",
+     "id": "C318",
+     "field": "value"
+    },
+    {
+     "item": "value:C321",
+     "entity": "specimen",
+     "id": "C321",
+     "field": "value"
+    },
+    {
+     "item": "value:C336",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "value"
+    },
+    {
+     "item": "value:C306",
+     "entity": "specimen",
+     "id": "C306",
+     "field": "value"
+    },
+    {
+     "item": "value:C323",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "value"
+    },
+    {
+     "item": "value:C326",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "value"
+    },
+    {
+     "item": "value:C327",
+     "entity": "specimen",
+     "id": "C327",
+     "field": "value"
+    },
+    {
+     "item": "value:C332",
+     "entity": "specimen",
+     "id": "C332",
+     "field": "value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "value:C305",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "value",
+     "coins": [
+      "C305"
+     ],
+     "label": "C305 · Vatican City · 1958 · 20 lire · VAL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 4.5,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C305_rev.webp",
+        "file": "C305_rev.webp",
+        "original": "NOID_VaticanCity_1958_20Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1j1nK1pRvXbjYvcZQcdjpzgIx7xCghK9H/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C328",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C328",
+     "field": "value",
+     "coins": [
+      "C328"
+     ],
+     "label": "C328 · Switzerland · 1976 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 1.5,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C328_rev.webp",
+        "file": "C328_rev.webp",
+        "original": "NOID_Switzerland_1976_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1udBsk4fiI3dfcMFHUWavwLRI40Hh1Z_8/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces185.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C308",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "value",
+     "coins": [
+      "C308"
+     ],
+     "label": "C308 · Switzerland · 1968 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.9,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C308_rev.webp",
+        "file": "C308_rev.webp",
+        "original": "NOID_Switzerland_1968_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1BVCY6p0nIvlecInMXss-rrWKkzdki20I/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces185.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C313",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C313",
+     "field": "value",
+     "coins": [
+      "C313"
+     ],
+     "label": "C313 · Russia · 1992 · 20 roubles · RUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.9,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C313_rev.webp",
+        "file": "C313_rev.webp",
+        "original": "NOID_Russia_1992_20Roubles_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Y2NPCMjj2-BbT_wjhJUi8DgzOTn4lTgr/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C324",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "value",
+     "coins": [
+      "C324"
+     ],
+     "label": "C324 · Mexico · 2005 · 5 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.85,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp",
+        "file": "C324_rev.webp",
+        "original": "NOID_Mexico_2005_5Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C319",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "value",
+     "coins": [
+      "C319"
+     ],
+     "label": "C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.6,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp",
+        "file": "C319_rev.webp",
+        "original": "NOID_Mexico_1994_2NuevosPesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C337",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C337",
+     "field": "value",
+     "coins": [
+      "C337"
+     ],
+     "label": "C337 · Switzerland · 1944 · 5 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.6,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C337_obv.webp",
+        "file": "C337_obv.webp",
+        "original": "NOID_Switzerland_1944_5Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/11qJEIzaezt9PeauUtgGDMGXlnTouosM9/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces168.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C310",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C310",
+     "field": "value",
+     "coins": [
+      "C310"
+     ],
+     "label": "C310 · France · 1979 · 2 francs · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.55,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C310_rev.webp",
+        "file": "C310_rev.webp",
+        "original": "NOID_France_1979_2Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1u5iyE8nsVbMthQtnVvJpSXKAlBz15j5V/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C331",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C331",
+     "field": "value",
+     "coins": [
+      "C331"
+     ],
+     "label": "C331 · Australia · 1966 · 10 cents · AUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.5,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_obv.webp",
+        "file": "C331_obv.webp",
+        "original": "NOID_Australia_1966_10Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1HGjdfNcyxGPvDiGcnVhqCJ3tKkogRjOz/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_rev.webp",
+        "file": "C331_rev.webp",
+        "original": "NOID_Australia_1966_10Cent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1rnCHQ-nppZVWRmcUW8nkno03d_P-vMQa/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C315",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "value",
+     "coins": [
+      "C315"
+     ],
+     "label": "C315 · Mexico · 1998 · 2 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.45,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C315_rev.webp",
+        "file": "C315_rev.webp",
+        "original": "NOID_Mexico_1998_2Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1IZUY3k07CFOm0sBAMG9Sb8tg-XmEQ3JR/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces587.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C309",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C309",
+     "field": "value",
+     "coins": [
+      "C309"
+     ],
+     "label": "C309 · United Kingdom · 1937 · ½ penny · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.4,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C309_rev.webp",
+        "file": "C309_rev.webp",
+        "original": "NOID_UnitedKingdom_1937_HalfPenny_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1yHZSilZgvL7BLsR4nc-aYW62ALWjfErY/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C307",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C307",
+     "field": "value",
+     "coins": [
+      "C307"
+     ],
+     "label": "C307 · South Korea · 1988 · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.35,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C307_rev.webp",
+        "file": "C307_rev.webp",
+        "original": "NOID_SouthKorea_1988_100Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1zMeqjgskocvbuE2EkxPa761TAnWIqjt2/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces1052.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C311",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C311",
+     "field": "value",
+     "coins": [
+      "C311"
+     ],
+     "label": "C311 · South Korea · 1997 · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.35,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C311_rev.webp",
+        "file": "C311_rev.webp",
+        "original": "NOID_SouthKorea_1997_100Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1D96nW2J9EODfUyCgI-6or2nYN7jLiDHT/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces1052.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C317",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C317",
+     "field": "value",
+     "coins": [
+      "C317"
+     ],
+     "label": "C317 · Belize · 2015 · 25 cents · BZD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.35,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C317_rev.webp",
+        "file": "C317_rev.webp",
+        "original": "NOID_Belize_2015_25Cents_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1geJTilqgQPbP67uzLPAXHih__kSS1yV8/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces2238.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C325",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "value",
+     "coins": [
+      "C325"
+     ],
+     "label": "C325 · Italy · 1955 · 50 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.35,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C325_rev.webp",
+        "file": "C325_rev.webp",
+        "original": "NOID_Italy_1955_50Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/19CtNfosSSy-vZQvUcnXZSwVhm9TuEVth/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C329",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C329",
+     "field": "value",
+     "coins": [
+      "C329"
+     ],
+     "label": "C329 · United Kingdom · 1962 · 1 shilling · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.35,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C329_rev.webp",
+        "file": "C329_rev.webp",
+        "original": "NOID_UnitedKingdom_1962_1Shilling_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/16CO2-9IgxmUfXVBXjJY6GkiQdZjeudcU/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C335",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C335",
+     "field": "value",
+     "coins": [
+      "C335"
+     ],
+     "label": "C335 · South Korea · 1994 · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.35,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C335_rev.webp",
+        "file": "C335_rev.webp",
+        "original": "NOID_SouthKorea_1994_100Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1gnXv4sCXRgiJPD4G2yfB5C69Bnhxhh5U/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces1052.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C312",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C312",
+     "field": "value",
+     "coins": [
+      "C312"
+     ],
+     "label": "C312 · Czech Republic · 2008 · 5 korun · CZK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.3,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C312_obv.webp",
+        "file": "C312_obv.webp",
+        "original": "NOID_CzechRepublic_2008_5Korun_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1eNbiDKEMMK0nt8E86HmC7cDwjAEiXEkm/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C316",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C316",
+     "field": "value",
+     "coins": [
+      "C316"
+     ],
+     "label": "C316 · United Kingdom · 2014 · 20 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.3,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp",
+        "file": "C316_obv.webp",
+        "original": "NOID_UnitedKingdom_2014_20Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C320",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "value",
+     "coins": [
+      "C320"
+     ],
+     "label": "C320 · Sweden · 1991 · 1 krona · SEK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.3,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C320_obv.webp",
+        "file": "C320_obv.webp",
+        "original": "NOID_Sweden_1991_1Krona_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/16SzcjhAEcIVijfdPuGdXFk38vxY21l-n/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C333",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C333",
+     "field": "value",
+     "coins": [
+      "C333"
+     ],
+     "label": "C333 · Norway · 1977 · 50 øre · NOK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.3,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_obv.webp",
+        "file": "C333_obv.webp",
+        "original": "NOID_Norway_1977_50Ore_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1V6XKaSB1XcdomHH3rA8qfS1fDElvQpib/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_rev.webp",
+        "file": "C333_rev.webp",
+        "original": "NOID_Norway_1977_50Ore_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1sVamQHEr8DIN4gj2o5OxheXdlY4TtEyg/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C322",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "value",
+     "coins": [
+      "C322"
+     ],
+     "label": "C322 · Portugal · 1970 · 20 centavos · PTE",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.25,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C322_obv.webp",
+        "file": "C322_obv.webp",
+        "original": "NOID_Portugal_1970_20Centavos_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/15ARNlfKT6J3gqf2aO7qskDPgY5MQLjSM/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C330",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C330",
+     "field": "value",
+     "coins": [
+      "C330"
+     ],
+     "label": "C330 · Ireland · 1995 · 10 pence · IEP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.25,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C330_obv.webp",
+        "file": "C330_obv.webp",
+        "original": "NOID_Ireland_1995_10Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1yA5y0ZauIlU7hVC0eAKIQbx8FuuFN0u4/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C334",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C334",
+     "field": "value",
+     "coins": [
+      "C334"
+     ],
+     "label": "C334 · Spain · 1989 · 5 pesetas · ESP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.25,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C334_obv.webp",
+        "file": "C334_obv.webp",
+        "original": "NOID_Spain_1989_5Pesetas_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1itCNAxXF15lDD1yYeJmErfVMdrx9Zqf4/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C314",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C314",
+     "field": "value",
+     "coins": [
+      "C314"
+     ],
+     "label": "C314 · South Korea · 2012 · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C314_rev.webp",
+        "file": "C314_rev.webp",
+        "original": "NOID_SouthKorea_2012_10Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1G1bLDXSPQd-Emgu8tk6nIpzTrA6Judgn/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": {
+       "prices": {
+        "vg": 0.1,
+        "f": 0.1,
+        "vf": 0.17,
+        "xf": 0.17,
+        "au": 0.4,
+        "unc": 0.56
+       },
+       "quote": "2012 Photo 370 000 000 $ 0.10 $ 0.10 $ 0.17 $ 0.17 $ 0.40 $ 0.56"
+      },
+      "numista_url": "https://en.numista.com/catalogue/pieces1654.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C318",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C318",
+     "field": "value",
+     "coins": [
+      "C318"
+     ],
+     "label": "C318 · United Kingdom · 2014 · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C318_obv.webp",
+        "file": "C318_obv.webp",
+        "original": "NOID_UnitedKingdom_2014_10Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1NIa2vPPWqq1-RB1QytDaE4lm3xzKM2oH/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C321",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C321",
+     "field": "value",
+     "coins": [
+      "C321"
+     ],
+     "label": "C321 · France · 1988 · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C321_rev.webp",
+        "file": "C321_rev.webp",
+        "original": "NOID_France_1988_20Centimes_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/10blHbC2otBxy8gH3nskti6CIUaTLtZ_H/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C336",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "value",
+     "coins": [
+      "C336"
+     ],
+     "label": "C336 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.15,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C336_obv.webp",
+        "file": "C336_obv.webp",
+        "original": "NOID_Germany_2002_10EuroCent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1PDxvgydQQZ1VSJWd_KUVfgJ3doWiyvCX/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C306",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C306",
+     "field": "value",
+     "coins": [
+      "C306"
+     ],
+     "label": "C306 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C306_obv.webp",
+        "file": "C306_obv.webp",
+        "original": "NOID_Bahamas_2015_1Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Px196XiYvnVD0KljCTkmbdpOrP_4zKzr/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": {
+       "prices": {
+        "vg": 0.18,
+        "f": 0.21,
+        "vf": 0.28,
+        "xf": 0.28,
+        "au": 0.38,
+        "unc": 0.46
+       },
+       "quote": "2015 $ 0.18 $ 0.21 $ 0.28 $ 0.28 $ 0.38 $ 0.46"
+      },
+      "numista_url": "https://en.numista.com/catalogue/pieces92216.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C323",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "value",
+     "coins": [
+      "C323"
+     ],
+     "label": "C323 · Mexico · 1994 · 10 centavos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C323_rev.webp",
+        "file": "C323_rev.webp",
+        "original": "NOID_Mexico_1994_10Centavos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/122Bsv3N5aCF3fD5UU_R8n9E_pPXrg8Zs/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": "https://en.numista.com/catalogue/pieces581.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C326",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "value",
+     "coins": [
+      "C326"
+     ],
+     "label": "C326 · Bahamas · 1974 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C326_obv.webp",
+        "file": "C326_obv.webp",
+        "original": "NOID_Bahamas_1974_1Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1UQflUNvv_LKnFbiGPZd1t7G6UKurdB7S/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": null,
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C327",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C327",
+     "field": "value",
+     "coins": [
+      "C327"
+     ],
+     "label": "C327 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C327_obv.webp",
+        "file": "C327_obv.webp",
+        "original": "NOID_Bahamas_2015_1Cent_obv-2.jpeg",
+        "drive": "https://drive.google.com/file/d/1pCzGTOLCZjG104RSzim64-pTlEF8m3YV/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": {
+       "prices": {
+        "vg": 0.18,
+        "f": 0.21,
+        "vf": 0.28,
+        "xf": 0.28,
+        "au": 0.38,
+        "unc": 0.46
+       },
+       "quote": "2015 $ 0.18 $ 0.21 $ 0.28 $ 0.28 $ 0.38 $ 0.46"
+      },
+      "numista_url": "https://en.numista.com/catalogue/pieces92216.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "value:C332",
+     "kind": "value",
+     "entity": "specimen",
+     "id": "C332",
+     "field": "value",
+     "coins": [
+      "C332"
+     ],
+     "label": "C332 · Bahamas · 2015 · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "est_usd": 0.1,
+      "confidence": "low",
+      "silver_oz": null,
+      "melt_usd": null,
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C332_obv.webp",
+        "file": "C332_obv.webp",
+        "original": "NOID_Bahamas_2015_1Cent_obv-3.jpeg",
+        "drive": "https://drive.google.com/file/d/1n_valIOmQtlG7Z4M3_3eOAb2_NP4LV5k/view"
+       }
+      ],
+      "stale_since": null,
+      "numista_prices": {
+       "prices": {
+        "vg": 0.18,
+        "f": 0.21,
+        "vf": 0.28,
+        "xf": 0.28,
+        "au": 0.38,
+        "unc": 0.46
+       },
+       "quote": "2015 $ 0.18 $ 0.21 $ 0.28 $ 0.28 $ 0.38 $ 0.46"
+      },
+      "numista_url": "https://en.numista.com/catalogue/pieces92216.html"
      },
      "blind": false,
      "inputs": []

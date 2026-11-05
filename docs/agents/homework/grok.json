@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-04T16:39:31Z",
+ "updated": "2026-11-05T00:50:57Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -265,7 +265,9 @@
       "C300"
      ],
      "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
-     "authors": [],
+     "authors": [
+      "claude"
+     ],
      "payload": {
       "est_usd": 0.25,
       "confidence": "low",
@@ -637,6 +639,2574 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261104-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-04T21:45:09Z",
+   "lease_until": "2026-11-11T21:45:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:VA.X.20-lire:denomination.value",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C310:issue.year",
+     "entity": "specimen",
+     "id": "C310",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:denomination.value",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:denomination.value",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C318:issue.year",
+     "entity": "specimen",
+     "id": "C318",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C305:issue.year",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C328:issue.year",
+     "entity": "specimen",
+     "id": "C328",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C308:issue.year",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C313:issue.year",
+     "entity": "specimen",
+     "id": "C313",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C308:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:denomination.value",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C324:issue.year",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:denomination.value",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C319:issue.year",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C337:issue.year",
+     "entity": "specimen",
+     "id": "C337",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CH.KM.26:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:denomination.value",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:denomination.value",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C331:issue.year",
+     "entity": "specimen",
+     "id": "C331",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:denomination.value",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C315:issue.year",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C309:issue.year",
+     "entity": "specimen",
+     "id": "C309",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C307:issue.year",
+     "entity": "specimen",
+     "id": "C307",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C311:issue.year",
+     "entity": "specimen",
+     "id": "C311",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C317:issue.year",
+     "entity": "specimen",
+     "id": "C317",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C325:issue.year",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C329:issue.year",
+     "entity": "specimen",
+     "id": "C329",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C335:issue.year",
+     "entity": "specimen",
+     "id": "C335",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C325:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:denomination.value",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C312:issue.year",
+     "entity": "specimen",
+     "id": "C312",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C316:issue.year",
+     "entity": "specimen",
+     "id": "C316",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C320:issue.year",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C333:issue.year",
+     "entity": "specimen",
+     "id": "C333",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:denomination.value",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:denomination.value",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:denomination.value",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C322:issue.year",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C330:issue.year",
+     "entity": "specimen",
+     "id": "C330",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C334:issue.year",
+     "entity": "specimen",
+     "id": "C334",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:denomination.value",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:denomination.value",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:denomination.value",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C314:issue.year",
+     "entity": "specimen",
+     "id": "C314",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C321:issue.year",
+     "entity": "specimen",
+     "id": "C321",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C336:issue.year",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C336:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C306:issue.year",
+     "entity": "specimen",
+     "id": "C306",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C323:issue.year",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C326:issue.year",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C327:issue.year",
+     "entity": "specimen",
+     "id": "C327",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C332:issue.year",
+     "entity": "specimen",
+     "id": "C332",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:denomination.value",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "denomination.value"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:VA.X.20-lire:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "denomination.value",
+     "coins": [
+      "C305"
+     ],
+     "label": "denomination of C305 · Vatican City · 1958",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C305_rev.webp",
+        "file": "C305_rev.webp",
+        "original": "NOID_VaticanCity_1958_20Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1j1nK1pRvXbjYvcZQcdjpzgIx7xCghK9H/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C305_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C310:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C310",
+     "field": "issue.year",
+     "coins": [
+      "C310"
+     ],
+     "label": "year of C310 · France · 2 francs · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C310_rev.webp",
+        "file": "C310_rev.webp",
+        "original": "NOID_France_1979_2Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1u5iyE8nsVbMthQtnVvJpSXKAlBz15j5V/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C310_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "denomination.value",
+     "coins": [
+      "C309"
+     ],
+     "label": "denomination of C309 · United Kingdom · 1937",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C309_rev.webp",
+        "file": "C309_rev.webp",
+        "original": "NOID_UnitedKingdom_1937_HalfPenny_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1yHZSilZgvL7BLsR4nc-aYW62ALWjfErY/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C309_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "denomination.value",
+     "coins": [
+      "C316"
+     ],
+     "label": "denomination of C316 · United Kingdom · 2014",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp",
+        "file": "C316_obv.webp",
+        "original": "NOID_UnitedKingdom_2014_20Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C316_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C318:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C318",
+     "field": "issue.year",
+     "coins": [
+      "C318"
+     ],
+     "label": "year of C318 · United Kingdom · 10 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C318_obv.webp",
+        "file": "C318_obv.webp",
+        "original": "NOID_UnitedKingdom_2014_10Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1NIa2vPPWqq1-RB1QytDaE4lm3xzKM2oH/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C318_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C305:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "issue.year",
+     "coins": [
+      "C305"
+     ],
+     "label": "year of C305 · Vatican City · 20 lire · VAL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C305_rev.webp",
+        "file": "C305_rev.webp",
+        "original": "NOID_VaticanCity_1958_20Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1j1nK1pRvXbjYvcZQcdjpzgIx7xCghK9H/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C305_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C328:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C328",
+     "field": "issue.year",
+     "coins": [
+      "C328"
+     ],
+     "label": "year of C328 · Switzerland · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C328_rev.webp",
+        "file": "C328_rev.webp",
+        "original": "NOID_Switzerland_1976_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1udBsk4fiI3dfcMFHUWavwLRI40Hh1Z_8/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C328_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C308:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "issue.year",
+     "coins": [
+      "C308"
+     ],
+     "label": "year of C308 · Switzerland · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C308_rev.webp",
+        "file": "C308_rev.webp",
+        "original": "NOID_Switzerland_1968_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1BVCY6p0nIvlecInMXss-rrWKkzdki20I/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C308_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C313:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C313",
+     "field": "issue.year",
+     "coins": [
+      "C313"
+     ],
+     "label": "year of C313 · Russia · 20 roubles · RUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C313_rev.webp",
+        "file": "C313_rev.webp",
+        "original": "NOID_Russia_1992_20Roubles_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Y2NPCMjj2-BbT_wjhJUi8DgzOTn4lTgr/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C313_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C308:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C308",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C308"
+     ],
+     "label": "mint of C308 · Switzerland · 1968 · 1 franc · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C308_rev.webp",
+        "file": "C308_rev.webp",
+        "original": "NOID_Switzerland_1968_1Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1BVCY6p0nIvlecInMXss-rrWKkzdki20I/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C308_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "denomination.value",
+     "coins": [
+      "C313"
+     ],
+     "label": "denomination of C313 · Russia · 1992",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C313_rev.webp",
+        "file": "C313_rev.webp",
+        "original": "NOID_Russia_1992_20Roubles_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Y2NPCMjj2-BbT_wjhJUi8DgzOTn4lTgr/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C313_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C324:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "issue.year",
+     "coins": [
+      "C324"
+     ],
+     "label": "year of C324 · Mexico · 5 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp",
+        "file": "C324_rev.webp",
+        "original": "NOID_Mexico_2005_5Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C324_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "denomination.value",
+     "coins": [
+      "C324"
+     ],
+     "label": "denomination of C324 · Mexico · 2005",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp",
+        "file": "C324_rev.webp",
+        "original": "NOID_Mexico_2005_5Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C324_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C319:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "issue.year",
+     "coins": [
+      "C319"
+     ],
+     "label": "year of C319 · Mexico · 2 nuevos pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp",
+        "file": "C319_rev.webp",
+        "original": "NOID_Mexico_1994_2NuevosPesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C319_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C337:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C337",
+     "field": "issue.year",
+     "coins": [
+      "C337"
+     ],
+     "label": "year of C337 · Switzerland · 5 rappen · CHF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C337_obv.webp",
+        "file": "C337_obv.webp",
+        "original": "NOID_Switzerland_1944_5Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/11qJEIzaezt9PeauUtgGDMGXlnTouosM9/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C337_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:CH.KM.26:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "denomination.value",
+     "coins": [
+      "C337"
+     ],
+     "label": "denomination of C337 · Switzerland · 1944",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C337_obv.webp",
+        "file": "C337_obv.webp",
+        "original": "NOID_Switzerland_1944_5Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/11qJEIzaezt9PeauUtgGDMGXlnTouosM9/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C337_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "denomination.value",
+     "coins": [
+      "C319"
+     ],
+     "label": "denomination of C319 · Mexico · 1994",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp",
+        "file": "C319_rev.webp",
+        "original": "NOID_Mexico_1994_2NuevosPesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C319_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "denomination.value",
+     "coins": [
+      "C310"
+     ],
+     "label": "denomination of C310 · France · 1979",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C310_rev.webp",
+        "file": "C310_rev.webp",
+        "original": "NOID_France_1979_2Francs_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1u5iyE8nsVbMthQtnVvJpSXKAlBz15j5V/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C310_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C331:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C331",
+     "field": "issue.year",
+     "coins": [
+      "C331"
+     ],
+     "label": "year of C331 · Australia · 10 cents · AUD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_obv.webp",
+        "file": "C331_obv.webp",
+        "original": "NOID_Australia_1966_10Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1HGjdfNcyxGPvDiGcnVhqCJ3tKkogRjOz/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_rev.webp",
+        "file": "C331_rev.webp",
+        "original": "NOID_Australia_1966_10Cent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1rnCHQ-nppZVWRmcUW8nkno03d_P-vMQa/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C331_obv.webp",
+      "C331_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "denomination.value",
+     "coins": [
+      "C331"
+     ],
+     "label": "denomination of C331 · Australia · 1966",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Claude",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_obv.webp",
+        "file": "C331_obv.webp",
+        "original": "NOID_Australia_1966_10Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1HGjdfNcyxGPvDiGcnVhqCJ3tKkogRjOz/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_rev.webp",
+        "file": "C331_rev.webp",
+        "original": "NOID_Australia_1966_10Cent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1rnCHQ-nppZVWRmcUW8nkno03d_P-vMQa/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C331_obv.webp",
+      "C331_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C315:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "issue.year",
+     "coins": [
+      "C315"
+     ],
+     "label": "year of C315 · Mexico · 2 pesos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C315_rev.webp",
+        "file": "C315_rev.webp",
+        "original": "NOID_Mexico_1998_2Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1IZUY3k07CFOm0sBAMG9Sb8tg-XmEQ3JR/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C315_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C309:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C309",
+     "field": "issue.year",
+     "coins": [
+      "C309"
+     ],
+     "label": "year of C309 · United Kingdom · ½ penny · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C309_rev.webp",
+        "file": "C309_rev.webp",
+        "original": "NOID_UnitedKingdom_1937_HalfPenny_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1yHZSilZgvL7BLsR4nc-aYW62ALWjfErY/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C309_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C307:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C307",
+     "field": "issue.year",
+     "coins": [
+      "C307"
+     ],
+     "label": "year of C307 · South Korea · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C307_rev.webp",
+        "file": "C307_rev.webp",
+        "original": "NOID_SouthKorea_1988_100Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1zMeqjgskocvbuE2EkxPa761TAnWIqjt2/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C307_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C311:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C311",
+     "field": "issue.year",
+     "coins": [
+      "C311"
+     ],
+     "label": "year of C311 · South Korea · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C311_rev.webp",
+        "file": "C311_rev.webp",
+        "original": "NOID_SouthKorea_1997_100Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1D96nW2J9EODfUyCgI-6or2nYN7jLiDHT/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C311_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C317:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C317",
+     "field": "issue.year",
+     "coins": [
+      "C317"
+     ],
+     "label": "year of C317 · Belize · 25 cents · BZD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C317_rev.webp",
+        "file": "C317_rev.webp",
+        "original": "NOID_Belize_2015_25Cents_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1geJTilqgQPbP67uzLPAXHih__kSS1yV8/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C317_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C325:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "issue.year",
+     "coins": [
+      "C325"
+     ],
+     "label": "year of C325 · Italy · 50 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C325_rev.webp",
+        "file": "C325_rev.webp",
+        "original": "NOID_Italy_1955_50Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/19CtNfosSSy-vZQvUcnXZSwVhm9TuEVth/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C325_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C329:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C329",
+     "field": "issue.year",
+     "coins": [
+      "C329"
+     ],
+     "label": "year of C329 · United Kingdom · 1 shilling · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C329_rev.webp",
+        "file": "C329_rev.webp",
+        "original": "NOID_UnitedKingdom_1962_1Shilling_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/16CO2-9IgxmUfXVBXjJY6GkiQdZjeudcU/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C329_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C335:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C335",
+     "field": "issue.year",
+     "coins": [
+      "C335"
+     ],
+     "label": "year of C335 · South Korea · 100 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C335_rev.webp",
+        "file": "C335_rev.webp",
+        "original": "NOID_SouthKorea_1994_100Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1gnXv4sCXRgiJPD4G2yfB5C69Bnhxhh5U/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C335_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C325:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C325"
+     ],
+     "label": "mint of C325 · Italy · 1955 · 50 lire · ITL",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C325_rev.webp",
+        "file": "C325_rev.webp",
+        "original": "NOID_Italy_1955_50Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/19CtNfosSSy-vZQvUcnXZSwVhm9TuEVth/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C325_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "denomination.value",
+     "coins": [
+      "C329"
+     ],
+     "label": "denomination of C329 · United Kingdom · 1962",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C329_rev.webp",
+        "file": "C329_rev.webp",
+        "original": "NOID_UnitedKingdom_1962_1Shilling_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/16CO2-9IgxmUfXVBXjJY6GkiQdZjeudcU/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C329_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C312:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C312",
+     "field": "issue.year",
+     "coins": [
+      "C312"
+     ],
+     "label": "year of C312 · Czech Republic · 5 korun · CZK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C312_obv.webp",
+        "file": "C312_obv.webp",
+        "original": "NOID_CzechRepublic_2008_5Korun_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1eNbiDKEMMK0nt8E86HmC7cDwjAEiXEkm/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C312_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C316:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C316",
+     "field": "issue.year",
+     "coins": [
+      "C316"
+     ],
+     "label": "year of C316 · United Kingdom · 20 pence · GBP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp",
+        "file": "C316_obv.webp",
+        "original": "NOID_UnitedKingdom_2014_20Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C316_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C320:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "issue.year",
+     "coins": [
+      "C320"
+     ],
+     "label": "year of C320 · Sweden · 1 krona · SEK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C320_obv.webp",
+        "file": "C320_obv.webp",
+        "original": "NOID_Sweden_1991_1Krona_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/16SzcjhAEcIVijfdPuGdXFk38vxY21l-n/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C320_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C333:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C333",
+     "field": "issue.year",
+     "coins": [
+      "C333"
+     ],
+     "label": "year of C333 · Norway · 50 øre · NOK",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_obv.webp",
+        "file": "C333_obv.webp",
+        "original": "NOID_Norway_1977_50Ore_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1V6XKaSB1XcdomHH3rA8qfS1fDElvQpib/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_rev.webp",
+        "file": "C333_rev.webp",
+        "original": "NOID_Norway_1977_50Ore_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1sVamQHEr8DIN4gj2o5OxheXdlY4TtEyg/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C333_obv.webp",
+      "C333_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "denomination.value",
+     "coins": [
+      "C312"
+     ],
+     "label": "denomination of C312 · Czech Republic · 2008",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C312_obv.webp",
+        "file": "C312_obv.webp",
+        "original": "NOID_CzechRepublic_2008_5Korun_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1eNbiDKEMMK0nt8E86HmC7cDwjAEiXEkm/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C312_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "denomination.value",
+     "coins": [
+      "C333"
+     ],
+     "label": "denomination of C333 · Norway · 1977",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_obv.webp",
+        "file": "C333_obv.webp",
+        "original": "NOID_Norway_1977_50Ore_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1V6XKaSB1XcdomHH3rA8qfS1fDElvQpib/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_rev.webp",
+        "file": "C333_rev.webp",
+        "original": "NOID_Norway_1977_50Ore_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1sVamQHEr8DIN4gj2o5OxheXdlY4TtEyg/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C333_obv.webp",
+      "C333_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "denomination.value",
+     "coins": [
+      "C320"
+     ],
+     "label": "denomination of C320 · Sweden · 1991",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C320_obv.webp",
+        "file": "C320_obv.webp",
+        "original": "NOID_Sweden_1991_1Krona_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/16SzcjhAEcIVijfdPuGdXFk38vxY21l-n/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C320_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C322:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "issue.year",
+     "coins": [
+      "C322"
+     ],
+     "label": "year of C322 · Portugal · 20 centavos · PTE",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C322_obv.webp",
+        "file": "C322_obv.webp",
+        "original": "NOID_Portugal_1970_20Centavos_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/15ARNlfKT6J3gqf2aO7qskDPgY5MQLjSM/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C322_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C330:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C330",
+     "field": "issue.year",
+     "coins": [
+      "C330"
+     ],
+     "label": "year of C330 · Ireland · 10 pence · IEP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C330_obv.webp",
+        "file": "C330_obv.webp",
+        "original": "NOID_Ireland_1995_10Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1yA5y0ZauIlU7hVC0eAKIQbx8FuuFN0u4/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C330_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C334:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C334",
+     "field": "issue.year",
+     "coins": [
+      "C334"
+     ],
+     "label": "year of C334 · Spain · 5 pesetas · ESP",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C334_obv.webp",
+        "file": "C334_obv.webp",
+        "original": "NOID_Spain_1989_5Pesetas_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1itCNAxXF15lDD1yYeJmErfVMdrx9Zqf4/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C334_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "denomination.value",
+     "coins": [
+      "C334"
+     ],
+     "label": "denomination of C334 · Spain · 1989",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C334_obv.webp",
+        "file": "C334_obv.webp",
+        "original": "NOID_Spain_1989_5Pesetas_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1itCNAxXF15lDD1yYeJmErfVMdrx9Zqf4/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C334_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "denomination.value",
+     "coins": [
+      "C330"
+     ],
+     "label": "denomination of C330 · Ireland · 1995",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C330_obv.webp",
+        "file": "C330_obv.webp",
+        "original": "NOID_Ireland_1995_10Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1yA5y0ZauIlU7hVC0eAKIQbx8FuuFN0u4/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C330_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "denomination.value",
+     "coins": [
+      "C322"
+     ],
+     "label": "denomination of C322 · Portugal · 1970",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C322_obv.webp",
+        "file": "C322_obv.webp",
+        "original": "NOID_Portugal_1970_20Centavos_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/15ARNlfKT6J3gqf2aO7qskDPgY5MQLjSM/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C322_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C314:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C314",
+     "field": "issue.year",
+     "coins": [
+      "C314"
+     ],
+     "label": "year of C314 · South Korea · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C314_rev.webp",
+        "file": "C314_rev.webp",
+        "original": "NOID_SouthKorea_2012_10Won_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1G1bLDXSPQd-Emgu8tk6nIpzTrA6Judgn/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C314_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C321:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C321",
+     "field": "issue.year",
+     "coins": [
+      "C321"
+     ],
+     "label": "year of C321 · France · 20 centimes · FRF",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C321_rev.webp",
+        "file": "C321_rev.webp",
+        "original": "NOID_France_1988_20Centimes_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/10blHbC2otBxy8gH3nskti6CIUaTLtZ_H/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C321_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C336:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "issue.year",
+     "coins": [
+      "C336"
+     ],
+     "label": "year of C336 · Germany · 10 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C336_obv.webp",
+        "file": "C336_obv.webp",
+        "original": "NOID_Germany_2002_10EuroCent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1PDxvgydQQZ1VSJWd_KUVfgJ3doWiyvCX/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C336_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C336:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C336",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C336"
+     ],
+     "label": "mint of C336 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C336_obv.webp",
+        "file": "C336_obv.webp",
+        "original": "NOID_Germany_2002_10EuroCent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1PDxvgydQQZ1VSJWd_KUVfgJ3doWiyvCX/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C336_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C306:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C306",
+     "field": "issue.year",
+     "coins": [
+      "C306"
+     ],
+     "label": "year of C306 · Bahamas · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C306_obv.webp",
+        "file": "C306_obv.webp",
+        "original": "NOID_Bahamas_2015_1Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Px196XiYvnVD0KljCTkmbdpOrP_4zKzr/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C306_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C323:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "issue.year",
+     "coins": [
+      "C323"
+     ],
+     "label": "year of C323 · Mexico · 10 centavos · MXN",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C323_rev.webp",
+        "file": "C323_rev.webp",
+        "original": "NOID_Mexico_1994_10Centavos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/122Bsv3N5aCF3fD5UU_R8n9E_pPXrg8Zs/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C323_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C326:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "issue.year",
+     "coins": [
+      "C326"
+     ],
+     "label": "year of C326 · Bahamas · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C326_obv.webp",
+        "file": "C326_obv.webp",
+        "original": "NOID_Bahamas_1974_1Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1UQflUNvv_LKnFbiGPZd1t7G6UKurdB7S/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C326_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C327:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C327",
+     "field": "issue.year",
+     "coins": [
+      "C327"
+     ],
+     "label": "year of C327 · Bahamas · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C327_obv.webp",
+        "file": "C327_obv.webp",
+        "original": "NOID_Bahamas_2015_1Cent_obv-2.jpeg",
+        "drive": "https://drive.google.com/file/d/1pCzGTOLCZjG104RSzim64-pTlEF8m3YV/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C327_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C332:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C332",
+     "field": "issue.year",
+     "coins": [
+      "C332"
+     ],
+     "label": "year of C332 · Bahamas · 1 cent · BSD",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C332_obv.webp",
+        "file": "C332_obv.webp",
+        "original": "NOID_Bahamas_2015_1Cent_obv-3.jpeg",
+        "drive": "https://drive.google.com/file/d/1n_valIOmQtlG7Z4M3_3eOAb2_NP4LV5k/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C332_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "denomination.value",
+     "coins": [
+      "C326"
+     ],
+     "label": "denomination of C326 · Bahamas · 1974",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "Claude",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C326_obv.webp",
+        "file": "C326_obv.webp",
+        "original": "NOID_Bahamas_1974_1Cent_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1UQflUNvv_LKnFbiGPZd1t7G6UKurdB7S/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C326_obv.webp"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261104-3",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-04T21:47:48Z",
+   "lease_until": "2026-11-11T21:47:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C324:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C319:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C315:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C323:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:specimen:C324:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C324",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C324"
+     ],
+     "label": "mint of C324 · Mexico · 2005 · 5 pesos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Claude",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp",
+        "file": "C324_rev.webp",
+        "original": "NOID_Mexico_2005_5Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C324_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C319:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C319",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C319"
+     ],
+     "label": "mint of C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Claude",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp",
+        "file": "C319_rev.webp",
+        "original": "NOID_Mexico_1994_2NuevosPesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C319_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C315:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C315",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C315"
+     ],
+     "label": "mint of C315 · Mexico · 1998 · 2 pesos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Claude",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C315_rev.webp",
+        "file": "C315_rev.webp",
+        "original": "NOID_Mexico_1998_2Pesos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1IZUY3k07CFOm0sBAMG9Sb8tg-XmEQ3JR/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C315_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C323:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C323"
+     ],
+     "label": "mint of C323 · Mexico · 1994 · 10 centavos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Claude",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C323_rev.webp",
+        "file": "C323_rev.webp",
+        "original": "NOID_Mexico_1994_10Centavos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/122Bsv3N5aCF3fD5UU_R8n9E_pPXrg8Zs/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false
+     },
+     "blind": true,
+     "inputs": [
+      "C323_rev.webp"
+     ]
     }
    ]
   }

@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-04T16:39:31Z",
+ "updated": "2026-11-05T00:50:57Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261028-1",
@@ -65,55 +65,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-read-mint-20261028-1",
-   "agent": "muse",
-   "kind": "read-mint",
-   "issued": "2026-10-28T16:48:19Z",
-   "lease_until": "2026-11-04T16:48:19Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "mint:C298",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "mint:C298",
-     "kind": "read-mint",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue",
-     "coins": [
-      "C298"
-     ],
-     "label": "C298 · Italy · 1978 · 50 lire · ITL",
-     "authors": [],
-     "payload": {
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
-        "file": "C298_rev.webp",
-        "original": "C298_Italy_1978_50Lire_rev.jpg",
-        "drive": null
-       }
-      ],
-      "hint": "Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.",
-      "mint_text_now": "not visible on the Vulcan side"
-     },
-     "blind": false,
-     "inputs": [
-      "C298_rev.webp"
-     ]
     }
    ]
   },
@@ -1052,6 +1003,562 @@
        "source": "C031_obv.webp: no mint mark seen on reverse of C031_rev.webp (read by the Gemini API, gemini-3.6-flash)",
        "ts": "2026-11-04T15:33:30Z"
       }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261104-1",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-11-04T21:45:09Z",
+   "lease_until": "2026-11-14T21:45:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:AU.X.10-cents.2",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": null
+    },
+    {
+     "item": "fill:BS.X.1-cent.2",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": null
+    },
+    {
+     "item": "fill:CZ.X.5-korun",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": null
+    },
+    {
+     "item": "fill:ES.X.5-pesetas",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": null
+    },
+    {
+     "item": "fill:FR.X.2-francs",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": null
+    },
+    {
+     "item": "fill:GB.X.1-shilling",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": null
+    },
+    {
+     "item": "fill:GB.X.20-pence",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": null
+    },
+    {
+     "item": "fill:GB.X.half-penny",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": null
+    },
+    {
+     "item": "fill:IE.X.10-pence",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.2-nuevos-pesos",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.5-pesos",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": null
+    },
+    {
+     "item": "fill:NO.X.50-ore",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:AU.X.10-cents.2",
+     "kind": "fill",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": null,
+     "coins": [
+      "C331"
+     ],
+     "label": "C331 · Australia · 1966 · 10 cents · AUD (AU.X.10-cents.2)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:BS.X.1-cent.2",
+     "kind": "fill",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": null,
+     "coins": [
+      "C326"
+     ],
+     "label": "C326 · Bahamas · 1974 · 1 cent · BSD (BS.X.1-cent.2)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:CZ.X.5-korun",
+     "kind": "fill",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": null,
+     "coins": [
+      "C312"
+     ],
+     "label": "C312 · Czech Republic · 2008 · 5 korun · CZK (CZ.X.5-korun)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:ES.X.5-pesetas",
+     "kind": "fill",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": null,
+     "coins": [
+      "C334"
+     ],
+     "label": "C334 · Spain · 1989 · 5 pesetas · ESP (ES.X.5-pesetas)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.X.2-francs",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": null,
+     "coins": [
+      "C310"
+     ],
+     "label": "C310 · France · 1979 · 2 francs · FRF (FR.X.2-francs)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.X.1-shilling",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": null,
+     "coins": [
+      "C329"
+     ],
+     "label": "C329 · United Kingdom · 1962 · 1 shilling · GBP (GB.X.1-shilling)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.X.20-pence",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": null,
+     "coins": [
+      "C316"
+     ],
+     "label": "C316 · United Kingdom · 2014 · 20 pence · GBP (GB.X.20-pence)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GB.X.half-penny",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": null,
+     "coins": [
+      "C309"
+     ],
+     "label": "C309 · United Kingdom · 1937 · ½ penny · GBP (GB.X.half-penny)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IE.X.10-pence",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": null,
+     "coins": [
+      "C330"
+     ],
+     "label": "C330 · Ireland · 1995 · 10 pence · IEP (IE.X.10-pence)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.X.2-nuevos-pesos",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": null,
+     "coins": [
+      "C319"
+     ],
+     "label": "C319 · Mexico · 1994 · 2 nuevos pesos · MXN (MX.X.2-nuevos-pesos)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.X.5-pesos",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": null,
+     "coins": [
+      "C324"
+     ],
+     "label": "C324 · Mexico · 2005 · 5 pesos · MXN (MX.X.5-pesos)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:NO.X.50-ore",
+     "kind": "fill",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": null,
+     "coins": [
+      "C333"
+     ],
+     "label": "C333 · Norway · 1977 · 50 øre · NOK (NO.X.50-ore)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261104-2",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-11-04T21:45:09Z",
+   "lease_until": "2026-11-14T21:45:09Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:PT.X.20-centavos",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:RU.X.20-roubles",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null
+    },
+    {
+     "item": "fill:SE.X.1-krona",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": null
+    },
+    {
+     "item": "fill:VA.X.20-lire",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:PT.X.20-centavos",
+     "kind": "fill",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": null,
+     "coins": [
+      "C322"
+     ],
+     "label": "C322 · Portugal · 1970 · 20 centavos · PTE (PT.X.20-centavos)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:RU.X.20-roubles",
+     "kind": "fill",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null,
+     "coins": [
+      "C313"
+     ],
+     "label": "C313 · Russia · 1992 · 20 roubles · RUR (RU.X.20-roubles)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:SE.X.1-krona",
+     "kind": "fill",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": null,
+     "coins": [
+      "C320"
+     ],
+     "label": "C320 · Sweden · 1991 · 1 krona · SEK (SE.X.1-krona)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:VA.X.20-lire",
+     "kind": "fill",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": null,
+     "coins": [
+      "C305"
+     ],
+     "label": "C305 · Vatican City · 1958 · 20 lire · VAL (VA.X.20-lire)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "edge",
+       "thickness",
+       "alignment",
+       "legal tender",
+       "era",
+       "designers",
+       "obverse",
+       "reverse"
+      ],
+      "numista_url": null
      },
      "blind": false,
      "inputs": []

@@ -8,3 +8,13 @@ Merged (originals byte-exact in `collection/_incoming/originals-20261104/`, form
 - Claude: `-1533` (D0149, circulation figure kept), `-1552` (DE.KM.255 mint text), `-1558` (C053's stale open question removed: the record reads F since 2026-10-28).
 
 Settled by the new answers: D0126, D0128, D0135-D0141. Open: D0142-D0148, D0150-D0152 (loop third readers).
+
+## Evening: Muse's 33 chat coins (C305-C337)
+
+The owner photographed 33 new coins in flips on 2026-11-02 (19:02-20:52, Galaxy S24 Ultra) and identified them with Muse in chat; Muse filed them on 11-04 (`changes_muse_20261104-0930`, 35 photos, notes packet). Claude read every photo at full zoom; country, year and denomination hold for all 33.
+- Reformatted before merging (`originals-20261104/FORMAT_FIXES.md`): Phase 1 type ids, value folded into the create, face units, two coins on their own X type (`BS.X.1-cent.2` 1974, `AU.X.10-cents.2` 1966). Issuers CZ and RU created (`changes_claude_20261104-2150`).
+- Claude's corrections (`changes_claude_20261104-2200`): Mo on C315, C319, C323, C324 (on the photographed side); C313's monogram is under РУБЛЕЙ on the photographed side, too small to read; stories of C307, C311, C335 (beaded border, no wreath) and C313 (value side, not the eagle); C337 copper-nickel, not nickel (KM#26 1879-1980; KM#26b nickel 1932-1941); C336 10 cent and C318 10 pence confirmed by size against the 2x2 card (Muse had inferred both).
+- Photos: 35 round cut-outs `photos/p1/C305_rev.webp` ... (`changes_script_20261104-2147-photos-p1`), crops logged in `docs/photos/p1_crops.jsonl`, originals in `docs/photos/raw_capture_index.json` (Drive `_raw_capture/_phase1/coins`).
+- Owner questions: `q-bahamas-2015-cents` (C306, C327, C332: three coins or one; the camera times suggest three), `q-bahamas-2015-magnet` (zinc or steel), `q-c313-mint` (ММД or ЛМД).
+- Possible double entries (dupes.json): C314 vs C266 (Korea 2012 10 won) and C318 vs C157 (UK 2014 10p): different photo sessions, nothing on the coins to tell; kept as second coins (the owner's rule for Muse's new-coin photos).
+- Loop fix: a new coin's story and default value were not credited to their author (the create event), so the loop gave Muse its own 33 stories and values to check; fixed in `tools/agents/homework.py` (test), both sheets withdrawn and re-issued to Gemini.

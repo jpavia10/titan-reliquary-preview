@@ -1,14 +1,14 @@
 {
- "updated": "2026-11-04T16:39:31Z",
+ "updated": "2026-11-05T00:50:57Z",
  "pools": {
-  "cite": 23,
-  "story-check": 10,
+  "cite": 47,
+  "story-check": 44,
   "research": 1,
-  "value": 1,
+  "value": 34,
   "read-mint": 5,
   "arbitrate": 10,
-  "fill": 38,
-  "verify": 170
+  "fill": 54,
+  "verify": 227
  },
  "agents": {
   "claude": {
@@ -237,9 +237,9 @@
   "verify:type:US.KM.195:denomination.value"
  ],
  "open_assignments": {
-  "grok": 6,
-  "muse": 9,
-  "gemini": 10,
+  "grok": 8,
+  "muse": 10,
+  "gemini": 14,
   "chatgpt": 0,
   "gemini-api": 1
  }

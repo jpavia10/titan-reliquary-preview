@@ -474,6 +474,75 @@
           "followup": "Leave D0128 open for the pro photo."
         }
       ]
+    },
+    {
+      "id": "q-bahamas-2015-cents",
+      "coin": "C306",
+      "ask": "Bahamas 2015 1 cent: three of your Nov 2 chat photos show a bright 2015 cent in a flip (now C306, C327 and C332). Are these three different coins, or one coin photographed three times?",
+      "why": "Muse filed them as three coins and asked you the same on Nov 2. The three photos look alike and Claude cannot tell them apart from the coin itself; the camera times (19:05, 20:22, 20:33, each between photos of other coins, one flip after another) point to three coins. C276, the dark-toned 2015 cent, is clearly a different coin.",
+      "options": [
+        {
+          "label": "Three coins",
+          "effect": [],
+          "followup": "Keep C306, C327 and C332 as three coins."
+        },
+        {
+          "label": "Two coins",
+          "effect": [],
+          "followup": "Ask which photo is the repeat; retire that record (lifecycle Removed: same coin as another photo)."
+        },
+        {
+          "label": "One coin",
+          "effect": [],
+          "followup": "Keep C306; retire C327 and C332 (lifecycle Removed: the same coin as C306, photographed again)."
+        }
+      ]
+    },
+    {
+      "id": "q-bahamas-2015-magnet",
+      "coin": "C306",
+      "ask": "Bahamas 2015 1 cent (C306 and the other new 2015 cents): does a fridge magnet pull them?",
+      "why": "2015 cents were struck on two metals: copper-plated zinc (no pull) and copper-plated steel (magnet sticks). They are listed as different varieties.",
+      "options": [
+        {
+          "label": "The magnet sticks",
+          "effect": [],
+          "followup": "Copper-plated steel: set variety and composition on the 2015 cents (Numista N#92216, as C276)."
+        },
+        {
+          "label": "No pull",
+          "effect": [],
+          "followup": "Copper-plated zinc: the 2015 cents need their own type (Numista N#20937); split them off BS.X.1-cent."
+        },
+        {
+          "label": "Some do, some don't",
+          "effect": [],
+          "followup": "Ask which; split the zinc ones off."
+        }
+      ]
+    },
+    {
+      "id": "q-c313-mint",
+      "coin": "C313",
+      "ask": "Russia 1992 20 roubles (C313): under the word РУБЛЕЙ there is a tiny monogram. Through a magnifier, does it read ММД or ЛМД?",
+      "why": "ММД is the Moscow mint and ЛМД the Leningrad mint; it changes the catalogue value. The phone photo is too small to read it. No rush: it can wait for the pro-photo session.",
+      "options": [
+        {
+          "label": "ММД (Moscow)",
+          "effect": [],
+          "followup": "Set C313 mint mark MMD (Moscow) and mint text; re-price from the Moscow figure."
+        },
+        {
+          "label": "ЛМД (Leningrad)",
+          "effect": [],
+          "followup": "Set C313 mint mark LMD (Leningrad) and mint text."
+        },
+        {
+          "label": "Can't tell",
+          "effect": [],
+          "followup": "Leave it for the pro photo."
+        }
+      ]
     }
   ]
 }

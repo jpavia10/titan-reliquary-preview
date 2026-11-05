@@ -473,6 +473,19 @@ class LoopUpgrades(unittest.TestCase):
         try: self.assertEqual(HW.measure(ctx)["gemini"]["checks_done"], 1, "the same fact checked twice by one AI is one check")
         finally: shutil.rmtree(ctx["root"], ignore_errors=True)
 
+    def test_a_new_coins_own_story_and_value_never_go_back_to_its_author(self):
+        """2026-11-04: Muse's 33 new coins carry their story and default value in the create event; the loop handed Muse both to check."""
+        made = {"ts": "2026-11-04T17:30:02Z", "by": "model:muse-spark", "entity": "specimen", "id": "C305", "op": "create", "field": "(new record)",
+                "new": {"type": "VA.X.20-lire", "story": "A 1958 Vatican 20 lire.", "value": {"est_usd": 4.5}}}
+        ctx = {"col": {"events": [made]}}
+        self.assertEqual(HW._story_state(ctx, "C305"), ("muse", False), "a story from the create event is its author's")
+        live = {"C305": {"story": "A 1958 Vatican 20 lire.", "type": "VA.X.20-lire", "issue": {"year": 1958}}}
+        it = HW.pool_story({"col": {"events": [made]}, "live": live, "details": {}}, set())["story:C305"]
+        roles = {"agents": {"muse": {"caps": []}, "grok": {"caps": []}}, "kinds": {"story-check": {"needs": []}, "value": {"needs": []}}}
+        self.assertFalse(HW.eligible("muse", it, roles, {"tried": {}}, {}), "Muse got its own story to check")
+        self.assertTrue(HW.eligible("grok", it, roles, {"tried": {}}, {}))
+        self.assertEqual(HW._author({"by": "Muse"}), "muse", "the value's certainty entry names Muse, so Muse is its author")
+
     def test_the_gemini_api_is_one_source_with_a_sub_source_per_model(self):
         """Owner, 2026-10-31: 'Gemini api will be a new source and sub sources based on model used'."""
         flash, lite = "model:gemini-api:gemini-3.6-flash", "model:gemini-api:gemini-3.5-flash-lite"
