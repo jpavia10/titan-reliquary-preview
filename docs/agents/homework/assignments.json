@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-06T02:27:32Z",
+ "updated": "2026-11-06T15:39:39Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -149,7 +149,12 @@
   "gemini-cite-20261105": 1,
   "gemini-fill-20261105": 1,
   "gemini-fill-20261106": 1,
-  "grok-verify-20261106": 1
+  "grok-verify-20261106": 2,
+  "gemini-verify-20261106": 1,
+  "gemini-story-check-20261106": 1,
+  "gemini-cite-20261106": 1,
+  "grok-arbitrate-20261106": 1,
+  "muse-arbitrate-20261106": 1
  },
  "assignments": [
   {
@@ -23582,9 +23587,13 @@
    "kind": "cite",
    "issued": "2026-10-30T06:08:06Z",
    "lease_until": "2026-11-06T06:08:06Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 4,
+    "closed": 0,
+    "left": 4
+   },
    "items": [
     {
      "item": "cite:EC.KM.37",
@@ -24380,9 +24389,13 @@
    "kind": "cite",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 2,
+    "closed": 2,
+    "left": 0
+   },
    "items": [
     {
      "item": "cite:CH.KM.23a",
@@ -24422,9 +24435,13 @@
    "kind": "story-check",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "story:C203",
@@ -24446,9 +24463,13 @@
    "kind": "verify",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 5,
+    "closed": 5,
+    "left": 0
+   },
    "items": [
     {
      "item": "verify:type:CH.KM.21a:issues.4.mintage",
@@ -24488,9 +24509,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-09T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0150",
@@ -25070,9 +25095,13 @@
    "kind": "read-mint",
    "issued": "2026-11-04T21:45:09Z",
    "lease_until": "2026-11-09T21:45:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "mint:C298",
@@ -25253,9 +25282,13 @@
    "kind": "verify",
    "issued": "2026-11-04T21:45:09Z",
    "lease_until": "2026-11-11T21:45:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 53,
+    "closed": 43,
+    "left": 10
+   },
    "items": [
     {
      "item": "verify:type:VA.X.20-lire:denomination.value",
@@ -26147,9 +26180,13 @@
    "kind": "verify",
    "issued": "2026-11-04T21:47:48Z",
    "lease_until": "2026-11-11T21:47:48Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T15:30:08Z",
+   "result": {
+    "items": 4,
+    "closed": 4,
+    "left": 0
+   },
    "items": [
     {
      "item": "verify:specimen:C324:issue.mint_marks",
@@ -29831,6 +29868,222 @@
      "entity": "type",
      "id": "NL.KM.170",
      "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261106-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GB.X.20-pence:denomination.value",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:CH.KM.27:issues.4.mintage",
+     "entity": "type",
+     "id": "CH.KM.27",
+     "field": "issues.4.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.23a:issues.2.mintage",
+     "entity": "type",
+     "id": "CH.KM.23a",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:CH.KM.26:denomination.value",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:issues.1.mintage",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:specimen:C325:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C325",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:denomination.value",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:denomination.value",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:denomination.value",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:denomination.value",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:denomination.value",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:denomination.value",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:denomination.value",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "denomination.value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261106-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C244",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261106-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:EC.KM.37",
+     "entity": "type",
+     "id": "EC.KM.37",
+     "field": null
+    },
+    {
+     "item": "cite:GT.KM.277.6a",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null
+    },
+    {
+     "item": "cite:JM.KM.190",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": null
+    },
+    {
+     "item": "cite:TT.KM.32",
+     "entity": "type",
+     "id": "TT.KM.32",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261106-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0153",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0155",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0156",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261106-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:SA.KM.20:design.text",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261106-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0154",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "catalogs"
     }
    ]
   }
@@ -35442,6 +35695,94 @@
     "assignment": "HW-gemini-verify-20261024-3",
     "outcome": "left out",
     "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "story:C244": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-story-check-20261104-1",
+    "outcome": "attempted",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:GB.X.20-pence:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:CH.KM.26:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:specimen:C325:issue.mint_marks": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:CZ.X.5-korun:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:NO.X.50-ore:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:SE.X.1-krona:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:ES.X.5-pesetas:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:IE.X.10-pence:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:PT.X.20-centavos:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:type:BS.X.1-cent.2:denomination.value": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261104-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T15:30:08Z"
    }
   ]
  },

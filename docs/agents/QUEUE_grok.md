@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-06 02:27 UTC)
+# WORK QUEUE for Grok (updated 2026-11-06 15:39 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -46,19 +46,7 @@ Each item is a question the record still carries ('Still being checked' in the a
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD** (BS.X.25-cents): «Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "refs": "KM#63.1 · Schön#38 · Numista#9352", "metal": "nickel · 6.90 g · 24.26 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "unknown", "design": "obverse coat…»
 
-### 2. HW-grok-cite-20261104-1 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-11-11  (fix list #72)
-
-For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
-
-**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261104-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **CH 0.5 franc (CH.KM.23a)** coins C008, C015. Ask: issues.2.mintage: 1971
-- **CH 10 rappen (CH.KM.27)** coins C082, C083, C242. Ask: issues.4.mintage: 1979
-
-### 3. HW-grok-value-20261104-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-14  (fix list #62)
+### 2. HW-grok-value-20261104-1 · Appraiser · Cite collector values for 1 coins · due 2026-11-14  (fix list #62)
 
 For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
 
@@ -69,34 +57,7 @@ For each coin, find the retail value for its type, date and mint in the grade it
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
-### 4. HW-grok-story-check-20261104-1 · Fact-checker · Fact-check 2 coin stories · due 2026-11-11  (fix list #73)
-
-Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
-
-**Done when:** One change file covering every story you could check.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261104-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C203 · India · 2001 · 1 rupee · INR**: «This 2001 1 rupee coin from India was struck in stainless steel at the Noida mint. The value side shows रुपया (rupee in Hindi) alongside a large 1 and the word RUPEE between grain stalks. Below the numeral sits the year 2001 and the small dot mint mark of the Noida mint. The obverse displays the Ashoka Lion Capital.» Record: «{"country": "India", "year": "2001", "denom": "1 rupee · INR", "mint": "Noida", "refs": "KM#92.2 · Schön#216 · Numista#1609", "metal": "stainless steel · 4.85 g · 25 mm · plain · circulated · white 2×2 staple flip", "specs": "thickness 1.4 mm · medal alignment · smooth-edge Noida type", "mintage": "unknown", "design": "value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · As…»
-- **C244 · Mexico · 1964 · 20 centavos · MXP**: «This 1964 20 centavos coin from Mexico was struck in brass (95% copper and 5% zinc). The reverse shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it under a radiant Phrygian cap (cap of liberty). Above the pyramid are a large 20 and the word CENTAVOS, paired with the 1964 date and the Mo mint mark. The obverse displays the Mexican national arms.» Record: «{"country": "Mexico", "year": "1964", "denom": "20 centavos · MXP", "mint": "Mo", "refs": "KM#440 · Schön#51 · Numista#959", "metal": "bronze · 10.00 g · 28.5 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness unknown · coin alignment · Teotihuacan Pyramid of the Sun type", "mintage": "28,654,000 (1964 Mo)", "design": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl &…»
-
-### 5. HW-grok-verify-20261104-1 · Second reader · Check 5 facts another AI wrote · due 2026-11-11  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261104-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **mintage of C067 · Switzerland · 1981 · 2 francs · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.21a issues.4.mintage`
-- **mintage of C083 · Switzerland · 1981 · 10 rappen · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.27 issues.3.mintage`
-- **mintage of C093 · Switzerland · 1970 · 1 franc · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.24a.1 issues.2.mintage`
-- **mintage of C081 · Switzerland · 1983 · 5 rappen · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.26c issues.2.mintage`
-- **mintage of C075 · Switzerland · 1982 · 5 rappen · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.26c issues.3.mintage`
-
-### 6. HW-grok-arbitrate-20261104-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-11  (fix list #18)
+### 3. HW-grok-arbitrate-20261104-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-11  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -107,51 +68,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0151 C036 issue.year**: record `2007` (model:muse-spark: «https://en.numista.com/catalogue/pieces132.html — mintage table row '2007 R' (circulation) = 104 955 490, matching this…») vs claim `2002` (model:gemini-api:gemini-3.6-flash: «C036_obv.webp: year 2002 visible on the left side above RI monogram in photo C036_obv.webp (read by the Gemini API, gem…»)
 
-### 7. HW-grok-verify-20261104-2 · Second reader · Check 20 facts another AI wrote · due 2026-11-11  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261104-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **denomination of C305 · Vatican City · 1958** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type VA.X.20-lire denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C305_rev.webp (original: https://drive.google.com/file/d/1j1nK1pRvXbjYvcZQcdjpzgIx7xCghK9H/view)
-- **denomination of C309 · United Kingdom · 1937** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GB.X.half-penny denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C309_rev.webp (original: https://drive.google.com/file/d/1yHZSilZgvL7BLsR4nc-aYW62ALWjfErY/view)
-- **denomination of C316 · United Kingdom · 2014** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GB.X.20-pence denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp (original: https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view)
-- **mint of C308 · Switzerland · 1968 · 1 franc · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C308 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C308_rev.webp (original: https://drive.google.com/file/d/1BVCY6p0nIvlecInMXss-rrWKkzdki20I/view)
-- **denomination of C313 · Russia · 1992** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type RU.X.20-roubles denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C313_rev.webp (original: https://drive.google.com/file/d/1Y2NPCMjj2-BbT_wjhJUi8DgzOTn4lTgr/view)
-- **denomination of C324 · Mexico · 2005** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type MX.X.5-pesos denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp (original: https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view)
-- **denomination of C337 · Switzerland · 1944** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type CH.KM.26 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C337_obv.webp (original: https://drive.google.com/file/d/11qJEIzaezt9PeauUtgGDMGXlnTouosM9/view)
-- **denomination of C319 · Mexico · 1994** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type MX.X.2-nuevos-pesos denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp (original: https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view)
-- **denomination of C310 · France · 1979** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type FR.X.2-francs denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C310_rev.webp (original: https://drive.google.com/file/d/1u5iyE8nsVbMthQtnVvJpSXKAlBz15j5V/view)
-- **denomination of C331 · Australia · 1966** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AU.X.10-cents.2 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_obv.webp (original: https://drive.google.com/file/d/1HGjdfNcyxGPvDiGcnVhqCJ3tKkogRjOz/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_rev.webp (original: https://drive.google.com/file/d/1rnCHQ-nppZVWRmcUW8nkno03d_P-vMQa/view)
-- **mint of C325 · Italy · 1955 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C325 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C325_rev.webp (original: https://drive.google.com/file/d/19CtNfosSSy-vZQvUcnXZSwVhm9TuEVth/view)
-- **denomination of C329 · United Kingdom · 1962** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GB.X.1-shilling denomination.value`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C329_rev.webp (original: https://drive.google.com/file/d/16CO2-9IgxmUfXVBXjJY6GkiQdZjeudcU/view)
-- **denomination of C312 · Czech Republic · 2008** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type CZ.X.5-korun denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C312_obv.webp (original: https://drive.google.com/file/d/1eNbiDKEMMK0nt8E86HmC7cDwjAEiXEkm/view)
-- **denomination of C333 · Norway · 1977** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type NO.X.50-ore denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_obv.webp (original: https://drive.google.com/file/d/1V6XKaSB1XcdomHH3rA8qfS1fDElvQpib/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_rev.webp (original: https://drive.google.com/file/d/1sVamQHEr8DIN4gj2o5OxheXdlY4TtEyg/view)
-- **denomination of C320 · Sweden · 1991** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type SE.X.1-krona denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C320_obv.webp (original: https://drive.google.com/file/d/16SzcjhAEcIVijfdPuGdXFk38vxY21l-n/view)
-- **denomination of C334 · Spain · 1989** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type ES.X.5-pesetas denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C334_obv.webp (original: https://drive.google.com/file/d/1itCNAxXF15lDD1yYeJmErfVMdrx9Zqf4/view)
-- **denomination of C330 · Ireland · 1995** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type IE.X.10-pence denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C330_obv.webp (original: https://drive.google.com/file/d/1yA5y0ZauIlU7hVC0eAKIQbx8FuuFN0u4/view)
-- **denomination of C322 · Portugal · 1970** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type PT.X.20-centavos denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C322_obv.webp (original: https://drive.google.com/file/d/15ARNlfKT6J3gqf2aO7qskDPgY5MQLjSM/view)
-- **mint of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C336 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C336_obv.webp (original: https://drive.google.com/file/d/1PDxvgydQQZ1VSJWd_KUVfgJ3doWiyvCX/view)
-- **denomination of C326 · Bahamas · 1974** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type BS.X.1-cent.2 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C326_obv.webp (original: https://drive.google.com/file/d/1UQflUNvv_LKnFbiGPZd1t7G6UKurdB7S/view)
-
-### 8. HW-grok-verify-20261104-3 · Second reader · Check 4 facts another AI wrote · due 2026-11-11  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261104-3.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **mint of C324 · Mexico · 2005 · 5 pesos · MXN** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C324 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp (original: https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view)
-- **mint of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C319 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp (original: https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view)
-- **mint of C315 · Mexico · 1998 · 2 pesos · MXN** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C315 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C315_rev.webp (original: https://drive.google.com/file/d/1IZUY3k07CFOm0sBAMG9Sb8tg-XmEQ3JR/view)
-- **mint of C323 · Mexico · 1994 · 10 centavos · MXN** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C323 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C323_rev.webp (original: https://drive.google.com/file/d/122Bsv3N5aCF3fD5UU_R8n9E_pPXrg8Zs/view)
-
-### 9. HW-grok-verify-20261106-1 · Second reader · Check 33 facts another AI wrote · due 2026-11-13  (fix list #18)
+### 4. HW-grok-verify-20261106-1 · Second reader · Check 33 facts another AI wrote · due 2026-11-13  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -175,7 +92,7 @@ Items:
 - **design of C166 · Mexico · 1944 · 5 centavos · MXP** `type MX.KM.424 design.text` = `obverse Josefa Ortiz de Domínguez left · CINCO CENTAVOS · 1944 · Mo · reverse national ar…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)** `type MX.KM.502 design.text` = `value side $ · big 5 · 1987 · Mo · scroll ornament · beaded rim · national arms reverse` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)** `type MX.KM.604 design.text` = `value side $ · big 2 · 2010 · Mo · Aztec Sun Stone / Ring of Days glyphs on outer ring · …` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C210 · South Korea · 2000 · 100 won · KRW** `type KR.KM.35.2 design.text` = `obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · …` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
+- **design of C210 · South Korea · 2000 · 100 won · KRW** `type KR.KM.35.2 design.text` = `obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · …` (written by Gemini: «https://en.numista.com/1037 (Numista N# 1037, KM# 9, sister 100 Won Admiral Yi Sun-sin entry): Obverse "Admiral Yi Sun-sin (1545-1598) ... E»)
 - **design of C247 · South Korea · 1966 · 1 won · KRW** `type KR.KM.4 design.text` = `Rose of Sharon (Hibiscus syriacus) · 일원 · 한국은행 // THE BANK OF KOREA · big 1 · 1966` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C219 · Jamaica · 2015 · 1 dollar · JMD** `type JM.KM.189 design.text` = `reverse arms · crocodile crest · Taino supporters · JAMAICA · ONE DOLLAR · 2015 · heptagon` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C246 · Philippines · 1971 · 10 sentimos · PHP** `type PH.KM.198 design.text` = `portrait Francisco Baltazar (Balagtas) left · SAMPUNG SENTIMOS · big 10 · arms / date rev…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
@@ -185,7 +102,7 @@ Items:
 - **design of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)** `type MX.KM.936 design.text` = `value side (shown) 2013 at top · large 50¢ center · Mo mint mark below · stylized Aztec C…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C274 · Mexico · 1995 · 10 centavos · MXN** `type MX.X.10-centavos design.text` = `The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cact…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD** `type TW.KM.551 design.text` = `obverse Chiang Kai-shek left · 中華民國 and the year (C200: 九十七年 = ROC year 97 = 2008) · reve…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C266 · South Korea · 2012 · 10 won · KRW** `type KR.KM.103 design.text` = `value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse …` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
+- **design of C266 · South Korea · 2012 · 10 won · KRW** `type KR.KM.103 design.text` = `value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse …` (written by Gemini: «https://en.numista.com/2796 (Numista N# 2796, KM# 6a, sister 10 Won Dabotap Pagoda entry): Obverse "Dabotap Pagoda ... Engraver: Kang Bak (강»)
 - **design of C047 · Brazil · 2006 · 5 centavos · BRL** `type BR.KM.648.1 design.text` = `obverse Tiradentes portrait · BRASIL · dove & Inconfidência triangle · reverse Southern C…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C203 · India · 2001 · 1 rupee · INR** `type IN.KM.92.2 design.text` = `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion C…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
 - **design of C208 · Turkey · 2011 · 10 kuruş · TRY** `type TR.KM.1241 design.text` = `obverse Atatürk portrait / state legend · reverse crescent+star · big 10 · KURUŞ · date ·…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
@@ -193,6 +110,31 @@ Items:
 - **design of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)** `type VN-SOV.KM.1 design.text` = `obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Ge…` (written by Claude: «disagreement D0127 settled for the claim (Gemini): the phone photo photos/p1/C258_rev.webp shows one rice plant dividing 20 SU under VIỆT-NA»)
 - **design of C016 · Costa Rica · 1985 · 5 colones · CRC** `type CR.KM.214.2 design.text` = `obverse national arms in heptagon · AMERICA CENTRAL · large ship · reverse 5 COLONES · B.…` (written by Gemini: «https://en.numista.com/catalogue/pieces69.html (Obverse: arms of Costa Rica with COSTA RICA AMERICA CENTRAL REPUBLICA DE COSTA RICA 1985 wit»)
 - **design of C198 · Netherlands · 1948 · 1 cent · NLG** `type NL.KM.170 design.text` = `obverse WILHELMINA KONINGIN DER NEDERLANDEN · reverse 1 · CENT · date · fish + caduceus` (written by Gemini: «https://en.numista.com/catalogue/pieces2562.html (Obverse: Queen Wilhelmina facing left, WILHELMINA KONINGIN DER NEDERLANDEN; Reverse: 1, di»)
+
+### 5. HW-grok-arbitrate-20261106-1 · Arbiter · Settle 3 disagreements between two AIs · due 2026-11-13  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261106-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0153 MX.KM.443 design.text**: record `national arms / ESTADOS UNIDOS MEXICANOS (obv, not shown) · Balanza scales · scroll LEY ·…` (None: «null») vs claim `obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · re…` (model:gemini: «https://en.numista.com/catalogue/pieces972.html Obverse: Mexican coat of arms with ESTADOS UNIDOS MEXICANOS; Reverse: L…»)
+- **D0155 DE.KM.105 design.text**: record `oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse` (model:claude: «Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the v…») vs claim `oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 bet…` (model:gemini: «https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSC…»)
+- **D0156 C163 issue.mint_marks**: record `["BSP"]` (None: «null») vs claim `[]` (model:gemini: «photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1…»)
+
+### 6. HW-grok-verify-20261106-2 · Second reader · Check 2 facts another AI wrote · due 2026-11-13  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261106-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **design of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR** `type SA.KM.20 design.text` = `obverse Saudi Arabia coat of arms (crossed swords beneath palm tree) surrounded by Arabic…` (written by Gemini: «https://en.numista.com/catalogue/pieces2940.html (Numista N#2940, Saudi Arabia 1 Qirsh — Su'ūd, KM# 40, Schön# 22): Obverse 'Saudi Arabia co»)
+- **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
 
 ## Projects (after the homework)
 
@@ -236,6 +178,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 41; expired: 12.
-- Your facts checked by another contributor: 1076 (1060 confirmed, 16 wrong; error rate 1.5 %, 95 % range 1-2 %). Checks you did for others: 344. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 6 of 6.
+- Assignments answered: 46; expired: 12.
+- Your facts checked by another contributor: 1094 (1078 confirmed, 16 wrong; error rate 1.5 %, 95 % range 1-2 %). Checks you did for others: 363. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 15 %.

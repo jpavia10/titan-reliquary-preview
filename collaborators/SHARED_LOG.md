@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-06] Claude: catch-up intake, 36 change files merged (owner: "Continue i want to get back to completely caught up so we can reevaluate")
+- Grok `changes_grok_20261105-0315..0319` (5 files) + Gemini `changes_gemini_20261105-0324..1445` (31 files): 413 events, 0 rejected. Left out on the sheets: honest blanks (blind denomination reads Gemini could not see) and stale lines on 12-day-old fill sheets (not counted against Gemini). Gemini caught 2 canaries. New disagreements D0153-D0156 for the third reader (MX 25 centavos design text, BR KM# 214 vs 214.2, DE 1/2 pfennig oak side, C163 BSP); D0156 cites a Drive id that does not exist (`...0P0qR1sT2`), flagged in its FEEDBACK.
+- Gemini's Numista table (`collection/prices/numista_values.json`, 266 of 268 issues, 80 -> 171 types; 98 of 99 overlapping issues agree within 15 % with the Oct 30 file). Scores Grok row 41, Gemini rows 57-60. Gemini's Oct 20-22 verify sheets stay open to 11-07 (sent in parts).
+
 ### [2026-11-05] Claude: tr274, Muse's 5 evening coins merged as C338-C342 with photos (owner: "Any new muse coins?")
 - Muse's `changes_muse_20261104-1827a/b/c` + `-1832` (its own notes: 1818 and 1820 superseded, not used): C338 Jamaica 1977 10 cents, C339 France 1983 20 centimes (FR.KM.930), C340 Japan 2015 100 yen, C341 East Germany 1968 10 pfennig A, C342 South Korea 2001 10 won. Claude read all 8 photos at full zoom: every year, denomination and mint letter holds (1983 not 1963; A above the oak leaf; Heisei 27; Jamaica's size against France's matches the 23.6 mm 10 cents). New issuer DD (1949-1990, successor DE; `changes_claude_20261105-1520`) + atlas entry. 8 round cut-outs, `photos/p1/C338..C342_*.webp`. 344 specimens, 54 countries.
 - Loop issued Gemini 5 small sheets for the new coins; sent as pack HW-gemini-PACK-20261105b (3 Drive parts). `compact_sheet.py` fix: a FILL hint with its own brackets was cut mid-example ("e.g. demonetized 2002 (euro"); test added.

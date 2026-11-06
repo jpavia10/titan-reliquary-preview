@@ -1,38 +1,38 @@
 {
- "updated": "2026-11-06T02:27:32Z",
+ "updated": "2026-11-06T15:39:39Z",
  "pools": {
-  "cite": 51,
-  "story-check": 49,
+  "cite": 49,
+  "story-check": 48,
   "research": 1,
   "value": 39,
-  "read-mint": 5,
-  "arbitrate": 10,
-  "fill": 58,
-  "verify": 411
+  "read-mint": 4,
+  "arbitrate": 13,
+  "fill": 55,
+  "verify": 386
  },
  "agents": {
   "claude": {
-   "confirmed": 337,
+   "confirmed": 347,
    "wrong": 3,
    "checks_done": 220,
-   "disagreements_open": 0,
+   "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 340,
+   "checked_n": 350,
    "error_rate": 0.009,
    "error_ci95": [
     0.003,
-    0.026
+    0.025
    ]
   },
   "grok": {
-   "confirmed": 1060,
+   "confirmed": 1078,
    "wrong": 16,
-   "checks_done": 344,
+   "checks_done": 363,
    "disagreements_open": 4,
    "canaries_caught": 6,
    "canaries_missed": 0,
-   "checked_n": 1076,
+   "checked_n": 1094,
    "error_rate": 0.015,
    "error_ci95": [
     0.009,
@@ -40,31 +40,31 @@
    ]
   },
   "gemini": {
-   "confirmed": 483,
+   "confirmed": 503,
    "wrong": 12,
-   "checks_done": 453,
-   "disagreements_open": 0,
-   "canaries_caught": 11,
+   "checks_done": 469,
+   "disagreements_open": 4,
+   "canaries_caught": 13,
    "canaries_missed": 0,
-   "checked_n": 495,
-   "error_rate": 0.024,
+   "checked_n": 515,
+   "error_rate": 0.023,
    "error_ci95": [
-    0.014,
-    0.042
+    0.013,
+    0.04
    ]
   },
   "muse": {
-   "confirmed": 700,
+   "confirmed": 710,
    "wrong": 17,
    "checks_done": 390,
    "disagreements_open": 1,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 717,
-   "error_rate": 0.024,
+   "checked_n": 727,
+   "error_rate": 0.023,
    "error_ci95": [
     0.015,
-    0.038
+    0.037
    ]
   },
   "gemini-api": {
@@ -109,7 +109,7 @@
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 6,
+   "disagreements_open": 7,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -311,9 +311,9 @@
   "verify:type:YU.X.50-para:design.text"
  ],
  "open_assignments": {
-  "grok": 9,
+  "grok": 6,
   "muse": 11,
-  "gemini": 18,
+  "gemini": 19,
   "chatgpt": 0,
   "gemini-api": 1
  }

@@ -23,3 +23,5 @@
 {"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:JM.KM.189:ruler", "outcome": "caught"}
 {"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:MX.X.10-centavos:period", "outcome": "caught"}
 {"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:ES.KM.1042:ruler", "outcome": "caught"}
+{"ts": "2026-11-05T14:20:00Z", "assignment": "HW-gemini-verify-20261020-1", "agent": "gemini", "item": "verify:type:MX.KM.443:design.text", "outcome": "caught"}
+{"ts": "2026-11-05T14:36:00Z", "assignment": "HW-gemini-verify-20261022-2", "agent": "gemini", "item": "verify:type:DE.KM.105:design.text", "outcome": "caught"}

@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-06T02:27:32Z",
+ "updated": "2026-11-06T15:39:39Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -54,190 +54,6 @@
    ]
   },
   {
-   "id": "HW-grok-cite-20261104-1",
-   "agent": "grok",
-   "kind": "cite",
-   "issued": "2026-11-04T15:27:14Z",
-   "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:CH.KM.23a",
-     "entity": "type",
-     "id": "CH.KM.23a",
-     "field": null
-    },
-    {
-     "item": "cite:CH.KM.27",
-     "entity": "type",
-     "id": "CH.KM.27",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "cite:CH.KM.23a",
-     "kind": "cite",
-     "entity": "type",
-     "id": "CH.KM.23a",
-     "field": null,
-     "coins": [
-      "C008",
-      "C015"
-     ],
-     "label": "CH 0.5 franc (CH.KM.23a)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1968,
-        "mint_marks": [
-         "B"
-        ],
-        "coins": [
-         "C008"
-        ],
-        "mintage": 44920000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 2,
-        "year": 1971,
-        "mint_marks": [],
-        "coins": [
-         "C015"
-        ],
-        "mintage": 34472000,
-        "mintage_label": "imported",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "23a"
-       },
-       {
-        "system": "Schön",
-        "number": "27a"
-       },
-       {
-        "system": "Numista",
-        "number": "181"
-       }
-      ],
-      "weight_g": 2.2,
-      "diameter_mm": 18.2,
-      "composition": "CuNi 75/25",
-      "ask": [
-       "issues.2.mintage: 1971"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.2.mintage": {
-       "year": 1971,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:CH.KM.27",
-     "kind": "cite",
-     "entity": "type",
-     "id": "CH.KM.27",
-     "field": null,
-     "coins": [
-      "C082",
-      "C083",
-      "C242"
-     ],
-     "label": "CH 10 rappen (CH.KM.27)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1883,
-        "mint_marks": [
-         "B"
-        ],
-        "coins": [
-         "C242"
-        ],
-        "mintage": 2000000,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 3,
-        "year": 1981,
-        "mint_marks": [],
-        "coins": [
-         "C083"
-        ],
-        "mintage": 30140000,
-        "mintage_label": "reference",
-        "mint_read": true
-       },
-       {
-        "N": 4,
-        "year": 1979,
-        "mint_marks": [],
-        "coins": [
-         "C082"
-        ],
-        "mintage": 18000000,
-        "mintage_label": "imported",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "27"
-       },
-       {
-        "system": "Schön",
-        "number": "25"
-       },
-       {
-        "system": "Y",
-        "number": "24"
-       },
-       {
-        "system": "Numista",
-        "number": "173"
-       }
-      ],
-      "weight_g": 3.0,
-      "diameter_mm": 19.15,
-      "composition": "CuNi 75/25",
-      "ask": [
-       "issues.4.mintage: 1979"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.4.mintage": {
-       "year": 1979,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    }
-   ]
-  },
-  {
    "id": "HW-grok-value-20261104-1",
    "agent": "grok",
    "kind": "value",
@@ -280,319 +96,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-story-check-20261104-1",
-   "agent": "grok",
-   "kind": "story-check",
-   "issued": "2026-11-04T15:27:14Z",
-   "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "story:C203",
-     "entity": "specimen",
-     "id": "C203",
-     "field": "story"
-    },
-    {
-     "item": "story:C244",
-     "entity": "specimen",
-     "id": "C244",
-     "field": "story"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "story:C203",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C203",
-     "field": "story",
-     "coins": [
-      "C203"
-     ],
-     "label": "C203 · India · 2001 · 1 rupee · INR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "story": "This 2001 1 rupee coin from India was struck in stainless steel at the Noida mint. The value side shows रुपया (rupee in Hindi) alongside a large 1 and the word RUPEE between grain stalks. Below the numeral sits the year 2001 and the small dot mint mark of the Noida mint. The obverse displays the Ashoka Lion Capital.",
-      "record": {
-       "country": "India",
-       "year": "2001",
-       "denom": "1 rupee · INR",
-       "mint": "Noida",
-       "refs": "KM#92.2 · Schön#216 · Numista#1609",
-       "metal": "stainless steel · 4.85 g · 25 mm · plain · circulated · white 2×2 staple flip",
-       "specs": "thickness 1.4 mm · medal alignment · smooth-edge Noida type",
-       "mintage": "unknown",
-       "design": "value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion Capital reverse",
-       "period": "Republic of India"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "story:C244",
-     "kind": "story-check",
-     "entity": "specimen",
-     "id": "C244",
-     "field": "story",
-     "coins": [
-      "C244"
-     ],
-     "label": "C244 · Mexico · 1964 · 20 centavos · MXP",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "story": "This 1964 20 centavos coin from Mexico was struck in brass (95% copper and 5% zinc). The reverse shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it under a radiant Phrygian cap (cap of liberty). Above the pyramid are a large 20 and the word CENTAVOS, paired with the 1964 date and the Mo mint mark. The obverse displays the Mexican national arms.",
-      "record": {
-       "country": "Mexico",
-       "year": "1964",
-       "denom": "20 centavos · MXP",
-       "mint": "Mo",
-       "refs": "KM#440 · Schön#51 · Numista#959",
-       "metal": "bronze · 10.00 g · 28.5 mm · reeded · circulated · white 2×2 staple flip",
-       "specs": "thickness unknown · coin alignment · Teotihuacan Pyramid of the Sun type",
-       "mintage": "28,654,000 (1964 Mo)",
-       "design": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztaccíhuatl · radiant Phrygian cap · big 20 · CENTAVOS · date · Mo · national arms obverse",
-       "period": "United Mexican States"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-verify-20261104-1",
-   "agent": "grok",
-   "kind": "verify",
-   "issued": "2026-11-04T15:27:14Z",
-   "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:CH.KM.21a:issues.4.mintage",
-     "entity": "type",
-     "id": "CH.KM.21a",
-     "field": "issues.4.mintage"
-    },
-    {
-     "item": "verify:type:CH.KM.27:issues.3.mintage",
-     "entity": "type",
-     "id": "CH.KM.27",
-     "field": "issues.3.mintage"
-    },
-    {
-     "item": "verify:type:CH.KM.24a.1:issues.2.mintage",
-     "entity": "type",
-     "id": "CH.KM.24a.1",
-     "field": "issues.2.mintage"
-    },
-    {
-     "item": "verify:type:CH.KM.26c:issues.2.mintage",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "issues.2.mintage"
-    },
-    {
-     "item": "verify:type:CH.KM.26c:issues.3.mintage",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "issues.3.mintage"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:CH.KM.21a:issues.4.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a",
-     "field": "issues.4.mintage",
-     "coins": [
-      "C067",
-      "C116"
-     ],
-     "label": "mintage of C067 · Switzerland · 1981 · 2 francs · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.4.mintage": {
-       "year": 1981,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:CH.KM.27:issues.3.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.27",
-     "field": "issues.3.mintage",
-     "coins": [
-      "C083"
-     ],
-     "label": "mintage of C083 · Switzerland · 1981 · 10 rappen · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 1981,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:CH.KM.24a.1:issues.2.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.24a.1",
-     "field": "issues.2.mintage",
-     "coins": [
-      "C093"
-     ],
-     "label": "mintage of C093 · Switzerland · 1970 · 1 franc · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.2.mintage": {
-       "year": 1970,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:CH.KM.26c:issues.2.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "issues.2.mintage",
-     "coins": [
-      "C081"
-     ],
-     "label": "mintage of C081 · Switzerland · 1983 · 5 rappen · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.2.mintage": {
-       "year": 1983,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "verify:type:CH.KM.26c:issues.3.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26c",
-     "field": "issues.3.mintage",
-     "coins": [
-      "C075"
-     ],
-     "label": "mintage of C075 · Switzerland · 1982 · 5 rappen · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 1982,
-       "mint": [],
-       "qualifier": null
-      }
-     }
     }
    ]
   },
@@ -644,1328 +147,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-verify-20261104-2",
-   "agent": "grok",
-   "kind": "verify",
-   "issued": "2026-11-04T21:45:09Z",
-   "lease_until": "2026-11-11T21:45:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:VA.X.20-lire:denomination.value",
-     "entity": "type",
-     "id": "VA.X.20-lire",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C310:issue.year",
-     "entity": "specimen",
-     "id": "C310",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:GB.X.half-penny:denomination.value",
-     "entity": "type",
-     "id": "GB.X.half-penny",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:GB.X.20-pence:denomination.value",
-     "entity": "type",
-     "id": "GB.X.20-pence",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C318:issue.year",
-     "entity": "specimen",
-     "id": "C318",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C305:issue.year",
-     "entity": "specimen",
-     "id": "C305",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C328:issue.year",
-     "entity": "specimen",
-     "id": "C328",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C308:issue.year",
-     "entity": "specimen",
-     "id": "C308",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C313:issue.year",
-     "entity": "specimen",
-     "id": "C313",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C308:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C308",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:type:RU.X.20-roubles:denomination.value",
-     "entity": "type",
-     "id": "RU.X.20-roubles",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C324:issue.year",
-     "entity": "specimen",
-     "id": "C324",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:MX.X.5-pesos:denomination.value",
-     "entity": "type",
-     "id": "MX.X.5-pesos",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C319:issue.year",
-     "entity": "specimen",
-     "id": "C319",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C337:issue.year",
-     "entity": "specimen",
-     "id": "C337",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:CH.KM.26:denomination.value",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:MX.X.2-nuevos-pesos:denomination.value",
-     "entity": "type",
-     "id": "MX.X.2-nuevos-pesos",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:FR.X.2-francs:denomination.value",
-     "entity": "type",
-     "id": "FR.X.2-francs",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C331:issue.year",
-     "entity": "specimen",
-     "id": "C331",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:AU.X.10-cents.2:denomination.value",
-     "entity": "type",
-     "id": "AU.X.10-cents.2",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C315:issue.year",
-     "entity": "specimen",
-     "id": "C315",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C309:issue.year",
-     "entity": "specimen",
-     "id": "C309",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C307:issue.year",
-     "entity": "specimen",
-     "id": "C307",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C311:issue.year",
-     "entity": "specimen",
-     "id": "C311",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C317:issue.year",
-     "entity": "specimen",
-     "id": "C317",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C325:issue.year",
-     "entity": "specimen",
-     "id": "C325",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C329:issue.year",
-     "entity": "specimen",
-     "id": "C329",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C335:issue.year",
-     "entity": "specimen",
-     "id": "C335",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C325:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C325",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:type:GB.X.1-shilling:denomination.value",
-     "entity": "type",
-     "id": "GB.X.1-shilling",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C312:issue.year",
-     "entity": "specimen",
-     "id": "C312",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C316:issue.year",
-     "entity": "specimen",
-     "id": "C316",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C320:issue.year",
-     "entity": "specimen",
-     "id": "C320",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C333:issue.year",
-     "entity": "specimen",
-     "id": "C333",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:CZ.X.5-korun:denomination.value",
-     "entity": "type",
-     "id": "CZ.X.5-korun",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:NO.X.50-ore:denomination.value",
-     "entity": "type",
-     "id": "NO.X.50-ore",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:SE.X.1-krona:denomination.value",
-     "entity": "type",
-     "id": "SE.X.1-krona",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C322:issue.year",
-     "entity": "specimen",
-     "id": "C322",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C330:issue.year",
-     "entity": "specimen",
-     "id": "C330",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C334:issue.year",
-     "entity": "specimen",
-     "id": "C334",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:ES.X.5-pesetas:denomination.value",
-     "entity": "type",
-     "id": "ES.X.5-pesetas",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:IE.X.10-pence:denomination.value",
-     "entity": "type",
-     "id": "IE.X.10-pence",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:PT.X.20-centavos:denomination.value",
-     "entity": "type",
-     "id": "PT.X.20-centavos",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C314:issue.year",
-     "entity": "specimen",
-     "id": "C314",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C321:issue.year",
-     "entity": "specimen",
-     "id": "C321",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C336:issue.year",
-     "entity": "specimen",
-     "id": "C336",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C336:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C336",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:specimen:C306:issue.year",
-     "entity": "specimen",
-     "id": "C306",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C323:issue.year",
-     "entity": "specimen",
-     "id": "C323",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C326:issue.year",
-     "entity": "specimen",
-     "id": "C326",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C327:issue.year",
-     "entity": "specimen",
-     "id": "C327",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C332:issue.year",
-     "entity": "specimen",
-     "id": "C332",
-     "field": "issue.year"
-    },
-    {
-     "item": "verify:type:BS.X.1-cent.2:denomination.value",
-     "entity": "type",
-     "id": "BS.X.1-cent.2",
-     "field": "denomination.value"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:VA.X.20-lire:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "VA.X.20-lire",
-     "field": "denomination.value",
-     "coins": [
-      "C305"
-     ],
-     "label": "denomination of C305 · Vatican City · 1958",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C305_rev.webp",
-        "file": "C305_rev.webp",
-        "original": "NOID_VaticanCity_1958_20Lire_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1j1nK1pRvXbjYvcZQcdjpzgIx7xCghK9H/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C305_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.X.half-penny:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.X.half-penny",
-     "field": "denomination.value",
-     "coins": [
-      "C309"
-     ],
-     "label": "denomination of C309 · United Kingdom · 1937",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C309_rev.webp",
-        "file": "C309_rev.webp",
-        "original": "NOID_UnitedKingdom_1937_HalfPenny_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1yHZSilZgvL7BLsR4nc-aYW62ALWjfErY/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C309_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.X.20-pence:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.X.20-pence",
-     "field": "denomination.value",
-     "coins": [
-      "C316"
-     ],
-     "label": "denomination of C316 · United Kingdom · 2014",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp",
-        "file": "C316_obv.webp",
-        "original": "NOID_UnitedKingdom_2014_20Pence_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C316_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C308:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C308",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C308"
-     ],
-     "label": "mint of C308 · Switzerland · 1968 · 1 franc · CHF",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C308_rev.webp",
-        "file": "C308_rev.webp",
-        "original": "NOID_Switzerland_1968_1Franc_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1BVCY6p0nIvlecInMXss-rrWKkzdki20I/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C308_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:RU.X.20-roubles:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "RU.X.20-roubles",
-     "field": "denomination.value",
-     "coins": [
-      "C313"
-     ],
-     "label": "denomination of C313 · Russia · 1992",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C313_rev.webp",
-        "file": "C313_rev.webp",
-        "original": "NOID_Russia_1992_20Roubles_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1Y2NPCMjj2-BbT_wjhJUi8DgzOTn4lTgr/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C313_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:MX.X.5-pesos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.5-pesos",
-     "field": "denomination.value",
-     "coins": [
-      "C324"
-     ],
-     "label": "denomination of C324 · Mexico · 2005",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp",
-        "file": "C324_rev.webp",
-        "original": "NOID_Mexico_2005_5Pesos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C324_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:CH.KM.26:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "denomination.value",
-     "coins": [
-      "C337"
-     ],
-     "label": "denomination of C337 · Switzerland · 1944",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C337_obv.webp",
-        "file": "C337_obv.webp",
-        "original": "NOID_Switzerland_1944_5Rappen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/11qJEIzaezt9PeauUtgGDMGXlnTouosM9/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C337_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:MX.X.2-nuevos-pesos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.2-nuevos-pesos",
-     "field": "denomination.value",
-     "coins": [
-      "C319"
-     ],
-     "label": "denomination of C319 · Mexico · 1994",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp",
-        "file": "C319_rev.webp",
-        "original": "NOID_Mexico_1994_2NuevosPesos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C319_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:FR.X.2-francs:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.X.2-francs",
-     "field": "denomination.value",
-     "coins": [
-      "C310"
-     ],
-     "label": "denomination of C310 · France · 1979",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C310_rev.webp",
-        "file": "C310_rev.webp",
-        "original": "NOID_France_1979_2Francs_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1u5iyE8nsVbMthQtnVvJpSXKAlBz15j5V/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C310_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:AU.X.10-cents.2:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AU.X.10-cents.2",
-     "field": "denomination.value",
-     "coins": [
-      "C331"
-     ],
-     "label": "denomination of C331 · Australia · 1966",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_obv.webp",
-        "file": "C331_obv.webp",
-        "original": "NOID_Australia_1966_10Cent_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1HGjdfNcyxGPvDiGcnVhqCJ3tKkogRjOz/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C331_rev.webp",
-        "file": "C331_rev.webp",
-        "original": "NOID_Australia_1966_10Cent_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1rnCHQ-nppZVWRmcUW8nkno03d_P-vMQa/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C331_obv.webp",
-      "C331_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C325:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C325",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C325"
-     ],
-     "label": "mint of C325 · Italy · 1955 · 50 lire · ITL",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C325_rev.webp",
-        "file": "C325_rev.webp",
-        "original": "NOID_Italy_1955_50Lire_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/19CtNfosSSy-vZQvUcnXZSwVhm9TuEVth/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C325_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GB.X.1-shilling:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.X.1-shilling",
-     "field": "denomination.value",
-     "coins": [
-      "C329"
-     ],
-     "label": "denomination of C329 · United Kingdom · 1962",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C329_rev.webp",
-        "file": "C329_rev.webp",
-        "original": "NOID_UnitedKingdom_1962_1Shilling_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/16CO2-9IgxmUfXVBXjJY6GkiQdZjeudcU/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C329_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:CZ.X.5-korun:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CZ.X.5-korun",
-     "field": "denomination.value",
-     "coins": [
-      "C312"
-     ],
-     "label": "denomination of C312 · Czech Republic · 2008",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C312_obv.webp",
-        "file": "C312_obv.webp",
-        "original": "NOID_CzechRepublic_2008_5Korun_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1eNbiDKEMMK0nt8E86HmC7cDwjAEiXEkm/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C312_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:NO.X.50-ore:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NO.X.50-ore",
-     "field": "denomination.value",
-     "coins": [
-      "C333"
-     ],
-     "label": "denomination of C333 · Norway · 1977",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_obv.webp",
-        "file": "C333_obv.webp",
-        "original": "NOID_Norway_1977_50Ore_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1V6XKaSB1XcdomHH3rA8qfS1fDElvQpib/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C333_rev.webp",
-        "file": "C333_rev.webp",
-        "original": "NOID_Norway_1977_50Ore_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1sVamQHEr8DIN4gj2o5OxheXdlY4TtEyg/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C333_obv.webp",
-      "C333_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:SE.X.1-krona:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SE.X.1-krona",
-     "field": "denomination.value",
-     "coins": [
-      "C320"
-     ],
-     "label": "denomination of C320 · Sweden · 1991",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C320_obv.webp",
-        "file": "C320_obv.webp",
-        "original": "NOID_Sweden_1991_1Krona_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/16SzcjhAEcIVijfdPuGdXFk38vxY21l-n/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C320_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:ES.X.5-pesetas:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.X.5-pesetas",
-     "field": "denomination.value",
-     "coins": [
-      "C334"
-     ],
-     "label": "denomination of C334 · Spain · 1989",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C334_obv.webp",
-        "file": "C334_obv.webp",
-        "original": "NOID_Spain_1989_5Pesetas_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1itCNAxXF15lDD1yYeJmErfVMdrx9Zqf4/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C334_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:IE.X.10-pence:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IE.X.10-pence",
-     "field": "denomination.value",
-     "coins": [
-      "C330"
-     ],
-     "label": "denomination of C330 · Ireland · 1995",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C330_obv.webp",
-        "file": "C330_obv.webp",
-        "original": "NOID_Ireland_1995_10Pence_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1yA5y0ZauIlU7hVC0eAKIQbx8FuuFN0u4/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C330_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:PT.X.20-centavos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "PT.X.20-centavos",
-     "field": "denomination.value",
-     "coins": [
-      "C322"
-     ],
-     "label": "denomination of C322 · Portugal · 1970",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C322_obv.webp",
-        "file": "C322_obv.webp",
-        "original": "NOID_Portugal_1970_20Centavos_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/15ARNlfKT6J3gqf2aO7qskDPgY5MQLjSM/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C322_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C336:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C336",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C336"
-     ],
-     "label": "mint of C336 · Germany · 2002 · 10 euro cent · EUR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C336_obv.webp",
-        "file": "C336_obv.webp",
-        "original": "NOID_Germany_2002_10EuroCent_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1PDxvgydQQZ1VSJWd_KUVfgJ3doWiyvCX/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C336_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:BS.X.1-cent.2:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BS.X.1-cent.2",
-     "field": "denomination.value",
-     "coins": [
-      "C326"
-     ],
-     "label": "denomination of C326 · Bahamas · 1974",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C326_obv.webp",
-        "file": "C326_obv.webp",
-        "original": "NOID_Bahamas_1974_1Cent_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1UQflUNvv_LKnFbiGPZd1t7G6UKurdB7S/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C326_obv.webp"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-verify-20261104-3",
-   "agent": "grok",
-   "kind": "verify",
-   "issued": "2026-11-04T21:47:48Z",
-   "lease_until": "2026-11-11T21:47:48Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:specimen:C324:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C324",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:specimen:C319:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C319",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:specimen:C315:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C315",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:specimen:C323:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C323",
-     "field": "issue.mint_marks"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:specimen:C324:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C324",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C324"
-     ],
-     "label": "mint of C324 · Mexico · 2005 · 5 pesos · MXN",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C324_rev.webp",
-        "file": "C324_rev.webp",
-        "original": "NOID_Mexico_2005_5Pesos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1lY6jfMF0uUUru5sFS32jUyKxIqVAsG6s/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C324_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C319:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C319",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C319"
-     ],
-     "label": "mint of C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C319_rev.webp",
-        "file": "C319_rev.webp",
-        "original": "NOID_Mexico_1994_2NuevosPesos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1YRVTKBKYcwdasD3V-T_oG3YPZhLCH-mv/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C319_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C315:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C315",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C315"
-     ],
-     "label": "mint of C315 · Mexico · 1998 · 2 pesos · MXN",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C315_rev.webp",
-        "file": "C315_rev.webp",
-        "original": "NOID_Mexico_1998_2Pesos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1IZUY3k07CFOm0sBAMG9Sb8tg-XmEQ3JR/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C315_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C323:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C323",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C323"
-     ],
-     "label": "mint of C323 · Mexico · 1994 · 10 centavos · MXN",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C323_rev.webp",
-        "file": "C323_rev.webp",
-        "original": "NOID_Mexico_1994_10Centavos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/122Bsv3N5aCF3fD5UU_R8n9E_pPXrg8Zs/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C323_rev.webp"
-     ]
     }
    ]
   },
@@ -2631,20 +812,24 @@
      ],
      "label": "design of C210 · South Korea · 2000 · 100 won · KRW",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
+      "their_source": "https://en.numista.com/1037 (Numista N# 1037, KM# 9, sister 100 Won Admiral Yi Sun-sin entry): Obverse \"Admiral Yi Sun-sin (1545-1598) ... E",
+      "links": [
+       "https://en.numista.com/1037",
+       "https://en.numista.com/catalogue/pieces1052.html",
+       "https://en.numista.com/catalogue/pieces1037.html"
+      ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false,
-      "ai_guess": true
+      "ai_guess": false
      },
      "blind": false,
      "inputs": []
@@ -2926,20 +1111,24 @@
      ],
      "label": "design of C266 · South Korea · 2012 · 10 won · KRW",
      "authors": [
-      "claude"
+      "gemini"
      ],
      "payload": {
       "fact": "design",
-      "author": "Claude",
+      "author": "Gemini",
       "ledger": false,
       "value": "value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse Dabotap Pagoda (십 원) · designer unknown",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
+      "their_source": "https://en.numista.com/2796 (Numista N# 2796, KM# 6a, sister 10 Won Dabotap Pagoda entry): Obverse \"Dabotap Pagoda ... Engraver: Kang Bak (강",
+      "links": [
+       "https://en.numista.com/2796",
+       "https://en.numista.com/catalogue/pieces1654.html",
+       "https://en.numista.com/978"
+      ],
       "photos": [],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false,
-      "ai_guess": true
+      "ai_guess": false
      },
      "blind": false,
      "inputs": []
@@ -3156,6 +1345,233 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261106-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0153",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0155",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0156",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0153",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "design.text",
+     "coins": [
+      "C263"
+     ],
+     "label": "D0153 MX.KM.443 design.text",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": "national arms / ESTADOS UNIDOS MEXICANOS (obv, not shown) · Balanza scales · scroll LEY · Phrygian cap rays · crossed sword · 25 · Cs. (rev)"
+      },
+      "claim": {
+       "value": "obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · reverse balance scales with radiant Phrygian liberty cap and scroll inscribed LEY · 25 Cs · Mo · date (Lorenzo Rafael)",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces972.html Obverse: Mexican coat of arms with ESTADOS UNIDOS MEXICANOS; Reverse: Liberty cap above scales and LEY scroll flanked by 25 Cs with Mo and date below (Lorenzo Rafael) [corrected from German Pfennig oak seedling design]",
+       "ts": "2026-11-05T14:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0155",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text",
+     "coins": [
+      "C029",
+      "C187",
+      "C188",
+      "C189",
+      "C190",
+      "C191",
+      "C192"
+     ],
+     "label": "D0155 DE.KM.105 design.text",
+     "authors": [
+      "claude",
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:claude",
+       "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNIG, the rye ears and the mint mark is the reverse (Numista N#854 https://en.numista.com/catalogue/pieces854.html; the same rule as the Oct 20 settlements for the German oak coins). [phase 2; confidence high]",
+       "ts": "2026-10-21T03:31:05Z",
+       "value": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse"
+      },
+      "claim": {
+       "value": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 between rye ears / PFENNIG reverse",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSCHLAND, Adolf Jäger; Reverse: 1 and mintmark between two rye ears above PFENNIG)",
+       "ts": "2026-11-05T14:36:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0156",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C163"
+     ],
+     "label": "D0156 C163 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": [
+        "BSP"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:gemini",
+       "source": "photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1984 Philippines 50 Sentimo has no mintmark; reverse photo C163_rev.jpeg shows eagle and '50 SENTIMO' with no mintmark",
+       "ts": "2026-11-05T14:40:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261106-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:SA.KM.20:design.text",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:SA.KM.20:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SA.KM.20",
+     "field": "design.text",
+     "coins": [
+      "C231"
+     ],
+     "label": "design of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse Saudi Arabia coat of arms (crossed swords beneath palm tree) surrounded by Arabic legend ملك المملكة العربية السعودية · سعود بن عبد العزيز آل سعود · reverse (value side) قِرْش وَاحِد above · big ١ at center · Hijri ١٣٧٨ (AH 1378 ≈ 1958 CE) below (plain rim, no legend on value side)",
+      "their_source": "https://en.numista.com/catalogue/pieces2940.html (Numista N#2940, Saudi Arabia 1 Qirsh — Su'ūd, KM# 40, Schön# 22): Obverse 'Saudi Arabia co",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2940.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C298"
+     ],
+     "label": "mint of C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
+        "file": "C298_rev.webp",
+        "original": "C298_Italy_1978_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C298_rev.webp"
+     ]
     }
    ]
   }

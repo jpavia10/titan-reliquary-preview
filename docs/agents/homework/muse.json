@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-06T02:27:32Z",
+ "updated": "2026-11-06T15:39:39Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261028-1",
@@ -65,264 +65,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-cite-20261030-1",
-   "agent": "muse",
-   "kind": "cite",
-   "issued": "2026-10-30T06:08:06Z",
-   "lease_until": "2026-11-06T06:08:06Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:EC.KM.37",
-     "entity": "type",
-     "id": "EC.KM.37",
-     "field": null
-    },
-    {
-     "item": "cite:GT.KM.277.6a",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null
-    },
-    {
-     "item": "cite:JM.KM.190",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null
-    },
-    {
-     "item": "cite:TT.KM.32",
-     "entity": "type",
-     "id": "TT.KM.32",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "cite:EC.KM.37",
-     "kind": "cite",
-     "entity": "type",
-     "id": "EC.KM.37",
-     "field": null,
-     "coins": [
-      "C159"
-     ],
-     "label": "EC 10 cents (EC.KM.37)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2004,
-        "mint_marks": [],
-        "coins": [
-         "C159"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "37"
-       },
-       {
-        "system": "Numista",
-        "number": "5712"
-       }
-      ],
-      "weight_g": 2.59,
-      "diameter_mm": 18.06,
-      "composition": "cupronickel",
-      "ask": [
-       "issues.0.mintage: 2004"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2004,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:GT.KM.277.6a",
-     "kind": "cite",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null,
-     "coins": [
-      "C202"
-     ],
-     "label": "GT 10 centavos (GT.KM.277.6a)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2010,
-        "mint_marks": [],
-        "coins": [
-         "C202"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "277.6a"
-       },
-       {
-        "system": "Schön",
-        "number": "56a"
-       },
-       {
-        "system": "Numista",
-        "number": "42670"
-       }
-      ],
-      "weight_g": 2.42,
-      "diameter_mm": 21.0,
-      "composition": "stainless steel",
-      "ask": [
-       "issues.0.mintage: 2010"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2010,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:JM.KM.190",
-     "kind": "cite",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null,
-     "coins": [
-      "C230"
-     ],
-     "label": "JM 10 dollars (JM.KM.190)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2015,
-        "mint_marks": [],
-        "coins": [
-         "C230"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "190"
-       },
-       {
-        "system": "Numista",
-        "number": "14370"
-       }
-      ],
-      "weight_g": 5,
-      "diameter_mm": 24.5,
-      "composition": "nickel clad steel",
-      "ask": [
-       "issues.0.mintage: 2015"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2015,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:TT.KM.32",
-     "kind": "cite",
-     "entity": "type",
-     "id": "TT.KM.32",
-     "field": null,
-     "coins": [
-      "C204"
-     ],
-     "label": "TT 25 cents (TT.KM.32)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2014,
-        "mint_marks": [],
-        "coins": [
-         "C204"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "32"
-       },
-       {
-        "system": "Schön",
-        "number": "31"
-       },
-       {
-        "system": "Numista",
-        "number": "1159"
-       }
-      ],
-      "weight_g": 3.53,
-      "diameter_mm": 20,
-      "composition": "cupronickel",
-      "ask": [
-       "issues.0.mintage: 2014"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2014,
-       "mint": [],
-       "qualifier": null
-      }
-     }
     }
    ]
   },
@@ -1644,6 +1386,85 @@
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261106-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-06T15:30:08Z",
+   "lease_until": "2026-11-13T15:30:08Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0154",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "catalogs"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0154",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "catalogs",
+     "coins": [
+      "C016"
+     ],
+     "label": "D0154 CR.KM.214.2 catalogs",
+     "authors": [
+      "gemini",
+      "grok"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:grok-bot",
+       "source": "Numista N#69 (https://en.numista.com/catalogue/pieces69.html) references: KM# 214, Schön# 78, 78a; the entry covers KM# 214; its 1985 row (large ships, Rio de Janeiro Mint) is tagged KM# 214.2; Numista gives Schön# 78, 78a for the entry [phase 2; confidence high]",
+       "ts": "2026-10-08T10:01:38Z",
+       "value": [
+        {
+         "number": "214.2",
+         "system": "KM"
+        },
+        {
+         "number": "78a",
+         "system": "Schön"
+        },
+        {
+         "number": "69",
+         "system": "Numista",
+         "url": "https://en.numista.com/catalogue/pieces69.html"
+        }
+       ]
+      },
+      "claim": {
+       "value": [
+        {
+         "number": "214.2",
+         "system": "KM"
+        },
+        {
+         "number": "78",
+         "system": "Schön"
+        },
+        {
+         "number": "69",
+         "system": "Numista",
+         "url": "https://en.numista.com/catalogue/pieces69.html"
+        }
+       ],
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces69.html — 'References: KM# 214.2, Schön# 78'",
+       "ts": "2026-11-05T14:30:00Z"
+      }
      },
      "blind": false,
      "inputs": []
