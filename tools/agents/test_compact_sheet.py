@@ -3,7 +3,7 @@
 
   - every line of every sheet in a pack gets one code, parts stay under the byte limit, each part carries the rules
   - a FILL hint keeps its whole example, brackets and all
-  - BLIND lines show no value; EMPTY lines say so; a planted value is shown like any other
+  - BLIND lines show no value (nor a type id that names it); EMPTY lines say so; a planted value is shown like any other
   - answers: agree copies the shown value, differ takes the AI's own (typed like the old one), cannot is left out;
     no exact page, the sheet's example page, no quote, an agree on a BLIND/EMPTY line, a differ that repeats the shown value,
     a code not on the sheet and a second answer to one code are all left out and listed
@@ -57,6 +57,13 @@ class Compact(unittest.TestCase):
         v2 = next(t for t in text.splitlines() if t.startswith("V2 | "))
         self.assertIn("BLIND", v2); self.assertNotIn("Mo", v2.split("|", 3)[3])
         self.assertIn("EMPTY", next(t for t in text.splitlines() if t.startswith("V3 | ")))
+
+    def test_blind_line_on_a_type_hides_the_type_id(self):
+        ln = line(entity="type", id="GB.X.20-pence", field="denomination.value", old=20, new=None,
+                  source="FILL (denomination of C316 · United Kingdom · 2014): the photo file you read it from",
+                  provenance=dict(PROV, inputs=[{"file": "C316_obv.webp"}]))
+        t = CS.row_text("V1", ln, "verify")
+        self.assertIn("BLIND", t); self.assertNotIn("20-pence", t); self.assertNotIn("GB.X", t)
 
     def test_fill_hint_keeps_brackets_inside_the_example(self):
         ln = line(field="design.designers", old=None, new=None,

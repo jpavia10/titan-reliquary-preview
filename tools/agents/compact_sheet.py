@@ -88,6 +88,8 @@ def hint(ln):
 
 def row_text(code, ln, kind):
     what = f"{ln['entity']} {ln['id']} · {ln['field']}"
+    if blind(ln) and ln["entity"] == "type":   # a type id like GB.X.20-pence names the denomination: hide it on a blind read
+        what = f"type (id hidden on a blind read) · {ln['field']}"
     shown = ln.get("new")
     if kind == "story-check":
         body = f"story: «{_show(ln.get('old'), 900)}»"

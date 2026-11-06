@@ -3,7 +3,7 @@ CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answ
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Gemini (updated 2026-11-06 15:39 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-06 15:42 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -84,11 +84,11 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** the compact pack: Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-PACK-20261105b (part 1 of 3).txt` to `(part 3 of 3).txt`; one answers_gemini_HW-gemini-PACK-20261105b_partN_YYYYMMDD-HHMM.jsonl per part, one JSON row per line code
 - 16. HW-gemini-fill-20261106-1 · Cataloguer · Fill the blank facts of 8 coin types · due 2026-11-16  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-fill-20261106-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261106-1.jsonl)
-- 17. HW-gemini-verify-20261106-1 · Second reader · Check 13 facts another AI wrote · due 2026-11-13  (fix list #18)
+- 17. HW-gemini-verify-20261106-1 · Second reader · Check 13 facts another AI wrote · due 2026-11-16  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-verify-20261106-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261106-1.jsonl)
-- 18. HW-gemini-story-check-20261106-1 · Fact-checker · Fact-check 1 coin stories · due 2026-11-13  (fix list #73)
+- 18. HW-gemini-story-check-20261106-1 · Fact-checker · Fact-check 1 coin stories · due 2026-11-16  (fix list #73)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-story-check-20261106-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261106-1.jsonl)
-- 19. HW-gemini-cite-20261106-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-13  (fix list #72)
+- 19. HW-gemini-cite-20261106-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-16  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-cite-20261106-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-cite-20261106-1.jsonl)
 ## Projects (after the homework)
 

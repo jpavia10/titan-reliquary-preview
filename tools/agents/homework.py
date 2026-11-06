@@ -962,7 +962,7 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
             kd = roles["kinds"][a["kind"]]; items = [pool[x["item"]] for x in a["items"] if x["item"] in pool]
             L += [f"### {n}. {a['id']} · {kd['role']} · {kd['title'].format(n=len(items))} · due {a['lease_until'][:10]}  (fix list {kd['fix']})", "",
                   kd["what"], "", f"**Done when:** {kd['done_when']}", "",
-                  (f"**Answer sheet:** in the compact pack {a['pack']} ({a.get('parts') or 1} parts): answer its numbered lines as "
+                  (f"**Answer sheet:** in the compact pack {a['pack']} ({a.get('parts') or 1} part{'s' if (a.get('parts') or 1) != 1 else ''}): answer its numbered lines as "
                    f"answers_{agent}_{a['pack']}_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: {RAW}docs/agents/homework/sheets/{a['id']}.jsonl)"
                    if a.get("pack") else
                    f"**Answer sheet:** {RAW}docs/agents/homework/sheets/{a['id']}.jsonl (save your edited copy as changes_{agent}_YYYYMMDD-HHMM.jsonl)"

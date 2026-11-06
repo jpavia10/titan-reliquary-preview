@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-06T15:39:39Z",
+ "updated": "2026-11-06T15:42:28Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261020-1",
@@ -15726,7 +15726,7 @@
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-11-06T02:27:32Z",
-   "lease_until": "2026-11-16T02:27:32Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -15792,6 +15792,15 @@
      "field": null
     }
    ],
+   "extended": [
+    {
+     "from": "2026-11-16T02:27:32Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106",
    "items_full": [
     {
      "item": "fill:IN.KM.92.2",
@@ -15962,7 +15971,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -16046,6 +16055,15 @@
      "field": "denomination.value"
     }
    ],
+   "extended": [
+    {
+     "from": "2026-11-13T15:30:08Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106",
    "items_full": [
     {
      "item": "verify:type:GB.X.20-pence:denomination.value",
@@ -16562,7 +16580,7 @@
    "agent": "gemini",
    "kind": "story-check",
    "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -16574,6 +16592,15 @@
      "field": "story"
     }
    ],
+   "extended": [
+    {
+     "from": "2026-11-13T15:30:08Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106",
    "items_full": [
     {
      "item": "story:C244",
@@ -16613,7 +16640,7 @@
    "agent": "gemini",
    "kind": "cite",
    "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -16643,6 +16670,15 @@
      "field": null
     }
    ],
+   "extended": [
+    {
+     "from": "2026-11-13T15:30:08Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106",
    "items_full": [
     {
      "item": "cite:EC.KM.37",

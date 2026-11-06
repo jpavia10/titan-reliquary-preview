@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-06 15:39 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-06 15:42 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -1122,7 +1122,7 @@ Each coin type below has Phase 2 facts that are still blank (listed per type). O
 
 **Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261106-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** in the compact pack HW-gemini-PACK-20261106 (1 part): answer its numbered lines as answers_gemini_HW-gemini-PACK-20261106_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261106-1.jsonl)
 
 Items:
 - **C203 · India · 2001 · 1 rupee · INR (IN.KM.92.2)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces1609.html
@@ -1147,13 +1147,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-06T02:27:32Z", "by": "model:gemini", "entity": "type", "id": "MX.KM.424", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C166 · Mexico · 1944 · 5 centavos · MXP (MX.KM.424)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-06", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261106-1", "run_id": "HW-gemini-fill-20261106-1", "inputs": []}}
 ```
 
-### 17. HW-gemini-verify-20261106-1 · Second reader · Check 13 facts another AI wrote · due 2026-11-13  (fix list #18)
+### 17. HW-gemini-verify-20261106-1 · Second reader · Check 13 facts another AI wrote · due 2026-11-16  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261106-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** in the compact pack HW-gemini-PACK-20261106 (1 part): answer its numbered lines as answers_gemini_HW-gemini-PACK-20261106_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261106-1.jsonl)
 
 Items:
 - **denomination of C316 · United Kingdom · 2014** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GB.X.20-pence denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp (original: https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view)
@@ -1188,13 +1188,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-06T15:30:08Z", "by": "model:gemini", "entity": "type", "id": "BS.X.1-cent.2", "op": "set", "field": "denomination.value", "new": null, "source": "FILL (denomination of C326 · Bahamas · 1974): the photo file you read it from, e.g. C326_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-06", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261106-1", "run_id": "HW-gemini-verify-20261106-1", "inputs": [{"file": "C326_obv.webp"}]}}
 ```
 
-### 18. HW-gemini-story-check-20261106-1 · Fact-checker · Fact-check 1 coin stories · due 2026-11-13  (fix list #73)
+### 18. HW-gemini-story-check-20261106-1 · Fact-checker · Fact-check 1 coin stories · due 2026-11-16  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
 **Done when:** One change file covering every story you could check.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261106-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** in the compact pack HW-gemini-PACK-20261106 (1 part): answer its numbered lines as answers_gemini_HW-gemini-PACK-20261106_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261106-1.jsonl)
 
 Items:
 - **C244 · Mexico · 1964 · 20 centavos · MXP**: «This 1964 20 centavos coin from Mexico was struck in brass (95% copper and 5% zinc). The reverse shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it under a radiant Phrygian cap (cap of liberty). At the top the value 20 is divided by the cap, with the Mo mint mark beneath it; the word CENTAVOS and the 1964 date also appear on this side. The obverse displays the Mexican national arms.» Record: «{"country": "Mexico", "year": "1964", "denom": "20 centavos · MXP", "mint": "Mo", "refs": "KM#440 · Schön#51 · Numista#959", "metal": "bronze · 10.00 g · 28.5 mm · reeded · circulated · white 2×2 staple flip", "specs": "thickness unknown · coin alignment · Teotihuacan Pyramid of the Sun type", "mintage": "28,654,000 (1964 Mo)", "design": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl &…»
@@ -1205,13 +1205,13 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-06T15:30:08Z", "by": "model:gemini", "entity": "specimen", "id": "C244", "op": "set", "field": "story", "old": "This 1964 20 centavos coin from Mexico was struck in brass (95% copper and 5% zinc). The reverse shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it under a radiant Phrygian cap (cap of liberty). At the top the value 20 is divided by the cap, with the Mo mint mark beneath it; the word CENTAVOS and the 1964 date also appear on this side. The obverse displays the Mexican national arms.", "new": "This 1964 20 centavos coin from Mexico was struck in brass (95% copper and 5% zinc). The reverse shows the Pyramid of the Sun at Teotihuacan with the volcanoes Popocatépetl and Iztaccíhuatl behind it under a radiant Phrygian cap (cap of liberty). At the top the value 20 is divided by the cap, with the Mo mint mark beneath it; the word CENTAVOS and the 1964 date also appear on this side. The obverse displays the Mexican national arms.", "source": "FILL (C244 · Mexico · 1964 · 20 centavos · MXP): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-06", "workflow": "homework-story-check", "assignment": "HW-gemini-story-check-20261106-1", "run_id": "HW-gemini-story-check-20261106-1", "inputs": []}}
 ```
 
-### 19. HW-gemini-cite-20261106-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-13  (fix list #72)
+### 19. HW-gemini-cite-20261106-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-16  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
 **Done when:** One change file answering this assignment; everything you left out goes back to the pool.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-cite-20261106-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** in the compact pack HW-gemini-PACK-20261106 (1 part): answer its numbered lines as answers_gemini_HW-gemini-PACK-20261106_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-cite-20261106-1.jsonl)
 
 Items:
 - **EC 10 cents (EC.KM.37)** coins C159. Ask: issues.0.mintage: 2004

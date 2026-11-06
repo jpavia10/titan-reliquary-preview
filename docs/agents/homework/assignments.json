@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-06T15:39:39Z",
+ "updated": "2026-11-06T15:42:28Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -29594,7 +29594,7 @@
    "agent": "gemini",
    "kind": "fill",
    "issued": "2026-11-06T02:27:32Z",
-   "lease_until": "2026-11-16T02:27:32Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -29659,7 +29659,16 @@
      "id": "MX.KM.424",
      "field": null
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-11-16T02:27:32Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106"
   },
   {
    "id": "HW-grok-verify-20261106-1",
@@ -29876,7 +29885,7 @@
    "agent": "gemini",
    "kind": "verify",
    "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -29959,14 +29968,23 @@
      "id": "BS.X.1-cent.2",
      "field": "denomination.value"
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-11-13T15:30:08Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106"
   },
   {
    "id": "HW-gemini-story-check-20261106-1",
    "agent": "gemini",
    "kind": "story-check",
    "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -29977,14 +29995,23 @@
      "id": "C244",
      "field": "story"
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-11-13T15:30:08Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106"
   },
   {
    "id": "HW-gemini-cite-20261106-1",
    "agent": "gemini",
    "kind": "cite",
    "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
+   "lease_until": "2026-11-16T23:59:00Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -30013,7 +30040,16 @@
      "id": "TT.KM.32",
      "field": null
     }
-   ]
+   ],
+   "extended": [
+    {
+     "from": "2026-11-13T15:30:08Z",
+     "to": "2026-11-16T23:59:00Z",
+     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
+    }
+   ],
+   "parts": 1,
+   "pack": "HW-gemini-PACK-20261106"
   },
   {
    "id": "HW-grok-arbitrate-20261106-1",
