@@ -1,0 +1,4232 @@
+{
+  "source": "Numista catalogue pages, read by Gemini",
+  "agent": "gemini",
+  "made": "2026-11-05T14:52:00Z",
+  "types": {
+    "AR.X.5-centavos": {
+      "numista": 4835,
+      "url": "https://en.numista.com/catalogue/pieces4835.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1954": {
+          "prices": {
+            "vg": 0.15,
+            "f": 0.28,
+            "vf": 0.42,
+            "xf": 0.45,
+            "au": 0.45,
+            "unc": 0.47
+          },
+          "quote": "1954 50 640 000 $ 0.15 $ 0.28 $ 0.42 $ 0.45 $ 0.45 $ 0.47"
+        }
+      }
+    },
+    "AT.KM.2826": {
+      "numista": 6133,
+      "url": "https://en.numista.com/catalogue/pieces6133.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1918": {
+          "prices": {
+            "g": 0.23,
+            "vg": 0.23,
+            "f": 0.8,
+            "vf": 0.8,
+            "xf": 1.1,
+            "au": 1.2,
+            "unc": 2.1
+          },
+          "quote": "1918 Photo 48 985 000 $ 0.23 $ 0.23 $ 0.80 $ 0.80 $ 1.10 $ 1.20 $ 2.10"
+        }
+      }
+    },
+    "AT.X.2-groschen": {
+      "numista": 1944,
+      "url": "https://en.numista.com/catalogue/pieces1944.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1925": {
+          "prices": {
+            "g": 0.24,
+            "vg": 0.24,
+            "f": 0.32,
+            "vf": 0.32,
+            "xf": 0.56,
+            "au": 1.7,
+            "unc": 1.7
+          },
+          "quote": "1925 Photo 29 892 000 $ 0.24 $ 0.24 $ 0.32 $ 0.32 $ 0.56 $ 1.70 $ 1.70"
+        }
+      }
+    },
+    "AU.KM.36": {
+      "numista": 5788,
+      "url": "https://en.numista.com/catalogue/pieces5788.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1944": {
+          "prices": {
+            "vg": 0.23,
+            "f": 0.93,
+            "vf": 0.93,
+            "xf": 1.6,
+            "au": 1.6
+          },
+          "quote": "1944 2 112 000 $ 0.23 $ 0.93 $ 0.93 $ 1.60 $ 1.60 Melbourne Mint 13%"
+        }
+      }
+    },
+    "AU.KM.37": {
+      "numista": 2980,
+      "url": "https://en.numista.com/catalogue/pieces2980.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1943 S": {
+          "prices": {
+            "vg": 1.5,
+            "f": 1.8,
+            "vf": 2.2,
+            "xf": 4.9,
+            "au": 11.0,
+            "unc": 27.0
+          },
+          "quote": "1943 S 8 000 000 $ 1.50 $ 1.80 $ 2.20 $ 4.90 $ 11 $ 27 San Francisco Mint"
+        }
+      }
+    },
+    "AU.KM.66": {
+      "numista": 1003,
+      "url": "https://en.numista.com/catalogue/pieces1003.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1966": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.16,
+            "f": 0.21,
+            "vf": 0.38,
+            "xf": 0.45,
+            "au": 1.1,
+            "unc": 1.5
+          },
+          "quote": "1966 Photo 28 223 000 $ 0.13 $ 0.16 $ 0.21 $ 0.38 $ 0.45 $ 1.10 $ 1.50 Circulation - Canberra Mint"
+        }
+      }
+    },
+    "AU.X.1-cent": {
+      "numista": 1559,
+      "url": "https://en.numista.com/catalogue/pieces1559.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1983": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.1,
+            "f": 0.1,
+            "vf": 0.19,
+            "xf": 0.22,
+            "au": 0.39,
+            "unc": 1.4
+          },
+          "quote": "1983 183 600 000 $ 0.10 $ 0.10 $ 0.10 $ 0.19 $ 0.22 $ 0.39 $ 1.40 Canberra Mint 16%"
+        }
+      }
+    },
+    "AU.X.10-cents": {
+      "numista": 1565,
+      "url": "https://en.numista.com/catalogue/pieces1565.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2006": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.13,
+            "f": 0.13,
+            "vf": 0.19,
+            "xf": 0.25,
+            "au": 0.4,
+            "unc": 0.53
+          },
+          "quote": "2006 157 100 000 $ 0.13 $ 0.13 $ 0.13 $ 0.19 $ 0.25 $ 0.40 $ 0.53 Circulation 24%"
+        }
+      }
+    },
+    "BM.X.10-cents": {
+      "numista": 3214,
+      "url": "https://en.numista.com/catalogue/pieces3214.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2004": {
+          "prices": {
+            "vf": 0.7,
+            "xf": 0.7,
+            "au": 0.74,
+            "unc": 0.84
+          },
+          "quote": "2004 800 000 $ 0.70 $ 0.70 $ 0.74 $ 0.84"
+        }
+      }
+    },
+    "BR.KM.648.1": {
+      "numista": 1049,
+      "url": "https://en.numista.com/catalogue/pieces1049.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2006": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.08,
+            "f": 0.12,
+            "vf": 0.12,
+            "xf": 0.21,
+            "au": 0.98
+          },
+          "quote": "2006 255 488 000 $ 0.03 $ 0.08 $ 0.12 $ 0.12 $ 0.21 $ 0.98"
+        }
+      }
+    },
+    "BS.X.1-cent": {
+      "numista": 92216,
+      "url": "https://en.numista.com/catalogue/pieces92216.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2015": {
+          "prices": {
+            "vg": 0.18,
+            "f": 0.21,
+            "vf": 0.28,
+            "xf": 0.28,
+            "au": 0.38,
+            "unc": 0.46
+          },
+          "quote": "2015 $ 0.18 $ 0.21 $ 0.28 $ 0.28 $ 0.38 $ 0.46"
+        }
+      }
+    },
+    "BS.X.5-cents": {
+      "numista": 5010,
+      "url": "https://en.numista.com/catalogue/pieces5010.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1984": {
+          "prices": {
+            "f": 0.26,
+            "vf": 0.54,
+            "xf": 0.54,
+            "au": 0.78,
+            "unc": 1.3
+          },
+          "quote": "1984 $ 0.26 $ 0.54 $ 0.54 $ 0.78 $ 1.30"
+        }
+      }
+    },
+    "BZ.X.25-cents": {
+      "numista": 2238,
+      "url": "https://en.numista.com/catalogue/pieces2238.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2007": {
+          "prices": {
+            "g": 0.43,
+            "vg": 0.43,
+            "f": 0.65,
+            "vf": 0.65,
+            "xf": 1.0,
+            "au": 1.2,
+            "unc": 1.4
+          },
+          "quote": "2007 $ 0.43 $ 0.43 $ 0.65 $ 0.65 $ 1.00 $ 1.20 $ 1.40"
+        }
+      }
+    },
+    "CA.KM.33": {
+      "numista": 413,
+      "url": "https://en.numista.com/catalogue/pieces413.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1939": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.19,
+            "f": 0.41,
+            "vf": 0.67,
+            "xf": 2.7,
+            "au": 14.0,
+            "unc": 190.0
+          },
+          "quote": "1939 Photo 5 661 123 $ 0.08 $ 0.19 $ 0.41 $ 0.67 $ 2.70 $ 14 $ 190 34%"
+        }
+      }
+    },
+    "CH.KM.21a": {
+      "numista": 189,
+      "url": "https://en.numista.com/catalogue/pieces189.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1968 B": {
+          "prices": {
+            "g": 0.53,
+            "vg": 1.9,
+            "f": 1.9,
+            "vf": 2.0,
+            "xf": 2.0,
+            "au": 2.4,
+            "unc": 2.4
+          },
+          "quote": "1968 B 31 588 000 $ 0.53 $ 1.90 $ 1.90 $ 2.00 $ 2.00 $ 2.40 $ 2.40 KM# 21a.1"
+        },
+        "1974": {
+          "prices": {
+            "g": 0.21,
+            "f": 2.0,
+            "vf": 2.2,
+            "xf": 2.2,
+            "au": 2.4,
+            "unc": 2.6
+          },
+          "quote": "1974 Photo 15 007 000 $ 0.21 $ 2.00 $ 2.20 $ 2.20 $ 2.40 $ 2.60 KM# 21a.1"
+        },
+        "1981": {
+          "prices": {
+            "f": 2.0,
+            "vf": 2.1,
+            "xf": 2.1,
+            "au": 2.4,
+            "unc": 3.1
+          },
+          "quote": "1981 Photo 13 852 000 $ 2.00 $ 2.10 $ 2.10 $ 2.40 $ 3.10 KM# 21a.1"
+        }
+      }
+    },
+    "CH.KM.21a.3": {
+      "numista": 189,
+      "url": "https://en.numista.com/catalogue/pieces189.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1991 B": {
+          "prices": {
+            "vg": 1.4,
+            "f": 2.1,
+            "vf": 2.1,
+            "xf": 2.1,
+            "au": 2.1,
+            "unc": 2.4
+          },
+          "quote": "1991 B 12 036 000 $ 1.40 $ 2.10 $ 2.10 $ 2.10 $ 2.10 $ 2.40 KM# 21a.3"
+        }
+      }
+    },
+    "CH.KM.23a": {
+      "numista": 181,
+      "url": "https://en.numista.com/catalogue/pieces181.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1968 B": {
+          "prices": {
+            "g": 0.54,
+            "vg": 0.54,
+            "f": 0.54,
+            "vf": 0.54,
+            "xf": 0.54,
+            "au": 0.54,
+            "unc": 0.54
+          },
+          "quote": "1968 B Photo 44 920 000 $ 0.54 $ 0.54 $ 0.54 $ 0.54 $ 0.54 $ 0.54 $ 0.54"
+        },
+        "1971": {
+          "prices": {
+            "g": 0.51,
+            "vg": 0.51,
+            "f": 0.55,
+            "vf": 0.55,
+            "xf": 0.55,
+            "au": 0.56,
+            "unc": 0.6
+          },
+          "quote": "1971 34 472 000 $ 0.51 $ 0.51 $ 0.55 $ 0.55 $ 0.55 $ 0.56 $ 0.60"
+        }
+      }
+    },
+    "CH.KM.24a.1": {
+      "numista": 185,
+      "url": "https://en.numista.com/catalogue/pieces185.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1969 B": {
+          "prices": {
+            "g": 0.91,
+            "vg": 0.91,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 1.1,
+            "unc": 1.1
+          },
+          "quote": "1969 B Photo 37 598 000 $ 0.91 $ 0.91 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10"
+        },
+        "1970": {
+          "prices": {
+            "g": 0.9,
+            "vg": 0.9,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 2.0,
+            "unc": 3.0
+          },
+          "quote": "1970 24 240 000 $ 0.90 $ 0.90 $ 1.10 $ 1.10 $ 1.10 $ 2.00 $ 3.00"
+        }
+      }
+    },
+    "CH.KM.24a.3": {
+      "numista": 185,
+      "url": "https://en.numista.com/catalogue/pieces185.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1986 B": {
+          "prices": {
+            "g": 0.74,
+            "vg": 0.74,
+            "f": 0.74,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 1.1,
+            "unc": 1.3
+          },
+          "quote": "1986 B 17 997 000 $ 0.74 $ 0.74 $ 0.74 $ 1.10 $ 1.10 $ 1.10 $ 1.30"
+        }
+      }
+    },
+    "CH.KM.26": {
+      "numista": 168,
+      "url": "https://en.numista.com/catalogue/pieces168.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1963 B": {
+          "prices": {
+            "g": 0.09,
+            "vg": 0.13,
+            "f": 0.27,
+            "vf": 0.28,
+            "xf": 0.38,
+            "au": 0.38,
+            "unc": 1.0
+          },
+          "quote": "1963 B 29 730 000 $ 0.09 $ 0.13 $ 0.27 $ 0.28 $ 0.38 $ 0.38 $ 1.00"
+        }
+      }
+    },
+    "CH.KM.26c": {
+      "numista": 171,
+      "url": "https://en.numista.com/catalogue/pieces171.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1982": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.12,
+            "f": 0.2,
+            "vf": 0.2,
+            "xf": 0.21,
+            "au": 0.44,
+            "unc": 0.44
+          },
+          "quote": "1982 Photo 75 340 000 $ 0.12 $ 0.12 $ 0.20 $ 0.20 $ 0.21 $ 0.44 $ 0.44"
+        },
+        "1983": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.18,
+            "vf": 0.19,
+            "xf": 0.22,
+            "au": 0.47,
+            "unc": 0.47
+          },
+          "quote": "1983 Photo 92 746 000 $ 0.07 $ 0.07 $ 0.18 $ 0.19 $ 0.22 $ 0.47 $ 0.47"
+        }
+      }
+    },
+    "CH.KM.27": {
+      "numista": 173,
+      "url": "https://en.numista.com/catalogue/pieces173.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1883 B": {
+          "prices": {
+            "vg": 0.56,
+            "f": 1.4,
+            "vf": 1.4,
+            "xf": 2.9,
+            "au": 13.0,
+            "unc": 90.0
+          },
+          "quote": "1883 B Photo 2 000 000 $ 0.56 $ 1.40 $ 1.40 $ 2.90 $ 13 $ 90"
+        },
+        "1979": {
+          "prices": {
+            "vg": 0.12,
+            "f": 0.12,
+            "vf": 0.2,
+            "xf": 0.28,
+            "au": 0.44,
+            "unc": 0.99
+          },
+          "quote": "1979 18 000 000 $ 0.12 $ 0.12 $ 0.20 $ 0.28 $ 0.44 $ 0.99"
+        },
+        "1981": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.23,
+            "xf": 0.25,
+            "au": 0.45,
+            "unc": 0.45
+          },
+          "quote": "1981 Photo 30 140 000 $ 0.10 $ 0.11 $ 0.11 $ 0.23 $ 0.25 $ 0.45 $ 0.45"
+        }
+      }
+    },
+    "CH.KM.29a": {
+      "numista": 178,
+      "url": "https://en.numista.com/catalogue/pieces178.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1959 B": {
+          "prices": {
+            "g": 0.21,
+            "vg": 0.21,
+            "f": 0.29,
+            "vf": 0.43,
+            "xf": 0.45,
+            "au": 0.51,
+            "unc": 2.7
+          },
+          "quote": "1959 B Photo 10 136 000 $ 0.21 $ 0.21 $ 0.29 $ 0.43 $ 0.45 $ 0.51 $ 2.70"
+        },
+        "1963 B": {
+          "prices": {
+            "f": 0.23,
+            "vf": 0.3,
+            "xf": 0.35,
+            "au": 0.44,
+            "unc": 0.44
+          },
+          "quote": "1963 B Photo 9 020 000 $ 0.23 $ 0.30 $ 0.35 $ 0.44 $ 0.44"
+        },
+        "1969 B": {
+          "prices": {
+            "g": 0.16,
+            "vg": 0.34,
+            "f": 0.34,
+            "vf": 0.34,
+            "xf": 0.35,
+            "au": 0.47,
+            "unc": 0.48
+          },
+          "quote": "1969 B Photo 39 875 000 $ 0.16 $ 0.34 $ 0.34 $ 0.34 $ 0.35 $ 0.47 $ 0.48"
+        },
+        "1980": {
+          "prices": {
+            "g": 0.2,
+            "vg": 0.2,
+            "f": 0.27,
+            "vf": 0.27,
+            "xf": 0.27,
+            "au": 0.27,
+            "unc": 0.63
+          },
+          "quote": "1980 Photo 24 560 000 $ 0.20 $ 0.20 $ 0.27 $ 0.27 $ 0.27 $ 0.27 $ 0.63"
+        },
+        "1989 B": {
+          "prices": {
+            "g": 0.21,
+            "vg": 0.23,
+            "f": 0.23,
+            "vf": 0.28,
+            "xf": 0.28,
+            "au": 1.0,
+            "unc": 2.1
+          },
+          "quote": "1989 B 20 022 700 $ 0.21 $ 0.23 $ 0.23 $ 0.28 $ 0.28 $ 1.00 $ 2.10"
+        },
+        "1991 B": {
+          "prices": {
+            "vg": 0.14,
+            "f": 0.23,
+            "vf": 0.24,
+            "xf": 0.26,
+            "au": 0.39,
+            "unc": 0.56
+          },
+          "quote": "1991 B 48 066 100 $ 0.14 $ 0.23 $ 0.24 $ 0.26 $ 0.39 $ 0.56"
+        }
+      }
+    },
+    "CH.KM.40a.1": {
+      "numista": 195,
+      "url": "https://en.numista.com/catalogue/pieces195.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1976": {
+          "prices": {
+            "f": 4.8,
+            "vf": 5.5,
+            "xf": 5.5,
+            "au": 6.8,
+            "unc": 13.0
+          },
+          "quote": "1976 3 007 000 $ 4.80 $ 5.50 $ 5.50 $ 6.80 $ 13"
+        }
+      }
+    },
+    "CH.KM.40a.4": {
+      "numista": 195,
+      "url": "https://en.numista.com/catalogue/pieces195.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2014 B": {
+          "prices": {
+            "vf": 5.6,
+            "xf": 6.0,
+            "au": 10.0,
+            "unc": 36.0
+          },
+          "quote": "2014 B Photo 7 022 000 $ 5.60 $ 6.00 $ 10 $ 36"
+        }
+      }
+    },
+    "CL.KM.219.2": {
+      "numista": 2834,
+      "url": "https://en.numista.com/catalogue/pieces2834.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1996 So": {
+          "prices": {
+            "f": 0.09,
+            "vf": 0.3,
+            "xf": 0.55
+          },
+          "quote": "1996 So 8 100 000 $ 0.09 $ 0.30 $ 0.55"
+        }
+      }
+    },
+    "CO.KM.295": {
+      "numista": 34771,
+      "url": "https://en.numista.com/catalogue/pieces34771.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2016": {
+          "prices": {
+            "vg": 0.11,
+            "f": 0.17,
+            "vf": 0.35,
+            "xf": 0.35,
+            "au": 0.44,
+            "unc": 0.74
+          },
+          "quote": "2016 Photo 141 000 000 $ 0.11 $ 0.17 $ 0.35 $ 0.35 $ 0.44 $ 0.74"
+        }
+      }
+    },
+    "CR.KM.214.2": {
+      "numista": 69,
+      "url": "https://en.numista.com/catalogue/pieces69.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1985": {
+          "prices": {
+            "g": 0.34,
+            "vg": 0.34,
+            "f": 0.34,
+            "vf": 0.34,
+            "xf": 0.46,
+            "au": 0.51,
+            "unc": 1.1
+          },
+          "quote": "1985 Photo 25 000 000 $ 0.34 $ 0.34 $ 0.34 $ 0.34 $ 0.46 $ 0.51 $ 1.10"
+        }
+      }
+    },
+    "CU.KM.32": {
+      "numista": 1055,
+      "url": "https://en.numista.com/catalogue/pieces1055.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1962": {
+          "prices": {
+            "vf": 0.92
+          },
+          "quote": "1962 | 83 860 000 | $ 0.92"
+        }
+      }
+    },
+    "DE.KM.105": {
+      "numista": 854,
+      "url": "https://en.numista.com/catalogue/pieces854.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1972 F": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.14,
+            "au": 0.22
+          },
+          "quote": "1972 F 105 006 000 $ 0.03 $ 0.07 $ 0.11 $ 0.11 $ 0.14 $ 0.22"
+        },
+        "1985": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.08,
+            "f": 0.08,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11
+          },
+          "quote": "1985 D 19 500 000 $ 0.03 $ 0.08 $ 0.08 $ 0.11 $ 0.11 $ 0.11"
+        },
+        "1986": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.07,
+            "f": 0.07,
+            "vf": 0.12,
+            "xf": 0.12,
+            "au": 0.12,
+            "unc": 0.12
+          },
+          "quote": "1986 D 39 000 000 $ 0.06 $ 0.07 $ 0.07 $ 0.12 $ 0.12 $ 0.12 $ 0.12"
+        },
+        "1991": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.06,
+            "f": 0.1,
+            "vf": 0.11,
+            "xf": 0.14,
+            "au": 0.14,
+            "unc": 0.18
+          },
+          "quote": "1991 A 260 000 000 $ 0.03 $ 0.06 $ 0.10 $ 0.11 $ 0.14 $ 0.14 $ 0.18"
+        }
+      }
+    },
+    "DE.KM.106a": {
+      "numista": 1937,
+      "url": "https://en.numista.com/catalogue/pieces1937.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1983 D": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.09,
+            "f": 0.12,
+            "vf": 0.12,
+            "xf": 0.17
+          },
+          "quote": "1983 D 71 500 000 $ 0.01 $ 0.09 $ 0.12 $ 0.12 $ 0.17"
+        },
+        "1983 G": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.07,
+            "f": 0.12,
+            "vf": 0.13,
+            "xf": 0.13,
+            "au": 0.33,
+            "unc": 0.51
+          },
+          "quote": "1983 G 47 575 000 $ 0.03 $ 0.07 $ 0.12 $ 0.13 $ 0.13 $ 0.33 $ 0.51"
+        },
+        "1988 G": {
+          "prices": {
+            "vf": 0.12,
+            "xf": 0.12,
+            "au": 0.24
+          },
+          "quote": "1988 G 34 600 000 $ 0.12 $ 0.12 $ 0.24"
+        }
+      }
+    },
+    "DE.KM.107": {
+      "numista": 658,
+      "url": "https://en.numista.com/catalogue/pieces658.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1950": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.21,
+            "xf": 0.72,
+            "au": 1.3,
+            "unc": 1.9
+          },
+          "quote": "1950 F Photo 362 880 000 $ 0.11 $ 0.11 $ 0.11 $ 0.21 $ 0.72 $ 1.30 $ 1.90"
+        },
+        "1971 D": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.15,
+            "vf": 0.16,
+            "xf": 0.26,
+            "au": 0.28
+          },
+          "quote": "1971 D 57 345 000 $ 0.07 $ 0.07 $ 0.15 $ 0.16 $ 0.26 $ 0.28"
+        },
+        "1971 F": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.18,
+            "au": 0.18
+          },
+          "quote": "1971 F 66 426 000 $ 0.07 $ 0.07 $ 0.11 $ 0.11 $ 0.18 $ 0.18"
+        },
+        "1987 F": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.15,
+            "f": 0.16,
+            "vf": 0.17,
+            "xf": 0.22,
+            "au": 0.31
+          },
+          "quote": "1987 F 60 000 000 $ 0.03 $ 0.15 $ 0.16 $ 0.17 $ 0.22 $ 0.31"
+        },
+        "1992 F": {
+          "prices": {
+            "vf": 0.11,
+            "xf": 0.17,
+            "au": 0.35,
+            "unc": 0.84
+          },
+          "quote": "1992 F 33 600 000 $ 0.11 $ 0.17 $ 0.35 $ 0.84"
+        }
+      }
+    },
+    "DE.KM.108": {
+      "numista": 850,
+      "url": "https://en.numista.com/catalogue/pieces850.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1966 D": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.12,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.52
+          },
+          "quote": "1966 D 31 220 000 $ 0.10 $ 0.12 $ 0.22 $ 0.22 $ 0.52"
+        },
+        "1970 J": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.17,
+            "vf": 0.2,
+            "xf": 0.26
+          },
+          "quote": "1970 J 40 115 000 $ 0.11 $ 0.11 $ 0.17 $ 0.20 $ 0.26"
+        },
+        "1977 J": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.15,
+            "xf": 0.24
+          },
+          "quote": "1977 J 66 800 000 $ 0.07 $ 0.11 $ 0.11 $ 0.15 $ 0.24"
+        },
+        "1980 F": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.26,
+            "au": 0.26,
+            "unc": 0.26
+          },
+          "quote": "1980 F 122 780 000 $ 0.07 $ 0.11 $ 0.11 $ 0.11 $ 0.26 $ 0.26 $ 0.26"
+        },
+        "1981": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.19,
+            "au": 0.29,
+            "unc": 0.34
+          },
+          "quote": "1981 F 117 410 000 $ 0.11 $ 0.11 $ 0.11 $ 0.12 $ 0.19 $ 0.29 $ 0.34"
+        },
+        "1982": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.16,
+            "au": 0.27,
+            "unc": 0.39
+          },
+          "quote": "1982 F 85 140 000 $ 0.10 $ 0.11 $ 0.11 $ 0.12 $ 0.16 $ 0.27 $ 0.39"
+        },
+        "1982 G": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.22,
+            "au": 0.22,
+            "unc": 1.0
+          },
+          "quote": "1982 G 50 840 000 $ 0.11 $ 0.11 $ 0.11 $ 0.12 $ 0.22 $ 0.22 $ 1.00"
+        },
+        "1984 D": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.08,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.24,
+            "au": 0.52
+          },
+          "quote": "1984 D 52 000 000 $ 0.07 $ 0.08 $ 0.11 $ 0.11 $ 0.24 $ 0.52"
+        },
+        "1986": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.17,
+            "f": 0.17,
+            "vf": 0.17,
+            "xf": 0.23,
+            "au": 0.23,
+            "unc": 0.23
+          },
+          "quote": "1986 F 48 000 000 $ 0.10 $ 0.17 $ 0.17 $ 0.17 $ 0.23 $ 0.23 $ 0.23"
+        },
+        "1989 G": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.16,
+            "xf": 0.17,
+            "au": 0.64
+          },
+          "quote": "1989 G 79 580 000 $ 0.11 $ 0.11 $ 0.11 $ 0.16 $ 0.17 $ 0.64"
+        },
+        "1990 F": {
+          "prices": {
+            "g": 0.09,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.19,
+            "au": 0.33,
+            "unc": 0.73
+          },
+          "quote": "1990 F 180 000 000 $ 0.09 $ 0.11 $ 0.11 $ 0.12 $ 0.19 $ 0.33 $ 0.73"
+        },
+        "1995": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.12,
+            "f": 0.13,
+            "vf": 0.13,
+            "xf": 0.19,
+            "au": 0.19,
+            "unc": 0.24
+          },
+          "quote": "1995 F 132 000 000 $ 0.10 $ 0.12 $ 0.13 $ 0.13 $ 0.19 $ 0.19 $ 0.24"
+        }
+      }
+    },
+    "DE.KM.109.1": {
+      "numista": 847,
+      "url": "https://en.numista.com/catalogue/pieces847.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1971": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.13,
+            "f": 0.13,
+            "vf": 0.34,
+            "xf": 0.34,
+            "au": 0.35
+          },
+          "quote": "1971 D 23 393 000 $ 0.13 $ 0.13 $ 0.13 $ 0.34 $ 0.34 $ 0.35"
+        }
+      }
+    },
+    "DE.KM.109.2": {
+      "numista": 847,
+      "url": "https://en.numista.com/catalogue/pieces847.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1982": {
+          "prices": {
+            "vg": 0.06,
+            "f": 0.19,
+            "vf": 0.33,
+            "xf": 0.49,
+            "au": 0.9
+          },
+          "quote": "1982 D 21 540 000 $ 0.06 $ 0.19 $ 0.33 $ 0.49 $ 0.90"
+        },
+        "1985": {
+          "prices": {
+            "f": 0.2,
+            "vf": 0.38,
+            "xf": 0.89,
+            "au": 1.1
+          },
+          "quote": "1985 D 15 700 000 $ 0.20 $ 0.38 $ 0.89 $ 1.10"
+        }
+      }
+    },
+    "DE.KM.110": {
+      "numista": 846,
+      "url": "https://en.numista.com/catalogue/pieces846.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1982": {
+          "prices": {
+            "vg": 0.83,
+            "f": 0.84,
+            "vf": 0.84,
+            "xf": 1.2,
+            "au": 1.3
+          },
+          "quote": "1982 F 22 990 000 $ 0.83 $ 0.84 $ 0.84 $ 1.20 $ 1.30"
+        },
+        "1982 J": {
+          "prices": {
+            "vg": 0.08,
+            "f": 0.54,
+            "vf": 0.54,
+            "xf": 0.54
+          },
+          "quote": "1982 J 11 520 000 $ 0.08 $ 0.54 $ 0.54 $ 0.54"
+        },
+        "1984": {
+          "prices": {
+            "f": 0.28,
+            "vf": 0.68,
+            "xf": 1.1
+          },
+          "quote": "1984 F 9 700 000 $ 0.28 $ 0.68 $ 1.10"
+        },
+        "1993 D": {
+          "prices": {
+            "xf": 1.1
+          },
+          "quote": "1993 D 8 400 000 $ 1.10"
+        }
+      }
+    },
+    "DE.KM.124": {
+      "numista": 844,
+      "url": "https://en.numista.com/catalogue/pieces844.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1973 D": {
+          "prices": {
+            "vg": 0.89,
+            "f": 1.0,
+            "vf": 1.1,
+            "xf": 1.3,
+            "au": 1.3
+          },
+          "quote": "1973 D 10 393 000 $ 0.89 $ 1.00 $ 1.10 $ 1.30 $ 1.30"
+        }
+      }
+    },
+    "DE.KM.140.1": {
+      "numista": 843,
+      "url": "https://en.numista.com/catalogue/pieces843.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1987 J": {
+          "prices": {
+            "vf": 2.8,
+            "xf": 3.3
+          },
+          "quote": "1987 J 6 940 000 $ 2.80 $ 3.30"
+        }
+      }
+    },
+    "DE.KM.207": {
+      "numista": 105,
+      "url": "https://en.numista.com/catalogue/pieces105.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.11
+          },
+          "quote": "2002 F 960 000 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.11"
+        },
+        "2005 J": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.02,
+            "unc": 0.06
+          },
+          "quote": "2005 J 126 000 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.02 $ 0.06"
+        },
+        "2008": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.02,
+            "unc": 0.1
+          },
+          "quote": "2008 F 121 440 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.02 $ 0.10"
+        },
+        "2009": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.56
+          },
+          "quote": "2009 F 120 000 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.56"
+        },
+        "2012": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.02
+          },
+          "quote": "2012 F 125 040 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.02"
+        },
+        "2015": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.26
+          },
+          "quote": "2015 D 90 510 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.26"
+        }
+      }
+    },
+    "DE.KM.208": {
+      "numista": 106,
+      "url": "https://en.numista.com/catalogue/pieces106.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 D": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.02,
+            "au": 0.06,
+            "unc": 0.33
+          },
+          "quote": "2002 D 483 000 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.06 $ 0.33"
+        },
+        "2002 G": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.02,
+            "au": 0.05,
+            "unc": 0.22
+          },
+          "quote": "2002 G 311 800 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.05 $ 0.22"
+        },
+        "2010 A": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.03,
+            "au": 0.03,
+            "unc": 0.14
+          },
+          "quote": "2010 A 76 440 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.03 $ 0.03 $ 0.14"
+        }
+      }
+    },
+    "DE.KM.209": {
+      "numista": 107,
+      "url": "https://en.numista.com/catalogue/pieces107.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 J": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.25,
+            "unc": 0.35
+          },
+          "quote": "2002 J 504 000 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.25 $ 0.35"
+        },
+        "2014 A": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.36
+          },
+          "quote": "2014 A 32 000 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.36"
+        }
+      }
+    },
+    "DE.KM.210": {
+      "numista": 108,
+      "url": "https://en.numista.com/catalogue/pieces108.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11,
+            "unc": 0.28
+          },
+          "quote": "2002 F 838 800 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.28"
+        },
+        "2002 D": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11,
+            "unc": 0.45
+          },
+          "quote": "2002 D 721 950 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.45"
+        }
+      }
+    },
+    "DE.KM.211": {
+      "numista": 109,
+      "url": "https://en.numista.com/catalogue/pieces109.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 G": {
+          "prices": {
+            "g": 0.22,
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.22,
+            "au": 0.22,
+            "unc": 0.49
+          },
+          "quote": "2002 G 251 900 000 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.49"
+        }
+      }
+    },
+    "DE.KM.212": {
+      "numista": 110,
+      "url": "https://en.numista.com/catalogue/pieces110.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 G": {
+          "prices": {
+            "g": 0.56,
+            "vg": 0.56,
+            "f": 0.56,
+            "vf": 0.56,
+            "xf": 0.56,
+            "au": 0.56,
+            "unc": 1.0
+          },
+          "quote": "2002 G 256 650 000 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 1.00"
+        }
+      }
+    },
+    "DE.KM.213": {
+      "numista": 111,
+      "url": "https://en.numista.com/catalogue/pieces111.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 F": {
+          "prices": {
+            "g": 1.1,
+            "vg": 1.1,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 1.1,
+            "unc": 1.7
+          },
+          "quote": "2002 F 439 800 000 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.70"
+        }
+      }
+    },
+    "DE.KM.214": {
+      "numista": 112,
+      "url": "https://en.numista.com/catalogue/pieces112.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2003 A": {
+          "prices": {
+            "g": 2.2,
+            "vg": 2.2,
+            "f": 2.2,
+            "vf": 2.2,
+            "xf": 2.2,
+            "au": 2.2,
+            "unc": 3.6
+          },
+          "quote": "2003 A 20 475 000 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 3.60"
+        }
+      }
+    },
+    "DE.KM.255": {
+      "numista": 6319,
+      "url": "https://en.numista.com/catalogue/pieces6319.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2011 F": {
+          "prices": {
+            "g": 0.22,
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.22,
+            "au": 0.22,
+            "unc": 0.62
+          },
+          "quote": "2011 F 39 644 000 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.62"
+        },
+        "2015 F": {
+          "prices": {
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.22,
+            "au": 0.22,
+            "unc": 0.79
+          },
+          "quote": "2015 F 27 393 000 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.79"
+        }
+      }
+    },
+    "EC.KM.37": {
+      "numista": 5712,
+      "url": "https://en.numista.com/catalogue/pieces5712.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2004": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.25,
+            "f": 0.28,
+            "vf": 0.3,
+            "xf": 0.37,
+            "au": 0.51,
+            "unc": 1.0
+          },
+          "quote": "2004 $ 0.12 $ 0.25 $ 0.28 $ 0.30 $ 0.37 $ 0.51 $ 1.00"
+        }
+      }
+    },
+    "ER.KM.46": {
+      "numista": 2403,
+      "url": "https://en.numista.com/catalogue/pieces2403.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1997": {
+          "prices": {
+            "vg": 0.94,
+            "f": 0.94,
+            "vf": 0.94,
+            "xf": 1.0,
+            "au": 1.1,
+            "unc": 1.5
+          },
+          "quote": "1997 Photo $ 0.94 $ 0.94 $ 0.94 $ 1.00 $ 1.10 $ 1.50"
+        }
+      }
+    },
+    "ES.KM.1040": {
+      "numista": 81,
+      "url": "https://en.numista.com/catalogue/pieces81.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2008": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.09
+          },
+          "quote": "2008 M 374 600 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.09"
+        }
+      }
+    },
+    "ES.KM.1042": {
+      "numista": 83,
+      "url": "https://en.numista.com/catalogue/pieces83.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2000": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.06,
+            "unc": 0.28
+          },
+          "quote": "2000 M 399 900 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.28"
+        }
+      }
+    },
+    "ES.KM.1144": {
+      "numista": 10856,
+      "url": "https://en.numista.com/catalogue/pieces10856.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2014": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.05
+          },
+          "quote": "2014 M 69 400 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.05"
+        }
+      }
+    },
+    "FR.KM.1282": {
+      "numista": 97,
+      "url": "https://en.numista.com/catalogue/pieces97.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.06,
+            "unc": 0.16
+          },
+          "quote": "2009 Hunting horn 436 330 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.06 $ 0.16"
+        }
+      }
+    },
+    "FR.KM.1283": {
+      "numista": 98,
+      "url": "https://en.numista.com/catalogue/pieces98.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.02,
+            "au": 0.02,
+            "unc": 0.17
+          },
+          "quote": "2009 Hunting horn 343 120 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.17"
+        },
+        "2010": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.02,
+            "au": 0.03,
+            "unc": 0.03
+          },
+          "quote": "2010 Hunting horn 277 000 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.03 $ 0.03"
+        },
+        "2017": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.02,
+            "au": 0.02,
+            "unc": 0.11
+          },
+          "quote": "2017 Workshop floret 200 000 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.11"
+        }
+      }
+    },
+    "FR.KM.1284": {
+      "numista": 99,
+      "url": "https://en.numista.com/catalogue/pieces99.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.06,
+            "unc": 0.06
+          },
+          "quote": "2009 Hunting horn 184 710 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 Gad Euro# 311.1 24%"
+        }
+      }
+    },
+    "FR.KM.1285": {
+      "numista": 100,
+      "url": "https://en.numista.com/catalogue/pieces100.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1999": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11
+          },
+          "quote": "1999 447 249 600 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+        },
+        "2002": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11
+          },
+          "quote": "2002 206 640 013 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+        }
+      }
+    },
+    "FR.KM.1286": {
+      "numista": 101,
+      "url": "https://en.numista.com/catalogue/pieces101.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2000": {
+          "prices": {
+            "g": 0.23,
+            "vg": 0.23,
+            "f": 0.23,
+            "vf": 0.23,
+            "xf": 0.23,
+            "au": 0.23,
+            "unc": 0.97
+          },
+          "quote": "2000 Bee 148 953 600 $ 0.23 $ 0.23 $ 0.23 $ 0.23 $ 0.23 $ 0.23 $ 0.97"
+        }
+      }
+    },
+    "FR.KM.1289": {
+      "numista": 104,
+      "url": "https://en.numista.com/catalogue/pieces104.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2000": {
+          "prices": {
+            "g": 2.2,
+            "vg": 2.2,
+            "f": 2.2,
+            "vf": 2.2,
+            "xf": 2.2,
+            "au": 2.2,
+            "unc": 3.4
+          },
+          "quote": "2000 Bee 171 100 000 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 3.40"
+        }
+      }
+    },
+    "FR.KM.1410": {
+      "numista": 3510,
+      "url": "https://en.numista.com/catalogue/pieces3510.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2010": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11
+          },
+          "quote": "2010 76 000 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+        },
+        "2015": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11
+          },
+          "quote": "2015 70 990 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11"
+        }
+      }
+    },
+    "FR.KM.888b.1": {
+      "numista": 1190,
+      "url": "https://en.numista.com/catalogue/pieces1190.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1946": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.4,
+            "f": 0.55,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 2.8,
+            "unc": 5.6
+          },
+          "quote": "1946 Wing Photo 61 332 000 $ 0.11 $ 0.40 $ 0.55 $ 1.10 $ 1.10 $ 2.80 $ 5.60 KM# 888b.1"
+        }
+      }
+    },
+    "FR.KM.925.1": {
+      "numista": 6,
+      "url": "https://en.numista.com/catalogue/pieces6.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1960": {
+          "prices": {
+            "g": 0.18,
+            "vg": 0.19,
+            "f": 0.23,
+            "vf": 0.34,
+            "xf": 0.34,
+            "au": 0.38,
+            "unc": 0.45
+          },
+          "quote": "1960 Owl 406 375 000 $ 0.18 $ 0.19 $ 0.23 $ 0.34 $ 0.34 $ 0.38 $ 0.45"
+        },
+        "1962": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.17,
+            "f": 0.23,
+            "vf": 0.56,
+            "xf": 0.56,
+            "au": 0.62
+          },
+          "quote": "1962 Owl Photo 14 014 136 $ 0.11 $ 0.17 $ 0.23 $ 0.56 $ 0.56 $ 0.62"
+        },
+        "1965": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.17,
+            "f": 0.28,
+            "vf": 0.28,
+            "xf": 0.35,
+            "au": 0.95,
+            "unc": 2.1
+          },
+          "quote": "1965 Owl 44 286 591 $ 0.11 $ 0.17 $ 0.28 $ 0.28 $ 0.35 $ 0.95 $ 2.10"
+        },
+        "1977": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.14,
+            "f": 0.23,
+            "vf": 0.23,
+            "xf": 0.3,
+            "au": 0.68,
+            "unc": 1.4
+          },
+          "quote": "1977 Dolphin 230 110 011 $ 0.14 $ 0.14 $ 0.23 $ 0.23 $ 0.30 $ 0.68 $ 1.40"
+        },
+        "1999": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.2,
+            "f": 0.43,
+            "vf": 0.52,
+            "xf": 0.53,
+            "au": 1.7,
+            "unc": 2.3
+          },
+          "quote": "1999 Bee 80 457 513 $ 0.11 $ 0.20 $ 0.43 $ 0.52 $ 0.53 $ 1.70 $ 2.30"
+        }
+      }
+    },
+    "FR.KM.929": {
+      "numista": 3,
+      "url": "https://en.numista.com/catalogue/pieces3.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1963": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.15,
+            "f": 0.15,
+            "vf": 0.17,
+            "xf": 0.25,
+            "au": 0.28,
+            "unc": 0.33
+          },
+          "quote": "1963 Owl Photo 217 601 000 $ 0.13 $ 0.15 $ 0.15 $ 0.17 $ 0.25 $ 0.28 $ 0.33"
+        },
+        "1967": {
+          "prices": {
+            "g": 0.05,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.16,
+            "xf": 0.24,
+            "au": 0.79,
+            "unc": 1.0
+          },
+          "quote": "1967 Owl 196 730 305 $ 0.05 $ 0.11 $ 0.11 $ 0.16 $ 0.24 $ 0.79 $ 1.00"
+        },
+        "1984": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.15,
+            "au": 0.63,
+            "unc": 4.5
+          },
+          "quote": "1984 Dolphin 200 002 447 $ 0.07 $ 0.11 $ 0.11 $ 0.11 $ 0.15 $ 0.63 $ 4.50"
+        },
+        "1995": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.08,
+            "f": 0.15,
+            "vf": 0.16,
+            "xf": 0.17,
+            "au": 0.2,
+            "unc": 1.1
+          },
+          "quote": "1995 Bee 169 980 011 $ 0.07 $ 0.08 $ 0.15 $ 0.16 $ 0.17 $ 0.20 $ 1.10"
+        },
+        "1998": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.16,
+            "vf": 0.16,
+            "xf": 0.17,
+            "au": 0.26,
+            "unc": 1.1
+          },
+          "quote": "1998 Bee Photo 350 025 013 $ 0.10 $ 0.11 $ 0.16 $ 0.16 $ 0.17 $ 0.26 $ 1.10"
+        }
+      }
+    },
+    "FR.KM.930": {
+      "numista": 4,
+      "url": "https://en.numista.com/catalogue/pieces4.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1974": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.08,
+            "f": 0.11,
+            "vf": 0.18,
+            "xf": 0.18,
+            "au": 2.2,
+            "unc": 6.7
+          },
+          "quote": "1974 Owl 54 348 811 $ 0.08 $ 0.08 $ 0.11 $ 0.18 $ 0.18 $ 2.20 $ 6.70"
+        },
+        "1986": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.21,
+            "xf": 0.22,
+            "au": 1.1,
+            "unc": 1.9
+          },
+          "quote": "1986 Dolphin 40 000 011 $ 0.11 $ 0.11 $ 0.11 $ 0.21 $ 0.22 $ 1.10 $ 1.90"
+        }
+      }
+    },
+    "FR.KM.931.1": {
+      "numista": 5,
+      "url": "https://en.numista.com/catalogue/pieces5.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1969": {
+          "prices": {
+            "g": 0.16,
+            "vg": 0.21,
+            "f": 0.23,
+            "vf": 0.23,
+            "xf": 0.34,
+            "au": 0.37,
+            "unc": 2.7
+          },
+          "quote": "1969 Owl 47 150 050 $ 0.16 $ 0.21 $ 0.23 $ 0.23 $ 0.34 $ 0.37 $ 2.70"
+        },
+        "1971": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.2,
+            "vf": 0.2,
+            "xf": 0.34,
+            "au": 0.45,
+            "unc": 6.2
+          },
+          "quote": "1971 Owl 36 080 000 $ 0.10 $ 0.11 $ 0.20 $ 0.20 $ 0.34 $ 0.45 $ 6.20"
+        },
+        "1986": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.2,
+            "vf": 0.23,
+            "xf": 0.28,
+            "au": 1.1,
+            "unc": 1.5
+          },
+          "quote": "1986 Dolphin 110 003 011 $ 0.10 $ 0.11 $ 0.20 $ 0.23 $ 0.28 $ 1.10 $ 1.50"
+        }
+      }
+    },
+    "FR.KM.933": {
+      "numista": 2,
+      "url": "https://en.numista.com/catalogue/pieces2.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1973": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.28,
+            "au": 1.0,
+            "unc": 4.5
+          },
+          "quote": "1973 Owl 100 423 000 $ 0.10 $ 0.11 $ 0.11 $ 0.11 $ 0.28 $ 1.00 $ 4.50"
+        },
+        "1980": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.17,
+            "au": 0.21,
+            "unc": 2.2
+          },
+          "quote": "1980 Dolphin 180 010 011 $ 0.07 $ 0.11 $ 0.11 $ 0.11 $ 0.17 $ 0.21 $ 2.20"
+        }
+      }
+    },
+    "FR.KM.964.1": {
+      "numista": 9,
+      "url": "https://en.numista.com/catalogue/pieces9.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1989": {
+          "prices": {
+            "g": 0.21,
+            "vg": 0.46,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.2,
+            "au": 1.8,
+            "unc": 5.6
+          },
+          "quote": "1989 Dolphin 249 980 449 $ 0.21 $ 0.46 $ 1.10 $ 1.10 $ 1.20 $ 1.80 $ 5.60"
+        }
+      }
+    },
+    "FR.X.5-francs": {
+      "numista": 8,
+      "url": "https://en.numista.com/catalogue/pieces8.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1994": {
+          "prices": {
+            "vf": 3.8,
+            "xf": 3.8,
+            "au": 18.0
+          },
+          "quote": "1994 3 973 818 $ 3.80 $ 3.80 $ 18"
+        }
+      }
+    },
+    "GB.KM.1107": {
+      "numista": 4038,
+      "url": "https://en.numista.com/catalogue/pieces4038.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2010": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.07,
+            "f": 0.07,
+            "vf": 0.12,
+            "xf": 0.14,
+            "au": 0.14,
+            "unc": 0.33
+          },
+          "quote": "2010 609 603 000 $ 0.03 $ 0.07 $ 0.07 $ 0.12 $ 0.14 $ 0.14 $ 0.33"
+        },
+        "2013": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.03,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11,
+            "unc": 0.25
+          },
+          "quote": "2013 260 800 000 $ 0.01 $ 0.03 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.25"
+        }
+      }
+    },
+    "GB.KM.1109": {
+      "numista": 6612,
+      "url": "https://en.numista.com/catalogue/pieces6612.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.19,
+            "xf": 0.19,
+            "au": 0.33,
+            "unc": 1.3
+          },
+          "quote": "2009 132 960 300 $ 0.07 $ 0.07 $ 0.11 $ 0.19 $ 0.19 $ 0.33 $ 1.30"
+        },
+        "2010": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.15,
+            "vf": 0.15,
+            "xf": 0.17,
+            "au": 0.25,
+            "unc": 0.45
+          },
+          "quote": "2010 396 245 500 $ 0.07 $ 0.07 $ 0.15 $ 0.15 $ 0.17 $ 0.25 $ 0.45"
+        }
+      }
+    },
+    "GB.KM.1109d": {
+      "numista": 25766,
+      "url": "https://en.numista.com/catalogue/pieces25766.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2012": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.08,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.18,
+            "au": 0.23,
+            "unc": 0.73
+          },
+          "quote": "2012 Photo 339 802 350 $ 0.08 $ 0.08 $ 0.11 $ 0.11 $ 0.18 $ 0.23 $ 0.73"
+        },
+        "2014": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.09,
+            "f": 0.17,
+            "vf": 0.17,
+            "xf": 0.17,
+            "au": 0.23,
+            "unc": 0.78
+          },
+          "quote": "2014 Photo 885 004 520 $ 0.07 $ 0.09 $ 0.17 $ 0.17 $ 0.17 $ 0.23 $ 0.78"
+        }
+      }
+    },
+    "GB.KM.1110": {
+      "numista": 7350,
+      "url": "https://en.numista.com/catalogue/pieces7350.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2010": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.15,
+            "f": 0.15,
+            "vf": 0.15,
+            "xf": 0.17,
+            "au": 0.17,
+            "unc": 0.65
+          },
+          "quote": "2010 Photo 96 600 500 $ 0.12 $ 0.15 $ 0.15 $ 0.15 $ 0.17 $ 0.17 $ 0.65"
+        }
+      }
+    },
+    "GB.KM.1110d": {
+      "numista": 25746,
+      "url": "https://en.numista.com/catalogue/pieces25746.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2013": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.13,
+            "f": 0.15,
+            "vf": 0.2,
+            "xf": 0.28,
+            "au": 0.28,
+            "unc": 0.65
+          },
+          "quote": "2013 320 200 750 $ 0.12 $ 0.13 $ 0.15 $ 0.20 $ 0.28 $ 0.28 $ 0.65"
+        },
+        "2014": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.13,
+            "f": 0.16,
+            "vf": 0.16,
+            "xf": 0.24,
+            "au": 0.28,
+            "unc": 0.87
+          },
+          "quote": "2014 490 202 020 $ 0.13 $ 0.13 $ 0.16 $ 0.16 $ 0.24 $ 0.28 $ 0.87"
+        }
+      }
+    },
+    "GB.KM.1334": {
+      "numista": 70547,
+      "url": "https://en.numista.com/catalogue/pieces70547.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2015": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.08,
+            "f": 0.11,
+            "vf": 0.16,
+            "xf": 0.16,
+            "au": 0.17,
+            "unc": 0.22
+          },
+          "quote": "2015 536 600 000 $ 0.08 $ 0.08 $ 0.11 $ 0.16 $ 0.16 $ 0.17 $ 0.22"
+        },
+        "2016": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.07,
+            "vf": 0.1,
+            "xf": 0.11,
+            "au": 0.11,
+            "unc": 0.39
+          },
+          "quote": "2016 305 740 000 $ 0.07 $ 0.07 $ 0.07 $ 0.10 $ 0.11 $ 0.11 $ 0.39"
+        }
+      }
+    },
+    "GB.KM.1335": {
+      "numista": 70549,
+      "url": "https://en.numista.com/catalogue/pieces70549.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2016": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.13,
+            "f": 0.13,
+            "vf": 0.14,
+            "xf": 0.14,
+            "au": 0.17,
+            "unc": 0.48
+          },
+          "quote": "2016 135 380 000 $ 0.12 $ 0.13 $ 0.13 $ 0.14 $ 0.14 $ 0.17 $ 0.48"
+        }
+      }
+    },
+    "GB.KM.837": {
+      "numista": 4004,
+      "url": "https://en.numista.com/catalogue/pieces4004.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1932": {
+          "prices": {
+            "g": 0.16,
+            "vg": 0.38,
+            "f": 0.53,
+            "vf": 1.1,
+            "xf": 1.3
+          },
+          "quote": "1932 14 448 000 $ 0.16 $ 0.38 $ 0.53 $ 1.10 $ 1.30"
+        }
+      }
+    },
+    "GB.KM.912": {
+      "numista": 878,
+      "url": "https://en.numista.com/catalogue/pieces878.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1968": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.2,
+            "f": 0.21,
+            "vf": 0.23,
+            "xf": 0.45,
+            "au": 0.65,
+            "unc": 1.4
+          },
+          "quote": "1968 336 143 250 $ 0.12 $ 0.20 $ 0.21 $ 0.23 $ 0.45 $ 0.65 $ 1.40"
+        }
+      }
+    },
+    "GB.KM.914": {
+      "numista": 856,
+      "url": "https://en.numista.com/catalogue/pieces856.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1973": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.16,
+            "vf": 0.16,
+            "xf": 0.2,
+            "au": 0.2,
+            "unc": 1.2
+          },
+          "quote": "1973 365 680 000 $ 0.07 $ 0.11 $ 0.16 $ 0.16 $ 0.20 $ 0.20 $ 1.20"
+        }
+      }
+    },
+    "GB.KM.915": {
+      "numista": 665,
+      "url": "https://en.numista.com/catalogue/pieces665.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1971": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.07,
+            "f": 0.09,
+            "vf": 0.15,
+            "xf": 0.17,
+            "au": 0.2,
+            "unc": 1.0
+          },
+          "quote": "1971 1 521 666 250 $ 0.06 $ 0.07 $ 0.09 $ 0.15 $ 0.17 $ 0.20 $ 1.00"
+        },
+        "1975": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.17,
+            "xf": 0.17,
+            "au": 0.91,
+            "unc": 1.2
+          },
+          "quote": "1975 221 604 000 $ 0.01 $ 0.11 $ 0.11 $ 0.17 $ 0.17 $ 0.91 $ 1.20"
+        }
+      }
+    },
+    "GB.KM.916": {
+      "numista": 664,
+      "url": "https://en.numista.com/catalogue/pieces664.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1971": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.11,
+            "f": 0.12,
+            "vf": 0.17,
+            "xf": 0.21,
+            "au": 0.47,
+            "unc": 0.68
+          },
+          "quote": "1971 1 454 856 250 $ 0.10 $ 0.11 $ 0.12 $ 0.17 $ 0.21 $ 0.47 $ 0.68"
+        },
+        "1977": {
+          "prices": {
+            "g": 0.05,
+            "vg": 0.1,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.23,
+            "au": 0.24,
+            "unc": 0.52
+          },
+          "quote": "1977 109 281 000 $ 0.05 $ 0.10 $ 0.11 $ 0.12 $ 0.23 $ 0.24 $ 0.52"
+        }
+      }
+    },
+    "GB.KM.931": {
+      "numista": 865,
+      "url": "https://en.numista.com/catalogue/pieces865.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1982": {
+          "prices": {
+            "g": 0.25,
+            "vg": 0.25,
+            "f": 0.25,
+            "vf": 0.34,
+            "xf": 0.45,
+            "au": 0.98,
+            "unc": 1.3
+          },
+          "quote": "1982 740 815 000 $ 0.25 $ 0.25 $ 0.25 $ 0.34 $ 0.45 $ 0.98 $ 1.30"
+        }
+      }
+    },
+    "GB.KM.935": {
+      "numista": 861,
+      "url": "https://en.numista.com/catalogue/pieces861.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1987": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.16,
+            "au": 0.16,
+            "unc": 0.23
+          },
+          "quote": "1987 499 946 000 $ 0.03 $ 0.11 $ 0.11 $ 0.11 $ 0.16 $ 0.16 $ 0.23"
+        },
+        "1988": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.15,
+            "au": 0.23,
+            "unc": 0.26
+          },
+          "quote": "1988 793 492 000 $ 0.03 $ 0.07 $ 0.11 $ 0.11 $ 0.15 $ 0.23 $ 0.26"
+        }
+      }
+    },
+    "GB.KM.935a": {
+      "numista": 860,
+      "url": "https://en.numista.com/catalogue/pieces860.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1995": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.06,
+            "f": 0.09,
+            "vf": 0.11,
+            "xf": 0.15,
+            "au": 0.17,
+            "unc": 0.37
+          },
+          "quote": "1995 303 314 000 $ 0.01 $ 0.06 $ 0.09 $ 0.11 $ 0.15 $ 0.17 $ 0.37"
+        },
+        "1996": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.06,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.15,
+            "au": 0.18,
+            "unc": 0.25
+          },
+          "quote": "1996 Photo 723 840 000 $ 0.02 $ 0.06 $ 0.11 $ 0.11 $ 0.15 $ 0.18 $ 0.25"
+        },
+        "1997": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.17,
+            "au": 0.2,
+            "unc": 0.21
+          },
+          "quote": "1997 396 874 000 $ 0.02 $ 0.07 $ 0.11 $ 0.11 $ 0.17 $ 0.20 $ 0.21"
+        }
+      }
+    },
+    "GB.KM.936": {
+      "numista": 867,
+      "url": "https://en.numista.com/catalogue/pieces867.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1991": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.08,
+            "f": 0.09,
+            "vf": 0.12,
+            "xf": 0.18,
+            "au": 0.32,
+            "unc": 0.49
+          },
+          "quote": "1991 86 625 250 $ 0.02 $ 0.08 $ 0.09 $ 0.12 $ 0.18 $ 0.32 $ 0.49"
+        }
+      }
+    },
+    "GB.KM.937b": {
+      "numista": 875,
+      "url": "https://en.numista.com/catalogue/pieces875.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1990": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.19,
+            "au": 0.33,
+            "unc": 0.33
+          },
+          "quote": "1990 1 634 976 005 $ 0.07 $ 0.11 $ 0.11 $ 0.12 $ 0.19 $ 0.33 $ 0.33"
+        },
+        "1992": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.09,
+            "f": 0.11,
+            "vf": 0.15,
+            "xf": 0.15,
+            "au": 0.27,
+            "unc": 0.35
+          },
+          "quote": "1992 453 173 500 $ 0.07 $ 0.09 $ 0.11 $ 0.15 $ 0.15 $ 0.27 $ 0.35"
+        },
+        "1996": {
+          "prices": {
+            "g": 0.09,
+            "vg": 0.1,
+            "f": 0.11,
+            "vf": 0.13,
+            "xf": 0.22,
+            "au": 0.33,
+            "unc": 0.33
+          },
+          "quote": "1996 302 902 000 $ 0.09 $ 0.10 $ 0.11 $ 0.13 $ 0.22 $ 0.33 $ 0.33"
+        },
+        "1997": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.1,
+            "vf": 0.15,
+            "xf": 0.22,
+            "au": 0.22,
+            "unc": 1.0
+          },
+          "quote": "1997 236 596 000 $ 0.07 $ 0.07 $ 0.10 $ 0.15 $ 0.22 $ 0.22 $ 1.00"
+        }
+      }
+    },
+    "GB.KM.938b": {
+      "numista": 879,
+      "url": "https://en.numista.com/catalogue/pieces879.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1992": {
+          "prices": {
+            "g": 0.12,
+            "vg": 0.12,
+            "f": 0.21,
+            "vf": 0.22,
+            "xf": 0.37,
+            "au": 0.46,
+            "unc": 2.0
+          },
+          "quote": "1992 1 413 455 170 $ 0.12 $ 0.12 $ 0.21 $ 0.22 $ 0.37 $ 0.46 $ 2.00"
+        }
+      }
+    },
+    "GB.KM.986": {
+      "numista": 862,
+      "url": "https://en.numista.com/catalogue/pieces862.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1998": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.12,
+            "au": 0.19,
+            "unc": 0.56
+          },
+          "quote": "1998 739 770 000 $ 0.02 $ 0.11 $ 0.11 $ 0.11 $ 0.12 $ 0.19 $ 0.56"
+        },
+        "2002": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.08,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.17,
+            "au": 0.2,
+            "unc": 0.62
+          },
+          "quote": "2002 601 446 000 $ 0.01 $ 0.08 $ 0.11 $ 0.11 $ 0.17 $ 0.20 $ 0.62"
+        },
+        "2003": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.06,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.12,
+            "unc": 0.17
+          },
+          "quote": "2003 Photo 539 436 000 $ 0.03 $ 0.06 $ 0.11 $ 0.11 $ 0.11 $ 0.12 $ 0.17"
+        },
+        "2007": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.06,
+            "f": 0.1,
+            "vf": 0.12,
+            "xf": 0.12,
+            "au": 0.15,
+            "unc": 0.22
+          },
+          "quote": "2007 548 002 000 $ 0.01 $ 0.06 $ 0.10 $ 0.12 $ 0.12 $ 0.15 $ 0.22"
+        }
+      }
+    },
+    "GB.KM.988": {
+      "numista": 876,
+      "url": "https://en.numista.com/catalogue/pieces876.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1998": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.07,
+            "vf": 0.12,
+            "xf": 0.25,
+            "au": 0.67,
+            "unc": 1.1
+          },
+          "quote": "1998 217 376 000 $ 0.07 $ 0.07 $ 0.07 $ 0.12 $ 0.25 $ 0.67 $ 1.10"
+        },
+        "2000": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.18,
+            "au": 0.46,
+            "unc": 0.5
+          },
+          "quote": "2000 388 512 000 $ 0.07 $ 0.11 $ 0.11 $ 0.11 $ 0.18 $ 0.46 $ 0.50"
+        },
+        "2001": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.08,
+            "vf": 0.11,
+            "xf": 0.2,
+            "au": 0.28,
+            "unc": 0.39
+          },
+          "quote": "2001 Photo 337 930 000 $ 0.07 $ 0.07 $ 0.08 $ 0.11 $ 0.20 $ 0.28 $ 0.39"
+        },
+        "2007": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.12,
+            "xf": 0.22,
+            "au": 0.56,
+            "unc": 0.65
+          },
+          "quote": "2007 246 720 000 $ 0.07 $ 0.07 $ 0.11 $ 0.12 $ 0.22 $ 0.56 $ 0.65"
+        }
+      }
+    },
+    "GB.KM.989": {
+      "numista": 2236,
+      "url": "https://en.numista.com/catalogue/pieces2236.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2001": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.13,
+            "f": 0.13,
+            "vf": 0.14,
+            "xf": 0.3,
+            "au": 0.3,
+            "unc": 1.1
+          },
+          "quote": "2001 129 281 000 $ 0.13 $ 0.13 $ 0.13 $ 0.14 $ 0.30 $ 0.30 $ 1.10"
+        },
+        "2008": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.13,
+            "f": 0.13,
+            "vf": 0.13,
+            "xf": 0.35,
+            "au": 0.35,
+            "unc": 1.1
+          },
+          "quote": "2008 9 720 000 $ 0.13 $ 0.13 $ 0.13 $ 0.13 $ 0.35 $ 0.35 $ 1.10"
+        }
+      }
+    },
+    "GB.X.1-penny": {
+      "numista": 578,
+      "url": "https://en.numista.com/catalogue/pieces578.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1922": {
+          "prices": {
+            "g": 0.79,
+            "vg": 0.79,
+            "f": 0.79,
+            "vf": 1.2,
+            "xf": 1.2
+          },
+          "quote": "1922 16 346 700 $ 0.79 $ 0.79 $ 0.79 $ 1.20 $ 1.20"
+        }
+      }
+    },
+    "GR.KM.117": {
+      "numista": 549,
+      "url": "https://en.numista.com/catalogue/pieces549.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1982": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.11,
+            "f": 0.17,
+            "vf": 0.2,
+            "xf": 0.22,
+            "au": 0.34,
+            "unc": 0.53
+          },
+          "quote": "1982 64 414 000 $ 0.08 $ 0.11 $ 0.17 $ 0.20 $ 0.22 $ 0.34 $ 0.53"
+        }
+      }
+    },
+    "GR.KM.90": {
+      "numista": 545,
+      "url": "https://en.numista.com/catalogue/pieces545.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1970": {
+          "prices": {
+            "g": 0.2,
+            "vg": 0.2,
+            "f": 0.2,
+            "vf": 0.45,
+            "xf": 0.56,
+            "au": 2.2,
+            "unc": 2.6
+          },
+          "quote": "1970 7 000 000 $ 0.20 $ 0.20 $ 0.20 $ 0.45 $ 0.56 $ 2.20 $ 2.60"
+        }
+      }
+    },
+    "GT.KM.239.2": {
+      "numista": 5128,
+      "url": "https://en.numista.com/catalogue/pieces5128.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1934": {
+          "prices": {
+            "f": 11.0,
+            "vf": 11.0,
+            "xf": 11.0
+          },
+          "quote": "1934 Photo 300 000 $ 11 $ 11 $ 11"
+        }
+      }
+    },
+    "GT.KM.277.6a": {
+      "numista": 42670,
+      "url": "https://en.numista.com/catalogue/pieces42670.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2010": {
+          "prices": {
+            "vf": 0.31,
+            "xf": 0.54,
+            "au": 0.54,
+            "unc": 0.54
+          },
+          "quote": "2010 $ 0.31 $ 0.54 $ 0.54 $ 0.54"
+        }
+      }
+    },
+    "HK.KM.69a": {
+      "numista": 2118,
+      "url": "https://en.numista.com/catalogue/pieces2118.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1998": {
+          "prices": {
+            "g": 0.15,
+            "vg": 0.16,
+            "f": 0.33,
+            "vf": 0.33,
+            "xf": 0.56,
+            "au": 0.85,
+            "unc": 1.0
+          },
+          "quote": "1998 Photo $ 0.15 $ 0.16 $ 0.33 $ 0.33 $ 0.56 $ 0.85 $ 1.00"
+        }
+      }
+    },
+    "HN.X.50-centavos": {
+      "numista": 3190,
+      "url": "https://en.numista.com/catalogue/pieces3190.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2012": {
+          "prices": {
+            "vf": 0.51,
+            "xf": 0.52,
+            "au": 0.72,
+            "unc": 0.86
+          },
+          "quote": "2012 20 000 000 $ 0.51 $ 0.52 $ 0.72 $ 0.86"
+        }
+      }
+    },
+    "HU.KM.575": {
+      "numista": 1124,
+      "url": "https://en.numista.com/catalogue/pieces1124.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1967": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.12,
+            "vf": 0.18,
+            "xf": 0.37,
+            "au": 0.37,
+            "unc": 0.98
+          },
+          "quote": "1967 BP. 60 000 000 $ 0.11 $ 0.11 $ 0.12 $ 0.18 $ 0.37 $ 0.37 $ 0.98"
+        }
+      }
+    },
+    "IE.KM.32": {
+      "numista": 121,
+      "url": "https://en.numista.com/catalogue/pieces121.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.02,
+            "au": 0.1,
+            "unc": 0.3
+          },
+          "quote": "2002 404 340 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.02 $ 0.10 $ 0.30"
+        },
+        "2004": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.01,
+            "au": 0.01,
+            "unc": 0.13
+          },
+          "quote": "2004 174 830 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.13"
+        }
+      }
+    },
+    "IE.KM.34": {
+      "numista": 123,
+      "url": "https://en.numista.com/catalogue/pieces123.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2013": {
+          "prices": {
+            "unc": 0.73
+          },
+          "quote": "2013 1 042 000 $ 0.73"
+        }
+      }
+    },
+    "IN.KM.92.2": {
+      "numista": 1609,
+      "url": "https://en.numista.com/catalogue/pieces1609.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2001": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.02,
+            "f": 0.08,
+            "vf": 0.11,
+            "xf": 0.22
+          },
+          "quote": "2001 $ 0.01 $ 0.02 $ 0.08 $ 0.11 $ 0.22"
+        }
+      }
+    },
+    "IT.KM.111": {
+      "numista": 302,
+      "url": "https://en.numista.com/catalogue/pieces302.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1987 R": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.39,
+            "xf": 0.46,
+            "au": 0.69,
+            "unc": 1.1
+          },
+          "quote": "1987 R 200 000 000 $ 0.11 $ 0.22 $ 0.22 $ 0.39 $ 0.46 $ 0.69 $ 1.10"
+        }
+      }
+    },
+    "IT.KM.211": {
+      "numista": 130,
+      "url": "https://en.numista.com/catalogue/pieces130.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2010 R": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.02,
+            "au": 0.06,
+            "unc": 0.2
+          },
+          "quote": "2010 R 120 243 400 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.06 $ 0.20"
+        }
+      }
+    },
+    "IT.KM.213": {
+      "numista": 132,
+      "url": "https://en.numista.com/catalogue/pieces132.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2007 R": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11,
+            "unc": 0.34
+          },
+          "quote": "2007 R 104 955 490 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.34"
+        }
+      }
+    },
+    "IT.KM.214": {
+      "numista": 133,
+      "url": "https://en.numista.com/catalogue/pieces133.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 R": {
+          "prices": {
+            "g": 0.22,
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.22,
+            "au": 0.26,
+            "unc": 0.34
+          },
+          "quote": "2002 R Photo 1 411 536 000 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.26 $ 0.34"
+        }
+      }
+    },
+    "IT.KM.215": {
+      "numista": 134,
+      "url": "https://en.numista.com/catalogue/pieces134.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "g": 0.56,
+            "vg": 0.56,
+            "f": 0.56,
+            "vf": 0.56,
+            "xf": 0.56,
+            "au": 0.56,
+            "unc": 0.78
+          },
+          "quote": "2002 R 1 136 418 000 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.56 $ 0.78"
+        }
+      }
+    },
+    "IT.KM.216": {
+      "numista": 135,
+      "url": "https://en.numista.com/catalogue/pieces135.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002 R": {
+          "prices": {
+            "g": 1.1,
+            "vg": 1.1,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 1.1,
+            "unc": 1.5
+          },
+          "quote": "2002 R Photo 965 725 300 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.50"
+        }
+      }
+    },
+    "IT.KM.95.1": {
+      "numista": 724,
+      "url": "https://en.numista.com/catalogue/pieces724.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1970 R": {
+          "prices": {
+            "g": 0.07,
+            "vg": 0.11,
+            "f": 0.17,
+            "vf": 0.28,
+            "xf": 0.29,
+            "au": 0.37,
+            "unc": 1.1
+          },
+          "quote": "1970 R Photo 21 411 000 $ 0.07 $ 0.11 $ 0.17 $ 0.28 $ 0.29 $ 0.37 $ 1.10"
+        },
+        "1978": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.15,
+            "f": 0.17,
+            "vf": 0.2,
+            "xf": 0.23,
+            "au": 0.3,
+            "unc": 0.55
+          },
+          "quote": "1978 R Photo 416 808 000 $ 0.14 $ 0.15 $ 0.17 $ 0.20 $ 0.23 $ 0.30 $ 0.55"
+        },
+        "1978 R": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.15,
+            "f": 0.17,
+            "vf": 0.2,
+            "xf": 0.23,
+            "au": 0.3,
+            "unc": 0.55
+          },
+          "quote": "1978 R Photo 416 808 000 $ 0.14 $ 0.15 $ 0.17 $ 0.20 $ 0.23 $ 0.30 $ 0.55"
+        },
+        "1979": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.16,
+            "f": 0.16,
+            "vf": 0.2,
+            "xf": 0.23,
+            "au": 0.26,
+            "unc": 0.45
+          },
+          "quote": "1979 R 315 000 000 $ 0.14 $ 0.16 $ 0.16 $ 0.20 $ 0.23 $ 0.26 $ 0.45"
+        },
+        "1979 R": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.16,
+            "f": 0.16,
+            "vf": 0.2,
+            "xf": 0.23,
+            "au": 0.26,
+            "unc": 0.45
+          },
+          "quote": "1979 R 315 000 000 $ 0.14 $ 0.16 $ 0.16 $ 0.20 $ 0.23 $ 0.26 $ 0.45"
+        }
+      }
+    },
+    "IT.KM.96.1": {
+      "numista": 304,
+      "url": "https://en.numista.com/catalogue/pieces304.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1965 R": {
+          "prices": {
+            "g": 0.16,
+            "vg": 0.16,
+            "f": 0.2,
+            "vf": 0.22,
+            "xf": 0.35,
+            "au": 1.2,
+            "unc": 2.8
+          },
+          "quote": "1965 R Photo 36 440 000 $ 0.16 $ 0.16 $ 0.20 $ 0.22 $ 0.35 $ 1.20 $ 2.80"
+        }
+      }
+    },
+    "JM.KM.146": {
+      "numista": 2617,
+      "url": "https://en.numista.com/catalogue/pieces2617.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1993": {
+          "prices": {
+            "vg": 0.28,
+            "f": 0.28,
+            "vf": 0.55,
+            "xf": 0.56,
+            "au": 0.56
+          },
+          "quote": "1993 $ 0.28 $ 0.28 $ 0.55 $ 0.56 $ 0.56"
+        }
+      }
+    },
+    "JM.KM.189": {
+      "numista": 14369,
+      "url": "https://en.numista.com/catalogue/pieces14369.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2015": {
+          "prices": {
+            "vg": 0.08,
+            "f": 0.1,
+            "vf": 0.28,
+            "xf": 0.28,
+            "au": 0.49,
+            "unc": 0.56
+          },
+          "quote": "2015 $ 0.08 $ 0.10 $ 0.28 $ 0.28 $ 0.49 $ 0.56"
+        }
+      }
+    },
+    "JM.KM.190": {
+      "numista": 14370,
+      "url": "https://en.numista.com/catalogue/pieces14370.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2015": {
+          "prices": {
+            "vf": 0.37,
+            "xf": 0.37,
+            "au": 0.79,
+            "unc": 1.0
+          },
+          "quote": "2015 $ 0.37 $ 0.37 $ 0.79 $ 1.00"
+        }
+      }
+    },
+    "JM.KM.65": {
+      "numista": 7457,
+      "url": "https://en.numista.com/catalogue/pieces7457.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1975": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.3,
+            "f": 0.49,
+            "vf": 0.56,
+            "xf": 0.6,
+            "au": 0.83,
+            "unc": 1.1
+          },
+          "quote": "1975 12 010 000 $ 0.11 $ 0.30 $ 0.49 $ 0.56 $ 0.60 $ 0.83 $ 1.10"
+        }
+      }
+    },
+    "JP.Y.73a": {
+      "numista": 922,
+      "url": "https://en.numista.com/catalogue/pieces922.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1982": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.1,
+            "f": 0.11,
+            "vf": 0.24,
+            "xf": 0.24,
+            "au": 0.24,
+            "unc": 0.24
+          },
+          "quote": "57 (1982) Photo 890 000 000 $ 0.10 $ 0.10 $ 0.11 $ 0.24 $ 0.24 $ 0.24 $ 0.24"
+        },
+        "1988": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.12,
+            "f": 0.17,
+            "vf": 0.17,
+            "xf": 0.22,
+            "au": 0.46,
+            "unc": 0.61
+          },
+          "quote": "63 (1988) 617 912 000 $ 0.10 $ 0.12 $ 0.17 $ 0.17 $ 0.22 $ 0.46 $ 0.61"
+        }
+      }
+    },
+    "JP.Y.74": {
+      "numista": 1590,
+      "url": "https://en.numista.com/catalogue/pieces1590.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1965": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.14,
+            "f": 0.14,
+            "vf": 0.14,
+            "xf": 0.22,
+            "au": 0.3,
+            "unc": 0.76
+          },
+          "quote": "40 (1965) 1 743 256 000 $ 0.11 $ 0.14 $ 0.14 $ 0.14 $ 0.22 $ 0.30 $ 0.76"
+        },
+        "1971": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.11,
+            "f": 0.12,
+            "vf": 0.17,
+            "xf": 0.17,
+            "au": 0.2,
+            "unc": 0.76
+          },
+          "quote": "46 (1971) 904 050 000 $ 0.08 $ 0.11 $ 0.12 $ 0.17 $ 0.17 $ 0.20 $ 0.76"
+        }
+      }
+    },
+    "KR.KM.103": {
+      "numista": 1654,
+      "url": "https://en.numista.com/catalogue/pieces1654.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2012": {
+          "prices": {
+            "vg": 0.1,
+            "f": 0.1,
+            "vf": 0.17,
+            "xf": 0.17,
+            "au": 0.4,
+            "unc": 0.56
+          },
+          "quote": "2012 Photo 370 000 000 $ 0.10 $ 0.10 $ 0.17 $ 0.17 $ 0.40 $ 0.56"
+        },
+        "2013": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.14,
+            "f": 0.14,
+            "vf": 0.14,
+            "xf": 0.17,
+            "au": 0.26,
+            "unc": 0.29
+          },
+          "quote": "2013 400 000 000 $ 0.14 $ 0.14 $ 0.14 $ 0.14 $ 0.17 $ 0.26 $ 0.29"
+        }
+      }
+    },
+    "KR.KM.35.2": {
+      "numista": 1052,
+      "url": "https://en.numista.com/catalogue/pieces1052.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2000": {
+          "prices": {
+            "vg": 0.32,
+            "f": 0.32,
+            "vf": 0.32,
+            "xf": 0.32,
+            "au": 0.32,
+            "unc": 0.32
+          },
+          "quote": "2000 422 985 000 $ 0.32 $ 0.32 $ 0.32 $ 0.32 $ 0.32 $ 0.32"
+        }
+      }
+    },
+    "KR.KM.4": {
+      "numista": 5993,
+      "url": "https://en.numista.com/catalogue/pieces5993.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1966": {
+          "prices": {
+            "f": 0.35,
+            "vf": 0.35,
+            "xf": 0.35,
+            "au": 0.35,
+            "unc": 7.1
+          },
+          "quote": "1966 7 000 000 $ 0.35 $ 0.35 $ 0.35 $ 0.35 $ 7.10"
+        }
+      }
+    },
+    "KY.KM.132": {
+      "numista": 2698,
+      "url": "https://en.numista.com/catalogue/pieces2698.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "vf": 0.45,
+            "xf": 0.45,
+            "au": 0.78,
+            "unc": 0.83
+          },
+          "quote": "2002 2 500 000 $ 0.45 $ 0.45 $ 0.78 $ 0.83"
+        },
+        "2008": {
+          "prices": {
+            "f": 0.54,
+            "vf": 0.57,
+            "xf": 0.57,
+            "au": 0.71,
+            "unc": 1.0
+          },
+          "quote": "2008 3 000 000 $ 0.54 $ 0.57 $ 0.57 $ 0.71 $ 1.00"
+        }
+      }
+    },
+    "KY.KM.87": {
+      "numista": 7364,
+      "url": "https://en.numista.com/catalogue/pieces7364.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1990": {
+          "prices": {
+            "g": 0.24,
+            "vg": 0.24,
+            "f": 0.26,
+            "vf": 0.26,
+            "xf": 0.34,
+            "au": 0.45,
+            "unc": 0.55
+          },
+          "quote": "1990 $ 0.24 $ 0.24 $ 0.26 $ 0.26 $ 0.34 $ 0.45 $ 0.55"
+        }
+      }
+    },
+    "KY.KM.88a": {
+      "numista": 10222,
+      "url": "https://en.numista.com/catalogue/pieces10222.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1996": {
+          "prices": {
+            "f": 0.19,
+            "vf": 0.37,
+            "xf": 0.47,
+            "au": 0.56,
+            "unc": 0.67
+          },
+          "quote": "1996 $ 0.19 $ 0.37 $ 0.47 $ 0.56 $ 0.67"
+        }
+      }
+    },
+    "MT.KM.128": {
+      "numista": 2183,
+      "url": "https://en.numista.com/catalogue/pieces2183.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2013": {
+          "prices": {
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.06,
+            "unc": 0.43
+          },
+          "quote": "2013 10 000 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.43"
+        }
+      }
+    },
+    "MT.KM.129": {
+      "numista": 2184,
+      "url": "https://en.numista.com/catalogue/pieces2184.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2008": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.11,
+            "unc": 0.33
+          },
+          "quote": "2008 F 41 000 000 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.33"
+        }
+      }
+    },
+    "MT.KM.132": {
+      "numista": 2187,
+      "url": "https://en.numista.com/catalogue/pieces2187.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2008": {
+          "prices": {
+            "g": 1.1,
+            "vg": 1.1,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.1,
+            "au": 1.1,
+            "unc": 1.7
+          },
+          "quote": "2008 F 14 000 000 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.10 $ 1.70"
+        }
+      }
+    },
+    "MX-CHI.KM.612": {
+      "numista": 32634,
+      "url": "https://en.numista.com/catalogue/pieces32634.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1914": {
+          "prices": {
+            "f": 6.5,
+            "vf": 13.0
+          },
+          "quote": "1914 $ 6.50 $ 13"
+        }
+      }
+    },
+    "MX.KM.415": {
+      "numista": 5133,
+      "url": "https://en.numista.com/catalogue/pieces5133.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1940 Mo": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.22,
+            "f": 0.67,
+            "vf": 0.67,
+            "xf": 0.67,
+            "au": 1.4,
+            "unc": 1.5
+          },
+          "quote": "1940 Mo 10 000 000 $ 0.06 $ 0.22 $ 0.67 $ 0.67 $ 0.67 $ 1.40 $ 1.50"
+        }
+      }
+    },
+    "MX.KM.424": {
+      "numista": 3136,
+      "url": "https://en.numista.com/catalogue/pieces3136.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1944 Mo": {
+          "prices": {
+            "g": 0.17,
+            "vg": 0.2,
+            "f": 0.27,
+            "vf": 0.45,
+            "xf": 0.76,
+            "au": 0.79,
+            "unc": 1.7
+          },
+          "quote": "1944 Mo Photo 53 463 000 $ 0.17 $ 0.20 $ 0.27 $ 0.45 $ 0.76 $ 0.79 $ 1.70"
+        }
+      }
+    },
+    "MX.KM.433": {
+      "numista": 6694,
+      "url": "https://en.numista.com/catalogue/pieces6694.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1945": {
+          "prices": {
+            "g": 0.18,
+            "vg": 0.3,
+            "f": 0.3,
+            "vf": 0.48,
+            "xf": 0.75,
+            "au": 1.7,
+            "unc": 3.9
+          },
+          "quote": "1945 M 9 558 000 $ 0.18 $ 0.30 $ 0.30 $ 0.48 $ 0.75 $ 1.70 $ 3.90"
+        }
+      }
+    },
+    "MX.KM.440": {
+      "numista": 959,
+      "url": "https://en.numista.com/catalogue/pieces959.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1964 Mo": {
+          "prices": {
+            "g": 0.1,
+            "vg": 0.17,
+            "f": 0.22,
+            "vf": 0.31,
+            "xf": 0.57,
+            "au": 0.57,
+            "unc": 1.3
+          },
+          "quote": "1964 Mo 28 654 000 $ 0.10 $ 0.17 $ 0.22 $ 0.31 $ 0.57 $ 0.57 $ 1.30"
+        },
+        "1967 Mo": {
+          "prices": {
+            "g": 0.09,
+            "vg": 0.09,
+            "f": 0.11,
+            "vf": 0.56,
+            "xf": 0.56,
+            "au": 1.0,
+            "unc": 2.3
+          },
+          "quote": "1967 Mo Photo 46 847 000 $ 0.09 $ 0.09 $ 0.11 $ 0.56 $ 0.56 $ 1.00 $ 2.30"
+        }
+      }
+    },
+    "MX.KM.443": {
+      "numista": 972,
+      "url": "https://en.numista.com/catalogue/pieces972.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1950 Mo": {
+          "prices": {
+            "g": 1.4,
+            "vg": 1.4,
+            "f": 1.4,
+            "vf": 1.7,
+            "xf": 2.4,
+            "au": 2.4,
+            "unc": 5.2
+          },
+          "quote": "1950 Mo Photo 77 060 000 $ 1.40 $ 1.40 $ 1.40 $ 1.70 $ 2.40 $ 2.40 $ 5.20"
+        }
+      }
+    },
+    "MX.KM.502": {
+      "numista": 3445,
+      "url": "https://en.numista.com/catalogue/pieces3445.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1987 Mo": {
+          "prices": {
+            "vf": 0.31,
+            "xf": 0.44,
+            "au": 0.49,
+            "unc": 1.1
+          },
+          "quote": "1987 Mo 81 900 000 $ 0.31 $ 0.44 $ 0.49 $ 1.10"
+        }
+      }
+    },
+    "MX.KM.604": {
+      "numista": 587,
+      "url": "https://en.numista.com/catalogue/pieces587.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2010 Mo": {
+          "prices": {
+            "vf": 0.12,
+            "xf": 0.23,
+            "au": 0.82,
+            "unc": 0.82
+          },
+          "quote": "2010 Mo 34 878 000 $ 0.12 $ 0.23 $ 0.82 $ 0.82"
+        }
+      }
+    },
+    "MX.KM.936": {
+      "numista": 18097,
+      "url": "https://en.numista.com/catalogue/pieces18097.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2013 Mo": {
+          "prices": {
+            "g": 0.03,
+            "vg": 0.06,
+            "f": 0.11,
+            "vf": 0.21,
+            "xf": 0.22,
+            "au": 0.26,
+            "unc": 0.26
+          },
+          "quote": "2013 Mo 359 338 000 $ 0.03 $ 0.06 $ 0.11 $ 0.21 $ 0.22 $ 0.26 $ 0.26"
+        }
+      }
+    },
+    "MX.X.10-centavos": {
+      "numista": 581,
+      "url": "https://en.numista.com/catalogue/pieces581.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1995 Mo": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.08,
+            "f": 0.19,
+            "vf": 0.21,
+            "xf": 0.21,
+            "au": 0.22,
+            "unc": 0.26
+          },
+          "quote": "1995 Mo 560 000 000 $ 0.08 $ 0.08 $ 0.19 $ 0.21 $ 0.21 $ 0.22 $ 0.26"
+        }
+      }
+    },
+    "MX.X.20-pesos": {
+      "numista": 987,
+      "url": "https://en.numista.com/catalogue/pieces987.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1981 Mo": {
+          "prices": {
+            "g": 0.58,
+            "vg": 0.58,
+            "f": 0.58,
+            "vf": 1.0,
+            "xf": 1.1,
+            "au": 1.1,
+            "unc": 2.0
+          },
+          "quote": "1981 Mo Photo 250 573 000 $ 0.58 $ 0.58 $ 0.58 $ 1.00 $ 1.10 $ 1.10 $ 2.00"
+        }
+      }
+    },
+    "MX.X.5-centavos": {
+      "numista": 953,
+      "url": "https://en.numista.com/catalogue/pieces953.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1969 Mo": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.12,
+            "f": 0.21,
+            "vf": 0.31,
+            "xf": 0.31,
+            "au": 0.48,
+            "unc": 0.6
+          },
+          "quote": "1969 Mo Photo 210 492 000 $ 0.11 $ 0.12 $ 0.21 $ 0.31 $ 0.31 $ 0.48 $ 0.60"
+        }
+      }
+    },
+    "MX.X.50-centavos": {
+      "numista": 583,
+      "url": "https://en.numista.com/catalogue/pieces583.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009 Mo": {
+          "prices": {
+            "f": 0.14,
+            "vf": 0.22,
+            "xf": 0.24,
+            "au": 0.27,
+            "unc": 0.33
+          },
+          "quote": "2009 Mo 90 602 000 $ 0.14 $ 0.22 $ 0.24 $ 0.27 $ 0.33"
+        }
+      }
+    },
+    "MX.X.500-pesos": {
+      "numista": 819,
+      "url": "https://en.numista.com/catalogue/pieces819.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1988 Mo": {
+          "prices": {
+            "g": 0.25,
+            "vg": 0.25,
+            "f": 0.25,
+            "vf": 0.5,
+            "xf": 1.0,
+            "au": 1.1,
+            "unc": 2.2
+          },
+          "quote": "1988 Mo 230 000 000 $ 0.25 $ 0.25 $ 0.25 $ 0.50 $ 1.00 $ 1.10 $ 2.20"
+        },
+        "1989 Mo": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.14,
+            "f": 0.36,
+            "vf": 0.36,
+            "xf": 0.96,
+            "au": 0.96
+          },
+          "quote": "1989 Mo 40 000 000 $ 0.14 $ 0.14 $ 0.36 $ 0.36 $ 0.96 $ 0.96"
+        }
+      }
+    },
+    "NG.KM.10.1": {
+      "numista": 4461,
+      "url": "https://en.numista.com/catalogue/pieces4461.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1976": {
+          "prices": {
+            "g": 0.18,
+            "vg": 0.29,
+            "f": 0.45,
+            "vf": 0.64,
+            "xf": 0.8,
+            "au": 1.0,
+            "unc": 1.0
+          },
+          "quote": "1976 Photo 7 000 000 $ 0.18 $ 0.29 $ 0.45 $ 0.64 $ 0.80 $ 1.00 $ 1.00"
+        }
+      }
+    },
+    "NL.KM.107.2": {
+      "numista": 1070,
+      "url": "https://en.numista.com/catalogue/pieces1070.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1892": {
+          "prices": {
+            "vg": 1.6,
+            "f": 1.6,
+            "vf": 1.6,
+            "xf": 1.6,
+            "au": 1.6
+          },
+          "quote": "1892 5 000 000 $ 1.60 $ 1.60 $ 1.60 $ 1.60 $ 1.60"
+        }
+      }
+    },
+    "NL.KM.170": {
+      "numista": 2562,
+      "url": "https://en.numista.com/catalogue/pieces2562.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1948": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.21,
+            "f": 0.22,
+            "vf": 0.23,
+            "xf": 0.31,
+            "au": 0.5,
+            "unc": 2.6
+          },
+          "quote": "1948 Fish Photo 175 000 000 $ 0.13 $ 0.21 $ 0.22 $ 0.23 $ 0.31 $ 0.50 $ 2.60"
+        }
+      }
+    },
+    "NL.KM.184": {
+      "numista": 737,
+      "url": "https://en.numista.com/catalogue/pieces737.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1967": {
+          "prices": {
+            "vg": 7.3,
+            "f": 7.4,
+            "vf": 7.4,
+            "xf": 7.8,
+            "au": 8.6,
+            "unc": 12.0
+          },
+          "quote": "1967 Fish Photo 7 000 000 $ 7.30 $ 7.40 $ 7.40 $ 7.80 $ 8.60 $ 12"
+        }
+      }
+    },
+    "NL.KM.204": {
+      "numista": 731,
+      "url": "https://en.numista.com/catalogue/pieces731.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1996": {
+          "prices": {
+            "vg": 0.12,
+            "f": 0.12,
+            "vf": 0.17,
+            "xf": 0.2,
+            "au": 0.21,
+            "unc": 0.76
+          },
+          "quote": "1996 Bow and arrow Photo 24 840 000 $ 0.12 $ 0.12 $ 0.17 $ 0.20 $ 0.21 $ 0.76"
+        }
+      }
+    },
+    "NL.KM.234": {
+      "numista": 145,
+      "url": "https://en.numista.com/catalogue/pieces145.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2000": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.01,
+            "f": 0.01,
+            "vf": 0.01,
+            "xf": 0.02,
+            "au": 0.06,
+            "unc": 0.33
+          },
+          "quote": "2000 Bow and arrow with star 276 800 000 $ 0.01 $ 0.01 $ 0.01 $ 0.01 $ 0.02 $ 0.06 $ 0.33"
+        }
+      }
+    },
+    "NL.KM.236": {
+      "numista": 147,
+      "url": "https://en.numista.com/catalogue/pieces147.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2000": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.07,
+            "au": 0.07,
+            "unc": 0.56
+          },
+          "quote": "2000 Bow and arrow with star 184 200 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.07 $ 0.07 $ 0.56"
+        }
+      }
+    },
+    "NL.KM.239": {
+      "numista": 149,
+      "url": "https://en.numista.com/catalogue/pieces149.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2001": {
+          "prices": {
+            "g": 0.22,
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.22,
+            "au": 0.22,
+            "unc": 0.67
+          },
+          "quote": "2001 Vine leaf and grapes 97 600 000 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.22 $ 0.67"
+        }
+      }
+    },
+    "NL.KM.241": {
+      "numista": 152,
+      "url": "https://en.numista.com/catalogue/pieces152.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "g": 2.2,
+            "vg": 2.2,
+            "f": 2.2,
+            "vf": 2.2,
+            "xf": 2.2,
+            "au": 2.8,
+            "unc": 3.4
+          },
+          "quote": "2002 Vine leaf and grapes with star 37 200 000 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 2.20 $ 2.80 $ 3.40"
+        }
+      }
+    },
+    "NL.KM.346": {
+      "numista": 54953,
+      "url": "https://en.numista.com/catalogue/pieces54953.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2014": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.12,
+            "unc": 0.6
+          },
+          "quote": "2014 Sailboat 30 000 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.12 $ 0.60"
+        }
+      }
+    },
+    "NO.KM.460": {
+      "numista": 1442,
+      "url": "https://en.numista.com/catalogue/pieces1442.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1998": {
+          "prices": {
+            "vg": 0.22,
+            "f": 0.22,
+            "vf": 0.22,
+            "xf": 0.28,
+            "au": 0.44,
+            "unc": 1.2
+          },
+          "quote": "1998 JEJ 30 898 003 $ 0.22 $ 0.22 $ 0.22 $ 0.28 $ 0.44 $ 1.20"
+        },
+        "2000 crossed hammers": {
+          "prices": {
+            "vg": 0.11,
+            "f": 0.18,
+            "vf": 0.18,
+            "xf": 0.21,
+            "au": 0.45,
+            "unc": 1.3
+          },
+          "quote": "2000 JEJ Photo 18 966 552 $ 0.11 $ 0.18 $ 0.18 $ 0.21 $ 0.45 $ 1.30"
+        }
+      }
+    },
+    "PH.KM.198": {
+      "numista": 3752,
+      "url": "https://en.numista.com/catalogue/pieces3752.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1971": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.09,
+            "f": 0.16,
+            "vf": 0.25,
+            "xf": 0.28,
+            "au": 0.37,
+            "unc": 0.58
+          },
+          "quote": "1971 80 000 000 $ 0.08 $ 0.09 $ 0.16 $ 0.25 $ 0.28 $ 0.37 $ 0.58"
+        }
+      }
+    },
+    "PH.KM.242.1": {
+      "numista": 2461,
+      "url": "https://en.numista.com/catalogue/pieces2461.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1984 BSP": {
+          "prices": {
+            "g": 0.18,
+            "vg": 0.18,
+            "f": 0.18,
+            "vf": 0.51,
+            "xf": 0.54,
+            "au": 0.79,
+            "unc": 1.5
+          },
+          "quote": "1984 121 408 000 $ 0.18 $ 0.18 $ 0.18 $ 0.51 $ 0.54 $ 0.79 $ 1.50"
+        }
+      }
+    },
+    "PH.X.1-piso": {
+      "numista": 1681,
+      "url": "https://en.numista.com/catalogue/pieces1681.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1997": {
+          "prices": {
+            "g": 0.11,
+            "vg": 0.11,
+            "f": 0.16,
+            "vf": 0.26,
+            "xf": 0.38,
+            "au": 0.48
+          },
+          "quote": "1997 PI $ 0.11 $ 0.11 $ 0.16 $ 0.26 $ 0.38 $ 0.48"
+        }
+      }
+    },
+    "PT.KM.744": {
+      "numista": 157,
+      "url": "https://en.numista.com/catalogue/pieces157.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2002": {
+          "prices": {
+            "g": 0.23,
+            "vg": 0.23,
+            "f": 0.23,
+            "vf": 0.23,
+            "xf": 0.23,
+            "au": 0.23,
+            "unc": 0.45
+          },
+          "quote": "2002 INCM 147 411 038 $ 0.23 $ 0.23 $ 0.23 $ 0.23 $ 0.23 $ 0.23 $ 0.45"
+        }
+      }
+    },
+    "SE.KM.826a": {
+      "numista": 1516,
+      "url": "https://en.numista.com/catalogue/pieces1516.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1973": {
+          "prices": {
+            "g": 0.13,
+            "vg": 0.17,
+            "f": 0.22,
+            "vf": 0.28,
+            "xf": 0.28,
+            "au": 0.33
+          },
+          "quote": "1973 U ö 142 000 000 $ 0.13 $ 0.17 $ 0.22 $ 0.28 $ 0.28 $ 0.33"
+        }
+      }
+    },
+    "SG.KM.3": {
+      "numista": 1671,
+      "url": "https://en.numista.com/catalogue/pieces1671.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1973": {
+          "prices": {
+            "vg": 0.12,
+            "f": 0.13,
+            "vf": 0.18,
+            "xf": 0.22,
+            "au": 0.73,
+            "unc": 0.73
+          },
+          "quote": "1973 14 290 000 $ 0.12 $ 0.13 $ 0.18 $ 0.22 $ 0.73 $ 0.73"
+        }
+      }
+    },
+    "SG.KM.4": {
+      "numista": 975,
+      "url": "https://en.numista.com/catalogue/pieces975.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1967": {
+          "prices": {
+            "g": 0.15,
+            "vg": 0.15,
+            "f": 0.15,
+            "vf": 0.24,
+            "xf": 0.44,
+            "au": 0.52,
+            "unc": 0.79
+          },
+          "quote": "1967 Photo 36 500 000 $ 0.15 $ 0.15 $ 0.15 $ 0.24 $ 0.44 $ 0.52 $ 0.79"
+        }
+      }
+    },
+    "SK.KM.96": {
+      "numista": 5085,
+      "url": "https://en.numista.com/catalogue/pieces5085.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009": {
+          "prices": {
+            "g": 0.02,
+            "vg": 0.02,
+            "f": 0.02,
+            "vf": 0.02,
+            "xf": 0.03,
+            "au": 0.26,
+            "unc": 0.26
+          },
+          "quote": "2009 74 368 000 $ 0.02 $ 0.02 $ 0.02 $ 0.02 $ 0.03 $ 0.26 $ 0.26 68%"
+        }
+      }
+    },
+    "SK.X.5-euro-cent": {
+      "numista": 5086,
+      "url": "https://en.numista.com/catalogue/pieces5086.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2009 MK": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.06,
+            "f": 0.06,
+            "vf": 0.06,
+            "xf": 0.06,
+            "au": 0.28,
+            "unc": 0.28
+          },
+          "quote": "2009 78 098 000 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.06 $ 0.28 $ 0.28"
+        }
+      }
+    },
+    "SU.Y.126a": {
+      "numista": 767,
+      "url": "https://en.numista.com/catalogue/pieces767.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1962": {
+          "prices": {
+            "g": 0.01,
+            "vg": 0.08,
+            "f": 0.23,
+            "vf": 0.71,
+            "xf": 0.92,
+            "au": 1.0,
+            "unc": 1.9
+          },
+          "quote": "1962 $ 0.01 $ 0.08 $ 0.23 $ 0.71 $ 0.92 $ 1.00 $ 1.90"
+        },
+        "1974": {
+          "prices": {
+            "g": 0.17,
+            "vg": 0.17,
+            "f": 0.17,
+            "vf": 0.17,
+            "xf": 0.17,
+            "au": 0.17,
+            "unc": 0.48
+          },
+          "quote": "1974 $ 0.17 $ 0.17 $ 0.17 $ 0.17 $ 0.17 $ 0.17 $ 0.48"
+        }
+      }
+    },
+    "SU.Y.93": {
+      "numista": 4042,
+      "url": "https://en.numista.com/catalogue/pieces4042.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1931": {
+          "prices": {
+            "g": 0.15,
+            "vg": 0.56,
+            "f": 0.71,
+            "vf": 0.71,
+            "xf": 2.2
+          },
+          "quote": "1931 121 168 000 $ 0.15 $ 0.56 $ 0.71 $ 0.71 $ 2.20"
+        }
+      }
+    },
+    "SU.Y.97": {
+      "numista": 5269,
+      "url": "https://en.numista.com/catalogue/pieces5269.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1932": {
+          "prices": {
+            "g": 0.17,
+            "vg": 0.44,
+            "f": 1.1,
+            "vf": 1.1,
+            "xf": 1.8,
+            "au": 2.9,
+            "unc": 30.0
+          },
+          "quote": "1932 Photo 136 046 000 $ 0.17 $ 0.44 $ 1.10 $ 1.10 $ 1.80 $ 2.90 $ 30"
+        }
+      }
+    },
+    "TH.KM.183": {
+      "numista": 1106,
+      "url": "https://en.numista.com/catalogue/pieces1106.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2006": {
+          "prices": {
+            "g": 0.05,
+            "vg": 0.15,
+            "f": 0.15,
+            "vf": 0.15,
+            "xf": 0.2,
+            "au": 0.2
+          },
+          "quote": "2549 (2006) 778 761 000 $ 0.15 $ 0.15 $ 0.15 $ 0.75 $ 1.00"
+        }
+      }
+    },
+    "TR.KM.1241": {
+      "numista": 6165,
+      "url": "https://en.numista.com/catalogue/pieces6165.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2011": {
+          "prices": {
+            "g": 0.09,
+            "vg": 0.11,
+            "f": 0.11,
+            "vf": 0.11,
+            "xf": 0.11,
+            "au": 0.13,
+            "unc": 0.51
+          },
+          "quote": "2011 Photo 156 279 000 $ 0.09 $ 0.11 $ 0.11 $ 0.11 $ 0.11 $ 0.13 $ 0.51"
+        }
+      }
+    },
+    "TT.KM.31": {
+      "numista": 3463,
+      "url": "https://en.numista.com/catalogue/pieces3463.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2016": {
+          "prices": {
+            "vf": 0.28,
+            "xf": 0.28
+          },
+          "quote": "2016 $ 0.28 $ 0.28"
+        }
+      }
+    },
+    "TT.KM.32": {
+      "numista": 1159,
+      "url": "https://en.numista.com/catalogue/pieces1159.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2014": {
+          "prices": {
+            "vf": 0.23,
+            "xf": 0.23,
+            "au": 0.36,
+            "unc": 0.44
+          },
+          "quote": "2014 $ 0.23 $ 0.23 $ 0.36 $ 0.44"
+        }
+      }
+    },
+    "TW.KM.551": {
+      "numista": 966,
+      "url": "https://en.numista.com/catalogue/pieces966.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2008": {
+          "prices": {
+            "g": 0.08,
+            "vg": 0.21,
+            "f": 0.21,
+            "vf": 0.21,
+            "xf": 0.34
+          },
+          "quote": "(2008) $ 0.08 $ 0.21 $ 0.21 $ 0.21 $ 0.34"
+        }
+      }
+    },
+    "US.KM.195": {
+      "numista": 52,
+      "url": "https://en.numista.com/catalogue/pieces52.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1957": {
+          "prices": {
+            "g": 3.2,
+            "vg": 3.2,
+            "f": 3.2,
+            "vf": 3.8,
+            "xf": 4.0,
+            "au": 4.7,
+            "unc": 6.8
+          },
+          "quote": "1957 161 400 000 $ 3.20 $ 3.20 $ 3.20 $ 3.80 $ 4.00 $ 4.70 $ 6.80"
+        }
+      }
+    },
+    "US.KM.204": {
+      "numista": 56,
+      "url": "https://en.numista.com/catalogue/pieces56.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1976": {
+          "prices": {
+            "g": 0.26,
+            "vg": 0.28,
+            "f": 0.28,
+            "vf": 0.37,
+            "xf": 0.67,
+            "au": 0.79,
+            "unc": 1.2
+          },
+          "quote": "1976 Photo 809 784 016 $ 0.26 $ 0.28 $ 0.28 $ 0.37 $ 0.67 $ 0.79 $ 1.20"
+        }
+      }
+    },
+    "VA.KM.52.1": {
+      "numista": 3935,
+      "url": "https://en.numista.com/catalogue/pieces3935.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1951": {
+          "prices": {
+            "f": 0.99,
+            "vf": 1.1,
+            "xf": 1.5,
+            "au": 2.1,
+            "unc": 2.4
+          },
+          "quote": "1951 Photo 1 130 000 $ 0.99 $ 1.10 $ 1.50 $ 2.10 $ 2.40"
+        }
+      }
+    },
+    "VN-SOV.KM.1": {
+      "numista": 5904,
+      "url": "https://en.numista.com/catalogue/pieces5904.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1953": {
+          "prices": {
+            "vg": 0.48,
+            "f": 1.2,
+            "vf": 1.9,
+            "xf": 2.8,
+            "au": 3.4
+          },
+          "quote": "1953 15 000 000 $ 0.48 $ 1.20 $ 1.90 $ 2.80 $ 3.40"
+        }
+      }
+    },
+    "VN.KM.71": {
+      "numista": 2104,
+      "url": "https://en.numista.com/catalogue/pieces2104.html",
+      "currency_shown": "USD",
+      "issues": {
+        "2003": {
+          "prices": {
+            "g": 0.16,
+            "vg": 0.43,
+            "f": 0.45,
+            "vf": 0.5,
+            "xf": 0.67,
+            "au": 0.72,
+            "unc": 1.4
+          },
+          "quote": "2003 250 000 000 $ 0.16 $ 0.43 $ 0.45 $ 0.50 $ 0.67 $ 0.72 $ 1.40"
+        }
+      }
+    },
+    "YU.KM.86": {
+      "numista": 2417,
+      "url": "https://en.numista.com/catalogue/pieces2417.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1984": {
+          "prices": {
+            "g": 0.06,
+            "vg": 0.07,
+            "f": 0.11,
+            "vf": 0.13,
+            "xf": 0.17,
+            "au": 0.19,
+            "unc": 0.42
+          },
+          "quote": "1984 172 185 000 $ 0.06 $ 0.07 $ 0.11 $ 0.13 $ 0.17 $ 0.19 $ 0.42"
+        }
+      }
+    },
+    "YU.X.50-para": {
+      "numista": 2006,
+      "url": "https://en.numista.com/catalogue/pieces2006.html",
+      "currency_shown": "USD",
+      "issues": {
+        "1965": {
+          "prices": {
+            "g": 0.14,
+            "vg": 0.14,
+            "f": 0.17,
+            "vf": 0.17,
+            "xf": 0.22,
+            "au": 0.69,
+            "unc": 0.69
+          },
+          "quote": "1965 Photo 44 850 000 $ 0.14 $ 0.14 $ 0.17 $ 0.17 $ 0.22 $ 0.69 $ 0.69 KM# 46.1"
+        }
+      }
+    }
+  },
+  "not_shown": [
+    {
+      "type": "BS.X.25-cents",
+      "numista": 9352,
+      "issue": "1984",
+      "why": "Opened https://en.numista.com/catalogue/pieces9352.html; the Manage my collection table lists '1984 FM | 1 036 | Proof' with no USD price estimates in any grade column."
+    },
+    {
+      "type": "SA.KM.20",
+      "numista": 2940,
+      "issue": "1958",
+      "why": "Opened https://en.numista.com/catalogue/pieces2940.html; the Manage my collection table lists only '1376 (1957)' and '1378 (1959)' (AH 1378 spans 1958–1959), with no row labeled 1958."
+    }
+  ]
+}
