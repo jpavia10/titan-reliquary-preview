@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-05T16:00:12Z",
+ "updated": "2026-11-06T02:27:32Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -147,7 +147,9 @@
   "gemini-value-20261105": 1,
   "gemini-story-check-20261105": 1,
   "gemini-cite-20261105": 1,
-  "gemini-fill-20261105": 1
+  "gemini-fill-20261105": 1,
+  "gemini-fill-20261106": 1,
+  "grok-verify-20261106": 1
  },
  "assignments": [
   {
@@ -19285,9 +19287,13 @@
    "kind": "fill",
    "issued": "2026-10-24T07:28:18Z",
    "lease_until": "2026-11-05T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T02:27:32Z",
+   "result": {
+    "items": 12,
+    "closed": 4,
+    "left": 8
+   },
    "items": [
     {
      "item": "fill:HN.X.50-centavos",
@@ -19411,9 +19417,13 @@
    "kind": "fill",
    "issued": "2026-10-24T07:28:18Z",
    "lease_until": "2026-11-05T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-06T02:27:32Z",
+   "result": {
+    "items": 12,
+    "closed": 2,
+    "left": 10
+   },
    "items": [
     {
      "item": "fill:GT.KM.277.1",
@@ -19638,9 +19648,13 @@
    "kind": "verify",
    "issued": "2026-10-24T07:28:18Z",
    "lease_until": "2026-11-05T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T02:27:32Z",
+   "result": {
+    "items": 80,
+    "closed": 11,
+    "left": 69
+   },
    "items": [
     {
      "item": "verify:type:DE.X.spielmarke-20-gr:design.text",
@@ -20138,9 +20152,13 @@
    "kind": "verify",
    "issued": "2026-10-24T07:28:18Z",
    "lease_until": "2026-11-05T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-06T02:27:32Z",
+   "result": {
+    "items": 53,
+    "closed": 23,
+    "left": 30
+   },
    "items": [
     {
      "item": "verify:type:SU.Y.126a:design.text",
@@ -29533,6 +29551,288 @@
    ],
    "parts": 3,
    "pack": "HW-gemini-PACK-20261105b"
+  },
+  {
+   "id": "HW-gemini-fill-20261106-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-06T02:27:32Z",
+   "lease_until": "2026-11-16T02:27:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:IN.KM.92.2",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.146",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.189",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.65",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.73a",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.74",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": null
+    },
+    {
+     "item": "fill:KR.KM.103",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": null
+    },
+    {
+     "item": "fill:KR.KM.35.2",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.415",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.424",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261106-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-06T02:27:32Z",
+   "lease_until": "2026-11-13T02:27:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GT.KM.239.2:design.text",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:design.text",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.97:design.text",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.93:design.text",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.415:design.text",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.65:design.text",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.440:design.text",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.146:design.text",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.424:design.text",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.502:design.text",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.604:design.text",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:design.text",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.4:design.text",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.189:design.text",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.KM.198:design.text",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TT.KM.31:design.text",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JP.Y.73a:design.text",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JP.Y.74:design.text",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.936:design.text",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.103:design.text",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BR.KM.648.1:design.text",
+     "entity": "type",
+     "id": "BR.KM.648.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IN.KM.92.2:design.text",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TR.KM.1241:design.text",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX-CHI.KM.612:design.text",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:design.text",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CR.KM.214.2:design.text",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.170:design.text",
+     "entity": "type",
+     "id": "NL.KM.170",
+     "field": "design.text"
+    }
+   ]
   }
  ],
  "tried": {
@@ -31058,6 +31358,12 @@
     "assignment": "HW-grok-verify-20261014-2",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:US.KM.195:design.text": [
@@ -31074,6 +31380,12 @@
     "assignment": "HW-grok-verify-20261014-2",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:FR.KM.1289:design.text": [
@@ -31144,6 +31456,12 @@
     "assignment": "HW-grok-verify-20261014-2",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:VA.KM.52.1:design.text": [
@@ -31168,6 +31486,12 @@
     "assignment": "HW-grok-verify-20261014-2",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:NG.KM.10.1:design.text": [
@@ -31176,6 +31500,12 @@
     "assignment": "HW-grok-verify-20261014-2",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:DE.KM.212:design.text": [
@@ -31184,6 +31514,12 @@
     "assignment": "HW-grok-verify-20261014-2",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:FR.KM.925.1:design.text": [
@@ -31504,6 +31840,12 @@
     "assignment": "HW-grok-verify-20261015-1",
     "outcome": "attempted",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:DE.KM.255:design.text": [
@@ -31512,6 +31854,12 @@
     "assignment": "HW-grok-verify-20261015-1",
     "outcome": "attempted",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:FR.KM.1286:design.text": [
@@ -32194,6 +32542,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:VN.KM.71:denomination.value": [
@@ -32202,6 +32556,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C201:issue.year": [
@@ -32210,6 +32570,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C008:issue.mint_marks": [
@@ -32234,6 +32600,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:IT.KM.215:denomination.value": [
@@ -32242,6 +32614,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:KY.KM.132:denomination.value": [
@@ -32250,6 +32628,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C257:issue.mint_marks": [
@@ -32266,6 +32650,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C202:issue.year": [
@@ -32274,6 +32664,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C103:issue.mint_marks": [
@@ -32282,6 +32678,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C163:issue.mint_marks": [
@@ -32290,6 +32692,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C145:issue.year": [
@@ -32298,6 +32706,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:CL.KM.219.2:denomination.value": [
@@ -32306,6 +32720,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:KY.KM.88a:denomination.value": [
@@ -32314,6 +32734,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C211:issue.mint_marks": [
@@ -32322,6 +32748,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:CR.KM.214.2:denomination.value": [
@@ -32330,6 +32762,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C166:issue.year": [
@@ -32338,6 +32776,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C166:issue.mint_marks": [
@@ -32346,6 +32790,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C209:issue.mint_marks": [
@@ -32354,6 +32804,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C057:issue.year": [
@@ -32370,6 +32826,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C035:issue.year": [
@@ -32378,6 +32840,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:DE.KM.109.1:denomination.value": [
@@ -32386,6 +32854,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C249:issue.year": [
@@ -32394,6 +32868,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C032:issue.year": [
@@ -32402,6 +32882,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:GB.KM.989:denomination.value": [
@@ -32410,6 +32896,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:KY.KM.87:denomination.value": [
@@ -32418,6 +32910,12 @@
     "assignment": "HW-muse-verify-20261020-3",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C229:issue.year": [
@@ -32434,6 +32932,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C090:issue.mint_marks": [
@@ -32442,6 +32946,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C122:issue.mint_marks": [
@@ -32450,6 +32960,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C123:issue.mint_marks": [
@@ -32458,6 +32974,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C229:issue.mint_marks": [
@@ -32466,6 +32988,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C236:issue.mint_marks": [
@@ -32482,6 +33010,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:FR.KM.1410:denomination.value": [
@@ -32490,6 +33024,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:IT.KM.213:denomination.value": [
@@ -32498,6 +33038,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:MT.KM.129:denomination.value": [
@@ -32506,6 +33052,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C195:issue.year": [
@@ -32514,6 +33066,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C197:issue.year": [
@@ -32530,6 +33088,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C195:issue.mint_marks": [
@@ -32538,6 +33102,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C197:issue.mint_marks": [
@@ -32546,6 +33116,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C226:issue.mint_marks": [
@@ -32554,6 +33130,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:DE.KM.105:denomination.value": [
@@ -32562,6 +33144,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C045:issue.year": [
@@ -32570,6 +33158,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C052:issue.year": [
@@ -32594,6 +33188,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:ES.KM.1042:denomination.value": [
@@ -32602,6 +33202,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:FR.KM.1284:denomination.value": [
@@ -32610,6 +33216,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:MT.KM.128:denomination.value": [
@@ -32618,6 +33230,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:NL.KM.236:denomination.value": [
@@ -32626,6 +33244,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:NL.KM.346:denomination.value": [
@@ -32634,6 +33258,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:specimen:C034:issue.year": [
@@ -32682,6 +33312,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:DE.KM.208:denomination.value": [
@@ -32690,6 +33326,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:FR.KM.1283:denomination.value": [
@@ -32698,6 +33340,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:IT.KM.211:denomination.value": [
@@ -32706,6 +33354,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:SK.KM.96:denomination.value": [
@@ -32714,6 +33368,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:IE.KM.32:denomination.value": [
@@ -32722,6 +33382,12 @@
     "assignment": "HW-muse-verify-20261020-4",
     "outcome": "left out",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:HN.X.50-centavos": [
@@ -32730,6 +33396,12 @@
     "assignment": "HW-muse-fill-20261023-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:MX.X.50-centavos": [
@@ -32738,6 +33410,12 @@
     "assignment": "HW-muse-fill-20261023-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:PH.X.1-piso": [
@@ -32746,6 +33424,12 @@
     "assignment": "HW-muse-fill-20261023-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:SK.X.5-euro-cent": [
@@ -32762,6 +33446,12 @@
     "assignment": "HW-muse-fill-20261023-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:AT.X.2-groschen": [
@@ -32786,6 +33476,12 @@
     "assignment": "HW-muse-fill-20261023-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:MX-CHI.KM.612": [
@@ -32794,6 +33490,12 @@
     "assignment": "HW-muse-fill-20261023-2",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:CH.KM.24a.3": [
@@ -32832,6 +33534,12 @@
     "assignment": "HW-muse-fill-20261023-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:GT.KM.239.2": [
@@ -32840,6 +33548,12 @@
     "assignment": "HW-muse-fill-20261023-3",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-fill-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "fill:GT.KM.277.1": [
@@ -33134,6 +33848,12 @@
     "assignment": "HW-muse-verify-20261023-1",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:HN.X.50-centavos:design.text": [
@@ -33142,6 +33862,12 @@
     "assignment": "HW-muse-verify-20261023-1",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:PH.X.1-piso:design.text": [
@@ -33150,6 +33876,12 @@
     "assignment": "HW-muse-verify-20261023-1",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:YU.X.50-para:design.text": [
@@ -33158,6 +33890,12 @@
     "assignment": "HW-muse-verify-20261023-1",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "verify:type:SK.X.5-euro-cent:design.text": [
@@ -33166,6 +33904,12 @@
     "assignment": "HW-muse-verify-20261023-1",
     "outcome": "attempted",
     "ts": "2026-10-24T07:28:18Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ],
   "mint:C298": [
@@ -34434,6 +35178,270 @@
     "assignment": "HW-gemini-cite-20261030-1",
     "outcome": "attempted",
     "ts": "2026-11-04T15:27:14Z"
+   }
+  ],
+  "verify:type:SU.Y.97:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:JP.Y.73a:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.KM.604:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX-CHI.KM.612:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:GT.KM.239.2:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:VN-SOV.KM.1:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:CH.KM.21a.3:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:NL.KM.107.2:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:CH.KM.24a.3:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:SU.Y.93:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-2",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:SU.Y.126a:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:BM.X.10-cents:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.KM.415:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:JM.KM.65:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.KM.440:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:JM.KM.146:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:CR.KM.214.2:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.KM.424:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.KM.502:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:KR.KM.4:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:KR.KM.35.2:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:JM.KM.189:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:PH.KM.198:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:TT.KM.31:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:NL.KM.170:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "attempted",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:JP.Y.74:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.KM.936:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:MX.X.10-centavos:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:TW.KM.551:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:KR.KM.103:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:BR.KM.648.1:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:IN.KM.92.2:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
+   }
+  ],
+  "verify:type:TR.KM.1241:design.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261024-3",
+    "outcome": "left out",
+    "ts": "2026-11-06T02:27:32Z"
    }
   ]
  },

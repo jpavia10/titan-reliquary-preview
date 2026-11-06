@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-05T16:00:12Z",
+ "updated": "2026-11-06T02:27:32Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -1966,6 +1966,1196 @@
      "inputs": [
       "C323_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261106-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-06T02:27:32Z",
+   "lease_until": "2026-11-13T02:27:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GT.KM.239.2:design.text",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:design.text",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.97:design.text",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.93:design.text",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.415:design.text",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.65:design.text",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.440:design.text",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.146:design.text",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.424:design.text",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.502:design.text",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.604:design.text",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:design.text",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.4:design.text",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.189:design.text",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.KM.198:design.text",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TT.KM.31:design.text",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JP.Y.73a:design.text",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JP.Y.74:design.text",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.936:design.text",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.103:design.text",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BR.KM.648.1:design.text",
+     "entity": "type",
+     "id": "BR.KM.648.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IN.KM.92.2:design.text",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TR.KM.1241:design.text",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX-CHI.KM.612:design.text",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:design.text",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CR.KM.214.2:design.text",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.170:design.text",
+     "entity": "type",
+     "id": "NL.KM.170",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:GT.KM.239.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "design.text",
+     "coins": [
+      "C235"
+     ],
+     "label": "design of C235 · Guatemala · 1934 · 10 centavos · GTQ",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "arms · Quetzal · crossed rifles/swords · laurel · REPUBLICA DE GUATEMALA · 0.720 · 1934 // Quetzal on column · LEY DE 26 DE NOVIEMBRE DE 1924 · 10 · CENTAVOS",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "design.text",
+     "coins": [
+      "C077"
+     ],
+     "label": "design of C077 · Switzerland · 1991 · 2 francs · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch · 23 stars (canton of Jura, from 1983), medal alignment",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "design.text",
+     "coins": [
+      "C255"
+     ],
+     "label": "design of C255 · Netherlands · 1892 · 1 cent · NLG",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse crowned rampant lion with sword & arrows in beaded circle · KONINGRIJK DER NEDERLANDEN · date · reverse 1 CENT in wreath",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text",
+     "coins": [
+      "C094"
+     ],
+     "label": "design of C094 · Switzerland · 1986 · 1 franc · CHF",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "standing Helvetia within 23 stars (obv) · value in oak + alpine wreath (rev)",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SU.Y.97:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "design.text",
+     "coins": [
+      "C261"
+     ],
+     "label": "design of C261 · USSR · 1932 · 15 kopecks · SUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse USSR arms · reverse worker with hammer left · shield 15 · КОП. · date · rim СОЮЗ СОВЕТСКИХ СОЦИАЛИСТИЧЕСКИХ РЕСПУБЛИК",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SU.Y.93:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "design.text",
+     "coins": [
+      "C260"
+     ],
+     "label": "design of C260 · USSR · 1931 · 3 kopecks · SUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse USSR arms hammer & sickle · reverse big 3 · КОПЕЙКИ · wheat ears · 1931",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text",
+     "coins": [
+      "C042",
+      "C044"
+     ],
+     "label": "design of C042 · USSR · 1962 · 1 kopek · SUR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse USSR arms СССР (15-ribbon type 1961–91) · reverse big 1 КОПЕЙКА · wheat ears · date",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text",
+     "coins": [
+      "C277"
+     ],
+     "label": "design of C277 · Bermuda · 2004 · 10 cents · BMD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "The obverse shows Queen Elizabeth the Second wearing a tiara and facing right, with the words Elizabeth II Bermuda. The reverse shows a Bermuda lily flower, with the date above it and the words Ten Cents below.",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.415:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "design.text",
+     "coins": [
+      "C259"
+     ],
+     "label": "design of C259 · Mexico · 1940 · 1 centavo · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "national arms / ESTADOS UNIDOS MEXICANOS (obv) · value big 1 over shaded ¢ monogram · laurel wreath · 1940",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.65:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "design.text",
+     "coins": [
+      "C069"
+     ],
+     "label": "design of C069 · Jamaica · 1975 · 50 cents · JMD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "arms · crocodile · Taino supporters · OUT OF MANY, ONE PEOPLE · JAMAICA · FIFTY CENTS · 1975",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.440:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "design.text",
+     "coins": [
+      "C244",
+      "C257"
+     ],
+     "label": "design of C244 · Mexico · 1964 · 20 centavos · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztaccíhuatl · radiant Phrygian cap · big 20 · CENTAVOS · date · Mo · national arms obverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.146:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "design.text",
+     "coins": [
+      "C253"
+     ],
+     "label": "design of C253 · Jamaica · 1993 · 10 cents · JMD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "arms · crocodile crest · Taino supporters · pineapple cross · OUT OF MANY, ONE PEOPLE · JAMAICA · TEN CENTS · 1993",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.424:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "design.text",
+     "coins": [
+      "C166"
+     ],
+     "label": "design of C166 · Mexico · 1944 · 5 centavos · MXP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse Josefa Ortiz de Domínguez left · CINCO CENTAVOS · 1944 · Mo · reverse national arms",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.502:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": "design.text",
+     "coins": [
+      "C209"
+     ],
+     "label": "design of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "value side $ · big 5 · 1987 · Mo · scroll ornament · beaded rim · national arms reverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.604:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "design.text",
+     "coins": [
+      "C236",
+      "C315"
+     ],
+     "label": "design of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "value side $ · big 2 · 2010 · Mo · Aztec Sun Stone / Ring of Days glyphs on outer ring · national arms reverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "design.text",
+     "coins": [
+      "C210",
+      "C307",
+      "C311",
+      "C335"
+     ],
+     "label": "design of C210 · South Korea · 2000 · 100 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.4:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "design.text",
+     "coins": [
+      "C247"
+     ],
+     "label": "design of C247 · South Korea · 1966 · 1 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "Rose of Sharon (Hibiscus syriacus) · 일원 · 한국은행 // THE BANK OF KOREA · big 1 · 1966",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.189:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "design.text",
+     "coins": [
+      "C219"
+     ],
+     "label": "design of C219 · Jamaica · 2015 · 1 dollar · JMD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "reverse arms · crocodile crest · Taino supporters · JAMAICA · ONE DOLLAR · 2015 · heptagon",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:PH.KM.198:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "design.text",
+     "coins": [
+      "C246"
+     ],
+     "label": "design of C246 · Philippines · 1971 · 10 sentimos · PHP",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "portrait Francisco Baltazar (Balagtas) left · SAMPUNG SENTIMOS · big 10 · arms / date reverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TT.KM.31:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "design.text",
+     "coins": [
+      "C207"
+     ],
+     "label": "design of C207 · Trinidad and Tobago · 2016 · 10 cents · TTD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse arms · Scarlet Ibis + Cocrico · REPUBLIC OF TRINIDAD AND TOBAGO · 2016 · motto ribbon · denom 10 on reverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.Y.73a:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "design.text",
+     "coins": [
+      "C220",
+      "C270"
+     ],
+     "label": "design of C220 · Japan · 1982 · 10 yen · JPY",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "Phoenix Hall / Byodoin temple · 日本国 · 十円 // big 10 · bay laurel (evergreen, tokiwa) wreath · Showa regnal-year date (昭和 57 = 1982, 63 = 1988)",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.Y.74:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "design.text",
+     "coins": [
+      "C206",
+      "C222"
+     ],
+     "label": "design of C206 · Japan · 1971 · 1 yen · JPY",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.936:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "design.text",
+     "coins": [
+      "C271"
+     ],
+     "label": "design of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "value side (shown) 2013 at top · large 50¢ center · Mo mint mark below · stylized Aztec Calendar Stone Anillo del Sacrificio (Ring of Sacrifice) geometric border of feathers/blade-handles · national arms / ESTADOS UNIDOS MEXICANOS reverse not shown",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "design.text",
+     "coins": [
+      "C274",
+      "C323"
+     ],
+     "label": "design of C274 · Mexico · 1995 · 10 centavos · MXN",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the words Estados Unidos Mexicanos. The reverse shows stylized rays from the Aztec sun stone around the denomination and mint mark.",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text",
+     "coins": [
+      "C200"
+     ],
+     "label": "design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse Chiang Kai-shek left · 中華民國 and the year (C200: 九十七年 = ROC year 97 = 2008) · reverse 壹圓 · 1",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.103:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "design.text",
+     "coins": [
+      "C266",
+      "C267",
+      "C314"
+     ],
+     "label": "design of C266 · South Korea · 2012 · 10 won · KRW",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse Dabotap Pagoda (십 원) · designer unknown",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BR.KM.648.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BR.KM.648.1",
+     "field": "design.text",
+     "coins": [
+      "C047"
+     ],
+     "label": "design of C047 · Brazil · 2006 · 5 centavos · BRL",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse Tiradentes portrait · BRASIL · dove & Inconfidência triangle · reverse Southern Cross globe · 5 CENTAVOS · 2006",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IN.KM.92.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": "design.text",
+     "coins": [
+      "C203"
+     ],
+     "label": "design of C203 · India · 2001 · 1 rupee · INR",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion Capital reverse",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TR.KM.1241:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": "design.text",
+     "coins": [
+      "C208"
+     ],
+     "label": "design of C208 · Turkey · 2011 · 10 kuruş · TRY",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse Atatürk portrait / state legend · reverse crescent+star · big 10 · KURUŞ · date · Rumi-style border",
+      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": true
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX-CHI.KM.612:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "design.text",
+     "coins": [
+      "C114"
+     ],
+     "label": "design of C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "reverse large 5 pierced by vertical sword/spear · centavo monogram · EJERCITO CONSTITUCIONALISTA · 1914 · obverse Liberty cap · REPUBLICA MEXICANA · E. DE CHIHA · often SALAZAR",
+      "their_source": "https://en.numista.com/32634 and C114_Mexico_Chihuahua_1914_5Centavos_rev.jpeg (Numista #32634 KM# 612 Obverse: Phrygian Liberty cap and ray",
+      "links": [
+       "https://en.numista.com/32634",
+       "https://en.numista.com/catalogue/pieces32634.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "design.text",
+     "coins": [
+      "C258"
+     ],
+     "label": "design of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Claude",
+      "ledger": false,
+      "value": "obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Georges Bazor) · reverse rice plant · VIỆT-NAM · 20 SU (engraver Lucien Georges Bazor)",
+      "their_source": "disagreement D0127 settled for the claim (Gemini): the phone photo photos/p1/C258_rev.webp shows one rice plant dividing 20 SU under VIỆT-NA",
+      "links": [
+       "https://ngccoin.com/price-guide/world/viet-nam-state-of-south-viet-nam-20-su-km-2-1953-cuid-1078927-duid-1602770",
+       "https://coinvarieties.com/index.php/South_Vietnam_1953(a"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CR.KM.214.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "design.text",
+     "coins": [
+      "C016"
+     ],
+     "label": "design of C016 · Costa Rica · 1985 · 5 colones · CRC",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse national arms in heptagon · AMERICA CENTRAL · large ship · reverse 5 COLONES · B.C.C.R. · coffee + Braille",
+      "their_source": "https://en.numista.com/catalogue/pieces69.html (Obverse: arms of Costa Rica with COSTA RICA AMERICA CENTRAL REPUBLICA DE COSTA RICA 1985 wit",
+      "links": [
+       "https://en.numista.com/catalogue/pieces69.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.170:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.170",
+     "field": "design.text",
+     "coins": [
+      "C198"
+     ],
+     "label": "design of C198 · Netherlands · 1948 · 1 cent · NLG",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "obverse WILHELMINA KONINGIN DER NEDERLANDEN · reverse 1 · CENT · date · fish + caduceus",
+      "their_source": "https://en.numista.com/catalogue/pieces2562.html (Obverse: Queen Wilhelmina facing left, WILHELMINA KONINGIN DER NEDERLANDEN; Reverse: 1, di",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2562.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }
