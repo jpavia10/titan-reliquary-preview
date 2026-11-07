@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-07 16:55 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-07 23:28 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,35 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### FIRST: the compact pack HW-gemini-PACK-20261105 (367 lines: 160 verify, 107 cite, 34 story, 66 price)  (fix list #92)
-
-Five of your sheets in one numbered pack, in your Drive sheet folder 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/' as 'HW-gemini-PACK-20261105 (part 1 of 8).txt' to '(part 8 of 8).txt' (it replaces the JSONL files of HW-gemini-verify-20261105-1, -2, HW-gemini-cite-20261104-1, HW-gemini-story-check-20261104-1 and HW-gemini-value-20261104-1). Every line has a code (V1-V160, C1-C107, S1-S34, P1-P66). For each part, save ONE file answers_gemini_HW-gemini-PACK-20261105_partN_YYYYMMDD-HHMM.jsonl in 'collection-incoming (AI change files)/' with exactly one JSON row per code of that part: {"line":"V12","verdict":"agree|differ|cannot","new":<only with differ>,"url":"<the exact page>","quote":"<the words on it>"}. The rules are on top of every part (part sizes: 47, 47, 52, 49, 47, 42, 53, 30 rows).
-
-**Done when:** 8 answer files, 367 rows, every row with an exact page and a quote (or cannot with where you looked). Claude converts them with tools/agents/compact_sheet.py: a row with no exact page, the sheet's example page, no quote, an agree on a BLIND or EMPTY line, or a differ that repeats the shown value is thrown out and listed in your FEEDBACK doc; planted wrong values you agree with count as misses.
-
-### Price every filled album hole: 890 coins Joseph owns, one cited guide price each  (fix list #64)
-
-The list is in your Drive sheet folder as 'PROJECT album_filled_prices_20261105 (part 1 of 6).txt' to '(part 6 of 6).txt' (179, 167, 165, 135, 126 and 118 rows; master list on GitHub: docs/agents/projects/album_filled_prices_20261105.json). For each slot: the PCGS or NGC Price Guide page for that exact date and mint (Canada: the NGC world page or the Numista entry), the VF-20 price (or face value with grade 'face (no circulated price listed)' when the guide lists no circulated price), and the price cell quoted. One file per part: prices_gemini_album-filled_partN_YYYYMMDD-HHMM.jsonl in 'collection-incoming (AI change files)/', one row per slot: {"slot":"A001-s001","price_usd":0.10,"grade":"VF-20","url":"...","quote":"VF20 0.10"}. Due 2026-11-20.
-
-**Done when:** 6 files, 890 rows. Claude re-reads 40 rows at random on the pages named; a part with 3 or more wrong prices is rejected whole. Accepted rows become collection/prices/album_values_gemini_*.json, the first cited value for the albums (today they are Grok's ledger estimates).
-
 ### NEXT: the six rooms after the first three (Supercell, Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire)  (fix list #128)
 
 Supercell is done (2026-10-31, 6 files, received). Five rooms left: Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire. Art request artreq_20261031-0400_room-layers-gemini-next6 in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Exactly the same method as task 17: the wide 16:9 photo from its prompt, then image edits of that same image for the upright version, the depth map, the light mask, the foreground on flat green and the background with the foreground removed. 36 files. Start once task 17's 18 files are saved.
 
 **Done when:** 36 images in 'art-incoming (AI images + video)/artreq_20261031-0400_room-layers-gemini-next6/' and the .DONE.txt next to the request
-
-### Numista price estimates for every coin we hold (268 issues of 173 types)  (fix list #62)
-
-Joseph wants you to do the Numista price work (2026-10-29). The list is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/numista_values_20261029.json (and in your Drive sheet folder as 'NUMISTA VALUES for Gemini (2026-10-29) part N of 3.json'): for each type, its exact Numista entry (url) and the issues we hold (year, then mint letter). Open that entry, find the price estimates for each of those issues, and copy them per grade (vg, f, vf, xf, au, unc) in US dollars exactly as the page shows them, with the row quoted. Never a search page, another catalogue or another year's row; never convert a currency (name it in currency_shown); never estimate. An issue the page shows no estimate for goes in not_shown with the reason. Save numista_values_gemini_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/reviews-incoming (AI deep reviews)/' in the answer_shape the list gives; save again after every 10 types under the same name.
-
-**Done when:** Every issue on the list has its prices or a not_shown line. Claude checks a sample against the entries; the rows then go to the appraiser in the research loop (a coin's value changes only through a cited change file).
-
-### Sound hunt: music and room sounds for your 16 themes (13 pieces of music, 80 field recordings)  (fix list #83)
-
-Every theme is getting its own room (a second space to be in the theme away from the collection) with its own soundscape, and more of its own recorded music. Your 16 themes are under agents.gemini in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json: for each, its mood, the music it already plays (music_have: never send those), how many more pieces it needs (music_needed) and the five sounds its room needs (field_needed: bed-1, bed-2 = long steady sounds; detail-1..3 = short events). Rules and the exact file shape: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/SOUND_HUNT.md (real recordings only: a microphone in a real place, or named people playing real instruments; a licence stated on the file's own page, quoted word for word: public domain, CC0, CC BY or CC BY-SA; Wikimedia Commons first, then NASA, NOAA, the US National Park Service sound gallery, the US military bands, Musopen, archive.org; never MIDI, synthesizer, virtual instrument, AI audio, Pixabay, Freesound, YouTube or BBC Sound Effects). Save sound_gemini_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'; save again every 10 finds under the same name; list every slot you could not fill in not_found with what you searched. Your list is also in Drive (you cannot open GitHub): 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/SOUND HUNT for Gemini (2026-10-29).json', and the rules in the same folder as 'SOUND HUNT rules (2026-10-29).md'.
-
-**Done when:** Every theme on your list has its music and its five room sounds, or a not_found line saying what you searched. Claude opens every page, checks the licence, runs the good ones through the intake and they become that theme's music and room sound.
 
 ### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
 
