@@ -1,70 +1,70 @@
 {
- "updated": "2026-11-07T16:39:36Z",
+ "updated": "2026-11-07T16:55:22Z",
  "pools": {
-  "cite": 49,
-  "story-check": 48,
+  "cite": 23,
+  "story-check": 14,
   "research": 1,
-  "value": 39,
+  "value": 1,
   "read-mint": 4,
-  "arbitrate": 13,
-  "fill": 55,
-  "verify": 385
+  "arbitrate": 19,
+  "fill": 53,
+  "verify": 371
  },
  "agents": {
   "claude": {
-   "confirmed": 347,
+   "confirmed": 372,
    "wrong": 3,
    "checks_done": 220,
    "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 350,
-   "error_rate": 0.009,
+   "checked_n": 375,
+   "error_rate": 0.008,
    "error_ci95": [
     0.003,
-    0.025
+    0.023
    ]
   },
   "grok": {
-   "confirmed": 1079,
+   "confirmed": 1111,
    "wrong": 16,
    "checks_done": 364,
    "disagreements_open": 4,
    "canaries_caught": 6,
    "canaries_missed": 0,
-   "checked_n": 1095,
-   "error_rate": 0.015,
+   "checked_n": 1127,
+   "error_rate": 0.014,
    "error_ci95": [
     0.009,
-    0.024
+    0.023
    ]
   },
   "gemini": {
-   "confirmed": 504,
+   "confirmed": 621,
    "wrong": 12,
-   "checks_done": 469,
-   "disagreements_open": 4,
-   "canaries_caught": 13,
+   "checks_done": 635,
+   "disagreements_open": 10,
+   "canaries_caught": 22,
    "canaries_missed": 0,
-   "checked_n": 516,
-   "error_rate": 0.023,
+   "checked_n": 633,
+   "error_rate": 0.019,
    "error_ci95": [
-    0.013,
-    0.04
+    0.011,
+    0.033
    ]
   },
   "muse": {
-   "confirmed": 710,
+   "confirmed": 798,
    "wrong": 17,
    "checks_done": 390,
-   "disagreements_open": 1,
+   "disagreements_open": 7,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 727,
-   "error_rate": 0.023,
+   "checked_n": 815,
+   "error_rate": 0.021,
    "error_ci95": [
-    0.015,
-    0.037
+    0.013,
+    0.033
    ]
   },
   "gemini-api": {
@@ -311,9 +311,9 @@
   "verify:type:YU.X.50-para:design.text"
  ],
  "open_assignments": {
-  "grok": 5,
-  "muse": 12,
-  "gemini": 19,
+  "grok": 7,
+  "muse": 11,
+  "gemini": 15,
   "chatgpt": 0,
   "gemini-api": 1
  }

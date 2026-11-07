@@ -65,6 +65,13 @@ class Compact(unittest.TestCase):
         t = CS.row_text("V1", ln, "verify")
         self.assertIn("BLIND", t); self.assertNotIn("20-pence", t); self.assertNotIn("GB.X", t)
 
+    def test_confidence_medium_becomes_med(self):
+        ln = line(entity="specimen", id="C305", field="value.confidence", old="low", new="low", source="FILL (value of C305)")
+        out, left = CS.convert([{"line": "P1", "verdict": "differ", "new": "medium", "url": "https://en.numista.com/catalogue/pieces972.html",
+                                 "quote": "VF price row for 1950"}], {"P1": ("HW-gemini-value-20261105-1", ln)}, "2026-11-07T10:00:00Z")
+        self.assertEqual(out["gemini"][0]["new"], "med", left)
+        self.assertIn("low | med | high", CS.FORMAT["value.confidence"])
+
     def test_fill_hint_keeps_brackets_inside_the_example(self):
         ln = line(field="design.designers", old=None, new=None,
                   source='FILL (C341 · DD · 1968): the exact entry URL (`new` = a list with each side in brackets, e.g. ["Arnold Machin (obverse)", '

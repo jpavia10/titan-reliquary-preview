@@ -66,7 +66,7 @@ FORMAT = {   # the form "new" must take, by field (the pipeline rejects any othe
     "composition.text": 'the alloy as the entry gives it, e.g. "copper-nickel (75% copper, 25% nickel)"',
     "composition.metal_class": "one of gold silver platinum palladium copper bronze brass nickel cupronickel aluminum steel plated steel zinc iron clad bimetallic other",
     "mintage": "a whole number (pieces struck for THAT year and mint), e.g. 34472000",
-    "value.est_usd": "a number in US dollars for this coin as photographed, e.g. 0.75", "value.confidence": "low | medium | high",
+    "value.est_usd": "a number in US dollars for this coin as photographed, e.g. 0.75", "value.confidence": "low | med | high",
     "period": "a short era name", "issue.mint_marks": 'a list of the letters on the coin, e.g. ["D"], or [] for none',
     "issue.year": "the year on the coin, a whole number", "denomination.value": "the number in the denomination, e.g. 25",
 }
@@ -197,6 +197,8 @@ def convert(rows, sheet_index, now):
             if "new" not in r or r.get("new") in (None, "") and not isinstance(shown, list): left.append((code, "differ without a new value")); continue
             new = _coerce(r["new"], ln.get("old") if ln.get("old") is not None else shown)
             if new == shown and not is_blind and shown not in (None, "", []): left.append((code, "differ repeats the shown value (use agree)")); continue
+        if ln.get("field") == "value.confidence" and isinstance(new, str):   # the schema says med; the 11-05 sheets' hint said medium
+            new = {"medium": "med", "mid": "med"}.get(new.strip().lower(), new.strip().lower())
         x = json.loads(json.dumps(ln))
         x["ts"] = now; x["new"] = new
         x["source"] = f"{url} (\"{quote}\")"

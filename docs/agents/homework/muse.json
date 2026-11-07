@@ -1,73 +1,7 @@
 {
  "agent": "muse",
- "updated": "2026-11-07T16:39:36Z",
+ "updated": "2026-11-07T16:55:22Z",
  "assignments": [
-  {
-   "id": "HW-muse-fill-20261028-1",
-   "agent": "muse",
-   "kind": "fill",
-   "issued": "2026-10-28T16:48:19Z",
-   "lease_until": "2026-11-07T16:48:19Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "fill:GT.KM.277.6a",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null
-    },
-    {
-     "item": "fill:JM.KM.190",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null
-    }
-   ],
-   "items_full": [
-    {
-     "item": "fill:GT.KM.277.6a",
-     "kind": "fill",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null,
-     "coins": [
-      "C202"
-     ],
-     "label": "C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces42670.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JM.KM.190",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null,
-     "coins": [
-      "C230"
-     ],
-     "label": "C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces14370.html"
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
   {
    "id": "HW-muse-arbitrate-20261101-1",
    "agent": "muse",
@@ -736,7 +670,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces1282.html"
      },
      "blind": false,
      "inputs": []
@@ -763,7 +697,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces3159.html"
      },
      "blind": false,
      "inputs": []
@@ -790,7 +724,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces2149.html"
      },
      "blind": false,
      "inputs": []
@@ -817,7 +751,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces1262.html"
      },
      "blind": false,
      "inputs": []
@@ -844,7 +778,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces7.html"
      },
      "blind": false,
      "inputs": []
@@ -871,7 +805,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces882.html"
      },
      "blind": false,
      "inputs": []
@@ -898,7 +832,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces5628.html"
      },
      "blind": false,
      "inputs": []
@@ -925,7 +859,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces870.html"
      },
      "blind": false,
      "inputs": []
@@ -952,7 +886,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces1457.html"
      },
      "blind": false,
      "inputs": []
@@ -979,7 +913,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces586.html"
      },
      "blind": false,
      "inputs": []
@@ -1006,7 +940,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces589.html"
      },
      "blind": false,
      "inputs": []
@@ -1033,7 +967,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces1439.html"
      },
      "blind": false,
      "inputs": []
@@ -1098,7 +1032,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces3282.html"
      },
      "blind": false,
      "inputs": []
@@ -1125,7 +1059,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces4077.html"
      },
      "blind": false,
      "inputs": []
@@ -1152,7 +1086,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces6862.html"
      },
      "blind": false,
      "inputs": []
@@ -1179,7 +1113,7 @@
        "obverse",
        "reverse"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/catalogue/pieces33337.html"
      },
      "blind": false,
      "inputs": []

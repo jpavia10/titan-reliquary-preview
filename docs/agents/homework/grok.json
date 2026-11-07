@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-07T16:39:36Z",
+ "updated": "2026-11-07T16:55:22Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -1472,6 +1472,3166 @@
        "by": "model:gemini",
        "source": "photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1984 Philippines 50 Sentimo has no mintmark; reverse photo C163_rev.jpeg shows eagle and '50 SENTIMO' with no mintmark",
        "ts": "2026-11-05T14:40:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261107-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-07T16:53:12Z",
+   "lease_until": "2026-11-14T16:53:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.4.mintage",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.4.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:catalogs",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:catalogs",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.1.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.3.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:catalogs",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:catalogs",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:issues.0.mintage",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:composition.text",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:composition.text",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:catalogs",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:issues.0.mintage",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:composition.text",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.3.mintage",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:catalogs",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:issues.0.mintage",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:composition.text",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:ruler",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:period",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:issues.0.mintage",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:composition.text",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:issues.1.mintage",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:composition.text",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:catalogs",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.26:issues.1.mintage",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:issues.0.mintage",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:issues.1.mintage",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:composition.text",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:composition.text",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:catalogs",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:issues.0.mintage",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:composition.text",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:composition.text",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:catalogs",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:issues.0.mintage",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:composition.text",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:catalogs",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:issues.0.mintage",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:composition.text",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:issues.5.mintage",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "issues.5.mintage"
+    },
+    {
+     "item": "verify:type:MX.KM.604:issues.2.mintage",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:catalogs",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:catalogs",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:issues.0.mintage",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.2.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:issues.0.mintage",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:composition.text",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:composition.text",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:catalogs",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:issues.0.mintage",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:issues.0.mintage",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:composition.text",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:composition.text",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:period",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:catalogs",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:catalogs",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:catalogs",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:issues.0.mintage",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:issues.0.mintage",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.2.mintage",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:issues.2.mintage",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:issues.0.mintage",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:composition.text",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:composition.text",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:period",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:catalogs",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:catalogs",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:issues.0.mintage",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:issues.0.mintage",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:composition.text",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:composition.text",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:ruler",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:DE.KM.210:issues.3.mintage",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": "issues.3.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.4.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.4.mintage",
+     "coins": [
+      "C328"
+     ],
+     "label": "mintage of C328 · Switzerland · 1976 · 1 franc · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.4.mintage": {
+       "year": 1976,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "catalogs",
+     "coins": [
+      "C309"
+     ],
+     "label": "catalog of C309 · United Kingdom · 1937 · ½ penny · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "catalogs",
+     "coins": [
+      "C324"
+     ],
+     "label": "catalog of C324 · Mexico · 2005 · 5 pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "catalogs",
+     "coins": [
+      "C329"
+     ],
+     "label": "catalog of C329 · United Kingdom · 1962 · 1 shilling · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C307"
+     ],
+     "label": "mintage of C307 · South Korea · 1988 · 100 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1988,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C335"
+     ],
+     "label": "mintage of C335 · South Korea · 1994 · 100 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 1994,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:KR.X.10-won:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "catalogs",
+     "coins": [
+      "C342"
+     ],
+     "label": "catalog of C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "catalogs",
+     "coins": [
+      "C333"
+     ],
+     "label": "catalog of C333 · Norway · 1977 · 50 øre · NOK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C312"
+     ],
+     "label": "mintage of C312 · Czech Republic · 2008 · 5 korun · CZK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2008,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "composition.text",
+     "coins": [
+      "C341"
+     ],
+     "label": "composition of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "aluminium",
+      "their_source": "https://en.numista.com/catalogue/pieces1925.html (\"Composition: Aluminium | Weight: 1.5 g | Diameter: 21 mm\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1925.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "composition.text",
+     "coins": [
+      "C333"
+     ],
+     "label": "composition of C333 · Norway · 1977 · 50 øre · NOK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel (75% Cu, 25% Ni)",
+      "their_source": "https://en.numista.com/catalogue/pieces1439.html (\"Composition: Copper-nickel (75% Cu, 25% Ni)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1439.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "catalogs",
+     "coins": [
+      "C305"
+     ],
+     "label": "catalog of C305 · Vatican City · 1958 · 20 lire · VAL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C305"
+     ],
+     "label": "mintage of C305 · Vatican City · 1958 · 20 lire · VAL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1958,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "composition.text",
+     "coins": [
+      "C305"
+     ],
+     "label": "composition of C305 · Vatican City · 1958 · 20 lire · VAL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Aluminium bronze",
+      "their_source": "https://en.numista.com/catalogue/pieces33337.html (\"Composition: Aluminium bronze\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces33337.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C308"
+     ],
+     "label": "mintage of C308 · Switzerland · 1968 · 1 franc · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 1968,
+       "mint": [
+        "B"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "catalogs",
+     "coins": [
+      "C340"
+     ],
+     "label": "catalog of C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C340"
+     ],
+     "label": "mintage of C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2015,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "composition.text",
+     "coins": [
+      "C340"
+     ],
+     "label": "composition of C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "copper-nickel (75% copper, 25% nickel)",
+      "their_source": "https://en.numista.com/catalogue/pieces2121.html (\"Composition: Copper-nickel (75% Copper, 25% Nickel) | Weight: 4.8 g\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2121.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "ruler",
+     "coins": [
+      "C340"
+     ],
+     "label": "ruler of C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Heisei",
+      "their_source": "https://en.numista.com/catalogue/pieces2121.html (\"Issuer: Japan | Emperor: Heisei (1989-2019) | Years: 1-31 (1989-2019)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2121.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "period",
+     "coins": [
+      "C340"
+     ],
+     "label": "period of C340 · Japan · 2015 · 100 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Heisei era",
+      "their_source": "https://en.numista.com/catalogue/pieces2121.html (\"Emperor: Heisei (1989-2019) | Years: 1-31 (1989-2019) | Dating: Japan - Heisei era\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2121.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C309"
+     ],
+     "label": "mintage of C309 · United Kingdom · 1937 · ½ penny · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1937,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "composition.text",
+     "coins": [
+      "C309"
+     ],
+     "label": "composition of C309 · United Kingdom · 1937 · ½ penny · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bronze",
+      "their_source": "https://en.numista.com/catalogue/pieces870.html (\"Composition: Bronze\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces870.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "catalogs",
+     "coins": [
+      "C319"
+     ],
+     "label": "catalog of C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C319"
+     ],
+     "label": "mintage of C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1994,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "composition.text",
+     "coins": [
+      "C319"
+     ],
+     "label": "composition of C319 · Mexico · 1994 · 2 nuevos pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bimetallic: aluminium bronze centre in stainless steel ring",
+      "their_source": "https://en.numista.com/catalogue/pieces586.html (\"Composition: Bimetallic: aluminium bronze centre in stainless steel ring\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces586.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "catalogs",
+     "coins": [
+      "C310"
+     ],
+     "label": "catalog of C310 · France · 1979 · 2 francs · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.26:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C337"
+     ],
+     "label": "mintage of C337 · Switzerland · 1944 · 5 rappen · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1944,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C310"
+     ],
+     "label": "mintage of C310 · France · 1979 · 2 francs · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1979,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C324"
+     ],
+     "label": "mintage of C324 · Mexico · 2005 · 5 pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 2005,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "composition.text",
+     "coins": [
+      "C310"
+     ],
+     "label": "composition of C310 · France · 1979 · 2 francs · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "nickel",
+      "their_source": "https://en.numista.com/catalogue/pieces7.html (\"Features: Composition Nickel\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces7.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "composition.text",
+     "coins": [
+      "C324"
+     ],
+     "label": "composition of C324 · Mexico · 2005 · 5 pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bimetallic: aluminium bronze centre in stainless steel ring",
+      "their_source": "https://en.numista.com/catalogue/pieces589.html (\"Composition: Bimetallic: aluminium bronze centre in stainless steel ring\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces589.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "catalogs",
+     "coins": [
+      "C313"
+     ],
+     "label": "catalog of C313 · Russia · 1992 · 20 roubles · RUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C329"
+     ],
+     "label": "mintage of C329 · United Kingdom · 1962 · 1 shilling · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1962,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "composition.text",
+     "coins": [
+      "C329"
+     ],
+     "label": "composition of C329 · United Kingdom · 1962 · 1 shilling · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "copper-nickel (75% Cu, 25% Ni)",
+      "their_source": "https://en.numista.com/catalogue/pieces882.html (\"Features: Composition Copper-nickel (75% Cu, 25% Ni)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces882.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "composition.text",
+     "coins": [
+      "C313"
+     ],
+     "label": "composition of C313 · Russia · 1992 · 20 roubles · RUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel",
+      "their_source": "https://en.numista.com/catalogue/pieces4077.html (\"Composition: Copper-nickel\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4077.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "catalogs",
+     "coins": [
+      "C326"
+     ],
+     "label": "catalog of C326 · Bahamas · 1974 · 1 cent · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C326"
+     ],
+     "label": "mintage of C326 · Bahamas · 1974 · 1 cent · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1974,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "composition.text",
+     "coins": [
+      "C326"
+     ],
+     "label": "composition of C326 · Bahamas · 1974 · 1 cent · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "nickel brass (79% copper, 20% zinc, 1% nickel)",
+      "their_source": "https://en.numista.com/catalogue/pieces3159.html (\"Features: Composition Nickel brass (79% Copper, 20% Zinc, 1% Nickel)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3159.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "catalogs",
+     "coins": [
+      "C330"
+     ],
+     "label": "catalog of C330 · Ireland · 1995 · 10 pence · IEP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C330"
+     ],
+     "label": "mintage of C330 · Ireland · 1995 · 10 pence · IEP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1995,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "composition.text",
+     "coins": [
+      "C330"
+     ],
+     "label": "composition of C330 · Ireland · 1995 · 10 pence · IEP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel",
+      "their_source": "https://en.numista.com/catalogue/pieces1457.html (\"Composition: Copper-nickel\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1457.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:issues.5.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "issues.5.mintage",
+     "coins": [
+      "C325"
+     ],
+     "label": "mintage of C325 · Italy · 1955 · 50 lire · ITL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.5.mintage": {
+       "year": 1955,
+       "mint": [
+        "R"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:MX.KM.604:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C315"
+     ],
+     "label": "mintage of C315 · Mexico · 1998 · 2 pesos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1998,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "catalogs",
+     "coins": [
+      "C331"
+     ],
+     "label": "catalog of C331 · Australia · 1966 · 10 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "catalogs",
+     "coins": [
+      "C322"
+     ],
+     "label": "catalog of C322 · Portugal · 1970 · 20 centavos · PTE",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C331"
+     ],
+     "label": "mintage of C331 · Australia · 1966 · 10 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1966,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C311"
+     ],
+     "label": "mintage of C311 · South Korea · 1997 · 100 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1997,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C322"
+     ],
+     "label": "mintage of C322 · Portugal · 1970 · 20 centavos · PTE",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1970,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "composition.text",
+     "coins": [
+      "C331"
+     ],
+     "label": "composition of C331 · Australia · 1966 · 10 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "copper-nickel (75% copper, 25% nickel)",
+      "their_source": "https://en.numista.com/catalogue/pieces1282.html (\"Features: Composition Copper-nickel (75% Copper, 25% Nickel)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1282.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "composition.text",
+     "coins": [
+      "C322"
+     ],
+     "label": "composition of C322 · Portugal · 1970 · 20 centavos · PTE",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bronze (Cu 950 + Sn 30 + Zn 20)",
+      "their_source": "https://en.numista.com/catalogue/pieces3282.html (\"Composition: Bronze (Cu 950 + Sn 30 + Zn 20)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3282.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "catalogs",
+     "coins": [
+      "C316"
+     ],
+     "label": "catalog of C316 · United Kingdom · 2014 · 20 pence · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C316"
+     ],
+     "label": "mintage of C316 · United Kingdom · 2014 · 20 pence · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2014,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:KR.X.10-won:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C342"
+     ],
+     "label": "mintage of C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2001,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "composition.text",
+     "coins": [
+      "C316"
+     ],
+     "label": "composition of C316 · United Kingdom · 2014 · 20 pence · GBP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel",
+      "their_source": "https://en.numista.com/catalogue/pieces5628.html (\"Composition: Copper-nickel\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5628.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.X.10-won:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "composition.text",
+     "coins": [
+      "C342"
+     ],
+     "label": "composition of C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "brass (65% copper, 35% zinc)",
+      "their_source": "https://en.numista.com/catalogue/pieces978.html (\"Composition: Brass (65% Copper, 35% Zinc) | Weight: 4.06 g\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces978.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.X.10-won:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "period",
+     "coins": [
+      "C342"
+     ],
+     "label": "period of C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Republic of Korea",
+      "their_source": "https://en.numista.com/catalogue/pieces978.html (\"Issuer: South Korea | Issuing bank: Bank of Korea (한국은행) | Period: Republic (1948-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces978.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "catalogs",
+     "coins": [
+      "C312"
+     ],
+     "label": "catalog of C312 · Czech Republic · 2008 · 5 korun · CZK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "catalogs",
+     "coins": [
+      "C341"
+     ],
+     "label": "catalog of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "catalogs",
+     "coins": [
+      "C334"
+     ],
+     "label": "catalog of C334 · Spain · 1989 · 5 pesetas · ESP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C341"
+     ],
+     "label": "mintage of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1968,
+       "mint": [
+        "A"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C334"
+     ],
+     "label": "mintage of C334 · Spain · 1989 · 5 pesetas · ESP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1989,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C321"
+     ],
+     "label": "mintage of C321 · France · 1988 · 20 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1988,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:issues.2.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "issues.2.mintage",
+     "coins": [
+      "C323"
+     ],
+     "label": "mintage of C323 · Mexico · 1994 · 10 centavos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.2.mintage": {
+       "year": 1994,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C333"
+     ],
+     "label": "mintage of C333 · Norway · 1977 · 50 øre · NOK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1977,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "composition.text",
+     "coins": [
+      "C312"
+     ],
+     "label": "composition of C312 · Czech Republic · 2008 · 5 korun · CZK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "nickel plated steel",
+      "their_source": "https://en.numista.com/catalogue/pieces2149.html (\"Features: Composition Nickel plated steel\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2149.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "composition.text",
+     "coins": [
+      "C334"
+     ],
+     "label": "composition of C334 · Spain · 1989 · 5 pesetas · ESP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manganese)",
+      "their_source": "https://en.numista.com/catalogue/pieces1262.html (\"Composition: Aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manga",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1262.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "period",
+     "coins": [
+      "C341"
+     ],
+     "label": "period of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Democratic Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces1925.html (\"Issuer: German Democratic Republic (Germany) | Period: Democratic Republic (1949-1990)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1925.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "catalogs",
+     "coins": [
+      "C338"
+     ],
+     "label": "catalog of C338 · Jamaica · 1977 · 10 cents · JMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "catalogs",
+     "coins": [
+      "C320"
+     ],
+     "label": "catalog of C320 · Sweden · 1991 · 1 krona · SEK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C338"
+     ],
+     "label": "mintage of C338 · Jamaica · 1977 · 10 cents · JMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1977,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C320"
+     ],
+     "label": "mintage of C320 · Sweden · 1991 · 1 krona · SEK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1991,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "composition.text",
+     "coins": [
+      "C338"
+     ],
+     "label": "composition of C338 · Jamaica · 1977 · 10 cents · JMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "copper-nickel (75% copper, 25% nickel)",
+      "their_source": "https://en.numista.com/catalogue/pieces934.html (\"Composition: Copper-nickel (75% Copper, 25% Nickel) | Weight: 5.66 g\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces934.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "composition.text",
+     "coins": [
+      "C320"
+     ],
+     "label": "composition of C320 · Sweden · 1991 · 1 krona · SEK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel (75% Copper, 25% Nickel)",
+      "their_source": "https://en.numista.com/catalogue/pieces6862.html (\"Composition: Copper-nickel (75% Copper, 25% Nickel)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces6862.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "ruler",
+     "coins": [
+      "C338"
+     ],
+     "label": "ruler of C338 · Jamaica · 1977 · 10 cents · JMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "https://en.numista.com/catalogue/pieces934.html (\"Issuer: Jamaica | Queen: Elizabeth II (1952-2022) | Years: 1969-1989\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces934.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.210:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C336"
+     ],
+     "label": "mintage of C336 · Germany · 2002 · 10 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 2002,
+       "mint": [
+        "A"
+       ],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261107-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-07T16:53:12Z",
+   "lease_until": "2026-11-14T16:53:12Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0157",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0158",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0159",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0160",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0161",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0162",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0157",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "design.text",
+     "coins": [
+      "C009"
+     ],
+     "label": "D0157 DE.KM.140.1 design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "https://en.numista.com/catalogue/pieces843.html (Numista N#843, Germany 5 Deutsche Mark KM#140.1): Obverse — German eagle with mintmark below the date, Engraver Wolfgang Theodor Doehm; Reverse — face value in square with rounded corners, 5 / DEUTSCHE MARK / BUNDESREPUBLIK DEUTSCHLAND; composition copper-nickel clad nickel (circulation issue). The record had obverse/reverse swapped. Read 2026-10-17. [phase 2; confidence high]",
+       "ts": "2026-10-17T04:41:10Z",
+       "value": "Bundesadler with date and mintmark below (obv; engraver Wolfgang Theodor Doehm) · 5 DEUTSCHE MARK in rounded square, BUNDESREPUBLIK DEUTSCHLAND (rev) · circulation CuNi-clad nickel, not silver"
+      },
+      "claim": {
+       "value": "obverse Bundesadler with date and mintmark below (Wolfgang Theodor Doehm) · reverse face value 5 DEUTSCHE MARK in rounded square · BUNDESREPUBLIK DEUTSCHLAND",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces843.html (\"Obverse: The German eagle with the mintmark below the date; Reverse: 5 DEUTSCHE MARK BUNDESREPUBLIK DEUTSCHLAND (Engraver: Wolfgang Theodor Doehm)\")",
+       "ts": "2026-11-06T23:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0158",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "design.text",
+     "coins": [
+      "C280",
+      "C317"
+     ],
+     "label": "D0158 BZ.X.25-cents design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "Numista N#2238 https://en.numista.com/catalogue/pieces2238.html read 2026-10-24: Obverse crowned bust of Elizabeth II right within beaded circle, lettering QUEEN ELIZABETH THE SECOND, engraver Cecil Thomas; Reverse denomination within circle, BELIZE above, date below, beaded border. Record design text confirmed. [phase 2; confidence high]",
+       "ts": "2026-10-24T05:40:56Z",
+       "value": "obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SECOND · reverse 25 CENTS within central beaded circle and ornamental border with BELIZE above and date below · Cecil Thomas (obverse)"
+      },
+      "claim": {
+       "value": "obverse crowned bust of Elizabeth II right · QUEEN ELIZABETH THE SECOND (Cecil Thomas) · reverse denomination 25 CENTS within ornamental circle · BELIZE · date",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces2238.html (\"Obverse: Crowned bust of Queen Elizabeth II facing right, QUEEN ELIZABETH THE SECOND (Cecil Thomas); Reverse: Denomination within circle, BELIZE 25 CENTS\")",
+       "ts": "2026-11-06T23:20:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0159",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "design.text",
+     "coins": [
+      "C293",
+      "C301"
+     ],
+     "label": "D0159 MX.X.500-pesos design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "Numista N#819 https://en.numista.com/catalogue/pieces819.html read 2026-10-24: Obverse national arms, lettering ESTADOS UNIDOS MEXICANOS; Reverse portrait of Francisco I. Madero facing right, lettering Madero / $500 / Mo. Record design text confirmed. [phase 2; confidence high]",
+       "ts": "2026-10-24T05:40:56Z",
+       "value": "obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco I. Madero facing right · Madero · $500 · Mo"
+      },
+      "claim": {
+       "value": "obverse national emblem of Mexico (eagle on cactus devouring snake) · ESTADOS UNIDOS MEXICANOS · reverse portrait of Francisco Ignacio Madero facing right · $500 · Madero · Mo · date",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces819.html (\"Obverse: The national emblem of Mexico, ESTADOS UNIDOS MEXICANOS; Reverse: Portrait of Francisco Ignacio Madero facing right, Madero Mo $500\")",
+       "ts": "2026-11-06T23:21:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0160",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "design.text",
+     "coins": [
+      "C035"
+     ],
+     "label": "D0160 DE.KM.109.1 design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "Numista N#847 https://en.numista.com/catalogue/pieces847.html Obverse/Reverse read 2026-10-24: obverse face value surrounded by the country name BUNDESREPUBLIK DEUTSCHLAND, 50 PFENNIG, designer Richard Martin Werner; reverse a woman (Trummerfrau) planting an oak. Record design text confirmed. [phase 2; confidence high]",
+       "ts": "2026-10-24T05:26:15Z",
+       "value": "obverse BUNDESREPUBLIK DEUTSCHLAND · 50 PFENNIG value side (Richard Martin Werner) · reverse Trümmerfrau planting oak sapling"
+      },
+      "claim": {
+       "value": "Trümmerfrau planting an oak sapling (Richard M. Werner) · value side 50 PFENNIG · BUNDESREPUBLIK DEUTSCHLAND · mint mark",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces847.html (\"Obverse: BUNDESREPUBLIK DEUTSCHLAND 50 PFENNIG (Designer: Richard Martin Werner); Reverse: A woman (Trümmerfrau) planting an oak\")",
+       "ts": "2026-11-06T23:21:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0161",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "design.text",
+     "coins": [
+      "C173",
+      "C174",
+      "C175",
+      "C176"
+     ],
+     "label": "D0161 GB.KM.988 design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "Numista N#876 https://en.numista.com/catalogue/pieces876.html read 2026-10-24: Obverse 4th portrait of Elizabeth II (Ian Rank-Broadley); Reverse Badge of Scotland, a thistle royally crowned, lettering FIVE PENCE, engraver Christopher Ironside. Record design text confirmed. [phase 2; confidence high]",
+       "ts": "2026-10-24T05:44:39Z",
+       "value": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)"
+      },
+      "claim": {
+       "value": "obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Christopher Ironside)",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces876.html (\"Obverse: Fourth crowned portrait of Queen Elizabeth II right, IRB; Reverse: The Badge of Scotland, a thistle royally crowned, FIVE PENCE 5 (Christopher Ironside)\")",
+       "ts": "2026-11-06T23:21:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0162",
+     "kind": "arbitrate",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": "design.text",
+     "coins": [
+      "C147",
+      "C148",
+      "C149",
+      "C150",
+      "C151"
+     ],
+     "label": "D0162 GB.KM.938b design.text",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "Numista N#879 https://en.numista.com/catalogue/pieces879.html Obverse/Reverse read 2026-10-24: 3rd portrait of Elizabeth II by Raphael Maklouf; reverse lion passant guardant royally crowned, TEN PENCE, engraver Christopher Ironside. Record design text confirmed. [phase 2; confidence high]",
+       "ts": "2026-10-24T05:13:44Z",
+       "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)"
+      },
+      "claim": {
+       "value": "obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant guardant · TEN PENCE (Christopher Ironside)",
+       "by": "model:gemini",
+       "source": "https://en.numista.com/catalogue/pieces879.html (\"Obverse: Third crowned portrait of Queen Elizabeth II right, RDM (Raphael David Maklouf); Reverse: A lion passant guardant royally crowned, TEN PENCE 10 (Christopher Ironside)\")",
+       "ts": "2026-11-06T23:22:00Z"
       }
      },
      "blind": false,

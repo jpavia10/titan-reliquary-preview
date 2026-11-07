@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-07 16:39 UTC)
+# WORK QUEUE for Grok (updated 2026-11-07 16:55 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -124,6 +124,107 @@ Items:
 - **D0155 DE.KM.105 design.text**: record `oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse` (model:claude: «Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the v…») vs claim `oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 bet…` (model:gemini: «https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSC…»)
 - **D0156 C163 issue.mint_marks**: record `["BSP"]` (None: «null») vs claim `[]` (model:gemini: «photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1…»)
 
+### 6. HW-grok-verify-20261107-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-14  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261107-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mintage of C328 · Switzerland · 1976 · 1 franc · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.24a.1 issues.4.mintage` [audit sample]
+- **catalog of C309 · United Kingdom · 1937 · ½ penny · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.half-penny catalogs` [audit sample]
+- **catalog of C324 · Mexico · 2005 · 5 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.5-pesos catalogs` [audit sample]
+- **catalog of C329 · United Kingdom · 1962 · 1 shilling · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.1-shilling catalogs` [audit sample]
+- **mintage of C307 · South Korea · 1988 · 100 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.35.2 issues.1.mintage` [audit sample]
+- **mintage of C335 · South Korea · 1994 · 100 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.35.2 issues.3.mintage` [audit sample]
+- **catalog of C342 · South Korea · 2001 · 10 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.X.10-won catalogs` [audit sample]
+- **catalog of C333 · Norway · 1977 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.X.50-ore catalogs` [audit sample]
+- **mintage of C312 · Czech Republic · 2008 · 5 korun · CZK** (blind: look it up yourself in your own exact source; the first value is not shown) `type CZ.X.5-korun issues.0.mintage` [audit sample]
+- **composition of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** `type DD.X.10-pfennig composition.text` = `aluminium` (written by Gemini: «https://en.numista.com/catalogue/pieces1925.html ("Composition: Aluminium | Weight: 1.5 g | Diameter: 21 mm")») [audit sample]
+- **composition of C333 · Norway · 1977 · 50 øre · NOK** `type NO.X.50-ore composition.text` = `Copper-nickel (75% Cu, 25% Ni)` (written by Gemini: «https://en.numista.com/catalogue/pieces1439.html ("Composition: Copper-nickel (75% Cu, 25% Ni)")») [audit sample]
+- **catalog of C305 · Vatican City · 1958 · 20 lire · VAL** (blind: look it up yourself in your own exact source; the first value is not shown) `type VA.X.20-lire catalogs`
+- **mintage of C305 · Vatican City · 1958 · 20 lire · VAL** (blind: look it up yourself in your own exact source; the first value is not shown) `type VA.X.20-lire issues.0.mintage`
+- **composition of C305 · Vatican City · 1958 · 20 lire · VAL** `type VA.X.20-lire composition.text` = `Aluminium bronze` (written by Gemini: «https://en.numista.com/catalogue/pieces33337.html ("Composition: Aluminium bronze")»)
+- **mintage of C308 · Switzerland · 1968 · 1 franc · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.24a.1 issues.3.mintage`
+- **catalog of C340 · Japan · 2015 · 100 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.100-yen catalogs`
+- **mintage of C340 · Japan · 2015 · 100 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.100-yen issues.0.mintage`
+- **composition of C340 · Japan · 2015 · 100 yen · JPY** `type JP.X.100-yen composition.text` = `copper-nickel clad steel` (written by Gemini: «https://en.numista.com/catalogue/pieces2121.html ("Composition: Copper-nickel (75% Copper, 25% Nickel) | Weight: 4.8 g")»)
+- **ruler of C340 · Japan · 2015 · 100 yen · JPY** `type JP.X.100-yen ruler` = `Heisei` (written by Gemini: «https://en.numista.com/catalogue/pieces2121.html ("Issuer: Japan | Emperor: Heisei (1989-2019) | Years: 1-31 (1989-2019)")»)
+- **period of C340 · Japan · 2015 · 100 yen · JPY** `type JP.X.100-yen period` = `Heisei era` (written by Gemini: «https://en.numista.com/catalogue/pieces2121.html ("Emperor: Heisei (1989-2019) | Years: 1-31 (1989-2019) | Dating: Japan - Heisei era")»)
+- **mintage of C309 · United Kingdom · 1937 · ½ penny · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.half-penny issues.0.mintage`
+- **composition of C309 · United Kingdom · 1937 · ½ penny · GBP** `type GB.X.half-penny composition.text` = `aluminium bronze` (written by Gemini: «https://en.numista.com/catalogue/pieces870.html ("Composition: Bronze")»)
+- **catalog of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.2-nuevos-pesos catalogs`
+- **mintage of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.2-nuevos-pesos issues.1.mintage`
+- **composition of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** `type MX.X.2-nuevos-pesos composition.text` = `Bimetallic: aluminium bronze centre in stainless steel ring` (written by Gemini: «https://en.numista.com/catalogue/pieces586.html ("Composition: Bimetallic: aluminium bronze centre in stainless steel ring")»)
+- **catalog of C310 · France · 1979 · 2 francs · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.X.2-francs catalogs`
+- **mintage of C337 · Switzerland · 1944 · 5 rappen · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.26 issues.1.mintage`
+- **mintage of C310 · France · 1979 · 2 francs · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.X.2-francs issues.0.mintage`
+- **mintage of C324 · Mexico · 2005 · 5 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.5-pesos issues.1.mintage`
+- **composition of C310 · France · 1979 · 2 francs · FRF** `type FR.X.2-francs composition.text` = `nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces7.html ("Features: Composition Nickel")»)
+- **composition of C324 · Mexico · 2005 · 5 pesos · MXN** `type MX.X.5-pesos composition.text` = `Bimetallic: aluminium bronze centre in stainless steel ring` (written by Gemini: «https://en.numista.com/catalogue/pieces589.html ("Composition: Bimetallic: aluminium bronze centre in stainless steel ring")»)
+- **catalog of C313 · Russia · 1992 · 20 roubles · RUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type RU.X.20-roubles catalogs`
+- **mintage of C329 · United Kingdom · 1962 · 1 shilling · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.1-shilling issues.0.mintage`
+- **composition of C329 · United Kingdom · 1962 · 1 shilling · GBP** `type GB.X.1-shilling composition.text` = `copper-nickel (75% Cu, 25% Ni)` (written by Gemini: «https://en.numista.com/catalogue/pieces882.html ("Features: Composition Copper-nickel (75% Cu, 25% Ni)")»)
+- **composition of C313 · Russia · 1992 · 20 roubles · RUR** `type RU.X.20-roubles composition.text` = `Copper-nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces4077.html ("Composition: Copper-nickel")»)
+- **catalog of C326 · Bahamas · 1974 · 1 cent · BSD** (blind: look it up yourself in your own exact source; the first value is not shown) `type BS.X.1-cent.2 catalogs`
+- **mintage of C326 · Bahamas · 1974 · 1 cent · BSD** (blind: look it up yourself in your own exact source; the first value is not shown) `type BS.X.1-cent.2 issues.0.mintage`
+- **composition of C326 · Bahamas · 1974 · 1 cent · BSD** `type BS.X.1-cent.2 composition.text` = `nickel brass (79% copper, 20% zinc, 1% nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces3159.html ("Features: Composition Nickel brass (79% Copper, 20% Zinc, 1% Nickel)")»)
+- **catalog of C330 · Ireland · 1995 · 10 pence · IEP** (blind: look it up yourself in your own exact source; the first value is not shown) `type IE.X.10-pence catalogs`
+- **mintage of C330 · Ireland · 1995 · 10 pence · IEP** (blind: look it up yourself in your own exact source; the first value is not shown) `type IE.X.10-pence issues.0.mintage`
+- **composition of C330 · Ireland · 1995 · 10 pence · IEP** `type IE.X.10-pence composition.text` = `aluminium` (written by Gemini: «https://en.numista.com/catalogue/pieces1457.html ("Composition: Copper-nickel")»)
+- **mintage of C325 · Italy · 1955 · 50 lire · ITL** (blind: look it up yourself in your own exact source; the first value is not shown) `type IT.KM.95.1 issues.5.mintage`
+- **mintage of C315 · Mexico · 1998 · 2 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.KM.604 issues.2.mintage`
+- **catalog of C331 · Australia · 1966 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents.2 catalogs`
+- **catalog of C322 · Portugal · 1970 · 20 centavos · PTE** (blind: look it up yourself in your own exact source; the first value is not shown) `type PT.X.20-centavos catalogs`
+- **mintage of C331 · Australia · 1966 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents.2 issues.0.mintage`
+- **mintage of C311 · South Korea · 1997 · 100 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.35.2 issues.2.mintage`
+- **mintage of C322 · Portugal · 1970 · 20 centavos · PTE** (blind: look it up yourself in your own exact source; the first value is not shown) `type PT.X.20-centavos issues.0.mintage`
+- **composition of C331 · Australia · 1966 · 10 cents · AUD** `type AU.X.10-cents.2 composition.text` = `copper-nickel (75% copper, 25% nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces1282.html ("Features: Composition Copper-nickel (75% Copper, 25% Nickel)")»)
+- **composition of C322 · Portugal · 1970 · 20 centavos · PTE** `type PT.X.20-centavos composition.text` = `Bronze (Cu 950 + Sn 30 + Zn 20)` (written by Gemini: «https://en.numista.com/catalogue/pieces3282.html ("Composition: Bronze (Cu 950 + Sn 30 + Zn 20)")»)
+- **catalog of C316 · United Kingdom · 2014 · 20 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.20-pence catalogs`
+- **mintage of C316 · United Kingdom · 2014 · 20 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.20-pence issues.0.mintage`
+- **mintage of C342 · South Korea · 2001 · 10 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.X.10-won issues.0.mintage`
+- **composition of C316 · United Kingdom · 2014 · 20 pence · GBP** `type GB.X.20-pence composition.text` = `Copper-nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces5628.html ("Composition: Copper-nickel")»)
+- **composition of C342 · South Korea · 2001 · 10 won · KRW** `type KR.X.10-won composition.text` = `brass (65% copper, 35% zinc)` (written by Gemini: «https://en.numista.com/catalogue/pieces978.html ("Composition: Brass (65% Copper, 35% Zinc) | Weight: 4.06 g")»)
+- **period of C342 · South Korea · 2001 · 10 won · KRW** `type KR.X.10-won period` = `Mexican Revolution` (written by Gemini: «https://en.numista.com/catalogue/pieces978.html ("Issuer: South Korea | Issuing bank: Bank of Korea (한국은행) | Period: Republic (1948-date)")»)
+- **catalog of C312 · Czech Republic · 2008 · 5 korun · CZK** (blind: look it up yourself in your own exact source; the first value is not shown) `type CZ.X.5-korun catalogs`
+- **catalog of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** (blind: look it up yourself in your own exact source; the first value is not shown) `type DD.X.10-pfennig catalogs`
+- **catalog of C334 · Spain · 1989 · 5 pesetas · ESP** (blind: look it up yourself in your own exact source; the first value is not shown) `type ES.X.5-pesetas catalogs`
+- **mintage of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** (blind: look it up yourself in your own exact source; the first value is not shown) `type DD.X.10-pfennig issues.0.mintage`
+- **mintage of C334 · Spain · 1989 · 5 pesetas · ESP** (blind: look it up yourself in your own exact source; the first value is not shown) `type ES.X.5-pesetas issues.0.mintage`
+- **mintage of C321 · France · 1988 · 20 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.930 issues.2.mintage`
+- **mintage of C323 · Mexico · 1994 · 10 centavos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.10-centavos issues.2.mintage`
+- **mintage of C333 · Norway · 1977 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.X.50-ore issues.0.mintage`
+- **composition of C312 · Czech Republic · 2008 · 5 korun · CZK** `type CZ.X.5-korun composition.text` = `nickel plated steel` (written by Gemini: «https://en.numista.com/catalogue/pieces2149.html ("Features: Composition Nickel plated steel")»)
+- **composition of C334 · Spain · 1989 · 5 pesetas · ESP** `type ES.X.5-pesetas composition.text` = `aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manganese)` (written by Gemini: «https://en.numista.com/catalogue/pieces1262.html ("Composition: Aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manga»)
+- **period of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** `type DD.X.10-pfennig period` = `Democratic Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces1925.html ("Issuer: German Democratic Republic (Germany) | Period: Democratic Republic (1949-1990)")»)
+- **catalog of C338 · Jamaica · 1977 · 10 cents · JMD** (blind: look it up yourself in your own exact source; the first value is not shown) `type JM.X.10-cents catalogs`
+- **catalog of C320 · Sweden · 1991 · 1 krona · SEK** (blind: look it up yourself in your own exact source; the first value is not shown) `type SE.X.1-krona catalogs`
+- **mintage of C338 · Jamaica · 1977 · 10 cents · JMD** (blind: look it up yourself in your own exact source; the first value is not shown) `type JM.X.10-cents issues.0.mintage`
+- **mintage of C320 · Sweden · 1991 · 1 krona · SEK** (blind: look it up yourself in your own exact source; the first value is not shown) `type SE.X.1-krona issues.0.mintage`
+- **composition of C338 · Jamaica · 1977 · 10 cents · JMD** `type JM.X.10-cents composition.text` = `bimetallic (Ni center / Al-bronze ring)` (written by Gemini: «https://en.numista.com/catalogue/pieces934.html ("Composition: Copper-nickel (75% Copper, 25% Nickel) | Weight: 5.66 g")»)
+- **composition of C320 · Sweden · 1991 · 1 krona · SEK** `type SE.X.1-krona composition.text` = `Copper-nickel (75% Copper, 25% Nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces6862.html ("Composition: Copper-nickel (75% Copper, 25% Nickel)")»)
+- **ruler of C338 · Jamaica · 1977 · 10 cents · JMD** `type JM.X.10-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces934.html ("Issuer: Jamaica | Queen: Elizabeth II (1952-2022) | Years: 1969-1989")»)
+- **mintage of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.210 issues.3.mintage`
+
+### 7. HW-grok-arbitrate-20261107-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-14  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261107-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0157 DE.KM.140.1 design.text**: record `Bundesadler with date and mintmark below (obv; engraver Wolfgang Theodor Doehm) · 5 DEUTS…` (model:muse-spark: «https://en.numista.com/catalogue/pieces843.html (Numista N#843, Germany 5 Deutsche Mark KM#140.1): Obverse — German eag…») vs claim `obverse Bundesadler with date and mintmark below (Wolfgang Theodor Doehm) · reverse face …` (model:gemini: «https://en.numista.com/catalogue/pieces843.html ("Obverse: The German eagle with the mintmark below the date; Reverse: …»)
+- **D0158 BZ.X.25-cents design.text**: record `obverse crowned bust of Elizabeth II right within beaded circle · QUEEN ELIZABETH THE SEC…` (model:muse-spark: «Numista N#2238 https://en.numista.com/catalogue/pieces2238.html read 2026-10-24: Obverse crowned bust of Elizabeth II r…») vs claim `obverse crowned bust of Elizabeth II right · QUEEN ELIZABETH THE SECOND (Cecil Thomas) · …` (model:gemini: «https://en.numista.com/catalogue/pieces2238.html ("Obverse: Crowned bust of Queen Elizabeth II facing right, QUEEN ELIZ…»)
+- **D0159 MX.X.500-pesos design.text**: record `obverse national arms · eagle on nopal devouring snake · ESTADOS UNIDOS MEXICANOS · rever…` (model:muse-spark: «Numista N#819 https://en.numista.com/catalogue/pieces819.html read 2026-10-24: Obverse national arms, lettering ESTADOS…») vs claim `obverse national emblem of Mexico (eagle on cactus devouring snake) · ESTADOS UNIDOS MEXI…` (model:gemini: «https://en.numista.com/catalogue/pieces819.html ("Obverse: The national emblem of Mexico, ESTADOS UNIDOS MEXICANOS; Rev…»)
+- **D0160 DE.KM.109.1 design.text**: record `obverse BUNDESREPUBLIK DEUTSCHLAND · 50 PFENNIG value side (Richard Martin Werner) · reve…` (model:muse-spark: «Numista N#847 https://en.numista.com/catalogue/pieces847.html Obverse/Reverse read 2026-10-24: obverse face value surro…») vs claim `Trümmerfrau planting an oak sapling (Richard M. Werner) · value side 50 PFENNIG · BUNDESR…` (model:gemini: «https://en.numista.com/catalogue/pieces847.html ("Obverse: BUNDESREPUBLIK DEUTSCHLAND 50 PFENNIG (Designer: Richard Mar…»)
+- **D0161 GB.KM.988 design.text**: record `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)` (model:muse-spark: «Numista N#876 https://en.numista.com/catalogue/pieces876.html read 2026-10-24: Obverse 4th portrait of Elizabeth II (Ia…») vs claim `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Christophe…` (model:gemini: «https://en.numista.com/catalogue/pieces876.html ("Obverse: Fourth crowned portrait of Queen Elizabeth II right, IRB; Re…»)
+- **D0162 GB.KM.938b design.text**: record `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)` (model:muse-spark: «Numista N#879 https://en.numista.com/catalogue/pieces879.html Obverse/Reverse read 2026-10-24: 3rd portrait of Elizabet…») vs claim `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant guardant · TEN PENCE …` (model:gemini: «https://en.numista.com/catalogue/pieces879.html ("Obverse: Third crowned portrait of Queen Elizabeth II right, RDM (Rap…»)
+
 ## Projects (after the homework)
 
 ### GPU worlds for the 31 themes still on the first engine, one at a time (Midnight Gallery, Prism, The Mint, Shipwreck first)  [LATER]  (fix list #128)
@@ -167,5 +268,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 47; expired: 12.
-- Your facts checked by another contributor: 1095 (1079 confirmed, 16 wrong; error rate 1.5 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 6 of 6.
+- Your facts checked by another contributor: 1127 (1111 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 15 %.

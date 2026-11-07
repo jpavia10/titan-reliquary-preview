@@ -3,7 +3,7 @@ NEW (2026-11-05): your 33 chat coins are merged as C305-C337 with their photos a
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Muse (updated 2026-11-07 16:39 UTC)
+# WORK QUEUE for Muse (updated 2026-11-07 16:55 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -34,29 +34,27 @@ If you already started this spot check (5 facts from each of Grok's 9 sweep batc
 
 Each assignment below has a pre-filled answer sheet; the full instructions and every item are on the page linked above. Some check items show a value that is wrong on purpose: copy nothing, check every value against your own source. Keep each sheet line's provenance.assignment, old and verified as they are; a line on issues.N is the year the sheet names, and a type id is a name, not always the KM number.
 
-- 1. HW-muse-fill-20261028-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-07  (fix list #72)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-fill-20261028-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261028-1.jsonl)
-- 2. HW-muse-arbitrate-20261101-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-08  (fix list #18)
+- 1. HW-muse-arbitrate-20261101-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-08  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-arbitrate-20261101-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261101-1.jsonl)
-- 3. HW-muse-verify-20261101-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-08  (fix list #18)
+- 2. HW-muse-verify-20261101-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-08  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261101-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261101-1.jsonl)
-- 4. HW-muse-arbitrate-20261101-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-08  (fix list #18)
+- 3. HW-muse-arbitrate-20261101-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-08  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-arbitrate-20261101-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261101-2.jsonl)
-- 5. HW-muse-verify-20261104-1 · Second reader · Check 3 facts another AI wrote · due 2026-11-11  (fix list #18)
+- 4. HW-muse-verify-20261104-1 · Second reader · Check 3 facts another AI wrote · due 2026-11-11  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261104-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261104-1.jsonl)
-- 6. HW-muse-arbitrate-20261104-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-11  (fix list #18)
+- 5. HW-muse-arbitrate-20261104-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-11  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-arbitrate-20261104-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261104-2.jsonl)
-- 7. HW-muse-fill-20261104-1 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-14  (fix list #72)
+- 6. HW-muse-fill-20261104-1 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-14  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-fill-20261104-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261104-1.jsonl)
-- 8. HW-muse-fill-20261104-2 · Cataloguer · Fill the blank facts of 4 coin types · due 2026-11-14  (fix list #72)
+- 7. HW-muse-fill-20261104-2 · Cataloguer · Fill the blank facts of 4 coin types · due 2026-11-14  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-fill-20261104-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261104-2.jsonl)
-- 9. HW-muse-read-mint-20261105-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-12  (fix list #57)
+- 8. HW-muse-read-mint-20261105-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-12  (fix list #57)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-read-mint-20261105-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261105-1.jsonl)
-- 10. HW-muse-verify-20261105-5 · Second reader · Check 2 facts another AI wrote · due 2026-11-12  (fix list #18)
+- 9. HW-muse-verify-20261105-5 · Second reader · Check 2 facts another AI wrote · due 2026-11-12  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261105-5.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261105-5.jsonl)
-- 11. HW-muse-arbitrate-20261106-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-13  (fix list #18)
+- 10. HW-muse-arbitrate-20261106-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-13  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-arbitrate-20261106-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261106-1.jsonl)
-- 12. HW-muse-verify-20261107-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-14  (fix list #18)
+- 11. HW-muse-verify-20261107-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-14  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261107-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261107-1.jsonl)
 ## Projects (after the homework)
 
@@ -68,6 +66,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 60; expired: 6.
-- Your facts checked by another contributor: 727 (710 confirmed, 17 wrong; error rate 2.3 %, 95 % range 2-4 %). Checks you did for others: 390. Open disagreements you are part of: 1. Values planted wrong on purpose in your checks: you caught 8 of 8.
+- Assignments answered: 60; expired: 7.
+- Your facts checked by another contributor: 815 (798 confirmed, 17 wrong; error rate 2.1 %, 95 % range 1-3 %). Checks you did for others: 390. Open disagreements you are part of: 7. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 15 %.

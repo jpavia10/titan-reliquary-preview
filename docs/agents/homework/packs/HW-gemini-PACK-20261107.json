@@ -1,0 +1,62 @@
+{
+"pack": "HW-gemini-PACK-20261107",
+"agent": "gemini",
+"made": "2026-11-07T16:54:50Z",
+"due": "2026-11-17T23:59:00Z",
+"sheets": [
+"HW-gemini-fill-20261107-1"
+],
+"parts": 1,
+"lines": {
+"F1": [
+"HW-gemini-fill-20261107-1",
+{
+"ts": "2026-11-07T16:53:12Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "GT.KM.277.6a",
+"op": "set",
+"field": "design.designers",
+"old": [],
+"new": [],
+"source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-07",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261107-1",
+"run_id": "HW-gemini-fill-20261107-1",
+"inputs": []
+}
+}
+],
+"F2": [
+"HW-gemini-fill-20261107-1",
+{
+"ts": "2026-11-07T16:53:12Z",
+"by": "model:gemini",
+"entity": "type",
+"id": "JM.KM.190",
+"op": "set",
+"field": "design.designers",
+"old": [],
+"new": [],
+"source": "FILL (C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)",
+"verified": false,
+"phase": 2,
+"confidence": "high",
+"provenance": {
+"model": "gemini",
+"prompt_version": "HOMEWORK@2026-11-07",
+"workflow": "homework-fill",
+"assignment": "HW-gemini-fill-20261107-1",
+"run_id": "HW-gemini-fill-20261107-1",
+"inputs": []
+}
+}
+]
+}
+}

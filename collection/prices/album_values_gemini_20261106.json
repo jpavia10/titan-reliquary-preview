@@ -1,0 +1,6263 @@
+{
+"agent": "gemini",
+"made": "2026-11-06T15:14:00Z",
+"project": "album_filled_prices_20261105",
+"about": "A cited VF-20 guide price (or face value where the guide lists no circulated price) for each of the 890 dated FILLED album holes. Not yet used by the app: the album total on the Hall is still the ledger board figure ($2,059.39, collection/board.json, authoritative per the owner). Sum of these rows $733.61. 17 Silver Eagle rows (A025, A026) were priced at face under the project's own rule and carry claude_note: they are bullion and are worth at least melt.",
+"source_files": [
+"prices_gemini_album-filled_part1_20261106-1506.jsonl",
+"prices_gemini_album-filled_part2_20261106-1506.jsonl",
+"prices_gemini_album-filled_part3_20261106-1506.jsonl",
+"prices_gemini_album-filled_part4_20261106-1514.jsonl",
+"prices_gemini_album-filled_part5_20261106-1514.jsonl",
+"prices_gemini_album-filled_part6_20261106-1514.jsonl"
+],
+"rows": [
+{
+"slot": "A001-s001",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1941 1C MSBN VF $0.55"
+},
+{
+"slot": "A001-s004",
+"price_usd": 0.25,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1942 1C MSBN VF $0.25"
+},
+{
+"slot": "A001-s005",
+"price_usd": 0.35,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1942 D 1C MSBN VF $0.35"
+},
+{
+"slot": "A001-s007",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1943 1C MS VF $0.30"
+},
+{
+"slot": "A001-s008",
+"price_usd": 0.5,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1943 D 1C MS VF $0.50"
+},
+{
+"slot": "A001-s009",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1943 S 1C MS VF $0.55"
+},
+{
+"slot": "A001-s010",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1944 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s011",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1944 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s013",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1945 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s014",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1945 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s015",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1945 S 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s016",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1946 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s017",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1946 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s018",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1946 S 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s020",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1947 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s022",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1948 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s023",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1948 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s024",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1948 S 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s026",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1949 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s028",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1950 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s029",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1950 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s031",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1951 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s032",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1951 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s033",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1951 S 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s034",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1952 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s035",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1952 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s037",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1953 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s038",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1953 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s039",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1953 S 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s040",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1954 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s041",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1954 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s043",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1955 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s044",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1955 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s046",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1956 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s047",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1956 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s048",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1957 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s049",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1957 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s050",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1958 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s051",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/99/",
+"quote": "1958 D 1C MSBN VF $0.10"
+},
+{
+"slot": "A001-s052",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1959 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s053",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1959 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s054",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1960 LARGE DATE 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s055",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1960 D LARGE DATE 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s056",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1961 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s057",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1961 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s058",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1962 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s059",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1962 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s060",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1963 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s061",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1963 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s062",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1964 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s063",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1964 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s064",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1965 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s065",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1966 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s066",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1967 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s067",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1968 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s068",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1968 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s069",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1968 S 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s070",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1969 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s071",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1969 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s072",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1969 S 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s073",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1970 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s074",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1970 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s075",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1970 S LARGE DATE 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s076",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1971 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s077",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1971 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s078",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1971 S 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s079",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1972 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s080",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1972 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s081",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1972 S 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s082",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1973 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s083",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1973 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s084",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1973 S 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s085",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1974 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s086",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1974 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A001-s087",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1974 S 1C MSBN VF $0.05"
+},
+{
+"slot": "A002-s002",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2014 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s003",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2014 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s004",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2015 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s005",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2015 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s006",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2016 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s007",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2016 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s008",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2017 P 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s009",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2017 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s010",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2018 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s011",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2018 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s012",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2019 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s013",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2019 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s015",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2020 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s016",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2020 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s018",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2021 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s020",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2022 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s022",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2023 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A002-s024",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/101/",
+"quote": "2024 D 1C MSRD MS65 $2.50 (no VF price)"
+},
+{
+"slot": "A003-s001",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2005 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s002",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2005 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s003",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2006 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s004",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2006 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s005",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2007 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s006",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2007 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s007",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2008 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s008",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2008 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s009",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2009 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s010",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2009 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s011",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2010 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s012",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2010 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s013",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2011 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s014",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2011 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s015",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2012 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s016",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2012 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s017",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2013 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s018",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2013 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s019",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2014 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s020",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2014 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s021",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2015 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s022",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2015 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s023",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2016 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s024",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2016 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s025",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2017 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s026",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2017 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s027",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2018 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s028",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2018 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s029",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2019 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s030",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2019 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s031",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2020 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s032",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2020 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s033",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2021 P 10C MS VF $0.15"
+},
+{
+"slot": "A003-s034",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2021 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s035",
+"price_usd": 0.1,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/roosevelt-dime/98/most-active",
+"quote": "2022-P 10C no circulated price listed"
+},
+{
+"slot": "A003-s036",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2022 D 10C MS VF $0.15"
+},
+{
+"slot": "A003-s038",
+"price_usd": 0.1,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/roosevelt-dime/98/most-active",
+"quote": "2023-D 10C no circulated price listed"
+},
+{
+"slot": "A003-s040",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2024 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s001",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1965 10C MS VF $0.15"
+},
+{
+"slot": "A004-s002",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1966 10C MS VF $0.15"
+},
+{
+"slot": "A004-s003",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1967 10C MS VF $0.15"
+},
+{
+"slot": "A004-s004",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1968 10C MS VF $0.15"
+},
+{
+"slot": "A004-s005",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1968 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s007",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1969 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s008",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1970 10C MS VF $0.15"
+},
+{
+"slot": "A004-s009",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1970 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s011",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1971 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s012",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1972 10C MS VF $0.15"
+},
+{
+"slot": "A004-s013",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1972 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s015",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1973 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s016",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1974 10C MS VF $0.15"
+},
+{
+"slot": "A004-s017",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1974 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s018",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1975 10C MS VF $0.15"
+},
+{
+"slot": "A004-s019",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1975 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s020",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1976 10C MS VF $0.15"
+},
+{
+"slot": "A004-s021",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1976 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s022",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1977 10C MS VF $0.15"
+},
+{
+"slot": "A004-s023",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1977 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s024",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1978 10C MS VF $0.15"
+},
+{
+"slot": "A004-s025",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1978 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s026",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1979 10C MS VF $0.15"
+},
+{
+"slot": "A004-s027",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1979 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s028",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1980 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s029",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1980 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s030",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1981 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s031",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1981 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s032",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1982 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s033",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1982 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s034",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1983 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s035",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1983 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s036",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1984 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s037",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1984 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s038",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1985 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s039",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1985 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s040",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1986 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s041",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1986 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s042",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1987 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s043",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1987 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s044",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1988 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s045",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1988 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s046",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1989 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s047",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1989 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s048",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1990 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s049",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1990 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s050",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1991 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s051",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1991 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s052",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1992 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s053",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1992 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s054",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1993 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s055",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1993 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s056",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1994 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s057",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1994 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s058",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1995 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s059",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1995 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s060",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1996 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s061",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1996 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s063",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1997 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s064",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1997 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s065",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1998 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s066",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1998 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s067",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1999 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s068",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1999 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s069",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2000 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s070",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2000 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s071",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2001 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s072",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2001 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s073",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2002 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s074",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2002 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s075",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2003 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s076",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2003 D 10C MS VF $0.15"
+},
+{
+"slot": "A004-s077",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2004 P 10C MS VF $0.15"
+},
+{
+"slot": "A004-s078",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "2004 D 10C MS VF $0.15"
+},
+{
+"slot": "A005-s016",
+"price_usd": 4.35,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1951 10C MS VF $4.35"
+},
+{
+"slot": "A005-s047",
+"price_usd": 4.35,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/32/",
+"quote": "1964 10C MS VF $4.35"
+},
+{
+"slot": "A006-s069",
+"price_usd": 5.0,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/dimes/31/",
+"quote": "1943 10C MS VF $5.00"
+},
+{
+"slot": "A007-s001",
+"price_usd": 18.5,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1964 50C MS VF $18.50"
+},
+{
+"slot": "A007-s004",
+"price_usd": 7.75,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1966 50C MS VF $7.75"
+},
+{
+"slot": "A007-s005",
+"price_usd": 7.75,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1967 50C MS VF $7.75"
+},
+{
+"slot": "A007-s009",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1971 50C MS VF $0.60"
+},
+{
+"slot": "A007-s010",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1971 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s011",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1972 50C MS VF $0.60"
+},
+{
+"slot": "A007-s012",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1972 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s013",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1973 50C MS VF $0.60"
+},
+{
+"slot": "A007-s014",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1973 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s015",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1974 50C MS VF $0.60"
+},
+{
+"slot": "A007-s016",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1974 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s017",
+"price_usd": 0.75,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1776-1976 CLAD 50C MS VF $0.75"
+},
+{
+"slot": "A007-s018",
+"price_usd": 0.75,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1776-1976 D CLAD 50C MS VF $0.75"
+},
+{
+"slot": "A007-s019",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1977 50C MS VF $0.60"
+},
+{
+"slot": "A007-s020",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1977 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s021",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1978 50C MS VF $0.60"
+},
+{
+"slot": "A007-s022",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1978 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s023",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1979 50C MS VF $0.60"
+},
+{
+"slot": "A007-s024",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1979 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s025",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1980 P 50C MS VF $0.60"
+},
+{
+"slot": "A007-s026",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1980 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s027",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1981 P 50C MS VF $0.60"
+},
+{
+"slot": "A007-s028",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1981 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s029",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1982 P 50C MS VF $0.60"
+},
+{
+"slot": "A007-s030",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1982 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s031",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1983 P 50C MS VF $0.60"
+},
+{
+"slot": "A007-s032",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1983 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s033",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1984 P 50C MS VF $0.60"
+},
+{
+"slot": "A007-s034",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1984 D 50C MS VF $0.60"
+},
+{
+"slot": "A007-s035",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1985 P 50C MS VF $0.60"
+},
+{
+"slot": "A007-s036",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1985 D 50C MS VF $0.60"
+},
+{
+"slot": "A008-s001",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1986 P 50C MS VF $0.60"
+},
+{
+"slot": "A008-s002",
+"price_usd": 0.6,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1986 D 50C MS VF $0.60"
+},
+{
+"slot": "A008-s005",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1988 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s006",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1988 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s007",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1989 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s008",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1989 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s009",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1990 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s010",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1990 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s011",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1991 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s012",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1991 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s013",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1992 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s014",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1992 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s015",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1993 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s016",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1993 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s017",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1994 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s018",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1994 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s019",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1995 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s020",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1995 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s021",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1996 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s022",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1996 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s023",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1997 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s024",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1997 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s025",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1998 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s026",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1998 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s027",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1999 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s028",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "1999 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s029",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2000 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s030",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2000 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s031",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2001 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s032",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2001 D 50C MS VF $0.55"
+},
+{
+"slot": "A008-s033",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2002 P 50C MS VF $0.55"
+},
+{
+"slot": "A008-s034",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2002 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s002",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2004 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s003",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2005 P 50C MS VF $0.55"
+},
+{
+"slot": "A009-s004",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2005 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s008",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2007 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s011",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2009 P 50C MS VF $0.55"
+},
+{
+"slot": "A009-s012",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2009 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s019",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2013 P 50C MS VF $0.55"
+},
+{
+"slot": "A009-s024",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2015 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s025",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2016 P 50C MS VF $0.55"
+},
+{
+"slot": "A009-s026",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2016 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s028",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2017 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s030",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2018 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s034",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2020 D 50C MS VF $0.55"
+},
+{
+"slot": "A009-s035",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2021 P 50C MS VF $0.55"
+},
+{
+"slot": "A009-s036",
+"price_usd": 0.55,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/half-dollars/44/",
+"quote": "2021 D 50C MS VF $0.55"
+},
+{
+"slot": "A010-s001",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1965 25C MS VF $0.30"
+},
+{
+"slot": "A010-s002",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1966 25C MS VF $0.30"
+},
+{
+"slot": "A010-s003",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1967 25C MS VF $0.30"
+},
+{
+"slot": "A010-s004",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1968 25C MS VF $0.30"
+},
+{
+"slot": "A010-s005",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1968 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s006",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1969 25C MS VF $0.30"
+},
+{
+"slot": "A010-s007",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1969 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s008",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1970 25C MS VF $0.30"
+},
+{
+"slot": "A010-s009",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1970 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s010",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1971 25C MS VF $0.30"
+},
+{
+"slot": "A010-s011",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1971 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s012",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1972 25C MS VF $0.30"
+},
+{
+"slot": "A010-s013",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1972 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s014",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1973 25C MS VF $0.30"
+},
+{
+"slot": "A010-s015",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1973 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s016",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1974 25C MS VF $0.30"
+},
+{
+"slot": "A010-s017",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1974 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s018",
+"price_usd": 0.5,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1776-1976 CLAD 25C MS VF $0.50"
+},
+{
+"slot": "A010-s019",
+"price_usd": 0.5,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1776-1976 D CLAD 25C MS VF $0.50"
+},
+{
+"slot": "A010-s020",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1977 25C MS VF $0.30"
+},
+{
+"slot": "A010-s021",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1977 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s022",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1978 25C MS VF $0.30"
+},
+{
+"slot": "A010-s023",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1978 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s024",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1979 25C MS VF $0.30"
+},
+{
+"slot": "A010-s025",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1979 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s026",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1980 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s027",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1980 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s028",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1981 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s029",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1981 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s030",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1982 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s031",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1982 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s032",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1983 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s033",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1983 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s034",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1984 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s035",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1984 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s036",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1985 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s037",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1985 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s038",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1986 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s039",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1986 D 25C MS VF $0.30"
+},
+{
+"slot": "A010-s040",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1987 P 25C MS VF $0.30"
+},
+{
+"slot": "A010-s041",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1987 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s001",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1988 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s002",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1988 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s003",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1989 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s004",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1989 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s005",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1990 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s006",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1990 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s007",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1991 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s008",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1991 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s009",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1992 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s010",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1992 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s011",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1993 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s012",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1993 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s013",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1994 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s014",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1994 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s015",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1995 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s016",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1995 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s017",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1996 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s018",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1996 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s019",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1997 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s020",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1997 D 25C MS VF $0.30"
+},
+{
+"slot": "A011-s021",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1998 P 25C MS VF $0.30"
+},
+{
+"slot": "A011-s022",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1998 D 25C MS VF $0.30"
+},
+{
+"slot": "A012-s039",
+"price_usd": 9.5,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/quarters/38/",
+"quote": "1964 25C MS VF $9.50"
+},
+{
+"slot": "A013-s002",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1996 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s003",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1996 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s004",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1997 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s005",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1997 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s006",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1998 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s007",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1998 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s008",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1999 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s009",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1999 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s010",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2000 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s011",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2000 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s012",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2001 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s013",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2001 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s014",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2002 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s015",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2002 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s016",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2003 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s017",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2003 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s018",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2004 P HANDSHAKE 5C MS VF $0.10"
+},
+{
+"slot": "A013-s019",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2004 D HANDSHAKE 5C MS VF $0.10"
+},
+{
+"slot": "A013-s020",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2004 P KEELBOAT 5C MS VF $0.10"
+},
+{
+"slot": "A013-s021",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2004 D KEELBOAT 5C MS VF $0.10"
+},
+{
+"slot": "A013-s022",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2005 P BISON 5C MS VF $0.10"
+},
+{
+"slot": "A013-s023",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2005 D BISON 5C MS VF $0.10"
+},
+{
+"slot": "A013-s024",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2005 P OCEAN IN VIEW 5C MS VF $0.10"
+},
+{
+"slot": "A013-s025",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2005 D OCEAN IN VIEW 5C MS VF $0.10"
+},
+{
+"slot": "A013-s026",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2006 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s027",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2006 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s028",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2007 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s029",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2007 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s031",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2008 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s033",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2009 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s035",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2010 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s036",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2011 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s037",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2011 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s038",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2012 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s039",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2012 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s040",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2013 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s041",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2013 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s042",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2014 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s043",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2014 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s044",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2015 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s045",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2015 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s046",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2016 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s047",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2016 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s048",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2017 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s049",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2017 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s050",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2018 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s051",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2018 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s052",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2019 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s053",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2019 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s054",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2020 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s055",
+"price_usd": 0.05,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/jefferson-nickel/84/most-active",
+"quote": "2020-D 5C no circulated price listed"
+},
+{
+"slot": "A013-s058",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2021 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s059",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2022 P 5C MS VF $0.10"
+},
+{
+"slot": "A013-s060",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "2022 D 5C MS VF $0.10"
+},
+{
+"slot": "A013-s062",
+"price_usd": 0.05,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/jefferson-nickel/84/most-active",
+"quote": "2023-D 5C no circulated price listed"
+},
+{
+"slot": "A014-s001",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1962 5C MS VF $0.10"
+},
+{
+"slot": "A014-s003",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1963 5C MS VF $0.10"
+},
+{
+"slot": "A014-s005",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1964 5C MS VF $0.10"
+},
+{
+"slot": "A014-s008",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1966 5C MS VF $0.10"
+},
+{
+"slot": "A014-s010",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1968 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s012",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1969 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s014",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1970 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s015",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1970 S 5C MS VF $0.10"
+},
+{
+"slot": "A014-s017",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1971 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s018",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1972 5C MS VF $0.10"
+},
+{
+"slot": "A014-s019",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1972 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s020",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1973 5C MS VF $0.10"
+},
+{
+"slot": "A014-s022",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1974 5C MS VF $0.10"
+},
+{
+"slot": "A014-s023",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1974 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s024",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1975 5C MS VF $0.10"
+},
+{
+"slot": "A014-s025",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1975 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s026",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1976 5C MS VF $0.10"
+},
+{
+"slot": "A014-s027",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1976 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s028",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1977 5C MS VF $0.10"
+},
+{
+"slot": "A014-s029",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1977 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s030",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1978 5C MS VF $0.10"
+},
+{
+"slot": "A014-s031",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1978 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s032",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1979 5C MS VF $0.10"
+},
+{
+"slot": "A014-s033",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1979 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s034",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1980 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s035",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1980 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s036",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1981 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s037",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1981 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s038",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1982 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s039",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1982 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s040",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1983 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s041",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1983 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s042",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1984 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s043",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1984 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s044",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1985 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s045",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1985 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s047",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1986 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s048",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1987 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s049",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1987 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s050",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1988 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s051",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1988 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s052",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1989 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s053",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1989 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s054",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1990 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s055",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1990 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s056",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1991 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s057",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1991 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s059",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1992 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s060",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1993 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s061",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1993 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s062",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1994 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s063",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1994 D 5C MS VF $0.10"
+},
+{
+"slot": "A014-s064",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1995 P 5C MS VF $0.10"
+},
+{
+"slot": "A014-s065",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1995 D 5C MS VF $0.10"
+},
+{
+"slot": "A015-s004",
+"price_usd": 0.75,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1939 REV OF 38 5C MS VF $0.75"
+},
+{
+"slot": "A015-s007",
+"price_usd": 0.25,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1940 5C MS VF $0.25"
+},
+{
+"slot": "A015-s029",
+"price_usd": 0.25,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1947 5C MS VF $0.25"
+},
+{
+"slot": "A015-s035",
+"price_usd": 0.25,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1949 5C MS VF $0.25"
+},
+{
+"slot": "A015-s052",
+"price_usd": 0.35,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1955 5C MS VF $0.35"
+},
+{
+"slot": "A015-s054",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1956 5C MS VF $0.10"
+},
+{
+"slot": "A015-s060",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1959 5C MS VF $0.10"
+},
+{
+"slot": "A015-s064",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/nickels/25/",
+"quote": "1961 5C MS VF $0.10"
+},
+{
+"slot": "A016-s001",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1975 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s002",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1975 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s003",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1976 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s004",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1976 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s005",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1977 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s006",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1977 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s007",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1978 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s008",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1978 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s009",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1979 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s010",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1979 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s011",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1980 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s012",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1980 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s013",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1981 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s014",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1981 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s015",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 LG DT BRONZE 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s016",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 SM DT BRONZE 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s017",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 LG DT ZINC 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s018",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 SM DT ZINC 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s019",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 D LG DT BRONZE 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s020",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 D SM DT BRONZE 1C (no regular issue VF price)"
+},
+{
+"slot": "A016-s021",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 D LG DT ZINC 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s022",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1982 D SM DT ZINC 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s023",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1983 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s024",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1983 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s025",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1984 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s026",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1984 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s027",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1985 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s028",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1985 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s029",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1986 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s030",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1986 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s031",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1987 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s032",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1987 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s033",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1988 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s034",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1988 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s035",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1989 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s036",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1989 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s037",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1990 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s038",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1990 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s039",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1991 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s040",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1991 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s041",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1992 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s042",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1992 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s043",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1993 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s044",
+"price_usd": 0.05,
+"grade": "VF-20",
+"url": "https://www.ngccoin.com/price-guide/united-states/cents/100/",
+"quote": "1993 D 1C MSBN VF $0.05"
+},
+{
+"slot": "A016-s045",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1994-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s046",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1994-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s047",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1995-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s048",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1995-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s049",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1996-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s050",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1996-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s051",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1997-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s052",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1997-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s053",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1998-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s054",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1998-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s055",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1999-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s056",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "1999-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s057",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2000-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s058",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2000-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s059",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2001-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s060",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2001-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s061",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2002-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s062",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2002-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s063",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2003-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s064",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2003-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s065",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2004-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s066",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2004-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s067",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2005-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s068",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2005-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s069",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2006-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s070",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2006-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s071",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2007-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s072",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2007-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s073",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2008-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s074",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2008-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s076",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2009 (P) Formative Years RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s079",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2009 (D) Birth & Early Childhood RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s080",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2009 (D) Formative Years RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s081",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2009 (D) Professional Life RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s082",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2009 (D) Presidency RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s083",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2010-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s084",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2010-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s085",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2011-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s086",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2011-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s087",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2012-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s088",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2012-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s089",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2013-P RD MS65 10 (no VF price)"
+},
+{
+"slot": "A016-s090",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-modern/47/most-active",
+"quote": "2013-D RD MS65 10 (no VF price)"
+},
+{
+"slot": "A018-s006",
+"price_usd": 2.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/ike-dollar/31/grades-1-20",
+"quote": "1974-D VF20 2"
+},
+{
+"slot": "A018-s013",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1979-P VF20 1"
+},
+{
+"slot": "A018-s014",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1979-D VF20 1"
+},
+{
+"slot": "A018-s015",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1979-S VF20 1"
+},
+{
+"slot": "A018-s016",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1980-P VF20 1"
+},
+{
+"slot": "A018-s017",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1980-D VF20 1"
+},
+{
+"slot": "A018-s018",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1980-S VF20 1"
+},
+{
+"slot": "A018-s022",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1999-P VF20 1"
+},
+{
+"slot": "A018-s023",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/susan-b-anthony-dollar/747/most-active",
+"quote": "1999-D VF20 1"
+},
+{
+"slot": "A019-s002",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/sacagawea-dollar/748/most-active",
+"quote": "2009-D Native American MS65 7 (no VF price)"
+},
+{
+"slot": "A019-s006",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/sacagawea-dollar/748/most-active",
+"quote": "2011-D Native American MS65 7 (no VF price)"
+},
+{
+"slot": "A020-s001",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/sacagawea-dollar/748/most-active",
+"quote": "2000-P Type MS65 5 (no VF price)"
+},
+{
+"slot": "A020-s002",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/sacagawea-dollar/748/most-active",
+"quote": "2000-D Type MS65 5 (no VF price)"
+},
+{
+"slot": "A020-s004",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/sacagawea-dollar/748/most-active",
+"quote": "2001-D Type MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s001",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-P Delaware MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s002",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-D Delaware MS60 3, MS65 6 (no VF price)"
+},
+{
+"slot": "A021-s003",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-P Pennsylvania MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s004",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-D Pennsylvania MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s005",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-P New Jersey MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s006",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-D New Jersey MS60 3, MS65 7 (no VF price)"
+},
+{
+"slot": "A021-s007",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-P Georgia MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s008",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-D Georgia MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s009",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-P Connecticut MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s010",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "1999-D Connecticut MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s011",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-P Massachusetts MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s012",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-D Massachusetts MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s013",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-P Maryland MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s014",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-D Maryland MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s015",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-P South Carolina MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s016",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-D South Carolina MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s017",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-P New Hampshire MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s018",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-D New Hampshire MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s019",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-P Virginia MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s020",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2000-D Virginia MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s021",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-P New York MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s022",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-D New York MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s023",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-P North Carolina MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s024",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-D North Carolina MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s025",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-P Rhode Island MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s026",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-D Rhode Island MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s027",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-P Vermont MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s028",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-D Vermont MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s029",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-P Kentucky MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s030",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2001-D Kentucky MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s031",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-P Tennessee MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s032",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-D Tennessee MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s033",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-P Ohio MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s034",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-D Ohio MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s035",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-P Louisiana MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s036",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-D Louisiana MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s037",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-P Indiana MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s038",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-D Indiana MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s039",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-P Mississippi MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s040",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2002-D Mississippi MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s041",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-P Illinois MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s042",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-D Illinois MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s043",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-P Alabama MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s046",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-D Maine MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s047",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-P Missouri MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s048",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-D Missouri MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s049",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-P Arkansas MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s050",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2003-D Arkansas MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s051",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-P Michigan MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s052",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-D Michigan MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s053",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-P Florida MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s054",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-D Florida MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s055",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-P Texas MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s056",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-D Texas MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s057",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-P Iowa MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s058",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-D Iowa MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s059",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-P Wisconsin MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s060",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2004-D Wisconsin MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s061",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-P California MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s062",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-D California MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s063",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-P Minnesota MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s064",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-D Minnesota MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s065",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-P Oregon MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s066",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-D Oregon MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s067",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-P Kansas MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s068",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-D Kansas MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s069",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-P West Virginia MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s070",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2005-D West Virginia MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s071",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-P Nevada MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s072",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-D Nevada MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s073",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-P Nebraska MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s074",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-D Nebraska MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s075",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-P Colorado MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s076",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-D Colorado MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s077",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-P North Dakota MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s078",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-D North Dakota MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s079",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-P South Dakota MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s080",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2006-D South Dakota MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s081",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-P Montana MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s082",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-D Montana MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s083",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-P Washington MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s084",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-D Washington MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s085",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-P Idaho MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s086",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-D Idaho MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s087",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-P Wyoming MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s088",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-D Wyoming MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s089",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-P Utah MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s090",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2007-D Utah MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s091",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-P Oklahoma MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s092",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-D Oklahoma MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s093",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-P New Mexico MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s094",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-D New Mexico MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s095",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-P Arizona MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s096",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-D Arizona MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s097",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-P Alaska MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s098",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-D Alaska MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s099",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-P Hawaii MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s100",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-50-states-quarters/720/most-active",
+"quote": "2008-D Hawaii MS60 3, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s101",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-P District of Columbia MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s102",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-D District of Columbia MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s103",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-P Puerto Rico MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s104",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-D Puerto Rico MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s106",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-D Guam MS63 4, MS65 6 (no VF price)"
+},
+{
+"slot": "A021-s107",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-P American Samoa MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s109",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-P US Virgin Islands MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s110",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-D US Virgin Islands MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s111",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-P Northern Mariana Islands MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A021-s112",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-d-c-u-s-territories-quarters/1721/most-active",
+"quote": "2009-D Northern Mariana Islands MS63 4, MS65 5 (no VF price)"
+},
+{
+"slot": "A022-s001",
+"price_usd": 18.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/coinfacts/coin/1899-1c-bn/2202",
+"quote": "1899 1C BN VF20 18"
+},
+{
+"slot": "A023-s030",
+"price_usd": 15.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/coinfacts/coin/1918-s-1c-bn/2510",
+"quote": "1918-S 1C BN VF20 15"
+},
+{
+"slot": "A023-s060",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/grades-1-20/ms",
+"quote": "1930 BN G4 1, F12 1, XF40 2 (VF20 1)"
+},
+{
+"slot": "A023-s067",
+"price_usd": 4.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/grades-1-20/ms",
+"quote": "1932-D BN G4 2, F12 3, XF40 5 (VF20 4)"
+},
+{
+"slot": "A023-s075",
+"price_usd": 3.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/coinfacts/coin/1936-1c-bn/2648",
+"quote": "1936 1C BN VF20 3"
+},
+{
+"slot": "A023-s078",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/most-active",
+"quote": "1937 RD MS63 12, MS65 20 (no VF price)"
+},
+{
+"slot": "A023-s081",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/most-active",
+"quote": "1938 RD MS63 12, MS65 28 (no VF price)"
+},
+{
+"slot": "A023-s087",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/lincoln-cent-wheat-reverse/46/most-active",
+"quote": "1940 RD MS63 8, MS65 17 (no VF price)"
+},
+{
+"slot": "A024-s001",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/coinfacts/coin/1943-1c/2711",
+"quote": "1943 1C XF40 1, MS60 11 (no VF price)"
+},
+{
+"slot": "A024-s006",
+"price_usd": 0.01,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/coinfacts/coin/1992-1c-rd/3098",
+"quote": "1992 1C RD MS63 6, MS65 10 (no VF price)"
+},
+{
+"slot": "A024-s007",
+"price_usd": 0.05,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/coinfacts/coin/1992-p-5c/4128",
+"quote": "1992-P 5C Type MS63 3, MS65 14 (no VF price)"
+},
+{
+"slot": "A024-s008",
+"price_usd": 0.1,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/coinfacts/coin/1992-p-10c/5182",
+"quote": "1992-P 10C AU58 1, MS63 5, MS65 7 (no VF price)"
+},
+{
+"slot": "A024-s009",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/coinfacts/coin/1992-p-25c/5932",
+"quote": "1992-P 25C MS60 1, MS63 2, MS65 24 (no VF price)"
+},
+{
+"slot": "A024-s010",
+"price_usd": 0.5,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/kennedy-half-dollar/125/most-active",
+"quote": "1992-P 50C XF40 1, MS60 5, MS65 14 (no VF price)"
+},
+{
+"slot": "A025-s001",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2021 $1 Silver Eagle Type 1 MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A025-s002",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2022 $1 Silver Eagle MS66 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A025-s003",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2023 $1 Silver Eagle MS69 90 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A025-s004",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2024 $1 Silver Eagle MS67 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A025-s005",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2025 $1 Silver Eagle MS68 58 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A025-s006",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2026 $1 Silver Eagle MS70 125 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s001",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "1986 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s002",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "1987 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s003",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "1992 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s004",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2001 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s005",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2002 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s006",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2005 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s007",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2006 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s008",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2007 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s009",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2008 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s010",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "2013 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s011",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2014 $1 Silver Eagle MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s012",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "2015 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s013",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "2016 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s014",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "2017 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s015",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "2018 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s016",
+"price_usd": 58.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/grades-1-20/ms",
+"quote": "2019 $1 Silver Eagle VF20 58"
+},
+{
+"slot": "A026-s017",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2020 $1 Silver Eagle MS65 52 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A026-s018",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/silver-eagles/939/most-active",
+"quote": "2021 $1 Silver Eagle Type 1 MS65 57 (no VF price)",
+"claude_note": "bullion: 1 troy oz fine silver, worth at least melt; the project's face-value rule was written for clad coins, so this row's price is not used as a value"
+},
+{
+"slot": "A027-s001",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-P Hot Springs MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s002",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-D Hot Springs MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s003",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-P Yellowstone MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s004",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-D Yellowstone MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s006",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-D Yosemite MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s007",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-P Grand Canyon MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s008",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-D Grand Canyon MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s009",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2010-P Mt. Hood MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s011",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-P Gettysburg MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s012",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-D Gettysburg MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s014",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-D Glacier MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s015",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-P Olympic MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s016",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-D Olympic MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s018",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-D Vicksburg MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s019",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-P Chickasaw MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s020",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2011-D Chickasaw MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s022",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2012-D El Yunque MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s026",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2012-D Acadia MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s028",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2012-D Hawaii Volcanoes MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s029",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2012-P Denali MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s030",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2012-D Denali MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s031",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-P White Mountain MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s032",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-D White Mountain MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s033",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-P Perry's Victory MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s034",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-D Perry's Victory MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s035",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-P Great Basin MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s036",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-D Great Basin MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s037",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-P Fort McHenry MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s038",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-D Fort McHenry MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s039",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-P Mount Rushmore MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s040",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2013-D Mount Rushmore MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s042",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-D Great Smoky Mountains MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s043",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-P Shenandoah MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s044",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-D Shenandoah MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s045",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-P Arches MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s046",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-D Arches MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s047",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-P Great Sand Dunes MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s048",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-D Great Sand Dunes MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s049",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-P Everglades MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s050",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2014-D Everglades MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s051",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-P Homestead MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s052",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-D Homestead MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s053",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-P Kisatchie MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s054",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-D Kisatchie MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s055",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-P Blue Ridge MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s056",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-D Blue Ridge MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s057",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-P Bombay Hook MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s058",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-D Bombay Hook MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s059",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-P Saratoga MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s060",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2015-D Saratoga MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s062",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-D Shawnee MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s063",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-P Cumberland Gap MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s064",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-D Cumberland Gap MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s065",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-P Harpers Ferry MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s066",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-D Harpers Ferry MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s068",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-D Theodore Roosevelt MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s069",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-P Fort Moultrie MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s070",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2016-D Fort Moultrie MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s072",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-D Effigy Mounds MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s073",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-P Frederick Douglass MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s074",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-D Frederick Douglass MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s075",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-P Ozark MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s076",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-D Ozark MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s077",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-P Ellis Island MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s078",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-D Ellis Island MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s079",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-P George Rogers Clark MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s080",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2017-D George Rogers Clark MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s081",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-P Pictured Rocks MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s082",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-D Pictured Rocks MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s083",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-P Apostle Islands MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s084",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-D Apostle Islands MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s086",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-D Voyageurs MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s087",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-P Cumberland Island MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s088",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-D Cumberland Island MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s089",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-P Block Island MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s090",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2018-D Block Island MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s092",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2019-D Lowell MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s094",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2019-D American Memorial MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s095",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2019-P War in the Pacific MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s096",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2019-D War in the Pacific MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s098",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2019-D San Antonio Missions MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s100",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2019-D Frank Church River of No Return MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s101",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-P Pu'uhonua o Honaunau MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s102",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-D Pu'uhonua o Honaunau MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s103",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-P Salt River Bay MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s104",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-D Salt River Bay MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s106",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-D Weir Farm MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s107",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-P Marsh-Billings-Rockefeller MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s108",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-D Marsh-Billings-Rockefeller MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s109",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-P Tallgrass Prairie MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s110",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2020-D Tallgrass Prairie MS65 4 (no VF price)"
+},
+{
+"slot": "A027-s112",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-america-beautiful-quarters/1715/most-active",
+"quote": "2021-D Tuskegee Airmen MS65 4 (no VF price)"
+},
+{
+"slot": "A028-s001",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-crossing-delaware-quarters/203665/most-active",
+"quote": "2021-P Crossing the Delaware MS65 12 (no VF price)"
+},
+{
+"slot": "A028-s002",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/washington-crossing-delaware-quarters/203665/most-active",
+"quote": "2021-D Crossing the Delaware MS65 15 (no VF price)"
+},
+{
+"slot": "A028-s003",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2022-P Maya Angelou MS65 10 (no VF price)"
+},
+{
+"slot": "A028-s004",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2022-D Maya Angelou MS65 10 (no VF price)"
+},
+{
+"slot": "A028-s006",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2022-D Dr. Sally Ride MS65 10 (no VF price)"
+},
+{
+"slot": "A028-s007",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2022-P Wilma Mankiller MS65 10 (no VF price)"
+},
+{
+"slot": "A028-s008",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2022-D Wilma Mankiller MS65 8 (no VF price)"
+},
+{
+"slot": "A028-s010",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2022-D Nina Otero-Warren MS65 10 (no VF price)"
+},
+{
+"slot": "A028-s014",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2023-D Bessie Coleman MS65 10 (no VF price)"
+},
+{
+"slot": "A028-s016",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2023-D Edith Kanaka'ole MS65 9 (no VF price)"
+},
+{
+"slot": "A028-s018",
+"price_usd": 0.25,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/american-women-quarters/203668/most-active",
+"quote": "2023-D Eleanor Roosevelt MS65 9 (no VF price)"
+},
+{
+"slot": "A030-s001",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-P Washington VF20 1"
+},
+{
+"slot": "A030-s002",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-P Adams VF20 1"
+},
+{
+"slot": "A030-s003",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-P Jefferson VF20 1"
+},
+{
+"slot": "A030-s004",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2008-P J.Q. Adams VF20 1"
+},
+{
+"slot": "A030-s005",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2008-P Van Buren VF20 1"
+},
+{
+"slot": "A030-s006",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2009-P Tyler VF20 1"
+},
+{
+"slot": "A030-s007",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-P Fillmore VF20 1"
+},
+{
+"slot": "A030-s008",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-P Pierce VF20 1"
+},
+{
+"slot": "A030-s009",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-P Buchanan VF20 1"
+},
+{
+"slot": "A030-s010",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2011-P Grant VF20 1"
+},
+{
+"slot": "A030-s011",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2011-P Garfield VF20 1"
+},
+{
+"slot": "A030-s012",
+"price_usd": 1.0,
+"grade": "face (no circulated price listed)",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2014-P Harding MS65 7 (no VF price)"
+},
+{
+"slot": "A030-s013",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-D Washington VF20 1"
+},
+{
+"slot": "A030-s014",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-D Adams VF20 1"
+},
+{
+"slot": "A030-s015",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-D Jefferson VF20 1"
+},
+{
+"slot": "A030-s016",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2007-D Madison VF20 1"
+},
+{
+"slot": "A030-s017",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2008-D Monroe VF20 1"
+},
+{
+"slot": "A030-s018",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2008-D J.Q. Adams VF20 1"
+},
+{
+"slot": "A030-s019",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2008-D Jackson VF20 1"
+},
+{
+"slot": "A030-s020",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2009-D Harrison VF20 1"
+},
+{
+"slot": "A030-s021",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2009-D Tyler VF20 1"
+},
+{
+"slot": "A030-s022",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2009-D Taylor VF20 1"
+},
+{
+"slot": "A030-s023",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-D Fillmore VF20 1"
+},
+{
+"slot": "A030-s024",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-D Pierce VF20 1"
+},
+{
+"slot": "A030-s025",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-D Buchanan VF20 1"
+},
+{
+"slot": "A030-s026",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2010-D Lincoln VF20 1"
+},
+{
+"slot": "A030-s027",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2011-D Johnson VF20 1"
+},
+{
+"slot": "A030-s028",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2011-D Grant VF20 1"
+},
+{
+"slot": "A030-s029",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2011-D Hayes VF20 1"
+},
+{
+"slot": "A030-s030",
+"price_usd": 1.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/presidential-dollars/1650/most-active",
+"quote": "2011-D Garfield VF20 1"
+},
+{
+"slot": "A031-s001",
+"price_usd": 6.0,
+"grade": "VF-20",
+"url": "https://www.pcgs.com/prices/detail/buffalo-nickel/83/most-active",
+"quote": "1936 VF20 6"
+},
+{
+"slot": "A032-s002",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1989 VF $ 0.11"
+},
+{
+"slot": "A032-s004",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/425",
+"quote": "1990 VF $ 0.11"
+},
+{
+"slot": "A032-s012",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/424",
+"quote": "1998 VF $ 0.11"
+},
+{
+"slot": "A032-s013",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/424",
+"quote": "1999 VF $ 0.11"
+},
+{
+"slot": "A032-s014",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://en.numista.com/424",
+"quote": "2000 VF $ 0.10"
+},
+{
+"slot": "A032-s015",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/424",
+"quote": "2001 VF $ 0.11"
+},
+{
+"slot": "A032-s023",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/377353",
+"quote": "2004 P VF $ 0.11"
+},
+{
+"slot": "A033-s024",
+"price_usd": 0.3,
+"grade": "VF-20",
+"url": "https://en.numista.com/435",
+"quote": "1942 VF $ 0.30"
+},
+{
+"slot": "A033-s029",
+"price_usd": 0.21,
+"grade": "VF-20",
+"url": "https://en.numista.com/435",
+"quote": "1947 Blunt 7 VF $ 0.21"
+},
+{
+"slot": "A033-s035",
+"price_usd": 0.2,
+"grade": "VF-20",
+"url": "https://en.numista.com/434",
+"quote": "1951 VF $ 0.20"
+},
+{
+"slot": "A033-s040",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1955 VF $ 0.15"
+},
+{
+"slot": "A033-s041",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1956 VF $ 0.11"
+},
+{
+"slot": "A033-s042",
+"price_usd": 0.14,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1957 VF $ 0.14"
+},
+{
+"slot": "A033-s043",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1958 VF $ 0.11"
+},
+{
+"slot": "A033-s044",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1959 VF $ 0.11"
+},
+{
+"slot": "A033-s045",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1960 VF $ 0.11"
+},
+{
+"slot": "A033-s046",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1961 VF $ 0.11"
+},
+{
+"slot": "A033-s047",
+"price_usd": 0.15,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1962 VF $ 0.15"
+},
+{
+"slot": "A033-s048",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1963 VF $ 0.11"
+},
+{
+"slot": "A033-s049",
+"price_usd": 0.13,
+"grade": "VF-20",
+"url": "https://en.numista.com/433",
+"quote": "1964 VF $ 0.13"
+},
+{
+"slot": "A033-s051",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1965 Small beads, blunt 5 VF $ 0.10"
+},
+{
+"slot": "A033-s052",
+"price_usd": 0.12,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1966 VF $ 0.12"
+},
+{
+"slot": "A033-s053",
+"price_usd": 0.31,
+"grade": "VF-20",
+"url": "https://en.numista.com/430",
+"quote": "1967 VF $ 0.31"
+},
+{
+"slot": "A033-s054",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1968 VF $ 0.11"
+},
+{
+"slot": "A033-s055",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1969 VF $ 0.11"
+},
+{
+"slot": "A033-s056",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1970 VF $ 0.11"
+},
+{
+"slot": "A033-s057",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1971 VF $ 0.11"
+},
+{
+"slot": "A033-s058",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1972 VF $ 0.11"
+},
+{
+"slot": "A033-s059",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1973 VF $ 0.11"
+},
+{
+"slot": "A033-s061",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1975 VF $ 0.11"
+},
+{
+"slot": "A033-s062",
+"price_usd": 0.1,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1976 VF $ 0.10"
+},
+{
+"slot": "A033-s063",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1977 VF $ 0.11"
+},
+{
+"slot": "A033-s064",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/432",
+"quote": "1978 VF $ 0.11"
+},
+{
+"slot": "A033-s065",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/444580",
+"quote": "1979 VF $ 0.11"
+},
+{
+"slot": "A033-s066",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/429",
+"quote": "1980 VF $ 0.11"
+},
+{
+"slot": "A033-s067",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/429",
+"quote": "1981 VF $ 0.11"
+},
+{
+"slot": "A033-s068",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1982 VF $ 0.11"
+},
+{
+"slot": "A033-s069",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1983 VF $ 0.11"
+},
+{
+"slot": "A033-s070",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1984 VF $ 0.11"
+},
+{
+"slot": "A033-s072",
+"price_usd": 0.14,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1985 Pointed 5 VF $ 0.14"
+},
+{
+"slot": "A033-s073",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1986 VF $ 0.11"
+},
+{
+"slot": "A033-s074",
+"price_usd": 0.11,
+"grade": "VF-20",
+"url": "https://en.numista.com/427",
+"quote": "1987 VF $ 0.11"
+}
+]
+}

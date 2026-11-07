@@ -25,3 +25,12 @@
 {"ts": "2026-10-31T17:58:30Z", "assignment": "HW-grok-verify-20261030-1", "agent": "grok", "item": "verify:type:ES.KM.1042:ruler", "outcome": "caught"}
 {"ts": "2026-11-05T14:20:00Z", "assignment": "HW-gemini-verify-20261020-1", "agent": "gemini", "item": "verify:type:MX.KM.443:design.text", "outcome": "caught"}
 {"ts": "2026-11-05T14:36:00Z", "assignment": "HW-gemini-verify-20261022-2", "agent": "gemini", "item": "verify:type:DE.KM.105:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:20:00Z", "assignment": "HW-gemini-verify-20261105-1", "agent": "gemini", "item": "verify:type:DE.KM.140.1:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:20:00Z", "assignment": "HW-gemini-verify-20261105-1", "agent": "gemini", "item": "verify:type:MT.KM.132:period", "outcome": "caught"}
+{"ts": "2026-11-06T23:20:00Z", "assignment": "HW-gemini-verify-20261105-1", "agent": "gemini", "item": "verify:type:BZ.X.25-cents:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:21:00Z", "assignment": "HW-gemini-verify-20261105-1", "agent": "gemini", "item": "verify:type:MX.X.500-pesos:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:21:00Z", "assignment": "HW-gemini-verify-20261105-1", "agent": "gemini", "item": "verify:type:DE.KM.109.1:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:21:00Z", "assignment": "HW-gemini-verify-20261105-1", "agent": "gemini", "item": "verify:type:GB.KM.988:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:21:00Z", "assignment": "HW-gemini-verify-20261105-2", "agent": "gemini", "item": "verify:type:IT.KM.214:period", "outcome": "caught"}
+{"ts": "2026-11-06T23:22:00Z", "assignment": "HW-gemini-verify-20261105-2", "agent": "gemini", "item": "verify:type:GB.KM.938b:design.text", "outcome": "caught"}
+{"ts": "2026-11-06T23:22:00Z", "assignment": "HW-gemini-verify-20261105-2", "agent": "gemini", "item": "verify:type:GB.KM.915:period", "outcome": "caught"}
