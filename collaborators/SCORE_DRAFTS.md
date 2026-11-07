@@ -26,3 +26,10 @@ Drafted from the merge and the cross-checks since (rubric: top of `collaborators
 | `changes_gemini_20261105-1438.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 19 lines: 18 in the change log, 0 filed as disagreements, 1 left blank; answered 71 of 78 items of HW-gemini-verify-20261022-2 (with its other files for the same sheet); cross-checked so far: 18 held, 0 wrong |
 | `changes_gemini_20261105-1441.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 19 lines: 9 in the change log, 0 filed as disagreements, 10 left blank; answered 24 of 80 items of HW-gemini-verify-20261024-2 (with its other files for the same sheet); cross-checked so far: 9 held, 0 wrong |
 | `changes_gemini_20261105-1442.jsonl` | **8 / 10** | 2 | 2 | 3 | 0 | 1 | 19 lines: 2 in the change log, 0 filed as disagreements, 17 left blank; answered 24 of 80 items of HW-gemini-verify-20261024-2 (with its other files for the same sheet); cross-checked so far: 2 held, 0 wrong |
+
+## Grok
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_grok_20261106-1621.jsonl` | **9 / 10** | 2 | 2 | 3 | 1 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 left blank; answered 1 of 2 items of HW-grok-verify-20261106-2 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+| `changes_grok_20261106-1620.jsonl` | bounced, unscored | | | | | | rejected: line 1: provenance.inputs.0: 'C036_obv.webp' is not of type 'object' |

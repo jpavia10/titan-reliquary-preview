@@ -543,6 +543,45 @@
           "followup": "Leave it for the pro photo."
         }
       ]
+    },
+    {
+      "id": "q-c036-date",
+      "coin": "C036",
+      "ask": "Italy 10 euro cent with Botticelli's Venus (C036): read the date to the left of her face, above the RI monogram. Is it 2002 or 2007?",
+      "why": "Two AIs read 2002 from the phone photo; the record says 2007 (from its photo label and the 2007 mintage row). Claude looked at the full-size photo and cannot tell the last digit (D0151). It decides the mintage: 2002 struck about 1.14 billion, 2007 about 105 million. No rush: it can wait for the pro-photo session.",
+      "options": [
+        {
+          "label": "2002",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C036",
+                "field": "issue.year",
+                "new": 2002
+              }
+            }
+          ],
+          "followup": "C036 is 2002: fix its mintage to the 2002 R row; settle D0151 for the claim (Gemini API, Grok)."
+        },
+        {
+          "label": "2007",
+          "effect": [
+            {
+              "confirm": {
+                "scan": "C036",
+                "fact": "year"
+              }
+            }
+          ],
+          "followup": "C036 stays 2007: settle D0151 for the record (Muse)."
+        },
+        {
+          "label": "Can't tell",
+          "effect": [],
+          "followup": "Leave D0151 open for the pro photo."
+        }
+      ]
     }
   ]
 }
