@@ -5,7 +5,7 @@
 html.ts-engine body > :not(#tr-splash):not(#fxk):not(#titan-fx) { opacity: 0 !important; }
 html.ts-engine-fade body > :not(#tr-splash):not(#fxk):not(#titan-fx) { transition: opacity .9s cubic-bezier(.4, 0, .2, 1); }
 #tr-splash.ts-engine { background: transparent; }
-#tr-splash.ts-engine > :not(.ts-engine-dark):not(.ts-engine-title):not(.ts-skip):not(.ts-sound) { display: none; }
+#tr-splash.ts-engine > :not(.ts-engine-dark):not(.ts-engine-title):not(.ts-skip):not(.ts-sound):not(.ts-film) { display: none; }
 .ts-engine-dark { position: absolute; inset: 0; background: #040406; opacity: 1; transition: opacity 2.2s cubic-bezier(.4, 0, .2, 1); pointer-events: none; }
 .ts-engine-title, .troom-title { position: absolute; left: 0; right: 0; top: 30%; text-align: center; pointer-events: none; opacity: 0;
   font: 600 clamp(30px, 9vw, 72px)/1.05 "Fraunces", Georgia, serif; letter-spacing: .26em; color: #fff3da;

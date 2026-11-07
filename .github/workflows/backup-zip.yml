@@ -1,7 +1,7 @@
 name: backup-zip
 
 # A compact daily site backup for Google Drive: the whole repo (code, data, collection, photos) WITHOUT the large
-# ambience recordings (audio) and the review screenshots and sound samples under notes/ (2026-11-04: the zip passed 48 MB
+# splash films (art/splash), the ambience recordings (audio) and the review screenshots and sound samples under notes/ (2026-11-04: the zip passed 48 MB
 # when every theme got its art), which stay in git. The full repo is ~250 MB, more than
 # Apps Script can fetch (50 MB), so tools/drive/sync_to_drive.gs downloads this asset instead:
 #   https://github.com/jpavia10/titan-reliquary-preview/releases/download/site-backup/titan-reliquary-site.zip
@@ -31,7 +31,7 @@ jobs:
       - name: Build the zip
         run: |
           set -euo pipefail
-          git archive --format=zip --prefix=titan-reliquary-preview/ -o titan-reliquary-site.zip HEAD -- . ':(exclude)audio' ':(exclude,glob)notes/**/*.png' ':(exclude,glob)notes/**/*.jpg' ':(exclude,glob)notes/**/*.webm'
+          git archive --format=zip --prefix=titan-reliquary-preview/ -o titan-reliquary-site.zip HEAD -- . ':(exclude)art/splash' ':(exclude)audio' ':(exclude,glob)notes/**/*.png' ':(exclude,glob)notes/**/*.jpg' ':(exclude,glob)notes/**/*.webm'
           ls -l titan-reliquary-site.zip
           size=$(stat -c %s titan-reliquary-site.zip)
           if [ "$size" -gt 48000000 ]; then echo "::error::backup zip is $size bytes (> 48 MB, too big for the Drive sync)"; exit 1; fi

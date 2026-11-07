@@ -15,7 +15,7 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 | TitanFX (`wings/fx/engine.js`, presets in `wings/fx/*.js`) | The first engine: one effect layer per theme. | Kept until the theme has a GPU world, then that theme stops using it. |
 | Openings kit (`js/intros/kit.js`, `js/intros/{id}.js`, `js/motion-splash.js`) | Old separate opening scenes, loaded only when one plays (`TitanOpening.need(id)`, list `INTROS` in `js/motion-splash.js`). | A theme's file is deleted once its opening plays on its world (`wings/room.js` `OPENINGS`). |
 | **Scene library** (`fx/stage.js`, `K.stage(id, def)`) | How a new world is written (2026-10-30): the world gives its GLSL `render(uv)` (and for a raymarched world `map(p)`, with `K.stage.RAY` for march, normal, shadow and ao), a camera, its tier steps and render scale, look ids, moments, taps; the library does the camera, the uniforms, the background shader compile, the clamp and the room plumbing. | Every world written since tr267; the older worlds keep their own module until they are rebuilt. |
-| Films (`art/splash/`) | Prerendered openings. | Deleted 2026-10-30 (tr267; owner: "Right i dont want films"). |
+| The main film (`art/splash/*.mp4`) | The pregenerated 1080p opening film (Grok's clips), one at random per launch, before the theme's opening (`splash.js` filmPath, filmEnd). | Kept (owner 2026-11-07: "The 1080p video splashes should go first then followed by the theme intro. ... Everything after the pregenerated 1080p main splash is built to use the main 3d effects and ambient sound engine with a high quality music track on top"). Never a theme's opening (rule 12a). Removed in tr267 by mistake, back in tr276 (H.264 only). |
 | TitanScape (`audio/scape/`) | The sound engine for the backdrop and the room: recorded layers, placed in space, turned with the camera (`TitanScape.face`). | The sound engine. |
 | TitanQuality (`wings/quality.js`) | The one quality setting (Low, Medium, High, Ultra, Max). Worlds read it; nothing lowers it on its own. | The only tier. |
 
@@ -101,4 +101,4 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
 - **D. A GPU world for every first-engine theme** (Grok's homework, Claude's review), so every theme has a full room.
 - **E. Scene Studio v4** (rule 12 c): theme picking, sound, ambience and effects in layers that move in depth, leading into the room.
   The Atmosphere (`wings/atmosphere.js`, tr267, every studio control since tr269) is this; the classic studio stays as a list view.
-- **F. Retire**: the films (done, tr267), then the openings kit and TitanFX once nothing uses them.
+- **F. Retire**: the openings kit and TitanFX once nothing uses them (the main film stays: it is not a theme opening).

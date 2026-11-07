@@ -26,7 +26,8 @@ consolidate, rename, re-vibe, take creative liberty. Rebuild one at a time ("pul
    World's assets load at boot; no page errors; no leaks across 20 World switches.
 7. **Proof:** phone + desktop screenshots of 3 wings in `notes/agents/worlds/{id}/`, and a notes entry. The integrator checks it before merging.
 8. **Opening (owner rule, 2026-10-29):** the theme's opening is its own world in opening mode (same engine, same sound), live code at
-   the device's quality tier; no film, no prerendered frames, no separate intro scene (`notes/agents/depth-upgrade.md`).
+   the device's quality tier; no film, no prerendered frames, no separate intro scene (`notes/agents/depth-upgrade.md`). It follows
+   the one 1080p main film (`art/splash/`, owner 2026-11-07) and carries the theme's sound and music on top.
 9. **Room (owner rule, 2026-10-29):** the world also runs as the theme's room: full screen, you move through it and touch it, its
    look controls and its five placed sounds (two beds, three details) are there to play with. Until step 5 of the plan reaches a theme,
    items 8-9 apply to new themes only.

@@ -687,6 +687,7 @@
   }
   function frame(now) {
     raf = requestAnimationFrame(frame);
+    if (document.documentElement.classList.contains("ts-filmplay")) return;   // the opening film covers the screen (splash.js): nothing to draw behind it
     var rdt = scr.lastRaf ? now - scr.lastRaf : 0; scr.lastRaf = now;
     if (scrolling) scrollPace(rdt);
     var dt = now - lastDraw;

@@ -566,7 +566,7 @@
       key: function () { var R = kitRoom(); return current() + "|" + (R && R.opening ? 1 : 0); },
       build: function () {
         var O = window.TitanOpening, R = kitRoom(), out = "";
-        if (O) out += h("When the app starts") + seg("opening", "Opening", [["motion", "The theme's own"], ["none", "None"]], O.choice ? O.choice() : "motion") + note("Each theme opens on its own world, rendered live, then the app appears over it. A tap skips straight to the app.");
+        if (O) out += h("When the app starts") + seg("opening", "Opening", [["both", "Film, then the theme's"], ["film", "Film only"], ["motion", "The theme's only"], ["none", "None"]], O.choice ? O.choice() : "both") + note("The 1080p opening film plays first, then the theme opens on its own world, rendered live, and the app appears over it. A tap skips straight to the app.");
         out += h("When you pick a theme") + tog("switch", "Fly into a theme when I pick it", ls.get("titan.opening.switch") !== "0");
         if (R && R.opening && window.TitanRoom) out += '<div class="atm-row"><button type="button" class="atm-btn" data-act="flyin">Play ' + esc(themeName(current())) + "'s opening now</button></div>";
         return out;
