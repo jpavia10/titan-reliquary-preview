@@ -169,14 +169,17 @@ def main():
         while time.time() - t0 < 10 and SENT["film"] < 200_000: p.wait_for_timeout(200)
         started = SENT["film"]
         p.keyboard.press("Escape")               # any key skips (splash.js); a tap does the same
-        p.wait_for_timeout(2500)                 # the zoom-through exit (~1 s) then the video is dropped
+        # the zoom-through exit (~1 s), then the video loses its source. Measured from that moment, not from a fixed time: on the CI
+        # runner's software GL the world's first frames after the film take seconds, so the exit's timer can fire late (2026-11-07).
+        try: p.wait_for_function("() => { const v = document.querySelector('video.ts-film'); return !v || !v.getAttribute('src'); }", timeout=15000, polling=100); dropped = True
+        except Exception: dropped = False
         at_skip = SENT["film"]
         p.wait_for_timeout(3000)
         after = SENT["film"]
-        src = p.evaluate("(() => { const v = document.querySelector('video.ts-film'); return v ? (v.getAttribute('src') || '') : null; })()")
         check(started >= 200_000, f"the film was downloading before the skip ({started} bytes)")
-        check(not src, f"after the skip the video has no source ({src!r})")
-        check(after - at_skip < 64_000, f"after the skip no more film bytes arrive ({after - at_skip} bytes in the 3 s after the exit)")
+        check(dropped, "after the skip the video loses its source")
+        # at most the one 64 KB chunk already in flight when the source went (a running download is ~1.5 MB in 3 s at this pace)
+        check(after - at_skip <= 65_536, f"after the skip no more film bytes arrive ({after - at_skip} bytes in the 3 s after the source went)")
         SLOW["on"] = False; ctx.close()
 
         # 6. Motion Calm: never the film
