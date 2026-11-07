@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-06T15:42:28Z",
+ "updated": "2026-11-07T01:56:41Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261028-1",
@@ -1468,6 +1468,65 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261107-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-07T01:56:41Z",
+   "lease_until": "2026-11-14T01:56:41Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C298"
+     ],
+     "label": "mint of C298 · Italy · 1978 · 50 lire · ITL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
+        "file": "C298_rev.webp",
+        "original": "C298_Italy_1978_50Lire_rev.jpg",
+        "drive": null
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C298_rev.webp"
+     ]
     }
    ]
   }

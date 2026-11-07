@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-06T15:39:39Z",
- "content_hash": "0c436c965c1425c5",
+ "generated_at": "2026-11-07T01:56:41Z",
+ "content_hash": "f260ce4e1a835e00",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:0c436c965c1425c5",
+  "ledger_version": "v3:f260ce4e1a835e00",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5408.29,
@@ -99688,13 +99688,14 @@
     ]
    },
    "design": {
-    "level": "reference",
-    "by": "Gemini",
-    "ts": "2026-11-05",
-    "source": "https://en.numista.com/catalogue/pieces2940.html (Numista N#2940, Saudi Arabia 1 Qirsh — Su'ūd, KM# 40, Schön# 22): Obverse 'Saudi Arabia co",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-06",
+    "source": "https://en.numista.com/catalogue/pieces2940.html Obverse: coat of arms at center of legend ملك المملكة العربية السعودية سعود بن عبد العزيز آ",
     "links": [
      "https://en.numista.com/catalogue/pieces2940.html"
-    ]
+    ],
+    "n": 2
    },
    "ruler": {
     "level": "checked",

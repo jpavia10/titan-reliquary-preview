@@ -19,7 +19,7 @@
   "photos": 286,
   "valuations": 673,
   "spot_days": 57,
-  "changes": 8890,
+  "changes": 8891,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "0c436c965c1425c5c8e5ddee52d0b148337889f1860c627301f5addce0886373",
+ "content_hash": "f260ce4e1a835e003bf70b805e6e3a204cc8ab9ad77b2869bcf0ee19531fdb3e",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -79,13 +79,13 @@
   },
   {
    "path": "changes.chain",
-   "sha256": "8828e26514f96214e3238c9cc4fb46f6cbad1f8f2fa2861da86bc5f053801f43",
-   "bytes": 349827
+   "sha256": "92174c49df63027e2cd4cc77062543b06e0dc78b312ea2b6f4993d13f84b41b4",
+   "bytes": 349866
   },
   {
    "path": "changes.jsonl",
-   "sha256": "de46f05e135ca21a2eaf3e024ceba7e44620c7139fd9c693cd2b055a91faaaae",
-   "bytes": 6686641
+   "sha256": "49302da4d21cce0b1e3795c6d2192de0837e9f641f9051cb972044934196e826",
+   "bytes": 6687995
   },
   {
    "path": "disagreements.jsonl",
@@ -124,8 +124,8 @@
   },
   {
    "path": "prices/spot_daily.jsonl",
-   "sha256": "85534da2dc4723e18c4504363cf81c1acb7a814b12b89382e874f0c3f29ba5a3",
-   "bytes": 9523
+   "sha256": "ec13718d53f6ca3a357286c4c12fbb12bdcfa300462f9986e92f9f4d998c52df",
+   "bytes": 9463
   },
   {
    "path": "prices/wants_values_gemini_20261024-1910.json",

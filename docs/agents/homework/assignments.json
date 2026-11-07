@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-06T15:42:28Z",
+ "updated": "2026-11-07T01:56:41Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -154,7 +154,8 @@
   "gemini-story-check-20261106": 1,
   "gemini-cite-20261106": 1,
   "grok-arbitrate-20261106": 1,
-  "muse-arbitrate-20261106": 1
+  "muse-arbitrate-20261106": 1,
+  "muse-verify-20261107": 1
  },
  "assignments": [
   {
@@ -30087,9 +30088,13 @@
    "kind": "verify",
    "issued": "2026-11-06T15:30:08Z",
    "lease_until": "2026-11-13T15:30:08Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-07T01:56:41Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "verify:type:SA.KM.20:design.text",
@@ -30120,6 +30125,24 @@
      "entity": "type",
      "id": "CR.KM.214.2",
      "field": "catalogs"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261107-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-07T01:56:41Z",
+   "lease_until": "2026-11-14T01:56:41Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks"
     }
    ]
   }
@@ -35819,6 +35842,14 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   }
+  ],
+  "verify:specimen:C298:issue.mint_marks": [
+   {
+    "agent": "grok",
+    "assignment": "HW-grok-verify-20261106-2",
+    "outcome": "left out",
+    "ts": "2026-11-07T01:56:41Z"
    }
   ]
  },

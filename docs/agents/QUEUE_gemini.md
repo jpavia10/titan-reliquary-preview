@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-06 15:42 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-07 01:56 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -1253,5 +1253,5 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 42; expired: 8.
-- Your facts checked by another contributor: 515 (503 confirmed, 12 wrong; error rate 2.3 %, 95 % range 1-4 %). Checks you did for others: 469. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 13 of 13.
+- Your facts checked by another contributor: 516 (504 confirmed, 12 wrong; error rate 2.3 %, 95 % range 1-4 %). Checks you did for others: 469. Open disagreements you are part of: 4. Values planted wrong on purpose in your checks: you caught 13 of 13.
 - Share of your new facts that get checked first: 15 %.

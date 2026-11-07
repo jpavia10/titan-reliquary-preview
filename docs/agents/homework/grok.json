@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-06T15:42:28Z",
+ "updated": "2026-11-07T01:56:41Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -1476,102 +1476,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-verify-20261106-2",
-   "agent": "grok",
-   "kind": "verify",
-   "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-13T15:30:08Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:SA.KM.20:design.text",
-     "entity": "type",
-     "id": "SA.KM.20",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:specimen:C298:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue.mint_marks"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:SA.KM.20:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SA.KM.20",
-     "field": "design.text",
-     "coins": [
-      "C231"
-     ],
-     "label": "design of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse Saudi Arabia coat of arms (crossed swords beneath palm tree) surrounded by Arabic legend ملك المملكة العربية السعودية · سعود بن عبد العزيز آل سعود · reverse (value side) قِرْش وَاحِد above · big ١ at center · Hijri ١٣٧٨ (AH 1378 ≈ 1958 CE) below (plain rim, no legend on value side)",
-      "their_source": "https://en.numista.com/catalogue/pieces2940.html (Numista N#2940, Saudi Arabia 1 Qirsh — Su'ūd, KM# 40, Schön# 22): Obverse 'Saudi Arabia co",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2940.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:specimen:C298:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C298",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C298"
-     ],
-     "label": "mint of C298 · Italy · 1978 · 50 lire · ITL",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp",
-        "file": "C298_rev.webp",
-        "original": "C298_Italy_1978_50Lire_rev.jpg",
-        "drive": null
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C298_rev.webp"
-     ]
     }
    ]
   }
