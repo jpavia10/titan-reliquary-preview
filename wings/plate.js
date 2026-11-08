@@ -197,7 +197,7 @@
   ].join("\n");
 
   /* ------------------------------------------------------------------ GL ------------------------------------------------------------------ */
-  var cv = null, gl = null, prog = null, U = {}, tex = {}, blank = null, cur = null, loadSeq = 0, waiting = [];
+  var SOFT = false, cv = null, gl = null, prog = null, U = {}, tex = {}, blank = null, cur = null, loadSeq = 0, waiting = [];
   var st = { mode: "backdrop", pan: [0, 0], vel: [0, 0], zoom: 1.06, tilt: [0, 0], tap: [0, 0, -1], flash: 0, dim: BACK_DIM, expo: 0, swell: 1,
     acam: [0, 0], ptr: [0, 0], ptrT: [0, 0], scr: 0, scrT: 0, raf: 0, hold: 0, last: 0, frames: 0, t0: performance.now(), anim: null, lastMove: null };
   function img(src) { return new Promise(function (ok, no) { var i = new Image(); i.decoding = "async"; i.onload = function () { ok(i); }; i.onerror = function () { no(new Error("could not load " + src)); }; i.src = src; }); }
@@ -209,6 +209,9 @@
     document.body.insertBefore(cv, document.body.firstChild);
     gl = cv.getContext("webgl2", { antialias: false, alpha: false, premultipliedAlpha: false, depth: false, stencil: false, powerPreference: "default" });
     if (!gl) return false;
+    /* a renderer with no graphics chip (SwiftShader, llvmpipe: a computer without a GPU, a test runner) draws on the CPU, and every frame
+       of the photo there stalls the whole page: fewer, smaller frames. A real GPU never gets here (the owner's rule: no automatic downscaling) */
+    try { var dbg = gl.getExtension("WEBGL_debug_renderer_info"), rn = String(gl.getParameter(dbg ? dbg.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || ""); SOFT = /swiftshader|llvmpipe|softpipe|software rasterizer|microsoft basic render/i.test(rn); } catch (e) { SOFT = false; }
     cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); stopLoop(); prog = null; tex = {}; blank = null; if (cur) cur.ready = false; }, false);
     cv.addEventListener("webglcontextrestored", function () { if (cur) show(cur.id, true); }, false);
     return true;
@@ -255,7 +258,7 @@
           cur = { id: id, c: c, size: [a[0].naturalWidth, a[0].naturalHeight], ready: true };
           gl.uniform3fv(U.uTint, c.tint); gl.uniform4fv(U.uFx1, c.fx1); gl.uniform4fv(U.uFx2, c.fx2);
           gl.uniform1f(U.uFlick, c.flick); gl.uniform1f(U.uHz, c.hz); gl.uniform1f(U.uShaft, c.shaft); gl.uniform1f(U.uAur, c.aurora); gl.uniform1f(U.uCaus, c.caustics);
-          gl.uniform1f(U.uFrontD, c.fd || .9); gl.uniform1f(U.uHasF, c.hero ? 0 : 1); gl.uniform1f(U.uSharp, cur.size[0] < 1500 ? .35 : .18);
+          gl.uniform1f(U.uFrontD, c.fd || .9); gl.uniform1f(U.uHasF, c.hero ? 0 : 1); cur.sharp = cur.size[0] < 1500 ? .35 : .18;
           st.pan = [upright() ? c.pan0 : 0, 0]; st.vel = [0, 0]; st.zoom = 1.06; st.tilt = [0, 0]; st.tap = [0, 0, -1]; st.flash = 0;
           st.dim = target();
           if (!now && st.mode === "backdrop" && !still()) arrive(); else if (!st.anim) st.expo = 1;
@@ -279,8 +282,9 @@
     if (!cur || !cur.ready || document.hidden || off()) return;
     /* the 1080p film covers the screen: a few frames so the shader is built and the photo is up, then wait for it to end */
     if (st.frames > 2 && html.classList.contains("ts-filmplay")) { st.hold = setTimeout(function () { st.hold = 0; loop(); }, 300); return; }
-    var busy = st.mode !== "backdrop" || html.classList.contains("tr-atmos") || st.anim;
-    var cap = lite() ? 41 : busy && !(TOUCH && st.mode === "room") ? 15.5 : 32;   /* behind the collection: 30 a second */
+    var busy = st.mode !== "backdrop" || st.anim;                       /* the Atmosphere: full brightness, but backdrop cost (it builds its ring meanwhile) */
+    /* behind the collection: 24 a second (dust and light move slowly; every frame of it is a repaint of the whole page under it) */
+    var cap = SOFT ? (busy ? 66 : 1000) : lite() ? 50 : busy && !(TOUCH && st.mode === "room") ? 15.5 : st.mode === "room" ? 32 : 41;
     if (now - st.last >= cap) {
       var real = st.last ? Math.min(.5, (now - st.last) / 1000) : .016, dt = Math.min(.05, real); st.last = now;
       st.dim += (target() - st.dim) * Math.min(1, real * 2.5);            // brightness follows real time, even on a slow frame
@@ -302,12 +306,12 @@
     if (st.anim) animate(st.anim, dt);
   }
   function scale() {
-    var T = tier(), room = st.mode !== "backdrop" || html.classList.contains("tr-atmos");
+    var T = tier(), room = st.mode !== "backdrop";
     var cap = room ? { low: 1, medium: 1.25, high: 1.5, ultra: 2, max: 2 }[T] : (TOUCH ? { low: .75, medium: 1, high: 1.25, ultra: 1.5, max: 2 } : { low: 1, medium: 1, high: 1.25, ultra: 1.5, max: 2 })[T];
-    var sc = Math.min(window.devicePixelRatio || 1, cap || 1.25) * (lite() ? .6 : 1);
+    var sc = Math.min(window.devicePixelRatio || 1, cap || 1.25) * (lite() || SOFT ? .6 : 1);
     /* never more pixels than the photo has where it is shown: past that the shader only interpolates (a 1600 px photo on a 2560 px
        screen drew 2.8 million pixels a frame for nothing); the room keeps a little more for crisp particles and grain */
-    if (cur) { var fit = Math.max(innerWidth / cur.size[0], innerHeight / cur.size[1]) * st.zoom; sc = Math.min(sc, Math.max(.5, (room ? 1.3 : 1.05) / fit)); }
+    if (cur) { var fit = Math.max(innerWidth / cur.size[0], innerHeight / cur.size[1]) * st.zoom; sc = Math.min(sc, Math.max(SOFT ? .3 : .5, (room ? 1.3 : 1.05) * (SOFT ? .6 : 1) / fit)); }
     return sc;
   }
   function resize() { var s = scale(), w = Math.max(2, Math.round(innerWidth * s)), h = Math.max(2, Math.round(innerHeight * s)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
@@ -316,7 +320,7 @@
     if (!cur || !cur.ready || !prog) return;
     resize(); gl.viewport(0, 0, cv.width, cv.height);
     var id = cur.id, S = still(), t = S ? 4 : (now - st.t0) / 1000, room = st.mode !== "backdrop", idle = S ? 0 : room ? .12 : .2;
-    var back = !room && !html.classList.contains("tr-atmos");
+    var atm = html.classList.contains("tr-atmos"), back = !room && !atm;   /* the Atmosphere: no scroll camera, backdrop quality */
     var cx = st.pan[0] * .55 + st.tilt[0] + st.acam[0] + st.ptr[0] + Math.sin(t * .11) * idle * .2;
     var cy = st.pan[1] * .4 + st.tilt[1] + st.acam[1] + st.ptr[1] + (back ? (st.scr - .5) * .7 : 0) + Math.cos(t * .09) * idle * .12;
     var light = getLook(id, "light") * cur.c.lit * st.swell, parts = S ? 0 : getLook(id, "parts") * (back ? .8 : 1), T = tier();
@@ -326,7 +330,8 @@
     gl.uniform1f(U.uLight, light); gl.uniform1f(U.uParts, parts); gl.uniform1f(U.uDepth, getLook(id, "depth") * cur.c.dep); gl.uniform1f(U.uGrain, getLook(id, "grain"));
     gl.uniform1f(U.uFlash, st.flash); gl.uniform3f(U.uTap, st.tap[0], st.tap[1], st.tap[2]);
     gl.uniform1f(U.uDim, st.dim); gl.uniform1f(U.uExpo, st.expo);
-    gl.uniform1i(U.uIt, back ? (T === "low" ? 2 : 3) : 6); gl.uniform1i(U.uLay, back ? (T === "low" ? 1 : 2) : 3);
+    gl.uniform1i(U.uIt, room ? 6 : T === "low" ? 2 : 3); gl.uniform1i(U.uLay, room ? 3 : T === "low" ? 1 : 2);
+    gl.uniform1f(U.uSharp, room ? cur.sharp : 0);                         /* the crispness pass only where it is looked at */
     gl.drawArrays(gl.TRIANGLES, 0, 3); st.frames++;
   }
   function poke() { if (!cur) return; if (still() && !st.raf) { st.last = 0; draw(performance.now()); } else loop(); }
@@ -405,7 +410,7 @@
   }
 
   function debug() {
-    return { id: cur && cur.id, ready: !!(cur && cur.ready), hero: !!(cur && cur.c.hero), mode: st.mode, frames: st.frames, loop: !!st.raf, hold: !!st.hold,
+    return { id: cur && cur.id, ready: !!(cur && cur.ready), soft: SOFT, hero: !!(cur && cur.c.hero), mode: st.mode, frames: st.frames, loop: !!st.raf, hold: !!st.hold,
       w: cv && cv.width, h: cv && cv.height, pan: st.pan.slice(), zoom: +st.zoom.toFixed(3), dim: +st.dim.toFixed(3), expo: +st.expo.toFixed(3),
       anim: st.anim ? st.anim.kind : null, canvases: document.querySelectorAll("canvas#tr-plate").length, size: cur ? cur.size.slice() : null };
   }
