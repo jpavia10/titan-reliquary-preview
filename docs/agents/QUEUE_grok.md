@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-08 01:27 UTC)
+# WORK QUEUE for Grok (updated 2026-11-08 03:29 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
+
+### FIRST: one studio-quality instrumental recording each for Obsidian Sun, The Alchemist, Clay Diorama and Sahel Futurism  (fix list #83)
+
+Your sound-hunt music picks did well (row 42: four are in the app now, and every problem in the rest was one you had flagged yourself). Four themes still need a recording of their own that sounds like a good record, not a field recording: OBSIDIAN SUN (Mesoamerican: marimba, pre-Columbian flutes or percussion, a modern concert or studio recording; the composition must be out of copyright: traditional, or a composer who died before 1955), THE ALCHEMIST (Renaissance or early Baroque, instrumental only: lute, viol consort, recorder consort, harpsichord; Dowland's or Holborne's dances, Byrd, Gibbons; no singing), CLAY DIORAMA (playful and small: Tchaikovsky's Nutcracker Sugar Plum Fairy or Dance of the Reed Flutes, a celesta or music-box-like real instrument, a real orchestra or ensemble), SAHEL FUTURISM (a studio or concert kora, traditional piece, no market or street noise under it). For each: up to 3 candidates, best first, on Wikimedia Commons or archive.org only, licence CC0, Public Domain (mark) or CC BY / BY-SA (never NC or ND), the performer named on the page, recorded after 1950, no vocals, 2 to 8 minutes. Quote the licence and the page's description; say if you could not hear it.
+
+**Done when:** One file sound_grok_{YYYYMMDD-HHMM}.json in Drive 'sound-incoming (AI music + field recording finds)/' with music rows like your 11-05 file (theme, title, composer, composer_died, performer, recorded, source, file, page, license, license_quote, duration_s, vocals: false, human_check, why) and a not_found row with what you searched where you found nothing. Claude runs them through the music intake (licence, performer, the right piece, no singing) before any reaches the app.
 
 ### Sound hunt: music and room sounds for your 17 themes (24 pieces of music, 85 field recordings)  (fix list #83)
 
