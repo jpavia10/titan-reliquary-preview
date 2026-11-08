@@ -146,7 +146,7 @@
     raf = 0; if (!active) return;
     /* the 1080p opening film covers the screen (splash.js, html.ts-filmplay): draw a few frames so the world's shaders are built, then
        hold until the film hands over to the theme's opening (nothing behind an opaque film is worth a phone's GPU) */
-    if (K.frames > 3 && root.classList.contains("ts-filmplay")) { raf = requestAnimationFrame(frame); return; }
+    if (K.frames > 3 && (root.classList.contains("ts-filmplay") || root.classList.contains("tr-plate"))) { raf = requestAnimationFrame(frame); return; }   /* ...or the image room's photograph covers it (wings/room-plate.js) */
     var cap = lite() ? 33 : (TOUCH && K.view.mode === "backdrop" && !root.classList.contains("tr-atmos")) ? 32 : 15.5;   /* behind the collection on a phone: 30 fps */
     if (now - last < cap) { raf = requestAnimationFrame(frame); return; }
     var dt = Math.min(.05, (now - last) / 1000 || .016);

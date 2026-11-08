@@ -175,6 +175,7 @@ const WING_URLS = [
   "styles/atmosphere.css?v=" + BUILD,
   "styles/room.css?v=" + BUILD,
   "wings/room-shell.js?v=" + BUILD,
+  "wings/room-plate.js?v=" + BUILD,
   "styles/room-shell.css?v=" + BUILD,
   "wings/signature/core.js?v=" + BUILD,
   "wings/scene.js?v=" + BUILD,
@@ -304,7 +305,7 @@ self.addEventListener("fetch", (e) => {
   const path = url.pathname;
   if (path.endsWith("/version.json") || path.includes("/data/")) {
     e.respondWith(networkFirst(req, DATA, e));
-  } else if (path.includes("/thumbs/") || path.includes("/photos/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards: cache on first view, not precached
+  } else if (path.includes("/thumbs/") || path.includes("/photos/") || path.includes("/art/rooms/") || /\/art\/themes\/[^/]+-card\.webp$/.test(path)) {   // theme cards and the image rooms' photos: cache on first view, not precached
     e.respondWith(cacheFirst(req, IMG));
   } else if (path.includes("/audio/ambience/") || path.includes("/audio/cuts/")) {   // recordings and short cuts from recordings: cached the first time they play
     e.respondWith(cacheFirst(req, AMB));

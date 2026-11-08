@@ -9,8 +9,9 @@ One GPU world (fx/kit.js TitanFXK) runs as the backdrop, the opening and the the
   3. for every world with a room: a camera move and a look change reach the world (its debug), and resetView puts its camera back
   4. six theme switches leave one world canvas and at most one animation loop (no piling up)
   5. the room in the app: Step inside opens it over the live world (the app hidden, nothing of it showing through, the Hall scrolled to
-     its showcase), Escape closes it and the view is the backdrop again;
-     a theme without a GPU world gets the basic room
+     its showcase), Escape closes it and the view is the backdrop again (on Tourbillon: a GPU world whose room is the world itself);
+     a theme whose room is a photograph (art/rooms/{id}, wings/room-plate.js; Supercell) opens it instead, drawing over a world that
+     holds still, and Escape removes it; a theme without a GPU world gets the basic room
   6. the launch opening on the engine (?splash=1): the splash goes transparent over the running world, the view runs in mode "opening",
      then the app appears over the same world in mode "backdrop" (one canvas)
   7. every theme in wings/room.js OPENINGS has an opening path in its room data
@@ -140,7 +141,9 @@ def main(argv):
             check(d["canvases"] == 1 and d["loop"] <= 1 and d["id"] == "supercell", f"[{dev}] six theme switches: {d['canvases']} world canvas, {d['loop']} loop, on {d['id']}")
             check(not errs, f"[{dev}] no page errors through the switches" + (": " + errs[0][:120] if errs else ""))
 
-            # 5. the room in the app (the Hall scrolled to its showcase first: its slide sets visibility: visible itself)
+            # 5. the room in the app (the Hall scrolled to its showcase first: its slide sets visibility: visible itself). Supercell's room is a
+            # photograph since 2026-11-08 (checked below), so the world-room check runs on Tourbillon, a GPU world without one
+            p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", "tourbillon"); wait_world(p, "tourbillon")
             p.evaluate("() => { const e = document.querySelector('.exhibit-slide.on'); if (e) e.scrollIntoView({ block: 'center' }); }"); p.wait_for_timeout(600)
             r = p.evaluate("""() => TitanRoom.open().then((c) => new Promise((ok) => setTimeout(() => ok({ kit: c.kit, open: !!document.getElementById('troom'),
               hidden: document.documentElement.classList.contains('tr-room'), mode: TitanFXK.view.mode,
@@ -152,10 +155,22 @@ def main(argv):
               let op = 1, x = e; while (x && x !== document.documentElement) { op *= +getComputedStyle(x).opacity; x = x.parentElement; } if (op >= .02) out.push(e.tagName + '.' + String(e.className).split(' ')[0]); });
               return out.slice(0, 5); }""")
             check(not leak, f"[{dev}] Step inside: no part of the app shows through the room ({leak})")
-            if shots: p.screenshot(path=os.path.join(shots, f"inapp_room_{dev}_supercell.png"))
+            if shots: p.screenshot(path=os.path.join(shots, f"inapp_room_{dev}_tourbillon.png"))
             p.keyboard.press("Escape"); p.wait_for_timeout(500)
             r = p.evaluate("({ open: !!document.getElementById('troom'), cls: document.documentElement.classList.contains('tr-room'), view: JSON.stringify(TitanFXK.view) })")
             check(not r["open"] and not r["cls"] and '"mode":"backdrop"' in r["view"] and '"yaw":0' in r["view"], f"[{dev}] Escape closes the room, the view is the backdrop again")
+            # the photographic room (owner 2026-10-30: the rooms are photographs with live light, particles, depth and sound on top)
+            p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", "supercell"); wait_world(p, "supercell")
+            r = p.evaluate("""() => TitanRoom.open().then((c) => (c.plate ? c.plate.ready : Promise.resolve()).then(() => new Promise((ok) => setTimeout(() => {
+              const cv = document.getElementById('troom-plate'), f0 = TitanFXK.debug().frames;
+              setTimeout(() => ok({ plate: !!c.plate, kit: c.kit, canvas: !!cv && getComputedStyle(cv).visibility === 'visible' && +getComputedStyle(cv).opacity > .5,
+                frames: c.plate ? c.plate.debug().frames : 0, held: TitanFXK.debug().frames - f0, app: getComputedStyle(document.getElementById('app') || document.body).visibility }), 1500); }, 1200))))""")
+            check(r["plate"] and not r["kit"] and r["canvas"] and r["frames"] > 2 and r["held"] <= 1 and r["app"] == "hidden",
+                  f"[{dev}] Supercell's room is its photograph: drawn, the app hidden, the world behind holding still ({r})")
+            if shots: p.screenshot(path=os.path.join(shots, f"inapp_room_{dev}_supercell_photo.png"))
+            p.keyboard.press("Escape"); p.wait_for_timeout(500)
+            r = p.evaluate("({ open: !!document.getElementById('troom'), canvas: !!document.getElementById('troom-plate'), held: document.documentElement.classList.contains('tr-plate') })")
+            check(not r["open"] and not r["canvas"] and not r["held"], f"[{dev}] Escape closes the photographic room and the world runs again ({r})")
             basic = first_engine_theme()
             if basic:
                 p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", basic); p.wait_for_timeout(1500)

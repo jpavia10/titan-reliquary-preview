@@ -55,6 +55,18 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
    little look, panels Look (the theme's controls, Move, Height), Sound (the theme's soundscape and its layers) and Opening (replay it).
    A theme without a GPU world gets the basic room (its TitanFX effect: strength, film, a moment). ✕, Escape or Back close it and the
    view goes back to the backdrop.
+   **The image room** (owner, 2026-10-30: the code-drawn rooms look like low-quality 3D and run poorly on a phone; an image AI makes each
+   room as a photograph and the app lays its own live light, particles, depth and sound over it). A theme with a layer set in
+   `art/rooms/{id}/` (from the art queue's room-layer requests through `tools/rooms/prep_plates.py`: `back.webp`, `front.webp` with the
+   green keyed out, `map.webp` = the back plate's depth (filled in under the front object) + the light mask, `plate.json`) gets it instead
+   of the world-room: `wings/room-plate.js` (loaded with the shell) draws one WebGL2 canvas `#troom-plate` at z 1, between the world (z 0,
+   held still while the photo covers it: `html.tr-plate`) and the added effects (z 7). A drag pans across the photo (an upright phone
+   starts on the room's subject, `pan0`) and moves the camera, so near things slide past far ones (relief parallax on the depth, the front
+   object as its own layer); the light mask drives flicker per lamp, glow and shafts (screened, never to white), an aurora or caustics;
+   particles in three depths (dust lit by the light, rain, snow, embers near the fire, bubbles, fireflies, leaves); a tap sends a ripple
+   and a surge of light; Supercell's lightning flashes with the storm. Look: Light, Particles, Depth, Film grain (saved per theme).
+   Nine rooms on 2026-11-08: Midnight Gallery, Neon Vault, Zen Garden, Supercell, Shipwreck, The Mint, Dynasty, Hyperborean Vault,
+   Gilded Armory (Gemini's layer sets). The opening and the backdrop stay on the GPU world (rule 12 a).
 6. **Added effects** (owner, 2026-10-30: "I should be able to add any of the available effects on any scene regardless of the default
    configuration"): `wings/fx/layers.js` (TitanFXLayers) keeps, per theme, the effects the owner added from the whole library (every
    TitanFX preset, Fireworks and Explosions in `wings/fx/styles-x.js`, and the paint swirl = `fx/fluid.js` on the kit). Overlay ones

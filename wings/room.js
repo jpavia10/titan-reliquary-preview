@@ -81,8 +81,13 @@
     if (!loading) loading = new Promise(function (res, rej) {
       var s = document.querySelector('script[src*="wings/room.js"]'), q = s && /\?v=[^&]+/.exec(s.src), v = q ? q[0] : "";
       var l = document.createElement("link"); l.rel = "stylesheet"; l.href = "styles/room-shell.css" + v; document.head.appendChild(l);
-      var sc = document.createElement("script"); sc.src = "wings/room-shell.js" + v;
-      sc.onload = function () { res(window.TitanRoomShell); }; sc.onerror = function (e) { loading = null; rej(e); }; document.head.appendChild(sc); });
+      /* the image room (wings/room-plate.js) first: the shell asks it whether this theme's room is a photograph (art/rooms/{id}/) */
+      var pl = document.createElement("script"); pl.src = "wings/room-plate.js" + v;
+      pl.onload = pl.onerror = function () {
+        var sc = document.createElement("script"); sc.src = "wings/room-shell.js" + v;
+        sc.onload = function () { res(window.TitanRoomShell); }; sc.onerror = function (e) { loading = null; rej(e); }; document.head.appendChild(sc);
+      };
+      document.head.appendChild(pl); });
     return loading;
   }
   function open() { return shell().then(function (S) { return S.open({ path: path, label: label, motion: motion }); }); }

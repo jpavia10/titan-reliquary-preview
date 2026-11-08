@@ -847,6 +847,60 @@
    "moods": [
     "lightwell"
    ]
+  },
+  {
+   "id": "glacier-grieg-aase",
+   "title": "Peer Gynt Suite No. 1, Op. 46: II. The Death of Aase",
+   "composer": "Edvard Grieg",
+   "performer": "Musopen Symphony (2012)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File%3AGrieg_-_Peer_Gynt_Suite_No._1%2C_Op._46_-_II._The_Death_of_Aase_%28Musopen_Symphony%29.flac",
+   "file": "glacier-grieg-aase.m4a",
+   "duration": 273.8,
+   "moods": [
+    "glacier"
+   ]
+  },
+  {
+   "id": "zen-iwashimizu",
+   "title": "Iwashimizu (Tozan-ryū honkyoku)",
+   "composer": "Nakao Tozan",
+   "performer": "Iburozan (shakuhachi), 23 November 2010",
+   "license": "CC0",
+   "source": "https://archive.org/details/Iwashimizu",
+   "file": "zen-iwashimizu.m4a",
+   "duration": 363.4,
+   "moods": [
+    "zen",
+    "kintsugi"
+   ]
+  },
+  {
+   "id": "zen-shakuhachi",
+   "title": "Shakuhachi (honkyoku)",
+   "composer": "Traditional (Japan)",
+   "performer": "Markus Guhe (shakuhachi; an early-20th-century Tozan instrument, St Cecilia's Hall)",
+   "license": "CC BY 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File%3AShakuhachi_played_by_Markus_Guhe.webm",
+   "file": "zen-shakuhachi.m4a",
+   "duration": 269.1,
+   "moods": [
+    "zen",
+    "kintsugi"
+   ]
+  },
+  {
+   "id": "sahel-kora-traditional",
+   "title": "Kora (traditional West African)",
+   "composer": "Traditional West African",
+   "performer": "Bouba Kouyaté (kora), recorded live at the Marseille Sunday market (radio aporee)",
+   "license": "Public domain (PDM 1.0)",
+   "source": "https://archive.org/details/aporee_73110_85351",
+   "file": "sahel-kora-traditional.m4a",
+   "duration": 301.6,
+   "moods": [
+    "sahel"
+   ]
   }
  ]
 }

@@ -714,7 +714,11 @@
    "credit": {
     "File:Shakuhachi played by Markus Guhe.webm": {
      "performer": "Markus Guhe (shakuhachi; an early-20th-century Tozan instrument, St Cecilia's Hall)",
-     "license": "CC BY 3.0"
+     "license": "CC BY 3.0",
+     "span": [
+      10.5,
+      279.6
+     ]
     }
    },
    "note": "2026-11-08: exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08 (audio taken from the video); also Kintsugi's, which has no recording of its own (Kaze no Uta refused: a 1970 composition still in copyright)."
@@ -2010,7 +2014,8 @@
      "license": "CC BY-SA 3.0"
     }
    },
-   "note": "Sahel Futurism's second kora take. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08."
+   "note": "Sahel Futurism's second kora take. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08.",
+   "hold": "2026-11-08: a street take with a flea market's constant noise under it (never below -36 dB); kept back while the Marseille take (pro microphones) is tried"
   },
   {
    "id": "glacier-grieg-aase",
@@ -2064,7 +2069,11 @@
      "license": "CC BY-SA 3.0"
     }
    },
-   "note": "The Alchemist: an Elizabethan piece of John Dee's time. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08; Claude checks it is instrumental (the song has words) before it ships."
+   "note": "The Alchemist: an Elizabethan piece of John Dee's time. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08; Claude checks it is instrumental (the song has words) before it ships.",
+   "reject": [
+    "File:Dowland I saw my lady weep performed by David Solomons.ogg"
+   ],
+   "hold": "refused 2026-11-08: David Warin Solomons' arrangement is for alto voice and guitar (289 s, the same length as this file), so it is sung; The Alchemist wants an instrumental"
   }
  ]
 }

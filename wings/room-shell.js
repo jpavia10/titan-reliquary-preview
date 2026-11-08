@@ -21,15 +21,19 @@
     var id = html.dataset.atmo, K = window.TitanFXK, d = K && K.debug ? K.debug() : {}, R = d.id === id && K.room ? K.room(id) : null;
     var FX = window.TitanFX, fx0 = FX && FX.state ? FX.state() : null, scape = window.TitanScapeApp || direct(), took = false, before = document.activeElement;
     var v = { yaw: 0, pitch: 0, move: 0, up: 0, look: {} }, tilt = { yaw: 0, pitch: 0, b0: null, g0: null, on: false }, playing = null;
+    /* a theme whose room is a photograph (art/rooms/{id}, wings/room-plate.js; owner 2026-10-30) uses it instead of the code-drawn world */
+    var PL = window.TitanRoomPlate, plate = PL && PL.has(id) ? PL.mount(null, id) : null;
+    if (plate) R = null;
     if (R) (R.look || []).forEach(function (c) { v.look[c.id] = K.look ? K.look(c.id, c.def) : c.def; });   // the room starts from the theme's saved look
 
     var box = el("div", "troom"); box.id = "troom"; box.setAttribute("role", "dialog"); box.setAttribute("aria-modal", "true");
     var TW = window.TitanWorlds, tw = TW && TW.byId && TW.byId(id); if (tw && TW.isLight && TW.isLight(tw)) box.classList.add("is-light");   // a light theme: dark type
     box.setAttribute("aria-label", lib.label(id) + ": the room");
     var top = el("div", "troom-top"), nm = el("div", "troom-name"); nm.appendChild(el("b", "", lib.label(id)));
-    nm.appendChild(el("span", "", R ? R.name : "Inside the theme")); top.appendChild(nm);
+    nm.appendChild(el("span", "", plate ? plate.name : R ? R.name : "Inside the theme")); top.appendChild(nm);
     var x = el("button", "troom-x", "✕"); x.type = "button"; x.setAttribute("aria-label", "Leave the room"); top.appendChild(x);
-    var hint = el("p", "troom-hint", (R && R.touch ? R.touch + " " : "") + (R ? "Drag to look around, pinch to move." : "Tap for a moment of the effect."));
+    var hint = el("p", "troom-hint", plate ? "Drag to look around the room, pinch to come closer, tap it." :
+      (R && R.touch ? R.touch + " " : "") + (R ? "Drag to look around, pinch to move." : "Tap for a moment of the effect."));
     var title = el("div", "troom-title"); title.setAttribute("aria-hidden", "true"); title.textContent = lib.label(id);
     var bar = el("div", "troom-bar"), panel = el("div", "troom-panel"); panel.hidden = true;
     box.appendChild(top); box.appendChild(title); box.appendChild(hint); box.appendChild(panel); box.appendChild(bar);
@@ -46,19 +50,24 @@
     }
 
     /* ---------- gestures: one finger looks, two fingers pinch to move, a short tap reaches the world ---------- */
-    var pts = {}, down = null, pinch0 = 0, move0 = 0;
+    var pts = {}, down = null, pinch0 = 0, move0 = 0, pinchLast = 0;
     function onPanel(e) { return panel.contains(e.target) || bar.contains(e.target) || top.contains(e.target); }
     box.addEventListener("pointerdown", function (e) {
       if (onPanel(e)) return;
       pts[e.pointerId] = { x: e.clientX, y: e.clientY }; try { box.setPointerCapture(e.pointerId); } catch (er) { /* ignore */ }
       var ids = Object.keys(pts);
       if (ids.length === 1) down = { x: e.clientX, y: e.clientY, t: performance.now(), yaw: v.yaw, pitch: v.pitch, far: false };
-      else if (ids.length === 2) { var a = pts[ids[0]], b = pts[ids[1]]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); move0 = v.move; if (down) down.far = true; }
+      else if (ids.length === 2) { var a = pts[ids[0]], b = pts[ids[1]]; pinch0 = pinchLast = Math.hypot(a.x - b.x, a.y - b.y); move0 = v.move; if (down) down.far = true; }
       hint.style.opacity = "0";
     });
     box.addEventListener("pointermove", function (e) {
-      if (!pts[e.pointerId]) return; pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+      if (!pts[e.pointerId]) return; var prev = pts[e.pointerId]; pts[e.pointerId] = { x: e.clientX, y: e.clientY };
       var ids = Object.keys(pts);
+      if (plate) {                                       // the photograph: one finger pans across it, two pinch closer
+        if (ids.length >= 2) { var p0 = pts[ids[0]], p1 = pts[ids[1]], dd2 = Math.hypot(p0.x - p1.x, p0.y - p1.y); if (pinchLast > 0) plate.pinch(dd2 / pinchLast); pinchLast = dd2; return; }
+        if (!down) return; if (Math.hypot(e.clientX - down.x, e.clientY - down.y) > 8) down.far = true;
+        plate.drag(e.clientX - prev.x, e.clientY - prev.y); return;
+      }
       if (ids.length >= 2 && R) { var a = pts[ids[0]], b = pts[ids[1]], dd = Math.hypot(a.x - b.x, a.y - b.y);
         var span = (R.move[1] - R.move[0]) || 1; v.move = move0 + (dd - pinch0) / Math.min(innerWidth, innerHeight) * span * .8; push(); return; }
       if (!down || !R) return;
@@ -69,19 +78,21 @@
     function up(e) {
       if (!pts[e.pointerId]) return; delete pts[e.pointerId];
       if (down && !down.far && !Object.keys(pts).length && performance.now() - down.t < 400) {
-        if (R) K.tap(e.clientX / innerWidth, 1 - e.clientY / innerHeight); else if (FX && FX.moment) FX.moment();
-      }
+        if (plate) plate.tap(e.clientX / innerWidth, e.clientY / innerHeight);
+        else if (R) K.tap(e.clientX / innerWidth, 1 - e.clientY / innerHeight); else if (FX && FX.moment) FX.moment();
+      } else if (plate && down && down.far && !Object.keys(pts).length) plate.release();
       if (!Object.keys(pts).length) down = null;
     }
     box.addEventListener("pointerup", up); box.addEventListener("pointercancel", up);
-    box.addEventListener("wheel", function (e) { if (!R || onPanel(e)) return; e.preventDefault(); v.move -= e.deltaY * .004 * ((R.move[1] - R.move[0]) || 1) / 4; push(); }, { passive: false });
+    box.addEventListener("wheel", function (e) { if (plate && !onPanel(e)) { e.preventDefault(); plate.pinch(e.deltaY < 0 ? 1.06 : 1 / 1.06); return; } if (!R || onPanel(e)) return; e.preventDefault(); v.move -= e.deltaY * .004 * ((R.move[1] - R.move[0]) || 1) / 4; push(); }, { passive: false });
 
     /* ---------- the phone's tilt adds a little look on top of the drag ---------- */
-    function onTilt(e) { if (!R || e.beta == null) return; if (tilt.b0 == null) { tilt.b0 = e.beta; tilt.g0 = e.gamma; }
+    function onTilt(e) { if (!(R || plate) || e.beta == null) return; if (tilt.b0 == null) { tilt.b0 = e.beta; tilt.g0 = e.gamma; }
+      if (plate) { plate.tilt(Math.max(-25, Math.min(25, e.gamma - tilt.g0)) / 25 * .35, Math.max(-25, Math.min(25, e.beta - tilt.b0)) / 25 * .3); return; }
       tilt.yaw = -Math.max(-25, Math.min(25, e.gamma - tilt.g0)) * .008; tilt.pitch = Math.max(-25, Math.min(25, e.beta - tilt.b0)) * .006; push(); }
     function tiltOn() { if (tilt.on) return; tilt.on = true; addEventListener("deviceorientation", onTilt); }
     var DOE = window.DeviceOrientationEvent, needAsk = DOE && typeof DOE.requestPermission === "function";
-    if (R && DOE && !needAsk && matchMedia("(pointer: coarse)").matches) tiltOn();
+    if ((R || plate) && DOE && !needAsk && matchMedia("(pointer: coarse)").matches) tiltOn();
 
     /* ---------- panels: Look, Sound, Opening ---------- */
     var rows = [];
@@ -104,7 +115,14 @@
       });
     }
     tab("Look", function (p) {
-      if (R) {
+      if (plate) {
+        plate.look.forEach(function (c) { p.appendChild(slider(c.label, c.min, c.max, (c.max - c.min) / 100, function () { return plate.get(c.id); }, function (x) { plate.set(c.id, x); })); });
+        var bp = el("div", "troom-btns");
+        bp.appendChild(btn("Back to the start", function () { plate.reset(); sync(); }));
+        if (needAsk && !tilt.on) bp.appendChild(btn("Use the phone's tilt", function () { DOE.requestPermission().then(function (s) { if (s === "granted") tiltOn(); }).catch(function () {}); }));
+        p.appendChild(bp);
+        p.appendChild(el("p", "troom-note", "A photograph of the room, with its light, depth, particles and sound live on top."));
+      } else if (R) {
         (R.look || []).forEach(function (c) { p.appendChild(slider(c.label, c.min, c.max, (c.max - c.min) / 100, function () { return v.look[c.id]; },
           function (x) { v.look[c.id] = x; push(); if (c.scape && scape && took) scape.set(c.scape, x); })); });
         var u = R.unit ? " (" + R.unit + ")" : "";
@@ -174,6 +192,7 @@
     function close(fromPop) {
       if (!cur) return; cur = null;
       if (playing) playing.stop();
+      if (plate) plate.stop();
       removeEventListener("keydown", onKey, true); removeEventListener("popstate", onPop); removeEventListener("deviceorientation", onTilt);
       if (R && K.resetView) K.resetView();
       if (FX && fx0) { try { FX.setIntensity(fx0.intensity); if (fx0.film != null) FX.setFilm(fx0.film); FX.setTextSafe(.85); } catch (e) { /* ignore */ } }
@@ -187,7 +206,7 @@
     addEventListener("keydown", onKey, true);
     try { history.pushState({ troom: 1 }, "", location.href); addEventListener("popstate", onPop); } catch (e) { /* ignore */ }
     push(); x.addEventListener("click", function () { close(); }); x.focus();
-    cur = { id: id, kit: !!R, close: function () { close(); }, get view() { return JSON.parse(JSON.stringify(v)); }, el: box,
+    cur = { id: id, kit: !!R, plate: plate, close: function () { close(); }, get view() { return JSON.parse(JSON.stringify(v)); }, el: box,
       set: function (o) { Object.keys(o || {}).forEach(function (k) { if (k === "look") Object.keys(o.look).forEach(function (j) { v.look[j] = o.look[j]; }); else v[k] = o[k]; }); push(); return K && K.view; } };
     return cur;
   }
