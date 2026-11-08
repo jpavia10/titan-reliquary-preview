@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-07 16:55 UTC)
+# WORK QUEUE for Muse (updated 2026-11-08 01:27 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -185,6 +185,24 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 
 Items:
 - **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
+
+### 12. HW-muse-verify-20261108-1 · Second reader · Check 8 facts another AI wrote · due 2026-11-15  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261108-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **series of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)** `type US.KM.204 series` = `["Bicentennial coinage"]` (written by Grok: «https://www.usmint.gov/learn/history/historical-documents/bicentennial-circulating-coins-arrive (U.S. Mint press release 1 July 1975): the q») [audit sample]
+- **composition of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)** `type US.KM.204 composition.text` = `Cu-Ni clad (copper core visible on reeded edges)` (written by Grok: «https://en.numista.com/catalogue/pieces56.html (Numista N#56, ¼ Dollar "Washington Quarter" (Bicentennial) - United States): Composition Cop»)
+- **composition of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)** `type VN-SOV.KM.1 composition.text` = `aluminum` (written by Grok: «https://en.numista.com/catalogue/pieces5904.html (Numista N#5904, 20 Su - Bảo Đại - South Vietnam): Composition Aluminium; matches the recor»)
+- **composition of C049 · France · 1989 · 10 francs · FRF** `type FR.KM.964.1 composition.text` = `bimetallic (Ni center / Al-bronze ring)` (written by Grok: «https://en.numista.com/catalogue/pieces9.html (Numista N#9, 10 Francs (Génie de la Liberté) - France): Composition Bimetallic: nickel center»)
+- **catalog of C259 · Mexico · 1940 · 1 centavo · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.KM.415 catalogs`
+- **catalog of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD** (blind: look it up yourself in your own exact source; the first value is not shown) `type TW.KM.551 catalogs`
+- **catalog of C043 · Malta · 2008 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type MT.KM.129 catalogs`
+- **catalog of C028 · Malta · 2013 · 5 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type MT.KM.128 catalogs`
 
 ## Projects (after the homework)
 

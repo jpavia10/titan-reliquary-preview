@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-07T16:55:22Z",
+ "updated": "2026-11-08T01:27:20Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -158,7 +158,9 @@
   "muse-verify-20261107": 1,
   "gemini-fill-20261107": 1,
   "grok-verify-20261107": 1,
-  "grok-arbitrate-20261107": 1
+  "grok-arbitrate-20261107": 1,
+  "grok-verify-20261108": 1,
+  "muse-verify-20261108": 1
  },
  "assignments": [
   {
@@ -12780,9 +12782,13 @@
    "kind": "verify",
    "issued": "2026-10-20T16:00:29Z",
    "lease_until": "2026-11-07T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-08T01:27:20Z",
+   "result": {
+    "items": 80,
+    "closed": 51,
+    "left": 29
+   },
    "items": [
     {
      "item": "verify:type:MX.KM.443:design.text",
@@ -14432,9 +14438,13 @@
    "kind": "verify",
    "issued": "2026-10-21T22:44:09Z",
    "lease_until": "2026-11-07T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-08T01:27:20Z",
+   "result": {
+    "items": 80,
+    "closed": 71,
+    "left": 9
+   },
    "items": [
     {
      "item": "verify:type:NL.KM.184:composition.text",
@@ -15038,9 +15048,13 @@
    "kind": "verify",
    "issued": "2026-10-21T22:44:09Z",
    "lease_until": "2026-11-07T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-08T01:27:20Z",
+   "result": {
+    "items": 80,
+    "closed": 77,
+    "left": 3
+   },
    "items": [
     {
      "item": "verify:type:AU.KM.36:ruler",
@@ -15736,9 +15750,13 @@
    "kind": "verify",
    "issued": "2026-10-22T13:53:57Z",
    "lease_until": "2026-11-07T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-08T01:27:20Z",
+   "result": {
+    "items": 80,
+    "closed": 78,
+    "left": 2
+   },
    "items": [
     {
      "item": "verify:type:GB.KM.1109d:catalogs",
@@ -16236,9 +16254,13 @@
    "kind": "verify",
    "issued": "2026-10-22T13:53:57Z",
    "lease_until": "2026-11-07T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-08T01:27:20Z",
+   "result": {
+    "items": 78,
+    "closed": 73,
+    "left": 5
+   },
    "items": [
     {
      "item": "verify:type:FR.KM.933:catalogs",
@@ -30715,6 +30737,240 @@
      "field": "design.text"
     }
    ]
+  },
+  {
+   "id": "HW-grok-verify-20261108-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-08T01:27:20Z",
+   "lease_until": "2026-11-15T01:27:20Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C078:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C078",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C068:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C165:issue.year",
+     "entity": "specimen",
+     "id": "C165",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C246:issue.year",
+     "entity": "specimen",
+     "id": "C246",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C076:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:denomination.value",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:TT.KM.31:denomination.value",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.108:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.988:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C227:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C227",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.211:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.255:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.255",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.1110d:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.214:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NL.KM.239:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:PT.KM.744:denomination.value",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C079:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C079",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C244:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C068:issue.year",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C011:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C011",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C221:issue.year",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C040:issue.year",
+     "entity": "specimen",
+     "id": "C040",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C056:issue.year",
+     "entity": "specimen",
+     "id": "C056",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C220:issue.year",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C222:issue.year",
+     "entity": "specimen",
+     "id": "C222",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C224:issue.year",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C240:issue.year",
+     "entity": "specimen",
+     "id": "C240",
+     "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261108-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-08T01:27:20Z",
+   "lease_until": "2026-11-15T01:27:20Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:US.KM.204:series",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "series"
+    },
+    {
+     "item": "verify:type:US.KM.204:composition.text",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:composition.text",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:composition.text",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.KM.415:catalogs",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:TW.KM.551:catalogs",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MT.KM.129:catalogs",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MT.KM.128:catalogs",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": "catalogs"
+    }
+   ]
   }
  ],
  "tried": {
@@ -31514,6 +31770,12 @@
     "assignment": "HW-grok-verify-20261010-2",
     "outcome": "attempted",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:DE.KM.208:issues.2.mintage": [
@@ -31546,6 +31808,12 @@
     "assignment": "HW-grok-verify-20261010-2",
     "outcome": "left out",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:CH.KM.24a.1:design.text": [
@@ -31896,6 +32164,12 @@
     "assignment": "HW-grok-verify-20261014-1",
     "outcome": "left out",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-2",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:ES.KM.1144:denomination.value": [
@@ -31904,6 +32178,12 @@
     "assignment": "HW-grok-verify-20261014-1",
     "outcome": "attempted",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-2",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "plain:C012": [
@@ -32122,6 +32402,12 @@
     "assignment": "HW-muse-verify-20261014-1",
     "outcome": "left out",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-2",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:MX.KM.502:catalogs": [
@@ -32178,6 +32464,12 @@
     "assignment": "HW-muse-verify-20261014-1",
     "outcome": "left out",
     "ts": "2026-10-15T14:17:10Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-2",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:GB.KM.989:catalogs": [
@@ -32698,6 +32990,12 @@
     "assignment": "HW-grok-verify-20261015-1",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:SU.Y.126a:issues.1.mintage": [
@@ -32706,6 +33004,12 @@
     "assignment": "HW-grok-verify-20261015-1",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:specimen:C294:issue.year": [
@@ -32838,6 +33142,12 @@
     "assignment": "HW-grok-verify-20261015-1",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:GB.KM.1110:design.text": [
@@ -32854,6 +33164,12 @@
     "assignment": "HW-grok-verify-20261015-1",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:GB.KM.1335:design.text": [
@@ -33056,6 +33372,12 @@
     "assignment": "HW-grok-verify-20261015-2",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:FR.KM.1282:design.text": [
@@ -33176,6 +33498,12 @@
     "assignment": "HW-grok-verify-20261015-2",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-2",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:specimen:C303:issue.year": [
@@ -33184,6 +33512,12 @@
     "assignment": "HW-grok-verify-20261015-2",
     "outcome": "left out",
     "ts": "2026-10-20T15:00:33Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-2",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ],
   "verify:type:MX.X.5-centavos:catalogs": [
@@ -36420,6 +36754,286 @@
     "assignment": "HW-grok-verify-20261106-2",
     "outcome": "left out",
     "ts": "2026-11-07T01:56:41Z"
+   }
+  ],
+  "verify:specimen:C078:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C244:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C068:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C068:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C011:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C165:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C221:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C246:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C076:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:SE.KM.826a:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:TT.KM.31:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:DE.KM.108:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:GB.KM.988:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C040:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C056:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C220:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C227:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:DE.KM.211:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:DE.KM.255:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:GB.KM.1110d:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:IT.KM.214:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:NL.KM.239:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:PT.KM.744:denomination.value": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C079:issue.mint_marks": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C222:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C224:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:specimen:C240:issue.year": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261020-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:US.KM.204:series": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:US.KM.204:composition.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:VN-SOV.KM.1:composition.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:FR.KM.964.1:composition.text": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:MX.KM.415:catalogs": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261021-2",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:TW.KM.551:catalogs": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-1",
+    "outcome": "left out",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:MT.KM.129:catalogs": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-1",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
+   }
+  ],
+  "verify:type:MT.KM.128:catalogs": [
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261022-2",
+    "outcome": "attempted",
+    "ts": "2026-11-08T01:27:20Z"
    }
   ]
  },

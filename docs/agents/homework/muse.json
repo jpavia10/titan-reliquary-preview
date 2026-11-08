@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-07T16:55:22Z",
+ "updated": "2026-11-08T01:27:20Z",
  "assignments": [
   {
    "id": "HW-muse-arbitrate-20261101-1",
@@ -1461,6 +1461,310 @@
      "inputs": [
       "C298_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261108-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-08T01:27:20Z",
+   "lease_until": "2026-11-15T01:27:20Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:US.KM.204:series",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "series"
+    },
+    {
+     "item": "verify:type:US.KM.204:composition.text",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:composition.text",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:composition.text",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.KM.415:catalogs",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:TW.KM.551:catalogs",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MT.KM.129:catalogs",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MT.KM.128:catalogs",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": "catalogs"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:US.KM.204:series",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "series",
+     "coins": [
+      "C073"
+     ],
+     "label": "series of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "series",
+      "author": "Grok",
+      "ledger": false,
+      "value": [
+       "Bicentennial coinage"
+      ],
+      "their_source": "https://www.usmint.gov/learn/history/historical-documents/bicentennial-circulating-coins-arrive (U.S. Mint press release 1 July 1975): the q",
+      "links": [
+       "https://www.usmint.gov/learn/history/historical-documents/bicentennial-circulating-coins-arrive"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:US.KM.204:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "US.KM.204",
+     "field": "composition.text",
+     "coins": [
+      "C073"
+     ],
+     "label": "composition of C073 · USA · 1976 · 25 cents · USD · Bicentennial (1776–1976)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "ledger": false,
+      "value": "Cu-Ni clad (copper core visible on reeded edges)",
+      "their_source": "https://en.numista.com/catalogue/pieces56.html (Numista N#56, ¼ Dollar \"Washington Quarter\" (Bicentennial) - United States): Composition Cop",
+      "links": [
+       "https://en.numista.com/catalogue/pieces56.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "composition.text",
+     "coins": [
+      "C258"
+     ],
+     "label": "composition of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "ledger": false,
+      "value": "aluminum",
+      "their_source": "https://en.numista.com/catalogue/pieces5904.html (Numista N#5904, 20 Su - Bảo Đại - South Vietnam): Composition Aluminium; matches the recor",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5904.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.964.1:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.964.1",
+     "field": "composition.text",
+     "coins": [
+      "C049"
+     ],
+     "label": "composition of C049 · France · 1989 · 10 francs · FRF",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Grok",
+      "ledger": false,
+      "value": "bimetallic (Ni center / Al-bronze ring)",
+      "their_source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9, 10 Francs (Génie de la Liberté) - France): Composition Bimetallic: nickel center",
+      "links": [
+       "https://en.numista.com/catalogue/pieces9.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.415:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "catalogs",
+     "coins": [
+      "C259"
+     ],
+     "label": "catalog of C259 · Mexico · 1940 · 1 centavo · MXP",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TW.KM.551:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "catalogs",
+     "coins": [
+      "C200"
+     ],
+     "label": "catalog of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MT.KM.129:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MT.KM.129",
+     "field": "catalogs",
+     "coins": [
+      "C043"
+     ],
+     "label": "catalog of C043 · Malta · 2008 · 10 euro cent · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MT.KM.128:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MT.KM.128",
+     "field": "catalogs",
+     "coins": [
+      "C028"
+     ],
+     "label": "catalog of C028 · Malta · 2013 · 5 euro cent · EUR",
+     "authors": [
+      "grok"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Grok",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

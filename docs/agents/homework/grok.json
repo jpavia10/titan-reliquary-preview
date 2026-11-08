@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-07T16:55:22Z",
+ "updated": "2026-11-08T01:27:20Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -4636,6 +4636,1251 @@
      },
      "blind": false,
      "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261108-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-08T01:27:20Z",
+   "lease_until": "2026-11-15T01:27:20Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C078:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C078",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C068:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C165:issue.year",
+     "entity": "specimen",
+     "id": "C165",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C246:issue.year",
+     "entity": "specimen",
+     "id": "C246",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C076:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:denomination.value",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:TT.KM.31:denomination.value",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.108:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.988:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C227:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C227",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.211:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.255:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.255",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.1110d:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.214:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NL.KM.239:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:PT.KM.744:denomination.value",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C079:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C079",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C244:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C068:issue.year",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C011:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C011",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C221:issue.year",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C040:issue.year",
+     "entity": "specimen",
+     "id": "C040",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C056:issue.year",
+     "entity": "specimen",
+     "id": "C056",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C220:issue.year",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C222:issue.year",
+     "entity": "specimen",
+     "id": "C222",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C224:issue.year",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C240:issue.year",
+     "entity": "specimen",
+     "id": "C240",
+     "field": "issue.year"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:specimen:C078:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C078",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C078"
+     ],
+     "label": "mint of C078 · Switzerland · 1969 · 20 rappen · CHF",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C078_obv.webp",
+        "file": "C078_obv.webp",
+        "original": "C078_Switzerland_1969_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1NBBKww5p8WQrxtPOxkxoWxRBGn57Numb/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C078_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C068:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C068"
+     ],
+     "label": "mint of C068 · Switzerland · 1963 · 20 rappen · CHF",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp",
+        "file": "C068_obv.webp",
+        "original": "C068_Switzerland_1963_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C068_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C165:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C165",
+     "field": "issue.year",
+     "coins": [
+      "C165"
+     ],
+     "label": "year of C165 · Sweden · 1 krona · SEK",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C165_obv.webp",
+        "file": "C165_obv.webp",
+        "original": "C165_Sweden_ND_1Krona_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C165_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C246:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C246",
+     "field": "issue.year",
+     "coins": [
+      "C246"
+     ],
+     "label": "year of C246 · Philippines · 10 sentimos · PHP",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C246_obv.webp",
+        "file": "C246_obv.webp",
+        "original": "C246_Philippines_ND_10Sentimos_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Ixbs84zzxGmoczfCLfvybNjZEZvDG6pk/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C246_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C076:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C076"
+     ],
+     "label": "mint of C076 · Switzerland · 1989 · 20 rappen · CHF",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C076_obv.webp",
+        "file": "C076_obv.webp",
+        "original": "C076_Switzerland_1989_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1__5E3wSeMlaByKFjm131nDWBf8lBL2ps/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C076_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:SE.KM.826a:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "denomination.value",
+     "coins": [
+      "C165"
+     ],
+     "label": "denomination of C165 · Sweden · 1973",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C165_obv.webp",
+        "file": "C165_obv.webp",
+        "original": "C165_Sweden_ND_1Krona_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C165_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:TT.KM.31:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "denomination.value",
+     "coins": [
+      "C207"
+     ],
+     "label": "denomination of C207 · Trinidad and Tobago · 2016",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C207_obv.webp",
+        "file": "C207_obv.webp",
+        "original": "C207_Trinidad-and-Tobago_2016_10Cents_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1AIEgGtZg-rnaPmGFS9IICZMZKqCkfcK2/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C207_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:DE.KM.108:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "denomination.value",
+     "coins": [
+      "C019",
+      "C021",
+      "C022",
+      "C030",
+      "C051",
+      "C089",
+      "C090",
+      "C224",
+      "C225",
+      "C226",
+      "C227",
+      "C228",
+      "C229"
+     ],
+     "label": "denomination of C019 · Germany · 1981",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C019_obv.webp",
+        "file": "C019_obv.webp",
+        "original": "C019_Germany_1981_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1KgkQJAI4bRpwo-X8t2zG2OypETwJbCfb/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C019_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:GB.KM.988:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "denomination.value",
+     "coins": [
+      "C173",
+      "C174"
+     ],
+     "label": "denomination of C173 · United Kingdom · 1998",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C173_obv.webp",
+        "file": "C173_obv.webp",
+        "original": "C167_C168_C169_C170_C171_C172_C173_C174_C175_C176_C177_C178_C179_C180_C181_C182_C183_C184_United-Kingdom_5Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1YHvY3T2fD94Rz7GlU1x2fuqZL4QWgX6u/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C173_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C227:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C227",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C227"
+     ],
+     "label": "mint of C227 · Germany · 1984 · 10 Pfennig · DEM",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C227_obv.webp",
+        "file": "C227_obv.webp",
+        "original": "C224_C225_C226_C227_C228_C229_Germany_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C227_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:DE.KM.211:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "denomination.value",
+     "coins": [
+      "C131"
+     ],
+     "label": "denomination of C131 · Germany · 2002",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C131_obv.webp",
+        "file": "C131_obv.webp",
+        "original": "C129_C130_C131_France-Germany_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1dDIlK9QjkJHY60kWaQHUYXMKmXQGV0pq/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C131_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:DE.KM.255:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.255",
+     "field": "denomination.value",
+     "coins": [
+      "C053",
+      "C102"
+     ],
+     "label": "denomination of C053 · Germany · 2011",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C053_obv.webp",
+        "file": "C053_obv.webp",
+        "original": "C053_Germany_2011-J_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C053_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:GB.KM.1110d:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": "denomination.value",
+     "coins": [
+      "C157",
+      "C318"
+     ],
+     "label": "denomination of C157 · United Kingdom · 2014",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C157_obv.webp",
+        "file": "C157_obv.webp",
+        "original": "C147_C148_C149_C150_C151_C152_C153_C154_C155_C156_C157_C158_United-Kingdom_10Pence_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1mB199zPnfMsVm2Yv4a9zaVbX-SxTDsxA/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C157_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:IT.KM.214:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "denomination.value",
+     "coins": [
+      "C027",
+      "C061"
+     ],
+     "label": "denomination of C027 · Italy · 2002",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C027_obv.webp",
+        "file": "C027_obv.webp",
+        "original": "C027_Italy_2002_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/13HykleBYFloYpOerdaoy2fMfFTmHOtAa/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C027_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:NL.KM.239:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "denomination.value",
+     "coins": [
+      "C040"
+     ],
+     "label": "denomination of C040 · Netherlands · 2001",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C040_obv.webp",
+        "file": "C040_obv.webp",
+        "original": "C040_Netherlands_2001_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1r6Th7Zhgg1zXk1PEng1o7or6olp0dgl8/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C040_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:type:PT.KM.744:denomination.value",
+     "kind": "verify",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "denomination.value",
+     "coins": [
+      "C056"
+     ],
+     "label": "denomination of C056 · Portugal · 2002",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "denomination",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C056_obv.webp",
+        "file": "C056_obv.webp",
+        "original": "C056_Portugal_2002_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lEfFNu8FlfKw3MvuzvEnD0RjyaOcBXGW/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C056_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C079:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C079",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C079"
+     ],
+     "label": "mint of C079 · Switzerland · 1991 · 20 rappen · CHF",
+     "authors": [
+      "ledger"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "ledger",
+      "ledger": true,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C079_obv.webp",
+        "file": "C079_obv.webp",
+        "original": "C079_Switzerland_1991_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1UW9Fg9zqMqTI4CUG4HQaVYCb3_3QUDn4/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C079_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C244:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C244"
+     ],
+     "label": "mint of C244 · Mexico · 1964 · 20 centavos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C244_rev.webp",
+        "file": "C244_rev.webp",
+        "original": "C244_Mexico_1964_20Centavos_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1uW_45e9r21AxxRKTcGTosKV6UcsWeR5t/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C244_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C068:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.year",
+     "coins": [
+      "C068"
+     ],
+     "label": "year of C068 · Switzerland · 20 rappen · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp",
+        "file": "C068_obv.webp",
+        "original": "C068_Switzerland_1963_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C068_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C011:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C011",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C011"
+     ],
+     "label": "mint of C011 · Italy · 1970 · 50 lire · ITL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C011_rev.webp",
+        "file": "C011_rev.webp",
+        "original": "C011_Italy_1970_50Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1QlzMuGznkB5QiwZZNo47yahgAXy_HBMN/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C011_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C221:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "issue.year",
+     "coins": [
+      "C221"
+     ],
+     "label": "year of C221 · France · 1/2 franc · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C221_rev.webp",
+        "file": "C221_rev.webp",
+        "original": "C221_France_1986_1-2Franc_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1WPbtSoJxu4yWCRuBjuaHAZqQvWAE8xQu/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C221_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C040:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C040",
+     "field": "issue.year",
+     "coins": [
+      "C040"
+     ],
+     "label": "year of C040 · Netherlands · 20 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C040_obv.webp",
+        "file": "C040_obv.webp",
+        "original": "C040_Netherlands_2001_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1r6Th7Zhgg1zXk1PEng1o7or6olp0dgl8/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C040_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C056:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C056",
+     "field": "issue.year",
+     "coins": [
+      "C056"
+     ],
+     "label": "year of C056 · Portugal · 20 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C056_obv.webp",
+        "file": "C056_obv.webp",
+        "original": "C056_Portugal_2002_20EuroCent_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1lEfFNu8FlfKw3MvuzvEnD0RjyaOcBXGW/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C056_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C220:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year",
+     "coins": [
+      "C220"
+     ],
+     "label": "year of C220 · Japan · 10 yen · JPY",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Muse",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C220_rev.webp",
+        "file": "C220_rev.webp",
+        "original": "C220_Japan_1982_10Yen_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1BrB1q-McMnGiYY1oDceA7UKGEVq8xKfp/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C220_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C222:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C222",
+     "field": "issue.year",
+     "coins": [
+      "C222"
+     ],
+     "label": "year of C222 · Japan · 1 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C222_rev.webp",
+        "file": "C222_rev.webp",
+        "original": "C222_Japan_1965_1Yen_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/15-zLaCNLyJ6epdlZH7iPAFUJaNFbEuKc/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C222_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C224:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "issue.year",
+     "coins": [
+      "C224"
+     ],
+     "label": "year of C224 · Germany · 10 Pfennig · DEM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C224_obv.webp",
+        "file": "C224_obv.webp",
+        "original": "C224_C225_C226_C227_C228_C229_Germany_10Pfennig_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C224_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C240:issue.year",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C240",
+     "field": "issue.year",
+     "coins": [
+      "C240"
+     ],
+     "label": "year of C240 · Italy · 100 lire · ITL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "year",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C240_rev.webp",
+        "file": "C240_rev.webp",
+        "original": "C240_Italy_1965_100Lire_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1EYCNaNZjAuuVbxcSucl3igc3w6KiU3yR/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C240_rev.webp"
+     ]
     }
    ]
   }
