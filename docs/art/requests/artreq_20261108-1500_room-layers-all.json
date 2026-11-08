@@ -1,0 +1,421 @@
+{
+ "request_id": "artreq_20261108-1500_room-layers-all",
+ "status": "open",
+ "assigned_to": "any (Gemini first; Grok and Muse take rooms nobody has claimed)",
+ "requested_by": "Claude (integrator)",
+ "created": "2026-11-08T15:00:00Z",
+ "why": "Joseph, 2026-11-08: the third spaces are super high quality photographs made by you, with the app layering live depth, light, particles and sound over them, never 3D worlds drawn in code. Nine themes have their room already (Gemini's sets, 9/10). This request covers the other 41 themes, then remakes the first nine at a larger size: the first sets were 1376x768, which looks soft on a phone held upright (the photo is stretched about 3 times to fill the screen's height).",
+ "global_style": "Real photography: full-frame camera, 24 mm lens at eye height (about 1.6 m; close-ups and models at table height), level horizon, natural perspective, deep shadows that still hold detail, true reflections, physically accurate materials, practical light only, rich natural colour, fine film grain, tack sharp from front to back. It reads as a photograph in an architecture or interiors magazine, never as a video game, a 3D render or an illustration. Make it as good as the best photograph you can make: Joseph walks into these rooms, so quality comes before speed.",
+ "room_rule": "This is a place to be in, seen from where a visitor stands: empty of people and of coins. The light sources stay inside the frame (the app makes them glow and flicker live), the air in the middle third stays open (the app adds live dust, rain, leaves and haze there), and nothing important sits within 8 % of the edges.",
+ "negative": "no readable text, letters, numbers, logos or signs with words; no people, faces, statues with faces or hands; no coins; no watermark or frame; no 3D-render plastic look; no oversaturation or HDR halos; no fisheye or tilted horizon; no blur except natural depth of field",
+ "deliverable_spec": "Five files per room, all the same size and lined up pixel for pixel: room_{id}_wide.png (the photo), room_{id}_depth.png, room_{id}_lights.png, room_{id}_front.png (the foreground object on flat green), room_{id}_back.png (the photo with the foreground object removed). Size: the largest your tool offers; pick 4K (or 2K) if it lets you choose. If the edits come back smaller than the wide photo, keep them as they come and say the sizes in the DONE line. PNG, never upscaled with another tool, never cropped. No upright version this time: the app pans across the wide photo on a phone.",
+ "instructions": "Follow 'ART_START_HERE (any AI: images + video)'. Several AIs can share this request, one room at a time: before a room, look in the output folder for a claim file for it; if there is none (or it is older than 24 h with no files), save 'artreq_20261108-1500_room-layers-all.CLAIMED-{you}-{theme_id}.txt' and do that room. Gemini starts at the top of the list; Grok and Muse start from the bottom of the priority-1 list and work upward. For each room: (1) make room_{id}_wide.png from the room's prompt + the room_rule + the global_style sentence, 16:9, at the size above; look at it and remake it (at most 3 tries) if it has letters, a person, a face, a coin, a crooked horizon, or looks like a render or a painting. (2) Then work FROM THAT SAME IMAGE with image editing, one edit per step, giving the image back to yourself each time, so every file lines up: the four edit prompts are in 'edits': fill in {id} with the room's theme_id and {foreground} with its foreground. Save every file to 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names. After each room, add one line per file to 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (file name, ok or skipped: reason, size in pixels, model name, date). Priority 1 = the 41 new rooms; priority 2 = the first nine remade, only if your tool makes images larger than 1376 px wide. Stop at the first failure or quota warning and say in your DONE file how far you got; the next run continues. Save files in Drive only: Joseph cannot see your chat replies and must never be asked to copy anything.",
+ "edits": {
+  "depth": "Using this image, make its depth map: the same framing and the same size, greyscale only, white for what is nearest the camera, black for the farthest, smooth gradients, sharp edges where objects end, no text and nothing else. Save as room_{id}_depth.png.",
+  "lights": "Using this image, make a light mask: the same framing and the same size, pure black everywhere except the light sources and the brightest light they throw (windows, sun and moonbeams, lamps, flames, screens, glowing liquid, neon), which are white with soft edges. Save as room_{id}_lights.png.",
+  "front": "Using this image, keep only {foreground} exactly where it is and replace everything else with pure flat green #00FF00. Save as room_{id}_front.png.",
+  "back": "Using this image, remove {foreground} and fill that area naturally with what would be behind it, changing nothing else. Save as room_{id}_back.png."
+ },
+ "rooms": [
+  {
+   "theme_id": "obsidian",
+   "world": "Obsidian Sun",
+   "priority": 1,
+   "files": "room_obsidian_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside a torch-lit Mesoamerican stone temple chamber: on the far wall a great disc of hammered gold carved in concentric calendar rings and inlaid with green jadeite glows in the firelight; below it a still pool of polished black volcanic glass mirrors the disc. Carved basalt walls, two bronze braziers burning low on either side.",
+   "foreground": "the carved basalt pillar with a jade-inlaid serpent head close to the camera on the right"
+  },
+  {
+   "theme_id": "lightwell",
+   "world": "Light Well",
+   "priority": 1,
+   "files": "room_lightwell_{wide,depth,lights,front,back}.png",
+   "prompt": "Late-afternoon photograph inside a quiet circular rotunda of board-formed concrete (the wood grain of the forms and rows of tie holes visible): one narrow slot in the roof lets a single razor-thin blade of golden sun cut down through faint dust and land across the smooth concrete floor; an empty low concrete plinth stands in the centre.",
+   "foreground": "the rough edge of a concrete column close to the camera on the left"
+  },
+  {
+   "theme_id": "saltflat",
+   "world": "Salt Mirror",
+   "priority": 1,
+   "files": "room_saltflat_{wide,depth,lights,front,back}.png",
+   "prompt": "Twilight photograph of an endless flooded salt flat: a thin film of water mirrors the cobalt sky and the first stars, hexagonal salt ridges show just under the water, a band of rose and amber light glows along the flat horizon, far mountains are a low dark line.",
+   "foreground": "a weathered wooden marker post standing in the water close to the camera, with its reflection"
+  },
+  {
+   "theme_id": "sahel",
+   "world": "Sahel Futurism",
+   "priority": 1,
+   "files": "room_sahel_{wide,depth,lights,front,back}.png",
+   "prompt": "Golden-hour photograph in a Sahelian city of monumental mudbrick towers with wooden beams sticking out of their walls (like the Great Mosque of Djenne); tall polished brass heliostat mirrors on slender masts stand between them, catching the low sun through warm Harmattan dust haze.",
+   "foreground": "a carved wooden door frame of a mudbrick house close to the camera on the left"
+  },
+  {
+   "theme_id": "orbit",
+   "world": "Low Orbit",
+   "priority": 1,
+   "files": "room_orbit_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph from inside a space-station observation cupola: through its many-paned window, the curved limb of the Earth with a thin blue glow of atmosphere, the night side webbed with city lights, an orbital sunrise just breaking at the edge; inside, soft white panel lights, handrails and cables, no labels.",
+   "foreground": "a handrail and a floating cable loop close to the camera at the bottom left"
+  },
+  {
+   "theme_id": "glasshouse",
+   "world": "The Glasshouse",
+   "priority": 1,
+   "files": "room_glasshouse_{wide,depth,lights,front,back}.png",
+   "prompt": "Evening photograph inside a Victorian iron-and-glass palm house in steady rain: tall palms and tree ferns under a curved glass roof, rain running down the panes, warm brass gas lamps glowing along a tiled path, steam in the air.",
+   "foreground": "the large leaves of a potted banana plant close to the camera on the right"
+  },
+  {
+   "theme_id": "canopy",
+   "world": "Cloud Forest",
+   "priority": 1,
+   "files": "room_canopy_{wide,depth,lights,front,back}.png",
+   "prompt": "Dawn photograph inside a dripping cloud forest: shafts of emerald-gold sun through the mist, three layers of giant tree ferns, moss and bromeliads on every branch, a small mossy stone pool, droplets hanging everywhere.",
+   "foreground": "a moss-covered branch with hanging drops across the top left, close to the camera"
+  },
+  {
+   "theme_id": "silverscreen",
+   "world": "Silver Screen",
+   "priority": 1,
+   "files": "room_silverscreen_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph from the stalls of an empty 1920s picture palace: the big screen glows plain silver-white in a projector beam that comes from the booth behind through haze; red velvet curtains, a gilded proscenium arch, art deco wall sconces, rows of red seats in perspective.",
+   "foreground": "the back of a red velvet seat close to the camera at the bottom"
+  },
+  {
+   "theme_id": "darkroom",
+   "world": "Darkroom",
+   "priority": 1,
+   "files": "room_darkroom_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph of a photographic darkroom under a red safelight: developer trays on a wet steel sink, prints hanging on a line to dry (plain soft abstract tones, no pictures of people, no text), a timer dial glowing, bottles of chemistry on a shelf.",
+   "foreground": "the photographic enlarger on the bench close to the camera on the left"
+  },
+  {
+   "theme_id": "cathedral",
+   "world": "Cathedral Glass",
+   "priority": 1,
+   "files": "room_cathedral_{wide,depth,lights,front,back}.png",
+   "prompt": "Dusk photograph down the nave of a Gothic cathedral: a great rose window of jewel-coloured stained glass glows at the far end, the low sun throws patches of coloured light across the stone floor, tall columns and ribbed vaults, rows of lit candles.",
+   "foreground": "a carved stone column base close to the camera on the left"
+  },
+  {
+   "theme_id": "nocturne",
+   "world": "Nocturne",
+   "priority": 1,
+   "files": "room_nocturne_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of an empty smoky jazz cellar: deep blue light under a brick vault, a small stage with a grand piano and a double bass on its stand, art deco brass lamps glowing on small round tables, haze hanging in the air.",
+   "foreground": "a round table with a glowing brass lamp and an empty glass close to the camera on the right"
+  },
+  {
+   "theme_id": "silkroad",
+   "world": "Silk Road",
+   "priority": 1,
+   "files": "room_silkroad_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph in the courtyard of an old desert caravanserai: arches faced with lapis-blue and turquoise glazed tiles in geometric patterns, brass lanterns glowing in the arches, a stone well in the middle, the Milky Way above the walls.",
+   "foreground": "a pile of woven carpets with a brass lantern on the ground close to the camera on the left"
+  },
+  {
+   "theme_id": "terminal",
+   "world": "Grand Terminal",
+   "priority": 1,
+   "files": "room_terminal_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside a grand railway station hall: a vast vaulted ceiling with arched windows, warm chandeliers, a polished marble floor reflecting them, a big old split-flap departure board high on the far wall with its flaps blank, a large round clock with plain hands and no numerals.",
+   "foreground": "a wooden bench with brass armrests close to the camera on the right"
+  },
+  {
+   "theme_id": "kintsugi",
+   "world": "Kintsugi",
+   "priority": 1,
+   "files": "room_kintsugi_{wide,depth,lights,front,back}.png",
+   "prompt": "Dusk photograph of a quiet Japanese tea room: tatami floor, shoji screens glowing with the last light, a low lacquer table with black raku tea bowls mended with gold seams, a paper lantern glowing on the floor.",
+   "foreground": "a black raku bowl with gold kintsugi seams on the tatami close to the camera on the right"
+  },
+  {
+   "theme_id": "samadhi",
+   "world": "Samadhi",
+   "priority": 1,
+   "files": "room_samadhi_{wide,depth,lights,front,back}.png",
+   "prompt": "Dawn photograph inside a quiet meditation hall: saffron cloth hangings, a dark wooden floor, rows of floor cushions, brass butter lamps glowing, sandalwood incense smoke drifting through a beam of morning sun from a high window, carved wooden pillars; no statues.",
+   "foreground": "a brass incense burner with a curl of smoke close to the camera at the bottom left"
+  },
+  {
+   "theme_id": "alchemist",
+   "world": "The Alchemist",
+   "priority": 1,
+   "files": "room_alchemist_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of an old alchemist's laboratory under stone vaults: a brick furnace with glowing coals, shelves of glass flasks and retorts, several filled with glowing emerald-green liquid, brass armillary rings hanging from the ceiling, candlelight.",
+   "foreground": "a glass retort of glowing emerald liquid on an iron stand close to the camera on the right"
+  },
+  {
+   "theme_id": "solaris",
+   "world": "Solar Observatory",
+   "priority": 1,
+   "files": "room_solaris_{wide,depth,lights,front,back}.png",
+   "prompt": "Dusk photograph inside a solar observatory dome: the dome slit is open to a deep indigo sky, a great brass and white telescope points through it, a round projection screen shows the gold disc of the sun with its corona, warm red work lights low on the floor.",
+   "foreground": "the steel railing of the observing platform close to the camera at the bottom"
+  },
+  {
+   "theme_id": "conservator",
+   "world": "Conservator",
+   "priority": 1,
+   "files": "room_conservator_{wide,depth,lights,front,back}.png",
+   "prompt": "Noon photograph of a museum conservation studio: tall north windows with soft daylight, a large worktable with archival paper, ledgers with plain ruled lines (no writing), soft brushes, white cotton gloves, wooden plan chests.",
+   "foreground": "a magnifier lamp on its arm close to the camera on the left"
+  },
+  {
+   "theme_id": "odyssey",
+   "world": "Odyssey",
+   "priority": 1,
+   "files": "room_odyssey_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph from the deck of an old wooden sailing ship: a dark sea, the bow pointing toward a thin amber dawn on the horizon, stars fading overhead, a lantern glowing on the mast, coiled ropes and rigging.",
+   "foreground": "the ship's wooden wheel close to the camera on the right"
+  },
+  {
+   "theme_id": "cursedwing",
+   "world": "The Cursed Wing",
+   "priority": 1,
+   "files": "room_cursedwing_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of a closed wing of an old museum: dusty glass display cases, black wax seals and red ribbons across the doors, peeling dark wallpaper, a single wall lamp and a candle in a brass holder, deep shadows down a long corridor.",
+   "foreground": "a glass display case with a black wax seal on its lock close to the camera on the left"
+  },
+  {
+   "theme_id": "kaleido",
+   "world": "Prism",
+   "priority": 1,
+   "files": "room_kaleido_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph of a tall white room flooded with low sun: cut-crystal prisms and chandeliers hanging in a tall window split the sunlight into rainbow bands across the white walls and the polished floor.",
+   "foreground": "a large cut-crystal prism on a brass stand close to the camera on the right"
+  },
+  {
+   "theme_id": "xeno",
+   "world": "Xenohold",
+   "priority": 1,
+   "files": "room_xeno_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph inside a dim containment laboratory: tall glass cylinders of liquid glowing blue-green with bioluminescent plankton (soft abstract shapes, no creatures with faces), steel walkways, cables, condensation, cold blue work lights.",
+   "foreground": "a steel railing and a bundle of cables close to the camera at the bottom left"
+  },
+  {
+   "theme_id": "tourbillon",
+   "world": "Tourbillon",
+   "priority": 1,
+   "files": "room_tourbillon_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph at a watchmaker's bench: a green-shaded lamp, an open pocket-watch movement with blued screws and rubies, tweezers and screwdrivers on a leather mat, small drawers of parts, a window behind with blurred city lights.",
+   "foreground": "the large watchmaker's loupe on its arm close to the camera on the right"
+  },
+  {
+   "theme_id": "rift",
+   "world": "Rift Garage",
+   "priority": 1,
+   "files": "room_rift_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph inside a cluttered home garage workshop at 2 a.m.: a pegboard of tools, a workbench with an old radio and a soldering iron, one hanging work lamp, and above the bench a swirling ring of green light hanging in the air, lighting the room green.",
+   "foreground": "a red rolling tool chest close to the camera on the left"
+  },
+  {
+   "theme_id": "drafting",
+   "world": "Drafting Room",
+   "priority": 1,
+   "files": "room_drafting_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph of an old engraver's drafting room by a tall window: a large tilted drafting table with compasses, scales and pencil drawings of round coin designs (circles, wreaths and stars only, no portraits, no text), a brass desk lamp, rolled plans in racks.",
+   "foreground": "a brass compass and a steel rule on the table edge close to the camera at the bottom right"
+  },
+  {
+   "theme_id": "marbled",
+   "world": "Marbled Endpapers",
+   "priority": 1,
+   "files": "room_marbled_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph inside a bookbinder's workshop: a shallow marbling tray with indigo, oxblood and ochre paint swirling on the water, marbled sheets hung to dry on lines, a book press, leather and gilding tools on the bench, warm window light.",
+   "foreground": "the marbling tray with its swirling colours close to the camera at the bottom"
+  },
+  {
+   "theme_id": "banknote",
+   "world": "Treasury Note",
+   "priority": 1,
+   "files": "room_banknote_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph of an old banknote engraving workshop: a heavy iron intaglio printing press, copper plates engraved with fine guilloche rosettes (no lettering), rollers inked green, a red seal stamp, a magnifier lamp, drawers of engraving tools.",
+   "foreground": "an engraved copper plate with guilloche patterns close to the camera at the bottom left"
+  },
+  {
+   "theme_id": "contour",
+   "world": "Survey Map",
+   "priority": 1,
+   "files": "room_contour_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of a cartographer's map room: a big table with a raised relief model of mountains under a single lamp, contour maps pinned on the walls (lines only, no writing), a tall window onto a moonlit mountain range.",
+   "foreground": "a brass surveyor's theodolite on its wooden tripod close to the camera on the left"
+  },
+  {
+   "theme_id": "arcade",
+   "world": "Arcade",
+   "priority": 1,
+   "files": "room_arcade_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside an empty 1980s video arcade: rows of wooden arcade cabinets glowing, their screens showing abstract colourful pixel patterns (no letters or numbers), neon tubes along the ceiling, a patterned carpet.",
+   "foreground": "the side of an arcade cabinet with its joystick and buttons close to the camera on the right"
+  },
+  {
+   "theme_id": "pulp",
+   "world": "Pulp Adventure",
+   "priority": 1,
+   "files": "room_pulp_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph inside a hidden jungle temple treasure chamber, 1940s adventure: carved stone walls with hanging vines, shafts of sunlight through a broken roof, a stone altar, a torch burning in a wall bracket, an explorer's canvas pack and coiled rope on the floor.",
+   "foreground": "a carved stone pillar wrapped in vines close to the camera on the left"
+  },
+  {
+   "theme_id": "diorama",
+   "world": "Clay Diorama",
+   "priority": 1,
+   "files": "room_diorama_{wide,depth,lights,front,back}.png",
+   "prompt": "Close-up photograph of a handmade miniature bank vault built from soft modelling clay, seen from above at an angle like a toy model on a table: a round clay vault door standing open, tiny shelves and boxes, a little glowing lamp, thumbprints visible in the clay, shallow depth of field like a tilt-shift photo, soft studio light.",
+   "foreground": "a tiny clay lamp post close to the camera at the bottom right"
+  },
+  {
+   "theme_id": "papercut",
+   "world": "Paper Hills",
+   "priority": 1,
+   "files": "room_papercut_{wide,depth,lights,front,back}.png",
+   "prompt": "Close-up photograph of a real layered paper-cut landscape in a deep shadow box: rolling hills cut from coloured card in many layers, a paper sun, small paper hot-air balloons on threads, lit from behind by a warm lamp so the layer edges glow.",
+   "foreground": "the front layer of paper hills close to the camera at the bottom"
+  },
+  {
+   "theme_id": "sketch",
+   "world": "Sketchbook",
+   "priority": 1,
+   "files": "room_sketch_{wide,depth,lights,front,back}.png",
+   "prompt": "Daylight photograph of an artist's attic studio under a skylight: a drawing desk covered in pencil sketches on cream paper (still life, hills and objects only, no people, no writing), pencils, erasers and shavings, sketchbooks, a jar of brushes.",
+   "foreground": "a jar of pencils and an open sketchbook close to the camera on the right"
+  },
+  {
+   "theme_id": "bauhaus",
+   "world": "Bauhaus",
+   "priority": 1,
+   "files": "room_bauhaus_{wide,depth,lights,front,back}.png",
+   "prompt": "Daylight photograph inside a 1920s Bauhaus workshop: a large steel-framed glass curtain wall, white walls, primary red, yellow and blue geometric panels, tubular steel chairs, a glass globe pendant lamp.",
+   "foreground": "a tubular steel chair close to the camera on the left"
+  },
+  {
+   "theme_id": "construct",
+   "world": "The Construct",
+   "priority": 1,
+   "files": "room_construct_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of a dark computer room: rows of old green-phosphor terminal screens glowing (only blurred green dots and lines, nothing readable), server racks with small status lights, cables along the floor.",
+   "foreground": "a green-glowing terminal screen on a desk close to the camera on the right"
+  },
+  {
+   "theme_id": "notepad",
+   "world": "Plaintext",
+   "priority": 1,
+   "files": "room_notepad_{wide,depth,lights,front,back}.png",
+   "prompt": "Noon photograph of a minimalist white gallery room: white walls, a pale concrete floor, a single tall window throwing a crisp shadow, one black bench in the middle, nothing on the walls.",
+   "foreground": "the corner of a white plinth close to the camera on the left"
+  },
+  {
+   "theme_id": "y2k",
+   "world": "Millennium Chrome",
+   "priority": 1,
+   "files": "room_y2k_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph of a retro-futurist 1999 lounge: curved white and chrome furniture, a liquid-chrome sculpture, pastel pink and blue light from round ceiling lights, a glossy white floor, translucent bubble-shaped lamps.",
+   "foreground": "a polished chrome sphere on a white stand close to the camera on the right"
+  },
+  {
+   "theme_id": "freefall",
+   "world": "Free Fall",
+   "priority": 1,
+   "files": "room_freefall_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside a university physics lab: a tall clear acrylic drop tower, a wooden ramp and track with steel balls, pendulums, a blackboard wiped clean, desk lamps glowing.",
+   "foreground": "a Newton's cradle on the bench close to the camera on the right"
+  },
+  {
+   "theme_id": "ferro",
+   "world": "Ferrofluid",
+   "priority": 1,
+   "files": "room_ferro_{wide,depth,lights,front,back}.png",
+   "prompt": "Close-up night photograph on a black lab bench: a shallow glass dish of mirror-black ferrofluid standing up in sharp spikes over a hidden magnet, a ring light reflected in its surface, steel tools and magnets around it.",
+   "foreground": "a steel magnet block close to the camera at the bottom left"
+  },
+  {
+   "theme_id": "lumen",
+   "world": "Lumen Circuit",
+   "priority": 1,
+   "files": "room_lumen_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of a vast black glass floor in an empty hall, a real light installation: lines of light set into the floor in a grid, glowing cyan and orange, reflections in the glass, low haze, walls of glowing lines in the distance.",
+   "foreground": "a black glass bollard with a light strip close to the camera on the right"
+  },
+  {
+   "theme_id": "horizon",
+   "world": "Event Horizon",
+   "priority": 1,
+   "files": "room_horizon_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph through the big window of a dark spaceship observation deck: outside, a black hole with a blazing orange accretion disk, its light bent into a ring above and below the dark centre, stars smeared around it; inside, the dark window frame and the soft glow of unlabelled console lights.",
+   "foreground": "the window frame and a handrail close to the camera at the bottom left"
+  },
+  {
+   "theme_id": "afterhours",
+   "world": "Midnight Gallery",
+   "priority": 2,
+   "files": "room_afterhours_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of an empty grand classical museum gallery at 2 a.m. Cold blue moonlight pours through tall arched windows in long visible shafts and lies in bright pools on a polished black marble floor that mirrors it. Deep oxblood walls hold gilt-framed old master paintings in near darkness; one painting glows under a single warm brass picture light. A buttoned leather viewing bench stands in the middle distance. At the far end an open doorway glows soft amber. Faint dust hangs in the moonbeams.",
+   "foreground": "the leather bench"
+  },
+  {
+   "theme_id": "neon",
+   "world": "Neon Vault",
+   "priority": 2,
+   "files": "room_neon_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of an empty narrow back street in a rain-soaked city at 3 a.m. Unlettered neon tubes bent into abstract lines, circles and arrows glow hot pink and electric cyan on old brick and corrugated steel. Black asphalt shines wet and mirrors every light; shallow puddles ripple. Steam rises from a street grate. Pink and cyan fog fills the far end of the street. Set into the right-hand wall is a heavy riveted steel vault door under one bare tungsten bulb. Cables sag overhead.",
+   "foreground": "the steam grate and the nearest puddle"
+  },
+  {
+   "theme_id": "zen",
+   "world": "Zen Garden",
+   "priority": 2,
+   "files": "room_zen_{wide,depth,lights,front,back}.png",
+   "prompt": "Photograph of a Kyoto temple dry garden (karesansui) at first light, seen from the edge of the wooden veranda of the abbot's hall. In the near foreground the worn cedar boards of the veranda and one dark round wooden pillar. Beyond, white gravel raked in long parallel lines and in rings around three weathered standing stones set in cushions of green moss. A low earthen wall with a grey tiled coping closes the garden; a red Japanese maple leans over it. Mist hangs in the cedar forest behind. Low golden sunlight rakes across the gravel so every groove holds a shadow.",
+   "foreground": "the veranda boards and the round pillar"
+  },
+  {
+   "theme_id": "supercell",
+   "world": "Supercell",
+   "priority": 2,
+   "files": "room_supercell_{wide,depth,lights,front,back}.png",
+   "prompt": "Dusk photograph from the open plains: a rotating supercell thunderstorm fills the sky, its striated base low and dark, a wall cloud hanging beneath it, a curtain of rain on the right lit from behind by the last low orange sun, lightning glowing inside the cloud. Wind-bent tall grass runs to a flat horizon; a weathered wooden fence post with barbed wire stands close to the camera on the left. Empty road far away, no vehicles.",
+   "foreground": "a weathered wooden fence post with barbed wire"
+  },
+  {
+   "theme_id": "abyss",
+   "world": "Forty fathoms, at the wreck",
+   "priority": 2,
+   "files": "room_abyss_{wide,depth,lights,front,back}.png",
+   "prompt": "Underwater photograph at forty metres, at the wreck of an old wooden sailing ship lying on white sand: shafts of pale blue-green light come down from the surface far above, the hull's ribs and a fallen mast in soft haze, a few small fish and drifting particles, a coral-crusted ship's railing close to the camera. Calm, deep, quiet.",
+   "foreground": "a coral-crusted ship's railing"
+  },
+  {
+   "theme_id": "colossus",
+   "world": "The Mint at night",
+   "priority": 2,
+   "files": "room_colossus_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside an old brick coining room of a historic mint: a crucible of molten silver glowing orange in a furnace, sparks drifting, cast-iron coining presses and leather belts along the walls, tall arched windows with blue night outside, warm lamp light on worn floor planks, a heavy iron coining press lever close to the camera in the foreground.",
+   "foreground": "a heavy iron coining press lever"
+  },
+  {
+   "theme_id": "dynasty",
+   "world": "The lantern pond",
+   "priority": 2,
+   "files": "room_dynasty_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph of a classical Chinese garden pond: a pavilion with upturned eaves lit by red silk lanterns reflects in still black water, paper sky lanterns rising far away, lotus leaves on the water, a zigzag stone bridge, a carved stone lantern on the pond's edge close to the camera.",
+   "foreground": "a carved stone lantern on the pond's edge"
+  },
+  {
+   "theme_id": "glacier",
+   "world": "Hyperborean Vault",
+   "priority": 2,
+   "files": "room_glacier_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside an ice cave at the edge of a glacier: walls of deep blue ancient ice with trapped bubbles, a round steel vault door set into the ice at the far end with frost on its rim, a green and violet aurora visible through an opening in the roof, light snow drifting, a block of clear blue glacier ice close to the camera in the foreground.",
+   "foreground": "a block of clear blue glacier ice"
+  },
+  {
+   "theme_id": "valhalla",
+   "world": "The hall by hearthfire",
+   "priority": 2,
+   "files": "room_valhalla_{wide,depth,lights,front,back}.png",
+   "prompt": "Night photograph inside a great Norse longhouse: a long central hearth fire burning, smoke rising to a dark timber roof, carved wooden pillars with knotwork, shields and furs on the walls, long benches and a table set with horn cups (empty of people), a carved wooden pillar close to the camera on one side.",
+   "foreground": "a carved wooden pillar"
+  }
+ ]
+}

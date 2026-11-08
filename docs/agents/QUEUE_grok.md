@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-08 03:29 UTC)
+# WORK QUEUE for Grok (updated 2026-11-08 16:45 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
+
+### FIRST: photo rooms for the themes that have none (the third spaces)  (fix list #128)
+
+Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. Start from the BOTTOM of the priority-1 list (Event Horizon first) and work upward; Gemini works down from the top. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.
+
+**Done when:** Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.
 
 ### FIRST: one studio-quality instrumental recording each for Obsidian Sun, The Alchemist, Clay Diorama and Sahel Futurism  (fix list #83)
 
@@ -267,6 +273,17 @@ Items:
 - **year of C222 · Japan · 1 yen · JPY** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C222 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C222_rev.webp (original: https://drive.google.com/file/d/15-zLaCNLyJ6epdlZH7iPAFUJaNFbEuKc/view)
 - **year of C224 · Germany · 10 Pfennig · DEM** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C224 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C224_obv.webp (original: https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view)
 - **year of C240 · Italy · 100 lire · ITL** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C240 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C240_rev.webp (original: https://drive.google.com/file/d/1EYCNaNZjAuuVbxcSucl3igc3w6KiU3yR/view)
+
+### 9. HW-grok-verify-20261108-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-15  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261108-2.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mint of C037 · Germany · 2002 · 10 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C037 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C037_obv.webp (original: https://drive.google.com/file/d/1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c/view)
 
 ## Projects (after the homework)
 

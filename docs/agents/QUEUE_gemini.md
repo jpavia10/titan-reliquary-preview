@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-08 02:52 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-08 16:45 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,6 +7,12 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
 
 ## Finish first
+
+### FIRST: photo rooms for the themes that have none (the third spaces)  (fix list #128)
+
+Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. You start at the top of its list (Obsidian Sun first) and work down. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.
+
+**Done when:** Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.
 
 ### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
 

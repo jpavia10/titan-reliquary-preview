@@ -55,7 +55,9 @@ touching the others. Where each theme stands: `docs/themes/FRAMEWORK_STATUS.md` 
    little look, panels Look (the theme's controls, Move, Height), Sound (the theme's soundscape and its layers) and Opening (replay it).
    A theme without a GPU world gets the basic room (its TitanFX effect: strength, film, a moment). ✕, Escape or Back close it and the
    view goes back to the backdrop.
-   **The image room** (owner, 2026-10-30: the code-drawn rooms look like low-quality 3D and run poorly on a phone; an image AI makes each
+   **The image room** (owner, 2026-10-30: the code-drawn rooms look like low-quality 3D and run poorly on a phone; 2026-11-08: "I explicitly
+   didnt want 3d worlds", no new world code and no tuning of the old ones; every theme's room comes from the art queue,
+   `artreq_20261108-1500_room-layers-all`; an image AI makes each
    room as a photograph and the app lays its own live light, particles, depth and sound over it). A theme with a layer set in
    `art/rooms/{id}/` (from the art queue's room-layer requests through `tools/rooms/prep_plates.py`: `back.webp`, `front.webp` with the
    green keyed out, `map.webp` = the back plate's depth (filled in under the front object) + the light mask, `plate.json`) gets it instead
