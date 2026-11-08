@@ -3,14 +3,15 @@
 
   python3 tools/themes/framework_status.py [--check]
 
-Read from the code, never typed by hand:
-  engine     TitanFXK GPU world (fx/kit.js lazy map, or fx/themes.js) or the first engine's TitanFX preset (wings/themes/manifest.js fx)
-  contract   the world's room data (K.themes[id].room in fx/<id>.js): its look controls; "-" = not on the contract yet
-  photo room the theme's room is a photograph (art/rooms/<id>/plate.json + wings/room-plate.js ROOMS, owner 2026-10-30): its name
-  opening    on its own world (wings/room.js OPENINGS), a separate scene (js/intros/<id>.js) or the built-in style
-  sound      the room/backdrop soundscape (audio/scape/bridge.js THEME_SCAPE)
-  music      recorded tracks for the theme (audio/music/manifest.json moods) + its own songs (wings/score.js KNOWN)
-  next       the next framework step for that theme
+Read from the code, never typed by hand (owner 2026-11-08: every theme is a photograph with the app's live layers, no code-built worlds):
+  photograph  the theme's photograph (wings/plate.js): a full layer set from the art queue (art/rooms/<id>/back, front, map) or, until
+              that comes, its own picture (art/themes/<id>.webp) with an estimated depth and light map (tools/rooms/prep_hero_plates.py)
+  layers      the live layers on it from its wings/plate.js entry (dust, rain, snow, embers, bubbles, fireflies, leaves, shafts, ...)
+  room        the room's name (Step inside: the same photograph, full brightness)
+  opening     the push into the photograph (wings/room.js engineOpening) when it has one
+  sound       the room/backdrop soundscape (audio/scape/bridge.js THEME_SCAPE)
+  music       recorded tracks for the theme (audio/music/manifest.json moods) + its own songs (wings/score.js KNOWN)
+  next        the next step for that theme
 --check exits 1 when the file is out of date (CI: the smoke job).
 """
 import json, os, re, sys
@@ -28,38 +29,36 @@ def themes():
             for m in re.finditer(r'\{ id: "([a-z0-9]+)", name: "([^"]+)"(.*?)tokens:', src, re.S)]
 
 
+LAYER = [("d", "dust"), ("r", "rain"), ("s", "snow"), ("e", "embers"), ("b", "bubbles"), ("f", "fireflies"), ("l", "leaves"), ("sh", "shafts"),
+         ("au", "aurora"), ("ca", "caustics"), ("lt", "lightning"), ("fl", "flicker")]
+
+
 def build():
-    kit = read("fx", "kit.js"); lazy = set(re.findall(r"([a-z0-9]+):", re.search(r"K\.lazy = K\.lazy \|\| \{(.*?)\};", kit, re.S).group(1)))
-    inline = set(re.findall(r"\bT\.([a-z0-9]+) = \{ stack", read("fx", "themes.js")))
-    ops = set(re.findall(r"([a-z0-9]+):", re.search(r"var OPENINGS = \{(.*?)\};", read("wings", "room.js"), re.S).group(1)))
+    src = read("wings", "plate.js")
+    plates = {m.group(1): (m.group(2), m.group(3)) for m in re.finditer(r'^    ([a-z0-9]+): C\("([^"]+)", [-.0-9]+, \[[^\]]*\](.*?)\),?$', src, re.M)}
     scape = dict(re.findall(r'\b([a-z0-9]+): "([a-z]+)"', re.search(r"var THEME_SCAPE = \{(.*?)\};", read("audio", "scape", "bridge.js"), re.S).group(1)))
     tracks = json.loads(read("audio", "music", "manifest.json"))["tracks"]
     own = set(re.findall(r'"([a-z0-9]+)"', re.search(r"const KNOWN = \[(.*?)\]", read("wings", "score.js")).group(1)))
-    intros = {f[:-3] for f in os.listdir(os.path.join(ROOT, "js", "intros")) if f.endswith(".js") and f != "kit.js"}
-    plates = dict(re.findall(r'\n    ([a-z0-9]+): \{ pan0: [-0-9.]+, name: "([^"]+)"', read("wings", "room-plate.js")))
-    plates = {k: v for k, v in plates.items() if os.path.exists(os.path.join(ROOT, "art", "rooms", k, "plate.json"))}
-    rows, n = [], {"gpu": 0, "contract": 0, "opening": 0, "sound": 0, "music": 0, "photo": 0}
+    rows, n = [], {"full": 0, "picture": 0, "sound": 0, "music": 0}
     for tid, name, fx in themes():
-        gpu = tid in lazy or tid in inline
-        src = read("fx", tid + ".js") if tid in lazy and os.path.exists(os.path.join(ROOT, "fx", tid + ".js")) else ""
-        m = re.search(r"\broom:\s*\{\s*name:\s*\"([^\"]+)\".*?look:\s*\[(.*?)\]\s*,\s*touch", src, re.S)
-        contract = (m.group(1) + ": " + ", ".join(re.findall(r'label: "([^"]+)"', m.group(2)))) if m else "-"
-        opening = "on its world" if tid in ops else ("separate scene" if tid in intros else "built-in style")
+        room, opts = plates.get(tid, (None, ""))
+        full = room is not None and "fd:" in opts
+        if room is None: photo = "-"
+        elif full: photo = "layer set (art queue)"
+        else: photo = "its own picture, until its layer set comes"
+        o = dict(re.findall(r"\b([a-z]+): ([.0-9]+)", opts))
+        layers = ", ".join(lbl for k, lbl in LAYER if float(o.get(k, 0) or 0) > 0) or "light only"
         music = sum(1 for t in tracks if tid in (t.get("moods") or [])) + (1 if tid in own else 0)
-        if not gpu: nxt = "a GPU world on the kit (Grok task 12), then its room"
-        elif contract == "-": nxt = "convert to the world contract (phase B)" if tid != "horizon" and tid not in inline else "convert its shared scene to the contract (phase B)"
-        elif tid not in ops: nxt = "look at its opening path on a phone, then list it in OPENINGS"
-        else: nxt = "piece by piece: art, sound, depth"
-        n["gpu"] += gpu; n["contract"] += contract != "-"; n["opening"] += tid in ops; n["sound"] += tid in scape; n["music"] += music > 0
-        n["photo"] += tid in plates
-        rows.append("| %s (`%s`) | %s | %s | %s | %s | %s | %s | %s |" % (name, tid, "TitanFXK world" if gpu else "TitanFX preset `%s`" % (fx or "-"),
-                    contract, ("photo: " + plates[tid]) if tid in plates else "-", opening, scape.get(tid, "-"), music or "-", nxt))
+        nxt = "piece by piece: light, sound" if full else "its layer set (artreq_20261108-1500_room-layers-all), then prep_plates.py"
+        n["full"] += full; n["picture"] += room is not None and not full; n["sound"] += tid in scape; n["music"] += music > 0
+        rows.append("| %s (`%s`) | %s | %s | %s | %s | %s | %s | %s |" % (name, tid, photo, layers if room else "-", room or "-",
+                    "push in" if room else "-", scape.get(tid, "-"), music or "-", nxt))
     T = len(rows)
     head = ["<!-- doc-status: current; normative: no -->", "# Theme framework status (generated)", "",
             "Generated by `tools/themes/framework_status.py` from the code; do not edit by hand. The framework itself: `docs/design/THEME_FRAMEWORK.md`.", "",
-            "%d themes: %d on the GPU kit (TitanFXK), %d on the world contract (a room), %d with a photographic room, %d open on their own world, %d with a soundscape, %d with recorded music." % (
-                T, n["gpu"], n["contract"], n["photo"], n["opening"], n["sound"], n["music"]), "",
-            "| Theme | Engine | World room (look controls) | Photo room | Opening | Sound | Music | Next |", "|---|---|---|---|---|---|---|---|"]
+            "%d themes, every one a photograph with live layers (no code-built worlds): %d with their layer set from the art queue, %d on their own picture until it comes; %d with a soundscape, %d with recorded music." % (
+                T, n["full"], n["picture"], n["sound"], n["music"]), "",
+            "| Theme | Photograph | Live layers | Room | Opening | Sound | Music | Next |", "|---|---|---|---|---|---|---|---|"]
     return "\n".join(head + rows) + "\n"
 
 

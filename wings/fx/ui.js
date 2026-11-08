@@ -54,8 +54,12 @@
   function scaled(spec, k) {
     return String(spec).split("+").map(function (part) { var m = part.trim().split("*"), w = (m[1] ? parseFloat(m[1]) : 1) * k; return m[0].trim() + "*" + (isFinite(w) ? w : k).toFixed(3); }).join("+");
   }
+  /* every theme is a photograph now (wings/plate.js, owner 2026-11-08): it brings the theme's own light and particles, so the theme's
+     old screen effect stays off (most of them painted a background over it). What the owner adds (wings/fx/layers.js) and a sound
+     scene's effect still play on top. */
+  function photo() { var P = window.TitanPlate; return !!(P && P.has && P.has(atmo)); }
   function apply() {
-    var m = pick();
+    var m = photo() && !(sceneName && sceneAtmo === atmo && SCENE[sceneName]) ? [null, 0] : pick();
     /* the effects the owner added to this theme (wings/fx/layers.js) come first, so they win the overlay's three places; the theme's
        own effect follows at its own weight (a GPU world's "fxk" entry is no overlay at all) */
     var L = window.TitanFXLayers, extra = L && L.overlay ? L.overlay(atmo) : [];

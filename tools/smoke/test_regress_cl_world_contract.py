@@ -1,22 +1,19 @@
 #!/usr/bin/env python3
-"""Regression test CL-WORLD-01 (2026-10-29): the world contract every theme is built on (docs/design/THEME_FRAMEWORK.md, section 3).
+"""Regression test CL-WORLD-02 (2026-11-08): every theme is a photograph (docs/design/THEME_FRAMEWORK.md, section 3).
 
-One GPU world (fx/kit.js TitanFXK) runs as the backdrop, the opening and the theme's room. In the real app, phone and desktop:
-  1. every GPU world boots as the backdrop through the real lazy path (phone: all of them; desktop: the three reference worlds), with no
-     page or shader errors, mode "backdrop" and the default view
-  2. the contract: three modes; setView ignores an unknown mode and numbers that are not finite, clamps the camera and every look control
-     to the world's room limits, drops unknown look ids; resetView gives the backdrop view back
-  3. for every world with a room: a camera move and a look change reach the world (its debug), and resetView puts its camera back
-  4. six theme switches leave one world canvas and at most one animation loop (no piling up)
-  5. the room in the app: Step inside opens it over the live world (the app hidden, nothing of it showing through, the Hall scrolled to
-     its showcase), Escape closes it and the view is the backdrop again (on Tourbillon: a GPU world whose room is the world itself);
-     a theme whose room is a photograph (art/rooms/{id}, wings/room-plate.js; Supercell) opens it instead, drawing over a world that
-     holds still, and Escape removes it; a theme without a GPU world gets the basic room
-  6. the launch opening on the engine (?splash=1): the splash goes transparent over the running world, the view runs in mode "opening",
-     then the app appears over the same world in mode "backdrop" (one canvas)
-  7. every theme in wings/room.js OPENINGS has an opening path in its room data
-  8. the tier the worlds get is TitanQuality's (Low, Medium, High, Ultra, Max: ?q=)
-  9. Motion Off: one still frame, no loop; a view change draws one new frame
+Owner, 2026-11-08: "I explicitly didnt want 3d worlds because your implementation is poor ... have my slaves make super high quality
+third spaces as images then layering on it"; "Do it for all 50". One canvas (wings/plate.js TitanPlate, #tr-plate) shows the theme's
+photograph with the app's live layers as the backdrop, the opening and the room. In the real app, phone and desktop:
+  1. every theme in the manifest has a photograph: its plate entry and files (a full layer set in art/rooms/{id}/ or, until that comes,
+     the theme's own picture art/themes/{id}.webp + an estimated map) (static)
+  2. every theme boots with its photograph as the backdrop (phone: all of them; desktop: three), no page errors, one canvas, no
+     code-built world (fx/kit.js draws none) and no old screen effect running
+  3. six theme switches leave one canvas and at most one loop, on the last theme
+  4. the room: Step inside shows the photograph at full brightness with the app hidden (nothing of it showing through), a drag pans it,
+     Escape closes it and the photograph is the backdrop again
+  5. the launch opening (?splash=1, no film in the test browser): the splash goes transparent over the photograph, the push in plays
+     (mode "opening"), then the app appears over the same photograph as the backdrop
+  6. Motion Off: a still frame, no loop; a look change draws one new frame
   python3 tools/smoke/test_regress_cl_world_contract.py [--shots DIR] [--only phone|desktop]      Exit code 0 = all pass.
 """
 import functools, http.server, os, re, socket, sys, threading, time
@@ -24,16 +21,19 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from smoke import ROOT, CHROMIUM
 from playwright.sync_api import sync_playwright
 
-REF = ["supercell", "tourbillon", "silverscreen"]
-
-
-def first_engine_theme():
-    """a theme still on the first engine (manifest fx not "fxk"), for the basic-room check; None once every theme has a GPU world"""
-    man = open(os.path.join(ROOT, "wings", "themes", "manifest.js"), encoding="utf-8").read()
-    for m in re.finditer(r'\{ id: "([a-z0-9]+)",.*?fx: "([^"]*)"', man, re.S):
-        if m.group(2) != "fxk": return m.group(1)
-    return None
+REF = ["supercell", "abyss", "kaleido"]
 GL = ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"]
+
+
+def themes():
+    man = open(os.path.join(ROOT, "wings", "themes", "manifest.js"), encoding="utf-8").read()
+    return re.findall(r'\{ id: "([a-z0-9]+)", name:', man)
+
+
+def plates():
+    """theme id -> True when it has a full layer set (fd = the front object's depth), False when its own picture stands in"""
+    src = open(os.path.join(ROOT, "wings", "plate.js"), encoding="utf-8").read()
+    return {m.group(1): "fd:" in m.group(2) for m in re.finditer(r'^    ([a-z0-9]+): C\("[^"]+", [-.0-9]+, \[[^\]]*\](.*?)\),?$', src, re.M)}
 
 
 def serve():
@@ -53,25 +53,23 @@ def check(ok, msg):
     if not ok: fails.append(msg)
 
 
-def gpu_worlds():
-    src = open(os.path.join(ROOT, "fx", "kit.js"), encoding="utf-8").read()
-    m = re.search(r"K\.lazy = K\.lazy \|\| \{(.*?)\};", src, re.S)
-    return re.findall(r"([a-z0-9]+):", m.group(1)) if m else []
-
-
-def openings():
-    src = open(os.path.join(ROOT, "wings", "room.js"), encoding="utf-8").read()
-    m = re.search(r"var OPENINGS = \{(.*?)\};", src, re.S)
-    return re.findall(r"([a-z0-9]+):", m.group(1)) if m else []
-
-
 def main(argv):
     shots = argv[argv.index("--shots") + 1] if "--shots" in argv else None
     only = argv[argv.index("--only") + 1] if "--only" in argv else None
     if shots: os.makedirs(shots, exist_ok=True)
-    base = serve(); worlds = gpu_worlds(); ops = openings()
-    check(len(worlds) >= 18, f"{len(worlds)} GPU worlds in the kit's lazy map")
-    kw = {"args": GL}
+
+    # 1. every theme has its photograph
+    T, P = themes(), plates()
+    check(len(T) >= 50, f"{len(T)} themes in the manifest")
+    check(set(T) <= set(P), "every theme has a photograph in wings/plate.js" + ("; missing " + ", ".join(sorted(set(T) - set(P))) if set(T) - set(P) else ""))
+    nofile = []
+    for t in T:
+        d = os.path.join(ROOT, "art", "rooms", t)
+        need = [os.path.join(d, "map.webp")] + ([os.path.join(d, f) for f in ("back.webp", "front.webp")] if P.get(t) else [os.path.join(ROOT, "art", "themes", t + ".webp")])
+        nofile += [os.path.relpath(f, ROOT) for f in need if not os.path.exists(f)]
+    check(not nofile, f"every photograph's files are there ({sum(P.values())} full layer sets, {len(T) - sum(P.values())} on the theme's own picture)" + ("; missing " + ", ".join(nofile[:5]) if nofile else ""))
+
+    base = serve(); kw = {"args": GL}
     if os.path.exists(CHROMIUM): kw["executable_path"] = CHROMIUM
     with sync_playwright() as pw:
         b = pw.chromium.launch(**kw)
@@ -79,151 +77,92 @@ def main(argv):
             if only and only != dev: continue
             def page(theme, q="low", extra=""):
                 ctx = b.new_context(viewport=vp, is_mobile=mobile, has_touch=mobile); p = ctx.new_page(); errs = []
-                p.on("pageerror", lambda e: errs.append(str(e))); p.on("console", lambda m: errs.append(m.text) if "[fxk]" in m.text else None)
+                p.on("pageerror", lambda e: errs.append(str(e))); p.on("console", lambda m: errs.append(m.text) if "[plate]" in m.text or "[fxk]" in m.text else None)
                 p.add_init_script("try { localStorage.setItem('tr_atmo_v1', %r); } catch (e) {}" % theme)
                 p.goto(f"{base}?nosplash&q={q}{extra}#hall")
                 return ctx, p, errs
-            def wait_world(p, theme, n=2, ms=90000):
-                try: p.wait_for_function("([id, n]) => { const d = window.TitanFXK && TitanFXK.debug(); return d && d.id === id && d.frames >= n && (d.worlds || []).every((w) => !w || w.ready !== false); }", arg=[theme, n], timeout=ms); return True
+            def wait_plate(p, theme, n=2, ms=60000):
+                try: p.wait_for_function("([id, n]) => { const d = window.TitanPlate && TitanPlate.debug(); return d && d.id === id && d.ready && d.frames >= n; }", arg=[theme, n], timeout=ms); return True
                 except Exception: return False
+            STATE = """() => { const d = TitanPlate.debug(), K = window.TitanFXK, kd = K && K.debug ? K.debug() : {}, FX = window.TitanFX, fs = FX && FX.state ? FX.state() : {};
+              return { d, world: kd.id || null, fx: fs.playing || null, kitShown: [...document.querySelectorAll('canvas#fxk')].some((c) => +getComputedStyle(c).opacity > 0) }; }"""
 
-            # 1 + 3. every world boots as the backdrop; a world with a room takes the view
-            booted, bad, viewbad, nroom = 0, [], [], 0
-            for w in (worlds if dev == "phone" else REF):
-                ctx, p, errs = page(w)
-                ok = wait_world(p, w)
-                d = p.evaluate("TitanFXK.debug()") if ok else {}
-                if ok and not errs and d.get("view", {}).get("mode") == "backdrop" and d.get("canvases") == 1: booted += 1
-                else: bad.append(f"{w}: {'no frames' if not ok else ''}{errs[:1]}{d.get('view')}")
-                if ok and shots: p.screenshot(path=os.path.join(shots, f"world_{dev}_{w}.png"))
-                R = p.evaluate("(id) => TitanFXK.room(id)", w) if ok else None
-                if R:
-                    nroom += 1
-                    c0 = p.evaluate("() => TitanFXK.debug().worlds[0] || {}")
-                    p.evaluate("(R) => { const L = {}; (R.look || []).forEach((c) => { L[c.id] = c.max; }); TitanFXK.setView({ mode: 'room', yaw: R.yaw[1], pitch: R.pitch[1], move: R.move[1], up: R.up[1], look: L }); }", R)
-                    f = p.evaluate("TitanFXK.frames"); p.wait_for_function("(f) => TitanFXK.frames > f + 1", arg=f, timeout=90000)
-                    c1 = p.evaluate("() => TitanFXK.debug().worlds[0] || {}")
-                    if shots: p.screenshot(path=os.path.join(shots, f"room_{dev}_{w}.png"))
-                    p.evaluate("TitanFXK.resetView()"); f = p.evaluate("TitanFXK.frames"); p.wait_for_function("(f) => TitanFXK.frames > f + 1", arg=f, timeout=90000)
-                    c2 = p.evaluate("() => TitanFXK.debug().worlds[0] || {}")
-                    if not (c0.get("cam") != c1.get("cam") and c1.get("look") != c0.get("look") and c2.get("cam") == c0.get("cam")):
-                        viewbad.append(f"{w}: cam {c0.get('cam')} -> {c1.get('cam')} -> {c2.get('cam')}, look {c0.get('look')} -> {c1.get('look')}")
+            # 2. every theme boots on its photograph
+            booted, bad = 0, []
+            for t in (T if dev == "phone" else REF):
+                ctx, p, errs = page(t)
+                ok = wait_plate(p, t)
+                s = p.evaluate(STATE) if ok else {"d": {}}
+                d = s["d"]
+                if ok and not errs and d.get("mode") == "backdrop" and d.get("canvases") == 1 and not s.get("world") and not s.get("kitShown") and not s.get("fx"): booted += 1
+                else: bad.append(f"{t}: {'not drawn' if not ok else ''}{errs[:1]} {s}")
+                if ok and shots: p.screenshot(path=os.path.join(shots, f"plate_{dev}_{t}.png"))
                 ctx.close()
-            n = len(worlds) if dev == "phone" else len(REF)
-            check(booted == n, f"[{dev}] {booted} of {n} GPU worlds boot as the backdrop, one canvas, no errors" + ("; " + "; ".join(bad[:4]) if bad else ""))
-            check(not viewbad, f"[{dev}] the view reaches all {nroom} worlds with a room, and resetView puts the camera back" + ("; " + "; ".join(viewbad[:3]) if viewbad else ""))
+            n = len(T) if dev == "phone" else len(REF)
+            check(booted == n, f"[{dev}] {booted} of {n} themes boot on their photograph: one canvas, no code-built world, no old screen effect, no errors" + ("; " + "; ".join(bad[:4]) if bad else ""))
 
-            # 2. the contract itself
-            ctx, p, errs = page("supercell"); wait_world(p, "supercell")
-            r = p.evaluate("""() => { const K = TitanFXK, R = K.room('supercell'), out = {};
-              out.modes = K.MODES.join(',');
-              K.setView({ mode: 'room' }); K.setView({ mode: 'flying' }); out.badMode = K.view.mode;
-              K.setView({ yaw: NaN, pitch: Infinity, move: 'far', up: null }); out.badNum = [K.view.yaw, K.view.pitch, K.view.move, K.view.up].join(',');
-              K.setView({ yaw: 99, pitch: -99, move: 99, up: 99, look: { rain: 99, nonsense: 3, sun: 'x' } });
-              out.clamp = [K.view.yaw === R.yaw[1], K.view.pitch === R.pitch[0], K.view.move === R.move[1], K.view.up === R.up[1]].join(',');
-              out.look = JSON.stringify(K.view.look); out.rainMax = R.look.filter((c) => c.id === 'rain')[0].max;
-              let threw = false; try { K.setView(null); K.setView(42); K.setView({ look: 'x' }); } catch (e) { threw = true; } out.threw = threw;
-              K.resetView(); out.reset = JSON.stringify(K.view); return out; }""")
-            check(r["modes"] == "backdrop,opening,room", f"[{dev}] three modes: {r['modes']}")
-            check(r["badMode"] == "room", f"[{dev}] an unknown mode is ignored (kept {r['badMode']})")
-            check(r["badNum"] == "0,0,0,0", f"[{dev}] numbers that are not finite are ignored ({r['badNum']})")
-            check(r["clamp"] == "true,true,true,true", f"[{dev}] the camera is clamped to the room limits ({r['clamp']})")
-            check(r["look"] == '{"rain":%s}' % r["rainMax"], f"[{dev}] look controls clamped, unknown ids and bad values dropped ({r['look']})")
-            check(not r["threw"], f"[{dev}] malformed settings never throw")
-            check(r["reset"] == '{"mode":"backdrop","yaw":0,"pitch":0,"move":0,"up":0,"look":{}}', f"[{dev}] resetView gives the backdrop view back")
-
-            # 4. six theme switches: one canvas, at most one loop
-            seq = ["tourbillon", "afterhours", "silverscreen", "supercell", "neon", "supercell"]
-            for t in seq:
-                p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", t); p.wait_for_timeout(2500)
-            wait_world(p, "supercell")
-            d = p.evaluate("TitanFXK.debug()")
-            check(d["canvases"] == 1 and d["loop"] <= 1 and d["id"] == "supercell", f"[{dev}] six theme switches: {d['canvases']} world canvas, {d['loop']} loop, on {d['id']}")
+            # 3. six theme switches
+            ctx, p, errs = page("supercell"); wait_plate(p, "supercell")
+            for t in ["kaleido", "afterhours", "notepad", "abyss", "neon", "supercell"]:
+                p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", t); p.wait_for_timeout(1800)
+            wait_plate(p, "supercell")
+            d = p.evaluate("TitanPlate.debug()")
+            check(d["canvases"] == 1 and d["id"] == "supercell" and d["mode"] == "backdrop", f"[{dev}] six theme switches: {d['canvases']} canvas, on {d['id']}, {d['mode']}")
             check(not errs, f"[{dev}] no page errors through the switches" + (": " + errs[0][:120] if errs else ""))
 
-            # 5. the room in the app (the Hall scrolled to its showcase first: its slide sets visibility: visible itself). Supercell's room is a
-            # photograph since 2026-11-08 (checked below), so the world-room check runs on Tourbillon, a GPU world without one
-            p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", "tourbillon"); wait_world(p, "tourbillon")
+            # 4. the room in the app (the Hall scrolled to its showcase first: its slide sets visibility: visible itself, tr266)
             p.evaluate("() => { const e = document.querySelector('.exhibit-slide.on'); if (e) e.scrollIntoView({ block: 'center' }); }"); p.wait_for_timeout(600)
-            r = p.evaluate("""() => TitanRoom.open().then((c) => new Promise((ok) => setTimeout(() => ok({ kit: c.kit, open: !!document.getElementById('troom'),
-              hidden: document.documentElement.classList.contains('tr-room'), mode: TitanFXK.view.mode,
-              app: getComputedStyle(document.getElementById('app') || document.body).visibility }), 600)))""")
-            check(r["kit"] and r["open"] and r["hidden"] and r["mode"] == "room" and r["app"] == "hidden", f"[{dev}] Step inside: the room opens over the live world, the app hidden ({r})")
-            # nothing of the app shows through, even a part that sets visibility: visible itself (tr266: the Hall's showcase slide did)
-            leak = p.evaluate("""() => { const out = []; document.querySelectorAll('body *').forEach((e) => { if (e.closest('#troom') || e.id === 'fxk' || e.id === 'titan-fx') return;
+            r = p.evaluate("""() => TitanRoom.open().then((c) => new Promise((ok) => setTimeout(() => { const d = TitanPlate.debug(), cv = document.getElementById('tr-plate');
+              ok({ plate: !!c.plate, open: !!document.getElementById('troom'), hidden: document.documentElement.classList.contains('tr-room'), mode: d.mode, dim: d.dim,
+                shown: !!cv && getComputedStyle(cv).visibility === 'visible' && +getComputedStyle(cv).opacity > .5, app: getComputedStyle(document.getElementById('app') || document.body).visibility }); }, 1600)))""")
+            check(r["plate"] and r["open"] and r["hidden"] and r["mode"] == "room" and r["dim"] > .97 and r["shown"] and r["app"] == "hidden",
+                  f"[{dev}] Step inside: the photograph at full brightness, the app hidden ({r})")
+            leak = p.evaluate("""() => { const out = []; document.querySelectorAll('body *').forEach((e) => { if (e.closest('#troom') || e.id === 'tr-plate' || e.id === 'fxk' || e.id === 'titan-fx') return;
               if (getComputedStyle(e).visibility !== 'visible') return; const r = e.getBoundingClientRect(); if (r.width < 4 || r.height < 4 || r.bottom < 0 || r.top > innerHeight) return;
               let op = 1, x = e; while (x && x !== document.documentElement) { op *= +getComputedStyle(x).opacity; x = x.parentElement; } if (op >= .02) out.push(e.tagName + '.' + String(e.className).split(' ')[0]); });
               return out.slice(0, 5); }""")
             check(not leak, f"[{dev}] Step inside: no part of the app shows through the room ({leak})")
-            if shots: p.screenshot(path=os.path.join(shots, f"inapp_room_{dev}_tourbillon.png"))
-            p.keyboard.press("Escape"); p.wait_for_timeout(500)
-            r = p.evaluate("({ open: !!document.getElementById('troom'), cls: document.documentElement.classList.contains('tr-room'), view: JSON.stringify(TitanFXK.view) })")
-            check(not r["open"] and not r["cls"] and '"mode":"backdrop"' in r["view"] and '"yaw":0' in r["view"], f"[{dev}] Escape closes the room, the view is the backdrop again")
-            # the photographic room (owner 2026-10-30: the rooms are photographs with live light, particles, depth and sound on top)
-            p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", "supercell"); wait_world(p, "supercell")
-            r = p.evaluate("""() => TitanRoom.open().then((c) => (c.plate ? c.plate.ready : Promise.resolve()).then(() => new Promise((ok) => setTimeout(() => {
-              const cv = document.getElementById('troom-plate'), f0 = TitanFXK.debug().frames;
-              setTimeout(() => ok({ plate: !!c.plate, kit: c.kit, canvas: !!cv && getComputedStyle(cv).visibility === 'visible' && +getComputedStyle(cv).opacity > .5,
-                frames: c.plate ? c.plate.debug().frames : 0, held: TitanFXK.debug().frames - f0, app: getComputedStyle(document.getElementById('app') || document.body).visibility }), 1500); }, 1200))))""")
-            check(r["plate"] and not r["kit"] and r["canvas"] and r["frames"] > 2 and r["held"] <= 1 and r["app"] == "hidden",
-                  f"[{dev}] Supercell's room is its photograph: drawn, the app hidden, the world behind holding still ({r})")
-            if shots: p.screenshot(path=os.path.join(shots, f"inapp_room_{dev}_supercell_photo.png"))
-            p.keyboard.press("Escape"); p.wait_for_timeout(500)
-            r = p.evaluate("({ open: !!document.getElementById('troom'), canvas: !!document.getElementById('troom-plate'), held: document.documentElement.classList.contains('tr-plate') })")
-            check(not r["open"] and not r["canvas"] and not r["held"], f"[{dev}] Escape closes the photographic room and the world runs again ({r})")
-            basic = first_engine_theme()
-            if basic:
-                p.evaluate("(t) => { document.documentElement.dataset.atmo = t; }", basic); p.wait_for_timeout(1500)
-                r = p.evaluate("TitanRoom.open().then((c) => { const o = { kit: c.kit, open: !!document.getElementById('troom'), look: !!document.querySelector('#troom .troom-bar button') }; c.close(); return o; })")
-                check(r["open"] and not r["kit"] and r["look"], f"[{dev}] a theme without a GPU world ({basic}) gets the basic room ({r})")
+            p0 = p.evaluate("TitanPlate.debug().pan[0]")
+            p.evaluate("() => TitanRoom.current().plate.drag(-160, 0)"); p.wait_for_timeout(300)
+            p1 = p.evaluate("TitanPlate.debug().pan[0]")
+            check(p1 != p0, f"[{dev}] a drag pans across the photograph ({p0} -> {p1})")
+            if shots: p.screenshot(path=os.path.join(shots, f"room_{dev}_supercell.png"))
+            p.keyboard.press("Escape"); p.wait_for_timeout(1500)
+            r = p.evaluate("({ open: !!document.getElementById('troom'), cls: document.documentElement.classList.contains('tr-room'), d: TitanPlate.debug() })")
+            check(not r["open"] and not r["cls"] and r["d"]["mode"] == "backdrop" and r["d"]["canvases"] == 1, f"[{dev}] Escape closes the room; the photograph is the backdrop again ({r['d']['mode']}, dim {r['d']['dim']})")
             ctx.close()
 
-            # 6. the launch opening on the engine, handed to the app
-            if ops:
-                w = ops[0]; ctx = b.new_context(viewport=vp, is_mobile=mobile, has_touch=mobile); p = ctx.new_page(); errs = []
-                p.on("pageerror", lambda e: errs.append(str(e)))
-                p.add_init_script("try { localStorage.setItem('tr_atmo_v1', %r); } catch (e) {}" % w)
-                p.goto(f"{base}?splash=1&q=low"); seen = set(); t0 = time.time(); shot = False
-                while time.time() - t0 < 90:
-                    s = p.evaluate("(() => { const h = document.documentElement.classList, K = window.TitanFXK; return [h.contains('ts-on'), h.contains('ts-engine'), K && K.view ? K.view.mode : '-']; })()")
-                    if s[1]: seen.add("engine")
-                    if s[2] == "opening": seen.add("opening")
-                    if s[2] == "opening" and shots and not shot and time.time() - t0 > 4: p.screenshot(path=os.path.join(shots, f"opening_{dev}_{w}.png")); shot = True
-                    if not s[0] and "opening" in seen: break
-                    time.sleep(.2)
-                p.wait_for_timeout(1500)
-                e = p.evaluate("(() => { const d = TitanFXK.debug(); return { mode: d.view.mode, canvases: d.canvases, id: d.id, on: document.documentElement.classList.contains('ts-on'), app: getComputedStyle(document.getElementById('app')).visibility }; })()")
-                check("engine" in seen and "opening" in seen, f"[{dev}] {w}: the launch opening plays on the theme's own world (seen {sorted(seen)})")
-                check(not e["on"] and e["mode"] == "backdrop" and e["canvases"] == 1 and e["id"] == w and e["app"] == "visible", f"[{dev}] {w}: the app appears over the same world, as the backdrop ({e})")
-                check(not errs, f"[{dev}] no page errors in the opening" + (": " + errs[0][:120] if errs else ""))
-                ctx.close()
+            # 5. the launch opening on the photograph, handed to the app
+            w = "abyss"; ctx = b.new_context(viewport=vp, is_mobile=mobile, has_touch=mobile); p = ctx.new_page(); errs = []
+            p.on("pageerror", lambda e: errs.append(str(e)))
+            p.add_init_script("try { localStorage.setItem('tr_atmo_v1', %r); } catch (e) {}" % w)
+            p.goto(f"{base}?splash=1&q=low"); seen = set(); t0 = time.time(); shot = False
+            while time.time() - t0 < 90:
+                s = p.evaluate("(() => { const h = document.documentElement.classList, P = window.TitanPlate, d = P ? P.debug() : {}; return [h.contains('ts-on'), h.contains('ts-engine'), d.mode || '-', d.anim || '-']; })()")
+                if s[1]: seen.add("engine")
+                if s[2] == "opening": seen.add("opening")
+                if s[3] == "open": seen.add("push")
+                if s[2] == "opening" and shots and not shot and time.time() - t0 > 3: p.screenshot(path=os.path.join(shots, f"opening_{dev}_{w}.png")); shot = True
+                if not s[0] and "opening" in seen: break
+                time.sleep(.2)
+            p.wait_for_timeout(1500)
+            e = p.evaluate("(() => { const d = TitanPlate.debug(); return { mode: d.mode, canvases: d.canvases, id: d.id, on: document.documentElement.classList.contains('ts-on'), app: getComputedStyle(document.getElementById('app')).visibility }; })()")
+            check({"engine", "opening", "push"} <= seen, f"[{dev}] {w}: the launch opening pushes into the theme's photograph (seen {sorted(seen)})")
+            check(not e["on"] and e["mode"] == "backdrop" and e["canvases"] == 1 and e["id"] == w and e["app"] == "visible", f"[{dev}] {w}: the app appears over the same photograph, as the backdrop ({e})")
+            check(not errs, f"[{dev}] no page errors in the opening" + (": " + errs[0][:120] if errs else ""))
+            ctx.close()
 
-            # 8. tiers come from TitanQuality
-            tb = []
-            for q in ("low", "medium", "high", "ultra", "max"):
-                ctx, p, errs = page("supercell", q)
-                if not wait_world(p, "supercell", 1): tb.append(q + ": no frame"); ctx.close(); continue
-                t = p.evaluate("(() => [String(TitanQuality.tier()), TitanFXK.debug().tier, TitanFXK.debug().worlds[0].tier])()")
-                if not (t[0] == q and t[1] == q and t[2] == ("max" if q == "ultra" else q)): tb.append(f"{q}: {t}")
-                ctx.close()
-                if dev == "desktop": break
-            check(not tb, f"[{dev}] the worlds get TitanQuality's tier" + ("; " + "; ".join(tb) if tb else ""))
-
-            # 9. Motion Off: a still frame, no loop; a view change draws one more
+            # 6. Motion Off: a still frame, no loop; a look change draws one more
             ctx, p, errs = page("supercell")
-            p.evaluate("() => { document.documentElement.dataset.motion = 'off'; }"); wait_world(p, "supercell", 1); p.wait_for_timeout(2500)
-            f1 = p.evaluate("TitanFXK.frames"); p.wait_for_timeout(2500); f2 = p.evaluate("TitanFXK.frames"); lp = p.evaluate("TitanFXK.debug().loop")
-            p.evaluate("TitanFXK.setView({ mode: 'room', yaw: .5 })"); p.wait_for_timeout(4000); f3 = p.evaluate("TitanFXK.frames")
-            check(f2 == f1 and lp == 0, f"[{dev}] Motion Off: a still frame, no loop ({f1} -> {f2} frames, loop {lp})")
-            check(f3 == f2 + 1, f"[{dev}] Motion Off: a view change draws one new frame ({f2} -> {f3})")
+            p.evaluate("() => { document.documentElement.dataset.motion = 'off'; }"); wait_plate(p, "supercell", 1); p.wait_for_timeout(2500)
+            f1 = p.evaluate("TitanPlate.debug().frames"); p.wait_for_timeout(2500); d2 = p.evaluate("TitanPlate.debug()")
+            p.evaluate("TitanPlate.setLook('supercell', 'light', 1.3)"); p.wait_for_timeout(1500); f3 = p.evaluate("TitanPlate.debug().frames")
+            p.evaluate("TitanPlate.resetLook('supercell')")
+            check(d2["frames"] == f1 and not d2["loop"], f"[{dev}] Motion Off: a still frame, no loop ({f1} -> {d2['frames']} frames, loop {d2['loop']})")
+            check(f3 >= d2["frames"] + 1 and f3 <= d2["frames"] + 2, f"[{dev}] Motion Off: a look change draws a new frame ({d2['frames']} -> {f3})")
             ctx.close()
         b.close()
-
-    # 7. the openings list and the room data agree
-    src = {w: open(os.path.join(ROOT, "fx", w + ".js"), encoding="utf-8").read() for w in ops}
-    missing = [w for w in ops if not re.search(r"\broom:\s*\{.*?\bopening:\s*\{", src[w], re.S)]
-    check(not missing, "every theme in OPENINGS has an opening path in its room data" + (": missing " + ", ".join(missing) if missing else ""))
-    print("CL-WORLD-01:", "ALL GOOD" if not fails else f"{len(fails)} FAILED")
+    print("CL-WORLD-02:", "ALL GOOD" if not fails else f"{len(fails)} FAILED")
     return 1 if fails else 0
 
 

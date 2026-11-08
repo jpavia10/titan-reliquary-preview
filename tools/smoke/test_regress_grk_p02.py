@@ -6,10 +6,10 @@ Owner, 2026-11-07: "The 1080p video splashes should go first then followed by th
 navigator.connection.downlink read under 5 Mbps, and Chrome's estimate often reads 1-2 Mbps on a fast line (tr126 fixed it); GRK-P-01
 stops the film's download when it is skipped.
 
-  1. default Opening ("both"), phone and desktop, a theme with an engine opening (Supercell) and one with a motion splash (Kaleido):
-     an .mp4 under art/splash/ is requested (never .webm), a <video> plays; at the film's end the theme's own opening runs (the world
-     for Supercell: html.ts-engine; the motion canvas for Kaleido: #tr-splash.ts-motion); the opening ends and the app is visible
-  2. the GPU world holds still under the film (html.ts-filmplay; the kit draws a few frames, then waits)
+  1. default Opening ("both"), phone and desktop, a theme with its layer set (Supercell) and one on its own picture (Kaleido):
+     an .mp4 under art/splash/ is requested (never .webm), a <video> plays; at the film's end the theme's own opening runs (the push
+     into its photograph, owner 2026-11-08: html.ts-engine); the opening ends and the app is visible
+  2. the photograph holds still under the film (html.ts-filmplay; wings/plate.js draws a few frames, then waits)
   3. an Opening "motion" stored while the film was not on offer (tr267-tr275, no titan.opening.v) reads as "both" once; one chosen
      after this build (titan.opening.v = 2) stays "motion": no film, the theme's opening only
   4. a low reported downlink (1.4 Mbps) on 4g still plays the film; Data Saver, 3g, 2g and slow-2g skip it (no request under
@@ -18,7 +18,7 @@ stops the film's download when it is skipped.
   6. Motion Calm never plays the film
   7. when the film was heard (sound allowed), the theme's own sound (its recordings + music) starts with the theme's opening, no tap
   8. coming back to an open Hall (owner 2026-11-07: "The main splash hasn't been appearing on titan for a while"): after 5 min nothing;
-     after 25 min the page reloads and the film plays again; with sound still playing, no reload: only the theme's opening as an overlay
+     after 25 min the page reloads and the film plays again; with sound still playing, no reload: the theme's photograph comes up again
 Graphics Low through the user's choice key tr_quality_v1 (wings/quality.js rewrites the tr_quality mirror on load).
 
   python3 tools/smoke/test_regress_grk_p02.py      (serves this repo itself, like smoke.py; needs playwright + Chromium)
@@ -113,7 +113,7 @@ def main():
 
         # 1 + 2. the default order: film, then the theme's opening, then the app
         for dev, vp, mobile in (("phone", {"width": 390, "height": 844}, True), ("desktop", {"width": 1280, "height": 800}, False)):
-            for theme, flag, what in (("supercell", "__eng", "its world opening"), ("kaleido", "__mo", "its motion splash")):
+            for theme, flag, what in (("supercell", "__eng", "the push into its photograph"), ("kaleido", "__eng", "the push into its photograph")):
                 ctx, p, reqs = open_page(vp, mobile, theme)
                 got = p.evaluate("[TitanOpening.choice(), TitanOpening.pick(), TitanOpening.after()]")
                 check(got == ["both", "film", True], f"[{dev}] {theme}: default Opening is film then theme ({got})")
@@ -122,14 +122,14 @@ def main():
                 check(seeked, f"[{dev}] {theme}: the film loads and plays")
                 mp4 = [u for u in reqs if u.split("?")[0].endswith(".mp4") and FILM in u]
                 check(bool(mp4) and not any(u.split("?")[0].endswith(".webm") for u in reqs), f"[{dev}] {theme}: an .mp4 film is requested, never .webm ({[u.rsplit('/', 1)[-1] for u in reqs][:2]})")
-                check(p.evaluate("!!window.__hold"), f"[{dev}] {theme}: the GPU world holds still under the film")
+                check(p.evaluate("!!window.__hold"), f"[{dev}] {theme}: the photograph holds still under the film")
                 try: p.wait_for_function("() => window.%s" % flag, timeout=30000, polling=250); ran = True
                 except Exception: ran = False
                 check(ran, f"[{dev}] {theme}: after the film, {what} runs")
                 check(ends(p), f"[{dev}] {theme}: the opening ends")
                 vis = p.evaluate("getComputedStyle(document.getElementById('app') || document.body).visibility")
                 check(vis == "visible", f"[{dev}] {theme}: the app is visible after it ({vis})")
-                check(not p.evaluate("document.documentElement.classList.contains('ts-filmplay')"), f"[{dev}] {theme}: the world draws again after the opening")
+                check(not p.evaluate("document.documentElement.classList.contains('ts-filmplay')"), f"[{dev}] {theme}: the photograph draws again after the opening")
                 if heard:
                     snd = p.evaluate("!!(window.TitanGen && TitanGen.isActive && TitanGen.isActive())")
                     check(snd, f"[{dev}] {theme}: the film was heard, so the theme's own sound starts with its opening (no tap)")
@@ -144,7 +144,7 @@ def main():
         ctx, p, reqs = open_page(*phone, "kaleido", " localStorage.setItem('titan.opening', 'motion'); localStorage.setItem('titan.opening.v', '2');")
         got = p.evaluate("TitanOpening.choice()")
         ok = ends(p, 30000)
-        check(got == "motion" and ok and not reqs and not p.evaluate("!!window.__vid") and p.evaluate("!!window.__mo"),
+        check(got == "motion" and ok and not reqs and not p.evaluate("!!window.__vid") and p.evaluate("!!(window.__mo || window.__eng)"),
               f"'The theme's opening only' chosen now: no film, the theme's opening, the app ({got}, {len(reqs)} film requests)")
         ctx.close()
 
@@ -159,7 +159,7 @@ def main():
                            ("slow-2g", "{ downlink: 0.05, effectiveType: 'slow-2g', saveData: false }")):
             ctx, p, reqs = open_page(*phone, "kaleido", conn=conn)
             p.wait_for_timeout(2500)
-            check(not reqs and not p.evaluate("!!window.__vid") and p.evaluate("!!window.__mo"), f"{name} skips the film and plays the theme's opening ({len(reqs)} film requests)")
+            check(not reqs and not p.evaluate("!!window.__vid") and p.evaluate("!!(window.__mo || window.__eng)"), f"{name} skips the film and plays the theme's opening ({len(reqs)} film requests)")
             ctx.close()
 
         # 5. a skip stops the download (throttled to 4 Mbps so the 12+ MB clip is still downloading when we skip)
@@ -194,18 +194,19 @@ def main():
             p.evaluate("sessionStorage.setItem('__skew', String((+sessionStorage.getItem('__skew') || 0) + %d * 60000))" % mins)
             try: p.evaluate("window.__vis = 'visible'; document.dispatchEvent(new Event('visibilitychange'))")
             except Exception: pass                 # the page may reload during the call
-        def state(p): return p.evaluate("[window.__loads, document.documentElement.classList.contains('ts-on'), !!document.querySelector('video.ts-film'), !!document.querySelector('.ts-switch')]")
+        def state(p): return p.evaluate("[window.__loads, document.documentElement.classList.contains('ts-on'), !!document.querySelector('video.ts-film'), !!(document.querySelector('.ts-switch') || window.__arrived)]")
         for sound in (False, True):
             ctx = b.new_context(viewport=phone[0], is_mobile=True, has_touch=True); p = ctx.new_page()
             p.add_init_script(RETURN); p.goto(base + "#hall"); p.wait_for_timeout(3500)
             if sound: p.evaluate("TitanScene.playTheme('kaleido')"); p.wait_for_timeout(2500)
+            p.evaluate("(() => { const P = window.TitanPlate; if (P) { const a = P.arrive; P.arrive = function () { window.__arrived = 1; return a.apply(this, arguments); }; } })()")
             away(p, 5); p.wait_for_timeout(1500); s5 = state(p)
             away(p, 25); p.wait_for_timeout(3000); s25 = state(p)
             if not sound:
                 check(s5 == [1, False, False, False], f"back to the open Hall after 5 min: nothing plays ({s5})")
                 check(s25[0] == 2 and s25[1] and s25[2], f"back after 25 min: the page reloads and the film plays again ({s25})")
             else:
-                check(s25[0] == 1 and s25[3] and not s25[2], f"back after 25 min with sound still playing: no reload, the theme's opening over the app ({s25})")
+                check(s25[0] == 1 and s25[3] and not s25[2], f"back after 25 min with sound still playing: no reload, the theme's photograph comes up again ({s25})")
             ctx.close()
         b.close()
     httpd.shutdown()

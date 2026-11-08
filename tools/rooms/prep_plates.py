@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-"""Prepare a room's photographic layer set for the image room (wings/room-plate.js; owner 2026-10-30: the rooms are photographs made by
-an image AI, and the app lays its own live light, particles, depth and sound over them).
+"""Prepare a theme's photographic layer set for the photograph engine (wings/plate.js: the backdrop, the opening and the room; owner
+2026-10-30 and 2026-11-08: every theme is a photograph made by an image AI, and the app lays its own live light, particles, depth and
+sound over it). After a run, give the theme's entry in wings/plate.js its front depth (fd: the "front" value in plate.json), which
+switches it from its own picture to this set; the art/rooms/{ID}/plate.json "hero" file of the interim plate is replaced.
 
     python3 tools/rooms/prep_plates.py SRC_DIR ID [PREFIX] [--out art/rooms]
 

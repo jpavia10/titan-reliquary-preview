@@ -270,6 +270,7 @@
   function pulse() { var f = root.querySelector(".atm-card.front"); if (!f || motion() === "off") return; f.classList.remove("pulse"); void f.offsetWidth; f.classList.add("pulse"); }
   /* the theme's own opening camera move, played on its world behind the Atmosphere (no title, no splash) */
   function flyIn(id, force) {
+    var PL = window.TitanPlate; if (PL && PL.has(id)) { if (motion() !== "full" && !force) return false; PL.arrive(id); return true; }   /* the photograph comes up with a push in */
     var R = window.TitanRoom; if (!R || !R.path || (motion() !== "full" && !force)) return false;
     var t0 = performance.now();
     (function wait() {
@@ -402,6 +403,7 @@
   function times(v, def) { return def ? (Math.round(v / def * 100) / 100) + "×" : String(Math.round(v * 100) / 100); }
   function themeName(id) { var W = worlds(), w = W && W.byId(id); return w ? w.name : id; }
   function kitRoom() { var K = window.TitanFXK, d = K && K.debug ? K.debug() : null; return d && d.id === current() && K.room && K.savedLook ? K.room(current()) : null; }
+  function plate() { var P = window.TitanPlate; return P && P.has && P.has(current()) ? P : null; }
   function kitPending() { var K = window.TitanFXK; return !!(K && K.lazy && K.lazy[current()] && !kitRoom()); }
 
   var G = function () { return window.TitanGen; }, S = function () { return window.TitanScene; };
@@ -498,10 +500,14 @@
     },
     /* ---- Look > Effects: this theme's own effect controls (kept per theme) and the screen effects ---- */
     "look:effects": {
-      key: function () { var R = kitRoom(); return current() + "|" + (R ? (R.look || []).length : (kitPending() ? "wait" : "fx")); },
+      key: function () { var R = kitRoom(); return current() + "|" + (plate() ? "plate" : R ? (R.look || []).length : (kitPending() ? "wait" : "fx")); },
       build: function () {
-        var cur = current(), R = kitRoom(), K = window.TitanFXK, FX = window.TitanFX, fs = FX && FX.state && FX.supported !== false ? FX.state() : null, out = "";
-        if (R && (R.look || []).length) {
+        var cur = current(), R = kitRoom(), K = window.TitanFXK, FX = window.TitanFX, fs = FX && FX.state && FX.supported !== false ? FX.state() : null, out = "", PL = plate();
+        if (PL) {
+          out += h("This theme's photograph", "The live light, particles and depth on " + themeName(cur) + ", kept for next time; the room starts from them too.") +
+            PL.look.map(function (c) { return slider("plate:" + c.id, c.label, c.min, c.max, "any", PL.getLook(cur, c.id)); }).join("") +
+            '<div class="atm-row"><button type="button" class="atm-btn" data-act="platereset">Back to the theme\'s own</button>' + (window.TitanRoom ? '<button type="button" class="atm-btn" data-act="room">Step inside to play with it</button>' : "") + "</div>";
+        } else if (R && (R.look || []).length) {
           var sv = K.savedLook(cur);
           out += h("This theme's effects", "Your setting for " + themeName(cur) + ", kept for next time; the room starts from it too.") +
             R.look.map(function (c) { var v = sv[c.id] != null ? sv[c.id] : c.def; return slider("look:" + c.id, c.label, c.min, c.max, "any", v); }).join("") +
@@ -517,7 +523,8 @@
         return out || note("Effects are not available in this browser.");
       },
       update: function (box) {
-        var K = window.TitanFXK, R = kitRoom(), FX = window.TitanFX, fs = FX && FX.state ? FX.state() : null;
+        var K = window.TitanFXK, R = kitRoom(), FX = window.TitanFX, fs = FX && FX.state ? FX.state() : null, PL = plate();
+        if (PL) PL.look.forEach(function (c) { var el = box.querySelector('[data-in="plate:' + c.id + '"]'); if (!el) return; if (!held(el)) el.value = PL.getLook(current(), c.id); outOf(el, times(+el.value, c.def)); });
         if (R && K.savedLook) { var sv = K.savedLook(current()); (R.look || []).forEach(function (c) { var el = box.querySelector('[data-in="look:' + c.id + '"]'); if (!el) return; if (!held(el)) el.value = sv[c.id] != null ? sv[c.id] : c.def; outOf(el, times(+el.value, c.def)); }); }
         if (fs) { radios(box, "fxlevel", fs.level); var a = box.querySelector('[data-in="fxint"]'); if (a) { if (!held(a)) a.value = fs.intensity; outOf(a, pct(+a.value)); } var f = box.querySelector('[data-in="film"]'); if (f) { if (!held(f)) f.value = fs.film; outOf(f, pct(+f.value)); } }
       }
@@ -528,7 +535,7 @@
       build: function () {
         var L = window.TitanFXLayers; if (!L) return note("Effects are not available in this browser.");
         var cur = current(), mine = L.list(cur), libl = L.lib();
-        return h("Added to " + themeName(cur), "Any effect, on top of the theme's own world; kept for this theme and on in the room too. Up to three screen effects at once (a fourth takes the place of the oldest); the paint swirl runs on the world itself and follows your finger.") +
+        return h("Added to " + themeName(cur), "Any effect, on top of the theme's photograph; kept for this theme and on in the room too. Up to three screen effects at once (a fourth takes the place of the oldest); the paint swirl follows your finger.") +
           (mine.length ? '<div class="atm-mix">' + mine.map(function (e) {
             return '<div class="atm-mrow"><span class="atm-mi" aria-hidden="true">' + esc(e.icon) + "</span>" + slider("layer:" + e.id, e.name, .05, 1.6, .05, e.w) +
               '<button type="button" class="atm-rm" data-act="unlayer" data-id="' + esc(e.id) + '" aria-label="Remove ' + esc(e.name) + '">×</button></div>'; }).join("") + "</div>" +
@@ -616,6 +623,7 @@
       case "unlayer": if (window.TitanFXLayers && window.TitanFXLayers.on(current(), b.dataset.id)) window.TitanFXLayers.toggle(current(), b.dataset.id); break;
       case "layers-clear": if (window.TitanFXLayers) window.TitanFXLayers.clear(current()); break;
       case "lookreset": if (K && K.saveLook) { K.saveLook(current(), {}); lookScape({}); } break;
+      case "platereset": if (plate()) plate().resetLook(current()); break;
       case "room": enter(); return;
       case "flyin": panel(null); flyIn(current(), true); return;
       case "classic": allSettings(); return;
@@ -641,6 +649,7 @@
     else if (id === "fxint") { if (FX) FX.setIntensity(v); outOf(t, pct(v)); }
     else if (id === "film") { if (FX) FX.setFilm(v); outOf(t, pct(v)); }
     else if (id.indexOf("layer:") === 0) { if (window.TitanFXLayers) window.TitanFXLayers.set(current(), id.slice(6), v); outOf(t, Math.round(v * 100) + "%"); }
+    else if (id.indexOf("plate:") === 0 && plate()) { var PL = plate(), pc = PL.look.filter(function (x) { return "plate:" + x.id === id; })[0]; PL.setLook(current(), id.slice(6), v); outOf(t, times(v, pc ? pc.def : 1)); }
     else if (id.indexOf("look:") === 0 && K && K.saveLook) {
       var R = kitRoom(); if (!R) return;
       var look = K.savedLook(current()); look[id.slice(5)] = v;      // only the control that moved: the others keep their exact value

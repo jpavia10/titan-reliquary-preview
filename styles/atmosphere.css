@@ -2,7 +2,7 @@
    Glass over the live world, in four depths (atmosphere.js moves .atm-l1 .. .atm-l4 with the mouse or the tilt): the name far back, the
    group pills, the ring of portals, the dock nearest. No gold-on-black chrome: neutral glass, white type, the theme's own accent only for
    the small marks. The Sound and Look panels fill the space under the name while the ring steps back. */
-html.tr-atmos body > :not(#atmos):not(#fxk):not(#titan-fx):not(#troom) { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transition: opacity .32s ease, visibility 0s .32s; }
+html.tr-atmos body > :not(#atmos):not(#fxk):not(#titan-fx):not(#troom):not(#tr-plate) { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transition: opacity .32s ease, visibility 0s .32s; }
 html.tr-atmos, html.tr-atmos body { overflow: hidden; }
 #atmos.atm {
   --acc: var(--atm-acc, #c9d6ff); --glass: rgba(14, 16, 22, .34); --glass2: rgba(14, 16, 22, .55); --line: rgba(255, 255, 255, .16); --ink: #fff; --ink2: rgba(255, 255, 255, .74);

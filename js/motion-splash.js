@@ -2530,6 +2530,8 @@
   function switchTo(id) {
     if (!switchOn() || !STYLES || html.classList.contains("ts-on")) return false;    // the boot opening is still on screen: leave it alone
     if (html.classList.contains("tr-atmos")) return false;                            // the Atmosphere flies into the theme's own world instead
+    /* every theme is a photograph now (wings/plate.js): the photo itself comes up with a short push in, nothing covers the screen */
+    var PL = window.TitanPlate; if (PL && PL.has && PL.has(id) && motionLevel() === "full") { PL.arrive(id); return true; }
     if (sw) { var old = sw; sw = null; window.removeEventListener("keydown", old.onKey, true); try { old.api && old.api.stop(); } catch (e) {} if (old.root.parentNode) old.root.parentNode.removeChild(old.root); }
     var root = document.createElement("div");
     root.className = "ts-switch"; root.setAttribute("role", "presentation");

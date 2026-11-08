@@ -8,7 +8,11 @@
 (function () {
   "use strict";
   var K = window.TitanFXK = window.TitanFXK || { mods: {}, themes: {} };
-  K.lazy = K.lazy || { lumen: "fx/lumen.js", rift: "fx/rift.js", horizon: ["fx/scenes-nms.js", "fx/horizon.js"], kintsugi: "fx/kintsugi.js", ferro: "fx/ferro.js", supercell: "fx/supercell.js", tourbillon: "fx/tourbillon.js", darkroom: "fx/darkroom.js", silverscreen: "fx/silverscreen.js", canopy: "fx/canopy.js", glasshouse: "fx/glasshouse.js", orbit: "fx/orbit.js", sahel: "fx/sahel.js", nocturne: "fx/nocturne.js", zen: ["fx/stage.js", "fx/zen.js"], saltflat: "fx/saltflat.js", lightwell: "fx/lightwell.js", obsidian: "fx/obsidian.js", afterhours: ["fx/stage.js", "fx/afterhours.js"], colossus: ["fx/stage.js", "fx/colossus.js"], abyss: ["fx/stage.js", "fx/abyss.js"], glacier: ["fx/stage.js", "fx/glacier.js"], neon: ["fx/stage.js", "fx/neon.js"], valhalla: ["fx/stage.js", "fx/valhalla.js"], dynasty: ["fx/stage.js", "fx/dynasty.js"] };   /* a list loads in order */
+  /* No code-built worlds (owner 2026-11-08: "I explicitly didnt want 3d worlds because your implementation is poor"; every theme is a
+     photograph now, wings/plate.js). The kit stays only for the effects the owner adds to a theme (wings/fx/layers.js, kind "kit"),
+     drawn over the photograph. The world files in fx/ are no longer loaded; git history keeps the old map of them. */
+  K.worlds = false;
+  K.lazy = {};
   K.mod = function (name, f) { K.mods[name] = f; };
   /* world contract (depth upgrade, notes/agents/depth-upgrade.md): one world runs as the backdrop (default, unchanged), the opening or
      the theme's room. A world reads ctx.view: mode, the camera offset from its own view (yaw and pitch in radians, move = metres along
@@ -114,7 +118,8 @@
     if (cv) return !!gl;
     cv = document.createElement("canvas"); cv.id = "fxk"; cv.setAttribute("aria-hidden", "true");
     cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0;transition:opacity .9s ease;contain:strict";
-    document.body.insertBefore(cv, document.body.firstChild);
+    var plate = document.getElementById("tr-plate");                    // over the theme's photograph (wings/plate.js), never under it
+    document.body.insertBefore(cv, plate ? plate.nextSibling : document.body.firstChild);
     gl = cv.getContext("webgl2", { alpha: true, premultipliedAlpha: true, antialias: false, powerPreference: "high-performance" });
     if (!gl) return false;
     K.floatRT = !!gl.getExtension("EXT_color_buffer_float"); K.halfRT = K.floatRT || !!gl.getExtension("EXT_color_buffer_half_float");
@@ -146,7 +151,7 @@
     raf = 0; if (!active) return;
     /* the 1080p opening film covers the screen (splash.js, html.ts-filmplay): draw a few frames so the world's shaders are built, then
        hold until the film hands over to the theme's opening (nothing behind an opaque film is worth a phone's GPU) */
-    if (K.frames > 3 && (root.classList.contains("ts-filmplay") || root.classList.contains("tr-plate"))) { raf = requestAnimationFrame(frame); return; }   /* ...or the image room's photograph covers it (wings/room-plate.js) */
+    if (K.frames > 3 && root.classList.contains("ts-filmplay")) { raf = requestAnimationFrame(frame); return; }
     var cap = lite() ? 33 : (TOUCH && K.view.mode === "backdrop" && !root.classList.contains("tr-atmos")) ? 32 : 15.5;   /* behind the collection on a phone: 30 fps */
     if (now - last < cap) { raf = requestAnimationFrame(frame); return; }
     var dt = Math.min(.05, (now - last) / 1000 || .016);
@@ -191,7 +196,7 @@
     redraw();
   };
   function apply(force) {
-    var id = K.forced || root.dataset.atmo, cfg = K.themes[id];
+    var id = K.forced || root.dataset.atmo, cfg = K.worlds === false ? null : K.themes[id];
     if (!force && active && active.id === id) return;
     if (!cfg && K.lazy[id]) { lazyLoad(id); return; }
     var want = K.extraStack(id);

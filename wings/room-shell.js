@@ -1,9 +1,8 @@
 /* wings/room-shell.js: the theme's room (rule 12 b; docs/design/THEME_FRAMEWORK.md, slot 5). Loaded by wings/room.js on the first
-   Step inside (Scene Studio). One shell for every theme: the live world fills the screen and the collection is hidden. You look around
-   (drag), move (pinch, the wheel or the Move slider), lift (Height), touch the world (a short tap), tilt the phone, and play with the
-   theme's own look controls and sound. A theme on the GPU kit brings its room data (K.themes[id].room: limits, look controls, touch,
-   sound, opening); any other theme gets the basic room (its TitanFX effect: strength, film, a moment). Close: ✕, Escape or Back;
-   the world goes back to the backdrop view and the effect settings to what they were. */
+   Step inside. One shell for every theme: the theme's photograph (wings/plate.js, the same canvas that is the backdrop) fills the screen
+   at full brightness and the collection is hidden. You pan across it (drag), come closer (pinch or the wheel), tap it, tilt the phone,
+   and play with its light, particles, depth and grain, its added effects, its sound and its opening. Close: ✕, Escape or Back; the
+   photo goes back to being the backdrop. (The world-room branches below are for a code-built world, which no theme has any more.) */
 (function () {
   "use strict";
   var html = document.documentElement, cur = null;
@@ -21,7 +20,7 @@
     var id = html.dataset.atmo, K = window.TitanFXK, d = K && K.debug ? K.debug() : {}, R = d.id === id && K.room ? K.room(id) : null;
     var FX = window.TitanFX, fx0 = FX && FX.state ? FX.state() : null, scape = window.TitanScapeApp || direct(), took = false, before = document.activeElement;
     var v = { yaw: 0, pitch: 0, move: 0, up: 0, look: {} }, tilt = { yaw: 0, pitch: 0, b0: null, g0: null, on: false }, playing = null;
-    /* a theme whose room is a photograph (art/rooms/{id}, wings/room-plate.js; owner 2026-10-30) uses it instead of the code-drawn world */
+    /* every theme's room is its photograph (wings/plate.js; owner 2026-10-30 and 2026-11-08) */
     var PL = window.TitanRoomPlate, plate = PL && PL.has(id) ? PL.mount(null, id) : null;
     if (plate) R = null;
     if (R) (R.look || []).forEach(function (c) { v.look[c.id] = K.look ? K.look(c.id, c.def) : c.def; });   // the room starts from the theme's saved look
@@ -177,7 +176,16 @@
         }).catch(function () { took = false; bs.replaceChildren(el("p", "troom-note", "Sound could not start here.")); });
       }));
     });
-    if (R && R.opening && lib.motion() !== "off") tab("Opening", function (p) {
+    if (plate && plate.opening && lib.motion() !== "off") tab("Opening", function (p) {
+      p.appendChild(el("p", "troom-note", "The opening of this theme, on this same photograph."));
+      var bs = el("div", "troom-btns"); p.appendChild(bs);
+      bs.appendChild(btn("▶ Play the opening", function () {
+        panel.hidden = true; tabs.Opening.setAttribute("aria-pressed", "false"); title.classList.remove("on");
+        if (playing) playing.stop();
+        playing = plate.opening(function () { title.classList.add("on"); }, function () { playing = null; setTimeout(function () { title.classList.remove("on"); }, 1800); });
+      }));
+    });
+    else if (R && R.opening && lib.motion() !== "off") tab("Opening", function (p) {
       p.appendChild(el("p", "troom-note", "The opening of this theme, on this same world."));
       var bs = el("div", "troom-btns"); p.appendChild(bs);
       bs.appendChild(btn("▶ Play the opening", function () {

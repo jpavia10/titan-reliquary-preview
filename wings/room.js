@@ -1,14 +1,10 @@
-/* wings/room.js: the opening and the room on the theme's own world (rule 12, docs/design/THEME_FRAMEWORK.md).
-   This small part loads at boot: OPENINGS (the themes whose opening plays on their GPU world), engineOpening() for splash.js, and the
-   loader for the room itself (wings/room-shell.js + styles/room-shell.css, fetched on the first Step inside in Scene Studio).
-   The world is the one running behind the app (fx/kit.js TitanFXK): the opening moves its camera through K.setView and touches it with
-   K.tap, then hands the same running world to the app as the backdrop. No second canvas, loop or clock. */
+/* wings/room.js: the opening and the room on the theme's photograph (rule 12, docs/design/THEME_FRAMEWORK.md; owner 2026-11-08: every
+   theme is a photograph with the app's live layers over it, no code-built worlds). This small part loads at boot: engineOpening() for
+   splash.js (the opening on the photograph behind the app, wings/plate.js) and the loader for the room itself (wings/room-shell.js +
+   styles/room-shell.css, fetched on the first Step inside). path() is the old world-camera move, kept for a world-room that is no more. */
 (function () {
   "use strict";
   var html = document.documentElement;
-  /* a theme is listed here once its opening path (K.themes[id].room.opening) has been looked at on a phone and a desktop */
-  var OPENINGS = { supercell: 1, tourbillon: 1, silverscreen: 1, darkroom: 1, canopy: 1, glasshouse: 1, orbit: 1, sahel: 1, nocturne: 1, zen: 1,
-    saltflat: 1, lightwell: 1, obsidian: 1, kintsugi: 1, rift: 1, lumen: 1, horizon: 1, afterhours: 1, colossus: 1, abyss: 1, glacier: 1, neon: 1, valhalla: 1, dynasty: 1 };   // ferro: too dark to judge at Low, looked at again later
   function K() { return window.TitanFXK; }
   function motion() {
     var m = html.dataset.motion; if (m === "calm" || m === "off") return m;
@@ -39,40 +35,38 @@
     };
   }
 
-  /* The launch opening (splash.js motion path, when hasOpening(theme)): black at once, the splash goes transparent over the live world,
-     the camera path plays, the name comes up, then done() and the app fades in over the same world. If the world is not drawing within
-     5 s (slow line, no WebGL2), fallback() runs the theme's separate opening scene instead. */
+  /* The launch opening (splash.js motion path, when hasOpening(theme)): black at once, the splash goes transparent over the theme's
+     photograph (wings/plate.js, already up behind the app), the camera pushes in out of the dark as the light comes up, the name comes
+     up, then done() and the app fades in over the same photograph, which stays as the backdrop. If the photo is not up within 5 s
+     (slow line, no WebGL2), fallback() runs the theme's separate opening instead. */
   var op = null;
   function engineOpening(root, id, done, fallback) {
-    var k = null, stopped = false, p = null, w0 = performance.now();
+    var stopped = false, p = null, PL = window.TitanPlate;
     function cls(on) { html.classList.toggle("ts-engine", on); root.classList.toggle("ts-engine", on); }
     cls(true);
     var dark = document.createElement("div"); dark.className = "ts-engine-dark"; root.appendChild(dark);
     var title = document.createElement("div"); title.className = "ts-engine-title"; title.setAttribute("aria-hidden", "true"); title.textContent = label(id); root.appendChild(title);
     window.__tsFilmUntil = performance.now() + 17000;          // the splash's 7.4 s cap waits for this opening (it ends itself)
-    function ready() { k = K(); var d = k && k.debug && k.debug(), R = k && k.room && k.room(id); return !!(d && d.id === id && d.frames > 2 && R && R.opening); }
     function undo() { cls(false); [dark, title].forEach(function (e) { if (e.parentNode) e.parentNode.removeChild(e); }); }
-    function back() { if (k && k.resetView) k.resetView(); html.classList.remove("ts-engine"); root.classList.remove("ts-engine"); setTimeout(function () { html.classList.remove("ts-engine-fade"); }, 1100); }
-    (function wait() {
+    function back() { if (p) p.stop(); html.classList.remove("ts-engine"); root.classList.remove("ts-engine"); setTimeout(function () { html.classList.remove("ts-engine-fade"); }, 1100); }
+    (PL ? PL.whenReady(id, 5000) : Promise.resolve(false)).then(function (ok) {
       if (stopped) return;
-      if (ready()) return start();
-      if (performance.now() - w0 > 5000) { undo(); window.__tsFilmUntil = 0; op = null; stopped = true; fallback(); return; }
-      setTimeout(wait, 80);
-    })();
+      if (!ok) { undo(); window.__tsFilmUntil = 0; op = null; stopped = true; fallback(); return; }
+      start();
+    });
     function start() {
-      var O = k.room(id).opening; window.__tsFilmUntil = performance.now() + (O.dur + 4) * 1000;
+      var dur = 5.6; window.__tsFilmUntil = performance.now() + (dur + 4) * 1000;
+      p = PL.opening({ dur: dur, onTitle: function () { title.classList.add("on"); }, onEnd: function () { setTimeout(handoff, 700); } });
       requestAnimationFrame(function () { dark.style.opacity = "0"; });
-      p = path(O, "opening", function () { title.classList.add("on"); }, function () { setTimeout(handoff, 700); });
     }
     function handoff() { if (stopped) return; html.classList.add("ts-engine-fade"); requestAnimationFrame(function () { if (stopped) return; back(); done(); }); }
     op = { id: id, feature: function () {}, get started() { return !!p; },
       seek: function (t, hold) { if (p) p.seek(t, hold); },
-      stop: function () { if (stopped) return; stopped = true; if (p) p.stop(); back(); undo(); op = null; } };
+      stop: function () { if (stopped) return; stopped = true; back(); undo(); op = null; } };
     return op;
   }
-  /* splash.js asks this before fx/kit.js has loaded (the kit comes at the end of the page), so only the list, the motion level and
-     WebGL2 are checked here; engineOpening waits for the world itself */
-  function hasOpening(id) { return !!(OPENINGS[id] && motion() === "full" && window.WebGL2RenderingContext); }
+  /* every theme opens on its photograph (owner 2026-11-08, "Do it for all 50"); Calm and Off keep the still opening */
+  function hasOpening(id) { return !!(window.TitanPlate && TitanPlate.has(id) && motion() === "full" && window.WebGL2RenderingContext); }
 
   /* ============================== the room (wings/room-shell.js, loaded on first use) ============================== */
   var loading = null;
@@ -81,19 +75,14 @@
     if (!loading) loading = new Promise(function (res, rej) {
       var s = document.querySelector('script[src*="wings/room.js"]'), q = s && /\?v=[^&]+/.exec(s.src), v = q ? q[0] : "";
       var l = document.createElement("link"); l.rel = "stylesheet"; l.href = "styles/room-shell.css" + v; document.head.appendChild(l);
-      /* the image room (wings/room-plate.js) first: the shell asks it whether this theme's room is a photograph (art/rooms/{id}/) */
-      var pl = document.createElement("script"); pl.src = "wings/room-plate.js" + v;
-      pl.onload = pl.onerror = function () {
-        var sc = document.createElement("script"); sc.src = "wings/room-shell.js" + v;
-        sc.onload = function () { res(window.TitanRoomShell); }; sc.onerror = function (e) { loading = null; rej(e); }; document.head.appendChild(sc);
-      };
-      document.head.appendChild(pl); });
+      var sc = document.createElement("script"); sc.src = "wings/room-shell.js" + v;
+      sc.onload = function () { res(window.TitanRoomShell); }; sc.onerror = function (e) { loading = null; rej(e); }; document.head.appendChild(sc); });
     return loading;
   }
   function open() { return shell().then(function (S) { return S.open({ path: path, label: label, motion: motion }); }); }
 
   window.TitanRoom = {
-    OPENINGS: OPENINGS, hasOpening: hasOpening, engineOpening: engineOpening, path: path, open: open,
+    hasOpening: hasOpening, engineOpening: engineOpening, path: path, open: open,
     close: function () { var c = window.TitanRoomShell && window.TitanRoomShell.current(); if (c) c.close(); },
     current: function () { return window.TitanRoomShell ? window.TitanRoomShell.current() : null; },
     op: function () { return op; }

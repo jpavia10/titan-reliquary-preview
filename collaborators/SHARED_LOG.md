@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-08] Claude: tr278, every theme is a photograph (owner: "Do it for all 50")
+- `wings/plate.js` (TitanPlate) draws the theme's photograph with live layers (parallax on its depth, lamp flicker, glow, shafts, aurora, caustics, lightning, particles in depth, grain) as the backdrop, the opening (push in after the film), the room and the Atmosphere's view, for all 50 themes. `fx/kit.js` loads no world any more (`K.worlds = false`); no code-built world is written or tuned again (THEME_FRAMEWORK.md).
+- 41 themes stand on their own picture with an estimated depth/light map (`tools/rooms/prep_hero_plates.py`) until their layer set arrives from `artreq_20261108-1500_room-layers-all`; then `prep_plates.py` + `fd` in its `wings/plate.js` entry. Gates: CL-WORLD-02 (photographs), GRK-P-02 (film, then the push in).
+
 ### [2026-11-08] Claude: photo rooms for every theme requested; no more code-built 3D worlds (owner)
 - Owner: "I explicitly didnt want 3d worlds because your implementation is poor ... have my slaves make super high quality third spaces as images then layering on it to get 3d effects or other features is a better use of resources." Claude had suggested keeping the GPU worlds and making them cheaper on phones; that was wrong (already ruled out 10-30). CLAUDE.md rule 12 + THEME_FRAMEWORK record it: no new world code, no tuning of the old ones.
 - Art request `artreq_20261108-1500_room-layers-all` (Drive queue + `docs/art/requests/`): the other 41 themes as layer sets (wide photo at the largest size the tool offers, then depth, light, front on green, clean back from that same image), then the first nine remade larger (1376x768 is soft on an upright phone). Gemini task 23 (top down), Grok task 15 and Muse task 11 (bottom up), a claim file per room; WORK QUEUE docs updated.
