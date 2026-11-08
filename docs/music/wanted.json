@@ -687,7 +687,8 @@
     "tsuru"
    ],
    "moods": [
-    "zen"
+    "zen",
+    "kintsugi"
    ],
    "traditional": true,
    "modern": true,
@@ -706,7 +707,17 @@
     "spoken",
     "wikipedia article",
     "pronunciation"
-   ]
+   ],
+   "files": [
+    "File:Shakuhachi played by Markus Guhe.webm"
+   ],
+   "credit": {
+    "File:Shakuhachi played by Markus Guhe.webm": {
+     "performer": "Markus Guhe (shakuhachi; an early-20th-century Tozan instrument, St Cecilia's Hall)",
+     "license": "CC BY 3.0"
+    }
+   },
+   "note": "2026-11-08: exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08 (audio taken from the video); also Kintsugi's, which has no recording of its own (Kaze no Uta refused: a 1970 composition still in copyright)."
   },
   {
    "id": "samadhi-bansuri",
@@ -1879,7 +1890,16 @@
     "synth",
     "sequenced"
    ],
-   "note": "Sahel Futurism (tr257): a real kora player, any traditional piece."
+   "note": "Sahel Futurism (tr257): a real kora player, any traditional piece. 2026-11-08: exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08; a live street recording, so the market murmur is part of it.",
+   "archive": [
+    "https://archive.org/download/aporee_73110_85351/MarseilleMarcheBOUBA.flac"
+   ],
+   "credit": {
+    "archive:aporee_73110_85351/MarseilleMarcheBOUBA.flac": {
+     "performer": "Bouba Kouyaté (kora), recorded live at the Marseille Sunday market (radio aporee)",
+     "license": "Public domain (PDM 1.0)"
+    }
+   }
   },
   {
    "id": "saltflat-debussy-reflets",
@@ -1944,6 +1964,107 @@
      "license": "CC0"
     }
    }
+  },
+  {
+   "id": "zen-iwashimizu",
+   "title": "Iwashimizu (Tozan-ryū honkyoku)",
+   "composer": "Nakao Tozan",
+   "traditional": true,
+   "must": [
+    "iwashimizu"
+   ],
+   "moods": [
+    "zen",
+    "kintsugi"
+   ],
+   "modern": true,
+   "archive": [
+    "https://archive.org/download/Iwashimizu/Iwashimizu_Nov2010.mp3"
+   ],
+   "credit": {
+    "archive:Iwashimizu/Iwashimizu_Nov2010.mp3": {
+     "performer": "Iburozan (shakuhachi), 23 November 2010",
+     "license": "CC0"
+    }
+   },
+   "note": "Zen Garden + Kintsugi: solo shakuhachi; Nakao Tozan died 1940, so the piece is out of copyright. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08."
+  },
+  {
+   "id": "sahel-kora-park",
+   "title": "Kora (traditional West African, live in a park)",
+   "composer": "Traditional West African",
+   "traditional": true,
+   "must": [
+    "kora"
+   ],
+   "moods": [
+    "sahel"
+   ],
+   "modern": true,
+   "archive": [
+    "https://archive.org/download/aporee_49688_56658/berlinHasenheideAbbaKora13062020.mp3"
+   ],
+   "credit": {
+    "archive:aporee_49688_56658/berlinHasenheideAbbaKora13062020.mp3": {
+     "performer": "Aba (kora), recorded live in Hasenheide park, Berlin, 13 June 2020 (radio aporee)",
+     "license": "CC BY-SA 3.0"
+    }
+   },
+   "note": "Sahel Futurism's second kora take. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08."
+  },
+  {
+   "id": "glacier-grieg-aase",
+   "title": "Peer Gynt Suite No. 1, Op. 46: II. The Death of Aase",
+   "composer": "Edvard Grieg",
+   "query": "Grieg Death of Aase Musopen",
+   "must": [
+    "aase"
+   ],
+   "prefer": [
+    "musopen"
+   ],
+   "moods": [
+    "glacier"
+   ],
+   "modern": true,
+   "files": [
+    "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - II. The Death of Aase (Musopen Symphony).flac"
+   ],
+   "credit": {
+    "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - II. The Death of Aase (Musopen Symphony).flac": {
+     "performer": "Musopen Symphony (2012)",
+     "license": "Public domain"
+    }
+   },
+   "note": "Hyperborean Vault: hushed strings. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08 (its other pick, Valse triste by Judith Bokor, is a 1925 78 transfer: too old to sound good)."
+  },
+  {
+   "id": "alchemist-dowland-weep",
+   "title": "I saw my lady weep",
+   "composer": "John Dowland",
+   "query": "Dowland I saw my lady weep",
+   "must": [
+    "weep"
+   ],
+   "moods": [
+    "alchemist"
+   ],
+   "modern": true,
+   "not": [
+    "midi",
+    "synth",
+    "sequenced"
+   ],
+   "files": [
+    "File:Dowland I saw my lady weep performed by David Solomons.ogg"
+   ],
+   "credit": {
+    "File:Dowland I saw my lady weep performed by David Solomons.ogg": {
+     "performer": "David Solomons",
+     "license": "CC BY-SA 3.0"
+    }
+   },
+   "note": "The Alchemist: an Elizabethan piece of John Dee's time. Exact pick from Grok's sound hunt (docs/music/finds/sound_grok_20261105-0308.json), reviewed by Claude 2026-11-08; Claude checks it is instrumental (the song has words) before it ships."
   }
  ]
 }

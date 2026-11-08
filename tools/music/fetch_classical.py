@@ -5,6 +5,10 @@ builds the site cannot reach Wikimedia.
 
     python3 tools/music/fetch_classical.py [docs/music/wanted.json] [--out audio/music] [--report docs/music/intake_report.json] [--dry]
 
+A piece may also name exact archive.org files (`archive`: download URLs, e.g. an outside AI's sound-hunt find, 2026-11-08): their license,
+performer and description come from archive.org's metadata API and go through the same checks (a non-commercial or no-derivatives license
+is refused).
+
 For every piece in wanted.json it searches Commons (File namespace, audio only), reads each candidate's license and description, and keeps
 only recordings that are
   - Public Domain, CC0, or CC BY / CC BY-SA (the RECORDING's license; every composition here is long out of copyright),
@@ -87,6 +91,66 @@ def info(titles):
     return out
 
 
+IA_META = "https://archive.org/metadata/"
+IA_MIME = {".flac": "audio/flac", ".mp3": "audio/mpeg", ".ogg": "audio/ogg", ".wav": "audio/wav", ".m4a": "audio/mp4"}
+MIMES.add("audio/mp4")
+
+
+def ia_license(url):
+    """archive.org licenseurl -> a short name OK_LIC understands; anything else (NC, ND, none) is returned as it is, so it fails"""
+    u = str(url or "").lower()
+    if "publicdomain/zero" in u: return "CC0"
+    if "publicdomain/mark" in u: return "Public domain"
+    m = re.search(r"creativecommons\.org/licenses/(by|by-sa)/(\d(?:\.\d)?)", u)
+    return f"CC {m.group(1).upper()} {m.group(2)}" if m else (url or "")
+
+
+def ia_seconds(v):
+    try:
+        if isinstance(v, str) and ":" in v:
+            sec = 0.0
+            for part in v.split(":"): sec = sec * 60 + float(part)
+            return sec
+        return float(v) if v not in (None, "") else None
+    except (TypeError, ValueError):
+        return None
+
+
+def ia_get(ident):
+    req = urllib.request.Request(IA_META + urllib.parse.quote(ident), headers={"User-Agent": UA})
+    last = None
+    for i in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except Exception as e:      # noqa: BLE001
+            last = e; time.sleep(2 ** i)
+    raise RuntimeError(f"archive.org metadata failed: {last}")
+
+
+def archive_info(urls, get=None):
+    """exact archive.org download URLs -> candidates shaped like info()'s (file = 'archive:<id>/<name>')"""
+    get = get or ia_get
+    out = []
+    for url in urls:
+        m = re.match(r"https://archive\.org/download/([^/]+)/(.+)$", url)
+        if not m: continue
+        ident, name = m.group(1), urllib.parse.unquote(m.group(2))
+        try: d = get(ident)
+        except Exception:      # noqa: BLE001
+            continue
+        md = d.get("metadata") or {}
+        f = next((x for x in d.get("files") or [] if x.get("name") == name), None)
+        if not f: continue
+        def txt(v): return strip_html(" ".join(v) if isinstance(v, list) else v)
+        out.append({"file": f"archive:{ident}/{name}", "url": url, "size": int(f.get("size") or 0),
+                    "mime": IA_MIME.get(os.path.splitext(name)[1].lower(), "audio/" + os.path.splitext(name)[1].lower().lstrip(".")),
+                    "duration": ia_seconds(f.get("length")), "license": ia_license(md.get("licenseurl")), "artist": txt(md.get("creator")),
+                    "desc": (txt(md.get("title")) + " | " + txt(md.get("description")))[:600], "credit": txt(md.get("date"))[:300],
+                    "cats": txt(md.get("subject"))[:400], "page": "https://archive.org/details/" + ident, "exact": True})
+    return out
+
+
 def judge(c, w):
     """-> (score or None, reason)"""
     text = " ".join([c["file"], c["artist"], c["desc"], c["credit"], c["cats"]])
@@ -145,18 +209,18 @@ def main(argv):
     report, tracks = [], []
     for w in wanted["pieces"]:
         titles = list(w.get("files") or [])        # exact Commons file titles (e.g. from Grok's music check) are tried first, same checks apply
-        for q in [w["query"], w["query"] + " " + w["composer"].split()[-1], w["title"]]:
+        for q in ([w["query"], w["query"] + " " + w["composer"].split()[-1], w["title"]] if w.get("query") else []):
             for t in search(q):
                 if t not in titles: titles.append(t)
             if len(titles) >= 40: break
-        cands = info(titles) if titles else []
+        cands = (info(titles) if titles else []) + archive_info(w.get("archive") or [])
         rows = []
         for c in cands:
             sc, why = judge(c, w)
             rows.append(dict(c, score=sc, why=why))
         exact = set(w.get("files") or [])
         for r in rows:
-            if r["file"] in exact and r["score"] is not None: r["score"] += 100      # a reviewed exact pick wins when it passes the checks
+            if (r["file"] in exact or r.get("exact")) and r["score"] is not None: r["score"] += 100      # a reviewed exact pick wins when it passes the checks
         ok = sorted([r for r in rows if r["score"] is not None], key=lambda r: -r["score"])
         if w.get("hold"):      # parked (no qualifying recording yet, or waiting on the owner's ear): still searched on every run, never used,
             # so a new upload on Commons shows up in the report by itself (#83); Claude lifts the hold after reviewing `would_pick`
