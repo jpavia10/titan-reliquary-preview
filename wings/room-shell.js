@@ -66,7 +66,9 @@
       if (plate) {                                       // the photograph: one finger pans across it, two pinch closer
         if (ids.length >= 2) { var p0 = pts[ids[0]], p1 = pts[ids[1]], dd2 = Math.hypot(p0.x - p1.x, p0.y - p1.y); if (pinchLast > 0) plate.pinch(dd2 / pinchLast); pinchLast = dd2; return; }
         if (!down) return; if (Math.hypot(e.clientX - down.x, e.clientY - down.y) > 8) down.far = true;
-        plate.drag(e.clientX - prev.x, e.clientY - prev.y); return;
+        plate.drag(e.clientX - prev.x, e.clientY - prev.y);
+        try { if (window.TitanScape && TitanScape.face) TitanScape.face(plate.pan() * .9, 0); } catch (er) { /* no sound yet */ }   // the room's sound turns as you pan across it
+        return;
       }
       if (ids.length >= 2 && R) { var a = pts[ids[0]], b = pts[ids[1]], dd = Math.hypot(a.x - b.x, a.y - b.y);
         var span = (R.move[1] - R.move[0]) || 1; v.move = move0 + (dd - pinch0) / Math.min(innerWidth, innerHeight) * span * .8; push(); return; }

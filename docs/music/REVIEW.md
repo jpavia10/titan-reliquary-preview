@@ -58,3 +58,18 @@ was not taken (main's copy has the silences trimmed), nor its regenerated perfor
 
 ## 2026-10-25: intake for the five new themes (Claude)
 Kept (4), each checked against the run's Commons file data: Chopin Raindrop Prelude (eldüendesüarez, piano, CC BY-SA 4.0) for The Glasshouse; Holst Neptune ("The President's Own" US Marine Band, US government work, cut at 7 minutes with a fade) for Low Orbit; Debussy Reflets dans l'eau (Giorgi Latso, CC BY-SA 4.0) for Salt Mirror; Bach BWV 639 (Yeonju Sarah Kim, organ, CC0, an excerpt of the uploaded recital) for Light Well. Sahel's kora found nothing that passed; it stays wanted.
+
+## 2026-11-08: the themes with no music of their own, from the sound hunt (Claude)
+Seven themes still played only the shared piano/orchestra set: Sahel Futurism, Zen Garden, Kintsugi, Obsidian Sun, Hyperborean Vault, The
+Alchemist, Clay Diorama (The Mint is `colossus`, which has its Holst score). Grok's sound-hunt picks for them (`docs/music/finds/`) went through
+the intake run on fb897a0; `fetch_classical.py` now takes exact archive.org files too (license from archive.org's metadata: CC0, the PD mark,
+CC BY and BY-SA only). Checked from the report, the encoded files (no clipping, level, quiet stretches) and the speech rhythm of the envelope.
+
+Kept (4, tr277): Bouba Kouyaté, kora, live at the Marseille Sunday market (radio aporee, PD mark; Schoeps ORTF) for Sahel; Iburozan,
+Iwashimizu (Nakao Tozan, d. 1940; CC0) and Markus Guhe, shakuhachi at St Cecilia's Hall (CC BY 3.0; the video's first 10.5 s of silence cut)
+for Zen Garden and Kintsugi; Grieg, The Death of Aase (Musopen Symphony, PD) for Hyperborean Vault.
+
+Refused or held: Kaze no Uta (a 1970 composition by Sawai Tadao, still in copyright), Las Chiapanecas (composer Bulmaro López Fernández
+died 1960), Valse triste by Judith Bokor (a 1925 78 transfer: too old to sound good), a 72 s festival shamisen with singing, Dowland's
+I saw my lady weep by David Solomons (his arrangement is for alto voice and guitar, 289 s like this file: sung), the Berlin park kora (held:
+a flea market's noise under it, never below -36 dB). Still without their own music: Obsidian Sun, The Alchemist, Clay Diorama.

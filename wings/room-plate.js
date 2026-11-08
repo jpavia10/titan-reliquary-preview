@@ -227,7 +227,7 @@
     function poke() { if (still() && st.ready) draw(performance.now()); else loop(); }
 
     return {
-      ready: ready, name: R.name, look: LOOK,
+      ready: ready, name: R.name, look: LOOK, pan: function () { return st.pan[0]; },
       get: function (k) { return look[k]; },
       set: function (k, v) { if (!(k in look)) return; look[k] = +v; var all = lsGet(); all[id] = look; lsSet(all); poke(); },
       reset: function () { st.pan = [R.pan0 || 0, 0]; st.vel = [0, 0]; st.zoom = 1.06; LOOK.forEach(function (c) { look[c.id] = c.def; }); var all = lsGet(); delete all[id]; lsSet(all); poke(); },

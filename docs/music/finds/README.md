@@ -11,4 +11,6 @@ The outside AIs' answers to `docs/agents/SOUND_HUNT.md`, copied from Drive `soun
 
 Gemini's 14:25 file is its second pass over the same list (the 03:55 file is kept for the record; read 14:25 first).
 
-Next step (not done): every pick goes through the music intake (`.github/workflows/music-intake.yml` + `tools/music/fetch_classical.py`: licence, performer, right piece, modern recording) and is listened to before it enters `docs/music/wanted.json` or `audio/`. The finds are not scored until then (CONTRIBUTOR_SCORES).
+2026-11-08: the music picks for the seven themes without music of their own went through the intake: 4 kept (tr277), the rest refused or held (`docs/music/REVIEW.md`; Grok row 42). Field recordings and replacements: not yet.
+
+Next step (for the rest): every pick goes through the music intake (`.github/workflows/music-intake.yml` + `tools/music/fetch_classical.py`: licence, performer, right piece, modern recording) and is listened to before it enters `docs/music/wanted.json` or `audio/`. The finds are not scored until then (CONTRIBUTOR_SCORES).
