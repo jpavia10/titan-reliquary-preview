@@ -56,7 +56,7 @@
     });
     function start() {
       var dur = 5.6; window.__tsFilmUntil = performance.now() + (dur + 4) * 1000;
-      p = PL.opening({ dur: dur, onTitle: function () { title.classList.add("on"); }, onEnd: function () { setTimeout(handoff, 700); } });
+      p = PL.opening({ dur: dur, onTitle: function () { title.textContent = label(id); title.classList.add("on"); }, onEnd: function () { setTimeout(handoff, 700); } });   /* the name now: the theme list loads after the splash starts */
       requestAnimationFrame(function () { dark.style.opacity = "0"; });
     }
     function handoff() { if (stopped) return; html.classList.add("ts-engine-fade"); requestAnimationFrame(function () { if (stopped) return; back(); done(); }); }

@@ -269,7 +269,8 @@
   }
 
   /* ------------------------------------------------------------------ the loop ------------------------------------------------------------------ */
-  function off() { return html.dataset.ui === "field"; }
+  var held = false;                                                     // an opaque shell over the app (The Cabinet): nothing to draw
+  function off() { return held || html.dataset.ui === "field"; }
   function target() { return st.mode !== "backdrop" || html.classList.contains("tr-atmos") || !cur || cur.c.light ? 1 : BACK_DIM; }
   function loop() { if (!cur || st.raf || st.hold) return; st.raf = requestAnimationFrame(frame); }
   function stopLoop() { if (st.raf) cancelAnimationFrame(st.raf); st.raf = 0; if (st.hold) clearTimeout(st.hold); st.hold = 0; }
@@ -435,7 +436,7 @@
   window.TitanPlate = {
     has: has, list: Object.keys(P), cfg: function (id) { return P[id] || null; }, current: function () { return cur ? cur.id : null; },
     whenReady: whenReady, opening: opening, arrive: function (id) { if (id && cur && cur.id !== id) return show(id); if (!still()) arrive(); return Promise.resolve(true); },
-    room: room, show: show, look: LOOK, getLook: getLook, setLook: setLook, resetLook: resetLook, debug: debug
+    hold: function (on) { held = !!on; if (!held) { st.last = 0; loop(); } }, room: room, show: show, look: LOOK, getLook: getLook, setLook: setLook, resetLook: resetLook, debug: debug
   };
   window.TitanRoomPlate = { has: has, mount: function (box, id) { return room(id); }, ROOMS: Object.keys(P) };
 })();

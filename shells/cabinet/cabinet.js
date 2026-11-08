@@ -455,11 +455,13 @@ export async function mount(root, svc) {
   /* Classic's GPU effect layer would keep drawing under the opaque cover: pause it, and give it back on the way out */
   const FX = window.TitanFX, hadFx = !!(FX && FX.state && FX.state().playing);
   if (hadFx) { try { FX.stop(0.3); } catch (e) { /* ignore */ } }
+  try { if (window.TitanPlate) window.TitanPlate.hold(true); } catch (e) { /* ignore */ }   // the theme's photograph too (wings/plate.js)
   window.addEventListener("titan:atmo", () => setTimeout(() => { try { if (FX && FX.state().playing) FX.stop(0.3); } catch (e) { /* ignore */ } }, 60), { signal });
 
   window.__cabinet = { state: () => (lf.hidden ? "cabinet" : "coin"), lens: () => lens, setLens, lift: (scan) => lift(flips.findIndex((f) => f.scan === scan)), close, count: () => flips.length, order: () => order.slice() };
   return {
     unmount() { ac.abort(); io && io.disconnect(); if (raf) cancelAnimationFrame(raf); delete window.__cabinet; root.innerHTML = "";
+      try { if (window.TitanPlate) window.TitanPlate.hold(false); } catch (e) { /* ignore */ }
       if (hadFx) { try { window.TitanFXUI && window.TitanFXUI.apply ? window.TitanFXUI.apply() : 0; } catch (e) { /* ignore */ } } }
   };
 }
