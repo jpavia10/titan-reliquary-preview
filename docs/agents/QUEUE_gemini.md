@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-08 01:27 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-08 02:52 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,12 +7,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
 
 ## Finish first
-
-### NEXT: the six rooms after the first three (Supercell, Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire)  (fix list #128)
-
-Supercell is done (2026-10-31, 6 files, received). Five rooms left: Hyperborean Vault, the wreck, The Mint, the lantern pond, the hall by hearthfire. Art request artreq_20261031-0400_room-layers-gemini-next6 in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'. Exactly the same method as task 17: the wide 16:9 photo from its prompt, then image edits of that same image for the upright version, the depth map, the light mask, the foreground on flat green and the background with the foreground removed. 36 files. Start once task 17's 18 files are saved.
-
-**Done when:** 36 images in 'art-incoming (AI images + video)/artreq_20261031-0400_room-layers-gemini-next6/' and the .DONE.txt next to the request
 
 ### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
 
