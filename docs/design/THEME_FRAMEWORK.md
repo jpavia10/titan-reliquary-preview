@@ -33,9 +33,12 @@ history; `fx/kit.js` loads none of them (`K.worlds = false`, `K.lazy = {}`).
    (dust, rain, snow, embers, bubbles, fireflies, leaves, rain slant, lamp flicker and its rate, shafts, aurora, caustics, lightning,
    depth and light strength, `light: 1` for a light theme, which is never dimmed, and `fd`, the front object's depth, when the full set
    is in). A new layer set: `python3 tools/rooms/prep_plates.py SRC ID room_` writes `art/rooms/ID/`, then add `fd` to its entry.
-2. **The backdrop**: the photo behind the collection at 80 % brightness (a light theme at full), 30 frames a second, a slow drift; a
+2. **The backdrop**: the photo behind the collection at 80 % brightness (a light theme at full), 24 frames a second, a slow drift, never
+   more pixels than the photo has where it is shown (the crispness pass only in the room); a
    scroll moves the camera down the room and the mouse leans it a little (desktop). It holds still under the 1080p film (`html.ts-filmplay`),
-   on a hidden tab, and draws one still frame under Motion Calm or Off. A theme change dips the old photo to dark and brings the new one
+   on a hidden tab, under an opaque shell (`TitanPlate.hold`, The Cabinet), and draws one still frame under Motion Calm or Off. On a
+   renderer with no graphics chip (SwiftShader, llvmpipe: every frame there stalls the page) it draws once a second, the room and the
+   opening at 15 a second; a real GPU is never downscaled. A theme change dips the old photo to dark and brings the new one
    up with a short push in (`TitanPlate.arrive`), so the page behind never flashes.
 3. **The opening** (`wings/room.js` `engineOpening`, called by `splash.js` after the film or on its own): the splash goes transparent over
    the photograph, which comes up out of the dark as the camera pushes in from far and to one side (5.6 s); the light swells as the theme's
