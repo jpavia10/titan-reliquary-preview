@@ -65,8 +65,9 @@
       stop: function () { if (stopped) return; stopped = true; back(); undo(); op = null; } };
     return op;
   }
-  /* every theme opens on its photograph (owner 2026-11-08, "Do it for all 50"); Calm and Off keep the still opening */
-  function hasOpening(id) { return !!(window.TitanPlate && TitanPlate.has(id) && motion() === "full" && window.WebGL2RenderingContext); }
+  /* every theme opens on its photograph (owner 2026-11-08, "Do it for all 50"); Calm and Off keep the still opening. ?intro plays the
+     separate opening scene instead (js/motion-splash.js: the fallback for Calm and for a browser without WebGL2), for its tests */
+  function hasOpening(id) { return !!(window.TitanPlate && TitanPlate.has(id) && motion() === "full" && window.WebGL2RenderingContext && !/[?&]intro\b/.test(location.search)); }
 
   /* ============================== the room (wings/room-shell.js, loaded on first use) ============================== */
   var loading = null;

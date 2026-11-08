@@ -41,7 +41,7 @@ with sync_playwright() as p:
     if os.path.exists(CHROMIUM): kw["executable_path"] = CHROMIUM
     b = p.chromium.launch(**kw); ctx = b.new_context(viewport={"width": 412, "height": 915}); pg = ctx.new_page()
     def load(tier, theme):
-        pg.goto(f"{base}?q={tier}&opening=motion&theme={theme}&splashhold&splash=1")
+        pg.goto(f"{base}?q={tier}&opening=motion&theme={theme}&splashhold&splash=1&intro")   # the separate scene (every theme opens on its photograph otherwise)
         pg.wait_for_function("window.TitanOpening && TitanOpening._debug.api && TitanOpening._debug.C", timeout=30000)
         pg.evaluate("TitanOpening._debug.api.seek(2.0)"); pg.wait_for_timeout(120)
         return pg.evaluate(STATE)
