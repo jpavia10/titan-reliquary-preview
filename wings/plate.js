@@ -282,7 +282,8 @@
     var busy = st.mode !== "backdrop" || html.classList.contains("tr-atmos") || st.anim;
     var cap = lite() ? 41 : busy && !(TOUCH && st.mode === "room") ? 15.5 : 32;   /* behind the collection: 30 a second */
     if (now - st.last >= cap) {
-      var dt = Math.min(.05, (now - st.last) / 1000 || .016); st.last = now;
+      var real = st.last ? Math.min(.5, (now - st.last) / 1000) : .016, dt = Math.min(.05, real); st.last = now;
+      st.dim += (target() - st.dim) * Math.min(1, real * 2.5);            // brightness follows real time, even on a slow frame
       step(dt); draw(now);
     }
     if (!still() || st.anim || Math.abs(st.dim - target()) > .005) loop();
@@ -296,7 +297,6 @@
     st.flash *= Math.pow(.02, dt);
     if (cur.c.lightning && !still() && Math.random() < dt / (st.mode === "backdrop" ? 40 : 14)) st.flash = Math.max(st.flash, (st.mode === "backdrop" ? .3 : .55) + Math.random() * .45);
     var k = 1 - Math.pow(.02, dt);
-    st.dim += (target() - st.dim) * Math.min(1, dt * 2.5);
     st.ptr[0] += (st.ptrT[0] - st.ptr[0]) * k * .25; st.ptr[1] += (st.ptrT[1] - st.ptr[1]) * k * .25;
     st.scr += (st.scrT - st.scr) * k * .2;
     if (st.anim) animate(st.anim, dt);
@@ -304,7 +304,11 @@
   function scale() {
     var T = tier(), room = st.mode !== "backdrop" || html.classList.contains("tr-atmos");
     var cap = room ? { low: 1, medium: 1.25, high: 1.5, ultra: 2, max: 2 }[T] : (TOUCH ? { low: .75, medium: 1, high: 1.25, ultra: 1.5, max: 2 } : { low: 1, medium: 1, high: 1.25, ultra: 1.5, max: 2 })[T];
-    return Math.min(window.devicePixelRatio || 1, cap || 1.25) * (lite() ? .6 : 1);
+    var sc = Math.min(window.devicePixelRatio || 1, cap || 1.25) * (lite() ? .6 : 1);
+    /* never more pixels than the photo has where it is shown: past that the shader only interpolates (a 1600 px photo on a 2560 px
+       screen drew 2.8 million pixels a frame for nothing); the room keeps a little more for crisp particles and grain */
+    if (cur) { var fit = Math.max(innerWidth / cur.size[0], innerHeight / cur.size[1]) * st.zoom; sc = Math.min(sc, Math.max(.5, (room ? 1.3 : 1.05) / fit)); }
+    return sc;
   }
   function resize() { var s = scale(), w = Math.max(2, Math.round(innerWidth * s)), h = Math.max(2, Math.round(innerHeight * s)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
   function vis() { var s = Math.max(cv.width / cur.size[0], cv.height / cur.size[1]) * st.zoom; return [cv.width / (cur.size[0] * s), cv.height / (cur.size[1] * s)]; }
