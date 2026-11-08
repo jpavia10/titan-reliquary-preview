@@ -194,18 +194,32 @@ def main():
             p.evaluate("sessionStorage.setItem('__skew', String((+sessionStorage.getItem('__skew') || 0) + %d * 60000))" % mins)
             try: p.evaluate("window.__vis = 'visible'; document.dispatchEvent(new Event('visibilitychange'))")
             except Exception: pass                 # the page may reload during the call
-        def state(p): return p.evaluate("[window.__loads, document.documentElement.classList.contains('ts-on'), !!document.querySelector('video.ts-film'), !!(document.querySelector('.ts-switch') || window.__arrived)]")
+        def state(p): return p.evaluate("[window.__loads, document.documentElement.classList.contains('ts-on'), !!(document.querySelector('video.ts-film') || window.__vid), !!(document.querySelector('.ts-switch') || window.__arrived)]")
+        def after_reload(p, s=10):
+            """the reload's film within s seconds (the CI runner starts a page slower than a desk machine: a fixed 3 s look missed it, tr278);
+            each look is logged, so a miss says where the page was"""
+            seen = []
+            t0 = time.time()
+            while time.time() - t0 < s:
+                try:
+                    st = state(p); seen.append((round(time.time() - t0, 1), st))
+                    if st[0] == 2 and st[2]: return st, seen
+                except Exception as e: seen.append((round(time.time() - t0, 1), str(e)[:40]))
+                p.wait_for_timeout(250)
+            return state(p), seen
         for sound in (False, True):
             ctx = b.new_context(viewport=phone[0], is_mobile=True, has_touch=True); p = ctx.new_page()
-            p.add_init_script(RETURN); p.goto(base + "#hall"); p.wait_for_timeout(3500)
+            p.add_init_script(RETURN); p.add_init_script(WATCH); p.goto(base + "#hall"); p.wait_for_timeout(3500)
             if sound: p.evaluate("TitanScene.playTheme('kaleido')"); p.wait_for_timeout(2500)
             p.evaluate("(() => { const P = window.TitanPlate; if (P) { const a = P.arrive; P.arrive = function () { window.__arrived = 1; return a.apply(this, arguments); }; } })()")
             away(p, 5); p.wait_for_timeout(1500); s5 = state(p)
-            away(p, 25); p.wait_for_timeout(3000); s25 = state(p)
+            away(p, 25)
             if not sound:
+                s25, seen = after_reload(p)
                 check(s5 == [1, False, False, False], f"back to the open Hall after 5 min: nothing plays ({s5})")
-                check(s25[0] == 2 and s25[1] and s25[2], f"back after 25 min: the page reloads and the film plays again ({s25})")
+                check(s25[0] == 2 and s25[1] and s25[2], f"back after 25 min: the page reloads and the film plays again ({s25})" + ("" if s25[2] else f"; looks {seen[-12:]}"))
             else:
+                p.wait_for_timeout(3000); s25 = state(p)
                 check(s25[0] == 1 and s25[3] and not s25[2], f"back after 25 min with sound still playing: no reload, the theme's photograph comes up again ({s25})")
             ctx.close()
         b.close()
