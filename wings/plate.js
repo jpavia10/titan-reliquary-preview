@@ -212,23 +212,36 @@
     /* a renderer with no graphics chip (SwiftShader, llvmpipe: a computer without a GPU, a test runner) draws on the CPU, and every frame
        of the photo there stalls the whole page: fewer, smaller frames. A real GPU never gets here (the owner's rule: no automatic downscaling) */
     try { var dbg = gl.getExtension("WEBGL_debug_renderer_info"), rn = String(gl.getParameter(dbg ? dbg.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || ""); SOFT = /swiftshader|llvmpipe|softpipe|software rasterizer|microsoft basic render/i.test(rn); } catch (e) { SOFT = false; }
-    cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); stopLoop(); prog = null; tex = {}; blank = null; if (cur) cur.ready = false; }, false);
+    cv.addEventListener("webglcontextlost", function (e) { e.preventDefault(); stopLoop(); prog = null; building = null; tex = {}; blank = null; if (cur) cur.ready = false; }, false);
     cv.addEventListener("webglcontextrestored", function () { if (cur) show(cur.id, true); }, false);
     return true;
   }
-  function program() {
-    if (prog) return prog;
-    function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; }
-    var p = gl.createProgram(); gl.attachShader(p, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(p, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(p);
-    if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(p));
-    gl.useProgram(p);
-    var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    var loc = gl.getAttribLocation(p, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    ["uBack", "uFront", "uMap", "uRes", "uImg", "uPan", "uCam", "uZoom", "uTime", "uLight", "uParts", "uDepth", "uGrain", "uFrontD", "uFlash", "uFlick", "uHz",
-      "uShaft", "uAur", "uCaus", "uDim", "uExpo", "uSharp", "uHasF", "uIt", "uLay", "uTint", "uTap", "uFx1", "uFx2"].forEach(function (n) { U[n] = gl.getUniformLocation(p, n); });
-    gl.uniform1i(U.uBack, 0); gl.uniform1i(U.uFront, 1); gl.uniform1i(U.uMap, 2);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
-    prog = p; return p;
+  /* the shader is built in the background (KHR_parallel_shader_compile where the browser has it): asking for its status at once
+     blocks the page until the driver is done, which on a slow one (a phone at boot, a software renderer) held up the opening film */
+  var building = null;
+  function build() {
+    if (prog) return Promise.resolve(prog);
+    if (building) return building;
+    building = new Promise(function (ok, no) {
+      function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+      var v = sh(gl.VERTEX_SHADER, VS), f = sh(gl.FRAGMENT_SHADER, FS), p = gl.createProgram();
+      gl.attachShader(p, v); gl.attachShader(p, f); gl.linkProgram(p);
+      var ext = gl.getExtension("KHR_parallel_shader_compile");
+      function done() {
+        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) { building = null; return no(new Error(gl.getShaderInfoLog(f) || gl.getProgramInfoLog(p))); }
+        gl.useProgram(p);
+        var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+        var loc = gl.getAttribLocation(p, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+        ["uBack", "uFront", "uMap", "uRes", "uImg", "uPan", "uCam", "uZoom", "uTime", "uLight", "uParts", "uDepth", "uGrain", "uFrontD", "uFlash", "uFlick", "uHz",
+          "uShaft", "uAur", "uCaus", "uDim", "uExpo", "uSharp", "uHasF", "uIt", "uLay", "uTint", "uTap", "uFx1", "uFx2"].forEach(function (n) { U[n] = gl.getUniformLocation(p, n); });
+        gl.uniform1i(U.uBack, 0); gl.uniform1i(U.uFront, 1); gl.uniform1i(U.uMap, 2);
+        gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false); gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+        prog = p; ok(p);
+      }
+      if (!ext) return done();
+      (function poll() { if (!gl || gl.isContextLost()) { building = null; return no(new Error("context lost")); } if (gl.getProgramParameter(p, ext.COMPLETION_STATUS_KHR)) done(); else setTimeout(poll, 40); })();
+    });
+    return building;
   }
   function upload(unit, key, src, mip) {
     gl.activeTexture(gl.TEXTURE0 + unit);
@@ -248,13 +261,14 @@
     var seq = ++loadSeq, dir = BASE + "art/rooms/" + id + "/";
     var list = [img((c.hero ? BASE + "art/themes/" + id + ".webp" : dir + "back.webp") + VER), img(dir + "map.webp" + VER)];
     if (!c.hero) list.push(img(dir + "front.webp" + VER));
+    list.push(build());
     return Promise.all(list).then(function (a) {
       if (seq !== loadSeq) return false;                                  // a later theme won
       return new Promise(function (ok) {
         function swap() {
           if (seq !== loadSeq) return ok(false);
-          try { program(); } catch (e) { if (window.console) console.warn("[plate]", e); return ok(false); }
-          upload(0, "back", a[0], false); upload(2, "map", a[1], true); upload(1, "front", a[2] || null, false);
+          gl.useProgram(prog);
+          upload(0, "back", a[0], false); upload(2, "map", a[1], true); upload(1, "front", c.hero ? null : a[2], false);
           cur = { id: id, c: c, size: [a[0].naturalWidth, a[0].naturalHeight], ready: true };
           gl.uniform3fv(U.uTint, c.tint); gl.uniform4fv(U.uFx1, c.fx1); gl.uniform4fv(U.uFx2, c.fx2);
           gl.uniform1f(U.uFlick, c.flick); gl.uniform1f(U.uHz, c.hz); gl.uniform1f(U.uShaft, c.shaft); gl.uniform1f(U.uAur, c.aurora); gl.uniform1f(U.uCaus, c.caustics);
