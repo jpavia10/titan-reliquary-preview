@@ -92,8 +92,7 @@ Gemini 66-68), sound-hunt finds filed (`docs/music/finds/`), Prometheus state wr
 3. **Owner questions** in the app (`#questions`; new: `q-c351-date`, the France 10 centimes head and year) and open
    disagreements (`collection/disagreements.jsonl`; D0163 C058 1985 vs 1995 is with Grok as third reader).
 4. **Not done, still open:** the intake bridge was never installed by the owner (`docs/INTAKE_BRIDGE.md`), so every AI file is
-   fetched by hand from Drive; nothing has been tested on a real phone; the 24 NOID photos of 11-09 are still in Drive
-   `STAGING` (move them to `_raw_capture/_phase1/coins` and add them to `docs/photos/raw_capture_index.json`).
+   fetched by hand from Drive; nothing has been tested on a real phone.
 5. **Gemini API (owner, 2026-11-09):** the owner put $5 on the Titan key (a $10 bonus came with it); that key is now on the paid
    tier (higher limits, the paid-only models). Google's $300 trial credit does not pay for the Gemini API.
 
