@@ -28,7 +28,7 @@ concurrency:
 jobs:
   intake:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 75
     steps:
       - uses: actions/checkout@v4
         with:
@@ -54,7 +54,8 @@ jobs:
           FILES: ${{ github.event.inputs.files }}
         run: |
           set -euo pipefail
-          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null
+          # ffprobe only describes each file in MANIFEST.txt: a dead apt mirror must not stop the download (2026-11-11)
+          timeout 240 sh -c 'sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg >/dev/null' || echo '::warning::ffmpeg not installed; MANIFEST lists sizes only'
           case "$REQ" in *[!A-Za-z0-9_.-]*|"") echo "bad request_id"; exit 1;; esac
           mkdir -p "intake/$REQ"
           if [ -s /tmp/files.json ]; then FILES=$(cat /tmp/files.json); fi
@@ -70,7 +71,7 @@ jobs:
             fi
             size=$(stat -c %s "$out")
             if [ "$size" -gt 99000000 ]; then echo "::warning::$name is $size bytes (> GitHub's 100 MB file cap), skipped"; rm -f "$out"; continue; fi
-            echo "$name | $size bytes | $(ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,r_frame_rate:format=duration -of compact=p=0:nk=1 "$out" | tr '\n' ' ')" | tee -a "intake/$REQ/MANIFEST.txt"
+            echo "$name | $size bytes | $(command -v ffprobe >/dev/null && ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,r_frame_rate:format=duration -of compact=p=0:nk=1 "$out" | tr '\n' ' ')" | tee -a "intake/$REQ/MANIFEST.txt"
           done
       - name: Commit
         env:
