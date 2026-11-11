@@ -99,7 +99,10 @@ class Loop(unittest.TestCase):
         a = next(x for x in st["assignments"] if x["agent"] == "muse" and x["kind"] == "verify")
         sheet = HW.sheet(a, self.r1["pool"], self.r1["roles"])
         self.assertTrue(all(ln["provenance"]["assignment"] == a["id"] and ln["source"].startswith("FILL") for ln in sheet))
-        agree, disagree, left = copy.deepcopy(sheet[0]), copy.deepcopy(sheet[1]), copy.deepcopy(sheet[2])
+        shown = [ln for ln in sheet if ln.get("new") not in (None, "")]   # blind lines show no value to agree with
+        shown.sort(key=lambda ln: "text" in ln["field"])                 # a number or a list first: a text fact may already be someone else's correction
+        rest = [ln for ln in sheet if ln is not shown[0] and ln is not shown[1]]
+        agree, disagree, left = copy.deepcopy(shown[0]), copy.deepcopy(shown[1]), copy.deepcopy(rest[0])
         agree["source"] = "https://www.ngccoin.com/price-guide/world/test-agree-cuid-2: the same value, read again by the second reader"   # not a Numista id: a made-up N# is now refused
         disagree["source"] = "https://www.ngccoin.com/price-guide/world/test-entry-cuid-1: a different figure on this page"
         disagree["new"] = ([{"number": "1", "system": "KM"}] if isinstance(disagree["new"], list) else (disagree["new"] + 1 if isinstance(disagree["new"], int) else "a different text"))
@@ -420,7 +423,7 @@ class LoopUpgrades(unittest.TestCase):
         sp = os.path.join(tmp, "docs", "agents", "homework", "assignments.json"); st = json.load(open(sp, encoding="utf-8"))
         next(x for x in st["assignments"] if x["id"] == a["id"])["parts"] = 2
         with open(sp, "w", encoding="utf-8") as fh: json.dump(st, fh, indent=1, ensure_ascii=False)
-        line = copy.deepcopy(HW.sheet(a, r["pool"], r["roles"])[0])
+        line = copy.deepcopy(next(ln for ln in HW.sheet(a, r["pool"], r["roles"]) if ln.get("new") not in (None, "")))   # a line that shows its value
         line["source"] = "https://www.ngccoin.com/price-guide/world/test-part-cuid-4: the same value, read again from part 1"
         status, rep, _ = apply(tmp, [line])
         self.assertEqual(status, "applied", rep)

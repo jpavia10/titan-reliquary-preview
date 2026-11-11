@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-11] Claude: tr280, catch-up + clean slate for the next model
+- Merged Muse's 21 files (12 new chat coins C343-C354 with 24 cut photos, read by Claude at full size; Grok's blind read agrees; new issuer Guernsey), Gemini's Silver Eagle album prices; Claude corrections (C037 mint below the date, TW.KM.551 drops a KM duplicate, four story/notes fixes); owner question q-c351-date. Scores Muse 50-51, Grok 43, Gemini 66-68 (row 68: invented Drive ids again).
+- Retired the code-built worlds (29 files + world tools; nothing loaded them since tr278). CLAUDE.md trimmed to a handoff (history in docs/history/CLAUDE_HISTORY.md). Prometheus: honest state in jpavia10/prometheus-hub docs/STATE_2026-11-11.md. Room layer sets for all 50 themes pulled to the art-intake branch for review.
+
 ### [2026-11-08] Claude: tr278, every theme is a photograph (owner: "Do it for all 50")
 - `wings/plate.js` (TitanPlate) draws the theme's photograph with live layers (parallax on its depth, lamp flicker, glow, shafts, aurora, caustics, lightning, particles in depth, grain) as the backdrop, the opening (push in after the film), the room and the Atmosphere's view, for all 50 themes. `fx/kit.js` loads no world any more (`K.worlds = false`); no code-built world is written or tuned again (THEME_FRAMEWORK.md).
 - 41 themes stand on their own picture with an estimated depth/light map (`tools/rooms/prep_hero_plates.py`) until their layer set arrives from `artreq_20261108-1500_room-layers-all`; then `prep_plates.py` + `fd` in its `wings/plate.js` entry. Gates: CL-WORLD-02 (photographs), GRK-P-02 (film, then the push in).

@@ -3,35 +3,4 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-## Grok
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_grok_20261106-1621.jsonl` | **9 / 10** | 2 | 2 | 3 | 1 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 left blank; answered 1 of 2 items of HW-grok-verify-20261106-2 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
-| `changes_grok_20261106-1620.jsonl` | bounced, unscored | | | | | | rejected: line 1: provenance.inputs.0: 'C036_obv.webp' is not of type 'object' |
-
-## Muse
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_muse_20261109-0430.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 3 lines: 2 in the change log, 1 filed as disagreements; answered 3 of 3 items of HW-muse-verify-20261104-1 (with its other files for the same sheet); cross-checked so far: 2 held, 0 wrong |
-| `changes_muse_20261109-0431.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-muse-arbitrate-20261104-2 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
-| `changes_muse_20261109-0435.jsonl` | **9 / 10** | 2 | 2 | 3 | 2 | 0 | 2 lines: 2 in the change log, 0 filed as disagreements; answered 2 of 2 items of HW-muse-verify-20261105-5 (with its other files for the same sheet); 1 verify answer(s) on its own earlier fact; cross-checked so far: 2 held, 0 wrong |
-| `changes_muse_20261109-0436.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-muse-arbitrate-20261106-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
-| `changes_muse_20261109-0447.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 105 lines: 105 in the change log, 0 filed as disagreements; answered 12 of 12 items of HW-muse-fill-20261104-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_muse_20261109-0448.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 34 lines: 34 in the change log, 0 filed as disagreements; answered 4 of 4 items of HW-muse-fill-20261104-2 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_muse_20261109-0451.jsonl` | **9 / 10** | 2 | 2 | 3 | 2 | 0 | 8 lines: 5 in the change log, 0 filed as disagreements, 3 not written (stale, no change or already applied); answered 8 of 8 items of HW-muse-verify-20261108-1 (with its other files for the same sheet); 1 verify answer(s) on its own earlier fact; cross-checked so far: 5 held, 0 wrong |
-| `changes_muse_20261109-0452.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 7 lines: 7 in the change log, 0 filed as disagreements; answered 7 of 7 items of HW-muse-arbitrate-20261108-1 (with its other files for the same sheet); cross-checked so far: 7 held, 0 wrong |
-| `changes_muse_20261109-0456.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; nothing cross-checked yet |
-| `changes_muse_20261109-1703.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1725.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1732.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1734.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1735.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 3 lines: 2 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1736.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1745.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-1746.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-2009.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-2015.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-2039.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
-| `changes_muse_20261109-2042.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 2 lines: 1 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); nothing cross-checked yet |
+Nothing waiting: every outside AI's file is scored.
