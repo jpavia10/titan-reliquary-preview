@@ -1,24 +1,25 @@
 {
- "updated": "2026-11-11T01:56:43Z",
+ "updated": "2026-11-11T15:35:27Z",
  "pools": {
-  "cite": 23,
-  "story-check": 14,
+  "cite": 33,
+  "story-check": 26,
+  "plain-story": 1,
   "research": 1,
-  "value": 1,
-  "read-mint": 4,
-  "arbitrate": 19,
-  "fill": 53,
-  "verify": 371
+  "value": 13,
+  "read-mint": 5,
+  "arbitrate": 11,
+  "fill": 51,
+  "verify": 407
  },
  "agents": {
   "claude": {
-   "confirmed": 372,
+   "confirmed": 373,
    "wrong": 3,
    "checks_done": 220,
    "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 375,
+   "checked_n": 376,
    "error_rate": 0.008,
    "error_ci95": [
     0.003,
@@ -26,13 +27,13 @@
    ]
   },
   "grok": {
-   "confirmed": 1111,
+   "confirmed": 1124,
    "wrong": 16,
    "checks_done": 364,
-   "disagreements_open": 4,
+   "disagreements_open": 0,
    "canaries_caught": 6,
    "canaries_missed": 0,
-   "checked_n": 1127,
+   "checked_n": 1140,
    "error_rate": 0.014,
    "error_ci95": [
     0.009,
@@ -40,27 +41,27 @@
    ]
   },
   "gemini": {
-   "confirmed": 621,
-   "wrong": 12,
+   "confirmed": 623,
+   "wrong": 13,
    "checks_done": 635,
    "disagreements_open": 10,
    "canaries_caught": 22,
    "canaries_missed": 0,
-   "checked_n": 633,
-   "error_rate": 0.019,
+   "checked_n": 636,
+   "error_rate": 0.02,
    "error_ci95": [
-    0.011,
-    0.033
+    0.012,
+    0.035
    ]
   },
   "muse": {
-   "confirmed": 798,
+   "confirmed": 809,
    "wrong": 17,
-   "checks_done": 390,
-   "disagreements_open": 7,
+   "checks_done": 398,
+   "disagreements_open": 8,
    "canaries_caught": 8,
    "canaries_missed": 0,
-   "checked_n": 815,
+   "checked_n": 826,
    "error_rate": 0.021,
    "error_ci95": [
     0.013,
@@ -69,26 +70,29 @@
   },
   "gemini-api": {
    "confirmed": 3,
-   "wrong": 0,
+   "wrong": 8,
    "checks_done": 6,
-   "disagreements_open": 9,
+   "disagreements_open": 1,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "models": {
     "gemini-3.6-flash": {
      "confirmed": 0,
-     "wrong": 0,
+     "wrong": 8,
      "checks_done": 3,
-     "checked_n": 0,
-     "error_rate": null,
-     "error_ci95": null
+     "checked_n": 8,
+     "error_rate": 1.0,
+     "error_ci95": [
+      0.676,
+      1.0
+     ]
     }
    },
-   "checked_n": 3,
-   "error_rate": 0.0,
+   "checked_n": 11,
+   "error_rate": 0.727,
    "error_ci95": [
-    0.0,
-    0.562
+    0.434,
+    0.903
    ]
   },
   "ledger": {
@@ -109,7 +113,7 @@
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 7,
+   "disagreements_open": 2,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -247,6 +251,7 @@
   "verify:type:BS.X.1-cent:denomination.value",
   "verify:type:BS.X.25-cents:denomination.value",
   "verify:type:CA.KM.33:design.text",
+  "verify:type:CH.KM.24a.1:design.text",
   "verify:type:CH.KM.26c:denomination.value",
   "verify:type:CH.KM.27:denomination.value",
   "verify:type:CH.KM.29a:denomination.value",
@@ -302,7 +307,9 @@
   "verify:type:KY.KM.132:denomination.value",
   "verify:type:KY.KM.87:denomination.value",
   "verify:type:KY.KM.88a:denomination.value",
+  "verify:type:MT.KM.128:catalogs",
   "verify:type:MT.KM.128:denomination.value",
+  "verify:type:MT.KM.129:catalogs",
   "verify:type:MT.KM.129:denomination.value",
   "verify:type:MT.KM.132:denomination.value",
   "verify:type:MX.KM.424:catalogs",
@@ -318,15 +325,16 @@
   "verify:type:SU.Y.126a:issues.0.mintage",
   "verify:type:SU.Y.126a:issues.1.mintage",
   "verify:type:TH.KM.183:design.text",
+  "verify:type:TW.KM.551:catalogs",
   "verify:type:US.KM.195:denomination.value",
   "verify:type:VN.KM.71:denomination.value",
   "verify:type:YU.KM.86:design.text",
   "verify:type:YU.X.50-para:design.text"
  ],
  "open_assignments": {
-  "grok": 9,
-  "muse": 10,
-  "gemini": 10,
+  "grok": 10,
+  "muse": 2,
+  "gemini": 18,
   "chatgpt": 0,
   "gemini-api": 1
  }

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini API) -->
-# WORK QUEUE for Gemini API (updated 2026-11-11 01:56 UTC)
+# WORK QUEUE for Gemini API (updated 2026-11-11 15:35 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -57,5 +57,5 @@ Whenever NOID photos appear in Drive STAGING, Claude runs each new photo through
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 4; expired: 0.
-- Your facts checked by another contributor: 3 (3 confirmed, 0 wrong; error rate 0.0 %, 95 % range 0-56 %). Checks you did for others: 6. Open disagreements you are part of: 9.
+- Your facts checked by another contributor: 11 (3 confirmed, 8 wrong; error rate 72.7 %, 95 % range 43-90 %). Checks you did for others: 6. Open disagreements you are part of: 1.
 - Share of your new facts that get checked first: 100 %.

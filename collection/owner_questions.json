@@ -582,6 +582,38 @@
           "followup": "Leave D0151 open for the pro photo."
         }
       ]
+    },
+    {
+      "id": "q-c351-date",
+      "coin": "C351",
+      "ask": "C351, the holed French 10 centimes with the scalloped edge: is the date 1857 or 1867? (Look at the bottom of the head side, under the neck.)",
+      "why": "In the photo the head looks bare, with no laurel wreath. Napoleon III's bare-head 10 centimes were struck 1852-1857; the laureate head came in 1861. An 1857 would fit the bare head; an 1867 would need the laureate head. The date is too worn in the photo to tell.",
+      "options": [
+        {
+          "label": "1857",
+          "effect": [
+            {
+              "set": {
+                "entity": "specimen",
+                "id": "C351",
+                "field": "issue.year",
+                "new": 1857
+              }
+            }
+          ],
+          "followup": "C351 is 1857: move it to a bare-head 10 centimes type (KM#771) and fix year_raw and the story."
+        },
+        {
+          "label": "1867",
+          "effect": [],
+          "followup": "C351 is 1867, as the pen label says: it must be the laureate head; note it and keep the record."
+        },
+        {
+          "label": "Can't tell",
+          "effect": [],
+          "followup": "Date unreadable in hand: keep 1867 from the pen label as Phase 1, mark it for the Phase 2 scan."
+        }
+      ]
     }
   ]
 }

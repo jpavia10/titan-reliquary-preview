@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-11T01:56:43Z",
+ "updated": "2026-11-11T15:35:27Z",
  "assignments": [
   {
    "id": "HW-grok-research-20261104-1",
@@ -93,57 +93,6 @@
       "stale_since": null,
       "numista_prices": null,
       "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-grok-arbitrate-20261104-1",
-   "agent": "grok",
-   "kind": "arbitrate",
-   "issued": "2026-11-04T15:34:51Z",
-   "lease_until": "2026-11-11T15:34:51Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0151",
-     "entity": "specimen",
-     "id": "C036",
-     "field": "issue.year"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0151",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C036",
-     "field": "issue.year",
-     "coins": [
-      "C036"
-     ],
-     "label": "D0151 C036 issue.year",
-     "authors": [
-      "gemini-api",
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:muse-spark",
-       "source": "https://en.numista.com/catalogue/pieces132.html — mintage table row '2007 R' (circulation) = 104 955 490, matching this specimen's filed issue mintage; the '2002 R' circulation row is 1 142 083 000, a different issue [phase 2; confidence high]",
-       "ts": "2026-10-30T02:43:06Z",
-       "value": 2007
-      },
-      "claim": {
-       "value": 2002,
-       "by": "model:gemini-api:gemini-3.6-flash",
-       "source": "C036_obv.webp: year 2002 visible on the left side above RI monogram in photo C036_obv.webp (read by the Gemini API, gemini-3.6-flash)",
-       "ts": "2026-11-04T15:33:30Z"
-      }
      },
      "blind": false,
      "inputs": []
@@ -5913,11 +5862,11 @@
      ],
      "label": "mint of C037 · Germany · 2002 · 10 euro cent · EUR",
      "authors": [
-      "gemini-api"
+      "claude"
      ],
      "payload": {
       "fact": "mint",
-      "author": "Gemini API (3.6 Flash)",
+      "author": "Claude",
       "ledger": false,
       "value": null,
       "their_source": null,
@@ -5931,7 +5880,7 @@
         "drive": "https://drive.google.com/file/d/1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c/view"
        }
       ],
-      "audit": true,
+      "audit": false,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -5940,6 +5889,108 @@
      "inputs": [
       "C037_obv.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261111-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-18T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0163",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0163",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year",
+     "coins": [
+      "C058"
+     ],
+     "label": "D0163 C058 issue.year",
+     "authors": [
+      "gemini",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:gemini",
+       "source": "C058_rev.webp (raw photo C058_Germany_1985_50Pfennig_rev.jpeg): date '1985' clearly read along the bottom-right rim on the oak-planting woman side [phase 2; confidence high]",
+       "ts": "2026-10-30T02:40:00Z",
+       "value": 1985
+      },
+      "claim": {
+       "value": 1995,
+       "by": "model:muse-spark",
+       "source": "C058_rev.webp - date at the bottom of the reverse reads 1995 (first and last digits worn, the two 9s clear)",
+       "ts": "2026-11-09T04:30:16Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261111-2",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-11T15:35:27Z",
+   "lease_until": "2026-11-18T15:35:27Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0151",
+     "entity": "specimen",
+     "id": "C036",
+     "field": "issue.year"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0151",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C036",
+     "field": "issue.year",
+     "coins": [
+      "C036"
+     ],
+     "label": "D0151 C036 issue.year",
+     "authors": [
+      "gemini-api",
+      "muse"
+     ],
+     "payload": {
+      "record": {
+       "by": "model:muse-spark",
+       "source": "https://en.numista.com/catalogue/pieces132.html — mintage table row '2007 R' (circulation) = 104 955 490, matching this specimen's filed issue mintage; the '2002 R' circulation row is 1 142 083 000, a different issue [phase 2; confidence high]",
+       "ts": "2026-10-30T02:43:06Z",
+       "value": 2007
+      },
+      "claim": {
+       "value": 2002,
+       "by": "model:gemini-api:gemini-3.6-flash",
+       "source": "C036_obv.webp: year 2002 visible on the left side above RI monogram in photo C036_obv.webp (read by the Gemini API, gemini-3.6-flash)",
+       "ts": "2026-11-04T15:33:30Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

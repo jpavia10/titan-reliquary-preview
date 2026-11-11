@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-11T01:56:43Z",
-  "generated_at_pt": "2026-11-10 17:56 PT",
-  "generated_at_iso": "2026-11-10T17:56:43-08:00",
-  "content_hash": "660326d9f279c997",
-  "ledger_version": "v3:660326d9f279c997",
-  "flips": 344,
-  "newest_flip": "C342",
-  "newest_ser": "AS-KR-009",
+  "generated_at": "2026-11-11T15:35:27Z",
+  "generated_at_pt": "2026-11-11 07:35 PT",
+  "generated_at_iso": "2026-11-11T07:35:27-08:00",
+  "content_hash": "83a10f46536a6701",
+  "ledger_version": "v3:83a10f46536a6701",
+  "flips": 356,
+  "newest_flip": "C354",
+  "newest_ser": "AS-IN-002",
   "photos": {
-    "images": 286,
-    "coins_with_photos": 265,
+    "images": 310,
+    "coins_with_photos": 277,
     "phase2_done": 0,
-    "photographed": 265
+    "photographed": 277
   },
   "drip_active": false,
   "drip_until": null,

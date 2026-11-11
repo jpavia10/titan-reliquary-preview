@@ -1,18 +1,18 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-11T01:56:43Z",
- "content_hash": "660326d9f279c997",
+ "generated_at": "2026-11-11T15:35:27Z",
+ "content_hash": "83a10f46536a6701",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:660326d9f279c997",
+  "ledger_version": "v3:83a10f46536a6701",
   "vault": 1636,
   "next_soft_beat": 1700,
-  "grand": 5405.12,
-  "grand_raw": "$5,405.12",
+  "grand": 5409.07,
+  "grand_raw": "$5,409.07",
   "flips": {
-   "raw": "$208.32 · 338 cards · white 2×2",
-   "usd": 208.32,
-   "cards": 338
+   "raw": "$212.27 · 350 cards · white 2×2",
+   "usd": 212.27,
+   "cards": 350
   },
   "bullion": {
    "raw": "$2,893.60 · 21 cards · Ag+Au",
@@ -70,12 +70,12 @@
   "spot_au": 4161.5
  },
  "counts": {
-  "flips": 344,
+  "flips": 356,
   "bullion": 21,
   "sets": 2,
   "housing": 4,
   "stamps": 1,
-  "countries": 54,
+  "countries": 55,
   "vault": 1636,
   "albums_families": 62
  },
@@ -749,6 +749,14 @@
      "mintage_text": null,
      "qualifier": null,
      "year": 2006
+    },
+    {
+     "mint_marks": [],
+     "mint_text": "none on the portrait side",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2008
     }
    ],
    "legal_tender": {
@@ -815,10 +823,13 @@
     "value": 10
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Arnold Machin (obverse, designer)",
+     "Stuart Devlin (reverse, designer)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "2nd portrait of Queen Elizabeth II facing right wearing the Girls of Great Britain and Ireland Tiara",
+    "reverse": "Male Superb Lyrebird (Menura novaehollandiae), value superimposed",
     "text": ""
    },
    "die_variety": null,
@@ -837,6 +848,77 @@
     }
    ],
    "legal_tender": {
+    "status": "current",
+    "text": "still legal tender",
+    "until": null
+   },
+   "nominal": {
+    "alignment": "medal",
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": 23.6,
+    "edge": "Reeded",
+    "shape": null,
+    "thickness_mm": 1.76,
+    "weight_approx": false,
+    "weight_g": 5.66,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": "Elizabeth II",
+   "series": null,
+   "tags": []
+  },
+  "AU.X.50-cents": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "AU",
+   "denomination": {
+    "currency": "AUD",
+    "display": null,
+    "named": null,
+    "unit": "cents",
+    "value": 50
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "AU.X.50-cents",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "Royal Australian Mint (Canberra); no mint mark on this issue",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1977
+    }
+   ],
+   "legal_tender": {
     "status": "unknown",
     "text": "",
     "until": null
@@ -846,12 +928,12 @@
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
-    "diameter_mm": 23.6,
+    "diameter_mm": null,
     "edge": null,
     "shape": null,
     "thickness_mm": null,
     "weight_approx": false,
-    "weight_g": 5.66,
+    "weight_g": null,
     "weight_max_g": null,
     "weight_min_g": null
    },
@@ -1154,10 +1236,12 @@
     "value": 1
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Arnold Machin (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "National Arms of The Bahamas above date",
+    "reverse": "Starfish, value at top",
     "text": ""
    },
    "die_variety": null,
@@ -1176,19 +1260,19 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 2020",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 19.05,
-    "edge": null,
+    "edge": "Plain",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.4,
     "weight_approx": false,
     "weight_g": 3.16,
     "weight_max_g": null,
@@ -1203,7 +1287,7 @@
    "price_guide": null,
    "rarity_scale": null,
    "related_types": null,
-   "ruler": null,
+   "ruler": "Elizabeth II",
    "series": null,
    "tags": []
   },
@@ -1962,7 +2046,7 @@
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": "Swiss Confederation",
+   "period": "Federal State",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -2085,7 +2169,7 @@
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": "Swiss Confederation",
+   "period": "Federal State",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -3139,6 +3223,77 @@
    "series": null,
    "tags": []
   },
+  "CR.X.10-colones": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "CR",
+   "denomination": {
+    "currency": "CRC",
+    "display": null,
+    "named": null,
+    "unit": "colones",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "CR.X.10-colones",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "no mint mark",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2008
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
   "CU.KM.32": {
    "catalogs": [
     {
@@ -3263,10 +3418,12 @@
     "value": 5
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Jiří Harcuba (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Czech Lion, state name 'ČESKÁ REPUBLIKA', and year of issue and mintmark below",
+    "reverse": "Depiction of Charles Bridge which crosses Vltava river in Prague, a linden leaf and denomination in a large font",
     "text": ""
    },
    "die_variety": null,
@@ -3285,25 +3442,25 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "current",
+    "text": "still legal tender",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 23.0,
-    "edge": null,
+    "edge": "Plain",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.85,
     "weight_approx": false,
     "weight_g": 4.8,
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": null,
+   "period": "Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -5759,6 +5916,77 @@
    "series": null,
    "tags": []
   },
+  "EC.X.10-cents": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "EC",
+   "denomination": {
+    "currency": "XCD",
+    "display": null,
+    "named": null,
+    "unit": "cents",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "EC.X.10-cents",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "Royal Mint (United Kingdom); no mint mark on this issue",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1991
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
   "ER.KM.46": {
    "catalogs": [
     {
@@ -6142,10 +6370,13 @@
     "value": 5
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Alfonso Morales Muñoz (obverse, engraver)",
+     "Alfonso Morales Muñoz (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Stylized 'JCI' monogram of King Juan Carlos I",
+    "reverse": "Value above stylized sailboats",
     "text": ""
    },
    "die_variety": null,
@@ -6164,19 +6395,19 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 2002",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "coin",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 17.5,
-    "edge": null,
+    "edge": "Plain",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.5,
     "weight_approx": false,
     "weight_g": 3.0,
     "weight_max_g": null,
@@ -6191,7 +6422,7 @@
    "price_guide": null,
    "rarity_scale": null,
    "related_types": null,
-   "ruler": null,
+   "ruler": "Juan Carlos I",
    "series": null,
    "tags": []
   },
@@ -7568,6 +7799,77 @@
    "series": null,
    "tags": []
   },
+  "FR.X.10-centimes": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "FR",
+   "denomination": {
+    "currency": "FRF",
+    "display": null,
+    "named": null,
+    "unit": "centimes",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "FR.X.10-centimes",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "mint letter below the eagle's thunderbolt not readable in the photos",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1867
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
   "FR.X.2-francs": {
    "catalogs": [
     {
@@ -7600,10 +7902,12 @@
     "value": 2
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Louis-Oscar Roty (obverse, designer)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "The Sower, designed by Oscar Roty in 1900: a national emblem of the French Republic",
+    "reverse": "An olive branch and an oak branch, behind the face value, surrounded with the French motto 'LIBERTE - EGALITE - FRATERNITE'",
     "text": ""
    },
    "die_variety": null,
@@ -7622,25 +7926,25 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 2005",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "coin",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 26.5,
-    "edge": null,
+    "edge": "Milled (widely spaced)",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.71,
     "weight_approx": false,
     "weight_g": 7.5,
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": null,
+   "period": "Fifth Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -9842,10 +10146,13 @@
     "value": 1
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Mary Gillick (obverse, engraver)",
+     "William Maving Gardner (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Young laureate bust of Queen Elizabeth II right, legend around",
+    "reverse": "Crowned English shield of arms dividing date, legend above, denomination below",
     "text": ""
    },
    "die_variety": null,
@@ -9864,19 +10171,19 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 1990",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 23.5,
-    "edge": null,
+    "edge": "Reeded",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.7,
     "weight_approx": false,
     "weight_g": 5.66,
     "weight_max_g": null,
@@ -9891,7 +10198,7 @@
    "price_guide": null,
    "rarity_scale": null,
    "related_types": null,
-   "ruler": null,
+   "ruler": "Elizabeth II",
    "series": null,
    "tags": []
   },
@@ -9927,10 +10234,13 @@
     "value": 20
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Ian Rank-Broadley (obverse, engraver)",
+     "Matthew Dent (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Fourth crowned portrait of Queen Elizabeth II right, wearing the Girls of Great Britain and Ireland tiara, legend around",
+    "reverse": "Lower right section of the Royal Shield, denomination to right segment of rim",
     "text": ""
    },
    "die_variety": null,
@@ -9949,19 +10259,19 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "current",
+    "text": "still legal tender",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 21.4,
-    "edge": null,
+    "edge": "Plain",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.7,
     "weight_approx": false,
     "weight_g": 5,
     "weight_max_g": null,
@@ -9976,7 +10286,7 @@
    "price_guide": null,
    "rarity_scale": null,
    "related_types": null,
-   "ruler": null,
+   "ruler": "Elizabeth II",
    "series": null,
    "tags": []
   },
@@ -10012,10 +10322,13 @@
     "value": 0.5
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Thomas Humphrey Paget (obverse, engraver)",
+     "Thomas Humphrey Paget (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Uncrowned portrait of King George VI facing left, legend around",
+    "reverse": "Three-masted ship sailing left, denomination above, date below",
     "text": ""
    },
    "die_variety": null,
@@ -10034,6 +10347,77 @@
     }
    ],
    "legal_tender": {
+    "status": "demonetized",
+    "text": "demonetized 1969",
+    "until": null
+   },
+   "nominal": {
+    "alignment": "medal",
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": 25.5,
+    "edge": "Plain",
+    "shape": null,
+    "thickness_mm": 1.3,
+    "weight_approx": false,
+    "weight_g": 5.67,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": "George VI",
+   "series": null,
+   "tags": []
+  },
+  "GG.X.8-doubles": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "GG",
+   "denomination": {
+    "currency": "GGP",
+    "display": null,
+    "named": null,
+    "unit": "doubles",
+    "value": 8
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "GG.X.8-doubles",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "no mint mark read — the area below the date is too dark in the photos to call",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1893
+    }
+   ],
+   "legal_tender": {
     "status": "unknown",
     "text": "",
     "until": null
@@ -10043,12 +10427,12 @@
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
-    "diameter_mm": 25.5,
+    "diameter_mm": null,
     "edge": null,
     "shape": null,
     "thickness_mm": null,
     "weight_approx": false,
-    "weight_g": 5.67,
+    "weight_g": null,
     "weight_max_g": null,
     "weight_min_g": null
    },
@@ -10396,7 +10780,7 @@
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": "Republic of Guatemala",
+   "period": "Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -10973,10 +11357,12 @@
     "value": 10
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Percy Metcalfe (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Irish harp",
+    "reverse": "Value, salmon (to the left)",
     "text": ""
    },
    "die_variety": null,
@@ -10995,25 +11381,25 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 2002",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 22,
-    "edge": null,
+    "edge": "Reeded",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.9,
     "weight_approx": false,
     "weight_g": 5.45,
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": null,
+   "period": "Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -11099,6 +11485,79 @@
     "weight_min_g": null
    },
    "period": "Republic of India",
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
+  "IN.X.2-rupees": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "IN",
+   "denomination": {
+    "currency": "INR",
+    "display": null,
+    "named": null,
+    "unit": "rupees",
+    "value": 2
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "IN.X.2-rupees",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [
+      "●"
+     ],
+     "mint_text": "Noida (small dot below the date)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2014
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -12368,6 +12827,85 @@
    "rarity_scale": null,
    "related_types": null,
    "ruler": "Elizabeth II",
+   "series": null,
+   "tags": []
+  },
+  "JP.X.10-yen": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "JP",
+   "denomination": {
+    "currency": "JPY",
+    "display": null,
+    "named": null,
+    "unit": "yen",
+    "value": 10
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "JP.X.10-yen",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [],
+     "mint_text": "Japan Mint (no mint mark on this type)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2002
+    },
+    {
+     "mint_marks": [],
+     "mint_text": "Japan Mint; no mint mark (Japanese coinage carries none)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1996
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
    "series": null,
    "tags": []
   },
@@ -14390,6 +14928,79 @@
    "series": null,
    "tags": []
   },
+  "MX.X.1-peso": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "MX",
+   "denomination": {
+    "currency": "MXP",
+    "display": null,
+    "named": null,
+    "unit": "peso",
+    "value": 1
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "MX.X.1-peso",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [
+      "Mo"
+     ],
+     "mint_text": "Mo · Mexico City (right of the bust)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1975
+    }
+   ],
+   "legal_tender": {
+    "status": "unknown",
+    "text": "",
+    "until": null
+   },
+   "nominal": {
+    "alignment": null,
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": null,
+    "edge": null,
+    "shape": null,
+    "thickness_mm": null,
+    "weight_approx": false,
+    "weight_g": null,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": null,
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
   "MX.X.10-centavos": {
    "catalogs": [
     {
@@ -14529,8 +15140,8 @@
    "design": {
     "designers": [],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "The national emblem of Mexico depicting a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-wreath of oak and laurel below and the legend forming the upper semicircle",
+    "reverse": "At center, the denomination N$2 with the date above the N$ and the mint mark Ṁ to the right. On the outer ring, the stylized designs from the Ring of Days (Anillo de los Días) on the Aztec calendar stone (Piedra del Sol)",
     "text": ""
    },
    "die_variety": null,
@@ -14559,6 +15170,79 @@
     }
    ],
    "legal_tender": {
+    "status": "current",
+    "text": "still legal tender",
+    "until": null
+   },
+   "nominal": {
+    "alignment": "coin",
+    "diameter_approx": false,
+    "diameter_max_mm": null,
+    "diameter_min_mm": null,
+    "diameter_mm": 23,
+    "edge": "Plain",
+    "shape": null,
+    "thickness_mm": 1.4,
+    "weight_approx": false,
+    "weight_g": 5.19,
+    "weight_max_g": null,
+    "weight_min_g": null
+   },
+   "period": "United Mexican States/Mexican Republic",
+   "population": null,
+   "precious": {
+    "agw_oz": null,
+    "asw_oz": null
+   },
+   "price_guide": null,
+   "rarity_scale": null,
+   "related_types": null,
+   "ruler": null,
+   "series": null,
+   "tags": []
+  },
+  "MX.X.20-centavos": {
+   "catalogs": [],
+   "class": "coin",
+   "commemorates": null,
+   "composition": {
+    "fineness": null,
+    "metal_class": "other",
+    "text": ""
+   },
+   "country": "MX",
+   "denomination": {
+    "currency": "MXP",
+    "display": null,
+    "named": null,
+    "unit": "centavos",
+    "value": 20
+   },
+   "design": {
+    "designers": [],
+    "legend": null,
+    "obverse": null,
+    "reverse": null,
+    "text": ""
+   },
+   "die_variety": null,
+   "error_type": null,
+   "id": "MX.X.20-centavos",
+   "image_ref": null,
+   "issuer": null,
+   "issues": [
+    {
+     "mint_marks": [
+      "Mo"
+     ],
+     "mint_text": "Mexico City (Mo, below the radiant cap on the reverse)",
+     "mintage": null,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 1943
+    }
+   ],
+   "legal_tender": {
     "status": "unknown",
     "text": "",
     "until": null
@@ -14568,12 +15252,12 @@
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
-    "diameter_mm": 23,
+    "diameter_mm": null,
     "edge": null,
     "shape": null,
     "thickness_mm": null,
     "weight_approx": false,
-    "weight_g": 5.19,
+    "weight_g": null,
     "weight_max_g": null,
     "weight_min_g": null
    },
@@ -14808,8 +15492,8 @@
    "design": {
     "designers": [],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "The national emblem/shield of Mexico in sculpted relief -- a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-wreath of oak and laurel below, and the legend forming the upper semicircle",
+    "reverse": "In the center of the coin to the left, the symbol \"$\", and to the right, the face value, five \"5\"; top center, the mint year; to the right of the center, the mark of the Mint of Mexico \"Mo\". As the key motif, a stylized image of the Ring of the Serpents of the Aztec sun stone",
     "text": ""
    },
    "die_variety": null,
@@ -14838,25 +15522,25 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "current",
+    "text": "still legal tender",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "coin",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 25.5,
-    "edge": null,
+    "edge": "Plain",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 2.03,
     "weight_approx": false,
     "weight_g": 7.07,
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": null,
+   "period": "United Mexican States/Mexican Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -16062,10 +16746,13 @@
     "value": 50
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Øivind Hansen (obverse, engraver)",
+     "Øivind Hansen (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Crowned shield with a crowned Norwegian lion holding a halberd and facing left. Date divided by the shield, solid ring on the rim",
+    "reverse": "Value and inscription in three lines with crossed hammers mintmark below. Mintmaster's initial on the left and engraver's initial on the right, solid ring on the rim",
     "text": ""
    },
    "die_variety": null,
@@ -16084,19 +16771,19 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 1997",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 22,
-    "edge": null,
+    "edge": "Reeded",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.6,
     "weight_approx": false,
     "weight_g": 4.8,
     "weight_max_g": null,
@@ -16501,10 +17188,13 @@
     "value": 20
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Marcelino Norte de Almeida (obverse, engraver)",
+     "Marcelino Norte de Almeida (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "The Portuguese shield: five escutcheons forming a cross, each has five dots marking imaginary corners and center of a square",
+    "reverse": "Value above two olive sprigs",
     "text": ""
    },
    "die_variety": null,
@@ -16523,25 +17213,25 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 2002",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "coin",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 16,
-    "edge": null,
+    "edge": "Plain",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.15,
     "weight_approx": false,
     "weight_g": 1.8,
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": null,
+   "period": "Second Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -16588,8 +17278,8 @@
    "design": {
     "designers": [],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "The Emblem of the Bank of Russia (the two headed eagle)",
+    "reverse": "Value, date",
     "text": ""
    },
    "die_variety": null,
@@ -16608,25 +17298,25 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 1998",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 24,
-    "edge": null,
+    "edge": "Alternating reeded and smooth segments",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.6,
     "weight_approx": false,
     "weight_g": 5.25,
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": null,
+   "period": "Russian Federation",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -16845,10 +17535,13 @@
     "value": 1
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Lars Englund (obverse, engraver)",
+     "Lars Englund (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Stylized bust of King Carl XVI Gustaf facing left, surrounded by inscription above. Date divided by the bust below, solid ring on the rim",
+    "reverse": "Crowned lesser coat of arms of Sweden, surrounded by inscription above. Value below with mintmark to the left and mintmaster's initial to the right, solid ring on the rim",
     "text": ""
    },
    "die_variety": null,
@@ -16867,19 +17560,19 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized 2017",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 25,
-    "edge": null,
+    "edge": "Reeded",
     "shape": null,
-    "thickness_mm": null,
+    "thickness_mm": 1.9,
     "weight_approx": false,
     "weight_g": 7,
     "weight_max_g": null,
@@ -16894,7 +17587,7 @@
    "price_guide": null,
    "rarity_scale": null,
    "related_types": null,
-   "ruler": null,
+   "ruler": "Carl XVI Gustaf",
    "series": null,
    "tags": []
   },
@@ -17672,7 +18365,7 @@
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": "Republic of Turkey",
+   "period": "Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -18018,7 +18711,7 @@
     "weight_max_g": null,
     "weight_min_g": null
    },
-   "period": "Republic of Trinidad and Tobago",
+   "period": "Republic",
    "population": null,
    "precious": {
     "agw_oz": null,
@@ -18036,10 +18729,6 @@
     {
      "number": "551",
      "system": "Y"
-    },
-    {
-     "number": "551",
-     "system": "KM"
     },
     {
      "number": "21",
@@ -18701,10 +19390,13 @@
     "value": 20
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Pietro Giampaoli (obverse, engraver)",
+     "Pietro Giampaoli (reverse, engraver)"
+    ],
     "legend": null,
-    "obverse": null,
-    "reverse": null,
+    "obverse": "Bust left",
+    "reverse": "Caritas, the personification of charity, holding one child while welcoming another into her arms",
     "text": ""
    },
    "die_variety": null,
@@ -18723,17 +19415,17 @@
     }
    ],
    "legal_tender": {
-    "status": "unknown",
-    "text": "",
+    "status": "demonetized",
+    "text": "demonetized",
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "coin",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
     "diameter_mm": 21.25,
-    "edge": null,
+    "edge": "Reeded",
     "shape": null,
     "thickness_mm": null,
     "weight_approx": false,
@@ -18750,7 +19442,7 @@
    "price_guide": null,
    "rarity_scale": null,
    "related_types": null,
-   "ruler": null,
+   "ruler": "Pius XII",
    "series": null,
    "tags": []
   },
@@ -19434,8 +20126,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-31T17:58:30Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-09T04:30:42Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -19986,6 +20678,180 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "1966"
+  },
+  "C345": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C345",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "none on the portrait side",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2008
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Obverse: ELIZABETH II and AUSTRALIA around the Rank-Broadley portrait with the designer's IRB below the bust; the date sits at the bottom and reads 2008 when followed in legend order around the rim (the digits base to the rim, so they present reversed left-to-right in the photo — read digit by digit in an enlarged, contrast-enhanced crop). Reverse: big 10 over the fanned tail of the superb lyrebird. Matches the collection's existing AU.X.10-cents type (2006 strike, C295) exactly in portrait and design; the 1966 first-year type is a different portrait generation and is filed separately in the collection.",
+   "photos": [
+    "C345-obv-p1",
+    "C345-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T17:31:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "OC-AU-008",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "An Australian 10 cents from 2008, the everyday silver coin with the superb lyrebird fanning its tail across the back — the bird that can mimic almost any sound it hears, drawn here feather by feather. The front carries Queen Elizabeth the Second in Ian Rank-Broadley's portrait, the one Australia used from the late 1990s until the Queen's death. The lyrebird design by Stuart Devlin has been on the 10 cents since decimal currency began in 1966. The collection already holds a 2006 strike of this same coin; this 2008 joins it as a second year.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "AU.X.10-cents",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.15,
+    "face": {
+     "amount": 0.1,
+     "currency": "AUD"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "2008"
+  },
+  "C349": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C349",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Royal Australian Mint (Canberra); no mint mark on this issue",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1977
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Obverse: ELIZABETH II and AUSTRALIA around the Machin portrait on a twelve-sided flan; the date sits after AUSTRALIA at the lower right. Reverse: 50 CENTS and SILVER JUBILEE around a central starburst ringed with 25 small emblems, read off the photo in legend order. The year is design-locked: this Silver Jubilee reverse was struck for one year only, 1977, so the commemorative design itself settles the date even where individual digits sit soft in the photo. The twelve-sided planchet, Machin portrait and Jubilee reverse together admit no other Australian 50 cents issue.",
+   "photos": [
+    "C349-obv-p1",
+    "C349-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-11T15:40:00Z",
+    "phase1_by": "model:claude",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "OC-AU-009",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "An Australian 50 cents from 1977, struck for Queen Elizabeth the Second's Silver Jubilee — twenty-five years on the throne. It is a big twelve-sided coin. The front shows the young Queen in Arnold Machin's famous portrait, the one Australia used through the sixties and seventies. The back is a celebration wreath: a shining starburst in the middle ringed by small emblems, with the words SILVER JUBILEE and 50 CENTS around them. It was designed by Stuart Devlin, the goldsmith behind most of Australia's first decimal coins, and it was made to be kept — but plenty slipped into change anyway.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "AU.X.50-cents",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.5,
+    "face": {
+     "amount": 0.5,
+     "currency": "AUD"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1977"
   },
   "C277": {
    "acquisition": {
@@ -23833,6 +24699,93 @@
    "want_priority": null,
    "year_raw": "1985"
   },
+  "C343": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C343",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "no mint mark",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2008
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Obverse reads REPUBLICA DE COSTA RICA around the arms with 2008 below; reverse reads 10 COLONES over a coffee-branch wreath, Braille dots beneath, B.C.C.R. along the bottom rim. The pale aluminium color and the round (not heptagonal) rim separate it from the collection's 1985 5 colones. The aluminium BCCR type is the only Costa Rica 10 colones struck in 2008: the brass-plated and aluminium-nickel-bronze strikes of the same design family ended in 2002, and the stainless-steel successor is dated 2021. No mint mark appears on either side.",
+   "photos": [
+    "C343-obv-p1",
+    "C343-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 2,
+    "phase1_at": "2026-11-11T15:40:00Z",
+    "phase1_by": "model:claude",
+    "phase2_at": "2026-11-11T15:40:00Z",
+    "phase2_by": "model:claude"
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "NA-CR-002",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A Costa Rican 10 colones from 2008, struck in feather-light aluminium. One side carries the national arms: seven stars for the seven provinces, three volcanoes, a sunrise, and the sea on either side for the two oceans Costa Rica sits between. The other side states the value twice over, once in big numerals and once in Braille dots under the word COLONES, so the coin can be read by touch. These aluminium pieces were everyday small change by the hundreds of millions; Costa Rica later switched the denomination to stainless steel to cut costs.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "CR.X.10-colones",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.25,
+    "face": {
+     "amount": 10,
+     "currency": "CRC"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "2008"
+  },
   "C252": {
    "acquisition": {
     "acquired_on": null,
@@ -24341,8 +25294,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:47:48Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25032,7 +25985,7 @@
     "mint_marks": [
      "J"
     ],
-    "mint_text": "J (Hamburg), right of the date",
+    "mint_text": "J (Hamburg), below the date",
     "mintage": 3509935000,
     "mintage_text": "all mints: A 696,245,000 + D 721,950,000 + F 838,800,000 + G 494,300,000 + J 758,640,000 = 3,509,935,000 (circulation; BU-set and proof rows excluded)",
     "qualifier": null,
@@ -25062,7 +26015,7 @@
    "research": {
     "open_questions": [],
     "phase": 2,
-    "phase1_at": "2026-10-04T05:44:53Z",
+    "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
     "phase2_at": "2026-11-01T03:54:33Z",
     "phase2_by": "model:gemini-api:gemini-3.6-flash"
@@ -25243,8 +26196,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-28T02:46:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28364,8 +29317,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-05T14:23:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28637,8 +29590,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:45:32Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28910,8 +29863,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:46:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29092,8 +30045,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:46:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -29830,6 +30783,180 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "2004"
+  },
+  "C348": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C348",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Royal Mint (United Kingdom); no mint mark on this issue; date on the ship side",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2004
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Reverse: EAST CARIBBEAN STATES around the Golden Hind, the date after STATES read digit by digit in an enhanced crop as 2-0-0-4, a 10 on each side of the ship, TEN CENTS below. Obverse: QUEEN ELIZABETH THE SECOND around the crowned Rank-Broadley portrait. Correction history, kept on the record: this coin was first filed today as a 2014 steel strike (changes_muse_20261109-1733, withdrawn) — the coin sits rotated in its photo and the faint third digit of the date was misread as a 1; the owner corrected it to 2004 and a fresh enlarged read confirms 2-0-0-4. Two flags for the merge: (1) C159 is also an EC.KM.37 2004 strike, recorded from shorthand with no checkable photos — if that record describes this same physical coin, this specimen duplicates it; flagged rather than assumed either way. (2) The type's stored 2004 issue note says the date is carried on the Elizabeth II obverse; these photos show the date on the ship side, after STATES, so that stored note looks wrong.",
+   "photos": [
+    "C348-obv-p1",
+    "C348-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T17:36:01Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "NA-EC-002",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "Ten cents from the East Caribbean States, dated 2004 — pocket money shared by eight Caribbean islands under one dollar and one central bank. The ship is the Golden Hind, the galleon Sir Francis Drake sailed around the world in the 1570s, drawn by Thomas Humphrey Paget; the crowned portrait of Queen Elizabeth the Second on the front is by Ian Rank-Broadley. This is the copper-nickel striking the islands used before switching to lighter steel coins in 2009, made for them at the Royal Mint in Britain. The collection already holds a 2004 strike of this coin recorded earlier from a shorthand note; this is the first one photographed on both sides.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "EC.KM.37",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.3,
+    "face": {
+     "amount": 0.1,
+     "currency": "XCD"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "2004"
+  },
+  "C350": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C350",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Royal Mint (United Kingdom); no mint mark on this issue",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1991
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Reverse: EAST CARIBBEAN STATES around the Golden Hind, the date 1991 down the right rim read digit by digit in an enlarged view (1-9-9-1), a 10 on each side of the ship, TEN CENTS below. Obverse: QUEEN ELIZABETH THE SECOND around the young Machin portrait — a different portrait generation from the collection's 2004 strikes of this denomination, which carry the crowned Rank-Broadley portrait; that portrait is what places this coin in the 1989-2000 striking of the design. Filed as its own type (EC.X.10-cents) to keep the portrait generations apart from EC.KM.37.",
+   "photos": [
+    "C350-obv-p1",
+    "C350-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 2,
+    "phase1_at": "2026-11-11T15:40:00Z",
+    "phase1_by": "model:claude",
+    "phase2_at": "2026-11-11T15:40:00Z",
+    "phase2_by": "model:claude"
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "NA-EC-003",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "Ten cents from the East Caribbean States, dated 1991 — an older brother to the 2004 ten cents filed the same day (C348). The back is the same Golden Hind, Drake's little round-the-world galleon, with a 10 on each side. The front is what gives its age away: the Queen is young here, in Arnold Machin's portrait wearing a tiara, the likeness these islands used from the 1980s into the early 2000s before switching to the older crowned portrait. Eight Caribbean islands spend this one money, and coins like this crossed between them in every ferry and market stall. This one is copper-nickel, from the British Royal Mint years, heavier in the hand than the steel strikes that replaced it.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "EC.X.10-cents",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.35,
+    "face": {
+     "amount": 0.1,
+     "currency": "XCD"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1991"
   },
   "C212": {
    "acquisition": {
@@ -33579,6 +34706,93 @@
    "want_priority": null,
    "year_raw": "1983"
   },
+  "C351": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C351",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "mint letter below the eagle's thunderbolt not readable in the photos",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1867
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Identification rests on the owner's own reads from the coin in hand, confirmed against the catalog: obverse NAPOLEON III EMPEREUR around the laureate head with the date 1867 below the portrait; reverse the imperial eagle on a thunderbolt, EMPIRE FRANCAIS above, DIX CENTIMES at the bottom flanked by two stars (a star separator is visible in the photo at the right of the reverse legend). The coin is heavily worn and dark, and the photos alone defeated letter-by-letter transcription on the first pass — the catalog match (the laureate-head bronze 10 centimes struck 1861-1868 is the only French issue combining this portrait legend, eagle reverse and bottom value) plus the owner's reads carry the identification. The mint letter below the thunderbolt is not readable in the photos, so no mint is claimed. Condition, per the owner: the coin is clipped and has a hole through the center - the dark center mark visible in both photos is the hole, not a plug. Value revised down accordingly: holed and clipped, it sits in the bulk/cull range.",
+   "photos": [
+    "C351-obv-p1",
+    "C351-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T20:09:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "EU-FR-038",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A big bronze ten centimes from the France of Napoleon the Third, dated 1867 — three years before his empire collapsed in the Franco-Prussian War. One side carries the Emperor's head wreathed in laurel, ringed by his name and title; the other shows the imperial eagle standing on a thunderbolt, the emblem Napoleon's regiments had carried into battle, with EMPIRE FRANCAIS above and DIX CENTIMES below between two stars. These heavy bronze pieces were the workhorse small change of France for decades — struck in the tens of millions, they stayed in pockets and tills into the next century, which is why so many survive as worn as this one.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "FR.X.10-centimes",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.25,
+    "face": {
+     "amount": 0.1,
+     "currency": "FRF"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1867"
+  },
   "C013": {
    "acquisition": {
     "acquired_on": null,
@@ -36754,8 +37968,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:47:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-09T04:52:00Z",
+    "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38889,6 +40103,93 @@
    "want_priority": null,
    "year_raw": "1962"
   },
+  "C347": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C347",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "no mint mark read — the area below the date is too dark in the photos to call",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1893
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Reverse: a big 8 over DOUBLES over the date 1893, all inside a laurel wreath with a beaded border — read plainly in an enhanced view (1-8-9-3 certain). Obverse: the Guernsey shield with three lions, GUERNSEY arcing above, very worn with light corrosion patches. Guernsey is the only issuer of doubles coinage, and the 8 doubles of 1885-1911 is the only issue matching this size, wreath reverse and shield obverse; Jersey, the other Channel Island, coined in shillings and pence instead. The mint-mark spot below the date is too dark in these photos to read, so no variety is claimed. Face value note: 8 doubles made one penny, 240 pennies one pound, so the face is recorded as 1/240 of a Guernsey pound.",
+   "photos": [
+    "C347-obv-p1",
+    "C347-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T17:31:03Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "EU-GG-001",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "GG.X.8-doubles",
+   "value": {
+    "confidence": "low",
+    "est_usd": 1.0,
+    "face": {
+     "amount": 0.0042,
+     "currency": "GGP"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1893"
+  },
   "C245": {
    "acquisition": {
     "acquired_on": null,
@@ -39958,6 +41259,95 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "2001"
+  },
+  "C354": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C354",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [
+     "●"
+    ],
+    "mint_text": "Noida (small dot below the date)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2014
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Transcription from the coin: obverse BHARAT in Devanagari at the left, INDIA at the right, SATYAMEVA JAYATE below the Lion Capital; reverse the rupee symbol over a large 2 between lotus sprays, date 2014 below with a small round dot mint mark beneath it, read clearly in an enhanced crop - the round dot is Noida (Mumbai strikes a diamond, Hyderabad a star, Kolkata none). Stainless steel, bright, with light circulation wear.",
+   "photos": [
+    "C354-obv-p1",
+    "C354-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T20:42:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "AS-IN-002",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A two rupees from the India of 2014, part of the series launched in 2011 to carry the rupee's new symbol - the sign that blends the Latin R with the Devanagari RA, adopted in 2010 to give the currency a mark of its own like the dollar or the pound. It sits above the big 2, with lotus flowers curling up both sides. The other face carries the Lion Capital of Ashoka, the four lions of the emperor's pillar that India took as its state emblem, with the country's name in Hindi on the left and English on the right and the motto Truth Alone Triumphs beneath. The small dot under the date marks it as a product of the Noida mint, outside Delhi.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "IN.X.2-rupees",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.15,
+    "face": {
+     "amount": 2,
+     "currency": "INR"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "2014"
   },
   "C011": {
    "acquisition": {
@@ -42108,6 +43498,180 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "2015"
+  },
+  "C344": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C344",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Japan Mint (no mint mark on this type)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 2002
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Obverse: Phoenix Hall with the country name in kanji above and the value in kanji below. Reverse: big 10 inside a laurel wreath with the era date beneath in kanji, read as Heisei 14 (2002) glyph by glyph across enlarged and contrast-enhanced views; the year numeral is worn, so the year carries the caveat — era (Heisei) and the first three characters are clear, the fourth numeral reads as the boxed form of four. Bronze color and weight of the design rule out the aluminium 1 yen and brass 5 yen; the smooth edge and era name separate it from the collection's Showa strikes of the same type family.",
+   "photos": [
+    "C344-obv-p1",
+    "C344-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-11T15:40:00Z",
+    "phase1_by": "model:claude",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "AS-JP-006",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A Japanese 10 yen in bronze, dated Heisei 14 (2002), the fourteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "JP.X.10-yen",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.15,
+    "face": {
+     "amount": 10,
+     "currency": "JPY"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "Heisei 14 (2002)"
+  },
+  "C353": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C353",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [],
+    "mint_text": "Japan Mint; no mint mark (Japanese coinage carries none)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1996
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Transcription: obverse NIHON-KOKU (State of Japan) above the Phoenix Hall, JU-EN (ten yen) below; reverse the numeral 10 over HEISEI HACHI-NEN. The era year was read glyph-by-glyph from an enlarged crop: the numeral glyph is HACHI (eight), two splayed strokes, not ROKU (six) - Heisei 8 = 1996. The type line for this design was created in changes_muse_20261109-1725.jsonl (the 2002 specimen), still pending merge when this specimen was filed. Dark-toned bronze with light circulation wear.",
+   "photos": [
+    "C353-obv-p1",
+    "C353-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T20:39:01Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "AS-JP-007",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A Heisei-era ten yen piece, dated in the eighth year of Emperor Akihito's reign - 1996. The obverse shows the Phoenix Hall of Byodo-in temple at Uji, its wing-like roofs spread over the water it was built beside in 1053; the reverse carries the big 10 inside an evergreen-oak wreath, with the era date written out in kanji below. The same design has been on Japan's ten yen since 1959 and still circulates today; this one joins the Heisei 14 (2002) specimen filed from a chat photo the same day.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "JP.X.10-yen",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.15,
+    "face": {
+     "amount": 10,
+     "currency": "JPY"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "Heisei 8 (1996)"
   },
   "C210": {
    "acquisition": {
@@ -45032,7 +46596,7 @@
     "phase": 2,
     "phase1_at": "2026-10-14T23:55:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-30T02:43:06Z",
+    "phase2_at": "2026-11-09T04:30:16Z",
     "phase2_by": "model:muse-spark"
    },
    "seller_type": null,
@@ -45408,6 +46972,184 @@
    "variety": null,
    "want_priority": null,
    "year_raw": "2005"
+  },
+  "C346": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C346",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [
+     "Mo"
+    ],
+    "mint_text": "Mo · Mexico City (right of the bust)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1975
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Obverse: UN PESO down the left rim, Morelos facing left, the Mo mint mark right of the bust, and the date below the bust read digit by digit in an enlarged crop as 1-9-7-5 (the 9 is battered but its closed loop and tail are clear; 7 with its flat top bar; 5 with flat top and belly). Reverse: ESTADOS UNIDOS MEXICANOS around the eagle, snake and cactus. The Morelos peso of 1970-1983 is the only Mexican 1 peso of this portrait and metal; earlier Morelos pesos are smaller silver-era pieces and the later 1980s peso changed both portrait style and size.",
+   "photos": [
+    "C346-obv-p1",
+    "C346-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T17:31:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "NA-MX-021",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "A Mexican one peso from 1975, carrying Jose Maria Morelos, the priest who became a general of Mexico's independence war and was executed for it in 1815. His portrait faces left under the words UN PESO; the other side shows Mexico's national emblem, the eagle with a snake in its beak standing on a cactus — the sign the Aztecs were told to look for when founding their city. Mexico struck this peso, in copper-nickel, through the 1970s and into the early 1980s, and it jingled in every pocket and bus fare in the country. The little Mo beside the portrait is the Mexico City mint's mark, one of the oldest mints in the Americas.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "MX.X.1-peso",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.35,
+    "face": {
+     "amount": 1,
+     "currency": "MXP"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1975"
+  },
+  "C352": {
+   "acquisition": {
+    "acquired_on": null,
+    "family": null,
+    "logged_at": "2026-11-09",
+    "price_paid_usd": null,
+    "source": null
+   },
+   "authenticity": null,
+   "condition": {
+    "cert": null,
+    "cleaned": null,
+    "damage": [],
+    "grade": null,
+    "grader": null,
+    "luster": null,
+    "strike": null,
+    "text": null,
+    "toning": null
+   },
+   "disposal_plan": null,
+   "featured": null,
+   "housing": {
+    "kind": null,
+    "location": null,
+    "text": null
+   },
+   "id": "C352",
+   "insurance": null,
+   "invoice_ref": null,
+   "issue": {
+    "mint_marks": [
+     "Mo"
+    ],
+    "mint_text": "Mexico City (Mo, below the radiant cap on the reverse)",
+    "mintage": null,
+    "mintage_text": null,
+    "qualifier": null,
+    "year": 1943
+   },
+   "lifecycle": {
+    "removed_on": null,
+    "removed_reason": null,
+    "status": "Logged"
+   },
+   "measured": {
+    "diameter_mm": null,
+    "die_axis_deg": null,
+    "magnetic": null,
+    "thickness_mm": null,
+    "weight_g": null
+   },
+   "notes": "Both sides photographed in the holder. Transcription from the coin: ESTADOS UNIDOS MEXICANOS around the national arms; reverse 20 divided by the radiant cap, Mo below it, the Teotihuacan pyramid scene, CENTAVOS in a plaque, date below. The date was read digit-by-digit from contrast-enhanced crops as 1-9-4-3; the final digit is worn and at full-frame distance first suggested 1942, but 1942 is impossible for this coin - the bronze pyramid type began in 1943, and a 1942 twenty centavos would be the small silver issue - so the reading stands as 1943. The coin is dark-toned bronze with honest circulation wear.",
+   "photos": [
+    "C352-obv-p1",
+    "C352-rev-p1"
+   ],
+   "provenance_chain": null,
+   "related_specimens": null,
+   "research": {
+    "open_questions": [],
+    "phase": 1,
+    "phase1_at": "2026-11-09T20:15:02Z",
+    "phase1_by": "model:muse-spark",
+    "phase2_at": null,
+    "phase2_by": null
+   },
+   "seller_type": null,
+   "sentimental": null,
+   "ser": "NA-MX-022",
+   "serial_number": null,
+   "sort_weight": null,
+   "storage_env": null,
+   "story": "One of Mexico's best-loved coin designs, struck in bronze from 1943: the Pyramid of the Sun at Teotihuacan fills the reverse, its name carved at the pyramid's base, with the twin volcanoes Iztaccihuatl and Popocatepetl smoking behind it and a radiant Liberty cap dividing the big 20 overhead. Mexico authorized the type in August 1943, in the middle of the Second World War, to replace the silver twenty centavos it could no longer afford to strike - this is a first-year piece, one of some 46 million poured out that year. The obverse carries the national arms, the eagle on its cactus with the snake, and the words ESTADOS UNIDOS MEXICANOS.",
+   "tags": [],
+   "tax_lot": null,
+   "type": "MX.X.20-centavos",
+   "value": {
+    "confidence": "low",
+    "est_usd": 0.35,
+    "face": {
+     "amount": 0.2,
+     "currency": "MXP"
+    }
+   },
+   "variety": null,
+   "want_priority": null,
+   "year_raw": "1943"
   },
   "C201": {
    "acquisition": {
@@ -80830,6 +82572,726 @@
    "specimen": "C342",
    "superseded_by": null,
    "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 472,
+    "cy": 1007,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 217,
+    "rotation_deg": 0,
+    "source_file": "NOID_CostaRica_2008_10Colones_obv.jpeg",
+    "source_sha256": "e1d7d006234910c34045715d3b2d9f20aac4af4f9ec2910090a4354d7d3856d5",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C343-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C343_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "a68a61b050fa0c54d62523047d19ae758d41ef809e728b1e9fbae692fbfd072b",
+   "side": "obv",
+   "specimen": "C343",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 482,
+    "cy": 1027,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 218,
+    "rotation_deg": 0,
+    "source_file": "NOID_CostaRica_2008_10Colones_rev.jpeg",
+    "source_sha256": "7ee4bec42556cf296eddb592005bdab03606ded11692f62e1a1d54533283c0f0",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C343-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C343_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "dd18b181f6089ffcb0ead3251e0d44da75028e84151aa8760cde0f0d50fea6ae",
+   "side": "rev",
+   "specimen": "C343",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 487,
+    "cy": 1309,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 224,
+    "rotation_deg": 0,
+    "source_file": "NOID_Japan_2002_10Yen_obv.jpeg",
+    "source_sha256": "a1f6f5517b284e73401515a29dfde782aa1530c3fceb144d7ed1318a043a61f2",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C344-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C344_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "fe0cff69ef839bf434533bf53ef957c06f745d612b7777cc134a51b935444647",
+   "side": "obv",
+   "specimen": "C344",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 1235,
+    "cy": 472,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 229,
+    "rotation_deg": 270.0,
+    "source_file": "NOID_Japan_2002_10Yen_rev.jpeg",
+    "source_sha256": "1509b176b1f5fd283fd6fe9ab0ba6d762fad01068fe058450b5352baf0cc182d",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C344-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C344_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "4cfe31483de0299f5c2fa08a4dd81aa73a0e2abc66edacdca5187661c3689ac0",
+   "side": "rev",
+   "specimen": "C344",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 474,
+    "cy": 1252,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 210,
+    "rotation_deg": 0,
+    "source_file": "NOID_Australia_2008_10Cents_obv.jpeg",
+    "source_sha256": "f23778e040c03a650ba947ff0e8bc45616bdedb6f6e6e4b178f6b6613ff59592",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C345-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C345_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "835e56ed5501342f93b331f04f2e5944da4d1f964c8590ccd6221a6b2356c1ae",
+   "side": "obv",
+   "specimen": "C345",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 465,
+    "cy": 1089,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 218,
+    "rotation_deg": 0,
+    "source_file": "NOID_Australia_2008_10Cents_rev.jpeg",
+    "source_sha256": "9eb8c323eb1dbc57f801dff99ec8a15805f614772aa9048b6f27de7ab1ecc8a6",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C345-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C345_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "18285b1f2a488d812c90da24a7c8e4caa3f37a640c2a5207949441c6d6939ac0",
+   "side": "rev",
+   "specimen": "C345",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 409,
+    "cy": 1276,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 260,
+    "rotation_deg": 0,
+    "source_file": "NOID_Mexico_1975_1Peso_obv.jpeg",
+    "source_sha256": "4ebd7f14f4bd51ac71687a86fd8af2a091c606c7062dfa5c97ea2d37c5460570",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C346-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C346_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "5773c3403bd7543e5edc5f3116c2343f48fdb3787b3d73c239834a8a810df89b",
+   "side": "obv",
+   "specimen": "C346",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 413,
+    "cy": 1308,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 272,
+    "rotation_deg": 0,
+    "source_file": "NOID_Mexico_1975_1Peso_rev.jpeg",
+    "source_sha256": "e2cf31e8edd33ffd04e74e2b83ba8166f29fc02d94af2deaf311f4e69c50478a",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C346-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C346_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "d618e8e3e3e82f52ae5254eda4b59e935719460100232932aa3922daadcb15ff",
+   "side": "rev",
+   "specimen": "C346",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 474,
+    "cy": 1289,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 283,
+    "rotation_deg": 0,
+    "source_file": "NOID_Guernsey_1893_8Doubles_obv.jpeg",
+    "source_sha256": "8a409f5911f0c854c9eaf9845a9266bb8eb5e5e754d63e043c941f7396d11f44",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C347-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C347_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "babbbc5483e3acbae7c5c7e6730214010773163971cdb8f8d7ea1dc4b7316eaf",
+   "side": "obv",
+   "specimen": "C347",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 477,
+    "cy": 1413,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 283,
+    "rotation_deg": 0,
+    "source_file": "NOID_Guernsey_1893_8Doubles_rev.jpeg",
+    "source_sha256": "60d941984ed40be6c511ace34af8fed537bf4014b9003559ec893fc94bdf176b",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C347-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C347_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "623f5ac6c1978a47e6595344da507b1b78738ef888916e7cecea5e80da50883b",
+   "side": "rev",
+   "specimen": "C347",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 501,
+    "cy": 1447,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 166,
+    "rotation_deg": 0,
+    "source_file": "NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg",
+    "source_sha256": "69e160fa3daeec1d964632ff872c20ce506747add696421c577491307d290964",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C348-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C348_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "42a772277e7a9b6240a7dc5994a29969a0ecddab86062836e005840bb9a653e6",
+   "side": "obv",
+   "specimen": "C348",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 1305,
+    "cy": 442,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 168,
+    "rotation_deg": 270.0,
+    "source_file": "NOID_EastCaribbeanStates_2004_10Cents_rev.jpeg",
+    "source_sha256": "0a370341573e61f614f7946354a47a5a3c9f03ff354d63484c09383f36b8070a",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C348-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C348_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "cf8797ad4bfc440abd9dee5f0862bbc268264fc4efb81ff4ee856b62fe9ec8a1",
+   "side": "rev",
+   "specimen": "C348",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 466,
+    "cy": 1096,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 289,
+    "rotation_deg": 0,
+    "source_file": "NOID_Australia_1977_50Cents_obv.jpeg",
+    "source_sha256": "a92dd1987a23dc9a7c0c98dd02c2226dacb999533135481d8f66a9d4648d1463",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C349-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C349_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "1a6af87cd0ee093c3bf4b56ea8be8dc5b078aa3266f02d1f381d08aab23cd1c8",
+   "side": "obv",
+   "specimen": "C349",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 407,
+    "cy": 1276,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 283,
+    "rotation_deg": 0,
+    "source_file": "NOID_Australia_1977_50Cents_rev.jpeg",
+    "source_sha256": "c1149fa98b10fa53f774fd11dfd2e7f1f0fa14b1c81df25a35afab0f8bebc7ae",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C349-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C349_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "75330ab62172bad9a122ac6025e9257fb6d40bcc2c11b1fa448e53c1e4050035",
+   "side": "rev",
+   "specimen": "C349",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 469,
+    "cy": 1052,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 154,
+    "rotation_deg": 0,
+    "source_file": "NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg",
+    "source_sha256": "5c02057249d00957a779c1a8784f66c1d4acdc39f594ac6351d9e272fd8ba996",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C350-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C350_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "75a0cfe408981a7cf6fc3ee2b77c2d470a5b76e81ccffcc2c9f94d4e7be9f4c6",
+   "side": "obv",
+   "specimen": "C350",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 465,
+    "cy": 1227,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 150,
+    "rotation_deg": 0,
+    "source_file": "NOID_EastCaribbeanStates_1991_10Cents_rev.jpeg",
+    "source_sha256": "19ff6bbacf36710994e52e9b6b692d98f9b626742f0bfb0c325794b00f0fd257",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C350-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C350_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "62bebe108abd63c99ad3e239c1539bf213f739e62183b02887ab824f5428c015",
+   "side": "rev",
+   "specimen": "C350",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 1179,
+    "cy": 439,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 285,
+    "rotation_deg": 270.0,
+    "source_file": "NOID_France_1867_10Centimes_obv.jpeg",
+    "source_sha256": "c5d72ee2529ac6cb0b1a3456b8aad420e669f4b5d0c2ad16a96ed0a883af81e5",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C351-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C351_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "ec8f0e9ec52e51ab8ed5dd5e8f1264da92c7460ee6d686419b080caf230b0b28",
+   "side": "obv",
+   "specimen": "C351",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 470,
+    "cy": 1321,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 282,
+    "rotation_deg": 0,
+    "source_file": "NOID_France_1867_10Centimes_rev.jpeg",
+    "source_sha256": "f2de17e9fa08e04abefce11b7349eb82703154e935a8b36caeb94a7f076b3c0a",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C351-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C351_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "eacc5d5e8758aa62ad3f2ff5a449f83eb83efb48198a095fda7142f09602283a",
+   "side": "rev",
+   "specimen": "C351",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 458,
+    "cy": 1264,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 262,
+    "rotation_deg": 0,
+    "source_file": "NOID_Mexico_1943_20Centavos_obv.jpeg",
+    "source_sha256": "409b81787446eafb605456b2281dd383651efbf568a82bc2ab845db47bf81171",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C352-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C352_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "e2e9de27a5db52964063b0f2b60659f65bc8cc28d0b9e121e85f267f239966c3",
+   "side": "obv",
+   "specimen": "C352",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 447,
+    "cy": 1215,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 260,
+    "rotation_deg": 0,
+    "source_file": "NOID_Mexico_1943_20Centavos_rev.jpeg",
+    "source_sha256": "4b64ee51ba3ca2444ea1301a614cca1aebffcfd1a1921fec62b038344c95ff5f",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C352-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C352_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "249b9fb61ba42806177ddf92ead9edb790ef1fb1e7e054d012293e4c19d6109f",
+   "side": "rev",
+   "specimen": "C352",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 464,
+    "cy": 1206,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 222,
+    "rotation_deg": 0,
+    "source_file": "NOID_Japan_1996_10Yen_obv.jpeg",
+    "source_sha256": "1d1d97c8b9157409a76921de0bc5d3ce0a2ad949dbe02962b16e43f877470ba0",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C353-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C353_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "f5779a49af687262548577ecc6a95f75488dda84469a0372f62ba93704b226ee",
+   "side": "obv",
+   "specimen": "C353",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 505,
+    "cy": 1243,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 217,
+    "rotation_deg": 0,
+    "source_file": "NOID_Japan_1996_10Yen_rev.jpeg",
+    "source_sha256": "071282362c7ae84159261e0d9031e670e6c53fa69831206ea052acc93a2bec4f",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C353-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C353_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "2bbc0cc74ecf190b12e12192d2dace76de813526818a8919831f4d3ff24c0f66",
+   "side": "rev",
+   "specimen": "C353",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 478,
+    "cy": 1210,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 224,
+    "rotation_deg": 0,
+    "source_file": "NOID_India_2014_2Rupees_obv.jpeg",
+    "source_sha256": "44620fc23ae536a8d4af4b98bae81b8fbb2610b0ae7f5e2eae03f9f18929f69b",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C354-obv-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C354_obv.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "3d50b12b045dd05a0e8214c75be37afc1b5bb3f1c74ead4f085e896f4e79acdf",
+   "side": "obv",
+   "specimen": "C354",
+   "superseded_by": null,
+   "width": 512
+  },
+  {
+   "captured_at": null,
+   "crop": {
+    "cx": 463,
+    "cy": 1168,
+    "method": "crop_coin.py circle v1",
+    "out_px": 512,
+    "pad_pct": 3.0,
+    "r": 227,
+    "rotation_deg": 0,
+    "source_file": "NOID_India_2014_2Rupees_rev.jpeg",
+    "source_sha256": "16f96639fae0850f69101669e119380c8d611f16f59eccbbd879ed5dc7390679",
+    "tool_version": "1",
+    "ts": "2026-11-11T15:33:10Z"
+   },
+   "height": 512,
+   "id": "C354-rev-p1",
+   "kind": "crop_circle",
+   "path": "photos/p1/C354_rev.webp",
+   "phase": 1,
+   "review": {
+    "reason": "rim-safe circle cut checked edge by edge (N/E/S/W zooms) and reviewed by Claude",
+    "status": "approved"
+   },
+   "sha256": "7b133f3f647d4e4773ec13c95bae505611022cf1d548e95aab8a20babda74583",
+   "side": "rev",
+   "specimen": "C354",
+   "superseded_by": null,
+   "width": 512
   }
  ],
  "issuers": {
@@ -81049,6 +83511,16 @@
    "id": "GB",
    "iso": "GB",
    "name": "United Kingdom",
+   "note": null,
+   "successor": null,
+   "to": null
+  },
+  "GG": {
+   "continent": "Europe",
+   "from": null,
+   "id": "GG",
+   "iso": "GG",
+   "name": "Guernsey",
    "note": null,
    "successor": null,
    "to": null
@@ -81484,21 +83956,22 @@
     ]
    },
    "design": {
-    "level": "ai",
-    "by": "Claude",
-    "ts": "2026-10-24",
-    "source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin"
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "links": [
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    },
    "period": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-31",
-    "source": "https://en.numista.com/catalogue/pieces185.html (via api https://api.numista.com/v3/types/185) title '1 Franc (Helvetia standing; copper-nic",
+    "level": "reference",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Features: Period 'Federal State (1848-date)' (Muse's read 2026-11-09); one ",
     "links": [
-     "https://en.numista.com/catalogue/pieces185.html",
-     "https://api.numista.com/v3/types/185"
-    ],
-    "n": 2
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    }
   },
   "C002": {
@@ -82776,13 +85249,14 @@
     "n": 2
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#69 (https://en.numista.com/catalogue/pieces69.html) references: KM# 214, Schön# 78, 78a; the entry covers KM# 214; its 1985 row (l",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#69, https://en.numista.com/catalogue/pieces69.html - References: 'KM# 214; Schon# 78, 78a'; issues table splits the page's two var",
     "links": [
      "https://en.numista.com/catalogue/pieces69.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "checked",
@@ -82939,6 +85413,12 @@
     "links": [
      "https://en.numista.com/catalogue/pieces1937.html"
     ]
+   },
+   "mint": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0147, read from C018_obv.webp: the 'D' at the bottom right is the final letter of the rim legend DEUTSCHLAND, at full legend si"
    },
    "catalog": {
     "level": "checked",
@@ -83437,10 +85917,15 @@
     "like": "mint"
    },
    "design": {
-    "level": "ai",
-    "by": "Claude",
-    "ts": "2026-10-24",
-    "source": "Correction (Claude, 2026-10-24): the lettering named one coin's year (the coin held or the one in the cited entry's photo), but this text co"
+    "level": "checked",
+    "by": "Claude + Gemini + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#6133, https://en.numista.com/catalogue/pieces6133.html - Obverse: 'Crowned double-headed eagle with Austrian shield on breast', En",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html",
+     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+    ],
+    "n": 3
    },
    "ruler": {
     "level": "checked",
@@ -84075,15 +86560,16 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-31",
-    "source": "https://en.numista.com/catalogue/pieces2980.html issues table row '1943 S — 8,000,000' (also rows 1943 no mark 24,912,000; 1943 D 16,000,000",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#2980, https://en.numista.com/catalogue/pieces2980.html - issues table row '1943 S': mintage 8 000 000. The 1943 S issue exists exa",
     "links": [
      "https://en.numista.com/catalogue/pieces2980.html",
      "https://collections.museumsvictoria.com.au/items/56336",
      "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C031_rev.webp"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -84573,9 +87059,9 @@
    },
    "mint": {
     "level": "photo",
-    "by": "Gemini API (3.6 Flash)",
-    "ts": "2026-11-01",
-    "source": "C037_obv.webp: letter J to the right of the date 2002 at the bottom of C037_obv.webp (read by the Gemini API, gemini-3.6-flash)"
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "photo photos/p1/C037_obv.webp (Claude, 2026-11-11): the small letter sits under the date 2002, not beside it; Muse read J below the date on "
    },
    "catalog": {
     "level": "checked",
@@ -85499,6 +87985,12 @@
     ],
     "n": 2
    },
+   "mint": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0142, read from C048_rev.webp (the only photo of C048): the reverse shows the large 1 / DEUTSCHE MARK / 1993 with oak sprigs; t"
+   },
    "catalog": {
     "level": "checked",
     "by": "Gemini + Grok",
@@ -85600,13 +88092,14 @@
     "n": 2
    },
    "composition": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces9.html (Numista N#9, 10 Francs (Génie de la Liberté) - France): Composition Bimetallic: nickel center",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#9, https://en.numista.com/catalogue/pieces9.html - Features table: Composition 'Bimetallic: nickel centre in aluminium bronze ring",
     "links": [
      "https://en.numista.com/catalogue/pieces9.html"
-    ]
+    ],
+    "n": 2
    },
    "mintage": {
     "level": "checked",
@@ -87669,13 +90162,14 @@
     "n": 2
    },
    "composition": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces56.html (Numista N#56, ¼ Dollar \"Washington Quarter\" (Bicentennial) - United States): Composition Cop",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#56, https://en.numista.com/catalogue/pieces56.html - Features table: Composition 'Copper-nickel clad copper'. The record's wording",
     "links": [
      "https://en.numista.com/catalogue/pieces56.html"
-    ]
+    ],
+    "n": 2
    },
    "mintage": {
     "level": "checked",
@@ -87717,13 +90211,15 @@
     "n": 2
    },
    "series": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-12",
-    "source": "https://www.usmint.gov/learn/history/historical-documents/bicentennial-circulating-coins-arrive (U.S. Mint press release 1 July 1975): the q",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#56, https://en.numista.com/catalogue/pieces56.html - entry title '1/4 Dollar \"Washington Quarter\" (Bicentennial)', Type 'Circulati",
     "links": [
+     "https://en.numista.com/catalogue/pieces56.html",
      "https://www.usmint.gov/learn/history/historical-documents/bicentennial-circulating-coins-arrive"
-    ]
+    ],
+    "n": 2
    },
    "period": {
     "level": "checked",
@@ -89163,21 +91659,22 @@
     "n": 2
    },
    "design": {
-    "level": "ai",
-    "by": "Claude",
-    "ts": "2026-10-24",
-    "source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin"
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "links": [
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    },
    "period": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-31",
-    "source": "https://en.numista.com/catalogue/pieces185.html (via api https://api.numista.com/v3/types/185) title '1 Franc (Helvetia standing; copper-nic",
+    "level": "reference",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Features: Period 'Federal State (1848-date)' (Muse's read 2026-11-09); one ",
     "links": [
-     "https://en.numista.com/catalogue/pieces185.html",
-     "https://api.numista.com/v3/types/185"
-    ],
-    "n": 2
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    }
   },
   "C094": {
@@ -95945,10 +98442,11 @@
   },
   "C177": {
    "year": {
-    "level": "photo",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "C177_obv.webp: date at bottom of legend reads '2009' (inverted orientation in photo)"
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0144, read from C177_obv.webp: the date at the bottom of the obverse reads 2009 - digit by digit 2-0-0-9; the final digit is a ",
+    "n": 2
    },
    "denomination": {
     "level": "reference",
@@ -97635,6 +100133,12 @@
      "https://en.numista.com/catalogue/pieces658.html"
     ]
    },
+   "mint": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0143, read from C196_obv.webp: after the date 1987 there is a separator dot and then the rim legend (DEUTSCHLAND) in legend-siz"
+   },
    "catalog": {
     "level": "checked",
     "by": "Grok + Muse",
@@ -98013,9 +100517,9 @@
    },
    "catalog": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#966 (https://en.numista.com/catalogue/pieces966.html) references: Y# 551, KM# 551, Schön# 21; Y# 551 confirmed; the entry lists no",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Numista N#966, https://en.numista.com/catalogue/pieces966.html - References row Y# 551, Schön# 21, no KM number (Muse's read, verify-2026110",
     "links": [
      "https://en.numista.com/catalogue/pieces966.html"
     ]
@@ -100219,10 +102723,11 @@
   },
   "C225": {
    "year": {
-    "level": "photo",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "C225_obv.webp: date '1977' at bottom between dots (faint, zoom crop)"
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0148, read from C225_obv.webp (worn, low contrast; read on contrast-stretched and inverted zooms of the bottom band): the date'",
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -100466,6 +102971,12 @@
      "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C228_obv.webp"
     ],
     "n": 2
+   },
+   "mint": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0145, read from C228_obv.webp: the bottom of the obverse reads '1989' followed by a separator dot and the rim legend; there is "
    },
    "catalog": {
     "level": "checked",
@@ -101254,6 +103765,12 @@
     "links": [
      "https://en.numista.com/catalogue/pieces658.html"
     ]
+   },
+   "mint": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Arbitration D0146, read from C237_obv.webp: the date reads 1971, followed by a separator dot and the rim legend (DEUTSCHLAND); there is no m"
    },
    "catalog": {
     "level": "checked",
@@ -103037,13 +105554,14 @@
     "n": 2
    },
    "composition": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces5904.html (Numista N#5904, 20 Su - Bảo Đại - South Vietnam): Composition Aluminium; matches the recor",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#5904, https://en.numista.com/catalogue/pieces5904.html - Features table: Composition 'Aluminium'. Value confirmed.",
     "links": [
      "https://en.numista.com/catalogue/pieces5904.html"
-    ]
+    ],
+    "n": 2
    },
    "mintage": {
     "level": "checked",
@@ -103127,13 +105645,14 @@
     "source": "C259_rev.webp / C259_Mexico_1940_1Centavo_rev.jpeg (read mint mark 'Mo' to the right of the 1c monogram inside the laurel wreath)"
    },
    "catalog": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-08",
-    "source": "Numista N#5133 (https://en.numista.com/catalogue/pieces5133.html) references: KM# 415, Schön# 11",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#5133, https://en.numista.com/catalogue/pieces5133.html - References row: KM# 415, Schön# 11. Blind read from the entry of the coin",
     "links": [
      "https://en.numista.com/catalogue/pieces5133.html"
-    ]
+    ],
+    "n": 2
    },
    "composition": {
     "level": "checked",
@@ -107425,10 +109944,11 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Gemini",
-    "ts": "2026-10-30",
-    "source": "C304_rev.webp (raw photo C304_Mexico_1981_20Pesos_rev.jpeg): Mo mint mark (M with small o above) read on the reverse to the right of the dat"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-09",
+    "source": "C304_rev.webp - mint mark M° read above the 1981 date on the reverse (Mexico City)",
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -107451,14 +109971,15 @@
     "n": 2
    },
    "mintage": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-31",
-    "source": "https://en.numista.com/catalogue/pieces987.html (via api https://api.numista.com/v3/types/987/issues) issues row '1981 Mo — 250,573,000' (Mo",
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#987, https://en.numista.com/catalogue/pieces987.html - issues table row '1981 Mo' (that mint only, not all years): mintage 250 573",
     "links": [
      "https://en.numista.com/catalogue/pieces987.html",
      "https://api.numista.com/v3/types/987/issues"
-    ]
+    ],
+    "n": 2
    },
    "value": {
     "level": "reference",
@@ -107565,6 +110086,15 @@
     "by": "Gemini",
     "ts": "2026-11-06",
     "source": "https://en.numista.com/catalogue/pieces33337.html (\"Type: Standard circulation coins; Pope: Pius XII; Reverse: Caritas holding one child whi",
+    "links": [
+     "https://en.numista.com/catalogue/pieces33337.html"
+    ]
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#33337, https://en.numista.com/catalogue/pieces33337.html - Features table: Pope row 'Pius XII (1939-1958)'",
     "links": [
      "https://en.numista.com/catalogue/pieces33337.html"
     ]
@@ -107833,21 +110363,22 @@
     "n": 2
    },
    "design": {
-    "level": "ai",
-    "by": "Claude",
-    "ts": "2026-10-24",
-    "source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin"
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "links": [
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    },
    "period": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-31",
-    "source": "https://en.numista.com/catalogue/pieces185.html (via api https://api.numista.com/v3/types/185) title '1 Franc (Helvetia standing; copper-nic",
+    "level": "reference",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Features: Period 'Federal State (1848-date)' (Muse's read 2026-11-09); one ",
     "links": [
-     "https://en.numista.com/catalogue/pieces185.html",
-     "https://api.numista.com/v3/types/185"
-    ],
-    "n": 2
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    }
   },
   "C309": {
@@ -107919,6 +110450,15 @@
      "https://en.numista.com/catalogue/pieces870.html"
     ],
     "n": 2
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#870, https://en.numista.com/catalogue/pieces870.html - Features table: King row 'George VI'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces870.html"
+    ]
    }
   },
   "C310": {
@@ -107990,6 +110530,15 @@
      "https://en.numista.com/catalogue/pieces7.html"
     ],
     "n": 2
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#7, https://en.numista.com/catalogue/pieces7.html - Features table: Period 'Fifth Republic (1958-date)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces7.html"
+    ]
    }
   },
   "C311": {
@@ -108156,6 +110705,15 @@
      "https://en.numista.com/catalogue/pieces2149.html"
     ],
     "n": 2
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#2149, https://en.numista.com/catalogue/pieces2149.html - Features table: Period 'Republic (1993-date)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces2149.html"
+    ]
    }
   },
   "C313": {
@@ -108226,6 +110784,15 @@
      "https://en.numista.com/catalogue/pieces4077.html"
     ],
     "n": 2
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#4077, https://en.numista.com/catalogue/pieces4077.html - Features table: Period 'Russian Federation (1991-date)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces4077.html"
+    ]
    }
   },
   "C314": {
@@ -108488,6 +111055,15 @@
      "https://en.numista.com/catalogue/pieces5628.html"
     ],
     "n": 2
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#5628, https://en.numista.com/catalogue/pieces5628.html - Features table: Queen row 'Elizabeth II'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5628.html"
+    ]
    }
   },
   "C317": {
@@ -108760,6 +111336,15 @@
      "https://en.numista.com/catalogue/pieces586.html"
     ],
     "n": 2
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#586, https://en.numista.com/catalogue/pieces586.html - Features table: Period 'United Mexican States/Mexican Republic (1823-date)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces586.html"
+    ]
    }
   },
   "C320": {
@@ -108826,6 +111411,15 @@
     "by": "Gemini",
     "ts": "2026-11-06",
     "source": "https://en.numista.com/catalogue/pieces6862.html (\"Years: 1982-2000; Obverse: Stylized bust of King Carl XVI Gustaf facing left (single port",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6862.html"
+    ]
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#6862, https://en.numista.com/catalogue/pieces6862.html - Features table: King row 'Carl XVI Gustaf'",
     "links": [
      "https://en.numista.com/catalogue/pieces6862.html"
     ]
@@ -108995,6 +111589,15 @@
     "links": [
      "https://en.numista.com/catalogue/pieces3282.html"
     ]
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#3282, https://en.numista.com/catalogue/pieces3282.html - Features table: Period 'Second Republic (1926-1974)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces3282.html"
+    ]
    }
   },
   "C323": {
@@ -109160,6 +111763,15 @@
      "https://en.numista.com/catalogue/pieces589.html"
     ],
     "n": 2
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#589, https://en.numista.com/catalogue/pieces589.html - Features table: Period 'United Mexican States/Mexican Republic (1823-date)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces589.html"
+    ]
    }
   },
   "C325": {
@@ -109323,6 +111935,15 @@
     "by": "Gemini",
     "ts": "2026-11-06",
     "source": "https://en.numista.com/catalogue/pieces3159.html (\"Years: 1974-1985; Obverse: National Arms of The Bahamas above date; Reverse: Starfish, va",
+    "links": [
+     "https://en.numista.com/catalogue/pieces3159.html"
+    ]
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#3159, https://en.numista.com/catalogue/pieces3159.html - Features table: Queen row 'Elizabeth II'",
     "links": [
      "https://en.numista.com/catalogue/pieces3159.html"
     ]
@@ -109492,21 +112113,22 @@
     "n": 2
    },
    "design": {
-    "level": "ai",
-    "by": "Claude",
-    "ts": "2026-10-24",
-    "source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin"
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "links": [
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    },
    "period": {
-    "level": "checked",
-    "by": "Grok + Muse",
-    "ts": "2026-10-31",
-    "source": "https://en.numista.com/catalogue/pieces185.html (via api https://api.numista.com/v3/types/185) title '1 Franc (Helvetia standing; copper-nic",
+    "level": "reference",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Features: Period 'Federal State (1848-date)' (Muse's read 2026-11-09); one ",
     "links": [
-     "https://en.numista.com/catalogue/pieces185.html",
-     "https://api.numista.com/v3/types/185"
-    ],
-    "n": 2
+     "https://en.numista.com/catalogue/pieces185.html"
+    ]
    }
   },
   "C329": {
@@ -109578,6 +112200,15 @@
      "https://en.numista.com/catalogue/pieces882.html"
     ],
     "n": 2
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#882, https://en.numista.com/catalogue/pieces882.html - Features table: Queen row 'Elizabeth II'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces882.html"
+    ]
    }
   },
   "C330": {
@@ -109648,6 +112279,15 @@
      "https://en.numista.com/catalogue/pieces1457.html"
     ],
     "n": 2
+   },
+   "period": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#1457, https://en.numista.com/catalogue/pieces1457.html - Features table: Period 'Republic (1937-date)'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1457.html"
+    ]
    }
   },
   "C331": {
@@ -109719,6 +112359,15 @@
      "https://en.numista.com/catalogue/pieces1282.html"
     ],
     "n": 2
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#1282, https://en.numista.com/catalogue/pieces1282.html - Features table: Queen row 'Elizabeth II'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1282.html"
+    ]
    }
   },
   "C332": {
@@ -109942,6 +112591,15 @@
    "story": {
     "level": "photo",
     "like": "country"
+   },
+   "ruler": {
+    "level": "reference",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "Numista N#1262, https://en.numista.com/catalogue/pieces1262.html - Features table: King row 'Juan Carlos I'",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1262.html"
+    ]
    }
   },
   "C335": {
@@ -110651,6 +113309,534 @@
     "links": [
      "https://en.numista.com/catalogue/pieces978.html"
     ]
+   }
+  },
+  "C343": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_CostaRica_2008_10Colones_obv.jpeg (pen label: COSTA RICA 2008 10 COLONES); identified from the owner's chat photos, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_CostaRica_2008_10Colones_obv.jpeg (pen label: COSTA RICA 2008 10 COLONES); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "photos NOID_CostaRica_2008_10Colones_obv.jpeg + _rev.jpeg (cut as photos/p1/C343_obv.webp, C343_rev.webp; Claude, 2026-11-11): no mint mark "
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_CostaRica_2008_10Colones_obv.jpeg (pen label: COSTA RICA 2008 10 COLONES); identified from the owner's chat photos, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C344": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); identified from the owner's chat photos, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); identified from the owner's chat photos, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "ai",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Claude intake: the photo shows the evergreen-leaf wreath of the Japanese 10 yen (same wording as C353)"
+   }
+  },
+  "C345": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Australia_2008_10Cents_obv.jpeg (pen label: AUSTRALIA 2008 10 CENTS); identified from the owner's chat photos, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-10-14",
+    "source": "Muse photo NOID_Australia_2006_20Cent_obv.jpg (Drive STAGING id 1fLSzW-4qZNavkLfqa6HUFgfMru4d_Vo1), re-filed by Claude from Muse's changes_m"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-10-23",
+    "source": "Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html): verified catalogue numbers KM# 402, Schön# 418, N# 1565 for 2006 10 Cents",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ]
+   },
+   "composition": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-24",
+    "source": "Numista N#1565 https://en.numista.com/catalogue/pieces1565.html Features: Composition 'Copper-nickel (75% Copper, 25% Nickel)'. Record text ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ],
+    "n": 2
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Australia_2008_10Cents_obv.jpeg (pen label: AUSTRALIA 2008 10 CENTS); identified from the owner's chat photos, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   },
+   "design": {
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-06",
+    "source": "https://en.numista.com/catalogue/pieces1565.html (\"Obverse: Fourth portrait of Queen Elizabeth II right, ELIZABETH II AUSTRALIA (Ian Rank-Br",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ],
+    "n": 2
+   },
+   "ruler": {
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-10-30",
+    "source": "https://en.numista.com/catalogue/pieces1565.html (Features: Queen Elizabeth II (1952-2022); 2006 row)",
+    "links": [
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ],
+    "n": 2
+   }
+  },
+  "C346": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Mexico_1975_1Peso_obv.jpeg (pen label: MEXICO 1975 1 PESO); identified from the owner's chat photos, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Mexico_1975_1Peso_obv.jpeg (pen label: MEXICO 1975 1 PESO); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Mexico_1975_1Peso_obv.jpeg (pen label: MEXICO 1975 1 PESO); identified from the owner's chat photos, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C347": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Guernsey_1893_8Doubles_obv.jpeg (pen label: GUERNSEY 1893 8 DOUBLES); identified from the owner's chat photos, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Guernsey_1893_8Doubles_rev.jpeg (pen label: GUERNSEY 1893 8 DOUBLES); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Guernsey_1893_8Doubles_obv.jpeg (pen label: GUERNSEY 1893 8 DOUBLES); identified from the owner's chat photos, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C348": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 2004 10 CENTS); identified from the owner's chat phot"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-30",
+    "source": "C159_rev.webp read 2026-10-29: EAST CARIBBEAN STATES 2004, Golden Hind, a large 10 on each side of the ship, TEN CENTS below - denomination ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5712.html",
+     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/EC.json"
+    ],
+    "n": 2
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "catalog": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-30",
+    "source": "Numista N#5712 https://en.numista.com/catalogue/pieces5712.html References line: KM#37 (no Schön or other reference listed for this type). R",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5712.html",
+     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/EC.json"
+    ],
+    "n": 2
+   },
+   "composition": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-30",
+    "source": "https://en.numista.com/catalogue/pieces5712.html - Numista N#5712 Composition line: 'Copper-nickel' (KM#37); the record's 'cupronickel' name",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5712.html",
+     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/EC.json"
+    ],
+    "n": 2
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 2004 10 CENTS); identified from the owner's chat phot"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   },
+   "design": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-30",
+    "source": "Numista N#5712 https://en.numista.com/catalogue/pieces5712.html Obverse: portrait of Elizabeth II facing right, lettering QUEEN ELIZABETH TH",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5712.html",
+     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/EC.json"
+    ],
+    "n": 2
+   },
+   "ruler": {
+    "level": "checked",
+    "by": "Grok + Muse",
+    "ts": "2026-10-30",
+    "source": "Numista N#5712 https://en.numista.com/catalogue/pieces5712.html Features table: Queen Elizabeth II (1952-2022). Sheet value confirmed. Read ",
+    "links": [
+     "https://en.numista.com/catalogue/pieces5712.html",
+     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/types/EC.json"
+    ],
+    "n": 2
+   }
+  },
+  "C349": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Australia_1977_50Cents_obv.jpeg (pen label: AUSTRALIA 1977 50 CENTS); identified from the owner's chat photos, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Australia_1977_50Cents_rev.jpeg (pen label: AUSTRALIA 1977 50 CENTS); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Australia_1977_50Cents_obv.jpeg (pen label: AUSTRALIA 1977 50 CENTS); identified from the owner's chat photos, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "ai",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Claude intake: what each emblem stands for is not shown on the coin or cited; the story keeps only what the photo shows"
+   }
+  },
+  "C350": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 1991 10 CENTS); identified from the owner's chat phot"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_EastCaribbeanStates_1991_10Cents_rev.jpeg (pen label: EAST CARIBBEAN STATES 1991 10 CENTS); new type for a chat-photo specimen, 2"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 1991 10 CENTS); identified from the owner's chat phot"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "ai",
+    "by": "Claude",
+    "ts": "2026-11-11",
+    "source": "Claude's intake read of Muse's 2026-11-09 chat photos at full size: Muse withdrew its 2014 filing (the coin is 2004), so the story pointed a"
+   }
+  },
+  "C351": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_France_1867_10Centimes_obv.jpeg (pen label: FRANCE 1867 10 CENTIMES); legends and year read by the owner from the coin and matche"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_France_1867_10Centimes_rev.jpeg (pen label: FRANCE 1867 10 CENTIMES); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_France_1867_10Centimes_obv.jpeg (pen label: FRANCE 1867 10 CENTIMES); legends and year read by the owner from the coin and matche"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C352": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Mexico_1943_20Centavos_obv.jpeg (pen label: MEXICO 1943 20 CENTAVOS); date verified from enhanced crops and the type's 1943 start"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Mexico_1943_20Centavos_rev.jpeg (pen label: MEXICO 1943 20 CENTAVOS); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Mexico_1943_20Centavos_obv.jpeg (pen label: MEXICO 1943 20 CENTAVOS); date verified from enhanced crops and the type's 1943 start"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C353": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Japan_1996_10Yen_obv.jpeg (pen label: JAPAN 1996 10 YEN); era year verified glyph-by-glyph from an enlarged crop, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_Japan_1996_10Yen_obv.jpeg (pen label: JAPAN 1996 10 YEN); era year verified glyph-by-glyph from an enlarged crop, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
+   }
+  },
+  "C354": {
+   "country": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_India_2014_2Rupees_obv.jpeg (pen label: INDIA 2014 2 RUPEES); date and dot mint mark verified from enhanced crops, 2026-11-09"
+   },
+   "year": {
+    "level": "photo",
+    "like": "country"
+   },
+   "denomination": {
+    "level": "photo",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_India_2014_2Rupees_rev.jpeg (pen label: INDIA 2014 2 RUPEES); new type for a chat-photo specimen, 2026-11-09"
+   },
+   "mint": {
+    "level": "photo",
+    "like": "country"
+   },
+   "mintage": {
+    "level": "ai",
+    "by": "Muse",
+    "ts": "2026-11-09",
+    "source": "photo NOID_India_2014_2Rupees_obv.jpeg (pen label: INDIA 2014 2 RUPEES); date and dot mint mark verified from enhanced crops, 2026-11-09"
+   },
+   "value": {
+    "level": "photo",
+    "like": "country"
+   },
+   "story": {
+    "level": "photo",
+    "like": "country"
    }
   },
   "T001": {

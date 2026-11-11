@@ -128,6 +128,16 @@
     "asw": "\u2014",
     "flag": "\ud83c\udde9\ud83c\uddea"
   },
+  "GG": {
+    "lon": -2.58,
+    "lat": 49.45,
+    "region": "Europe",
+    "mint": "Heaton, Birmingham (H) / Royal Mint",
+    "notable": "Doubles: the island's own pre-decimal coinage",
+    "era": "1830\u20131956 doubles; 1971\u2013Present decimal",
+    "asw": "\u2014",
+    "flag": "\ud83c\uddec\ud83c\uddec"
+  },
   "SU": {
     "lon": 37.61,
     "lat": 55.75,

@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-11T01:56:43Z",
+ "updated": "2026-11-11T15:35:27Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -161,7 +161,14 @@
   "grok-arbitrate-20261107": 1,
   "grok-verify-20261108": 2,
   "muse-verify-20261108": 1,
-  "muse-arbitrate-20261108": 1
+  "muse-arbitrate-20261108": 1,
+  "gemini-verify-20261111": 2,
+  "gemini-value-20261111": 1,
+  "gemini-story-check-20261111": 1,
+  "gemini-cite-20261111": 1,
+  "gemini-fill-20261111": 2,
+  "grok-arbitrate-20261111": 2,
+  "gemini-read-mint-20261111": 1
  },
  "assignments": [
   {
@@ -24602,9 +24609,13 @@
    "kind": "verify",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-11T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 3,
+    "closed": 3,
+    "left": 0
+   },
    "items": [
     {
      "item": "verify:type:MX.X.20-pesos:issues.1.mintage",
@@ -24654,9 +24665,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-04T15:34:51Z",
    "lease_until": "2026-11-11T15:34:51Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-11T15:35:27Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "arb:D0151",
@@ -24672,9 +24687,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-04T15:34:51Z",
    "lease_until": "2026-11-11T15:34:51Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0152",
@@ -25659,9 +25678,13 @@
    "kind": "fill",
    "issued": "2026-11-04T21:45:09Z",
    "lease_until": "2026-11-14T21:45:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 12,
+    "closed": 9,
+    "left": 3
+   },
    "items": [
     {
      "item": "fill:AU.X.10-cents.2",
@@ -25743,9 +25766,13 @@
    "kind": "fill",
    "issued": "2026-11-04T21:45:09Z",
    "lease_until": "2026-11-14T21:45:09Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 4,
+    "closed": 2,
+    "left": 2
+   },
    "items": [
     {
      "item": "fill:PT.X.20-centavos",
@@ -29345,9 +29372,13 @@
    "kind": "verify",
    "issued": "2026-11-05T03:17:36Z",
    "lease_until": "2026-11-12T03:17:36Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "verify:type:AT.KM.2826:design.text",
@@ -30178,9 +30209,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-06T15:30:08Z",
    "lease_until": "2026-11-13T15:30:08Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0154",
@@ -30931,9 +30966,13 @@
    "kind": "verify",
    "issued": "2026-11-08T01:27:20Z",
    "lease_until": "2026-11-15T01:27:20Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 8,
+    "closed": 5,
+    "left": 3
+   },
    "items": [
     {
      "item": "verify:type:US.KM.204:series",
@@ -30991,9 +31030,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-08T16:45:47Z",
    "lease_until": "2026-11-15T16:45:47Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-11T15:26:13Z",
+   "result": {
+    "items": 7,
+    "closed": 7,
+    "left": 0
+   },
    "items": [
     {
      "item": "arb:D0142",
@@ -31054,6 +31097,672 @@
      "entity": "specimen",
      "id": "C037",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261111-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-18T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GB.X.half-penny:ruler",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:period",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:period",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C352:issue.year",
+     "entity": "specimen",
+     "id": "C352",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:ruler",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:ruler",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C344:issue.year",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:ruler",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C347:issue.year",
+     "entity": "specimen",
+     "id": "C347",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:denomination.value",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C349:issue.year",
+     "entity": "specimen",
+     "id": "C349",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:denomination.value",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:period",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:ruler",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:period",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:ruler",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C346:issue.year",
+     "entity": "specimen",
+     "id": "C346",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C350:issue.year",
+     "entity": "specimen",
+     "id": "C350",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C346:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C346",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C352:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C352",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:denomination.value",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:denomination.value",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:denomination.value",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:period",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:period",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C348:issue.year",
+     "entity": "specimen",
+     "id": "C348",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C343:issue.year",
+     "entity": "specimen",
+     "id": "C343",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C351:issue.year",
+     "entity": "specimen",
+     "id": "C351",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:denomination.value",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:denomination.value",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:ruler",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:period",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:ruler",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C345:issue.year",
+     "entity": "specimen",
+     "id": "C345",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C353:issue.year",
+     "entity": "specimen",
+     "id": "C353",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C354:issue.year",
+     "entity": "specimen",
+     "id": "C354",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C354:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C354",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:denomination.value",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:denomination.value",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "denomination.value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-value-20261111-1",
+   "agent": "gemini",
+   "kind": "value",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-21T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C347",
+     "entity": "specimen",
+     "id": "C347",
+     "field": "value"
+    },
+    {
+     "item": "value:C349",
+     "entity": "specimen",
+     "id": "C349",
+     "field": "value"
+    },
+    {
+     "item": "value:C346",
+     "entity": "specimen",
+     "id": "C346",
+     "field": "value"
+    },
+    {
+     "item": "value:C350",
+     "entity": "specimen",
+     "id": "C350",
+     "field": "value"
+    },
+    {
+     "item": "value:C352",
+     "entity": "specimen",
+     "id": "C352",
+     "field": "value"
+    },
+    {
+     "item": "value:C348",
+     "entity": "specimen",
+     "id": "C348",
+     "field": "value"
+    },
+    {
+     "item": "value:C343",
+     "entity": "specimen",
+     "id": "C343",
+     "field": "value"
+    },
+    {
+     "item": "value:C351",
+     "entity": "specimen",
+     "id": "C351",
+     "field": "value"
+    },
+    {
+     "item": "value:C344",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "value"
+    },
+    {
+     "item": "value:C345",
+     "entity": "specimen",
+     "id": "C345",
+     "field": "value"
+    },
+    {
+     "item": "value:C353",
+     "entity": "specimen",
+     "id": "C353",
+     "field": "value"
+    },
+    {
+     "item": "value:C354",
+     "entity": "specimen",
+     "id": "C354",
+     "field": "value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261111-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-18T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C343",
+     "entity": "specimen",
+     "id": "C343",
+     "field": "story"
+    },
+    {
+     "item": "story:C344",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "story"
+    },
+    {
+     "item": "story:C345",
+     "entity": "specimen",
+     "id": "C345",
+     "field": "story"
+    },
+    {
+     "item": "story:C346",
+     "entity": "specimen",
+     "id": "C346",
+     "field": "story"
+    },
+    {
+     "item": "story:C347",
+     "entity": "specimen",
+     "id": "C347",
+     "field": "story"
+    },
+    {
+     "item": "story:C348",
+     "entity": "specimen",
+     "id": "C348",
+     "field": "story"
+    },
+    {
+     "item": "story:C349",
+     "entity": "specimen",
+     "id": "C349",
+     "field": "story"
+    },
+    {
+     "item": "story:C350",
+     "entity": "specimen",
+     "id": "C350",
+     "field": "story"
+    },
+    {
+     "item": "story:C351",
+     "entity": "specimen",
+     "id": "C351",
+     "field": "story"
+    },
+    {
+     "item": "story:C352",
+     "entity": "specimen",
+     "id": "C352",
+     "field": "story"
+    },
+    {
+     "item": "story:C353",
+     "entity": "specimen",
+     "id": "C353",
+     "field": "story"
+    },
+    {
+     "item": "story:C354",
+     "entity": "specimen",
+     "id": "C354",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261111-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-18T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:JP.X.10-yen",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": null
+    },
+    {
+     "item": "cite:AU.X.50-cents",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": null
+    },
+    {
+     "item": "cite:CR.X.10-colones",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": null
+    },
+    {
+     "item": "cite:EC.X.10-cents",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "cite:FR.X.10-centimes",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": null
+    },
+    {
+     "item": "cite:GG.X.8-doubles",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": null
+    },
+    {
+     "item": "cite:IN.X.2-rupees",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.1-peso",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.20-centavos",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": null
+    },
+    {
+     "item": "cite:AU.X.10-cents",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261111-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-21T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:AU.X.50-cents",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": null
+    },
+    {
+     "item": "fill:CR.X.10-colones",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": null
+    },
+    {
+     "item": "fill:EC.X.10-cents",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:FR.X.10-centimes",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": null
+    },
+    {
+     "item": "fill:GG.X.8-doubles",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": null
+    },
+    {
+     "item": "fill:IN.X.2-rupees",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": null
+    },
+    {
+     "item": "fill:JP.X.10-yen",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.1-peso",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.20-centavos",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": null
+    },
+    {
+     "item": "fill:NO.X.50-ore",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.2-nuevos-pesos",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.5-pesos",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261111-2",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-21T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:RU.X.20-roubles",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null
+    },
+    {
+     "item": "fill:VA.X.20-lire",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261111-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-11T15:26:13Z",
+   "lease_until": "2026-11-18T15:26:13Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0163",
+     "entity": "specimen",
+     "id": "C058",
+     "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-read-mint-20261111-1",
+   "agent": "gemini",
+   "kind": "read-mint",
+   "issued": "2026-11-11T15:35:27Z",
+   "lease_until": "2026-11-18T15:35:27Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C351",
+     "entity": "specimen",
+     "id": "C351",
+     "field": "issue"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261111-2",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-11T15:35:27Z",
+   "lease_until": "2026-11-18T15:35:27Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:CH.KM.24a.1:period",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "period"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261111-2",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-11T15:35:27Z",
+   "lease_until": "2026-11-18T15:35:27Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0151",
+     "entity": "specimen",
+     "id": "C036",
+     "field": "issue.year"
     }
    ]
   }
@@ -31907,6 +32616,12 @@
     "assignment": "HW-gemini-verify-20261010-1",
     "outcome": "attempted",
     "ts": "2026-10-14T15:41:37Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261105-5",
+    "outcome": "attempted",
+    "ts": "2026-11-11T15:26:13Z"
    }
   ],
   "mint:C037": [
@@ -37103,6 +37818,12 @@
     "assignment": "HW-gemini-verify-20261022-1",
     "outcome": "left out",
     "ts": "2026-11-08T01:27:20Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261108-1",
+    "outcome": "left out",
+    "ts": "2026-11-11T15:26:13Z"
    }
   ],
   "verify:type:MT.KM.129:catalogs": [
@@ -37111,6 +37832,12 @@
     "assignment": "HW-gemini-verify-20261022-1",
     "outcome": "attempted",
     "ts": "2026-11-08T01:27:20Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261108-1",
+    "outcome": "left out",
+    "ts": "2026-11-11T15:26:13Z"
    }
   ],
   "verify:type:MT.KM.128:catalogs": [
@@ -37119,6 +37846,52 @@
     "assignment": "HW-gemini-verify-20261022-2",
     "outcome": "attempted",
     "ts": "2026-11-08T01:27:20Z"
+   },
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-verify-20261108-1",
+    "outcome": "left out",
+    "ts": "2026-11-11T15:26:13Z"
+   }
+  ],
+  "fill:MX.X.2-nuevos-pesos": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-fill-20261104-1",
+    "outcome": "attempted",
+    "ts": "2026-11-11T15:26:13Z"
+   }
+  ],
+  "fill:MX.X.5-pesos": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-fill-20261104-1",
+    "outcome": "attempted",
+    "ts": "2026-11-11T15:26:13Z"
+   }
+  ],
+  "fill:NO.X.50-ore": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-fill-20261104-1",
+    "outcome": "attempted",
+    "ts": "2026-11-11T15:26:13Z"
+   }
+  ],
+  "fill:RU.X.20-roubles": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-fill-20261104-2",
+    "outcome": "attempted",
+    "ts": "2026-11-11T15:26:13Z"
+   }
+  ],
+  "fill:VA.X.20-lire": [
+   {
+    "agent": "muse",
+    "assignment": "HW-muse-fill-20261104-2",
+    "outcome": "attempted",
+    "ts": "2026-11-11T15:26:13Z"
    }
   ]
  },
