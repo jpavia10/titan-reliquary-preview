@@ -3,22 +3,20 @@
 
   python3 tools/gemini/image.py --prompt "..." --out /path/out.png [--model gemini-3-pro-image] [--aspect 1:1] [--image ref.png ...]
 
-Tries each key in turn (~/.gemini_key, ~/.gemini_key_old, ~/.gemini_key_3) and the next model in --fallback when one is out of quota.
+Tries each key in turn and the next model in --fallback when one is out of quota: the free keys first, the paid Titan key only for the best image
+model (tools/gemini/ask.py BEST; owner, 2026-11-11: "Only use the gemini paid stuff with best models like carbon. Use my free stuff as much as you
+want / possible").
 Prints one line: model, key number, bytes written. Exit 1 when no key and model could make it.
 """
 import argparse, base64, json, mimetypes, os, sys, urllib.error, urllib.request
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent"
-KEY_FILES = ("~/.gemini_key", "~/.gemini_key_old", "~/.gemini_key_3")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ask as A  # noqa: E402  (the one key rule: free keys first, the paid key only for BEST)
 
 
-def keys():
-    out = [os.environ["GEMINI_API_KEY"]] if os.environ.get("GEMINI_API_KEY") else []
-    for f in KEY_FILES:
-        p = os.path.expanduser(f)
-        if os.path.exists(p):
-            out.append(open(p).read().strip())
-    return out
+def keys(model):
+    return A.keys(model)
 
 
 def make(prompt, model, key, aspect, refs):
@@ -47,7 +45,7 @@ def main():
     prompt = open(o.prompt).read() if os.path.exists(o.prompt) else o.prompt
     last = ""
     for model in [o.model] + [m for m in o.fallback.split(",") if m]:
-        for i, k in enumerate(keys(), 1):
+        for i, k in enumerate(keys(model), 1):
             try:
                 data = make(prompt, model, k, o.aspect, o.image)
                 open(o.out, "wb").write(data)
