@@ -80,20 +80,19 @@ photograph, then the app. 356 specimens (350 coins up to C354, 6 tokens), 55 cou
 **Done on 2026-11-11:** Muse's 21 change files merged (12 new chat coins C343-C354 with 24 round photos, each read by Claude
 at full size; Grok's blind second read agrees), Gemini's Silver Eagle album prices fixed, scores rows (Muse 50-51, Grok 43,
 Gemini 66-68), sound-hunt finds filed (`docs/music/finds/`), Prometheus state written (`jpavia10/prometheus-hub`
-`docs/STATE_2026-11-11.md`), the 50 room layer sets pulled from Drive (art-intake branch, `intake/artreq_20261108-1500_room-layers-all/`).
+`docs/STATE_2026-11-11.md`); tr281: the 50 room layer sets reviewed and live (41 new, 7 remade), coin cutouts for C343-C354, the Gemini paid/free key rule.
 
 **Next, in order:**
-1. **Room layer sets** (theme framework step B, `docs/design/THEME_FRAMEWORK.md`): review each room's wide image at full size,
-   then `python3 tools/rooms/prep_plates.py SRC ID room_` and add `fd` to its entry in `wings/plate.js` `P`. Rooms with two
-   sets carry `.B` in the file name (six Gemini rooms re-uploaded at 18:02 UTC; four rooms made by both Muse (2048 px, no
-   suffix) and Gemini (1376 px, `.B`)). Then tune each theme's live layers on a real phone (step C).
+1. **Rooms, step C** (`docs/design/THEME_FRAMEWORK.md`): all 50 themes run on a full layer set since tr281 (review and choices:
+   `docs/art/requests/artreq_20261108-1500_room-layers-all.result.md`). Next: tune each theme's live layers (particles, light,
+   depth, start position `pan0`) on a real phone; abyss and glacier still use the 1376 px first sets (a sharper remake can be asked for).
 2. **Sound**: run the finds in `docs/music/finds/` through the music intake (`tools/music/fetch_classical.py`) and build a field
    intake for the room beds and details (none exists yet); listen before anything enters `audio/`.
 3. **Owner questions** in the app (`#questions`; new: `q-c351-date`, the France 10 centimes head and year) and open
    disagreements (`collection/disagreements.jsonl`; D0163 C058 1985 vs 1995 is with Grok as third reader).
 4. **Not done, still open:** the intake bridge was never installed by the owner (`docs/INTAKE_BRIDGE.md`), so every AI file is
    fetched by hand from Drive; nothing has been tested on a real phone.
-5. **Gemini API (owner, 2026-11-09 and 11-11):** the Titan key (`~/.gemini_key`) is on the paid tier ($5 plus a $10 bonus); Google's $300 trial credit does not pay for the Gemini API. Use it only for the best models (Gemini 4 Carbon / Argon, Nano Banana Pro); everything else runs on the two free keys, as much as they allow (rule 13, `tools/gemini/ask.py`).
+5. **Gemini API (owner, 2026-11-09 and 11-11):** the Titan key (`~/.gemini_key`) is on the paid tier ($5 plus a $10 bonus); Google's $300 Cloud trial credit does not pay for the Gemini API (AI Studio keys); it can pay for the same models through Vertex AI, which is not set up (owner asked 2026-11-11; it needs Vertex enabled, a credential through the session's secure form and network access to Vertex). Use the paid key only for the best models (Gemini 4 Carbon / Argon, Nano Banana Pro); everything else runs on the two free keys, as much as they allow (rule 13, `tools/gemini/ask.py`).
 
 ## How to work with the owner (2026-10-02)
 - Clear, small or obvious asks: just do them (standing "don't ask permission" still holds).

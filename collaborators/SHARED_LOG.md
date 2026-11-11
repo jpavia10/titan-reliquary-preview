@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-11] Claude: tr281, every theme's room is its own photograph (all 50 on a full layer set)
+- `artreq_20261108-1500_room-layers-all` reviewed set by set (Gemini 22 rooms, Muse 32; sheets + alignment measures): 41 new rooms and 7 sharper remakes in `art/rooms/`, `fd`, start positions and room names in `wings/plate.js`; abyss and glacier keep their first sets; nocturne and silkroad layers remade from Gemini's photos with Nano Banana Pro (paid key: the best image model). Result file `docs/art/requests/artreq_20261108-1500_room-layers-all.result.md`; scores Muse 52, Gemini 69 (8/10 each).
+- Gemini keys (owner): free keys first for every model, the paid Titan key only for Gemini 4 Carbon/Argon and Nano Banana Pro (`tools/gemini/ask.py` BEST). Coin cutouts for C343-C354 (the smoke check failed without them). Next: tune each room's live layers on a real phone (step C).
+
 ### [2026-11-11] Claude: tr280, catch-up + clean slate for the next model
 - Merged Muse's 21 files (12 new chat coins C343-C354 with 24 cut photos, read by Claude at full size; Grok's blind read agrees; new issuer Guernsey), Gemini's Silver Eagle album prices; Claude corrections (C037 mint below the date, TW.KM.551 drops a KM duplicate, four story/notes fixes); owner question q-c351-date. Scores Muse 50-51, Grok 43, Gemini 66-68 (row 68: invented Drive ids again).
 - Retired the code-built worlds (29 files + world tools; nothing loaded them since tr278). CLAUDE.md trimmed to a handoff (history in docs/history/CLAUDE_HISTORY.md). Prometheus: honest state in jpavia10/prometheus-hub docs/STATE_2026-11-11.md. Room layer sets for all 50 themes pulled to the art-intake branch for review.
