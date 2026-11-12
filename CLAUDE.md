@@ -82,7 +82,15 @@ at full size; Grok's blind second read agrees), Gemini's Silver Eagle album pric
 Gemini 66-68), sound-hunt finds filed (`docs/music/finds/`), Prometheus state written (`jpavia10/prometheus-hub`
 `docs/STATE_2026-11-11.md`); tr281: the 50 room layer sets reviewed and live (41 new, 7 remade), coin cutouts for C343-C354, the Gemini paid/free key rule.
 
+**New on 2026-11-12 (tr282): a new front, design first** (owner: "Build it based on what it should and could be not with a bias to
+what exists"). `next.html` + `next/app.js` + `next/next.css`: Hall, the Wall (all 356 as cutouts), specimen pages, the Vault, Worlds
+with the room, the opening in its order; on the same `data/` and `wings/plate.js`. The old front (`index.html`) is unchanged and stays
+until the new one covers questions, Study, Lab, Scene Studio and sound. Audit, numbers and plan: `docs/audit/2026-11-12-flagship-audit.md`;
+gate `tools/smoke/test_next_front.py` (CL-NEXT-01); measure with `tools/audit/perf.py [--page next.html]`.
+
 **Next, in order:**
+0. **The new front** (plan in the audit doc): owner's taste pass on his phone, then questions and albums, sound, Study and Lab, then
+   the swap (new front becomes `index.html`, old one `classic.html`).
 1. **Rooms, step C** (`docs/design/THEME_FRAMEWORK.md`): all 50 themes run on a full layer set since tr281 (review and choices:
    `docs/art/requests/artreq_20261108-1500_room-layers-all.result.md`). Next: tune each theme's live layers (particles, light,
    depth, start position `pan0`) on a real phone; abyss and glacier still use the 1376 px first sets (a sharper remake can be asked for).

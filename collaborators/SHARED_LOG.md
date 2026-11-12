@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-12] Claude: tr282, a new front built design first (next.html)
+- New page on the same data and photograph engine: Hall, the Wall (356 cutouts), specimen pages, the Vault, Worlds with the room, the opening in its order. Old front unchanged at index.html.
+- Same slow-phone profile: layout shift 0.44 to 0, requests 131 to 15, largest paint 7.7 s to 2.2 s. Audit and plan: docs/audit/2026-11-12-flagship-audit.md. Gate CL-NEXT-01 in the smoke workflow.
+
 ### [2026-11-11] Claude: tr281, every theme's room is its own photograph (all 50 on a full layer set)
 - `artreq_20261108-1500_room-layers-all` reviewed set by set (Gemini 22 rooms, Muse 32; sheets + alignment measures): 41 new rooms and 7 sharper remakes in `art/rooms/`, `fd`, start positions and room names in `wings/plate.js`; abyss and glacier keep their first sets; nocturne and silkroad layers remade from Gemini's photos with Nano Banana Pro (paid key: the best image model). Result file `docs/art/requests/artreq_20261108-1500_room-layers-all.result.md`; scores Muse 52, Gemini 69 (8/10 each).
 - Gemini keys (owner): free keys first for every model, the paid Titan key only for Gemini 4 Carbon/Argon and Nano Banana Pro (`tools/gemini/ask.py` BEST). Coin cutouts for C343-C354 (the smoke check failed without them). Next: tune each room's live layers on a real phone (step C).

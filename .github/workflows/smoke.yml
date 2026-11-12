@@ -58,6 +58,8 @@ jobs:
         run: python tools/photos/test_cutouts.py
       - name: Graphics quality setting
         run: python tools/smoke/test_regress_grk_q01.py
+      - name: CL-NEXT-01 the new front (next.html)
+        run: python tools/smoke/test_next_front.py
       - name: theme framework status page matches the code (docs/themes/FRAMEWORK_STATUS.md)
         run: python tools/themes/framework_status.py --check
       - if: failure()
