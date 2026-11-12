@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-11 15:43 UTC)
+# WORK QUEUE for Muse (updated 2026-11-12 03:00 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -47,20 +47,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-muse-read-mint-20261105-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-12  (fix list #57)
-
-Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
-
-**Done when:** One change file; unreadable coins left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-read-mint-20261105-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C006 · Germany · 1984 · 1 Deutsche Mark · DEM**: mint text now «unknown». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C006_rev.webp (original: https://drive.google.com/file/d/1WBYI3D2tv7ia4-2_WlLns9pgPiSY-Kv5/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
-- **C050 · Germany · 1982 · 1 Deutsche Mark · DEM**: mint text now «unknown (letter under date unclear (soft D/G candidate))». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C050_rev.webp (original: https://drive.google.com/file/d/1ff5n-Id6IAio-qlK4m0EkqBdwhpI1SW-/view). German mint letters: A (Berlin), D (Munich), F (Stuttgart), G (Karlsruhe), J (Hamburg). Usually near the date or under the eagle; on euro coins on the national side.
-- **C287 · Italy · 1979 · 50 lire · ITL**: mint text now «not read on photo». Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view). Look up where this country puts its mint mark (the Numista entry shows it); many coins carry none.
-
-### 2. HW-muse-verify-20261107-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-14  (fix list #18)
+### 1. HW-muse-verify-20261107-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-14  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -89,6 +76,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 68; expired: 10.
+- Assignments answered: 68; expired: 11.
 - Your facts checked by another contributor: 826 (809 confirmed, 17 wrong; error rate 2.1 %, 95 % range 1-3 %). Checks you did for others: 398. Open disagreements you are part of: 8. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 15 %.

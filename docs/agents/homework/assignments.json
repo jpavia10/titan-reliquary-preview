@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-11T15:43:48Z",
+ "updated": "2026-11-12T03:00:17Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -168,7 +168,9 @@
   "gemini-cite-20261111": 1,
   "gemini-fill-20261111": 2,
   "grok-arbitrate-20261111": 2,
-  "gemini-read-mint-20261111": 1
+  "gemini-read-mint-20261111": 1,
+  "gemini-read-mint-20261112": 1,
+  "gemini-verify-20261112": 1
  },
  "assignments": [
   {
@@ -24709,9 +24711,13 @@
    "kind": "verify",
    "issued": "2026-11-04T15:52:55Z",
    "lease_until": "2026-11-11T15:52:55Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-12T03:00:17Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "verify:specimen:C053:issue.mint_marks",
@@ -26294,9 +26300,13 @@
    "kind": "read-mint",
    "issued": "2026-11-05T02:29:16Z",
    "lease_until": "2026-11-12T02:29:16Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-12T03:00:17Z",
+   "result": {
+    "items": 3,
+    "closed": 0,
+    "left": 3
+   },
    "items": [
     {
      "item": "mint:C006",
@@ -31763,6 +31773,54 @@
      "entity": "specimen",
      "id": "C036",
      "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-read-mint-20261112-1",
+   "agent": "gemini",
+   "kind": "read-mint",
+   "issued": "2026-11-12T03:00:17Z",
+   "lease_until": "2026-11-19T03:00:17Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "mint:C006",
+     "entity": "specimen",
+     "id": "C006",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C050",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "issue"
+    },
+    {
+     "item": "mint:C287",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261112-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-12T03:00:17Z",
+   "lease_until": "2026-11-19T03:00:17Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C053:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C053",
+     "field": "issue.mint_marks"
     }
    ]
   }
