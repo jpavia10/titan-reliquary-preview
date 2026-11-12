@@ -87,19 +87,6 @@
     }
    ]
   },
-  "gemini-api": {
-   "name": "Gemini API",
-   "sheets": [
-    {
-     "id": "HW-gemini-api-verify-20261104-2",
-     "kind": "verify",
-     "due": "2026-11-11",
-     "path": "docs/agents/homework/sheets/HW-gemini-api-verify-20261104-2.jsonl",
-     "sha256": "020bdb9ba3172e9d348c5bd1bf6e5995850af3fc7713d8ba30e8d31a30e944dd",
-     "lines": 1
-    }
-   ]
-  },
   "gemini": {
    "name": "Gemini",
    "sheets": [
@@ -246,20 +233,28 @@
      "path": "docs/agents/homework/sheets/HW-gemini-verify-20261111-2.jsonl",
      "sha256": "79e2f70706fc2cc88ace152778051f47e0cb2d06063647e3b7a81b4e52676fdf",
      "lines": 1
+    },
+    {
+     "id": "HW-gemini-read-mint-20261112-1",
+     "kind": "read-mint",
+     "due": "2026-11-19",
+     "path": "docs/agents/homework/sheets/HW-gemini-read-mint-20261112-1.jsonl",
+     "sha256": "5c31725325bb4485bd651799ee38d145c4f0137a85a8fcf13b60f7ae1fbf9f51",
+     "lines": 6
+    },
+    {
+     "id": "HW-gemini-verify-20261112-1",
+     "kind": "verify",
+     "due": "2026-11-19",
+     "path": "docs/agents/homework/sheets/HW-gemini-verify-20261112-1.jsonl",
+     "sha256": "4332c072169e92612616c76c19ff83df9d9682f39c6a9edb84756a0717707824",
+     "lines": 1
     }
    ]
   },
   "muse": {
    "name": "Muse",
    "sheets": [
-    {
-     "id": "HW-muse-read-mint-20261105-1",
-     "kind": "read-mint",
-     "due": "2026-11-12",
-     "path": "docs/agents/homework/sheets/HW-muse-read-mint-20261105-1.jsonl",
-     "sha256": "979b205449813c9930358730450184d3d3e94ca2557d7f2f1ab5d64748b339ab",
-     "lines": 6
-    },
     {
      "id": "HW-muse-verify-20261107-1",
      "kind": "verify",
