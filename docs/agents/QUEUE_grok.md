@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-12 03:00 UTC)
+# WORK QUEUE for Grok (updated 2026-11-13 02:38 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -69,50 +69,7 @@ For each coin, find the retail value for its type, date and mint in the grade it
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
-### 3. HW-grok-verify-20261106-1 · Second reader · Check 33 facts another AI wrote · due 2026-11-13  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261106-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **design of C235 · Guatemala · 1934 · 10 centavos · GTQ** `type GT.KM.239.2 design.text` = `arms · Quetzal · crossed rifles/swords · laurel · REPUBLICA DE GUATEMALA · 0.720 · 1934 /…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C077 · Switzerland · 1991 · 2 francs · CHF** `type CH.KM.21a.3 design.text` = `standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / A…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C255 · Netherlands · 1892 · 1 cent · NLG** `type NL.KM.107.2 design.text` = `obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWA…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C094 · Switzerland · 1986 · 1 franc · CHF** `type CH.KM.24a.3 design.text` = `standing Helvetia within 23 stars (obv) · value in oak + alpine wreath (rev)` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C261 · USSR · 1932 · 15 kopecks · SUR** `type SU.Y.97 design.text` = `obverse USSR arms · reverse worker with hammer left · shield 15 · КОП. · date · rim СОЮЗ …` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C260 · USSR · 1931 · 3 kopecks · SUR** `type SU.Y.93 design.text` = `obverse USSR arms hammer & sickle · reverse big 3 · КОПЕЙКИ · wheat ears · 1931` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C042 · USSR · 1962 · 1 kopek · SUR** `type SU.Y.126a design.text` = `obverse USSR arms СССР (15-ribbon type 1961–91) · reverse big 1 КОПЕЙКА · wheat ears · da…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C277 · Bermuda · 2004 · 10 cents · BMD** `type BM.X.10-cents design.text` = `The obverse shows Queen Elizabeth the Second wearing a tiara and facing right, with the w…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C259 · Mexico · 1940 · 1 centavo · MXP** `type MX.KM.415 design.text` = `national arms / ESTADOS UNIDOS MEXICANOS (obv) · value big 1 over shaded ¢ monogram · lau…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C069 · Jamaica · 1975 · 50 cents · JMD** `type JM.KM.65 design.text` = `arms · crocodile · Taino supporters · OUT OF MANY, ONE PEOPLE · JAMAICA · FIFTY CENTS · 1…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C244 · Mexico · 1964 · 20 centavos · MXP** `type MX.KM.440 design.text` = `reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztaccíhuatl · radiant Phrygia…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C253 · Jamaica · 1993 · 10 cents · JMD** `type JM.KM.146 design.text` = `arms · crocodile crest · Taino supporters · pineapple cross · OUT OF MANY, ONE PEOPLE · J…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C166 · Mexico · 1944 · 5 centavos · MXP** `type MX.KM.424 design.text` = `obverse Josefa Ortiz de Domínguez left · CINCO CENTAVOS · 1944 · Mo · reverse national ar…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)** `type MX.KM.502 design.text` = `value side $ · big 5 · 1987 · Mo · scroll ornament · beaded rim · national arms reverse` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)** `type MX.KM.604 design.text` = `value side $ · big 2 · 2010 · Mo · Aztec Sun Stone / Ring of Days glyphs on outer ring · …` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C210 · South Korea · 2000 · 100 won · KRW** `type KR.KM.35.2 design.text` = `obverse Marianne/Liberty left (Henri Lagriffoul) · reverse 10 CENTIMES · olive + wheat · …` (written by Gemini: «https://en.numista.com/1037 (Numista N# 1037, KM# 9, sister 100 Won Admiral Yi Sun-sin entry): Obverse "Admiral Yi Sun-sin (1545-1598) ... E»)
-- **design of C247 · South Korea · 1966 · 1 won · KRW** `type KR.KM.4 design.text` = `Rose of Sharon (Hibiscus syriacus) · 일원 · 한국은행 // THE BANK OF KOREA · big 1 · 1966` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C219 · Jamaica · 2015 · 1 dollar · JMD** `type JM.KM.189 design.text` = `reverse arms · crocodile crest · Taino supporters · JAMAICA · ONE DOLLAR · 2015 · heptagon` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C246 · Philippines · 1971 · 10 sentimos · PHP** `type PH.KM.198 design.text` = `portrait Francisco Baltazar (Balagtas) left · SAMPUNG SENTIMOS · big 10 · arms / date rev…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C207 · Trinidad and Tobago · 2016 · 10 cents · TTD** `type TT.KM.31 design.text` = `obverse arms · Scarlet Ibis + Cocrico · REPUBLIC OF TRINIDAD AND TOBAGO · 2016 · motto ri…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C220 · Japan · 1982 · 10 yen · JPY** `type JP.Y.73a design.text` = `Phoenix Hall / Byodoin temple · 日本国 · 十円 // big 10 · bay laurel (evergreen, tokiwa) wreat…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C206 · Japan · 1971 · 1 yen · JPY** `type JP.Y.74 design.text` = `young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)** `type MX.KM.936 design.text` = `value side (shown) 2013 at top · large 50¢ center · Mo mint mark below · stylized Aztec C…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C274 · Mexico · 1995 · 10 centavos · MXN** `type MX.X.10-centavos design.text` = `The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cact…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD** `type TW.KM.551 design.text` = `obverse Chiang Kai-shek left · 中華民國 and the year (C200: 九十七年 = ROC year 97 = 2008) · reve…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C266 · South Korea · 2012 · 10 won · KRW** `type KR.KM.103 design.text` = `value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse …` (written by Gemini: «https://en.numista.com/2796 (Numista N# 2796, KM# 6a, sister 10 Won Dabotap Pagoda entry): Obverse "Dabotap Pagoda ... Engraver: Kang Bak (강»)
-- **design of C047 · Brazil · 2006 · 5 centavos · BRL** `type BR.KM.648.1 design.text` = `obverse Tiradentes portrait · BRASIL · dove & Inconfidência triangle · reverse Southern C…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C203 · India · 2001 · 1 rupee · INR** `type IN.KM.92.2 design.text` = `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion C…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C208 · Turkey · 2011 · 10 kuruş · TRY** `type TR.KM.1241 design.text` = `obverse Atatürk portrait / state legend · reverse crescent+star · big 10 · KURUŞ · date ·…` (written by Claude: «Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin») [audit sample]
-- **design of C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)** `type MX-CHI.KM.612 design.text` = `reverse large 5 pierced by vertical sword/spear · centavo monogram · EJERCITO CONSTITUCIO…` (written by Gemini: «https://en.numista.com/32634 and C114_Mexico_Chihuahua_1914_5Centavos_rev.jpeg (Numista #32634 KM# 612 Obverse: Phrygian Liberty cap and ray»)
-- **design of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)** `type VN-SOV.KM.1 design.text` = `obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Ge…` (written by Claude: «disagreement D0127 settled for the claim (Gemini): the phone photo photos/p1/C258_rev.webp shows one rice plant dividing 20 SU under VIỆT-NA»)
-- **design of C016 · Costa Rica · 1985 · 5 colones · CRC** `type CR.KM.214.2 design.text` = `obverse national arms in heptagon · AMERICA CENTRAL · large ship · reverse 5 COLONES · B.…` (written by Gemini: «https://en.numista.com/catalogue/pieces69.html (Obverse: arms of Costa Rica with COSTA RICA AMERICA CENTRAL REPUBLICA DE COSTA RICA 1985 wit»)
-- **design of C198 · Netherlands · 1948 · 1 cent · NLG** `type NL.KM.170 design.text` = `obverse WILHELMINA KONINGIN DER NEDERLANDEN · reverse 1 · CENT · date · fish + caduceus` (written by Gemini: «https://en.numista.com/catalogue/pieces2562.html (Obverse: Queen Wilhelmina facing left, WILHELMINA KONINGIN DER NEDERLANDEN; Reverse: 1, di»)
-
-### 4. HW-grok-arbitrate-20261106-1 · Arbiter · Settle 3 disagreements between two AIs · due 2026-11-13  (fix list #18)
+### 3. HW-grok-arbitrate-20261106-1 · Arbiter · Settle 3 disagreements between two AIs · due 2026-11-13  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -125,7 +82,7 @@ Items:
 - **D0155 DE.KM.105 design.text**: record `oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse` (model:claude: «Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the v…») vs claim `oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 bet…` (model:gemini: «https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSC…»)
 - **D0156 C163 issue.mint_marks**: record `["BSP"]` (None: «null») vs claim `[]` (model:gemini: «photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1…»)
 
-### 5. HW-grok-verify-20261107-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-14  (fix list #18)
+### 4. HW-grok-verify-20261107-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-14  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -210,7 +167,7 @@ Items:
 - **ruler of C338 · Jamaica · 1977 · 10 cents · JMD** `type JM.X.10-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces934.html ("Issuer: Jamaica | Queen: Elizabeth II (1952-2022) | Years: 1969-1989")»)
 - **mintage of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.210 issues.3.mintage`
 
-### 6. HW-grok-arbitrate-20261107-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-14  (fix list #18)
+### 5. HW-grok-arbitrate-20261107-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-14  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -226,7 +183,7 @@ Items:
 - **D0161 GB.KM.988 design.text**: record `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)` (model:muse-spark: «Numista N#876 https://en.numista.com/catalogue/pieces876.html read 2026-10-24: Obverse 4th portrait of Elizabeth II (Ia…») vs claim `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Christophe…` (model:gemini: «https://en.numista.com/catalogue/pieces876.html ("Obverse: Fourth crowned portrait of Queen Elizabeth II right, IRB; Re…»)
 - **D0162 GB.KM.938b design.text**: record `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)` (model:muse-spark: «Numista N#879 https://en.numista.com/catalogue/pieces879.html Obverse/Reverse read 2026-10-24: 3rd portrait of Elizabet…») vs claim `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant guardant · TEN PENCE …` (model:gemini: «https://en.numista.com/catalogue/pieces879.html ("Obverse: Third crowned portrait of Queen Elizabeth II right, RDM (Rap…»)
 
-### 7. HW-grok-verify-20261108-1 · Second reader · Check 27 facts another AI wrote · due 2026-11-15  (fix list #18)
+### 6. HW-grok-verify-20261108-1 · Second reader · Check 27 facts another AI wrote · due 2026-11-15  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -263,7 +220,7 @@ Items:
 - **year of C224 · Germany · 10 Pfennig · DEM** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C224 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C224_obv.webp (original: https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view)
 - **year of C240 · Italy · 100 lire · ITL** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C240 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C240_rev.webp (original: https://drive.google.com/file/d/1EYCNaNZjAuuVbxcSucl3igc3w6KiU3yR/view)
 
-### 8. HW-grok-verify-20261108-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-15  (fix list #18)
+### 7. HW-grok-verify-20261108-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-15  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -274,7 +231,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **mint of C037 · Germany · 2002 · 10 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C037 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C037_obv.webp (original: https://drive.google.com/file/d/1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c/view)
 
-### 9. HW-grok-arbitrate-20261111-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
+### 8. HW-grok-arbitrate-20261111-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -285,7 +242,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0163 C058 issue.year**: record `1985` (model:gemini: «C058_rev.webp (raw photo C058_Germany_1985_50Pfennig_rev.jpeg): date '1985' clearly read along the bottom-right rim on …») vs claim `1995` (model:muse-spark: «C058_rev.webp - date at the bottom of the reverse reads 1995 (first and last digits worn, the two 9s clear)»)
 
-### 10. HW-grok-arbitrate-20261111-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
+### 9. HW-grok-arbitrate-20261111-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -338,6 +295,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 47; expired: 13.
+- Assignments answered: 47; expired: 14.
 - Your facts checked by another contributor: 1140 (1124 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 15 %.

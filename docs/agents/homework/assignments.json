@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-12T03:00:17Z",
+ "updated": "2026-11-13T02:38:16Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -170,7 +170,8 @@
   "grok-arbitrate-20261111": 2,
   "gemini-read-mint-20261111": 1,
   "gemini-read-mint-20261112": 1,
-  "gemini-verify-20261112": 1
+  "gemini-verify-20261112": 1,
+  "muse-verify-20261113": 1
  },
  "assignments": [
   {
@@ -29776,9 +29777,13 @@
    "kind": "verify",
    "issued": "2026-11-06T02:27:32Z",
    "lease_until": "2026-11-13T02:27:32Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-13T02:38:16Z",
+   "result": {
+    "items": 33,
+    "closed": 0,
+    "left": 33
+   },
    "items": [
     {
      "item": "verify:type:GT.KM.239.2:design.text",
@@ -31821,6 +31826,216 @@
      "entity": "specimen",
      "id": "C053",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261113-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-13T02:38:16Z",
+   "lease_until": "2026-11-20T02:38:16Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GT.KM.239.2:design.text",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.21a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.21a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:design.text",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.97:design.text",
+     "entity": "type",
+     "id": "SU.Y.97",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.93:design.text",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.415:design.text",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.65:design.text",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.440:design.text",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.146:design.text",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.424:design.text",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.502:design.text",
+     "entity": "type",
+     "id": "MX.KM.502",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.4:design.text",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.604:design.text",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.189:design.text",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:PH.KM.198:design.text",
+     "entity": "type",
+     "id": "PH.KM.198",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TT.KM.31:design.text",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JP.Y.73a:design.text",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JP.Y.74:design.text",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.936:design.text",
+     "entity": "type",
+     "id": "MX.KM.936",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:design.text",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BR.KM.648.1:design.text",
+     "entity": "type",
+     "id": "BR.KM.648.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:IN.KM.92.2:design.text",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TR.KM.1241:design.text",
+     "entity": "type",
+     "id": "TR.KM.1241",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX-CHI.KM.612:design.text",
+     "entity": "type",
+     "id": "MX-CHI.KM.612",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:VN-SOV.KM.1:design.text",
+     "entity": "type",
+     "id": "VN-SOV.KM.1",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CR.KM.214.2:design.text",
+     "entity": "type",
+     "id": "CR.KM.214.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:design.text",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.170:design.text",
+     "entity": "type",
+     "id": "NL.KM.170",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.103:design.text",
+     "entity": "type",
+     "id": "KR.KM.103",
+     "field": "design.text"
     }
    ]
   }
