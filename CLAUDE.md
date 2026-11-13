@@ -71,6 +71,8 @@ Current build, counts and collection hash: `data/status.json` (generated on ever
 
 ## Where things stand (2026-11-11) and what is next
 
+**PAUSED (owner, 2026-11-12: "I sense you stripping a lot from titan so leave it for now. Focus on prometheus ... I am frustrated by your titan work overall"): do not continue the new front or change the app until he says. Work is in `jpavia10/prometheus-hub`; read its `docs/HANDOVER.md`.**
+
 Read this first in a new session. Older history: `docs/history/CLAUDE_HISTORY.md`; the shared log: `collaborators/SHARED_LOG.md`.
 
 **Live:** every theme is a photograph with live layers (`wings/plate.js`, owner 2026-11-08: no code-built 3D worlds; the old
