@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-13T02:38:16Z",
+ "updated": "2026-11-14T02:27:40Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -171,7 +171,9 @@
   "gemini-read-mint-20261111": 1,
   "gemini-read-mint-20261112": 1,
   "gemini-verify-20261112": 1,
-  "muse-verify-20261113": 1
+  "muse-verify-20261113": 1,
+  "muse-arbitrate-20261114": 1,
+  "muse-verify-20261114": 1
  },
  "assignments": [
   {
@@ -30166,9 +30168,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-06T15:30:08Z",
    "lease_until": "2026-11-13T15:30:08Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-14T02:27:40Z",
+   "result": {
+    "items": 3,
+    "closed": 0,
+    "left": 3
+   },
    "items": [
     {
      "item": "arb:D0153",
@@ -30246,9 +30252,13 @@
    "kind": "verify",
    "issued": "2026-11-07T01:56:41Z",
    "lease_until": "2026-11-14T01:56:41Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-14T02:27:40Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "verify:specimen:C298:issue.mint_marks",
@@ -32036,6 +32046,54 @@
      "entity": "type",
      "id": "KR.KM.103",
      "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261114-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-14T02:27:40Z",
+   "lease_until": "2026-11-21T02:27:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0153",
+     "entity": "type",
+     "id": "MX.KM.443",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0155",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0156",
+     "entity": "specimen",
+     "id": "C163",
+     "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261114-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-14T02:27:40Z",
+   "lease_until": "2026-11-21T02:27:40Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C298:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C298",
+     "field": "issue.mint_marks"
     }
    ]
   }

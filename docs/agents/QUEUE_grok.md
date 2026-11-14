@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-13 02:38 UTC)
+# WORK QUEUE for Grok (updated 2026-11-14 02:27 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -69,20 +69,7 @@ For each coin, find the retail value for its type, date and mint in the grade it
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
-### 3. HW-grok-arbitrate-20261106-1 · Arbiter · Settle 3 disagreements between two AIs · due 2026-11-13  (fix list #18)
-
-Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
-
-**Done when:** One change file; unsettled items left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261106-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **D0153 MX.KM.443 design.text**: record `national arms / ESTADOS UNIDOS MEXICANOS (obv, not shown) · Balanza scales · scroll LEY ·…` (None: «null») vs claim `obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · re…` (model:gemini: «https://en.numista.com/catalogue/pieces972.html Obverse: Mexican coat of arms with ESTADOS UNIDOS MEXICANOS; Reverse: L…»)
-- **D0155 DE.KM.105 design.text**: record `oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse` (model:claude: «Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the v…») vs claim `oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 bet…` (model:gemini: «https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSC…»)
-- **D0156 C163 issue.mint_marks**: record `["BSP"]` (None: «null») vs claim `[]` (model:gemini: «photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1…»)
-
-### 4. HW-grok-verify-20261107-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-14  (fix list #18)
+### 3. HW-grok-verify-20261107-1 · Second reader · Check 75 facts another AI wrote · due 2026-11-14  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -167,7 +154,7 @@ Items:
 - **ruler of C338 · Jamaica · 1977 · 10 cents · JMD** `type JM.X.10-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces934.html ("Issuer: Jamaica | Queen: Elizabeth II (1952-2022) | Years: 1969-1989")»)
 - **mintage of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.210 issues.3.mintage`
 
-### 5. HW-grok-arbitrate-20261107-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-14  (fix list #18)
+### 4. HW-grok-arbitrate-20261107-1 · Arbiter · Settle 6 disagreements between two AIs · due 2026-11-14  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -183,7 +170,7 @@ Items:
 - **D0161 GB.KM.988 design.text**: record `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Ironside)` (model:muse-spark: «Numista N#876 https://en.numista.com/catalogue/pieces876.html read 2026-10-24: Obverse 4th portrait of Elizabeth II (Ia…») vs claim `obverse Ian Rank-Broadley Elizabeth II · reverse crowned thistle · FIVE PENCE (Christophe…` (model:gemini: «https://en.numista.com/catalogue/pieces876.html ("Obverse: Fourth crowned portrait of Queen Elizabeth II right, IRB; Re…»)
 - **D0162 GB.KM.938b design.text**: record `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant · TEN PENCE (Ironside)` (model:muse-spark: «Numista N#879 https://en.numista.com/catalogue/pieces879.html Obverse/Reverse read 2026-10-24: 3rd portrait of Elizabet…») vs claim `obverse Raphael Maklouf Elizabeth II · reverse crowned lion passant guardant · TEN PENCE …` (model:gemini: «https://en.numista.com/catalogue/pieces879.html ("Obverse: Third crowned portrait of Queen Elizabeth II right, RDM (Rap…»)
 
-### 6. HW-grok-verify-20261108-1 · Second reader · Check 27 facts another AI wrote · due 2026-11-15  (fix list #18)
+### 5. HW-grok-verify-20261108-1 · Second reader · Check 27 facts another AI wrote · due 2026-11-15  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -220,7 +207,7 @@ Items:
 - **year of C224 · Germany · 10 Pfennig · DEM** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C224 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C224_obv.webp (original: https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view)
 - **year of C240 · Italy · 100 lire · ITL** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C240 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C240_rev.webp (original: https://drive.google.com/file/d/1EYCNaNZjAuuVbxcSucl3igc3w6KiU3yR/view)
 
-### 7. HW-grok-verify-20261108-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-15  (fix list #18)
+### 6. HW-grok-verify-20261108-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-15  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -231,7 +218,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **mint of C037 · Germany · 2002 · 10 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C037 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C037_obv.webp (original: https://drive.google.com/file/d/1eeusgrv1o7ZzUa7myUQdAsjt32YBEr0c/view)
 
-### 8. HW-grok-arbitrate-20261111-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
+### 7. HW-grok-arbitrate-20261111-1 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -242,7 +229,7 @@ Two contributors disagree; you are neither of them. Read both sources and find a
 Items:
 - **D0163 C058 issue.year**: record `1985` (model:gemini: «C058_rev.webp (raw photo C058_Germany_1985_50Pfennig_rev.jpeg): date '1985' clearly read along the bottom-right rim on …») vs claim `1995` (model:muse-spark: «C058_rev.webp - date at the bottom of the reverse reads 1995 (first and last digits worn, the two 9s clear)»)
 
-### 9. HW-grok-arbitrate-20261111-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
+### 8. HW-grok-arbitrate-20261111-2 · Arbiter · Settle 1 disagreements between two AIs · due 2026-11-18  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -295,6 +282,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 47; expired: 14.
+- Assignments answered: 47; expired: 15.
 - Your facts checked by another contributor: 1140 (1124 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 15 %.

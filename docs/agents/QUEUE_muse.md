@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-13 02:38 UTC)
+# WORK QUEUE for Muse (updated 2026-11-14 02:27 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -47,18 +47,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-muse-verify-20261107-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-14  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261107-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
-
-### 2. HW-muse-verify-20261113-1 · Second reader · Check 33 facts another AI wrote · due 2026-11-20  (fix list #18)
+### 1. HW-muse-verify-20261113-1 · Second reader · Check 33 facts another AI wrote · due 2026-11-20  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -101,6 +90,30 @@ Items:
 - **design of C198 · Netherlands · 1948 · 1 cent · NLG** `type NL.KM.170 design.text` = `obverse WILHELMINA KONINGIN DER NEDERLANDEN · reverse 1 · CENT · date · fish + caduceus` (written by Gemini: «https://en.numista.com/catalogue/pieces2562.html (Obverse: Queen Wilhelmina facing left, WILHELMINA KONINGIN DER NEDERLANDEN; Reverse: 1, di»)
 - **design of C266 · South Korea · 2012 · 10 won · KRW** `type KR.KM.103 design.text` = `value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse …` (written by Gemini: «https://en.numista.com/2796 (Numista N# 2796, KM# 6a, sister 10 Won Dabotap Pagoda entry): Obverse "Dabotap Pagoda ... Engraver: Kang Bak (강»)
 
+### 2. HW-muse-arbitrate-20261114-1 · Arbiter · Settle 3 disagreements between two AIs · due 2026-11-21  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261114-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0153 MX.KM.443 design.text**: record `national arms / ESTADOS UNIDOS MEXICANOS (obv, not shown) · Balanza scales · scroll LEY ·…` (None: «null») vs claim `obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · re…` (model:gemini: «https://en.numista.com/catalogue/pieces972.html Obverse: Mexican coat of arms with ESTADOS UNIDOS MEXICANOS; Reverse: L…»)
+- **D0155 DE.KM.105 design.text**: record `oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse` (model:claude: «Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the v…») vs claim `oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 bet…` (model:gemini: «https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSC…»)
+- **D0156 C163 issue.mint_marks**: record `["BSP"]` (None: «null») vs claim `[]` (model:gemini: «photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1…»)
+
+### 3. HW-muse-verify-20261114-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-21  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261114-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -119,6 +132,6 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 68; expired: 11.
+- Assignments answered: 68; expired: 12.
 - Your facts checked by another contributor: 826 (809 confirmed, 17 wrong; error rate 2.1 %, 95 % range 1-3 %). Checks you did for others: 398. Open disagreements you are part of: 8. Values planted wrong on purpose in your checks: you caught 8 of 8.
 - Share of your new facts that get checked first: 15 %.
