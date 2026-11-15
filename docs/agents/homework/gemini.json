@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-14T02:27:40Z",
+ "updated": "2026-11-15T01:56:48Z",
  "assignments": [
   {
    "id": "HW-gemini-cite-20261104-1",
@@ -9828,6 +9828,57 @@
      "inputs": [
       "C053_obv.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-research-20261115-1",
+   "agent": "gemini",
+   "kind": "research",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-25T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "research:C300:35aac561",
+     "entity": "specimen",
+     "id": "C300",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "research:C300:35aac561",
+     "kind": "research",
+     "entity": "specimen",
+     "id": "C300",
+     "field": null,
+     "coins": [
+      "C300"
+     ],
+     "label": "C300 · Bahamas · 1984 · 25 cents · BSD",
+     "authors": [],
+     "payload": {
+      "question": "Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).",
+      "record": {
+       "country": "Bahamas",
+       "year": "1984",
+       "denom": "25 cents · BSD",
+       "mint": "not read (no photo of this coin yet)",
+       "refs": "KM#63.1 · Schön#38 · Numista#9352",
+       "metal": "nickel · 6.90 g · 24.26 mm · Reeded",
+       "specs": "thickness 1.9 mm · medal alignment",
+       "mintage": "unknown",
+       "design": "obverse coat of arms of the Bahamas · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · reverse Bahamian native sloop under sail · TWENTYFIVE CENTS · Arnold Machin",
+       "ruler": "Elizabeth II"
+      },
+      "type": "BS.X.25-cents",
+      "remove_with": []
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

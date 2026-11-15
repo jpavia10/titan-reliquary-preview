@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-14T02:27:40Z",
+ "updated": "2026-11-15T01:56:48Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -173,7 +173,12 @@
   "gemini-verify-20261112": 1,
   "muse-verify-20261113": 1,
   "muse-arbitrate-20261114": 1,
-  "muse-verify-20261114": 1
+  "muse-verify-20261114": 1,
+  "gemini-research-20261115": 1,
+  "grok-value-20261115": 1,
+  "gemini-api-verify-20261115": 1,
+  "grok-verify-20261115": 2,
+  "grok-arbitrate-20261115": 1
  },
  "assignments": [
   {
@@ -24426,9 +24431,13 @@
    "kind": "research",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-14T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-15T01:56:48Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "research:C300:35aac561",
@@ -24472,9 +24481,13 @@
    "kind": "value",
    "issued": "2026-11-04T15:27:14Z",
    "lease_until": "2026-11-14T15:27:14Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-15T01:56:48Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1
+   },
    "items": [
     {
      "item": "value:C300",
@@ -30307,9 +30320,13 @@
    "kind": "verify",
    "issued": "2026-11-07T16:53:12Z",
    "lease_until": "2026-11-14T16:53:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-15T01:56:48Z",
+   "result": {
+    "items": 75,
+    "closed": 0,
+    "left": 75
+   },
    "items": [
     {
      "item": "verify:type:CH.KM.24a.1:issues.4.mintage",
@@ -30769,9 +30786,13 @@
    "kind": "arbitrate",
    "issued": "2026-11-07T16:53:12Z",
    "lease_until": "2026-11-14T16:53:12Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-15T01:56:48Z",
+   "result": {
+    "items": 6,
+    "closed": 0,
+    "left": 6
+   },
    "items": [
     {
      "item": "arb:D0157",
@@ -30817,9 +30838,13 @@
    "kind": "verify",
    "issued": "2026-11-08T01:27:20Z",
    "lease_until": "2026-11-15T01:27:20Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-15T01:56:48Z",
+   "result": {
+    "items": 27,
+    "closed": 0,
+    "left": 27
+   },
    "items": [
     {
      "item": "verify:specimen:C078:issue.mint_marks",
@@ -32094,6 +32119,738 @@
      "entity": "specimen",
      "id": "C298",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-research-20261115-1",
+   "agent": "gemini",
+   "kind": "research",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-25T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "research:C300:35aac561",
+     "entity": "specimen",
+     "id": "C300",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-value-20261115-1",
+   "agent": "grok",
+   "kind": "value",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-25T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "value:C300",
+     "entity": "specimen",
+     "id": "C300",
+     "field": "value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-api-verify-20261115-1",
+   "agent": "gemini-api",
+   "kind": "verify",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-22T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C078:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C078",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C068:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C165:issue.year",
+     "entity": "specimen",
+     "id": "C165",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C246:issue.year",
+     "entity": "specimen",
+     "id": "C246",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C076:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:SE.KM.826a:denomination.value",
+     "entity": "type",
+     "id": "SE.KM.826a",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:TT.KM.31:denomination.value",
+     "entity": "type",
+     "id": "TT.KM.31",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.108:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.108",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.988:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C227:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C227",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:DE.KM.211:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.211",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:DE.KM.255:denomination.value",
+     "entity": "type",
+     "id": "DE.KM.255",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:GB.KM.1110d:denomination.value",
+     "entity": "type",
+     "id": "GB.KM.1110d",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:IT.KM.214:denomination.value",
+     "entity": "type",
+     "id": "IT.KM.214",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:NL.KM.239:denomination.value",
+     "entity": "type",
+     "id": "NL.KM.239",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:type:PT.KM.744:denomination.value",
+     "entity": "type",
+     "id": "PT.KM.744",
+     "field": "denomination.value"
+    },
+    {
+     "item": "verify:specimen:C079:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C079",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C220:issue.year",
+     "entity": "specimen",
+     "id": "C220",
+     "field": "issue.year"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261115-1",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-22T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.4.mintage",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.4.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:catalogs",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:catalogs",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.1.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.3.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:catalogs",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:catalogs",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:issues.0.mintage",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:composition.text",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:composition.text",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:catalogs",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:issues.0.mintage",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:VA.X.20-lire:composition.text",
+     "entity": "type",
+     "id": "VA.X.20-lire",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.1:issues.3.mintage",
+     "entity": "type",
+     "id": "CH.KM.24a.1",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:catalogs",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:issues.0.mintage",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:composition.text",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:ruler",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:JP.X.100-yen:period",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:issues.0.mintage",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.half-penny:composition.text",
+     "entity": "type",
+     "id": "GB.X.half-penny",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:catalogs",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:issues.1.mintage",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.2-nuevos-pesos:composition.text",
+     "entity": "type",
+     "id": "MX.X.2-nuevos-pesos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:catalogs",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CH.KM.26:issues.1.mintage",
+     "entity": "type",
+     "id": "CH.KM.26",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:issues.0.mintage",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:issues.1.mintage",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:FR.X.2-francs:composition.text",
+     "entity": "type",
+     "id": "FR.X.2-francs",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.5-pesos:composition.text",
+     "entity": "type",
+     "id": "MX.X.5-pesos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:catalogs",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:issues.0.mintage",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.1-shilling:composition.text",
+     "entity": "type",
+     "id": "GB.X.1-shilling",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:RU.X.20-roubles:composition.text",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:catalogs",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:issues.0.mintage",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:BS.X.1-cent.2:composition.text",
+     "entity": "type",
+     "id": "BS.X.1-cent.2",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:catalogs",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:issues.0.mintage",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:IE.X.10-pence:composition.text",
+     "entity": "type",
+     "id": "IE.X.10-pence",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:IT.KM.95.1:issues.5.mintage",
+     "entity": "type",
+     "id": "IT.KM.95.1",
+     "field": "issues.5.mintage"
+    },
+    {
+     "item": "verify:type:MX.KM.604:issues.2.mintage",
+     "entity": "type",
+     "id": "MX.KM.604",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:catalogs",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:catalogs",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:issues.0.mintage",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:KR.KM.35.2:issues.2.mintage",
+     "entity": "type",
+     "id": "KR.KM.35.2",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:issues.0.mintage",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:AU.X.10-cents.2:composition.text",
+     "entity": "type",
+     "id": "AU.X.10-cents.2",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:PT.X.20-centavos:composition.text",
+     "entity": "type",
+     "id": "PT.X.20-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:specimen:C244:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C244",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C068:issue.year",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C011:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C011",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:specimen:C221:issue.year",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:catalogs",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:issues.0.mintage",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:issues.0.mintage",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GB.X.20-pence:composition.text",
+     "entity": "type",
+     "id": "GB.X.20-pence",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:composition.text",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:KR.X.10-won:period",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C040:issue.year",
+     "entity": "specimen",
+     "id": "C040",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C056:issue.year",
+     "entity": "specimen",
+     "id": "C056",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:catalogs",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:catalogs",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:catalogs",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:issues.0.mintage",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:issues.0.mintage",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.2.mintage",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.10-centavos:issues.2.mintage",
+     "entity": "type",
+     "id": "MX.X.10-centavos",
+     "field": "issues.2.mintage"
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:issues.0.mintage",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:CZ.X.5-korun:composition.text",
+     "entity": "type",
+     "id": "CZ.X.5-korun",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:ES.X.5-pesetas:composition.text",
+     "entity": "type",
+     "id": "ES.X.5-pesetas",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:DD.X.10-pfennig:period",
+     "entity": "type",
+     "id": "DD.X.10-pfennig",
+     "field": "period"
+    },
+    {
+     "item": "verify:specimen:C222:issue.year",
+     "entity": "specimen",
+     "id": "C222",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C224:issue.year",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:specimen:C240:issue.year",
+     "entity": "specimen",
+     "id": "C240",
+     "field": "issue.year"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:catalogs",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:catalogs",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:issues.0.mintage",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:issues.0.mintage",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "issues.0.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261115-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-22T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0157",
+     "entity": "type",
+     "id": "DE.KM.140.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0158",
+     "entity": "type",
+     "id": "BZ.X.25-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0159",
+     "entity": "type",
+     "id": "MX.X.500-pesos",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0160",
+     "entity": "type",
+     "id": "DE.KM.109.1",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0161",
+     "entity": "type",
+     "id": "GB.KM.988",
+     "field": "design.text"
+    },
+    {
+     "item": "arb:D0162",
+     "entity": "type",
+     "id": "GB.KM.938b",
+     "field": "design.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-verify-20261115-2",
+   "agent": "grok",
+   "kind": "verify",
+   "issued": "2026-11-15T01:56:48Z",
+   "lease_until": "2026-11-22T01:56:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:JM.X.10-cents:composition.text",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:SE.X.1-krona:composition.text",
+     "entity": "type",
+     "id": "SE.X.1-krona",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JM.X.10-cents:ruler",
+     "entity": "type",
+     "id": "JM.X.10-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:DE.KM.210:issues.3.mintage",
+     "entity": "type",
+     "id": "DE.KM.210",
+     "field": "issues.3.mintage"
     }
    ]
   }

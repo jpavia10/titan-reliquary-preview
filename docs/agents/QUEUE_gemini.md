@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-14 02:27 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-15 01:56 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -899,6 +899,23 @@ Answer sheet (the same as the link):
 
 ```jsonl
 {"ts": "2026-11-12T03:00:17Z", "by": "model:gemini", "entity": "specimen", "id": "C053", "op": "set", "field": "issue.mint_marks", "new": null, "source": "FILL (mint of C053 · Germany · 2011 · 20 euro cent · EUR): the photo file you read it from, e.g. C053_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-12", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261112-1", "run_id": "HW-gemini-verify-20261112-1", "inputs": [{"file": "C053_obv.webp"}]}}
+```
+
+### 21. HW-gemini-research-20261115-1 · Researcher · Answer 1 open research questions · due 2026-11-25  (fix list #3)
+
+Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.
+
+**Done when:** One change file; questions you could not settle left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-research-20261115-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C300 · Bahamas · 1984 · 25 cents · BSD** (BS.X.25-cents): «Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "refs": "KM#63.1 · Schön#38 · Numista#9352", "metal": "nickel · 6.90 g · 24.26 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "unknown", "design": "obverse coat…»
+
+Answer sheet (the same as the link):
+
+```jsonl
+{"ts": "2026-11-15T01:56:48Z", "by": "model:gemini", "entity": "specimen", "id": "C300", "op": "set", "field": "research.open_questions", "old": ["Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1)."], "new": [], "source": "FILL (C300 · Bahamas · 1984 · 25 cents · BSD): the exact source that answers the question (URL / Numista N# + row / book + page)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-15", "workflow": "homework-research", "assignment": "HW-gemini-research-20261115-1", "run_id": "HW-gemini-research-20261115-1", "inputs": []}}
 ```
 
 ## Projects (after the homework)
