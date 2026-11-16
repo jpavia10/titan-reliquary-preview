@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-15T01:56:48Z",
+ "updated": "2026-11-16T02:10:27Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261113-1",
@@ -1387,6 +1387,316 @@
      "inputs": [
       "C298_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-fill-20261116-1",
+   "agent": "muse",
+   "kind": "fill",
+   "issued": "2026-11-16T02:10:27Z",
+   "lease_until": "2026-11-26T02:10:27Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:JP.X.100-yen",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null
+    },
+    {
+     "item": "fill:KR.X.10-won",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:JP.X.100-yen",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JP.X.100-yen",
+     "field": null,
+     "coins": [
+      "C340"
+     ],
+     "label": "C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2121.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:KR.X.10-won",
+     "kind": "fill",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": null,
+     "coins": [
+      "C342"
+     ],
+     "label": "C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces978.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261116-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-16T02:10:27Z",
+   "lease_until": "2026-11-23T02:10:27Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:IT.KM.211:period",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:SK.KM.96:period",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:DE.KM.207:period",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:ES.KM.1040:period",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:IE.KM.32:period",
+     "entity": "type",
+     "id": "IE.KM.32",
+     "field": "period"
+    },
+    {
+     "item": "verify:type:NL.KM.234:period",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "period"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:IT.KM.211:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IT.KM.211",
+     "field": "period",
+     "coins": [
+      "C039"
+     ],
+     "label": "period of C039 · Italy · 2010 · 2 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Eurozone",
+      "their_source": "https://en.numista.com/catalogue/pieces130.html (\"Issuer: Italy · Period: Republic (1946-date) · Currency: Euro (2002-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces130.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:SK.KM.96:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SK.KM.96",
+     "field": "period",
+     "coins": [
+      "C038"
+     ],
+     "label": "period of C038 · Slovakia · 2009 · 2 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Eurozone",
+      "their_source": "https://en.numista.com/catalogue/pieces5085.html (\"Issuer: Slovakia · Period: Slovak Republic (1993-date) · Currency: Euro (2009-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5085.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.207:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.207",
+     "field": "period",
+     "coins": [
+      "C132",
+      "C133",
+      "C134",
+      "C135",
+      "C136",
+      "C137",
+      "C138",
+      "C273"
+     ],
+     "label": "period of C132 · Germany · 2002 · 1 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Eurozone",
+      "their_source": "https://en.numista.com/catalogue/pieces105.html (\"Issuer: Germany · Period: Federal Republic (1949-date) · Currency: Euro (2002-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces105.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:ES.KM.1040:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "ES.KM.1040",
+     "field": "period",
+     "coins": [
+      "C140"
+     ],
+     "label": "period of C140 · Spain · 2008 · 1 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Eurozone",
+      "their_source": "https://en.numista.com/catalogue/pieces81.html (\"Issuer: Spain · King: Juan Carlos I (1975-2014) · Currency: Euro (2002-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces81.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IE.KM.32:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IE.KM.32",
+     "field": "period",
+     "coins": [
+      "C101",
+      "C143"
+     ],
+     "label": "period of C101 · Ireland · 2002 · 1 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Eurozone",
+      "their_source": "https://en.numista.com/catalogue/pieces121.html (\"Issuer: Ireland · Period: Republic (1937-date) · Currency: Euro (2002-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces121.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.234:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.234",
+     "field": "period",
+     "coins": [
+      "C142"
+     ],
+     "label": "period of C142 · Netherlands · 2000 · 1 euro cent · EUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Eurozone",
+      "their_source": "https://en.numista.com/catalogue/pieces145.html (\"Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Euro (1999-date)\")",
+      "links": [
+       "https://en.numista.com/catalogue/pieces145.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

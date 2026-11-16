@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-15 01:56 UTC)
+# WORK QUEUE for Muse (updated 2026-11-16 02:10 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -113,6 +113,34 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 
 Items:
 - **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
+
+### 4. HW-muse-fill-20261116-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-26  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261116-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces2121.html
+- **C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces978.html
+
+### 5. HW-muse-verify-20261116-1 · Second reader · Check 6 facts another AI wrote · due 2026-11-23  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261116-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **period of C039 · Italy · 2010 · 2 euro cent · EUR** `type IT.KM.211 period` = `Second Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces130.html ("Issuer: Italy · Period: Republic (1946-date) · Currency: Euro (2002-date)")»)
+- **period of C038 · Slovakia · 2009 · 2 euro cent · EUR** `type SK.KM.96 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces5085.html ("Issuer: Slovakia · Period: Slovak Republic (1993-date) · Currency: Euro (2009-date)")»)
+- **period of C132 · Germany · 2002 · 1 euro cent · EUR** `type DE.KM.207 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces105.html ("Issuer: Germany · Period: Federal Republic (1949-date) · Currency: Euro (2002-date)")»)
+- **period of C140 · Spain · 2008 · 1 euro cent · EUR** `type ES.KM.1040 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces81.html ("Issuer: Spain · King: Juan Carlos I (1975-2014) · Currency: Euro (2002-date)")»)
+- **period of C101 · Ireland · 2002 · 1 euro cent · EUR** `type IE.KM.32 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces121.html ("Issuer: Ireland · Period: Republic (1937-date) · Currency: Euro (2002-date)")»)
+- **period of C142 · Netherlands · 2000 · 1 euro cent · EUR** `type NL.KM.234 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces145.html ("Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Euro (1999-date)")»)
 
 ## Projects (after the homework)
 
