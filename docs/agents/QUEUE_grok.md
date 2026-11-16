@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-16 05:57 UTC)
+# WORK QUEUE for Grok (updated 2026-11-16 13:38 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -346,13 +346,13 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 
 ### Spot-check Gemini's AI-facts replacements (both parts)  [NEXT]  (fix list trust)
 
-When Gemini's GT-AIFACTS files are in the drop folder, open 20 of its lines at random, open the source it names, and say agree or what the page actually says. Never send new facts here: only agree/differ lines. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-AIFACTS'.
+When Gemini's GT-AIFACTS files are in the drop folder, open 20 of its lines at random, open the source it names, and say agree or what the page actually says. Never send new facts here: only agree/differ lines. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-AIFACTS'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-17T10:00:00Z","by":"model:<your exact model>","entity":"type","id":"MX.KM.433","field":"design.text","old":null,"new":"<the catalogue wording>","source":"Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, Obverse/Reverse description","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"https://en.numista.com/catalogue/pieces1234.html"}],"run_id":"GT-AIFACTS-p1"}} Before you save: every source names the exact catalogue entry (Numista N# with URL, or KM# with book and page) and the row you read; design text is the catalogue's wording, not yours; mintages are for that year and mint only.
 
 **Done when:** 20 lines checked; every differ quotes the page.
 
 ### Spot-check Gemini's second sources, parts 1-3  [NEXT]  (fix list trust)
 
-When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per part), open each source, and say agree or what the page says. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-SECOND'.
+When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per part), open each source, and say agree or what the page says. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-SECOND'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-17T10:00:00Z","by":"model:<your exact model>","entity":"specimen","id":"C150","field":"value.usd","old":null,"new":4.5,"source":"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp","verified":false,"phase":2,"confidence":"med","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"C150_obv.webp"}],"run_id":"GT-SECOND-p1"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.
 
 **Done when:** 30 lines checked, each with the page it opened.
 
