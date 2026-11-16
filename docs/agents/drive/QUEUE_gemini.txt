@@ -3,7 +3,7 @@ CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answ
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Gemini (updated 2026-11-16 02:10 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-16 05:57 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -12,17 +12,95 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### FIRST: photo rooms for the themes that have none (the third spaces)  (fix list #128)
-
-Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. You start at the top of its list (Obsidian Sun first) and work down. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.
-
-**Done when:** Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.
-
 ### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
 
 Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
 
 **Done when:** One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.
+
+### Ledger facts, part 1 of 8: confirm items 1-90 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 1 to 90. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p1'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 1-90 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 2 of 8: confirm items 91-180 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 91 to 180. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p2'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 91-180 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 3 of 8: confirm items 181-270 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 181 to 270. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p3'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 181-270 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 4 of 8: confirm items 271-360 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 271 to 360. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p4'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 271-360 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 5 of 8: confirm items 361-450 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 361 to 450. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p5'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 361-450 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 6 of 8: confirm items 451-540 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 451 to 540. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p6'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 451-540 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 7 of 8: confirm items 541-630 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 541 to 630. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p7'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 541-630 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### Ledger facts, part 8 of 8: confirm items 631-715 from the photo or the catalogue (blind)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 631 to 715. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p8'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.
+
+**Done when:** Every one of items 631-715 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.
+
+### AI-guessed facts, part 1 of 2: replace items 1-52 with cited facts  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 1 to 52 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p1'.
+
+**Done when:** Items 1-52 each carry an exact source; Claude opens 10 at random.
+
+### AI-guessed facts, part 2 of 2: replace items 53-103 with cited facts  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 53 to 103 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p2'.
+
+**Done when:** Items 53-103 each carry an exact source; Claude opens 10 at random.
+
+### Second source, part 1 of 9: items 1-95 of the 850 single-source facts  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 1 to 95: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p1'.
+
+**Done when:** Items 1-95 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 2 of 9: items 96-190 of the 850 single-source facts  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 96 to 190: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p2'.
+
+**Done when:** Items 96-190 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 3 of 9: items 191-285 of the 850 single-source facts  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 191 to 285: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p3'.
+
+**Done when:** Items 191-285 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 4 of 9: items 286-380 of the 850 single-source facts  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 286 to 380: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p4'.
+
+**Done when:** Items 286-380 each answered with a different source than the one on record; Claude spot-checks 10.
 
 ## Homework (generated from the data)
 
@@ -73,6 +151,36 @@ Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for th
 Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (owner: Claude is in charge of depth, ambience, atmosphere and effects). Do not send another Titan v3 build unless this page asks again. design_gemini_20261016-0610_v3-m1.html arrived 2026-10-24: a flat grid of tiles with a 2D magnifier, not the spec in docs/design/v3/M1_SPEC.md (one 3D field of every coin, layouts the coins fly between, a shared-element flight into the coin, certainty chips read from data/detail/{ISO}.json). It also labelled every country, year and denomination 'Verified' without reading any certainty data: never show a certainty the data does not give. Build the spec as written, on live data, and run it at phone size with the console open before you send it. Lower priority than the theme project.
 
 **Done when:** The .html is in Drive 'design-incoming (AI UI proposals)'; Claude checks the hard rules, hosts it at /prototypes/v3/gemini/ and Joseph judges it blind on the phone against the current app.
+
+### Second source, part 5 of 9: items 381-475 of the 850 single-source facts  [NEXT]  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 381 to 475: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p5'.
+
+**Done when:** Items 381-475 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 6 of 9: items 476-570 of the 850 single-source facts  [NEXT]  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 476 to 570: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p6'.
+
+**Done when:** Items 476-570 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 7 of 9: items 571-665 of the 850 single-source facts  [NEXT]  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 571 to 665: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p7'.
+
+**Done when:** Items 571-665 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 8 of 9: items 666-760 of the 850 single-source facts  [NEXT]  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 666 to 760: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p8'.
+
+**Done when:** Items 666-760 each answered with a different source than the one on record; Claude spot-checks 10.
+
+### Second source, part 9 of 9: items 761-850 of the 850 single-source facts  [NEXT]  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 761 to 850: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p9'.
+
+**Done when:** Items 761-850 each answered with a different source than the one on record; Claude spot-checks 10.
 
 ## Your numbers (measured, not self-reported)
 

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-16 02:10 UTC)
+# WORK QUEUE for Muse (updated 2026-11-16 05:57 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -7,12 +7,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
-
-### FIRST: photo rooms for the themes that have none (the third spaces)  (fix list #128)
-
-Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. Start from the BOTTOM of the priority-1 list and work upward (Grok does the same; skip any room already claimed); Gemini works down from the top. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.
-
-**Done when:** Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.
 
 ### Sound hunt: music and room sounds for your 17 themes (22 pieces of music, 85 field recordings)  (fix list #83)
 
@@ -31,6 +25,18 @@ Your round-3 file (2026-10-03) wrote `period`, `ruler` and `series` for 193 type
 If you already started this spot check (5 facts from each of Grok's 9 sweep batches, reported in your FEEDBACK doc), finish it the same way. If you have not started, skip it: the 'Second reader' homework below is the same job with a pre-filled answer sheet, and it counts towards your probation.
 
 **Done when:** Either your 45-fact report in the FEEDBACK doc, or the verify homework answered.
+
+### Blind second read of the ledger photo facts, items 1-180  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json, items 1 to 180, and only the ones with has_photo true: read country, year, denomination and mint from the coin's photo without looking at Gemini's file first (AI_START_HERE 2b). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-BLIND-1'.
+
+**Done when:** Every photo item in 1-180 read or marked unreadable; Claude compares your read with Gemini's and the ledger.
+
+### Blind second read of the ledger photo facts, items 181-360  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json, items 181 to 360, and only the ones with has_photo true: read country, year, denomination and mint from the coin's photo without looking at Gemini's file first (AI_START_HERE 2b). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-BLIND-2'.
+
+**Done when:** Every photo item in 181-360 read or marked unreadable; Claude compares your read with Gemini's and the ledger.
 
 ## Homework (generated from the data)
 

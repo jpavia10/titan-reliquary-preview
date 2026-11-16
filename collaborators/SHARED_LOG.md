@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### 2026-11-16 Claude: Titan homework loaded (owner: "aggressively assign homework ... all titan aspects")
+- New projects from the trust gaps in data/status.json, item lists in docs/agents/projects/: 715 ledger-only facts (titan-ledger-facts, 8 parts), 103 AI-guessed facts (titan-ai-facts, 2 parts), 850 single-source facts (titan-single-source, 9 parts), 25 facts under question (titan-review-facts). Gemini 19 parts, Grok the 25 + two spot-checks of Gemini, Muse a blind second read of the ledger photo facts. Stale room-photo tasks closed; Grok's GPU worlds dropped (no code-built worlds).
+- The data-derived pools are near empty for Gemini (left: its own facts, held or parked items), so projects carry the load until the next publish. Homework only (owner allowed homework to main 2026-11-16); the app is still paused.
+
 ### [2026-11-12] Claude: tr282, a new front built design first (next.html)
 - New page on the same data and photograph engine: Hall, the Wall (356 cutouts), specimen pages, the Vault, Worlds with the room, the opening in its order. Old front unchanged at index.html.
 - Same slow-phone profile: layout shift 0.44 to 0, requests 131 to 15, largest paint 7.7 s to 2.2 s. Audit and plan: docs/audit/2026-11-12-flagship-audit.md. Gate CL-NEXT-01 in the smoke workflow.

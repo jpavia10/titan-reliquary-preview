@@ -1,0 +1,6121 @@
+{
+ "about": "Facts with one source only (certainty 'reference'). Send a second, independent source for each: a different catalogue, price guide or page, never the same one again. Values: a dated price page and the grade you assumed from the photo; stories: check every sentence and say agree or what is wrong.",
+ "made": "2026-11-16",
+ "count": 850,
+ "parts": 9,
+ "per_part": 95,
+ "items": [
+  {
+   "n": 1,
+   "specimen": "C001",
+   "fact": "design",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 2,
+   "specimen": "C001",
+   "fact": "mint",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 3,
+   "specimen": "C001",
+   "fact": "period",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 4,
+   "specimen": "C001",
+   "fact": "story",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true,
+   "story": "A 1969 1-franc coin from Switzerland. The front shows Helvetia standing. The back shows the value in a wreath. Antoine Bovy engraved it, using front-side art by Albert Walch and back-side art by Friedrich Fisch. It is made of copper-nickel."
+  },
+  {
+   "n": 5,
+   "specimen": "C001",
+   "fact": "value",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 6,
+   "specimen": "C002",
+   "fact": "story",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false,
+   "story": "A 1963 5-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 5 in a wreath made of grapevines. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel."
+  },
+  {
+   "n": 7,
+   "specimen": "C002",
+   "fact": "value",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 8,
+   "specimen": "C003",
+   "fact": "value",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 9,
+   "specimen": "C004",
+   "fact": "period",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 10,
+   "specimen": "C004",
+   "fact": "story",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2000 Dutch 5-euro-cent coin. The Dutch side shows a portrait of Queen Beatrix with the words BEATRIX KONINGIN DER NEDERLANDEN (Beatrix, Queen of the Netherlands). The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 11,
+   "specimen": "C004",
+   "fact": "value",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 12,
+   "specimen": "C005",
+   "fact": "story",
+   "coin": "France 1986 20 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1986 French 20-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 13,
+   "specimen": "C005",
+   "fact": "value",
+   "coin": "France 1986 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 14,
+   "specimen": "C006",
+   "fact": "value",
+   "coin": "Germany 1984 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 15,
+   "specimen": "C007",
+   "fact": "story",
+   "coin": "France 1963 10 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1963 French 10-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 16,
+   "specimen": "C007",
+   "fact": "value",
+   "coin": "France 1963 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 17,
+   "specimen": "C008",
+   "fact": "story",
+   "coin": "Switzerland 1968 1/2 franc · CHF",
+   "has_photo": true,
+   "story": "A 1968 half-franc coin from Switzerland. The front shows Helvetia standing. The back shows the value in a wreath. Antoine Bovy engraved it from a design by Albert Walch. It is made of copper-nickel."
+  },
+  {
+   "n": 18,
+   "specimen": "C008",
+   "fact": "value",
+   "coin": "Switzerland 1968 1/2 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 19,
+   "specimen": "C009",
+   "fact": "denomination",
+   "coin": "Germany 1987 5 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 20,
+   "specimen": "C009",
+   "fact": "story",
+   "coin": "Germany 1987 5 Deutsche Mark · DEM",
+   "has_photo": true,
+   "story": "A 1987 5-Deutsche-Mark coin from Germany. The front shows the German federal eagle. The back shows the value and the words DEUTSCHE MARK. This is the regular everyday coin made of Magnimat metal, not the silver one made for collectors. Magnimat is a nickel-based coin metal."
+  },
+  {
+   "n": 21,
+   "specimen": "C009",
+   "fact": "value",
+   "coin": "Germany 1987 5 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 22,
+   "specimen": "C010",
+   "fact": "period",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 23,
+   "specimen": "C010",
+   "fact": "value",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 24,
+   "specimen": "C011",
+   "fact": "value",
+   "coin": "Italy 1970 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 25,
+   "specimen": "C012",
+   "fact": "story",
+   "coin": "France 1962 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "story": "A 1962 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1962. It is made of nickel."
+  },
+  {
+   "n": 26,
+   "specimen": "C012",
+   "fact": "value",
+   "coin": "France 1962 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 27,
+   "specimen": "C013",
+   "fact": "denomination",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 28,
+   "specimen": "C013",
+   "fact": "period",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 29,
+   "specimen": "C013",
+   "fact": "story",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true,
+   "story": "A 1971 2 new pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows Plume of ostrich feathers in coronet; NEW PENCE (Ironside). Struck in bronze (97 Cu / 2.5 Zn / 0.5 Sn)."
+  },
+  {
+   "n": 30,
+   "specimen": "C013",
+   "fact": "value",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 31,
+   "specimen": "C014",
+   "fact": "value",
+   "coin": "Switzerland 1974 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 32,
+   "specimen": "C015",
+   "fact": "mint",
+   "coin": "Switzerland 1971 1/2 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 33,
+   "specimen": "C015",
+   "fact": "story",
+   "coin": "Switzerland 1971 1/2 franc · CHF",
+   "has_photo": true,
+   "story": "A 1971 half-franc coin from Switzerland. The front shows Helvetia standing. The back shows the value in a wreath. Antoine Bovy engraved it from a design by Albert Walch. It is made of copper-nickel."
+  },
+  {
+   "n": 34,
+   "specimen": "C015",
+   "fact": "value",
+   "coin": "Switzerland 1971 1/2 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 35,
+   "specimen": "C016",
+   "fact": "design",
+   "coin": "Costa Rica 1985 5 colones · CRC",
+   "has_photo": true
+  },
+  {
+   "n": 36,
+   "specimen": "C016",
+   "fact": "value",
+   "coin": "Costa Rica 1985 5 colones · CRC",
+   "has_photo": true
+  },
+  {
+   "n": 37,
+   "specimen": "C017",
+   "fact": "story",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false,
+   "story": "A 1999 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1999. It is made of nickel."
+  },
+  {
+   "n": 38,
+   "specimen": "C017",
+   "fact": "value",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 39,
+   "specimen": "C018",
+   "fact": "denomination",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 40,
+   "specimen": "C018",
+   "fact": "value",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 41,
+   "specimen": "C019",
+   "fact": "mint",
+   "coin": "Germany 1981 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 42,
+   "specimen": "C019",
+   "fact": "value",
+   "coin": "Germany 1981 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 43,
+   "specimen": "C020",
+   "fact": "denomination",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 44,
+   "specimen": "C020",
+   "fact": "period",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 45,
+   "specimen": "C020",
+   "fact": "value",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 46,
+   "specimen": "C021",
+   "fact": "value",
+   "coin": "Germany 1970 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 47,
+   "specimen": "C022",
+   "fact": "value",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 48,
+   "specimen": "C023",
+   "fact": "mint",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true
+  },
+  {
+   "n": 49,
+   "specimen": "C023",
+   "fact": "story",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true,
+   "story": "A 1918 20-heller coin from Austria, struck in iron during the First World War under Emperor Charles I, when copper and nickel went to the war. The side shown has a large 20 in an oak wreath with the date 1918 below and no lettering; the other side shows the crowned double-headed eagle with the Austrian shield. Stefan Schwartz engraved it."
+  },
+  {
+   "n": 50,
+   "specimen": "C023",
+   "fact": "value",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true
+  },
+  {
+   "n": 51,
+   "specimen": "C024",
+   "fact": "denomination",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 52,
+   "specimen": "C024",
+   "fact": "period",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 53,
+   "specimen": "C024",
+   "fact": "story",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true,
+   "story": "A 1977 2 new pence from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows Plume of ostrich feathers in coronet; NEW PENCE (Ironside). Struck in bronze (97 Cu / 2.5 Zn / 0.5 Sn)."
+  },
+  {
+   "n": 54,
+   "specimen": "C024",
+   "fact": "value",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 55,
+   "specimen": "C025",
+   "fact": "story",
+   "coin": "France 1965 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "story": "A 1965 1-franc coin from France. The front shows La Semeuse (the Sower) walking to the left with the words REPUBLIQUE FRANCAISE, designed by Oscar Roty. The back shows 1 FRANC, an olive branch, the motto LIBERTE, EGALITE, FRATERNITE, and the date 1965. It is made of nickel."
+  },
+  {
+   "n": 56,
+   "specimen": "C025",
+   "fact": "value",
+   "coin": "France 1965 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 57,
+   "specimen": "C026",
+   "fact": "period",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 58,
+   "specimen": "C026",
+   "fact": "story",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 50-euro-cent coin. Germany's side shows the Brandenburg Gate in Berlin, designed by Reinhart Heinsdorff, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 59,
+   "specimen": "C026",
+   "fact": "value",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 60,
+   "specimen": "C027",
+   "fact": "period",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 61,
+   "specimen": "C027",
+   "fact": "story",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 Italian 20-euro-cent coin. Italy's side shows Umberto Boccioni's sculpture Unique Forms of Continuity in Space, adapted by Maria Angela Cassol. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 62,
+   "specimen": "C027",
+   "fact": "value",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 63,
+   "specimen": "C028",
+   "fact": "catalog",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 64,
+   "specimen": "C028",
+   "fact": "period",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 65,
+   "specimen": "C028",
+   "fact": "story",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2013 Maltese 5-euro-cent coin. Malta's side shows the altar stone of the prehistoric Mnajdra temple, with the word MALTA. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 66,
+   "specimen": "C028",
+   "fact": "value",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 67,
+   "specimen": "C029",
+   "fact": "value",
+   "coin": "Germany 1972 1 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 68,
+   "specimen": "C030",
+   "fact": "mint",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 69,
+   "specimen": "C030",
+   "fact": "value",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 70,
+   "specimen": "C031",
+   "fact": "value",
+   "coin": "Australia 1943 Threepence (3d) · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 71,
+   "specimen": "C032",
+   "fact": "story",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true,
+   "story": "A 1967 Hungarian 1-forint coin. The front shows the arms of the People's Republic of Hungary, with wheat and a star; the back shows a large 1 FORINT and the Budapest mint mark BP. Struck in aluminium."
+  },
+  {
+   "n": 72,
+   "specimen": "C032",
+   "fact": "value",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true
+  },
+  {
+   "n": 73,
+   "specimen": "C033",
+   "fact": "story",
+   "coin": "France 1969 1/2 franc · FRF",
+   "has_photo": true,
+   "story": "A 1969 French half franc. The front shows the Sower — a woman scattering seeds at sunrise, one of France's most loved coin designs, designed by Oscar Roty in 1900. The back carries France's motto: liberty, equality, brotherhood."
+  },
+  {
+   "n": 74,
+   "specimen": "C033",
+   "fact": "value",
+   "coin": "France 1969 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 75,
+   "specimen": "C034",
+   "fact": "period",
+   "coin": "France 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 76,
+   "specimen": "C034",
+   "fact": "value",
+   "coin": "France 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 77,
+   "specimen": "C035",
+   "fact": "mint",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 78,
+   "specimen": "C035",
+   "fact": "story",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true,
+   "story": "A 1971 German 50 pfennig. The front shows a woman planting a young oak tree. She honors the 'rubble women' who cleared and rebuilt Germany's bombed cities after the war — planting new life where destruction had been."
+  },
+  {
+   "n": 79,
+   "specimen": "C035",
+   "fact": "value",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 80,
+   "specimen": "C036",
+   "fact": "period",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 81,
+   "specimen": "C036",
+   "fact": "story",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2007 Italian 10-euro-cent coin. Italy's side shows a detail of Botticelli's painting The Birth of Venus, adapted by Claudia Momoni. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 82,
+   "specimen": "C036",
+   "fact": "value",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 83,
+   "specimen": "C036",
+   "fact": "year",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 84,
+   "specimen": "C037",
+   "fact": "period",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 85,
+   "specimen": "C037",
+   "fact": "story",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 10-euro-cent coin. Germany's side shows the Brandenburg Gate in Berlin, designed by Reinhart Heinsdorff, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 86,
+   "specimen": "C037",
+   "fact": "value",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 87,
+   "specimen": "C038",
+   "fact": "period",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 88,
+   "specimen": "C038",
+   "fact": "story",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2009 Slovak 2-euro-cent coin. Slovakia's side shows Kriváň, a famous peak in the Tatra mountains, with the Slovak double cross and the word SLOVENSKO, designed by Drahomír Zobek. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 89,
+   "specimen": "C038",
+   "fact": "value",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 90,
+   "specimen": "C039",
+   "fact": "period",
+   "coin": "Italy 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 91,
+   "specimen": "C039",
+   "fact": "story",
+   "coin": "Italy 2010 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2010 Italian 2-euro-cent coin. Italy's side shows the Mole Antonelliana tower in Turin, designed by Luciana De Simoni. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 92,
+   "specimen": "C039",
+   "fact": "value",
+   "coin": "Italy 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 93,
+   "specimen": "C040",
+   "fact": "period",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 94,
+   "specimen": "C040",
+   "fact": "story",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2001 Dutch 20-euro-cent coin. The Dutch side shows a portrait of Queen Beatrix with the words BEATRIX KONINGIN DER NEDERLANDEN (Beatrix, Queen of the Netherlands). The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 95,
+   "specimen": "C040",
+   "fact": "value",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 96,
+   "specimen": "C041",
+   "fact": "story",
+   "coin": "France 1974 20 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1974 French 20-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 97,
+   "specimen": "C041",
+   "fact": "value",
+   "coin": "France 1974 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 98,
+   "specimen": "C042",
+   "fact": "mintage",
+   "coin": "USSR 1962 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 99,
+   "specimen": "C042",
+   "fact": "value",
+   "coin": "USSR 1962 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 100,
+   "specimen": "C043",
+   "fact": "catalog",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 101,
+   "specimen": "C043",
+   "fact": "period",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 102,
+   "specimen": "C043",
+   "fact": "story",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2008 Maltese 10-euro-cent coin. Malta's side shows the national coat of arms (a shield of the Maltese flag under a crown, with olive and palm branches) and the word MALTA. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 103,
+   "specimen": "C043",
+   "fact": "value",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 104,
+   "specimen": "C044",
+   "fact": "mintage",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 105,
+   "specimen": "C044",
+   "fact": "value",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 106,
+   "specimen": "C045",
+   "fact": "period",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 107,
+   "specimen": "C045",
+   "fact": "story",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2014 Dutch 5 euro cent. It shows King Willem-Alexander, who had taken the throne just a year earlier in 2013. The twelve stars around him stand for the European Union."
+  },
+  {
+   "n": 108,
+   "specimen": "C045",
+   "fact": "value",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 109,
+   "specimen": "C046",
+   "fact": "period",
+   "coin": "Germany 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 110,
+   "specimen": "C046",
+   "fact": "story",
+   "coin": "Germany 2010 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2010 German 2-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 111,
+   "specimen": "C046",
+   "fact": "value",
+   "coin": "Germany 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 112,
+   "specimen": "C047",
+   "fact": "period",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true
+  },
+  {
+   "n": 113,
+   "specimen": "C047",
+   "fact": "story",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true,
+   "story": "A 2006 5 centavos from Brazil. The obverse shows Tiradentes portrait, BRASIL, dove and Inconfidência triangle; the reverse shows Southern Cross globe, 5 CENTAVOS, 2006. Struck in copper-plated steel."
+  },
+  {
+   "n": 114,
+   "specimen": "C047",
+   "fact": "value",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true
+  },
+  {
+   "n": 115,
+   "specimen": "C048",
+   "fact": "value",
+   "coin": "Germany 1993 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 116,
+   "specimen": "C049",
+   "fact": "value",
+   "coin": "France 1989 10 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 117,
+   "specimen": "C050",
+   "fact": "value",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 118,
+   "specimen": "C051",
+   "fact": "mint",
+   "coin": "Germany 1986 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 119,
+   "specimen": "C051",
+   "fact": "value",
+   "coin": "Germany 1986 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 120,
+   "specimen": "C052",
+   "fact": "period",
+   "coin": "France 2009 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 121,
+   "specimen": "C052",
+   "fact": "value",
+   "coin": "France 2009 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 122,
+   "specimen": "C053",
+   "fact": "period",
+   "coin": "Germany 2011 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 123,
+   "specimen": "C053",
+   "fact": "story",
+   "coin": "Germany 2011 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2011 German 20-euro-cent coin. Germany's side shows the Brandenburg Gate in Berlin, designed by Reinhart Heinsdorff, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 124,
+   "specimen": "C053",
+   "fact": "value",
+   "coin": "Germany 2011 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 125,
+   "specimen": "C054",
+   "fact": "period",
+   "coin": "France 2010 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 126,
+   "specimen": "C054",
+   "fact": "value",
+   "coin": "France 2010 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 127,
+   "specimen": "C055",
+   "fact": "period",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 128,
+   "specimen": "C055",
+   "fact": "story",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 Italian 50-euro-cent coin, from the first year of the euro. Italy's side shows the statue of Emperor Marcus Aurelius on horseback on the patterned pavement of the Campidoglio square in Rome. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 129,
+   "specimen": "C055",
+   "fact": "value",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 130,
+   "specimen": "C056",
+   "fact": "period",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 131,
+   "specimen": "C056",
+   "fact": "story",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 Portuguese 20-euro-cent coin, from the first year of the euro. Portugal's side shows the royal seal of 1142, with seven castles and five shields, designed by Vítor Santos. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 132,
+   "specimen": "C056",
+   "fact": "value",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 133,
+   "specimen": "C057",
+   "fact": "mint",
+   "coin": "Germany 1982 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 134,
+   "specimen": "C057",
+   "fact": "value",
+   "coin": "Germany 1982 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 135,
+   "specimen": "C058",
+   "fact": "mint",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 136,
+   "specimen": "C058",
+   "fact": "story",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true,
+   "story": "A 1985 German 50 pfennig with the same planting-woman design. The little oak sapling she tends was meant to grow strong like the new Germany — the design stayed on this coin for over fifty years."
+  },
+  {
+   "n": 137,
+   "specimen": "C058",
+   "fact": "value",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 138,
+   "specimen": "C059",
+   "fact": "story",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "story": "A 1960 French 1 franc. The Sower walks through a field at sunrise scattering seed — a design France loved so much it stayed on coins for more than sixty years. The olive branch and the words liberty, equality, brotherhood are on the back."
+  },
+  {
+   "n": 139,
+   "specimen": "C059",
+   "fact": "value",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 140,
+   "specimen": "C060",
+   "fact": "story",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true,
+   "story": "A 1971 French half franc. The Sower strides across the front at dawn, a symbol of France planting its future. These small coins were everyday money across France for years."
+  },
+  {
+   "n": 141,
+   "specimen": "C060",
+   "fact": "value",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 142,
+   "specimen": "C061",
+   "fact": "period",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 143,
+   "specimen": "C061",
+   "fact": "story",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 Italian 20-euro-cent coin. Italy's side shows Umberto Boccioni's sculpture Unique Forms of Continuity in Space, adapted by Maria Angela Cassol. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 144,
+   "specimen": "C061",
+   "fact": "value",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 145,
+   "specimen": "C062",
+   "fact": "story",
+   "coin": "France 1998 10 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1998 French 10-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 146,
+   "specimen": "C062",
+   "fact": "value",
+   "coin": "France 1998 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 147,
+   "specimen": "C063",
+   "fact": "story",
+   "coin": "France 1995 10 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1995 French 10-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 148,
+   "specimen": "C063",
+   "fact": "value",
+   "coin": "France 1995 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 149,
+   "specimen": "C064",
+   "fact": "denomination",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 150,
+   "specimen": "C064",
+   "fact": "period",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 151,
+   "specimen": "C064",
+   "fact": "story",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true,
+   "story": "A 2008 Maltese 1-euro coin. Malta's side shows the eight-pointed Maltese Cross, designed by Noel Galea Bason. The other side, shared by every euro country, was designed by Luc Luycx. It is made of two metals: a copper-nickel center inside a nickel-brass ring."
+  },
+  {
+   "n": 152,
+   "specimen": "C064",
+   "fact": "value",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 153,
+   "specimen": "C065",
+   "fact": "story",
+   "coin": "Switzerland 2014 5 francs · CHF",
+   "has_photo": true,
+   "story": "A 2014 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 154,
+   "specimen": "C065",
+   "fact": "value",
+   "coin": "Switzerland 2014 5 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 155,
+   "specimen": "C066",
+   "fact": "story",
+   "coin": "Switzerland 1976 5 francs · CHF",
+   "has_photo": true,
+   "story": "A 1978 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 156,
+   "specimen": "C066",
+   "fact": "value",
+   "coin": "Switzerland 1976 5 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 157,
+   "specimen": "C067",
+   "fact": "mint",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 158,
+   "specimen": "C067",
+   "fact": "value",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 159,
+   "specimen": "C068",
+   "fact": "denomination",
+   "coin": "Switzerland 1963 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 160,
+   "specimen": "C068",
+   "fact": "value",
+   "coin": "Switzerland 1963 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 161,
+   "specimen": "C069",
+   "fact": "period",
+   "coin": "Jamaica 1975 50 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 162,
+   "specimen": "C070",
+   "fact": "denomination",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 163,
+   "specimen": "C070",
+   "fact": "period",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 164,
+   "specimen": "C070",
+   "fact": "story",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true,
+   "story": "A 2002 Dutch 2-euro coin, from the first year of the euro. The Dutch side shows Queen Beatrix facing left with the words BEATRIX KONINGIN DER NEDERLANDEN. The other side, shared by every euro country, was designed by Luc Luycx. It is made of two metals: a nickel-brass center inside a copper-nickel ring."
+  },
+  {
+   "n": 165,
+   "specimen": "C070",
+   "fact": "value",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 166,
+   "specimen": "C071",
+   "fact": "denomination",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 167,
+   "specimen": "C071",
+   "fact": "mint",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 168,
+   "specimen": "C071",
+   "fact": "period",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 169,
+   "specimen": "C071",
+   "fact": "story",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true,
+   "story": "A 2003 German 2-euro coin. Germany's side shows the federal eagle, designed by Heinz Hoyer and Sneschana Russewa-Hoyer. The other side, shared by every euro country, was designed by Luc Luycx. It is made of two metals: a nickel-brass center inside a copper-nickel ring."
+  },
+  {
+   "n": 170,
+   "specimen": "C071",
+   "fact": "value",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 171,
+   "specimen": "C072",
+   "fact": "denomination",
+   "coin": "France 2000 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 172,
+   "specimen": "C072",
+   "fact": "period",
+   "coin": "France 2000 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 173,
+   "specimen": "C072",
+   "fact": "value",
+   "coin": "France 2000 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 174,
+   "specimen": "C073",
+   "fact": "story",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false,
+   "story": "A 1976 American quarter made for the country's 200th birthday. George Washington is on the front as always, but the back is special: a Revolutionary War drummer boy, made only for the Bicentennial. The double date 1776-1976 marks two hundred years of independence."
+  },
+  {
+   "n": 175,
+   "specimen": "C073",
+   "fact": "value",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false
+  },
+  {
+   "n": 176,
+   "specimen": "C075",
+   "fact": "denomination",
+   "coin": "Switzerland 1982 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 177,
+   "specimen": "C075",
+   "fact": "mint",
+   "coin": "Switzerland 1982 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 178,
+   "specimen": "C075",
+   "fact": "value",
+   "coin": "Switzerland 1982 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 179,
+   "specimen": "C076",
+   "fact": "denomination",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 180,
+   "specimen": "C076",
+   "fact": "story",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true,
+   "story": "A 1989 Swiss 20 rappen. Libertas gazes to the right on the front — the same liberty goddess Switzerland has put on its coins for over a century. The big 20 in a wreath on the back leaves no doubt what it's worth."
+  },
+  {
+   "n": 181,
+   "specimen": "C076",
+   "fact": "value",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 182,
+   "specimen": "C077",
+   "fact": "value",
+   "coin": "Switzerland 1991 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 183,
+   "specimen": "C078",
+   "fact": "denomination",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 184,
+   "specimen": "C078",
+   "fact": "story",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true,
+   "story": "A 1969 20-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 20 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel."
+  },
+  {
+   "n": 185,
+   "specimen": "C078",
+   "fact": "value",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 186,
+   "specimen": "C079",
+   "fact": "denomination",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 187,
+   "specimen": "C079",
+   "fact": "story",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true,
+   "story": "A 1991 20-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 20 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel."
+  },
+  {
+   "n": 188,
+   "specimen": "C079",
+   "fact": "value",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 189,
+   "specimen": "C080",
+   "fact": "denomination",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 190,
+   "specimen": "C080",
+   "fact": "mint",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 191,
+   "specimen": "C080",
+   "fact": "period",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 192,
+   "specimen": "C080",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 1-euro coin, from the first year of the euro. Germany's side shows the federal eagle, designed by Heinz Hoyer and Sneschana Russewa-Hoyer. The other side, shared by every euro country, was designed by Luc Luycx. It is made of two metals: a copper-nickel center inside a nickel-brass ring."
+  },
+  {
+   "n": 193,
+   "specimen": "C080",
+   "fact": "value",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 194,
+   "specimen": "C081",
+   "fact": "denomination",
+   "coin": "Switzerland 1983 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 195,
+   "specimen": "C081",
+   "fact": "mint",
+   "coin": "Switzerland 1983 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 196,
+   "specimen": "C081",
+   "fact": "value",
+   "coin": "Switzerland 1983 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 197,
+   "specimen": "C082",
+   "fact": "composition",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 198,
+   "specimen": "C082",
+   "fact": "denomination",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 199,
+   "specimen": "C082",
+   "fact": "mint",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 200,
+   "specimen": "C082",
+   "fact": "story",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true,
+   "story": "A 1979 10-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 10 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel."
+  },
+  {
+   "n": 201,
+   "specimen": "C082",
+   "fact": "value",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 202,
+   "specimen": "C083",
+   "fact": "composition",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 203,
+   "specimen": "C083",
+   "fact": "denomination",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 204,
+   "specimen": "C083",
+   "fact": "mint",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 205,
+   "specimen": "C083",
+   "fact": "story",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true,
+   "story": "A 1981 10-rappen coin from Switzerland. The front shows Libertas looking to the right. The back shows a 10 in a wreath. Karl Schwenzer designed the front, and Carl Friedrich Voigt designed the back. It is made of copper-nickel."
+  },
+  {
+   "n": 206,
+   "specimen": "C083",
+   "fact": "value",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 207,
+   "specimen": "C084",
+   "fact": "denomination",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 208,
+   "specimen": "C084",
+   "fact": "period",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 209,
+   "specimen": "C084",
+   "fact": "story",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true,
+   "story": "A 2002 Italian 1-euro coin, from the first year of the euro. Italy's side shows Leonardo da Vinci's drawing of the Vitruvian Man, adapted by Laura Cretara. The other side, shared by every euro country, was designed by Luc Luycx. It is made of two metals: a copper-nickel center inside a nickel-brass ring."
+  },
+  {
+   "n": 210,
+   "specimen": "C084",
+   "fact": "value",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 211,
+   "specimen": "C088",
+   "fact": "denomination",
+   "coin": "USA 1957 10¢ Roosevelt",
+   "has_photo": true
+  },
+  {
+   "n": 212,
+   "specimen": "C088",
+   "fact": "value",
+   "coin": "USA 1957 10¢ Roosevelt",
+   "has_photo": true
+  },
+  {
+   "n": 213,
+   "specimen": "C089",
+   "fact": "mint",
+   "coin": "Germany 1995 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 214,
+   "specimen": "C089",
+   "fact": "value",
+   "coin": "Germany 1995 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 215,
+   "specimen": "C090",
+   "fact": "value",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 216,
+   "specimen": "C091",
+   "fact": "value",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 217,
+   "specimen": "C092",
+   "fact": "value",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 218,
+   "specimen": "C093",
+   "fact": "design",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 219,
+   "specimen": "C093",
+   "fact": "mint",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 220,
+   "specimen": "C093",
+   "fact": "period",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 221,
+   "specimen": "C093",
+   "fact": "value",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 222,
+   "specimen": "C094",
+   "fact": "value",
+   "coin": "Switzerland 1986 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 223,
+   "specimen": "C095",
+   "fact": "period",
+   "coin": "France 1999 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 224,
+   "specimen": "C095",
+   "fact": "value",
+   "coin": "France 1999 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 225,
+   "specimen": "C096",
+   "fact": "period",
+   "coin": "France 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 226,
+   "specimen": "C096",
+   "fact": "value",
+   "coin": "France 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 227,
+   "specimen": "C097",
+   "fact": "period",
+   "coin": "France 2015 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 228,
+   "specimen": "C097",
+   "fact": "value",
+   "coin": "France 2015 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 229,
+   "specimen": "C098",
+   "fact": "period",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 230,
+   "specimen": "C098",
+   "fact": "story",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2000 Spanish 5-euro-cent coin. Spain's side shows the Cathedral of Santiago de Compostela, designed by Garcilaso Rollán. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 231,
+   "specimen": "C098",
+   "fact": "value",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 232,
+   "specimen": "C099",
+   "fact": "period",
+   "coin": "Germany 2002 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 233,
+   "specimen": "C099",
+   "fact": "story",
+   "coin": "Germany 2002 5 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 5-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 234,
+   "specimen": "C099",
+   "fact": "value",
+   "coin": "Germany 2002 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 235,
+   "specimen": "C100",
+   "fact": "period",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 236,
+   "specimen": "C100",
+   "fact": "story",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 2-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 237,
+   "specimen": "C100",
+   "fact": "value",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 238,
+   "specimen": "C101",
+   "fact": "period",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 239,
+   "specimen": "C101",
+   "fact": "story",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 Irish 1-euro-cent coin. Ireland's side shows the Celtic harp, the national symbol, designed by Jarlath Hayes, with the word ÉIRE (Ireland). The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 240,
+   "specimen": "C101",
+   "fact": "value",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 241,
+   "specimen": "C102",
+   "fact": "period",
+   "coin": "Germany 2015 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 242,
+   "specimen": "C102",
+   "fact": "story",
+   "coin": "Germany 2015 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2015 German 20-euro-cent coin. Germany's side shows the Brandenburg Gate in Berlin, designed by Reinhart Heinsdorff, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 243,
+   "specimen": "C102",
+   "fact": "value",
+   "coin": "Germany 2015 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 244,
+   "specimen": "C103",
+   "fact": "value",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 245,
+   "specimen": "C104",
+   "fact": "period",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 246,
+   "specimen": "C104",
+   "fact": "value",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 247,
+   "specimen": "C105",
+   "fact": "period",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 248,
+   "specimen": "C105",
+   "fact": "value",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 249,
+   "specimen": "C106",
+   "fact": "period",
+   "coin": "United Kingdom 1975 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 250,
+   "specimen": "C106",
+   "fact": "value",
+   "coin": "United Kingdom 1975 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 251,
+   "specimen": "C107",
+   "fact": "period",
+   "coin": "United Kingdom 1987 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 252,
+   "specimen": "C107",
+   "fact": "value",
+   "coin": "United Kingdom 1987 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 253,
+   "specimen": "C108",
+   "fact": "period",
+   "coin": "United Kingdom 1988 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 254,
+   "specimen": "C108",
+   "fact": "value",
+   "coin": "United Kingdom 1988 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 255,
+   "specimen": "C109",
+   "fact": "period",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 256,
+   "specimen": "C109",
+   "fact": "value",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 257,
+   "specimen": "C110",
+   "fact": "period",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 258,
+   "specimen": "C110",
+   "fact": "value",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 259,
+   "specimen": "C111",
+   "fact": "period",
+   "coin": "United Kingdom 1996 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 260,
+   "specimen": "C111",
+   "fact": "value",
+   "coin": "United Kingdom 1996 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 261,
+   "specimen": "C112",
+   "fact": "period",
+   "coin": "United Kingdom 2003 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 262,
+   "specimen": "C112",
+   "fact": "value",
+   "coin": "United Kingdom 2003 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 263,
+   "specimen": "C113",
+   "fact": "period",
+   "coin": "United Kingdom 2007 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 264,
+   "specimen": "C113",
+   "fact": "value",
+   "coin": "United Kingdom 2007 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 265,
+   "specimen": "C114",
+   "fact": "design",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 266,
+   "specimen": "C114",
+   "fact": "period",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 267,
+   "specimen": "C114",
+   "fact": "story",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false,
+   "story": "A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, the words EJERCITO CONSTITUCIONALISTA and 1914, and often the name SALAZAR. Made of copper."
+  },
+  {
+   "n": 268,
+   "specimen": "C114",
+   "fact": "value",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 269,
+   "specimen": "C115",
+   "fact": "value",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 270,
+   "specimen": "C116",
+   "fact": "mint",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 271,
+   "specimen": "C116",
+   "fact": "value",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 272,
+   "specimen": "C117",
+   "fact": "value",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 273,
+   "specimen": "C118",
+   "fact": "value",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 274,
+   "specimen": "C119",
+   "fact": "value",
+   "coin": "France 1977 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 275,
+   "specimen": "C120",
+   "fact": "period",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 276,
+   "specimen": "C120",
+   "fact": "story",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2013 Irish 5-euro-cent coin. Ireland's side shows the Celtic harp, the national symbol, designed by Jarlath Hayes, with the word ÉIRE (Ireland). The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 277,
+   "specimen": "C121",
+   "fact": "period",
+   "coin": "Germany 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 278,
+   "specimen": "C121",
+   "fact": "story",
+   "coin": "Germany 2014 5 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2014 German 5-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 279,
+   "specimen": "C121",
+   "fact": "value",
+   "coin": "Germany 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 280,
+   "specimen": "C122",
+   "fact": "denomination",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 281,
+   "specimen": "C122",
+   "fact": "value",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 282,
+   "specimen": "C123",
+   "fact": "denomination",
+   "coin": "Germany 1988 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 283,
+   "specimen": "C123",
+   "fact": "value",
+   "coin": "Germany 1988 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 284,
+   "specimen": "C124",
+   "fact": "story",
+   "coin": "France 1967 10 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1967 French 10-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 285,
+   "specimen": "C124",
+   "fact": "value",
+   "coin": "France 1967 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 286,
+   "specimen": "C125",
+   "fact": "story",
+   "coin": "France 1984 10 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1984 French 10-centime coin. The front shows Marianne, the symbol of France, facing left, by Henri Lagriffoul; the back shows the value with olive and wheat stalks and the motto LIBERTÉ, ÉGALITÉ, FRATERNITÉ, by Adrien Dieudonné. Struck in aluminium-bronze."
+  },
+  {
+   "n": 287,
+   "specimen": "C125",
+   "fact": "value",
+   "coin": "France 1984 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 288,
+   "specimen": "C126",
+   "fact": "period",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 289,
+   "specimen": "C126",
+   "fact": "story",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 2-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 290,
+   "specimen": "C126",
+   "fact": "value",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 291,
+   "specimen": "C127",
+   "fact": "period",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 292,
+   "specimen": "C127",
+   "fact": "story",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2010 2 euro cent from France. National Marianne in Phrygian cap (Fabienne Courtiade), RF, 12 EU stars, common globe side (Luc Luycx). Struck in copper-plated steel."
+  },
+  {
+   "n": 293,
+   "specimen": "C127",
+   "fact": "value",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 294,
+   "specimen": "C128",
+   "fact": "period",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 295,
+   "specimen": "C128",
+   "fact": "story",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2017 2 euro cent from France. National Marianne in Phrygian cap (Fabienne Courtiade), RF, 12 EU stars, common globe side (Luc Luycx). Struck in copper-plated steel."
+  },
+  {
+   "n": 296,
+   "specimen": "C128",
+   "fact": "value",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 297,
+   "specimen": "C129",
+   "fact": "period",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 298,
+   "specimen": "C129",
+   "fact": "story",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2000 20 euro cent from France. National modern La Semeuse (Laurent Jorio after Roty), RF, 12 EU stars, common map side (Luc Luycx). Struck in Nordic gold (CuAlZnSn)."
+  },
+  {
+   "n": 299,
+   "specimen": "C129",
+   "fact": "value",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 300,
+   "specimen": "C130",
+   "fact": "period",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 301,
+   "specimen": "C130",
+   "fact": "story",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2000 20 euro cent from France. National modern La Semeuse (Laurent Jorio after Roty), RF, 12 EU stars, common map side (Luc Luycx). Struck in Nordic gold (CuAlZnSn)."
+  },
+  {
+   "n": 302,
+   "specimen": "C130",
+   "fact": "value",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 303,
+   "specimen": "C131",
+   "fact": "period",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 304,
+   "specimen": "C131",
+   "fact": "story",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "story": "A 2002 German 20-euro-cent coin. Germany's side shows the Brandenburg Gate in Berlin, designed by Reinhart Heinsdorff, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in Nordic gold, a golden copper alloy."
+  },
+  {
+   "n": 305,
+   "specimen": "C131",
+   "fact": "value",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 306,
+   "specimen": "C132",
+   "fact": "period",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 307,
+   "specimen": "C132",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2002 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 308,
+   "specimen": "C132",
+   "fact": "value",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 309,
+   "specimen": "C133",
+   "fact": "period",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 310,
+   "specimen": "C133",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2002 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 311,
+   "specimen": "C133",
+   "fact": "value",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 312,
+   "specimen": "C134",
+   "fact": "period",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 313,
+   "specimen": "C134",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2002 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 314,
+   "specimen": "C134",
+   "fact": "value",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 315,
+   "specimen": "C135",
+   "fact": "period",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 316,
+   "specimen": "C135",
+   "fact": "story",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2008 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 317,
+   "specimen": "C135",
+   "fact": "value",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 318,
+   "specimen": "C136",
+   "fact": "period",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 319,
+   "specimen": "C136",
+   "fact": "story",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2009 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 320,
+   "specimen": "C136",
+   "fact": "value",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 321,
+   "specimen": "C137",
+   "fact": "period",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 322,
+   "specimen": "C137",
+   "fact": "story",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2012 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 323,
+   "specimen": "C137",
+   "fact": "value",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 324,
+   "specimen": "C138",
+   "fact": "period",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 325,
+   "specimen": "C138",
+   "fact": "story",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2015 German 1-euro-cent coin. Germany's side shows an oak twig, designed by Rolf Lederbogen, ringed by the 12 European stars. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 326,
+   "specimen": "C138",
+   "fact": "value",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 327,
+   "specimen": "C139",
+   "fact": "denomination",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 328,
+   "specimen": "C139",
+   "fact": "period",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 329,
+   "specimen": "C139",
+   "fact": "story",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2014 Spanish 1-euro-cent coin. Spain's side shows the Cathedral of Santiago de Compostela, designed by Garcilaso Rollán. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 330,
+   "specimen": "C139",
+   "fact": "value",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 331,
+   "specimen": "C140",
+   "fact": "period",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 332,
+   "specimen": "C140",
+   "fact": "story",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2008 Spanish 1-euro-cent coin. Spain's side shows the Cathedral of Santiago de Compostela, designed by Garcilaso Rollán. The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 333,
+   "specimen": "C140",
+   "fact": "value",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 334,
+   "specimen": "C141",
+   "fact": "period",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 335,
+   "specimen": "C141",
+   "fact": "story",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2009 1 euro cent from France. National Marianne in Phrygian cap (Fabienne Courtiade), RF, 12 EU stars, common globe side (Luc Luycx). Struck in copper-plated steel."
+  },
+  {
+   "n": 336,
+   "specimen": "C141",
+   "fact": "value",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 337,
+   "specimen": "C142",
+   "fact": "period",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 338,
+   "specimen": "C142",
+   "fact": "story",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2000 Dutch 1-euro-cent coin. The Dutch side shows a portrait of Queen Beatrix with the words BEATRIX KONINGIN DER NEDERLANDEN (Beatrix, Queen of the Netherlands). The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 339,
+   "specimen": "C142",
+   "fact": "value",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 340,
+   "specimen": "C143",
+   "fact": "period",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 341,
+   "specimen": "C143",
+   "fact": "story",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A 2004 Irish 1-euro-cent coin. Ireland's side shows the Celtic harp, the national symbol, designed by Jarlath Hayes, with the word ÉIRE (Ireland). The other side, shared by every euro country, was designed by Luc Luycx. Struck in copper-plated steel."
+  },
+  {
+   "n": 342,
+   "specimen": "C143",
+   "fact": "value",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 343,
+   "specimen": "C144",
+   "fact": "period",
+   "coin": "Norway 1998 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 344,
+   "specimen": "C144",
+   "fact": "value",
+   "coin": "Norway 1998 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 345,
+   "specimen": "C145",
+   "fact": "story",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true,
+   "story": "A 1996 50 pesos from Chile. The obverse shows Bernardo O’Higgins profile with REPUBLICA DE CHILE, LIBERTADOR B. O’HIGGINS and the mint mark So (Santiago); the reverse shows value and date in a laurel wreath. Struck in aluminum-nickel bronze."
+  },
+  {
+   "n": 346,
+   "specimen": "C145",
+   "fact": "value",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true
+  },
+  {
+   "n": 347,
+   "specimen": "C146",
+   "fact": "mint",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true
+  },
+  {
+   "n": 348,
+   "specimen": "C146",
+   "fact": "period",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true
+  },
+  {
+   "n": 349,
+   "specimen": "C146",
+   "fact": "value",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true
+  },
+  {
+   "n": 350,
+   "specimen": "C147",
+   "fact": "period",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 351,
+   "specimen": "C147",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel."
+  },
+  {
+   "n": 352,
+   "specimen": "C148",
+   "fact": "period",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 353,
+   "specimen": "C148",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel."
+  },
+  {
+   "n": 354,
+   "specimen": "C148",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 355,
+   "specimen": "C149",
+   "fact": "period",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 356,
+   "specimen": "C149",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel."
+  },
+  {
+   "n": 357,
+   "specimen": "C149",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 358,
+   "specimen": "C150",
+   "fact": "period",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 359,
+   "specimen": "C150",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 1992 10-pence coin from the United Kingdom. The front shows Queen Elizabeth II, in a portrait by Raphael Maklouf. The back shows a crowned lion walking, with the words TEN PENCE. Ironside made the back design. It is made of copper-nickel."
+  },
+  {
+   "n": 360,
+   "specimen": "C150",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 361,
+   "specimen": "C151",
+   "fact": "period",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 362,
+   "specimen": "C151",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 1992 10 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 363,
+   "specimen": "C151",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 364,
+   "specimen": "C152",
+   "fact": "period",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 365,
+   "specimen": "C152",
+   "fact": "story",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true,
+   "story": "A 2001 10 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 366,
+   "specimen": "C152",
+   "fact": "value",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 367,
+   "specimen": "C153",
+   "fact": "period",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 368,
+   "specimen": "C153",
+   "fact": "story",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true,
+   "story": "A 2008 10 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned lion walking, with the words TEN PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 369,
+   "specimen": "C153",
+   "fact": "value",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 370,
+   "specimen": "C154",
+   "fact": "period",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 371,
+   "specimen": "C154",
+   "fact": "story",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 2010 10 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words TEN PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 372,
+   "specimen": "C154",
+   "fact": "value",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 373,
+   "specimen": "C155",
+   "fact": "period",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 374,
+   "specimen": "C155",
+   "fact": "story",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 2013 10 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; TEN PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 375,
+   "specimen": "C155",
+   "fact": "value",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 376,
+   "specimen": "C156",
+   "fact": "period",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 377,
+   "specimen": "C156",
+   "fact": "story",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 2013 10 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; TEN PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 378,
+   "specimen": "C156",
+   "fact": "value",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 379,
+   "specimen": "C157",
+   "fact": "period",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 380,
+   "specimen": "C157",
+   "fact": "story",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true,
+   "story": "A 2014 10 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; TEN PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 381,
+   "specimen": "C157",
+   "fact": "value",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 382,
+   "specimen": "C158",
+   "fact": "period",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 383,
+   "specimen": "C158",
+   "fact": "story",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false,
+   "story": "A 2016 10 pence from United Kingdom. The obverse shows Jody Clark Elizabeth II; the reverse shows Royal Shield segment; TEN PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 384,
+   "specimen": "C158",
+   "fact": "value",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 385,
+   "specimen": "C159",
+   "fact": "mint",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true
+  },
+  {
+   "n": 386,
+   "specimen": "C159",
+   "fact": "story",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true,
+   "story": "A 2004 10 cents from East Caribbean States. The obverse shows Elizabeth II; the reverse shows Golden Hind under sail; EAST CARIBBEAN STATES, 10 flanking masts, TEN CENTS. Struck in cupronickel."
+  },
+  {
+   "n": 387,
+   "specimen": "C159",
+   "fact": "value",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true
+  },
+  {
+   "n": 388,
+   "specimen": "C160",
+   "fact": "value",
+   "coin": "Canada 1939 5 cents · CAD",
+   "has_photo": true
+  },
+  {
+   "n": 389,
+   "specimen": "C161",
+   "fact": "value",
+   "coin": "Mexico 1945 10 centavos · MXP",
+   "has_photo": false
+  },
+  {
+   "n": 390,
+   "specimen": "C162",
+   "fact": "design",
+   "coin": "Thailand 2006 1 baht · THB",
+   "has_photo": true
+  },
+  {
+   "n": 391,
+   "specimen": "C162",
+   "fact": "period",
+   "coin": "Thailand 2006 1 baht · THB",
+   "has_photo": true
+  },
+  {
+   "n": 392,
+   "specimen": "C163",
+   "fact": "story",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true,
+   "story": "A 1984 Philippine 50-sentimo coin. One side shows the Philippine eagle with its wings spread, with the bird's scientific name around the edge. Struck in cupronickel."
+  },
+  {
+   "n": 393,
+   "specimen": "C163",
+   "fact": "value",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 394,
+   "specimen": "C164",
+   "fact": "period",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 395,
+   "specimen": "C164",
+   "fact": "story",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true,
+   "story": "A 1932 British halfpenny. The front shows King George V facing left, by Bertram Mackennal; the back shows Britannia seated with her trident. Struck in bronze."
+  },
+  {
+   "n": 396,
+   "specimen": "C164",
+   "fact": "value",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 397,
+   "specimen": "C165",
+   "fact": "period",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 398,
+   "specimen": "C165",
+   "fact": "value",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 399,
+   "specimen": "C166",
+   "fact": "catalog",
+   "coin": "Mexico 1944 5 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 400,
+   "specimen": "C166",
+   "fact": "value",
+   "coin": "Mexico 1944 5 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 401,
+   "specimen": "C167",
+   "fact": "period",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 402,
+   "specimen": "C167",
+   "fact": "story",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 1990 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 403,
+   "specimen": "C167",
+   "fact": "value",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 404,
+   "specimen": "C168",
+   "fact": "period",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 405,
+   "specimen": "C168",
+   "fact": "story",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 1990 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 406,
+   "specimen": "C168",
+   "fact": "value",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 407,
+   "specimen": "C169",
+   "fact": "period",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 408,
+   "specimen": "C169",
+   "fact": "story",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 1992 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 409,
+   "specimen": "C169",
+   "fact": "value",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 410,
+   "specimen": "C170",
+   "fact": "period",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 411,
+   "specimen": "C170",
+   "fact": "story",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 1996 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 412,
+   "specimen": "C170",
+   "fact": "value",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 413,
+   "specimen": "C171",
+   "fact": "period",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 414,
+   "specimen": "C171",
+   "fact": "story",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 1996 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 415,
+   "specimen": "C171",
+   "fact": "value",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 416,
+   "specimen": "C172",
+   "fact": "period",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 417,
+   "specimen": "C172",
+   "fact": "story",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 1997 5 pence coin from the United Kingdom. The obverse shows Raphael Maklouf's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 418,
+   "specimen": "C172",
+   "fact": "value",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 419,
+   "specimen": "C173",
+   "fact": "period",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 420,
+   "specimen": "C173",
+   "fact": "story",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true,
+   "story": "A 1998 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 421,
+   "specimen": "C173",
+   "fact": "value",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 422,
+   "specimen": "C174",
+   "fact": "period",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 423,
+   "specimen": "C174",
+   "fact": "story",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true,
+   "story": "A 2000 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 424,
+   "specimen": "C174",
+   "fact": "value",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 425,
+   "specimen": "C175",
+   "fact": "period",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 426,
+   "specimen": "C175",
+   "fact": "story",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 2001 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 427,
+   "specimen": "C175",
+   "fact": "value",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 428,
+   "specimen": "C176",
+   "fact": "period",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 429,
+   "specimen": "C176",
+   "fact": "story",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 2007 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a crowned thistle, with the words FIVE PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 430,
+   "specimen": "C176",
+   "fact": "value",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 431,
+   "specimen": "C177",
+   "fact": "denomination",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 432,
+   "specimen": "C177",
+   "fact": "period",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 433,
+   "specimen": "C177",
+   "fact": "story",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true,
+   "story": "A 2009 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words FIVE PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 434,
+   "specimen": "C177",
+   "fact": "value",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 435,
+   "specimen": "C178",
+   "fact": "denomination",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 436,
+   "specimen": "C178",
+   "fact": "period",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 437,
+   "specimen": "C178",
+   "fact": "story",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 2010 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words FIVE PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 438,
+   "specimen": "C178",
+   "fact": "value",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 439,
+   "specimen": "C179",
+   "fact": "denomination",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 440,
+   "specimen": "C179",
+   "fact": "period",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 441,
+   "specimen": "C179",
+   "fact": "story",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 2010 5 pence coin from the United Kingdom. The obverse shows Ian Rank-Broadley's portrait of Elizabeth II. The reverse shows a segment of the Royal Shield, with the words FIVE PENCE; the design is by Matthew Dent. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 442,
+   "specimen": "C179",
+   "fact": "value",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 443,
+   "specimen": "C180",
+   "fact": "denomination",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 444,
+   "specimen": "C180",
+   "fact": "period",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 445,
+   "specimen": "C180",
+   "fact": "story",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true,
+   "story": "A 2012 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 446,
+   "specimen": "C180",
+   "fact": "value",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 447,
+   "specimen": "C181",
+   "fact": "denomination",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 448,
+   "specimen": "C181",
+   "fact": "period",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 449,
+   "specimen": "C181",
+   "fact": "story",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 2014 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 450,
+   "specimen": "C181",
+   "fact": "value",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 451,
+   "specimen": "C182",
+   "fact": "denomination",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 452,
+   "specimen": "C182",
+   "fact": "period",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 453,
+   "specimen": "C182",
+   "fact": "story",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false,
+   "story": "A 2014 5 pence from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 454,
+   "specimen": "C182",
+   "fact": "value",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 455,
+   "specimen": "C183",
+   "fact": "denomination",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 456,
+   "specimen": "C183",
+   "fact": "period",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 457,
+   "specimen": "C183",
+   "fact": "value",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 458,
+   "specimen": "C184",
+   "fact": "denomination",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 459,
+   "specimen": "C184",
+   "fact": "period",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 460,
+   "specimen": "C184",
+   "fact": "story",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true,
+   "story": "A 2016 5 pence from United Kingdom. The obverse shows Jody Clark Elizabeth II; the reverse shows Royal Shield segment; FIVE PENCE (Matthew Dent). Struck in nickel-plated steel."
+  },
+  {
+   "n": 461,
+   "specimen": "C184",
+   "fact": "value",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 462,
+   "specimen": "C185",
+   "fact": "mint",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 463,
+   "specimen": "C185",
+   "fact": "period",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 464,
+   "specimen": "C185",
+   "fact": "value",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 465,
+   "specimen": "C186",
+   "fact": "period",
+   "coin": "Cayman Islands 2002 5 cents · KYD",
+   "has_photo": false
+  },
+  {
+   "n": 466,
+   "specimen": "C186",
+   "fact": "value",
+   "coin": "Cayman Islands 2002 5 cents · KYD",
+   "has_photo": false
+  },
+  {
+   "n": 467,
+   "specimen": "C187",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 468,
+   "specimen": "C188",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 469,
+   "specimen": "C189",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 470,
+   "specimen": "C190",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 471,
+   "specimen": "C191",
+   "fact": "value",
+   "coin": "Germany 1986 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 472,
+   "specimen": "C192",
+   "fact": "value",
+   "coin": "Germany 1991 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 473,
+   "specimen": "C193",
+   "fact": "story",
+   "coin": "France 1973 5 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1973 5 centimes coin from France. The obverse shows Marianne, the symbol of Liberty, facing left; the design is by Henri Lagriffoul. The reverse shows 5 CENTIMES, with olive and wheat, the words LIBERTE, EGALITE, FRATERNITE and the date; the design is by Adrien Dieudonné. Struck in aluminum-bronze (92% copper, 6% aluminium, 2% nickel)."
+  },
+  {
+   "n": 474,
+   "specimen": "C193",
+   "fact": "value",
+   "coin": "France 1973 5 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 475,
+   "specimen": "C194",
+   "fact": "story",
+   "coin": "France 1980 5 centimes · FRF",
+   "has_photo": true,
+   "story": "A 1980 5 centimes coin from France. The obverse shows Marianne, the symbol of Liberty, facing left; the design is by Henri Lagriffoul. The reverse shows 5 CENTIMES, with olive and wheat, the words LIBERTE, EGALITE, FRATERNITE and the date; the design is by Adrien Dieudonné. Struck in aluminum-bronze (92% copper, 6% aluminium, 2% nickel)."
+  },
+  {
+   "n": 476,
+   "specimen": "C194",
+   "fact": "value",
+   "coin": "France 1980 5 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 477,
+   "specimen": "C195",
+   "fact": "denomination",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 478,
+   "specimen": "C195",
+   "fact": "value",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 479,
+   "specimen": "C196",
+   "fact": "denomination",
+   "coin": "Germany 1987 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 480,
+   "specimen": "C196",
+   "fact": "value",
+   "coin": "Germany 1987 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 481,
+   "specimen": "C197",
+   "fact": "denomination",
+   "coin": "Germany 1992 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 482,
+   "specimen": "C197",
+   "fact": "value",
+   "coin": "Germany 1992 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 483,
+   "specimen": "C198",
+   "fact": "design",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 484,
+   "specimen": "C198",
+   "fact": "period",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 485,
+   "specimen": "C198",
+   "fact": "story",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true,
+   "story": "A 1948 Dutch 1-cent coin. The front carries the words WILHELMINA KONINGIN DER NEDERLANDEN (Wilhelmina, Queen of the Netherlands); the back shows a large 1 with the word CENT, the date and the mint marks. Struck in bronze."
+  },
+  {
+   "n": 486,
+   "specimen": "C198",
+   "fact": "value",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 487,
+   "specimen": "C199",
+   "fact": "value",
+   "coin": "Italy 1978 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 488,
+   "specimen": "C200",
+   "fact": "catalog",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true
+  },
+  {
+   "n": 489,
+   "specimen": "C200",
+   "fact": "mint",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true
+  },
+  {
+   "n": 490,
+   "specimen": "C200",
+   "fact": "mintage",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true
+  },
+  {
+   "n": 491,
+   "specimen": "C200",
+   "fact": "value",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true
+  },
+  {
+   "n": 492,
+   "specimen": "C201",
+   "fact": "mint",
+   "coin": "Nigeria 1976 10 kobo · NGN",
+   "has_photo": true
+  },
+  {
+   "n": 493,
+   "specimen": "C201",
+   "fact": "story",
+   "coin": "Nigeria 1976 10 kobo · NGN",
+   "has_photo": true,
+   "story": "A 1976 10 kobo from Nigeria. The obverse shows national arms; the reverse shows value 10; two oil palms, kobo, date on arms side. Struck in cupronickel."
+  },
+  {
+   "n": 494,
+   "specimen": "C201",
+   "fact": "value",
+   "coin": "Nigeria 1976 10 kobo · NGN",
+   "has_photo": true
+  },
+  {
+   "n": 495,
+   "specimen": "C202",
+   "fact": "mint",
+   "coin": "Guatemala 2010 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 496,
+   "specimen": "C203",
+   "fact": "story",
+   "coin": "India 2001 1 rupee · INR",
+   "has_photo": true,
+   "story": "This 2001 1 rupee coin from India was struck in stainless steel at the Noida mint. The value side shows रुपया (rupee in Hindi) alongside a large 1 and the word RUPEE between grain stalks. Below the numeral sits the year 2001 and the small dot mint mark of the Noida mint. The obverse displays the Ashoka Lion Capital."
+  },
+  {
+   "n": 497,
+   "specimen": "C204",
+   "fact": "mint",
+   "coin": "Trinidad and Tobago 2014 25 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 498,
+   "specimen": "C204",
+   "fact": "story",
+   "coin": "Trinidad and Tobago 2014 25 cents · TTD",
+   "has_photo": true,
+   "story": "A 2014 25-cent coin from Trinidad and Tobago. The front shows the national coat of arms, held up by a scarlet ibis and a cocrico, the two national birds, with the words REPUBLIC OF TRINIDAD AND TOBAGO; the value is on the back. Struck in cupronickel."
+  },
+  {
+   "n": 499,
+   "specimen": "C205",
+   "fact": "period",
+   "coin": "United Kingdom 1982 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 500,
+   "specimen": "C205",
+   "fact": "story",
+   "coin": "United Kingdom 1982 20 pence · GBP",
+   "has_photo": true,
+   "story": "A 1982 20 pence coin from the United Kingdom. The obverse shows Arnold Machin's portrait of Elizabeth II. The reverse shows a crowned Tudor rose, with the words TWENTY PENCE, the number 20, and the date split by the crown; the design is by William Gardner. Struck in copper-nickel (84% copper, 16% nickel)."
+  },
+  {
+   "n": 501,
+   "specimen": "C206",
+   "fact": "period",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 502,
+   "specimen": "C206",
+   "fact": "story",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true,
+   "story": "A 1976 1 yen coin from Japan. One side shows a young tree, with the words 日本国 and 一円. The other side shows a big 1 and the date in Showa regnal years (Showa 51 = 1976). Struck in aluminum."
+  },
+  {
+   "n": 503,
+   "specimen": "C206",
+   "fact": "value",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 504,
+   "specimen": "C207",
+   "fact": "mint",
+   "coin": "Trinidad and Tobago 2016 10 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 505,
+   "specimen": "C207",
+   "fact": "value",
+   "coin": "Trinidad and Tobago 2016 10 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 506,
+   "specimen": "C208",
+   "fact": "mint",
+   "coin": "Turkey 2011 10 kuruş · TRY",
+   "has_photo": true
+  },
+  {
+   "n": 507,
+   "specimen": "C208",
+   "fact": "value",
+   "coin": "Turkey 2011 10 kuruş · TRY",
+   "has_photo": true
+  },
+  {
+   "n": 508,
+   "specimen": "C209",
+   "fact": "story",
+   "coin": "Mexico 1987 5 pesos · MXP (pre-nuevo)",
+   "has_photo": true,
+   "story": "A 1987 5 pesos coin from Mexico. The value side shows a $ sign, a big 5, the year 1987 and the Mo mint mark, with a scroll ornament and a beaded rim. The obverse shows the national arms. Struck in brass."
+  },
+  {
+   "n": 509,
+   "specimen": "C210",
+   "fact": "design",
+   "coin": "South Korea 2000 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 510,
+   "specimen": "C210",
+   "fact": "mint",
+   "coin": "South Korea 2000 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 511,
+   "specimen": "C210",
+   "fact": "story",
+   "coin": "South Korea 2000 100 won · KRW",
+   "has_photo": true,
+   "story": "A 2000 100 won coin from South Korea. The value side shows the year 2000, a big 100 and the words 한국은행 (Bank of Korea), with a beaded rim. The obverse shows a portrait of Yi Sun-sin. Struck in copper-nickel."
+  },
+  {
+   "n": 512,
+   "specimen": "C210",
+   "fact": "value",
+   "coin": "South Korea 2000 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 513,
+   "specimen": "C211",
+   "fact": "story",
+   "coin": "Italy 1987 500 lire · ITL",
+   "has_photo": true,
+   "story": "A 1987 500 lire coin from Italy. The obverse shows the head of Italia, the female symbol of Italy. The reverse shows the Palazzo del Quirinale with the Dioscuri statues, the value L. 500, the number 500 in Braille on the ring, wheat ears, the date and the mint mark R. Struck as a bimetallic coin, with a bronzital (aluminium-bronze) centre and an acmonital (stainless steel) ring."
+  },
+  {
+   "n": 514,
+   "specimen": "C211",
+   "fact": "value",
+   "coin": "Italy 1987 500 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 515,
+   "specimen": "C212",
+   "fact": "mint",
+   "coin": "Eritrea 1997 50 cents · ERN (nakfa)",
+   "has_photo": true
+  },
+  {
+   "n": 516,
+   "specimen": "C212",
+   "fact": "value",
+   "coin": "Eritrea 1997 50 cents · ERN (nakfa)",
+   "has_photo": true
+  },
+  {
+   "n": 517,
+   "specimen": "C213",
+   "fact": "denomination",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 518,
+   "specimen": "C213",
+   "fact": "period",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 519,
+   "specimen": "C213",
+   "fact": "value",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 520,
+   "specimen": "C214",
+   "fact": "mint",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 521,
+   "specimen": "C214",
+   "fact": "period",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 522,
+   "specimen": "C214",
+   "fact": "value",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 523,
+   "specimen": "C215",
+   "fact": "mint",
+   "coin": "Cayman Islands 2008 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 524,
+   "specimen": "C215",
+   "fact": "period",
+   "coin": "Cayman Islands 2008 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 525,
+   "specimen": "C215",
+   "fact": "value",
+   "coin": "Cayman Islands 2008 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 526,
+   "specimen": "C216",
+   "fact": "period",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 527,
+   "specimen": "C216",
+   "fact": "story",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false,
+   "story": "A 1971 1 penny from United Kingdom. The obverse shows Arnold Machin Elizabeth II; the reverse shows crowned portcullis; NEW PENNY (Ironside). Struck in bronze (97 Cu / 2.5 Zn / 0.5 Sn)."
+  },
+  {
+   "n": 528,
+   "specimen": "C216",
+   "fact": "value",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 529,
+   "specimen": "C217",
+   "fact": "period",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 530,
+   "specimen": "C217",
+   "fact": "story",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "story": "A 1998 1 penny from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows crowned portcullis; ONE PENNY (Ironside). Struck in copper-plated steel."
+  },
+  {
+   "n": 531,
+   "specimen": "C217",
+   "fact": "value",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 532,
+   "specimen": "C218",
+   "fact": "period",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 533,
+   "specimen": "C218",
+   "fact": "story",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "story": "A 2010 1 penny from United Kingdom. The obverse shows Ian Rank-Broadley Elizabeth II; the reverse shows Royal Shield segment; ONE PENNY (Matthew Dent). Struck in copper-plated steel."
+  },
+  {
+   "n": 534,
+   "specimen": "C218",
+   "fact": "value",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 535,
+   "specimen": "C219",
+   "fact": "mint",
+   "coin": "Jamaica 2015 1 dollar · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 536,
+   "specimen": "C219",
+   "fact": "period",
+   "coin": "Jamaica 2015 1 dollar · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 537,
+   "specimen": "C219",
+   "fact": "value",
+   "coin": "Jamaica 2015 1 dollar · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 538,
+   "specimen": "C220",
+   "fact": "composition",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 539,
+   "specimen": "C220",
+   "fact": "period",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 540,
+   "specimen": "C220",
+   "fact": "story",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true,
+   "story": "A 1982 10 yen coin from Japan. One side shows the Phoenix Hall of the Byodoin temple, with the words 日本国 and 十円. The other side shows a large 10 inside a wreath of bay laurel (tokiwa), and the date in Showa regnal years (Showa 57 = 1982). Struck in bronze (95% copper, 3-4% zinc, 1-2% tin)."
+  },
+  {
+   "n": 541,
+   "specimen": "C220",
+   "fact": "value",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 542,
+   "specimen": "C220",
+   "fact": "year",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 543,
+   "specimen": "C221",
+   "fact": "story",
+   "coin": "France 1986 1/2 franc · FRF",
+   "has_photo": true,
+   "story": "A 1986 0.5 franc from France. The obverse shows La Semeuse left (Oscar Roty); the reverse shows 1/2 FRANC; olive sprig, LIBERTE, EGALITE, FRATERNITE, date. Struck in nickel."
+  },
+  {
+   "n": 544,
+   "specimen": "C221",
+   "fact": "value",
+   "coin": "France 1986 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 545,
+   "specimen": "C222",
+   "fact": "period",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 546,
+   "specimen": "C222",
+   "fact": "story",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true,
+   "story": "A 1965 1 yen coin from Japan. One side shows a young tree, with the words 日本国 and 一円. The other side shows a big 1 and the date in Showa regnal years (Showa 40 = 1965). Struck in aluminum."
+  },
+  {
+   "n": 547,
+   "specimen": "C222",
+   "fact": "value",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 548,
+   "specimen": "C223",
+   "fact": "period",
+   "coin": "Netherlands 1967 1 gulden · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 549,
+   "specimen": "C223",
+   "fact": "story",
+   "coin": "Netherlands 1967 1 gulden · NLG",
+   "has_photo": true,
+   "story": "A 1967 Dutch 1-gulden coin. The front shows Queen Juliana; the back shows the crowned Dutch coat of arms with a lion. Struck in silver (72% fine)."
+  },
+  {
+   "n": 550,
+   "specimen": "C223",
+   "fact": "value",
+   "coin": "Netherlands 1967 1 gulden · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 551,
+   "specimen": "C224",
+   "fact": "value",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 552,
+   "specimen": "C225",
+   "fact": "value",
+   "coin": "Germany 1977 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 553,
+   "specimen": "C226",
+   "fact": "value",
+   "coin": "Germany 1980 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 554,
+   "specimen": "C227",
+   "fact": "value",
+   "coin": "Germany 1984 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 555,
+   "specimen": "C228",
+   "fact": "value",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 556,
+   "specimen": "C229",
+   "fact": "value",
+   "coin": "Germany 1990 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 557,
+   "specimen": "C230",
+   "fact": "mint",
+   "coin": "Jamaica 2015 10 dollars · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 558,
+   "specimen": "C230",
+   "fact": "story",
+   "coin": "Jamaica 2015 10 dollars · JMD",
+   "has_photo": true,
+   "story": "A 2015 10 dollar coin from Jamaica. It shows the national arms, with a crocodile crest, Taino supporters and a motto ribbon, and the words JAMAICA and TEN DOLLARS with the year 2015. The coin is round. Struck in nickel-clad steel."
+  },
+  {
+   "n": 559,
+   "specimen": "C230",
+   "fact": "value",
+   "coin": "Jamaica 2015 10 dollars · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 560,
+   "specimen": "C231",
+   "fact": "period",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false
+  },
+  {
+   "n": 561,
+   "specimen": "C231",
+   "fact": "story",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false,
+   "story": "A AH 1378 (1958) 1 qirsh from Saudi Arabia. Value side قرش واحد, big ١, Hijri ١٣٧٨ (AH 1378 ≈ 1958–59 CE); المملكة العربية السعودية is in the legend around the arms on the other side. Struck in cupronickel."
+  },
+  {
+   "n": 562,
+   "specimen": "C231",
+   "fact": "value",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false
+  },
+  {
+   "n": 563,
+   "specimen": "C232",
+   "fact": "mint",
+   "coin": "Vietnam 2003 1000 đồng · VND",
+   "has_photo": true
+  },
+  {
+   "n": 564,
+   "specimen": "C232",
+   "fact": "story",
+   "coin": "Vietnam 2003 1000 đồng · VND",
+   "has_photo": true,
+   "story": "A 2003 1000 đồng coin from Vietnam. The emblem side shows a star and a cog inside a wreath of rice, with the words CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM and the year 2003. The reverse shows the value, 1000 ĐỒNG. Struck in brass-plated steel."
+  },
+  {
+   "n": 565,
+   "specimen": "C233",
+   "fact": "catalog",
+   "coin": "Colombia 2016 50 pesos · COP",
+   "has_photo": true
+  },
+  {
+   "n": 566,
+   "specimen": "C233",
+   "fact": "design",
+   "coin": "Colombia 2016 50 pesos · COP",
+   "has_photo": true
+  },
+  {
+   "n": 567,
+   "specimen": "C233",
+   "fact": "value",
+   "coin": "Colombia 2016 50 pesos · COP",
+   "has_photo": true
+  },
+  {
+   "n": 568,
+   "specimen": "C234",
+   "fact": "denomination",
+   "coin": "United Kingdom 1968 10 new pence · GBP (large module)",
+   "has_photo": true
+  },
+  {
+   "n": 569,
+   "specimen": "C234",
+   "fact": "period",
+   "coin": "United Kingdom 1968 10 new pence · GBP (large module)",
+   "has_photo": true
+  },
+  {
+   "n": 570,
+   "specimen": "C234",
+   "fact": "story",
+   "coin": "United Kingdom 1968 10 new pence · GBP (large module)",
+   "has_photo": true,
+   "story": "A 1968 10 new pence coin from the United Kingdom. The obverse shows Arnold Machin's portrait of Elizabeth II. The reverse shows a crowned lion walking with its head turned to the front, with the words NEW PENCE; the design is by Christopher Ironside. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 571,
+   "specimen": "C235",
+   "fact": "period",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 572,
+   "specimen": "C235",
+   "fact": "story",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true,
+   "story": "A 1934 10 centavos coin from Guatemala. One side shows the coat of arms - a quetzal, crossed rifles and swords, and laurel - with the words REPUBLICA DE GUATEMALA, the fineness 0.720 and the year 1934. The other side shows a quetzal perched on a column, with the words LEY DE 26 DE NOVIEMBRE DE 1924, 10 and CENTAVOS. Struck in silver, .720 fine."
+  },
+  {
+   "n": 573,
+   "specimen": "C235",
+   "fact": "value",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 574,
+   "specimen": "C236",
+   "fact": "story",
+   "coin": "Mexico 2010 2 pesos · MXN (nuevo)",
+   "has_photo": true,
+   "story": "A 2010 2 pesos coin from Mexico. The value side shows a $ sign, a large 2, the year 2010 and the Mo mint mark, with the glyphs of the Ring of Days from the Aztec Sun Stone around the outer ring. The obverse shows the national arms. Struck as a bimetallic coin, with an aluminum-bronze centre and a stainless steel outer ring."
+  },
+  {
+   "n": 575,
+   "specimen": "C236",
+   "fact": "value",
+   "coin": "Mexico 2010 2 pesos · MXN (nuevo)",
+   "has_photo": true
+  },
+  {
+   "n": 576,
+   "specimen": "C237",
+   "fact": "denomination",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 577,
+   "specimen": "C237",
+   "fact": "value",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 578,
+   "specimen": "C238",
+   "fact": "value",
+   "coin": "Germany 1973 2 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 579,
+   "specimen": "C239",
+   "fact": "value",
+   "coin": "Australia 1944 1 penny · AUD (pre-decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 580,
+   "specimen": "C240",
+   "fact": "value",
+   "coin": "Italy 1965 100 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 581,
+   "specimen": "C241",
+   "fact": "period",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 582,
+   "specimen": "C241",
+   "fact": "story",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false,
+   "story": "A 1997 1 penny from United Kingdom. The obverse shows Raphael Maklouf Elizabeth II; the reverse shows crowned portcullis; ONE PENNY (Ironside). Struck in copper-plated steel."
+  },
+  {
+   "n": 583,
+   "specimen": "C241",
+   "fact": "value",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 584,
+   "specimen": "C242",
+   "fact": "composition",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 585,
+   "specimen": "C242",
+   "fact": "denomination",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 586,
+   "specimen": "C242",
+   "fact": "story",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true,
+   "story": "A 1883 10 rappen coin from Switzerland. The obverse shows the head of Libertas facing right. The reverse shows the number 10 inside a wreath. The designers were Karl Schwenzer and Carl Friedrich Voigt. Struck in copper-nickel (75% copper, 25% nickel)."
+  },
+  {
+   "n": 587,
+   "specimen": "C242",
+   "fact": "value",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 588,
+   "specimen": "C243",
+   "fact": "story",
+   "coin": "France 1946 5 francs · FRF (old franc · pre-nouveau)",
+   "has_photo": true,
+   "story": "A 1946 French 5-franc coin, struck just after the Second World War. The front shows Marianne, the symbol of France, wearing a laurel wreath, by André Lavrillier; the back shows 5 FRANCS inside a laurel wreath with the letters RF (République Française). Struck in aluminium."
+  },
+  {
+   "n": 589,
+   "specimen": "C243",
+   "fact": "value",
+   "coin": "France 1946 5 francs · FRF (old franc · pre-nouveau)",
+   "has_photo": true
+  },
+  {
+   "n": 590,
+   "specimen": "C244",
+   "fact": "value",
+   "coin": "Mexico 1964 20 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 591,
+   "specimen": "C245",
+   "fact": "period",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false
+  },
+  {
+   "n": 592,
+   "specimen": "C245",
+   "fact": "value",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false
+  },
+  {
+   "n": 593,
+   "specimen": "C246",
+   "fact": "value",
+   "coin": "Philippines 1971 10 sentimos · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 594,
+   "specimen": "C247",
+   "fact": "story",
+   "coin": "South Korea 1966 1 won · KRW",
+   "has_photo": true,
+   "story": "A 1966 1 won coin from South Korea. One side shows a Rose of Sharon flower (Hibiscus syriacus), with the words 일원 and 한국은행. The other side shows the words THE BANK OF KOREA, a big 1 and the year 1966. Struck in brass."
+  },
+  {
+   "n": 595,
+   "specimen": "C247",
+   "fact": "value",
+   "coin": "South Korea 1966 1 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 596,
+   "specimen": "C248",
+   "fact": "period",
+   "coin": "Greece 1982 2 drachmes · GRD",
+   "has_photo": true
+  },
+  {
+   "n": 597,
+   "specimen": "C249",
+   "fact": "design",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 598,
+   "specimen": "C249",
+   "fact": "story",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true,
+   "story": "A 1966 20 cents from Australia. The obverse shows Elizabeth II; the reverse shows Stuart Devlin platypus in water; big 20. Struck in cupronickel."
+  },
+  {
+   "n": 599,
+   "specimen": "C249",
+   "fact": "value",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 600,
+   "specimen": "C250",
+   "fact": "value",
+   "coin": "Singapore 1967 20 cents · SGD",
+   "has_photo": true
+  },
+  {
+   "n": 601,
+   "specimen": "C251",
+   "fact": "design",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 602,
+   "specimen": "C251",
+   "fact": "value",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 603,
+   "specimen": "C252",
+   "fact": "story",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true,
+   "story": "A 1962 20 centavos coin from Cuba. The reverse shows a portrait of José Martí with the date. The arms side shows the words REPUBLICA DE CUBA and the national shield (the Escudo - a key, stripes and a palm), with oak and laurel branches and a star on a Phrygian cap, and the words VEINTE CENTAVOS. Struck in copper-nickel."
+  },
+  {
+   "n": 604,
+   "specimen": "C252",
+   "fact": "value",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true
+  },
+  {
+   "n": 605,
+   "specimen": "C253",
+   "fact": "period",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 606,
+   "specimen": "C253",
+   "fact": "story",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true,
+   "story": "A 1993 10-cent coin from Jamaica. One side shows the coat of arms of Jamaica. A crocodile sits on top. Two Taino people hold the shield. The shield has a cross with pineapples on it. The coin also says JAMAICA, TEN CENTS, and 1993. It also says the motto OUT OF MANY, ONE PEOPLE. The coin is made of steel with a thin coat of nickel on it."
+  },
+  {
+   "n": 607,
+   "specimen": "C254",
+   "fact": "period",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false
+  },
+  {
+   "n": 608,
+   "specimen": "C254",
+   "fact": "story",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false,
+   "story": "A 1951 10 lire from Vatican City. The obverse shows Pius XII portrait; the reverse shows standing Prudentia; CITTA' DEL VATICANO, 1951, L. 10, PRVDENTIA. Struck in aluminum."
+  },
+  {
+   "n": 609,
+   "specimen": "C254",
+   "fact": "value",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false
+  },
+  {
+   "n": 610,
+   "specimen": "C255",
+   "fact": "period",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false
+  },
+  {
+   "n": 611,
+   "specimen": "C255",
+   "fact": "value",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false
+  },
+  {
+   "n": 612,
+   "specimen": "C256",
+   "fact": "denomination",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 613,
+   "specimen": "C256",
+   "fact": "story",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false,
+   "story": "A 1959 20-rappen coin from Switzerland. The front shows Libertas facing right, designed by Karl Schwenzer. The back shows the number 20 inside a wreath, designed by Carl Friedrich Voigt. It is made of copper-nickel (75% copper and 25% nickel)."
+  },
+  {
+   "n": 614,
+   "specimen": "C256",
+   "fact": "value",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 615,
+   "specimen": "C257",
+   "fact": "story",
+   "coin": "Mexico 1967 20 centavos · MXP",
+   "has_photo": true,
+   "story": "A 1967 20-centavo coin from Mexico. The front shows the coat of arms of Mexico. The back shows the Pyramid of the Sun at Teotihuacan. Two volcanoes stand behind it. Their names are Popocatépetl and Iztaccíhuatl. A liberty cap shines above the pyramid. The back also has a big 20, the word CENTAVOS, the date 1967, and the Mo mint mark. The coin is made of brass. The brass is 95% copper and 5% zinc."
+  },
+  {
+   "n": 616,
+   "specimen": "C257",
+   "fact": "value",
+   "coin": "Mexico 1967 20 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 617,
+   "specimen": "C258",
+   "fact": "design",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true
+  },
+  {
+   "n": 618,
+   "specimen": "C258",
+   "fact": "mint",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true
+  },
+  {
+   "n": 619,
+   "specimen": "C258",
+   "fact": "period",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true
+  },
+  {
+   "n": 620,
+   "specimen": "C258",
+   "fact": "value",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true
+  },
+  {
+   "n": 621,
+   "specimen": "C259",
+   "fact": "value",
+   "coin": "Mexico 1940 1 centavo · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 622,
+   "specimen": "C260",
+   "fact": "mint",
+   "coin": "USSR 1931 3 kopecks · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 623,
+   "specimen": "C260",
+   "fact": "value",
+   "coin": "USSR 1931 3 kopecks · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 624,
+   "specimen": "C261",
+   "fact": "mint",
+   "coin": "USSR 1932 15 kopecks · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 625,
+   "specimen": "C261",
+   "fact": "value",
+   "coin": "USSR 1932 15 kopecks · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 626,
+   "specimen": "C262",
+   "fact": "design",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 627,
+   "specimen": "C262",
+   "fact": "value",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 628,
+   "specimen": "C263",
+   "fact": "story",
+   "coin": "Mexico 1950 25 centavos · MXP",
+   "has_photo": true,
+   "story": "A 1950 Mexican 25-centavo coin. The back shows a balance scale and a scroll marked LEY (law) under a cap of liberty with rays of light; the front carries the national arms. Struck in silver (30% fine)."
+  },
+  {
+   "n": 629,
+   "specimen": "C263",
+   "fact": "value",
+   "coin": "Mexico 1950 25 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 630,
+   "specimen": "C264",
+   "fact": "story",
+   "coin": "Singapore 1973 10 cents · SGD",
+   "has_photo": true,
+   "story": "A 1973 10-cent coin from Singapore. One side shows a crowned seahorse. The value side shows two stalks of rice, a large 10, and the words CENTS, 1973, and SINGAPORE. It is made of copper-nickel."
+  },
+  {
+   "n": 631,
+   "specimen": "C264",
+   "fact": "value",
+   "coin": "Singapore 1973 10 cents · SGD",
+   "has_photo": true
+  },
+  {
+   "n": 632,
+   "specimen": "C265",
+   "fact": "denomination",
+   "coin": "Germany 1950 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 633,
+   "specimen": "C265",
+   "fact": "mint",
+   "coin": "Germany 1950 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 634,
+   "specimen": "C265",
+   "fact": "value",
+   "coin": "Germany 1950 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 635,
+   "specimen": "C266",
+   "fact": "design",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 636,
+   "specimen": "C266",
+   "fact": "story",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true,
+   "story": "A 2012 South Korean 10-won coin. One side shows the Dabotap Pagoda, an eighth-century stone pagoda; the other shows a large 10 and the name of the Bank of Korea in Korean. Struck in copper-clad aluminium."
+  },
+  {
+   "n": 637,
+   "specimen": "C266",
+   "fact": "value",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 638,
+   "specimen": "C267",
+   "fact": "design",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 639,
+   "specimen": "C267",
+   "fact": "story",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true,
+   "story": "A 2013 South Korean 10-won coin. One side shows the Dabotap Pagoda, an eighth-century stone pagoda; the other shows a large 10 and the name of the Bank of Korea in Korean. Struck in copper-clad aluminium."
+  },
+  {
+   "n": 640,
+   "specimen": "C267",
+   "fact": "value",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 641,
+   "specimen": "C268",
+   "fact": "period",
+   "coin": "Norway 2000 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 642,
+   "specimen": "C268",
+   "fact": "value",
+   "coin": "Norway 2000 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 643,
+   "specimen": "C269",
+   "fact": "period",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 644,
+   "specimen": "C269",
+   "fact": "value",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 645,
+   "specimen": "C270",
+   "fact": "composition",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 646,
+   "specimen": "C270",
+   "fact": "period",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 647,
+   "specimen": "C270",
+   "fact": "value",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 648,
+   "specimen": "C271",
+   "fact": "value",
+   "coin": "Mexico 2013 50 centavos · MXN (nuevo)",
+   "has_photo": true
+  },
+  {
+   "n": 649,
+   "specimen": "C272",
+   "fact": "story",
+   "coin": "Austria 1925 2 groschen · ATS",
+   "has_photo": false,
+   "story": "An Austrian 2 groschen from 1925. One side is the federal cross with the date, the other a large 2 over the word GROSCHEN. 1925 is the year Austria introduced the schilling, and the groschen was its small change."
+  },
+  {
+   "n": 650,
+   "specimen": "C272",
+   "fact": "value",
+   "coin": "Austria 1925 2 groschen · ATS",
+   "has_photo": false
+  },
+  {
+   "n": 651,
+   "specimen": "C273",
+   "fact": "period",
+   "coin": "Germany 2005 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 652,
+   "specimen": "C273",
+   "fact": "story",
+   "coin": "Germany 2005 1 euro cent · EUR",
+   "has_photo": false,
+   "story": "A German 1 euro cent from 2005: the oak twig that Germany kept from its old pfennig coins, ringed by the twelve EU stars. Germany's euro coins carry a mint letter, and this one is J, struck in Hamburg."
+  },
+  {
+   "n": 653,
+   "specimen": "C273",
+   "fact": "value",
+   "coin": "Germany 2005 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 654,
+   "specimen": "C274",
+   "fact": "value",
+   "coin": "Mexico 1995 10 centavos · MXN",
+   "has_photo": false
+  },
+  {
+   "n": 655,
+   "specimen": "C275",
+   "fact": "period",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 656,
+   "specimen": "C275",
+   "fact": "value",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 657,
+   "specimen": "C276",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 658,
+   "specimen": "C276",
+   "fact": "value",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 659,
+   "specimen": "C277",
+   "fact": "value",
+   "coin": "Bermuda 2004 10 cents · BMD",
+   "has_photo": true
+  },
+  {
+   "n": 660,
+   "specimen": "C278",
+   "fact": "denomination",
+   "coin": "Switzerland 1980 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 661,
+   "specimen": "C278",
+   "fact": "value",
+   "coin": "Switzerland 1980 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 662,
+   "specimen": "C279",
+   "fact": "story",
+   "coin": "Philippines 1997 1 piso · PHP",
+   "has_photo": true,
+   "story": "A 1997 1-piso coin from the Philippines. The side in the photo shows José Rizal. He is a national hero of the Philippines. The coin says Republika ng Pilipinas. That means Republic of the Philippines in English. It also has a big 1, the word PISO, and the date 1997."
+  },
+  {
+   "n": 663,
+   "specimen": "C279",
+   "fact": "value",
+   "coin": "Philippines 1997 1 piso · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 664,
+   "specimen": "C280",
+   "fact": "value",
+   "coin": "Belize 2007 25 cents · BZD",
+   "has_photo": true
+  },
+  {
+   "n": 665,
+   "specimen": "C281",
+   "fact": "value",
+   "coin": "France 1994 5 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 666,
+   "specimen": "C282",
+   "fact": "value",
+   "coin": "Yugoslavia 1965 50 para · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 667,
+   "specimen": "C283",
+   "fact": "period",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 668,
+   "specimen": "C283",
+   "fact": "value",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 669,
+   "specimen": "C284",
+   "fact": "value",
+   "coin": "Mexico 2009 50 centavos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 670,
+   "specimen": "C285",
+   "fact": "value",
+   "coin": "Slovakia 2009 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 671,
+   "specimen": "C286",
+   "fact": "value",
+   "coin": "Honduras 2012 50 centavos · HNL",
+   "has_photo": true
+  },
+  {
+   "n": 672,
+   "specimen": "C287",
+   "fact": "value",
+   "coin": "Italy 1979 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 673,
+   "specimen": "C288",
+   "fact": "value",
+   "coin": "Australia 1983 1 cent · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 674,
+   "specimen": "C289",
+   "fact": "value",
+   "coin": "Argentina 1954 5 centavos · ARM",
+   "has_photo": true
+  },
+  {
+   "n": 675,
+   "specimen": "C290",
+   "fact": "period",
+   "coin": "United Kingdom 2013 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 676,
+   "specimen": "C290",
+   "fact": "value",
+   "coin": "United Kingdom 2013 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 677,
+   "specimen": "C291",
+   "fact": "value",
+   "coin": "Bahamas 1984 5 cents · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 678,
+   "specimen": "C292",
+   "fact": "period",
+   "coin": "United Kingdom 2002 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 679,
+   "specimen": "C292",
+   "fact": "value",
+   "coin": "United Kingdom 2002 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 680,
+   "specimen": "C294",
+   "fact": "value",
+   "coin": "Mexico 1969 5 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 681,
+   "specimen": "C295",
+   "fact": "catalog",
+   "coin": "Australia 2006 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 682,
+   "specimen": "C295",
+   "fact": "value",
+   "coin": "Australia 2006 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 683,
+   "specimen": "C296",
+   "fact": "period",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 684,
+   "specimen": "C296",
+   "fact": "value",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 685,
+   "specimen": "C297",
+   "fact": "period",
+   "coin": "United Kingdom 1988 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 686,
+   "specimen": "C297",
+   "fact": "value",
+   "coin": "United Kingdom 1988 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 687,
+   "specimen": "C298",
+   "fact": "mint",
+   "coin": "Italy 1978 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 688,
+   "specimen": "C298",
+   "fact": "value",
+   "coin": "Italy 1978 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 689,
+   "specimen": "C299",
+   "fact": "value",
+   "coin": "Italy 1979 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 690,
+   "specimen": "C300",
+   "fact": "denomination",
+   "coin": "Bahamas 1984 25 cents · BSD",
+   "has_photo": false
+  },
+  {
+   "n": 691,
+   "specimen": "C301",
+   "fact": "story",
+   "coin": "Mexico 1989 500 pesos · MXP",
+   "has_photo": true,
+   "story": "A 1989 five-hundred-peso coin from Mexico with Francisco I. Madero, who started the Mexican Revolution in 1910, and a large $500 below him. Inflation made coins this big in the 1980s; in 1993 Mexico dropped three zeros from its money. There is no photo of this coin yet."
+  },
+  {
+   "n": 692,
+   "specimen": "C301",
+   "fact": "value",
+   "coin": "Mexico 1989 500 pesos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 693,
+   "specimen": "C302",
+   "fact": "value",
+   "coin": "United Kingdom 1922 1 penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 694,
+   "specimen": "C303",
+   "fact": "value",
+   "coin": "Australia 1983 1 cent · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 695,
+   "specimen": "C304",
+   "fact": "value",
+   "coin": "Mexico 1981 20 pesos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 696,
+   "specimen": "C305",
+   "fact": "catalog",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true
+  },
+  {
+   "n": 697,
+   "specimen": "C305",
+   "fact": "composition",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true
+  },
+  {
+   "n": 698,
+   "specimen": "C305",
+   "fact": "mintage",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true
+  },
+  {
+   "n": 699,
+   "specimen": "C305",
+   "fact": "ruler",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true
+  },
+  {
+   "n": 700,
+   "specimen": "C305",
+   "fact": "story",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true,
+   "story": "A 1958 Vatican 20 lire showing Charity (Caritas) standing with children. It was struck in Rome for Pope Pius XII as a standard circulation issue with a mintage of 60,000."
+  },
+  {
+   "n": 701,
+   "specimen": "C305",
+   "fact": "value",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true
+  },
+  {
+   "n": 702,
+   "specimen": "C306",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 703,
+   "specimen": "C306",
+   "fact": "value",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 704,
+   "specimen": "C307",
+   "fact": "design",
+   "coin": "South Korea 1988 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 705,
+   "specimen": "C307",
+   "fact": "mintage",
+   "coin": "South Korea 1988 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 706,
+   "specimen": "C307",
+   "fact": "value",
+   "coin": "South Korea 1988 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 707,
+   "specimen": "C308",
+   "fact": "design",
+   "coin": "Switzerland 1968 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 708,
+   "specimen": "C308",
+   "fact": "mintage",
+   "coin": "Switzerland 1968 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 709,
+   "specimen": "C308",
+   "fact": "period",
+   "coin": "Switzerland 1968 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 710,
+   "specimen": "C308",
+   "fact": "value",
+   "coin": "Switzerland 1968 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 711,
+   "specimen": "C309",
+   "fact": "catalog",
+   "coin": "United Kingdom 1937 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 712,
+   "specimen": "C309",
+   "fact": "composition",
+   "coin": "United Kingdom 1937 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 713,
+   "specimen": "C309",
+   "fact": "mintage",
+   "coin": "United Kingdom 1937 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 714,
+   "specimen": "C309",
+   "fact": "ruler",
+   "coin": "United Kingdom 1937 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 715,
+   "specimen": "C309",
+   "fact": "value",
+   "coin": "United Kingdom 1937 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 716,
+   "specimen": "C310",
+   "fact": "catalog",
+   "coin": "France 1979 2 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 717,
+   "specimen": "C310",
+   "fact": "composition",
+   "coin": "France 1979 2 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 718,
+   "specimen": "C310",
+   "fact": "mintage",
+   "coin": "France 1979 2 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 719,
+   "specimen": "C310",
+   "fact": "period",
+   "coin": "France 1979 2 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 720,
+   "specimen": "C310",
+   "fact": "value",
+   "coin": "France 1979 2 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 721,
+   "specimen": "C311",
+   "fact": "design",
+   "coin": "South Korea 1997 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 722,
+   "specimen": "C311",
+   "fact": "mintage",
+   "coin": "South Korea 1997 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 723,
+   "specimen": "C311",
+   "fact": "value",
+   "coin": "South Korea 1997 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 724,
+   "specimen": "C312",
+   "fact": "catalog",
+   "coin": "Czech Republic 2008 5 korun · CZK",
+   "has_photo": true
+  },
+  {
+   "n": 725,
+   "specimen": "C312",
+   "fact": "composition",
+   "coin": "Czech Republic 2008 5 korun · CZK",
+   "has_photo": true
+  },
+  {
+   "n": 726,
+   "specimen": "C312",
+   "fact": "mintage",
+   "coin": "Czech Republic 2008 5 korun · CZK",
+   "has_photo": true
+  },
+  {
+   "n": 727,
+   "specimen": "C312",
+   "fact": "period",
+   "coin": "Czech Republic 2008 5 korun · CZK",
+   "has_photo": true
+  },
+  {
+   "n": 728,
+   "specimen": "C312",
+   "fact": "value",
+   "coin": "Czech Republic 2008 5 korun · CZK",
+   "has_photo": true
+  },
+  {
+   "n": 729,
+   "specimen": "C313",
+   "fact": "catalog",
+   "coin": "Russia 1992 20 roubles · RUR",
+   "has_photo": true
+  },
+  {
+   "n": 730,
+   "specimen": "C313",
+   "fact": "composition",
+   "coin": "Russia 1992 20 roubles · RUR",
+   "has_photo": true
+  },
+  {
+   "n": 731,
+   "specimen": "C313",
+   "fact": "period",
+   "coin": "Russia 1992 20 roubles · RUR",
+   "has_photo": true
+  },
+  {
+   "n": 732,
+   "specimen": "C313",
+   "fact": "value",
+   "coin": "Russia 1992 20 roubles · RUR",
+   "has_photo": true
+  },
+  {
+   "n": 733,
+   "specimen": "C314",
+   "fact": "design",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 734,
+   "specimen": "C314",
+   "fact": "value",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 735,
+   "specimen": "C315",
+   "fact": "mintage",
+   "coin": "Mexico 1998 2 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 736,
+   "specimen": "C315",
+   "fact": "value",
+   "coin": "Mexico 1998 2 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 737,
+   "specimen": "C316",
+   "fact": "catalog",
+   "coin": "United Kingdom 2014 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 738,
+   "specimen": "C316",
+   "fact": "composition",
+   "coin": "United Kingdom 2014 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 739,
+   "specimen": "C316",
+   "fact": "mintage",
+   "coin": "United Kingdom 2014 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 740,
+   "specimen": "C316",
+   "fact": "ruler",
+   "coin": "United Kingdom 2014 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 741,
+   "specimen": "C316",
+   "fact": "value",
+   "coin": "United Kingdom 2014 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 742,
+   "specimen": "C317",
+   "fact": "value",
+   "coin": "Belize 2015 25 cents · BZD",
+   "has_photo": true
+  },
+  {
+   "n": 743,
+   "specimen": "C318",
+   "fact": "period",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 744,
+   "specimen": "C318",
+   "fact": "value",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 745,
+   "specimen": "C319",
+   "fact": "catalog",
+   "coin": "Mexico 1994 2 nuevos pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 746,
+   "specimen": "C319",
+   "fact": "composition",
+   "coin": "Mexico 1994 2 nuevos pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 747,
+   "specimen": "C319",
+   "fact": "mintage",
+   "coin": "Mexico 1994 2 nuevos pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 748,
+   "specimen": "C319",
+   "fact": "period",
+   "coin": "Mexico 1994 2 nuevos pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 749,
+   "specimen": "C319",
+   "fact": "value",
+   "coin": "Mexico 1994 2 nuevos pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 750,
+   "specimen": "C320",
+   "fact": "catalog",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 751,
+   "specimen": "C320",
+   "fact": "composition",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 752,
+   "specimen": "C320",
+   "fact": "mintage",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 753,
+   "specimen": "C320",
+   "fact": "ruler",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 754,
+   "specimen": "C320",
+   "fact": "story",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true,
+   "story": "A 1991 Swedish 1 krona with the stylized portrait of Carl XVI Gustaf. This copper-nickel design, used from 1982 to 2000, was succeeded by a new portrait in 2001 before the smaller modern coin arrived in 2016."
+  },
+  {
+   "n": 755,
+   "specimen": "C320",
+   "fact": "value",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 756,
+   "specimen": "C321",
+   "fact": "mintage",
+   "coin": "France 1988 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 757,
+   "specimen": "C321",
+   "fact": "value",
+   "coin": "France 1988 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 758,
+   "specimen": "C322",
+   "fact": "catalog",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true
+  },
+  {
+   "n": 759,
+   "specimen": "C322",
+   "fact": "composition",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true
+  },
+  {
+   "n": 760,
+   "specimen": "C322",
+   "fact": "mintage",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true
+  },
+  {
+   "n": 761,
+   "specimen": "C322",
+   "fact": "period",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true
+  },
+  {
+   "n": 762,
+   "specimen": "C322",
+   "fact": "story",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true,
+   "story": "A 1970 Portuguese 20 centavos with the five escutcheons (quinas) of the Portuguese shield forming a cross."
+  },
+  {
+   "n": 763,
+   "specimen": "C322",
+   "fact": "value",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true
+  },
+  {
+   "n": 764,
+   "specimen": "C323",
+   "fact": "mintage",
+   "coin": "Mexico 1994 10 centavos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 765,
+   "specimen": "C323",
+   "fact": "story",
+   "coin": "Mexico 1994 10 centavos · MXN",
+   "has_photo": true,
+   "story": "A 1994 Mexican 10 centavos - the small stainless-steel coin with the Ring of the Sacrifice from the Aztec calendar stone on this side."
+  },
+  {
+   "n": 766,
+   "specimen": "C323",
+   "fact": "value",
+   "coin": "Mexico 1994 10 centavos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 767,
+   "specimen": "C324",
+   "fact": "catalog",
+   "coin": "Mexico 2005 5 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 768,
+   "specimen": "C324",
+   "fact": "composition",
+   "coin": "Mexico 2005 5 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 769,
+   "specimen": "C324",
+   "fact": "mintage",
+   "coin": "Mexico 2005 5 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 770,
+   "specimen": "C324",
+   "fact": "period",
+   "coin": "Mexico 2005 5 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 771,
+   "specimen": "C324",
+   "fact": "value",
+   "coin": "Mexico 2005 5 pesos · MXN",
+   "has_photo": true
+  },
+  {
+   "n": 772,
+   "specimen": "C325",
+   "fact": "mintage",
+   "coin": "Italy 1955 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 773,
+   "specimen": "C325",
+   "fact": "value",
+   "coin": "Italy 1955 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 774,
+   "specimen": "C326",
+   "fact": "catalog",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 775,
+   "specimen": "C326",
+   "fact": "composition",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 776,
+   "specimen": "C326",
+   "fact": "mintage",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 777,
+   "specimen": "C326",
+   "fact": "ruler",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 778,
+   "specimen": "C326",
+   "fact": "story",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true,
+   "story": "A 1974 Bahamian cent - the first year the newly independent Bahamas put its own coat of arms on the cent. A starfish is on the other side."
+  },
+  {
+   "n": 779,
+   "specimen": "C326",
+   "fact": "value",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 780,
+   "specimen": "C327",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 781,
+   "specimen": "C327",
+   "fact": "value",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 782,
+   "specimen": "C328",
+   "fact": "design",
+   "coin": "Switzerland 1976 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 783,
+   "specimen": "C328",
+   "fact": "mintage",
+   "coin": "Switzerland 1976 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 784,
+   "specimen": "C328",
+   "fact": "period",
+   "coin": "Switzerland 1976 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 785,
+   "specimen": "C328",
+   "fact": "value",
+   "coin": "Switzerland 1976 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 786,
+   "specimen": "C329",
+   "fact": "catalog",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 787,
+   "specimen": "C329",
+   "fact": "composition",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 788,
+   "specimen": "C329",
+   "fact": "mintage",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 789,
+   "specimen": "C329",
+   "fact": "ruler",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 790,
+   "specimen": "C329",
+   "fact": "value",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 791,
+   "specimen": "C330",
+   "fact": "catalog",
+   "coin": "Ireland 1995 10 pence · IEP",
+   "has_photo": true
+  },
+  {
+   "n": 792,
+   "specimen": "C330",
+   "fact": "composition",
+   "coin": "Ireland 1995 10 pence · IEP",
+   "has_photo": true
+  },
+  {
+   "n": 793,
+   "specimen": "C330",
+   "fact": "mintage",
+   "coin": "Ireland 1995 10 pence · IEP",
+   "has_photo": true
+  },
+  {
+   "n": 794,
+   "specimen": "C330",
+   "fact": "period",
+   "coin": "Ireland 1995 10 pence · IEP",
+   "has_photo": true
+  },
+  {
+   "n": 795,
+   "specimen": "C330",
+   "fact": "value",
+   "coin": "Ireland 1995 10 pence · IEP",
+   "has_photo": true
+  },
+  {
+   "n": 796,
+   "specimen": "C331",
+   "fact": "catalog",
+   "coin": "Australia 1966 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 797,
+   "specimen": "C331",
+   "fact": "composition",
+   "coin": "Australia 1966 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 798,
+   "specimen": "C331",
+   "fact": "mintage",
+   "coin": "Australia 1966 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 799,
+   "specimen": "C331",
+   "fact": "ruler",
+   "coin": "Australia 1966 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 800,
+   "specimen": "C331",
+   "fact": "value",
+   "coin": "Australia 1966 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 801,
+   "specimen": "C332",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 802,
+   "specimen": "C332",
+   "fact": "value",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true
+  },
+  {
+   "n": 803,
+   "specimen": "C333",
+   "fact": "catalog",
+   "coin": "Norway 1977 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 804,
+   "specimen": "C333",
+   "fact": "composition",
+   "coin": "Norway 1977 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 805,
+   "specimen": "C333",
+   "fact": "mintage",
+   "coin": "Norway 1977 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 806,
+   "specimen": "C333",
+   "fact": "value",
+   "coin": "Norway 1977 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 807,
+   "specimen": "C334",
+   "fact": "catalog",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true
+  },
+  {
+   "n": 808,
+   "specimen": "C334",
+   "fact": "composition",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true
+  },
+  {
+   "n": 809,
+   "specimen": "C334",
+   "fact": "mintage",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true
+  },
+  {
+   "n": 810,
+   "specimen": "C334",
+   "fact": "ruler",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true
+  },
+  {
+   "n": 811,
+   "specimen": "C334",
+   "fact": "value",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true
+  },
+  {
+   "n": 812,
+   "specimen": "C335",
+   "fact": "design",
+   "coin": "South Korea 1994 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 813,
+   "specimen": "C335",
+   "fact": "mintage",
+   "coin": "South Korea 1994 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 814,
+   "specimen": "C335",
+   "fact": "value",
+   "coin": "South Korea 1994 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 815,
+   "specimen": "C336",
+   "fact": "mintage",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 816,
+   "specimen": "C336",
+   "fact": "period",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 817,
+   "specimen": "C336",
+   "fact": "value",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 818,
+   "specimen": "C337",
+   "fact": "mintage",
+   "coin": "Switzerland 1944 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 819,
+   "specimen": "C337",
+   "fact": "value",
+   "coin": "Switzerland 1944 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 820,
+   "specimen": "C338",
+   "fact": "catalog",
+   "coin": "Jamaica 1977 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 821,
+   "specimen": "C338",
+   "fact": "composition",
+   "coin": "Jamaica 1977 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 822,
+   "specimen": "C338",
+   "fact": "mintage",
+   "coin": "Jamaica 1977 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 823,
+   "specimen": "C338",
+   "fact": "ruler",
+   "coin": "Jamaica 1977 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 824,
+   "specimen": "C338",
+   "fact": "value",
+   "coin": "Jamaica 1977 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 825,
+   "specimen": "C339",
+   "fact": "value",
+   "coin": "France 1983 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 826,
+   "specimen": "C340",
+   "fact": "catalog",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 827,
+   "specimen": "C340",
+   "fact": "composition",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 828,
+   "specimen": "C340",
+   "fact": "mintage",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 829,
+   "specimen": "C340",
+   "fact": "period",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 830,
+   "specimen": "C340",
+   "fact": "ruler",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 831,
+   "specimen": "C340",
+   "fact": "value",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 832,
+   "specimen": "C341",
+   "fact": "catalog",
+   "coin": "German Democratic Republic 1968 10 Pfennig · DDM",
+   "has_photo": true
+  },
+  {
+   "n": 833,
+   "specimen": "C341",
+   "fact": "composition",
+   "coin": "German Democratic Republic 1968 10 Pfennig · DDM",
+   "has_photo": true
+  },
+  {
+   "n": 834,
+   "specimen": "C341",
+   "fact": "mintage",
+   "coin": "German Democratic Republic 1968 10 Pfennig · DDM",
+   "has_photo": true
+  },
+  {
+   "n": 835,
+   "specimen": "C341",
+   "fact": "period",
+   "coin": "German Democratic Republic 1968 10 Pfennig · DDM",
+   "has_photo": true
+  },
+  {
+   "n": 836,
+   "specimen": "C341",
+   "fact": "value",
+   "coin": "German Democratic Republic 1968 10 Pfennig · DDM",
+   "has_photo": true
+  },
+  {
+   "n": 837,
+   "specimen": "C342",
+   "fact": "catalog",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 838,
+   "specimen": "C342",
+   "fact": "composition",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 839,
+   "specimen": "C342",
+   "fact": "mintage",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 840,
+   "specimen": "C342",
+   "fact": "period",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 841,
+   "specimen": "C342",
+   "fact": "value",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 842,
+   "specimen": "C345",
+   "fact": "catalog",
+   "coin": "Australia 2008 10 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 843,
+   "specimen": "T001",
+   "fact": "value",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 844,
+   "specimen": "T002",
+   "fact": "value",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 845,
+   "specimen": "T003",
+   "fact": "story",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true,
+   "story": "A Sandy the Pony ride token from Meijer stores in the USA, with no date. It reads FREE PONY RIDE on one side and MEIJER IS FOR KIDS on the other, good for one free pony ride. It is made of brass."
+  },
+  {
+   "n": 846,
+   "specimen": "T003",
+   "fact": "value",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 847,
+   "specimen": "T004",
+   "fact": "story",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false,
+   "story": "A ca. 1970s miniature “penny” in printed cardboard flap novelty slug token from USA. Card NEW NIXON PENNY, AND GETTING SMALLER, miniature cent in window. Struck in tiny copper-tone slug (~¼¢ size)."
+  },
+  {
+   "n": 848,
+   "specimen": "T004",
+   "fact": "value",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 849,
+   "specimen": "T005",
+   "fact": "value",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 850,
+   "specimen": "T006",
+   "fact": "value",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  }
+ ]
+}

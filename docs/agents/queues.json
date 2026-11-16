@@ -1,6 +1,6 @@
 {
  "about": "Hand-written PROJECTS for the other AIs (owner rule 10, 2026-10-08: 'share workload with Grok; when it completes a task give it another; there should always be something for all other agents to work on'). Since 2026-10-09 most work is generated homework (tools/agents/homework.py from docs/agents/roles.json; docs/agents/RESEARCH_LOOP.md): this file keeps only what cannot be computed from the data (work in progress, code reviews, guides, music, motion, onboarding). A task with `reserves` holds those coins of those kinds for its AI while it is open. Each AI's page (docs/agents/QUEUE_{ai}.md, the same text as its Drive doc 'WORK QUEUE for ...') shows: finish first (state now), then its homework, then the other projects.",
- "updated": "2026-11-08",
+ "updated": "2026-11-16",
  "agents": [
   {
    "id": "grok",
@@ -13,9 +13,10 @@
      "n": 15,
      "title": "FIRST: photo rooms for the themes that have none (the third spaces)",
      "fix": "#128",
-     "state": "now",
+     "state": "done",
      "what": "Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. Start from the BOTTOM of the priority-1 list (Event Horizon first) and work upward; Gemini works down from the top. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.",
-     "done_when": "Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again."
+     "done_when": "Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.",
+     "closed": "done 2026-11-11: all 50 room layer sets are live (tr281)"
     },
     {
      "n": 14,
@@ -37,9 +38,10 @@
      "n": 12,
      "title": "GPU worlds for the 31 themes still on the first engine, one at a time (Midnight Gallery, Prism, The Mint, Shipwreck first)",
      "fix": "#128",
-     "state": "later",
+     "state": "dropped",
      "what": "STOPPED by Joseph, 2026-10-30: code-drawn 3D rooms look like low-quality 3D and run poorly on a phone ('thats just blender like 3 quality running poorly on a phone'). Do not write more world files; the rooms become generated photographs (task 13). Your 31 drafts stay on file as concepts. The theme framework is locked (owner: \"get the framework for all of the themes locked so i can just improve piece by piece\"): every theme becomes one live GPU world on the app's own kit that runs as the backdrop, as its opening and as its room. 31 themes still only have a flat effect layer. Build their worlds, one theme at a time, in this order: afterhours (Midnight Gallery), kaleido (Prism), colossus (The Mint), abyss (Shipwreck), then every theme whose Next column says 'a GPU world on the kit' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/themes/FRAMEWORK_STATUS.md. The contract and every rule: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/THEME_FRAMEWORK.md (normative; read sections 1-3 first). Worked examples on the same contract: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/supercell.js (3D, orbit room) and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/silverscreen.js (flat, pan and zoom room); the kit: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/kit.js. Each world is ONE file fx/{id}.js: a K.mod module and K.themes[id] = { stack, room } with the room data (limits, 3-4 look controls as multipliers with default 1, a one-line touch, an opening camera path that ends on the backdrop view). Its soundscape preset is the theme's entry in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/audio/scape/bridge.js THEME_SCAPE. Rules: the kit's one WebGL2 canvas and GLSL ES 3.00, no outside libraries, CDNs or engines (no three.js), no prerendered video or images (only the coin photos the app already has, as Silver Screen does), the tier from TitanQuality (Low to Max, never lowered on its own), Motion Calm/Off = one still frame, the theme's mood from wings/themes/manifest.js, and the collection still readable on top of it as a backdrop. Save each as Drive 'Titan Reliquary/design-incoming (AI UI proposals)/themes/{id}/world_{id}_grok_{YYYYMMDD-HHMM}.js' + a 5-line README (what it shows, what you checked, what you could not). Your gold-live shock/bass idea is welcome inside a world. Claude runs each through the gate (CL-WORLD-01 and tools/rooms/check_conversion.py), looks at it on a phone and a desktop, and ships it; a weak one comes back with notes.",
-     "done_when": "Every theme in docs/themes/FRAMEWORK_STATUS.md shows 'TitanFXK world' with a room."
+     "done_when": "Every theme in docs/themes/FRAMEWORK_STATUS.md shows 'TitanFXK world' with a room.",
+     "closed": "dropped 2026-11-16: Joseph, 2026-11-08: no 3D worlds drawn in code; every theme is a photograph with live layers"
     },
     {
      "n": 10,
@@ -120,6 +122,33 @@
      "state": "always",
      "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Muse's read first (AI_START_HERE 2b).",
      "done_when": "Ongoing."
+    },
+    {
+     "title": "Third reader: settle the 25 facts under question",
+     "state": "now",
+     "due": "2026-11-20",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-review-facts.json (14 years, 4 mints, 4 catalog numbers, 2 designs, 1 mintage). For each, read the coin's photo or the catalogue and send the value with its source. Skip any where you are one of the two sides (the file says who). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-REVIEW'.",
+     "done_when": "All 25 answered or skipped with the reason; Claude closes each disagreement.",
+     "n": 16
+    },
+    {
+     "title": "Spot-check Gemini's AI-facts replacements (both parts)",
+     "state": "next",
+     "due": "2026-11-25",
+     "fix": "trust",
+     "what": "When Gemini's GT-AIFACTS files are in the drop folder, open 20 of its lines at random, open the source it names, and say agree or what the page actually says. Never send new facts here: only agree/differ lines. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-AIFACTS'.",
+     "done_when": "20 lines checked; every differ quotes the page.",
+     "n": 17
+    },
+    {
+     "title": "Spot-check Gemini's second sources, parts 1-3",
+     "state": "next",
+     "due": "2026-11-27",
+     "fix": "trust",
+     "what": "When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per part), open each source, and say agree or what the page says. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-SECOND'.",
+     "done_when": "30 lines checked, each with the page it opened.",
+     "n": 18
     }
    ],
    "drive_note": "NEW (2026-11-08): PHOTO ROOMS (task 15, before your other tasks). Joseph wants every theme's third space to be a super high quality photograph, with the app layering live depth, light and particles over it. The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'; take rooms nobody has claimed, from the bottom of the priority-1 list upward, the five files of each room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/'. NEW (2026-11-07): SEND YOUR FILES TO DRIVE AGAIN, NOT TO GITHUB (Joseph). Save every change file in Drive 'Titan Reliquary/collection-incoming (AI change files)/' as changes_grok_YYYYMMDD-HHMM.jsonl, as before. Do not commit anything to the GitHub repository (no more 'Titan incoming' commits into collection/_incoming): a file pushed there is merged by the next scheduled publish before Claude has read it. Your two files of 2026-11-06: -1621 is merged (the SA.KM.20 design text re-cited); -1620 (D0151, C036 2002 or 2007) bounced because provenance.inputs was a list of strings, and it is not re-filed: Claude cannot read the last digit on the full-size photo either, so Joseph decides with the coin in hand (owner question q-c036-date). inputs must be objects: [{\"file\": \"C036_obv.webp\"}]. Your sound file sound_grok_20261105-0308.json arrived (24 music, 79 field recordings, 46 replacements, 54 not found): it is filed for the music intake (docs/music/finds/), so do not send it again; only add finds for the 54 not_found slots if you can. Earlier (2026-11-04): your 31 October files are merged and scored (rows 36-40, see your FEEDBACK doc). Your Obsidian Sun card and hero are live, and so are 8 of your 16 pictures for the eight themes that had none. Your room plates arrived and were kept for the image-room build. Next, in order: the homework sheets on this page by due date, then the two sound projects (tasks 10 and 11; rules in docs/agents/SOUND_HUNT.md; answers in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'). Your GPU world task (12) stays stopped: write no world files. Format rules (Claude had to fix two of these before merging): use only the change-event keys, and put a note at the end of 'source' as '| note: ...'. Confidence is high, med or low. provenance.assignment takes only HW-... ids (a project id goes in run_id), inputs are objects {\"file\": ...}, and only the owner sets verified: true. FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): write no fleet-*.json file anywhere and send no status to the Fleet Command folder or dashboard."
@@ -135,9 +164,10 @@
      "n": 11,
      "title": "FIRST: photo rooms for the themes that have none (the third spaces)",
      "fix": "#128",
-     "state": "now",
+     "state": "done",
      "what": "Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. Start from the BOTTOM of the priority-1 list and work upward (Grok does the same; skip any room already claimed); Gemini works down from the top. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.",
-     "done_when": "Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again."
+     "done_when": "Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.",
+     "closed": "done 2026-11-11: all 50 room layer sets are live (tr281)"
     },
     {
      "n": 10,
@@ -194,6 +224,24 @@
      "state": "always",
      "what": "Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Grok's read first (AI_START_HERE 2b).",
      "done_when": "Ongoing."
+    },
+    {
+     "title": "Blind second read of the ledger photo facts, items 1-180",
+     "state": "now",
+     "due": "2026-11-21",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json, items 1 to 180, and only the ones with has_photo true: read country, year, denomination and mint from the coin's photo without looking at Gemini's file first (AI_START_HERE 2b). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-BLIND-1'.",
+     "done_when": "Every photo item in 1-180 read or marked unreadable; Claude compares your read with Gemini's and the ledger.",
+     "n": 12
+    },
+    {
+     "title": "Blind second read of the ledger photo facts, items 181-360",
+     "state": "now",
+     "due": "2026-11-22",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json, items 181 to 360, and only the ones with has_photo true: read country, year, denomination and mint from the coin's photo without looking at Gemini's file first (AI_START_HERE 2b). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-BLIND-2'.",
+     "done_when": "Every photo item in 181-360 read or marked unreadable; Claude compares your read with Gemini's and the ledger.",
+     "n": 13
     }
    ],
    "drive_note": "NEW (2026-11-08): PHOTO ROOMS (task 11, before your other tasks). Joseph wants every theme's third space to be a super high quality photograph, with the app layering live depth, light and particles over it. The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'; take rooms nobody has claimed, from the bottom of the priority-1 list upward, the five files of each room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/'. NEW (2026-11-05): your 33 chat coins are merged as C305-C337 with their photos and scored (row 48: 7 of 10; read FEEDBACK for Muse first). For the next new coins: a Phase 1 type id never carries a catalogue number ({ISO}.X.{denomination}, e.g. GB.X.half-penny); the default value goes inside the specimen create as new.value; face value in the major unit (20 pence = 0.2 GBP). The loop no longer gives you your own new coins to check. Next, in order: your open sheets on this page by due date, then the sound hunt (task 10; rules in docs/agents/SOUND_HUNT.md; answers in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'), then the era citations (task 7). FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): run no Fleet Command job and write nothing in the Drive folder 'Fleet Command'. Standing rules: open each answer sheet from its GitHub link below. Work only from this page, those sheets and the records on GitHub, never from a saved copy of the repository. Read the coin's year before you answer. A file is rejected whole if a line names an assignment that is not yours or a coin that is not on that sheet. Time stamps need seconds (2026-10-23T14:05:00Z)."
@@ -217,9 +265,10 @@
      "n": 23,
      "title": "FIRST: photo rooms for the themes that have none (the third spaces)",
      "fix": "#128",
-     "state": "now",
+     "state": "done",
      "what": "Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. You start at the top of its list (Obsidian Sun first) and work down. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.",
-     "done_when": "Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again."
+     "done_when": "Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.",
+     "closed": "done 2026-11-11: all 50 room layer sets are live (tr281)"
     },
     {
      "n": 21,
@@ -388,6 +437,177 @@
      "state": "done",
      "what": "Settled by Claude on Oct 21 (10 of 12; the other 2 stay with their arbiters). New disagreements come to you as arbitrate homework.",
      "done_when": "Your arbitrate answer file; each one you send settles its disagreement."
+    },
+    {
+     "title": "Ledger facts, part 1 of 8: confirm items 1-90 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-19",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 1 to 90. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p1'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 1-90 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 24
+    },
+    {
+     "title": "Ledger facts, part 2 of 8: confirm items 91-180 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-20",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 91 to 180. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p2'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 91-180 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 25
+    },
+    {
+     "title": "Ledger facts, part 3 of 8: confirm items 181-270 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-21",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 181 to 270. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p3'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 181-270 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 26
+    },
+    {
+     "title": "Ledger facts, part 4 of 8: confirm items 271-360 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-22",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 271 to 360. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p4'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 271-360 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 27
+    },
+    {
+     "title": "Ledger facts, part 5 of 8: confirm items 361-450 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-23",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 361 to 450. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p5'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 361-450 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 28
+    },
+    {
+     "title": "Ledger facts, part 6 of 8: confirm items 451-540 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-24",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 451 to 540. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p6'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 451-540 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 29
+    },
+    {
+     "title": "Ledger facts, part 7 of 8: confirm items 541-630 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-25",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 541 to 630. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p7'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 541-630 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 30
+    },
+    {
+     "title": "Ledger facts, part 8 of 8: confirm items 631-715 from the photo or the catalogue (blind)",
+     "state": "now",
+     "due": "2026-11-26",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 631 to 715. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p8'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'.",
+     "done_when": "Every one of items 631-715 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
+     "n": 31
+    },
+    {
+     "title": "AI-guessed facts, part 1 of 2: replace items 1-52 with cited facts",
+     "state": "now",
+     "due": "2026-11-20",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 1 to 52 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p1'.",
+     "done_when": "Items 1-52 each carry an exact source; Claude opens 10 at random.",
+     "n": 32
+    },
+    {
+     "title": "AI-guessed facts, part 2 of 2: replace items 53-103 with cited facts",
+     "state": "now",
+     "due": "2026-11-21",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 53 to 103 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p2'.",
+     "done_when": "Items 53-103 each carry an exact source; Claude opens 10 at random.",
+     "n": 33
+    },
+    {
+     "title": "Second source, part 1 of 9: items 1-95 of the 850 single-source facts",
+     "state": "now",
+     "due": "2026-11-22",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 1 to 95: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p1'.",
+     "done_when": "Items 1-95 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 34
+    },
+    {
+     "title": "Second source, part 2 of 9: items 96-190 of the 850 single-source facts",
+     "state": "now",
+     "due": "2026-11-23",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 96 to 190: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p2'.",
+     "done_when": "Items 96-190 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 35
+    },
+    {
+     "title": "Second source, part 3 of 9: items 191-285 of the 850 single-source facts",
+     "state": "now",
+     "due": "2026-11-24",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 191 to 285: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p3'.",
+     "done_when": "Items 191-285 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 36
+    },
+    {
+     "title": "Second source, part 4 of 9: items 286-380 of the 850 single-source facts",
+     "state": "now",
+     "due": "2026-11-25",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 286 to 380: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p4'.",
+     "done_when": "Items 286-380 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 37
+    },
+    {
+     "title": "Second source, part 5 of 9: items 381-475 of the 850 single-source facts",
+     "state": "next",
+     "due": "2026-11-26",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 381 to 475: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p5'.",
+     "done_when": "Items 381-475 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 38
+    },
+    {
+     "title": "Second source, part 6 of 9: items 476-570 of the 850 single-source facts",
+     "state": "next",
+     "due": "2026-11-27",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 476 to 570: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p6'.",
+     "done_when": "Items 476-570 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 39
+    },
+    {
+     "title": "Second source, part 7 of 9: items 571-665 of the 850 single-source facts",
+     "state": "next",
+     "due": "2026-11-28",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 571 to 665: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p7'.",
+     "done_when": "Items 571-665 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 40
+    },
+    {
+     "title": "Second source, part 8 of 9: items 666-760 of the 850 single-source facts",
+     "state": "next",
+     "due": "2026-11-29",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 666 to 760: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p8'.",
+     "done_when": "Items 666-760 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 41
+    },
+    {
+     "title": "Second source, part 9 of 9: items 761-850 of the 850 single-source facts",
+     "state": "next",
+     "due": "2026-11-30",
+     "fix": "trust",
+     "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 761 to 850: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p9'.",
+     "done_when": "Items 761-850 each answered with a different source than the one on record; Claude spot-checks 10.",
+     "n": 42
     }
    ],
    "drive_note": "CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answer: monkey. The codeword is only in this current page, never in an old copy of the repository, so it tells Joseph you are reading the right doc. WHEN JOSEPH SAYS 'DO THE HOMEWORK' (Joseph, 2026-10-29): that is the whole instruction. Do not ask what he means, do not summarise this page back to him, do not offer options and do not wait for a reply. Joseph cannot see your replies (the Gemini app hides them), so anything you write only in the chat is lost: the files you save in Drive are the only answer that counts. Every time: (1) Take the first unfinished task in the ORDER below. (2) Work it only from the files it names. (3) Save the answer yourself in the Drive folder the task names, with the exact file name it gives (UTC time in the name, e.g. sound_gemini_20261029-1530.json), as plain JSON or JSONL, never as a Google Doc. (4) Save again under the same name after every 10 answers, so nothing is lost when the session stops. (5) Before you stop, open that Drive folder and check the file is there and opens; if you cannot see it, save it again. (6) Start the next task in the ORDER. Never say 'done' without the file in the folder. ORDER this week (2026-11-08): FIRST the photo rooms (task 23): the art request 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/', one room at a time from the top of its list, at the largest image size you can make, the five files of each room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/'. THEN the compact pack HW-gemini-PACK-20261107 (part 1 of 1, 2 lines) in your Drive sheet folder 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/', answered as answers_gemini_HW-gemini-PACK-20261107_part1_YYYYMMDD-HHMM.jsonl in 'collection-incoming (AI change files)/', one JSON row per line code (the rules are on top of the part). The packs of 11-05 and 11-06 and the album prices are DONE and merged: do not answer them again. The five rooms (task 18) are DONE and received (score 9). Then the blind album reading (task 2). Then the Prometheus homework in Drive 'Prometheus Hub/Pillars/' (your doc 'HOMEWORK — Gemini' lists every pillar's tasks with the folder for each). When one task is finished, start the next without asking: Joseph only says 'continue'. FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): write no fleet-*.json file anywhere and send nothing to the Fleet Command folder. Standing rules: never put a file in the chat for Joseph to copy and never ask him to paste or pass anything on; work only from this page, your Drive sheet folder and the records on GitHub, never from a saved copy of the repository (the Drive folder 'AI experiements/Titan/repo' is an old copy: never open it). A change file is rejected whole when a line names an assignment that is not yours or a coin that is not on that sheet. Read the coin and the year each blank names before you answer. Never write a number, a file name, a URL or a quote you did not open and read in this session; cite the exact entry page, never a search page. Never claim you ran or checked something you did not. Your last round (2026-11-06): the three packs (446 facts, all 9 planted values caught) and the 890 album prices merged, scores 10, 10, 10 and 10; one file of 11-05 scored 6 for four Drive file ids that do not exist (never write an id you did not open). Reasons in your FEEDBACK doc."

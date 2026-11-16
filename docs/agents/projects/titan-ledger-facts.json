@@ -1,0 +1,5014 @@
+{
+ "about": "Facts that still rest only on the original ledger (certainty 'imported'). Confirm each from the coin's own photo (country, year, denomination, mint) or its catalogue entry (mintage, composition, catalog, design), blind: no current value is given, send what you read or find.",
+ "made": "2026-11-16",
+ "count": 715,
+ "parts": 8,
+ "per_part": 90,
+ "items": [
+  {
+   "n": 1,
+   "specimen": "C001",
+   "fact": "country",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 2,
+   "specimen": "C002",
+   "fact": "country",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 3,
+   "specimen": "C002",
+   "fact": "denomination",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 4,
+   "specimen": "C002",
+   "fact": "mint",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 5,
+   "specimen": "C002",
+   "fact": "year",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 6,
+   "specimen": "C003",
+   "fact": "country",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 7,
+   "specimen": "C003",
+   "fact": "mint",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 8,
+   "specimen": "C003",
+   "fact": "year",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 9,
+   "specimen": "C004",
+   "fact": "country",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 10,
+   "specimen": "C004",
+   "fact": "denomination",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 11,
+   "specimen": "C004",
+   "fact": "mint",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 12,
+   "specimen": "C005",
+   "fact": "country",
+   "coin": "France 1986 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 13,
+   "specimen": "C005",
+   "fact": "mint",
+   "coin": "France 1986 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 14,
+   "specimen": "C006",
+   "fact": "country",
+   "coin": "Germany 1984 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 15,
+   "specimen": "C007",
+   "fact": "country",
+   "coin": "France 1963 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 16,
+   "specimen": "C007",
+   "fact": "mint",
+   "coin": "France 1963 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 17,
+   "specimen": "C008",
+   "fact": "country",
+   "coin": "Switzerland 1968 1/2 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 18,
+   "specimen": "C009",
+   "fact": "country",
+   "coin": "Germany 1987 5 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 19,
+   "specimen": "C010",
+   "fact": "country",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 20,
+   "specimen": "C010",
+   "fact": "mint",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 21,
+   "specimen": "C011",
+   "fact": "country",
+   "coin": "Italy 1970 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 22,
+   "specimen": "C012",
+   "fact": "country",
+   "coin": "France 1962 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 23,
+   "specimen": "C012",
+   "fact": "mint",
+   "coin": "France 1962 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 24,
+   "specimen": "C013",
+   "fact": "country",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 25,
+   "specimen": "C013",
+   "fact": "mint",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 26,
+   "specimen": "C014",
+   "fact": "country",
+   "coin": "Switzerland 1974 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 27,
+   "specimen": "C015",
+   "fact": "country",
+   "coin": "Switzerland 1971 1/2 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 28,
+   "specimen": "C016",
+   "fact": "country",
+   "coin": "Costa Rica 1985 5 colones · CRC",
+   "has_photo": true
+  },
+  {
+   "n": 29,
+   "specimen": "C016",
+   "fact": "denomination",
+   "coin": "Costa Rica 1985 5 colones · CRC",
+   "has_photo": true
+  },
+  {
+   "n": 30,
+   "specimen": "C016",
+   "fact": "mint",
+   "coin": "Costa Rica 1985 5 colones · CRC",
+   "has_photo": true
+  },
+  {
+   "n": 31,
+   "specimen": "C017",
+   "fact": "country",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 32,
+   "specimen": "C017",
+   "fact": "mint",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 33,
+   "specimen": "C017",
+   "fact": "year",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 34,
+   "specimen": "C018",
+   "fact": "country",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 35,
+   "specimen": "C019",
+   "fact": "country",
+   "coin": "Germany 1981 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 36,
+   "specimen": "C019",
+   "fact": "denomination",
+   "coin": "Germany 1981 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 37,
+   "specimen": "C020",
+   "fact": "country",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 38,
+   "specimen": "C020",
+   "fact": "mint",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 39,
+   "specimen": "C020",
+   "fact": "year",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 40,
+   "specimen": "C021",
+   "fact": "country",
+   "coin": "Germany 1970 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 41,
+   "specimen": "C021",
+   "fact": "denomination",
+   "coin": "Germany 1970 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 42,
+   "specimen": "C021",
+   "fact": "mint",
+   "coin": "Germany 1970 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 43,
+   "specimen": "C022",
+   "fact": "country",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 44,
+   "specimen": "C022",
+   "fact": "denomination",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 45,
+   "specimen": "C022",
+   "fact": "mint",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 46,
+   "specimen": "C023",
+   "fact": "country",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true
+  },
+  {
+   "n": 47,
+   "specimen": "C024",
+   "fact": "country",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 48,
+   "specimen": "C024",
+   "fact": "mint",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 49,
+   "specimen": "C025",
+   "fact": "country",
+   "coin": "France 1965 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 50,
+   "specimen": "C025",
+   "fact": "mint",
+   "coin": "France 1965 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 51,
+   "specimen": "C026",
+   "fact": "country",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 52,
+   "specimen": "C026",
+   "fact": "denomination",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 53,
+   "specimen": "C027",
+   "fact": "country",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 54,
+   "specimen": "C027",
+   "fact": "denomination",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 55,
+   "specimen": "C028",
+   "fact": "country",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 56,
+   "specimen": "C028",
+   "fact": "denomination",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 57,
+   "specimen": "C028",
+   "fact": "mint",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 58,
+   "specimen": "C029",
+   "fact": "country",
+   "coin": "Germany 1972 1 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 59,
+   "specimen": "C029",
+   "fact": "denomination",
+   "coin": "Germany 1972 1 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 60,
+   "specimen": "C029",
+   "fact": "mint",
+   "coin": "Germany 1972 1 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 61,
+   "specimen": "C030",
+   "fact": "country",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 62,
+   "specimen": "C030",
+   "fact": "denomination",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 63,
+   "specimen": "C031",
+   "fact": "country",
+   "coin": "Australia 1943 Threepence (3d) · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 64,
+   "specimen": "C032",
+   "fact": "country",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true
+  },
+  {
+   "n": 65,
+   "specimen": "C032",
+   "fact": "mint",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true
+  },
+  {
+   "n": 66,
+   "specimen": "C033",
+   "fact": "country",
+   "coin": "France 1969 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 67,
+   "specimen": "C033",
+   "fact": "mint",
+   "coin": "France 1969 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 68,
+   "specimen": "C034",
+   "fact": "country",
+   "coin": "France 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 69,
+   "specimen": "C034",
+   "fact": "denomination",
+   "coin": "France 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 70,
+   "specimen": "C034",
+   "fact": "mint",
+   "coin": "France 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 71,
+   "specimen": "C035",
+   "fact": "country",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 72,
+   "specimen": "C035",
+   "fact": "denomination",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 73,
+   "specimen": "C036",
+   "fact": "country",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 74,
+   "specimen": "C036",
+   "fact": "denomination",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 75,
+   "specimen": "C037",
+   "fact": "country",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 76,
+   "specimen": "C037",
+   "fact": "denomination",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 77,
+   "specimen": "C038",
+   "fact": "country",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 78,
+   "specimen": "C038",
+   "fact": "denomination",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 79,
+   "specimen": "C038",
+   "fact": "mint",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 80,
+   "specimen": "C039",
+   "fact": "country",
+   "coin": "Italy 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 81,
+   "specimen": "C039",
+   "fact": "denomination",
+   "coin": "Italy 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 82,
+   "specimen": "C040",
+   "fact": "country",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 83,
+   "specimen": "C040",
+   "fact": "denomination",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 84,
+   "specimen": "C040",
+   "fact": "mint",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 85,
+   "specimen": "C041",
+   "fact": "country",
+   "coin": "France 1974 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 86,
+   "specimen": "C041",
+   "fact": "mint",
+   "coin": "France 1974 20 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 87,
+   "specimen": "C042",
+   "fact": "country",
+   "coin": "USSR 1962 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 88,
+   "specimen": "C042",
+   "fact": "mint",
+   "coin": "USSR 1962 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 89,
+   "specimen": "C043",
+   "fact": "country",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 90,
+   "specimen": "C043",
+   "fact": "denomination",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 91,
+   "specimen": "C043",
+   "fact": "mint",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 92,
+   "specimen": "C044",
+   "fact": "country",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 93,
+   "specimen": "C044",
+   "fact": "mint",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 94,
+   "specimen": "C045",
+   "fact": "country",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 95,
+   "specimen": "C045",
+   "fact": "denomination",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 96,
+   "specimen": "C045",
+   "fact": "mint",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 97,
+   "specimen": "C046",
+   "fact": "country",
+   "coin": "Germany 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 98,
+   "specimen": "C046",
+   "fact": "denomination",
+   "coin": "Germany 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 99,
+   "specimen": "C047",
+   "fact": "country",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true
+  },
+  {
+   "n": 100,
+   "specimen": "C047",
+   "fact": "mint",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true
+  },
+  {
+   "n": 101,
+   "specimen": "C048",
+   "fact": "country",
+   "coin": "Germany 1993 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 102,
+   "specimen": "C049",
+   "fact": "country",
+   "coin": "France 1989 10 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 103,
+   "specimen": "C049",
+   "fact": "mint",
+   "coin": "France 1989 10 francs · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 104,
+   "specimen": "C050",
+   "fact": "country",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 105,
+   "specimen": "C050",
+   "fact": "mint",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 106,
+   "specimen": "C051",
+   "fact": "country",
+   "coin": "Germany 1986 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 107,
+   "specimen": "C051",
+   "fact": "denomination",
+   "coin": "Germany 1986 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 108,
+   "specimen": "C052",
+   "fact": "country",
+   "coin": "France 2009 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 109,
+   "specimen": "C052",
+   "fact": "denomination",
+   "coin": "France 2009 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 110,
+   "specimen": "C052",
+   "fact": "mint",
+   "coin": "France 2009 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 111,
+   "specimen": "C053",
+   "fact": "country",
+   "coin": "Germany 2011 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 112,
+   "specimen": "C053",
+   "fact": "denomination",
+   "coin": "Germany 2011 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 113,
+   "specimen": "C054",
+   "fact": "country",
+   "coin": "France 2010 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 114,
+   "specimen": "C054",
+   "fact": "denomination",
+   "coin": "France 2010 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 115,
+   "specimen": "C054",
+   "fact": "mint",
+   "coin": "France 2010 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 116,
+   "specimen": "C055",
+   "fact": "country",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 117,
+   "specimen": "C055",
+   "fact": "denomination",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 118,
+   "specimen": "C055",
+   "fact": "mint",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 119,
+   "specimen": "C056",
+   "fact": "country",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 120,
+   "specimen": "C056",
+   "fact": "denomination",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 121,
+   "specimen": "C056",
+   "fact": "mint",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 122,
+   "specimen": "C057",
+   "fact": "country",
+   "coin": "Germany 1982 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 123,
+   "specimen": "C057",
+   "fact": "denomination",
+   "coin": "Germany 1982 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 124,
+   "specimen": "C058",
+   "fact": "country",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 125,
+   "specimen": "C058",
+   "fact": "denomination",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 126,
+   "specimen": "C059",
+   "fact": "country",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 127,
+   "specimen": "C059",
+   "fact": "mint",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": true
+  },
+  {
+   "n": 128,
+   "specimen": "C060",
+   "fact": "country",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 129,
+   "specimen": "C060",
+   "fact": "mint",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 130,
+   "specimen": "C061",
+   "fact": "country",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 131,
+   "specimen": "C061",
+   "fact": "denomination",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 132,
+   "specimen": "C062",
+   "fact": "country",
+   "coin": "France 1998 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 133,
+   "specimen": "C062",
+   "fact": "mint",
+   "coin": "France 1998 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 134,
+   "specimen": "C063",
+   "fact": "country",
+   "coin": "France 1995 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 135,
+   "specimen": "C063",
+   "fact": "mint",
+   "coin": "France 1995 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 136,
+   "specimen": "C064",
+   "fact": "country",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 137,
+   "specimen": "C064",
+   "fact": "mint",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 138,
+   "specimen": "C065",
+   "fact": "country",
+   "coin": "Switzerland 2014 5 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 139,
+   "specimen": "C066",
+   "fact": "country",
+   "coin": "Switzerland 1976 5 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 140,
+   "specimen": "C066",
+   "fact": "mint",
+   "coin": "Switzerland 1976 5 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 141,
+   "specimen": "C067",
+   "fact": "country",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 142,
+   "specimen": "C068",
+   "fact": "country",
+   "coin": "Switzerland 1963 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 143,
+   "specimen": "C068",
+   "fact": "mint",
+   "coin": "Switzerland 1963 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 144,
+   "specimen": "C069",
+   "fact": "country",
+   "coin": "Jamaica 1975 50 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 145,
+   "specimen": "C069",
+   "fact": "mint",
+   "coin": "Jamaica 1975 50 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 146,
+   "specimen": "C070",
+   "fact": "country",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 147,
+   "specimen": "C070",
+   "fact": "mint",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 148,
+   "specimen": "C071",
+   "fact": "country",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 149,
+   "specimen": "C072",
+   "fact": "country",
+   "coin": "France 2000 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 150,
+   "specimen": "C072",
+   "fact": "mint",
+   "coin": "France 2000 2 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 151,
+   "specimen": "C073",
+   "fact": "country",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false
+  },
+  {
+   "n": 152,
+   "specimen": "C073",
+   "fact": "denomination",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false
+  },
+  {
+   "n": 153,
+   "specimen": "C073",
+   "fact": "mint",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false
+  },
+  {
+   "n": 154,
+   "specimen": "C073",
+   "fact": "year",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false
+  },
+  {
+   "n": 155,
+   "specimen": "C075",
+   "fact": "country",
+   "coin": "Switzerland 1982 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 156,
+   "specimen": "C076",
+   "fact": "country",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 157,
+   "specimen": "C076",
+   "fact": "mint",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 158,
+   "specimen": "C077",
+   "fact": "country",
+   "coin": "Switzerland 1991 2 francs · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 159,
+   "specimen": "C078",
+   "fact": "country",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 160,
+   "specimen": "C078",
+   "fact": "mint",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 161,
+   "specimen": "C079",
+   "fact": "country",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 162,
+   "specimen": "C079",
+   "fact": "mint",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 163,
+   "specimen": "C080",
+   "fact": "country",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 164,
+   "specimen": "C081",
+   "fact": "country",
+   "coin": "Switzerland 1983 5 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 165,
+   "specimen": "C082",
+   "fact": "country",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 166,
+   "specimen": "C083",
+   "fact": "country",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 167,
+   "specimen": "C084",
+   "fact": "country",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 168,
+   "specimen": "C088",
+   "fact": "country",
+   "coin": "USA 1957 10¢ Roosevelt",
+   "has_photo": true
+  },
+  {
+   "n": 169,
+   "specimen": "C088",
+   "fact": "mint",
+   "coin": "USA 1957 10¢ Roosevelt",
+   "has_photo": true
+  },
+  {
+   "n": 170,
+   "specimen": "C089",
+   "fact": "country",
+   "coin": "Germany 1995 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 171,
+   "specimen": "C089",
+   "fact": "denomination",
+   "coin": "Germany 1995 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 172,
+   "specimen": "C090",
+   "fact": "country",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 173,
+   "specimen": "C090",
+   "fact": "denomination",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 174,
+   "specimen": "C090",
+   "fact": "mint",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 175,
+   "specimen": "C091",
+   "fact": "country",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 176,
+   "specimen": "C091",
+   "fact": "denomination",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 177,
+   "specimen": "C091",
+   "fact": "mint",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 178,
+   "specimen": "C091",
+   "fact": "year",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 179,
+   "specimen": "C092",
+   "fact": "country",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 180,
+   "specimen": "C092",
+   "fact": "denomination",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 181,
+   "specimen": "C092",
+   "fact": "mint",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 182,
+   "specimen": "C092",
+   "fact": "year",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 183,
+   "specimen": "C093",
+   "fact": "country",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 184,
+   "specimen": "C094",
+   "fact": "country",
+   "coin": "Switzerland 1986 1 franc · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 185,
+   "specimen": "C095",
+   "fact": "country",
+   "coin": "France 1999 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 186,
+   "specimen": "C095",
+   "fact": "denomination",
+   "coin": "France 1999 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 187,
+   "specimen": "C095",
+   "fact": "mint",
+   "coin": "France 1999 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 188,
+   "specimen": "C096",
+   "fact": "country",
+   "coin": "France 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 189,
+   "specimen": "C096",
+   "fact": "denomination",
+   "coin": "France 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 190,
+   "specimen": "C096",
+   "fact": "mint",
+   "coin": "France 2002 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 191,
+   "specimen": "C097",
+   "fact": "country",
+   "coin": "France 2015 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 192,
+   "specimen": "C097",
+   "fact": "denomination",
+   "coin": "France 2015 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 193,
+   "specimen": "C097",
+   "fact": "mint",
+   "coin": "France 2015 10 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 194,
+   "specimen": "C098",
+   "fact": "country",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 195,
+   "specimen": "C098",
+   "fact": "denomination",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 196,
+   "specimen": "C098",
+   "fact": "mint",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 197,
+   "specimen": "C099",
+   "fact": "country",
+   "coin": "Germany 2002 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 198,
+   "specimen": "C099",
+   "fact": "denomination",
+   "coin": "Germany 2002 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 199,
+   "specimen": "C100",
+   "fact": "country",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 200,
+   "specimen": "C100",
+   "fact": "denomination",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 201,
+   "specimen": "C100",
+   "fact": "mint",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 202,
+   "specimen": "C101",
+   "fact": "country",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 203,
+   "specimen": "C101",
+   "fact": "denomination",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 204,
+   "specimen": "C101",
+   "fact": "mint",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 205,
+   "specimen": "C102",
+   "fact": "country",
+   "coin": "Germany 2015 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 206,
+   "specimen": "C102",
+   "fact": "denomination",
+   "coin": "Germany 2015 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 207,
+   "specimen": "C103",
+   "fact": "country",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 208,
+   "specimen": "C103",
+   "fact": "mint",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 209,
+   "specimen": "C104",
+   "fact": "country",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 210,
+   "specimen": "C104",
+   "fact": "mint",
+   "coin": "Netherlands 1996 25 cents · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 211,
+   "specimen": "C105",
+   "fact": "country",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 212,
+   "specimen": "C105",
+   "fact": "denomination",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 213,
+   "specimen": "C105",
+   "fact": "mint",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 214,
+   "specimen": "C105",
+   "fact": "year",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 215,
+   "specimen": "C106",
+   "fact": "country",
+   "coin": "United Kingdom 1975 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 216,
+   "specimen": "C106",
+   "fact": "denomination",
+   "coin": "United Kingdom 1975 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 217,
+   "specimen": "C106",
+   "fact": "mint",
+   "coin": "United Kingdom 1975 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 218,
+   "specimen": "C106",
+   "fact": "year",
+   "coin": "United Kingdom 1975 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 219,
+   "specimen": "C107",
+   "fact": "country",
+   "coin": "United Kingdom 1987 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 220,
+   "specimen": "C107",
+   "fact": "denomination",
+   "coin": "United Kingdom 1987 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 221,
+   "specimen": "C107",
+   "fact": "mint",
+   "coin": "United Kingdom 1987 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 222,
+   "specimen": "C107",
+   "fact": "year",
+   "coin": "United Kingdom 1987 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 223,
+   "specimen": "C108",
+   "fact": "country",
+   "coin": "United Kingdom 1988 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 224,
+   "specimen": "C108",
+   "fact": "denomination",
+   "coin": "United Kingdom 1988 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 225,
+   "specimen": "C108",
+   "fact": "mint",
+   "coin": "United Kingdom 1988 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 226,
+   "specimen": "C108",
+   "fact": "year",
+   "coin": "United Kingdom 1988 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 227,
+   "specimen": "C109",
+   "fact": "country",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 228,
+   "specimen": "C109",
+   "fact": "denomination",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 229,
+   "specimen": "C109",
+   "fact": "mint",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 230,
+   "specimen": "C109",
+   "fact": "year",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 231,
+   "specimen": "C110",
+   "fact": "country",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 232,
+   "specimen": "C110",
+   "fact": "denomination",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 233,
+   "specimen": "C110",
+   "fact": "mint",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 234,
+   "specimen": "C110",
+   "fact": "year",
+   "coin": "United Kingdom 1995 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 235,
+   "specimen": "C111",
+   "fact": "country",
+   "coin": "United Kingdom 1996 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 236,
+   "specimen": "C111",
+   "fact": "denomination",
+   "coin": "United Kingdom 1996 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 237,
+   "specimen": "C111",
+   "fact": "mint",
+   "coin": "United Kingdom 1996 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 238,
+   "specimen": "C111",
+   "fact": "year",
+   "coin": "United Kingdom 1996 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 239,
+   "specimen": "C112",
+   "fact": "country",
+   "coin": "United Kingdom 2003 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 240,
+   "specimen": "C112",
+   "fact": "denomination",
+   "coin": "United Kingdom 2003 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 241,
+   "specimen": "C112",
+   "fact": "mint",
+   "coin": "United Kingdom 2003 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 242,
+   "specimen": "C112",
+   "fact": "year",
+   "coin": "United Kingdom 2003 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 243,
+   "specimen": "C113",
+   "fact": "country",
+   "coin": "United Kingdom 2007 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 244,
+   "specimen": "C113",
+   "fact": "denomination",
+   "coin": "United Kingdom 2007 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 245,
+   "specimen": "C113",
+   "fact": "mint",
+   "coin": "United Kingdom 2007 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 246,
+   "specimen": "C113",
+   "fact": "year",
+   "coin": "United Kingdom 2007 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 247,
+   "specimen": "C114",
+   "fact": "composition",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 248,
+   "specimen": "C114",
+   "fact": "country",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 249,
+   "specimen": "C114",
+   "fact": "mint",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 250,
+   "specimen": "C114",
+   "fact": "mintage",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 251,
+   "specimen": "C114",
+   "fact": "year",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false
+  },
+  {
+   "n": 252,
+   "specimen": "C115",
+   "fact": "country",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 253,
+   "specimen": "C115",
+   "fact": "mint",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 254,
+   "specimen": "C115",
+   "fact": "year",
+   "coin": "Switzerland 1968 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 255,
+   "specimen": "C116",
+   "fact": "country",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 256,
+   "specimen": "C116",
+   "fact": "year",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 257,
+   "specimen": "C117",
+   "fact": "country",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 258,
+   "specimen": "C117",
+   "fact": "mint",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 259,
+   "specimen": "C117",
+   "fact": "year",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 260,
+   "specimen": "C118",
+   "fact": "country",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 261,
+   "specimen": "C118",
+   "fact": "mint",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 262,
+   "specimen": "C118",
+   "fact": "year",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 263,
+   "specimen": "C119",
+   "fact": "country",
+   "coin": "France 1977 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 264,
+   "specimen": "C119",
+   "fact": "mint",
+   "coin": "France 1977 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 265,
+   "specimen": "C119",
+   "fact": "year",
+   "coin": "France 1977 1 franc · FRF (nouveau franc)",
+   "has_photo": false
+  },
+  {
+   "n": 266,
+   "specimen": "C120",
+   "fact": "country",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 267,
+   "specimen": "C120",
+   "fact": "denomination",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 268,
+   "specimen": "C120",
+   "fact": "mint",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 269,
+   "specimen": "C120",
+   "fact": "year",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 270,
+   "specimen": "C121",
+   "fact": "country",
+   "coin": "Germany 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 271,
+   "specimen": "C121",
+   "fact": "denomination",
+   "coin": "Germany 2014 5 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 272,
+   "specimen": "C122",
+   "fact": "country",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 273,
+   "specimen": "C122",
+   "fact": "mint",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 274,
+   "specimen": "C123",
+   "fact": "country",
+   "coin": "Germany 1988 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 275,
+   "specimen": "C123",
+   "fact": "mint",
+   "coin": "Germany 1988 2 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 276,
+   "specimen": "C124",
+   "fact": "country",
+   "coin": "France 1967 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 277,
+   "specimen": "C124",
+   "fact": "mint",
+   "coin": "France 1967 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 278,
+   "specimen": "C125",
+   "fact": "country",
+   "coin": "France 1984 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 279,
+   "specimen": "C125",
+   "fact": "mint",
+   "coin": "France 1984 10 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 280,
+   "specimen": "C126",
+   "fact": "country",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 281,
+   "specimen": "C126",
+   "fact": "denomination",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 282,
+   "specimen": "C127",
+   "fact": "country",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 283,
+   "specimen": "C127",
+   "fact": "denomination",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 284,
+   "specimen": "C127",
+   "fact": "mint",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 285,
+   "specimen": "C128",
+   "fact": "country",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 286,
+   "specimen": "C128",
+   "fact": "denomination",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 287,
+   "specimen": "C128",
+   "fact": "mint",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 288,
+   "specimen": "C129",
+   "fact": "country",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 289,
+   "specimen": "C129",
+   "fact": "denomination",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 290,
+   "specimen": "C129",
+   "fact": "mint",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 291,
+   "specimen": "C129",
+   "fact": "year",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 292,
+   "specimen": "C130",
+   "fact": "country",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 293,
+   "specimen": "C130",
+   "fact": "denomination",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 294,
+   "specimen": "C130",
+   "fact": "mint",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 295,
+   "specimen": "C130",
+   "fact": "year",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 296,
+   "specimen": "C131",
+   "fact": "country",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 297,
+   "specimen": "C131",
+   "fact": "denomination",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true
+  },
+  {
+   "n": 298,
+   "specimen": "C132",
+   "fact": "country",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 299,
+   "specimen": "C132",
+   "fact": "denomination",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 300,
+   "specimen": "C132",
+   "fact": "mint",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 301,
+   "specimen": "C132",
+   "fact": "year",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 302,
+   "specimen": "C133",
+   "fact": "country",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 303,
+   "specimen": "C133",
+   "fact": "denomination",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 304,
+   "specimen": "C133",
+   "fact": "mint",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 305,
+   "specimen": "C133",
+   "fact": "year",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 306,
+   "specimen": "C134",
+   "fact": "country",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 307,
+   "specimen": "C134",
+   "fact": "denomination",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 308,
+   "specimen": "C134",
+   "fact": "mint",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 309,
+   "specimen": "C134",
+   "fact": "year",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 310,
+   "specimen": "C135",
+   "fact": "country",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 311,
+   "specimen": "C135",
+   "fact": "denomination",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 312,
+   "specimen": "C135",
+   "fact": "mint",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 313,
+   "specimen": "C135",
+   "fact": "year",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 314,
+   "specimen": "C136",
+   "fact": "country",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 315,
+   "specimen": "C136",
+   "fact": "denomination",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 316,
+   "specimen": "C136",
+   "fact": "mint",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 317,
+   "specimen": "C136",
+   "fact": "year",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 318,
+   "specimen": "C137",
+   "fact": "country",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 319,
+   "specimen": "C137",
+   "fact": "denomination",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 320,
+   "specimen": "C137",
+   "fact": "mint",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 321,
+   "specimen": "C137",
+   "fact": "year",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 322,
+   "specimen": "C138",
+   "fact": "country",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 323,
+   "specimen": "C138",
+   "fact": "denomination",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 324,
+   "specimen": "C138",
+   "fact": "mint",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 325,
+   "specimen": "C138",
+   "fact": "year",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 326,
+   "specimen": "C139",
+   "fact": "country",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 327,
+   "specimen": "C139",
+   "fact": "mint",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 328,
+   "specimen": "C139",
+   "fact": "year",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 329,
+   "specimen": "C140",
+   "fact": "country",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 330,
+   "specimen": "C140",
+   "fact": "denomination",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 331,
+   "specimen": "C140",
+   "fact": "mint",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 332,
+   "specimen": "C140",
+   "fact": "year",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 333,
+   "specimen": "C141",
+   "fact": "country",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 334,
+   "specimen": "C141",
+   "fact": "denomination",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 335,
+   "specimen": "C141",
+   "fact": "mint",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 336,
+   "specimen": "C141",
+   "fact": "year",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 337,
+   "specimen": "C142",
+   "fact": "country",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 338,
+   "specimen": "C142",
+   "fact": "denomination",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 339,
+   "specimen": "C142",
+   "fact": "mint",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 340,
+   "specimen": "C142",
+   "fact": "year",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 341,
+   "specimen": "C143",
+   "fact": "country",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 342,
+   "specimen": "C143",
+   "fact": "denomination",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 343,
+   "specimen": "C143",
+   "fact": "mint",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 344,
+   "specimen": "C143",
+   "fact": "year",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false
+  },
+  {
+   "n": 345,
+   "specimen": "C144",
+   "fact": "country",
+   "coin": "Norway 1998 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 346,
+   "specimen": "C144",
+   "fact": "mint",
+   "coin": "Norway 1998 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 347,
+   "specimen": "C145",
+   "fact": "country",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true
+  },
+  {
+   "n": 348,
+   "specimen": "C145",
+   "fact": "denomination",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true
+  },
+  {
+   "n": 349,
+   "specimen": "C145",
+   "fact": "year",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true
+  },
+  {
+   "n": 350,
+   "specimen": "C146",
+   "fact": "country",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true
+  },
+  {
+   "n": 351,
+   "specimen": "C146",
+   "fact": "mintage",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true
+  },
+  {
+   "n": 352,
+   "specimen": "C147",
+   "fact": "country",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 353,
+   "specimen": "C147",
+   "fact": "denomination",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 354,
+   "specimen": "C147",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 355,
+   "specimen": "C147",
+   "fact": "year",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 356,
+   "specimen": "C148",
+   "fact": "country",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 357,
+   "specimen": "C148",
+   "fact": "denomination",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 358,
+   "specimen": "C148",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 359,
+   "specimen": "C148",
+   "fact": "year",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 360,
+   "specimen": "C149",
+   "fact": "country",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 361,
+   "specimen": "C149",
+   "fact": "denomination",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 362,
+   "specimen": "C149",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 363,
+   "specimen": "C149",
+   "fact": "year",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 364,
+   "specimen": "C150",
+   "fact": "country",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 365,
+   "specimen": "C150",
+   "fact": "denomination",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 366,
+   "specimen": "C150",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 367,
+   "specimen": "C150",
+   "fact": "year",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 368,
+   "specimen": "C151",
+   "fact": "country",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 369,
+   "specimen": "C151",
+   "fact": "denomination",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 370,
+   "specimen": "C151",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 371,
+   "specimen": "C151",
+   "fact": "year",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 372,
+   "specimen": "C152",
+   "fact": "country",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 373,
+   "specimen": "C152",
+   "fact": "denomination",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 374,
+   "specimen": "C152",
+   "fact": "mint",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 375,
+   "specimen": "C153",
+   "fact": "country",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 376,
+   "specimen": "C153",
+   "fact": "denomination",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 377,
+   "specimen": "C153",
+   "fact": "mint",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 378,
+   "specimen": "C154",
+   "fact": "country",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 379,
+   "specimen": "C154",
+   "fact": "denomination",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 380,
+   "specimen": "C154",
+   "fact": "mint",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 381,
+   "specimen": "C154",
+   "fact": "year",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 382,
+   "specimen": "C155",
+   "fact": "country",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 383,
+   "specimen": "C155",
+   "fact": "denomination",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 384,
+   "specimen": "C155",
+   "fact": "mint",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 385,
+   "specimen": "C155",
+   "fact": "year",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 386,
+   "specimen": "C156",
+   "fact": "country",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 387,
+   "specimen": "C156",
+   "fact": "denomination",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 388,
+   "specimen": "C156",
+   "fact": "mint",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 389,
+   "specimen": "C156",
+   "fact": "year",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 390,
+   "specimen": "C157",
+   "fact": "country",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 391,
+   "specimen": "C157",
+   "fact": "denomination",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 392,
+   "specimen": "C157",
+   "fact": "mint",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 393,
+   "specimen": "C158",
+   "fact": "country",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 394,
+   "specimen": "C158",
+   "fact": "denomination",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 395,
+   "specimen": "C158",
+   "fact": "mint",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 396,
+   "specimen": "C158",
+   "fact": "year",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 397,
+   "specimen": "C159",
+   "fact": "country",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true
+  },
+  {
+   "n": 398,
+   "specimen": "C159",
+   "fact": "mintage",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true
+  },
+  {
+   "n": 399,
+   "specimen": "C160",
+   "fact": "country",
+   "coin": "Canada 1939 5 cents · CAD",
+   "has_photo": true
+  },
+  {
+   "n": 400,
+   "specimen": "C160",
+   "fact": "mint",
+   "coin": "Canada 1939 5 cents · CAD",
+   "has_photo": true
+  },
+  {
+   "n": 401,
+   "specimen": "C161",
+   "fact": "country",
+   "coin": "Mexico 1945 10 centavos · MXP",
+   "has_photo": false
+  },
+  {
+   "n": 402,
+   "specimen": "C161",
+   "fact": "mint",
+   "coin": "Mexico 1945 10 centavos · MXP",
+   "has_photo": false
+  },
+  {
+   "n": 403,
+   "specimen": "C161",
+   "fact": "year",
+   "coin": "Mexico 1945 10 centavos · MXP",
+   "has_photo": false
+  },
+  {
+   "n": 404,
+   "specimen": "C162",
+   "fact": "country",
+   "coin": "Thailand 2006 1 baht · THB",
+   "has_photo": true
+  },
+  {
+   "n": 405,
+   "specimen": "C162",
+   "fact": "mint",
+   "coin": "Thailand 2006 1 baht · THB",
+   "has_photo": true
+  },
+  {
+   "n": 406,
+   "specimen": "C163",
+   "fact": "country",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 407,
+   "specimen": "C163",
+   "fact": "mint",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 408,
+   "specimen": "C163",
+   "fact": "year",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 409,
+   "specimen": "C164",
+   "fact": "country",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 410,
+   "specimen": "C164",
+   "fact": "mint",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 411,
+   "specimen": "C165",
+   "fact": "country",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 412,
+   "specimen": "C165",
+   "fact": "denomination",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 413,
+   "specimen": "C165",
+   "fact": "mint",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 414,
+   "specimen": "C165",
+   "fact": "year",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true
+  },
+  {
+   "n": 415,
+   "specimen": "C166",
+   "fact": "country",
+   "coin": "Mexico 1944 5 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 416,
+   "specimen": "C167",
+   "fact": "country",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 417,
+   "specimen": "C167",
+   "fact": "denomination",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 418,
+   "specimen": "C167",
+   "fact": "mint",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 419,
+   "specimen": "C167",
+   "fact": "year",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 420,
+   "specimen": "C168",
+   "fact": "country",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 421,
+   "specimen": "C168",
+   "fact": "denomination",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 422,
+   "specimen": "C168",
+   "fact": "mint",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 423,
+   "specimen": "C168",
+   "fact": "year",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 424,
+   "specimen": "C169",
+   "fact": "country",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 425,
+   "specimen": "C169",
+   "fact": "denomination",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 426,
+   "specimen": "C169",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 427,
+   "specimen": "C169",
+   "fact": "year",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 428,
+   "specimen": "C170",
+   "fact": "country",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 429,
+   "specimen": "C170",
+   "fact": "denomination",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 430,
+   "specimen": "C170",
+   "fact": "mint",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 431,
+   "specimen": "C170",
+   "fact": "year",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 432,
+   "specimen": "C171",
+   "fact": "country",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 433,
+   "specimen": "C171",
+   "fact": "denomination",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 434,
+   "specimen": "C171",
+   "fact": "mint",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 435,
+   "specimen": "C171",
+   "fact": "year",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 436,
+   "specimen": "C172",
+   "fact": "country",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 437,
+   "specimen": "C172",
+   "fact": "denomination",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 438,
+   "specimen": "C172",
+   "fact": "mint",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 439,
+   "specimen": "C172",
+   "fact": "year",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 440,
+   "specimen": "C173",
+   "fact": "country",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 441,
+   "specimen": "C173",
+   "fact": "denomination",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 442,
+   "specimen": "C173",
+   "fact": "mint",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 443,
+   "specimen": "C174",
+   "fact": "country",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 444,
+   "specimen": "C174",
+   "fact": "denomination",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 445,
+   "specimen": "C174",
+   "fact": "mint",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 446,
+   "specimen": "C175",
+   "fact": "country",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 447,
+   "specimen": "C175",
+   "fact": "denomination",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 448,
+   "specimen": "C175",
+   "fact": "mint",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 449,
+   "specimen": "C175",
+   "fact": "year",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 450,
+   "specimen": "C176",
+   "fact": "country",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 451,
+   "specimen": "C176",
+   "fact": "denomination",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 452,
+   "specimen": "C176",
+   "fact": "mint",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 453,
+   "specimen": "C176",
+   "fact": "year",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 454,
+   "specimen": "C177",
+   "fact": "country",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 455,
+   "specimen": "C177",
+   "fact": "mint",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 456,
+   "specimen": "C178",
+   "fact": "country",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 457,
+   "specimen": "C178",
+   "fact": "mint",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 458,
+   "specimen": "C178",
+   "fact": "year",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 459,
+   "specimen": "C179",
+   "fact": "country",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 460,
+   "specimen": "C179",
+   "fact": "mint",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 461,
+   "specimen": "C179",
+   "fact": "year",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 462,
+   "specimen": "C180",
+   "fact": "country",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 463,
+   "specimen": "C180",
+   "fact": "mint",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 464,
+   "specimen": "C181",
+   "fact": "country",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 465,
+   "specimen": "C181",
+   "fact": "mint",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 466,
+   "specimen": "C181",
+   "fact": "year",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 467,
+   "specimen": "C182",
+   "fact": "country",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 468,
+   "specimen": "C182",
+   "fact": "mint",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 469,
+   "specimen": "C182",
+   "fact": "year",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false
+  },
+  {
+   "n": 470,
+   "specimen": "C183",
+   "fact": "country",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 471,
+   "specimen": "C183",
+   "fact": "mint",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 472,
+   "specimen": "C184",
+   "fact": "country",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 473,
+   "specimen": "C184",
+   "fact": "mint",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 474,
+   "specimen": "C185",
+   "fact": "country",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 475,
+   "specimen": "C185",
+   "fact": "denomination",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 476,
+   "specimen": "C185",
+   "fact": "mintage",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 477,
+   "specimen": "C186",
+   "fact": "country",
+   "coin": "Cayman Islands 2002 5 cents · KYD",
+   "has_photo": false
+  },
+  {
+   "n": 478,
+   "specimen": "C186",
+   "fact": "denomination",
+   "coin": "Cayman Islands 2002 5 cents · KYD",
+   "has_photo": false
+  },
+  {
+   "n": 479,
+   "specimen": "C186",
+   "fact": "mint",
+   "coin": "Cayman Islands 2002 5 cents · KYD",
+   "has_photo": false
+  },
+  {
+   "n": 480,
+   "specimen": "C186",
+   "fact": "year",
+   "coin": "Cayman Islands 2002 5 cents · KYD",
+   "has_photo": false
+  },
+  {
+   "n": 481,
+   "specimen": "C187",
+   "fact": "country",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 482,
+   "specimen": "C187",
+   "fact": "denomination",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 483,
+   "specimen": "C187",
+   "fact": "mint",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 484,
+   "specimen": "C187",
+   "fact": "year",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 485,
+   "specimen": "C188",
+   "fact": "country",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 486,
+   "specimen": "C188",
+   "fact": "denomination",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 487,
+   "specimen": "C188",
+   "fact": "mint",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 488,
+   "specimen": "C188",
+   "fact": "year",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 489,
+   "specimen": "C189",
+   "fact": "country",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 490,
+   "specimen": "C189",
+   "fact": "denomination",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 491,
+   "specimen": "C189",
+   "fact": "mint",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 492,
+   "specimen": "C189",
+   "fact": "year",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 493,
+   "specimen": "C190",
+   "fact": "country",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 494,
+   "specimen": "C190",
+   "fact": "denomination",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 495,
+   "specimen": "C190",
+   "fact": "mint",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 496,
+   "specimen": "C190",
+   "fact": "year",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 497,
+   "specimen": "C191",
+   "fact": "country",
+   "coin": "Germany 1986 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 498,
+   "specimen": "C191",
+   "fact": "denomination",
+   "coin": "Germany 1986 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 499,
+   "specimen": "C191",
+   "fact": "mint",
+   "coin": "Germany 1986 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 500,
+   "specimen": "C191",
+   "fact": "year",
+   "coin": "Germany 1986 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 501,
+   "specimen": "C192",
+   "fact": "country",
+   "coin": "Germany 1991 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 502,
+   "specimen": "C192",
+   "fact": "denomination",
+   "coin": "Germany 1991 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 503,
+   "specimen": "C192",
+   "fact": "mint",
+   "coin": "Germany 1991 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 504,
+   "specimen": "C192",
+   "fact": "year",
+   "coin": "Germany 1991 1 Pfennig · DEM",
+   "has_photo": false
+  },
+  {
+   "n": 505,
+   "specimen": "C193",
+   "fact": "country",
+   "coin": "France 1973 5 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 506,
+   "specimen": "C193",
+   "fact": "mint",
+   "coin": "France 1973 5 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 507,
+   "specimen": "C194",
+   "fact": "country",
+   "coin": "France 1980 5 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 508,
+   "specimen": "C194",
+   "fact": "mint",
+   "coin": "France 1980 5 centimes · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 509,
+   "specimen": "C195",
+   "fact": "country",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 510,
+   "specimen": "C195",
+   "fact": "mint",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 511,
+   "specimen": "C196",
+   "fact": "country",
+   "coin": "Germany 1987 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 512,
+   "specimen": "C197",
+   "fact": "country",
+   "coin": "Germany 1992 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 513,
+   "specimen": "C197",
+   "fact": "mint",
+   "coin": "Germany 1992 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 514,
+   "specimen": "C198",
+   "fact": "country",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 515,
+   "specimen": "C198",
+   "fact": "mint",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 516,
+   "specimen": "C199",
+   "fact": "country",
+   "coin": "Italy 1978 50 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 517,
+   "specimen": "C200",
+   "fact": "country",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true
+  },
+  {
+   "n": 518,
+   "specimen": "C201",
+   "fact": "country",
+   "coin": "Nigeria 1976 10 kobo · NGN",
+   "has_photo": true
+  },
+  {
+   "n": 519,
+   "specimen": "C201",
+   "fact": "year",
+   "coin": "Nigeria 1976 10 kobo · NGN",
+   "has_photo": true
+  },
+  {
+   "n": 520,
+   "specimen": "C202",
+   "fact": "country",
+   "coin": "Guatemala 2010 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 521,
+   "specimen": "C202",
+   "fact": "mintage",
+   "coin": "Guatemala 2010 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 522,
+   "specimen": "C202",
+   "fact": "year",
+   "coin": "Guatemala 2010 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 523,
+   "specimen": "C203",
+   "fact": "country",
+   "coin": "India 2001 1 rupee · INR",
+   "has_photo": true
+  },
+  {
+   "n": 524,
+   "specimen": "C203",
+   "fact": "mint",
+   "coin": "India 2001 1 rupee · INR",
+   "has_photo": true
+  },
+  {
+   "n": 525,
+   "specimen": "C203",
+   "fact": "mintage",
+   "coin": "India 2001 1 rupee · INR",
+   "has_photo": true
+  },
+  {
+   "n": 526,
+   "specimen": "C204",
+   "fact": "country",
+   "coin": "Trinidad and Tobago 2014 25 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 527,
+   "specimen": "C204",
+   "fact": "mintage",
+   "coin": "Trinidad and Tobago 2014 25 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 528,
+   "specimen": "C205",
+   "fact": "country",
+   "coin": "United Kingdom 1982 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 529,
+   "specimen": "C205",
+   "fact": "mint",
+   "coin": "United Kingdom 1982 20 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 530,
+   "specimen": "C206",
+   "fact": "country",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 531,
+   "specimen": "C206",
+   "fact": "mint",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 532,
+   "specimen": "C207",
+   "fact": "country",
+   "coin": "Trinidad and Tobago 2016 10 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 533,
+   "specimen": "C207",
+   "fact": "denomination",
+   "coin": "Trinidad and Tobago 2016 10 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 534,
+   "specimen": "C207",
+   "fact": "mintage",
+   "coin": "Trinidad and Tobago 2016 10 cents · TTD",
+   "has_photo": true
+  },
+  {
+   "n": 535,
+   "specimen": "C208",
+   "fact": "country",
+   "coin": "Turkey 2011 10 kuruş · TRY",
+   "has_photo": true
+  },
+  {
+   "n": 536,
+   "specimen": "C209",
+   "fact": "country",
+   "coin": "Mexico 1987 5 pesos · MXP (pre-nuevo)",
+   "has_photo": true
+  },
+  {
+   "n": 537,
+   "specimen": "C210",
+   "fact": "country",
+   "coin": "South Korea 2000 100 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 538,
+   "specimen": "C211",
+   "fact": "country",
+   "coin": "Italy 1987 500 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 539,
+   "specimen": "C212",
+   "fact": "country",
+   "coin": "Eritrea 1997 50 cents · ERN (nakfa)",
+   "has_photo": true
+  },
+  {
+   "n": 540,
+   "specimen": "C212",
+   "fact": "mintage",
+   "coin": "Eritrea 1997 50 cents · ERN (nakfa)",
+   "has_photo": true
+  },
+  {
+   "n": 541,
+   "specimen": "C213",
+   "fact": "country",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 542,
+   "specimen": "C213",
+   "fact": "mint",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true
+  },
+  {
+   "n": 543,
+   "specimen": "C214",
+   "fact": "country",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 544,
+   "specimen": "C214",
+   "fact": "denomination",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 545,
+   "specimen": "C214",
+   "fact": "mintage",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 546,
+   "specimen": "C215",
+   "fact": "country",
+   "coin": "Cayman Islands 2008 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 547,
+   "specimen": "C215",
+   "fact": "denomination",
+   "coin": "Cayman Islands 2008 5 cents · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 548,
+   "specimen": "C216",
+   "fact": "country",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 549,
+   "specimen": "C216",
+   "fact": "denomination",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 550,
+   "specimen": "C216",
+   "fact": "mint",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 551,
+   "specimen": "C216",
+   "fact": "year",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 552,
+   "specimen": "C217",
+   "fact": "country",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 553,
+   "specimen": "C217",
+   "fact": "denomination",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 554,
+   "specimen": "C217",
+   "fact": "mint",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 555,
+   "specimen": "C218",
+   "fact": "country",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 556,
+   "specimen": "C218",
+   "fact": "denomination",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 557,
+   "specimen": "C218",
+   "fact": "mint",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 558,
+   "specimen": "C219",
+   "fact": "country",
+   "coin": "Jamaica 2015 1 dollar · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 559,
+   "specimen": "C219",
+   "fact": "mintage",
+   "coin": "Jamaica 2015 1 dollar · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 560,
+   "specimen": "C220",
+   "fact": "country",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 561,
+   "specimen": "C220",
+   "fact": "mint",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 562,
+   "specimen": "C221",
+   "fact": "country",
+   "coin": "France 1986 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 563,
+   "specimen": "C221",
+   "fact": "mint",
+   "coin": "France 1986 1/2 franc · FRF",
+   "has_photo": true
+  },
+  {
+   "n": 564,
+   "specimen": "C222",
+   "fact": "country",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 565,
+   "specimen": "C222",
+   "fact": "mint",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 566,
+   "specimen": "C223",
+   "fact": "country",
+   "coin": "Netherlands 1967 1 gulden · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 567,
+   "specimen": "C223",
+   "fact": "mint",
+   "coin": "Netherlands 1967 1 gulden · NLG",
+   "has_photo": true
+  },
+  {
+   "n": 568,
+   "specimen": "C224",
+   "fact": "country",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 569,
+   "specimen": "C224",
+   "fact": "denomination",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 570,
+   "specimen": "C224",
+   "fact": "mint",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 571,
+   "specimen": "C225",
+   "fact": "country",
+   "coin": "Germany 1977 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 572,
+   "specimen": "C225",
+   "fact": "denomination",
+   "coin": "Germany 1977 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 573,
+   "specimen": "C225",
+   "fact": "mint",
+   "coin": "Germany 1977 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 574,
+   "specimen": "C226",
+   "fact": "country",
+   "coin": "Germany 1980 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 575,
+   "specimen": "C226",
+   "fact": "denomination",
+   "coin": "Germany 1980 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 576,
+   "specimen": "C226",
+   "fact": "mint",
+   "coin": "Germany 1980 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 577,
+   "specimen": "C227",
+   "fact": "country",
+   "coin": "Germany 1984 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 578,
+   "specimen": "C227",
+   "fact": "denomination",
+   "coin": "Germany 1984 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 579,
+   "specimen": "C227",
+   "fact": "mint",
+   "coin": "Germany 1984 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 580,
+   "specimen": "C228",
+   "fact": "country",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 581,
+   "specimen": "C228",
+   "fact": "denomination",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 582,
+   "specimen": "C229",
+   "fact": "country",
+   "coin": "Germany 1990 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 583,
+   "specimen": "C229",
+   "fact": "denomination",
+   "coin": "Germany 1990 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 584,
+   "specimen": "C229",
+   "fact": "mint",
+   "coin": "Germany 1990 10 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 585,
+   "specimen": "C230",
+   "fact": "country",
+   "coin": "Jamaica 2015 10 dollars · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 586,
+   "specimen": "C230",
+   "fact": "mintage",
+   "coin": "Jamaica 2015 10 dollars · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 587,
+   "specimen": "C231",
+   "fact": "country",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false
+  },
+  {
+   "n": 588,
+   "specimen": "C231",
+   "fact": "denomination",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false
+  },
+  {
+   "n": 589,
+   "specimen": "C231",
+   "fact": "mint",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false
+  },
+  {
+   "n": 590,
+   "specimen": "C231",
+   "fact": "year",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false
+  },
+  {
+   "n": 591,
+   "specimen": "C232",
+   "fact": "country",
+   "coin": "Vietnam 2003 1000 đồng · VND",
+   "has_photo": true
+  },
+  {
+   "n": 592,
+   "specimen": "C232",
+   "fact": "denomination",
+   "coin": "Vietnam 2003 1000 đồng · VND",
+   "has_photo": true
+  },
+  {
+   "n": 593,
+   "specimen": "C233",
+   "fact": "country",
+   "coin": "Colombia 2016 50 pesos · COP",
+   "has_photo": true
+  },
+  {
+   "n": 594,
+   "specimen": "C233",
+   "fact": "mint",
+   "coin": "Colombia 2016 50 pesos · COP",
+   "has_photo": true
+  },
+  {
+   "n": 595,
+   "specimen": "C234",
+   "fact": "country",
+   "coin": "United Kingdom 1968 10 new pence · GBP (large module)",
+   "has_photo": true
+  },
+  {
+   "n": 596,
+   "specimen": "C234",
+   "fact": "mint",
+   "coin": "United Kingdom 1968 10 new pence · GBP (large module)",
+   "has_photo": true
+  },
+  {
+   "n": 597,
+   "specimen": "C235",
+   "fact": "country",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 598,
+   "specimen": "C235",
+   "fact": "mint",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true
+  },
+  {
+   "n": 599,
+   "specimen": "C236",
+   "fact": "country",
+   "coin": "Mexico 2010 2 pesos · MXN (nuevo)",
+   "has_photo": true
+  },
+  {
+   "n": 600,
+   "specimen": "C237",
+   "fact": "country",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 601,
+   "specimen": "C238",
+   "fact": "country",
+   "coin": "Germany 1973 2 Deutsche Mark · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 602,
+   "specimen": "C239",
+   "fact": "country",
+   "coin": "Australia 1944 1 penny · AUD (pre-decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 603,
+   "specimen": "C239",
+   "fact": "mint",
+   "coin": "Australia 1944 1 penny · AUD (pre-decimal)",
+   "has_photo": true
+  },
+  {
+   "n": 604,
+   "specimen": "C240",
+   "fact": "country",
+   "coin": "Italy 1965 100 lire · ITL",
+   "has_photo": true
+  },
+  {
+   "n": 605,
+   "specimen": "C241",
+   "fact": "country",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 606,
+   "specimen": "C241",
+   "fact": "denomination",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 607,
+   "specimen": "C241",
+   "fact": "mint",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 608,
+   "specimen": "C241",
+   "fact": "year",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false
+  },
+  {
+   "n": 609,
+   "specimen": "C242",
+   "fact": "country",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 610,
+   "specimen": "C242",
+   "fact": "mint",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true
+  },
+  {
+   "n": 611,
+   "specimen": "C243",
+   "fact": "country",
+   "coin": "France 1946 5 francs · FRF (old franc · pre-nouveau)",
+   "has_photo": true
+  },
+  {
+   "n": 612,
+   "specimen": "C243",
+   "fact": "mint",
+   "coin": "France 1946 5 francs · FRF (old franc · pre-nouveau)",
+   "has_photo": true
+  },
+  {
+   "n": 613,
+   "specimen": "C244",
+   "fact": "composition",
+   "coin": "Mexico 1964 20 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 614,
+   "specimen": "C244",
+   "fact": "country",
+   "coin": "Mexico 1964 20 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 615,
+   "specimen": "C245",
+   "fact": "country",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false
+  },
+  {
+   "n": 616,
+   "specimen": "C245",
+   "fact": "denomination",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false
+  },
+  {
+   "n": 617,
+   "specimen": "C245",
+   "fact": "mint",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false
+  },
+  {
+   "n": 618,
+   "specimen": "C245",
+   "fact": "year",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false
+  },
+  {
+   "n": 619,
+   "specimen": "C246",
+   "fact": "country",
+   "coin": "Philippines 1971 10 sentimos · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 620,
+   "specimen": "C246",
+   "fact": "mint",
+   "coin": "Philippines 1971 10 sentimos · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 621,
+   "specimen": "C246",
+   "fact": "year",
+   "coin": "Philippines 1971 10 sentimos · PHP",
+   "has_photo": true
+  },
+  {
+   "n": 622,
+   "specimen": "C247",
+   "fact": "country",
+   "coin": "South Korea 1966 1 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 623,
+   "specimen": "C247",
+   "fact": "mint",
+   "coin": "South Korea 1966 1 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 624,
+   "specimen": "C248",
+   "fact": "country",
+   "coin": "Greece 1982 2 drachmes · GRD",
+   "has_photo": true
+  },
+  {
+   "n": 625,
+   "specimen": "C248",
+   "fact": "mint",
+   "coin": "Greece 1982 2 drachmes · GRD",
+   "has_photo": true
+  },
+  {
+   "n": 626,
+   "specimen": "C249",
+   "fact": "country",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 627,
+   "specimen": "C249",
+   "fact": "mint",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 628,
+   "specimen": "C249",
+   "fact": "year",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true
+  },
+  {
+   "n": 629,
+   "specimen": "C250",
+   "fact": "country",
+   "coin": "Singapore 1967 20 cents · SGD",
+   "has_photo": true
+  },
+  {
+   "n": 630,
+   "specimen": "C250",
+   "fact": "mint",
+   "coin": "Singapore 1967 20 cents · SGD",
+   "has_photo": true
+  },
+  {
+   "n": 631,
+   "specimen": "C251",
+   "fact": "country",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 632,
+   "specimen": "C251",
+   "fact": "mint",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 633,
+   "specimen": "C252",
+   "fact": "country",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true
+  },
+  {
+   "n": 634,
+   "specimen": "C252",
+   "fact": "mint",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true
+  },
+  {
+   "n": 635,
+   "specimen": "C252",
+   "fact": "year",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true
+  },
+  {
+   "n": 636,
+   "specimen": "C253",
+   "fact": "country",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 637,
+   "specimen": "C253",
+   "fact": "mint",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 638,
+   "specimen": "C253",
+   "fact": "mintage",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true
+  },
+  {
+   "n": 639,
+   "specimen": "C254",
+   "fact": "country",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false
+  },
+  {
+   "n": 640,
+   "specimen": "C254",
+   "fact": "denomination",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false
+  },
+  {
+   "n": 641,
+   "specimen": "C254",
+   "fact": "mint",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false
+  },
+  {
+   "n": 642,
+   "specimen": "C254",
+   "fact": "year",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false
+  },
+  {
+   "n": 643,
+   "specimen": "C255",
+   "fact": "country",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false
+  },
+  {
+   "n": 644,
+   "specimen": "C255",
+   "fact": "denomination",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false
+  },
+  {
+   "n": 645,
+   "specimen": "C255",
+   "fact": "mint",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false
+  },
+  {
+   "n": 646,
+   "specimen": "C255",
+   "fact": "year",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false
+  },
+  {
+   "n": 647,
+   "specimen": "C256",
+   "fact": "country",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 648,
+   "specimen": "C256",
+   "fact": "mint",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 649,
+   "specimen": "C256",
+   "fact": "year",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false
+  },
+  {
+   "n": 650,
+   "specimen": "C257",
+   "fact": "composition",
+   "coin": "Mexico 1967 20 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 651,
+   "specimen": "C257",
+   "fact": "country",
+   "coin": "Mexico 1967 20 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 652,
+   "specimen": "C258",
+   "fact": "country",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true
+  },
+  {
+   "n": 653,
+   "specimen": "C258",
+   "fact": "year",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true
+  },
+  {
+   "n": 654,
+   "specimen": "C259",
+   "fact": "country",
+   "coin": "Mexico 1940 1 centavo · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 655,
+   "specimen": "C260",
+   "fact": "country",
+   "coin": "USSR 1931 3 kopecks · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 656,
+   "specimen": "C261",
+   "fact": "country",
+   "coin": "USSR 1932 15 kopecks · SUR",
+   "has_photo": true
+  },
+  {
+   "n": 657,
+   "specimen": "C262",
+   "fact": "country",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 658,
+   "specimen": "C262",
+   "fact": "mint",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true
+  },
+  {
+   "n": 659,
+   "specimen": "C263",
+   "fact": "country",
+   "coin": "Mexico 1950 25 centavos · MXP",
+   "has_photo": true
+  },
+  {
+   "n": 660,
+   "specimen": "C264",
+   "fact": "country",
+   "coin": "Singapore 1973 10 cents · SGD",
+   "has_photo": true
+  },
+  {
+   "n": 661,
+   "specimen": "C264",
+   "fact": "mint",
+   "coin": "Singapore 1973 10 cents · SGD",
+   "has_photo": true
+  },
+  {
+   "n": 662,
+   "specimen": "C265",
+   "fact": "country",
+   "coin": "Germany 1950 5 Pfennig · DEM",
+   "has_photo": true
+  },
+  {
+   "n": 663,
+   "specimen": "C266",
+   "fact": "country",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 664,
+   "specimen": "C266",
+   "fact": "mint",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 665,
+   "specimen": "C267",
+   "fact": "country",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 666,
+   "specimen": "C267",
+   "fact": "mint",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true
+  },
+  {
+   "n": 667,
+   "specimen": "C268",
+   "fact": "country",
+   "coin": "Norway 2000 50 øre · NOK",
+   "has_photo": true
+  },
+  {
+   "n": 668,
+   "specimen": "C269",
+   "fact": "country",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 669,
+   "specimen": "C269",
+   "fact": "denomination",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 670,
+   "specimen": "C269",
+   "fact": "mint",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 671,
+   "specimen": "C269",
+   "fact": "mintage",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true
+  },
+  {
+   "n": 672,
+   "specimen": "C270",
+   "fact": "country",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 673,
+   "specimen": "C270",
+   "fact": "mint",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true
+  },
+  {
+   "n": 674,
+   "specimen": "C271",
+   "fact": "country",
+   "coin": "Mexico 2013 50 centavos · MXN (nuevo)",
+   "has_photo": true
+  },
+  {
+   "n": 675,
+   "specimen": "T001",
+   "fact": "catalog",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 676,
+   "specimen": "T001",
+   "fact": "composition",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 677,
+   "specimen": "T001",
+   "fact": "country",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 678,
+   "specimen": "T001",
+   "fact": "denomination",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 679,
+   "specimen": "T001",
+   "fact": "mintage",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 680,
+   "specimen": "T001",
+   "fact": "year",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false
+  },
+  {
+   "n": 681,
+   "specimen": "T002",
+   "fact": "catalog",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 682,
+   "specimen": "T002",
+   "fact": "composition",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 683,
+   "specimen": "T002",
+   "fact": "country",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 684,
+   "specimen": "T002",
+   "fact": "denomination",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 685,
+   "specimen": "T002",
+   "fact": "mintage",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 686,
+   "specimen": "T002",
+   "fact": "year",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true
+  },
+  {
+   "n": 687,
+   "specimen": "T003",
+   "fact": "catalog",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 688,
+   "specimen": "T003",
+   "fact": "composition",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 689,
+   "specimen": "T003",
+   "fact": "country",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 690,
+   "specimen": "T003",
+   "fact": "denomination",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 691,
+   "specimen": "T003",
+   "fact": "design",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 692,
+   "specimen": "T003",
+   "fact": "mint",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 693,
+   "specimen": "T003",
+   "fact": "mintage",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 694,
+   "specimen": "T003",
+   "fact": "year",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true
+  },
+  {
+   "n": 695,
+   "specimen": "T004",
+   "fact": "catalog",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 696,
+   "specimen": "T004",
+   "fact": "composition",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 697,
+   "specimen": "T004",
+   "fact": "country",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 698,
+   "specimen": "T004",
+   "fact": "denomination",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 699,
+   "specimen": "T004",
+   "fact": "design",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 700,
+   "specimen": "T004",
+   "fact": "mint",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 701,
+   "specimen": "T004",
+   "fact": "mintage",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 702,
+   "specimen": "T004",
+   "fact": "year",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false
+  },
+  {
+   "n": 703,
+   "specimen": "T005",
+   "fact": "catalog",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 704,
+   "specimen": "T005",
+   "fact": "composition",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 705,
+   "specimen": "T005",
+   "fact": "country",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 706,
+   "specimen": "T005",
+   "fact": "design",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 707,
+   "specimen": "T005",
+   "fact": "mint",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 708,
+   "specimen": "T005",
+   "fact": "mintage",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true
+  },
+  {
+   "n": 709,
+   "specimen": "T006",
+   "fact": "catalog",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  },
+  {
+   "n": 710,
+   "specimen": "T006",
+   "fact": "composition",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  },
+  {
+   "n": 711,
+   "specimen": "T006",
+   "fact": "country",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  },
+  {
+   "n": 712,
+   "specimen": "T006",
+   "fact": "design",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  },
+  {
+   "n": 713,
+   "specimen": "T006",
+   "fact": "mint",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  },
+  {
+   "n": 714,
+   "specimen": "T006",
+   "fact": "mintage",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  },
+  {
+   "n": 715,
+   "specimen": "T006",
+   "fact": "year",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true
+  }
+ ]
+}

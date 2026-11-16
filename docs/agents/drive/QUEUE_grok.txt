@@ -3,7 +3,7 @@ NEW (2026-11-08): PHOTO ROOMS (task 15, before your other tasks). Joseph wants e
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Grok (updated 2026-11-16 02:10 UTC)
+# WORK QUEUE for Grok (updated 2026-11-16 05:57 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -11,12 +11,6 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 **How you get this:** Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).
 
 ## Finish first
-
-### FIRST: photo rooms for the themes that have none (the third spaces)  (fix list #128)
-
-Joseph, 2026-11-08: every theme's third space is a super high quality photograph made by you, and the app layers live depth, light, particles and sound over it (no 3D worlds drawn in code). The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/': 41 rooms, then the first nine remade larger. For each room: one wide 16:9 photo at the largest size your tool offers (4K or 2K if you can choose), then four edits FROM THAT SAME IMAGE (depth map, light mask, the foreground object on flat green, the photo with that object removed), so all five files line up. Start from the BOTTOM of the priority-1 list (Event Horizon first) and work upward; Gemini works down from the top. Claim a room before you start it (a CLAIMED file per room, as the request says) and skip rooms someone else has claimed.
-
-**Done when:** Five PNG files per room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/' with the exact names, and one line per file in 'artreq_20261108-1500_room-layers-all.DONE-{you}.txt' (ok or skipped: reason, size in pixels, model, date). Claude reviews every set; weak ones are asked for again.
 
 ### FIRST: one studio-quality instrumental recording each for Obsidian Sun, The Alchemist, Clay Diorama and Sahel Futurism  (fix list #83)
 
@@ -35,6 +29,12 @@ Every theme is getting its own room (a second space to be in the theme away from
 Every ambience sound the app plays today is an excerpt from the Moodist pack, whose licence is 'CC0 or Pixabay' with no per-file record (https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/audio/ambience/CREDITS.md). moodist_replace in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json lists all 45 (id, bed or one-shots, the Moodist file it came from). For each, find a recording of the same kind (rain on a window for rainWindow, a ticking clock for clock, ...) under the rules of SOUND_HUNT.md, at least 60 s for a bed. Put them in the same sound_grok_{YYYYMMDD-HHMM}.json under 'replace' (one or two finds per id, best first), saved in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'.
 
 **Done when:** Each of the 45 ids has a replacement or a not_found line; Claude swaps in the ones that pass, so every ambience file in the app has a licence on record.
+
+### Third reader: settle the 25 facts under question  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-review-facts.json (14 years, 4 mints, 4 catalog numbers, 2 designs, 1 mintage). For each, read the coin's photo or the catalogue and send the value with its source. Skip any where you are one of the two sides (the file says who). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-REVIEW'.
+
+**Done when:** All 25 answered or skipped with the reason; Claude closes each disagreement.
 
 ## Homework (generated from the data)
 
@@ -60,12 +60,6 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261116-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261116-1.jsonl)
 ## Projects (after the homework)
 
-### GPU worlds for the 31 themes still on the first engine, one at a time (Midnight Gallery, Prism, The Mint, Shipwreck first)  [LATER]  (fix list #128)
-
-STOPPED by Joseph, 2026-10-30: code-drawn 3D rooms look like low-quality 3D and run poorly on a phone ('thats just blender like 3 quality running poorly on a phone'). Do not write more world files; the rooms become generated photographs (task 13). Your 31 drafts stay on file as concepts. The theme framework is locked (owner: "get the framework for all of the themes locked so i can just improve piece by piece"): every theme becomes one live GPU world on the app's own kit that runs as the backdrop, as its opening and as its room. 31 themes still only have a flat effect layer. Build their worlds, one theme at a time, in this order: afterhours (Midnight Gallery), kaleido (Prism), colossus (The Mint), abyss (Shipwreck), then every theme whose Next column says 'a GPU world on the kit' in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/themes/FRAMEWORK_STATUS.md. The contract and every rule: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/design/THEME_FRAMEWORK.md (normative; read sections 1-3 first). Worked examples on the same contract: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/supercell.js (3D, orbit room) and https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/silverscreen.js (flat, pan and zoom room); the kit: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/fx/kit.js. Each world is ONE file fx/{id}.js: a K.mod module and K.themes[id] = { stack, room } with the room data (limits, 3-4 look controls as multipliers with default 1, a one-line touch, an opening camera path that ends on the backdrop view). Its soundscape preset is the theme's entry in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/audio/scape/bridge.js THEME_SCAPE. Rules: the kit's one WebGL2 canvas and GLSL ES 3.00, no outside libraries, CDNs or engines (no three.js), no prerendered video or images (only the coin photos the app already has, as Silver Screen does), the tier from TitanQuality (Low to Max, never lowered on its own), Motion Calm/Off = one still frame, the theme's mood from wings/themes/manifest.js, and the collection still readable on top of it as a backdrop. Save each as Drive 'Titan Reliquary/design-incoming (AI UI proposals)/themes/{id}/world_{id}_grok_{YYYYMMDD-HHMM}.js' + a 5-line README (what it shows, what you checked, what you could not). Your gold-live shock/bass idea is welcome inside a world. Claude runs each through the gate (CL-WORLD-01 and tools/rooms/check_conversion.py), looks at it on a phone and a desktop, and ships it; a weak one comes back with notes.
-
-**Done when:** Every theme in docs/themes/FRAMEWORK_STATUS.md shows 'TitanFXK world' with a room.
-
 ### UI rethink, step 2: The Field's three filters, on the real data  [LATER]  (fix list #116)
 
 Your Field prototype is live at https://jpavia10.github.io/titan-reliquary-preview/prototypes/v2/grok/ (scored 9; it ran first time on the current data). Build the three filters your proposal promises, in the same single file: (1) album: choosing an album family (../../../data/wants.json) shows its holes as empty rings in the rows; tapping a ring shows the want-list entry with its price and source; (2) metal: silver and gold light up, the rest dims; (3) to photograph: the coins without a phone photo rise. Then measure ?fps for open, back and drag the same way as before. Same hard rules (live data only, 16 px, 44 px, Motion Full/Calm/Off, pause when hidden). Send design_grok_{YYYYMMDD-HHMM}_field-v2.html plus a short .md of what changed to Drive 'design-incoming (AI UI proposals)'. (Later: the owner asked to wait on the redesign while you upgrade the themes, 2026-10-20.)
@@ -89,6 +83,18 @@ Held in docs/music/wanted.json: Elgar Nimrod, Debussy Rêverie (only a saxophone
 Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, without looking at Muse's read first (AI_START_HERE 2b).
 
 **Done when:** Ongoing.
+
+### Spot-check Gemini's AI-facts replacements (both parts)  [NEXT]  (fix list trust)
+
+When Gemini's GT-AIFACTS files are in the drop folder, open 20 of its lines at random, open the source it names, and say agree or what the page actually says. Never send new facts here: only agree/differ lines. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-AIFACTS'.
+
+**Done when:** 20 lines checked; every differ quotes the page.
+
+### Spot-check Gemini's second sources, parts 1-3  [NEXT]  (fix list trust)
+
+When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per part), open each source, and say agree or what the page says. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SPOT-SECOND'.
+
+**Done when:** 30 lines checked, each with the page it opened.
 
 ## Your numbers (measured, not self-reported)
 
