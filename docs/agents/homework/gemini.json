@@ -1,934 +1,7 @@
 {
  "agent": "gemini",
- "updated": "2026-11-16T13:38:34Z",
+ "updated": "2026-11-17T04:29:32Z",
  "assignments": [
-  {
-   "id": "HW-gemini-fill-20261106-1",
-   "agent": "gemini",
-   "kind": "fill",
-   "issued": "2026-11-06T02:27:32Z",
-   "lease_until": "2026-11-16T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "fill:IN.KM.92.2",
-     "entity": "type",
-     "id": "IN.KM.92.2",
-     "field": null
-    },
-    {
-     "item": "fill:JM.KM.146",
-     "entity": "type",
-     "id": "JM.KM.146",
-     "field": null
-    },
-    {
-     "item": "fill:JM.KM.189",
-     "entity": "type",
-     "id": "JM.KM.189",
-     "field": null
-    },
-    {
-     "item": "fill:JM.KM.65",
-     "entity": "type",
-     "id": "JM.KM.65",
-     "field": null
-    },
-    {
-     "item": "fill:JP.Y.73a",
-     "entity": "type",
-     "id": "JP.Y.73a",
-     "field": null
-    },
-    {
-     "item": "fill:JP.Y.74",
-     "entity": "type",
-     "id": "JP.Y.74",
-     "field": null
-    },
-    {
-     "item": "fill:KR.KM.103",
-     "entity": "type",
-     "id": "KR.KM.103",
-     "field": null
-    },
-    {
-     "item": "fill:KR.KM.35.2",
-     "entity": "type",
-     "id": "KR.KM.35.2",
-     "field": null
-    },
-    {
-     "item": "fill:MX.KM.415",
-     "entity": "type",
-     "id": "MX.KM.415",
-     "field": null
-    },
-    {
-     "item": "fill:MX.KM.424",
-     "entity": "type",
-     "id": "MX.KM.424",
-     "field": null
-    }
-   ],
-   "extended": [
-    {
-     "from": "2026-11-16T02:27:32Z",
-     "to": "2026-11-16T23:59:00Z",
-     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
-    }
-   ],
-   "parts": 1,
-   "pack": "HW-gemini-PACK-20261106",
-   "items_full": [
-    {
-     "item": "fill:IN.KM.92.2",
-     "kind": "fill",
-     "entity": "type",
-     "id": "IN.KM.92.2",
-     "field": null,
-     "coins": [
-      "C203"
-     ],
-     "label": "C203 · India · 2001 · 1 rupee · INR (IN.KM.92.2)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces1609.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JM.KM.146",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JM.KM.146",
-     "field": null,
-     "coins": [
-      "C253"
-     ],
-     "label": "C253 · Jamaica · 1993 · 10 cents · JMD (JM.KM.146)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces2617.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JM.KM.189",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JM.KM.189",
-     "field": null,
-     "coins": [
-      "C219"
-     ],
-     "label": "C219 · Jamaica · 2015 · 1 dollar · JMD (JM.KM.189)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces14369.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JM.KM.65",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JM.KM.65",
-     "field": null,
-     "coins": [
-      "C069"
-     ],
-     "label": "C069 · Jamaica · 1975 · 50 cents · JMD (JM.KM.65)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces7457.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JP.Y.73a",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JP.Y.73a",
-     "field": null,
-     "coins": [
-      "C220",
-      "C270"
-     ],
-     "label": "C220 · Japan · 1982 · 10 yen · JPY (JP.Y.73a)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces922.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JP.Y.74",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JP.Y.74",
-     "field": null,
-     "coins": [
-      "C206",
-      "C222"
-     ],
-     "label": "C206 · Japan · 1971 · 1 yen · JPY (JP.Y.74)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces1590.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:MX.KM.415",
-     "kind": "fill",
-     "entity": "type",
-     "id": "MX.KM.415",
-     "field": null,
-     "coins": [
-      "C259"
-     ],
-     "label": "C259 · Mexico · 1940 · 1 centavo · MXP (MX.KM.415)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces5133.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:MX.KM.424",
-     "kind": "fill",
-     "entity": "type",
-     "id": "MX.KM.424",
-     "field": null,
-     "coins": [
-      "C166"
-     ],
-     "label": "C166 · Mexico · 1944 · 5 centavos · MXP (MX.KM.424)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces3136.html"
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-verify-20261106-1",
-   "agent": "gemini",
-   "kind": "verify",
-   "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-16T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:GB.X.20-pence:denomination.value",
-     "entity": "type",
-     "id": "GB.X.20-pence",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:CH.KM.27:issues.4.mintage",
-     "entity": "type",
-     "id": "CH.KM.27",
-     "field": "issues.4.mintage"
-    },
-    {
-     "item": "verify:type:CH.KM.23a:issues.2.mintage",
-     "entity": "type",
-     "id": "CH.KM.23a",
-     "field": "issues.2.mintage"
-    },
-    {
-     "item": "verify:type:CH.KM.26:denomination.value",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:IT.KM.95.1:issues.1.mintage",
-     "entity": "type",
-     "id": "IT.KM.95.1",
-     "field": "issues.1.mintage"
-    },
-    {
-     "item": "verify:specimen:C325:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C325",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:type:CZ.X.5-korun:denomination.value",
-     "entity": "type",
-     "id": "CZ.X.5-korun",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:NO.X.50-ore:denomination.value",
-     "entity": "type",
-     "id": "NO.X.50-ore",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:SE.X.1-krona:denomination.value",
-     "entity": "type",
-     "id": "SE.X.1-krona",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:ES.X.5-pesetas:denomination.value",
-     "entity": "type",
-     "id": "ES.X.5-pesetas",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:IE.X.10-pence:denomination.value",
-     "entity": "type",
-     "id": "IE.X.10-pence",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:PT.X.20-centavos:denomination.value",
-     "entity": "type",
-     "id": "PT.X.20-centavos",
-     "field": "denomination.value"
-    },
-    {
-     "item": "verify:type:BS.X.1-cent.2:denomination.value",
-     "entity": "type",
-     "id": "BS.X.1-cent.2",
-     "field": "denomination.value"
-    }
-   ],
-   "extended": [
-    {
-     "from": "2026-11-13T15:30:08Z",
-     "to": "2026-11-16T23:59:00Z",
-     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
-    }
-   ],
-   "parts": 1,
-   "pack": "HW-gemini-PACK-20261106",
-   "items_full": [
-    {
-     "item": "verify:type:GB.X.20-pence:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.X.20-pence",
-     "field": "denomination.value",
-     "coins": [
-      "C316"
-     ],
-     "label": "denomination of C316 · United Kingdom · 2014",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C316_obv.webp",
-        "file": "C316_obv.webp",
-        "original": "NOID_UnitedKingdom_2014_20Pence_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1jYEV-EsZdfMPm8dCQxIJrp405_Xmu2UM/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C316_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:CH.KM.26:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.26",
-     "field": "denomination.value",
-     "coins": [
-      "C337"
-     ],
-     "label": "denomination of C337 · Switzerland · 1944",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C337_obv.webp",
-        "file": "C337_obv.webp",
-        "original": "NOID_Switzerland_1944_5Rappen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/11qJEIzaezt9PeauUtgGDMGXlnTouosM9/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C337_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:CZ.X.5-korun:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CZ.X.5-korun",
-     "field": "denomination.value",
-     "coins": [
-      "C312"
-     ],
-     "label": "denomination of C312 · Czech Republic · 2008",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C312_obv.webp",
-        "file": "C312_obv.webp",
-        "original": "NOID_CzechRepublic_2008_5Korun_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1eNbiDKEMMK0nt8E86HmC7cDwjAEiXEkm/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C312_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:SE.X.1-krona:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SE.X.1-krona",
-     "field": "denomination.value",
-     "coins": [
-      "C320"
-     ],
-     "label": "denomination of C320 · Sweden · 1991",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C320_obv.webp",
-        "file": "C320_obv.webp",
-        "original": "NOID_Sweden_1991_1Krona_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/16SzcjhAEcIVijfdPuGdXFk38vxY21l-n/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C320_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:ES.X.5-pesetas:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "ES.X.5-pesetas",
-     "field": "denomination.value",
-     "coins": [
-      "C334"
-     ],
-     "label": "denomination of C334 · Spain · 1989",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C334_obv.webp",
-        "file": "C334_obv.webp",
-        "original": "NOID_Spain_1989_5Pesetas_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1itCNAxXF15lDD1yYeJmErfVMdrx9Zqf4/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C334_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:IE.X.10-pence:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IE.X.10-pence",
-     "field": "denomination.value",
-     "coins": [
-      "C330"
-     ],
-     "label": "denomination of C330 · Ireland · 1995",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C330_obv.webp",
-        "file": "C330_obv.webp",
-        "original": "NOID_Ireland_1995_10Pence_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1yA5y0ZauIlU7hVC0eAKIQbx8FuuFN0u4/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C330_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:PT.X.20-centavos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "PT.X.20-centavos",
-     "field": "denomination.value",
-     "coins": [
-      "C322"
-     ],
-     "label": "denomination of C322 · Portugal · 1970",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C322_obv.webp",
-        "file": "C322_obv.webp",
-        "original": "NOID_Portugal_1970_20Centavos_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/15ARNlfKT6J3gqf2aO7qskDPgY5MQLjSM/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C322_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:type:BS.X.1-cent.2:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BS.X.1-cent.2",
-     "field": "denomination.value",
-     "coins": [
-      "C326"
-     ],
-     "label": "denomination of C326 · Bahamas · 1974",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Claude",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C326_obv.webp",
-        "file": "C326_obv.webp",
-        "original": "NOID_Bahamas_1974_1Cent_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1UQflUNvv_LKnFbiGPZd1t7G6UKurdB7S/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C326_obv.webp"
-     ]
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-cite-20261106-1",
-   "agent": "gemini",
-   "kind": "cite",
-   "issued": "2026-11-06T15:30:08Z",
-   "lease_until": "2026-11-16T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "cite:EC.KM.37",
-     "entity": "type",
-     "id": "EC.KM.37",
-     "field": null
-    },
-    {
-     "item": "cite:GT.KM.277.6a",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null
-    },
-    {
-     "item": "cite:JM.KM.190",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null
-    },
-    {
-     "item": "cite:TT.KM.32",
-     "entity": "type",
-     "id": "TT.KM.32",
-     "field": null
-    }
-   ],
-   "extended": [
-    {
-     "from": "2026-11-13T15:30:08Z",
-     "to": "2026-11-16T23:59:00Z",
-     "reason": "sent 2026-11-06 as one compact pack in 1 Drive part (HW-gemini-PACK-20261106, tools/agents/compact_sheet.py)"
-    }
-   ],
-   "parts": 1,
-   "pack": "HW-gemini-PACK-20261106",
-   "items_full": [
-    {
-     "item": "cite:EC.KM.37",
-     "kind": "cite",
-     "entity": "type",
-     "id": "EC.KM.37",
-     "field": null,
-     "coins": [
-      "C159",
-      "C348"
-     ],
-     "label": "EC 10 cents (EC.KM.37)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2004,
-        "mint_marks": [],
-        "coins": [
-         "C159",
-         "C348"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "37"
-       },
-       {
-        "system": "Numista",
-        "number": "5712"
-       }
-      ],
-      "weight_g": 2.59,
-      "diameter_mm": 18.06,
-      "composition": "cupronickel",
-      "ask": [
-       "issues.0.mintage: 2004"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2004,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:GT.KM.277.6a",
-     "kind": "cite",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null,
-     "coins": [
-      "C202"
-     ],
-     "label": "GT 10 centavos (GT.KM.277.6a)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2010,
-        "mint_marks": [],
-        "coins": [
-         "C202"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "277.6a"
-       },
-       {
-        "system": "Schön",
-        "number": "56a"
-       },
-       {
-        "system": "Numista",
-        "number": "42670"
-       }
-      ],
-      "weight_g": 2.42,
-      "diameter_mm": 21.0,
-      "composition": "stainless steel",
-      "ask": [
-       "issues.0.mintage: 2010"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2010,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:JM.KM.190",
-     "kind": "cite",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null,
-     "coins": [
-      "C230"
-     ],
-     "label": "JM 10 dollars (JM.KM.190)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2015,
-        "mint_marks": [],
-        "coins": [
-         "C230"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "190"
-       },
-       {
-        "system": "Numista",
-        "number": "14370"
-       }
-      ],
-      "weight_g": 5,
-      "diameter_mm": 24.5,
-      "composition": "nickel clad steel",
-      "ask": [
-       "issues.0.mintage: 2015"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2015,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
-     "item": "cite:TT.KM.32",
-     "kind": "cite",
-     "entity": "type",
-     "id": "TT.KM.32",
-     "field": null,
-     "coins": [
-      "C204"
-     ],
-     "label": "TT 25 cents (TT.KM.32)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2014,
-        "mint_marks": [],
-        "coins": [
-         "C204"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "32"
-       },
-       {
-        "system": "Schön",
-        "number": "31"
-       },
-       {
-        "system": "Numista",
-        "number": "1159"
-       }
-      ],
-      "weight_g": 3.53,
-      "diameter_mm": 20,
-      "composition": "cupronickel",
-      "ask": [
-       "issues.0.mintage: 2014"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2014,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    }
-   ]
-  },
   {
    "id": "HW-gemini-fill-20261107-1",
    "agent": "gemini",
@@ -5310,6 +4383,490 @@
      "inputs": [
       "C037_obv.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261117-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-17T04:29:32Z",
+   "lease_until": "2026-11-24T04:29:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:EC.KM.37",
+     "entity": "type",
+     "id": "EC.KM.37",
+     "field": null
+    },
+    {
+     "item": "cite:GT.KM.277.6a",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null
+    },
+    {
+     "item": "cite:JM.KM.190",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": null
+    },
+    {
+     "item": "cite:TT.KM.32",
+     "entity": "type",
+     "id": "TT.KM.32",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:EC.KM.37",
+     "kind": "cite",
+     "entity": "type",
+     "id": "EC.KM.37",
+     "field": null,
+     "coins": [
+      "C159",
+      "C348"
+     ],
+     "label": "EC 10 cents (EC.KM.37)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2004,
+        "mint_marks": [],
+        "coins": [
+         "C159",
+         "C348"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "37"
+       },
+       {
+        "system": "Numista",
+        "number": "5712"
+       }
+      ],
+      "weight_g": 2.59,
+      "diameter_mm": 18.06,
+      "composition": "cupronickel",
+      "ask": [
+       "issues.0.mintage: 2004"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2004,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:GT.KM.277.6a",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null,
+     "coins": [
+      "C202"
+     ],
+     "label": "GT 10 centavos (GT.KM.277.6a)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2010,
+        "mint_marks": [],
+        "coins": [
+         "C202"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "277.6a"
+       },
+       {
+        "system": "Schön",
+        "number": "56a"
+       },
+       {
+        "system": "Numista",
+        "number": "42670"
+       }
+      ],
+      "weight_g": 2.42,
+      "diameter_mm": 21.0,
+      "composition": "stainless steel",
+      "ask": [
+       "issues.0.mintage: 2010"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2010,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:JM.KM.190",
+     "kind": "cite",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": null,
+     "coins": [
+      "C230"
+     ],
+     "label": "JM 10 dollars (JM.KM.190)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2015,
+        "mint_marks": [],
+        "coins": [
+         "C230"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "190"
+       },
+       {
+        "system": "Numista",
+        "number": "14370"
+       }
+      ],
+      "weight_g": 5,
+      "diameter_mm": 24.5,
+      "composition": "nickel clad steel",
+      "ask": [
+       "issues.0.mintage: 2015"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2015,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:TT.KM.32",
+     "kind": "cite",
+     "entity": "type",
+     "id": "TT.KM.32",
+     "field": null,
+     "coins": [
+      "C204"
+     ],
+     "label": "TT 25 cents (TT.KM.32)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2014,
+        "mint_marks": [],
+        "coins": [
+         "C204"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "32"
+       },
+       {
+        "system": "Schön",
+        "number": "31"
+       },
+       {
+        "system": "Numista",
+        "number": "1159"
+       }
+      ],
+      "weight_g": 3.53,
+      "diameter_mm": 20,
+      "composition": "cupronickel",
+      "ask": [
+       "issues.0.mintage: 2014"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2014,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261117-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-17T04:29:32Z",
+   "lease_until": "2026-11-27T04:29:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:IN.KM.92.2",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.146",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.189",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.65",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.73a",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.74",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.415",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.424",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:IN.KM.92.2",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": null,
+     "coins": [
+      "C203"
+     ],
+     "label": "C203 · India · 2001 · 1 rupee · INR (IN.KM.92.2)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1609.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JM.KM.146",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": null,
+     "coins": [
+      "C253"
+     ],
+     "label": "C253 · Jamaica · 1993 · 10 cents · JMD (JM.KM.146)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces2617.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JM.KM.189",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": null,
+     "coins": [
+      "C219"
+     ],
+     "label": "C219 · Jamaica · 2015 · 1 dollar · JMD (JM.KM.189)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces14369.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JM.KM.65",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": null,
+     "coins": [
+      "C069"
+     ],
+     "label": "C069 · Jamaica · 1975 · 50 cents · JMD (JM.KM.65)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces7457.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JP.Y.73a",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": null,
+     "coins": [
+      "C220",
+      "C270"
+     ],
+     "label": "C220 · Japan · 1982 · 10 yen · JPY (JP.Y.73a)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces922.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JP.Y.74",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": null,
+     "coins": [
+      "C206",
+      "C222"
+     ],
+     "label": "C206 · Japan · 1971 · 1 yen · JPY (JP.Y.74)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces1590.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.KM.415",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": null,
+     "coins": [
+      "C259"
+     ],
+     "label": "C259 · Mexico · 1940 · 1 centavo · MXP (MX.KM.415)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces5133.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.KM.424",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": null,
+     "coins": [
+      "C166"
+     ],
+     "label": "C166 · Mexico · 1944 · 5 centavos · MXP (MX.KM.424)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces3136.html"
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

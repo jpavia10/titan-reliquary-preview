@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-16T13:38:34Z",
+ "updated": "2026-11-17T04:29:32Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -184,7 +184,9 @@
   "grok-story-check-20261116": 1,
   "muse-fill-20261116": 1,
   "grok-verify-20261116": 1,
-  "muse-verify-20261116": 1
+  "muse-verify-20261116": 1,
+  "gemini-cite-20261117": 1,
+  "gemini-fill-20261117": 1
  },
  "assignments": [
   {
@@ -29741,9 +29743,13 @@
    "kind": "fill",
    "issued": "2026-11-06T02:27:32Z",
    "lease_until": "2026-11-16T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-17T04:29:32Z",
+   "result": {
+    "items": 10,
+    "closed": 2,
+    "left": 8
+   },
    "items": [
     {
      "item": "fill:IN.KM.92.2",
@@ -30036,9 +30042,13 @@
    "kind": "verify",
    "issued": "2026-11-06T15:30:08Z",
    "lease_until": "2026-11-16T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-17T04:29:32Z",
+   "result": {
+    "items": 13,
+    "closed": 5,
+    "left": 8
+   },
    "items": [
     {
      "item": "verify:type:GB.X.20-pence:denomination.value",
@@ -30166,9 +30176,13 @@
    "kind": "cite",
    "issued": "2026-11-06T15:30:08Z",
    "lease_until": "2026-11-16T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-17T04:29:32Z",
+   "result": {
+    "items": 4,
+    "closed": 0,
+    "left": 4
+   },
    "items": [
     {
      "item": "cite:EC.KM.37",
@@ -33539,6 +33553,102 @@
      "entity": "type",
      "id": "NL.KM.234",
      "field": "period"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-cite-20261117-1",
+   "agent": "gemini",
+   "kind": "cite",
+   "issued": "2026-11-17T04:29:32Z",
+   "lease_until": "2026-11-24T04:29:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:EC.KM.37",
+     "entity": "type",
+     "id": "EC.KM.37",
+     "field": null
+    },
+    {
+     "item": "cite:GT.KM.277.6a",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null
+    },
+    {
+     "item": "cite:JM.KM.190",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": null
+    },
+    {
+     "item": "cite:TT.KM.32",
+     "entity": "type",
+     "id": "TT.KM.32",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261117-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-17T04:29:32Z",
+   "lease_until": "2026-11-27T04:29:32Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:IN.KM.92.2",
+     "entity": "type",
+     "id": "IN.KM.92.2",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.146",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.189",
+     "entity": "type",
+     "id": "JM.KM.189",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.65",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.73a",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": null
+    },
+    {
+     "item": "fill:JP.Y.74",
+     "entity": "type",
+     "id": "JP.Y.74",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.415",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": null
+    },
+    {
+     "item": "fill:MX.KM.424",
+     "entity": "type",
+     "id": "MX.KM.424",
+     "field": null
     }
    ]
   }
@@ -39250,6 +39360,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:type:CH.KM.26:denomination.value": [
@@ -39258,6 +39374,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:specimen:C325:issue.mint_marks": [
@@ -39274,6 +39396,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:type:NO.X.50-ore:denomination.value": [
@@ -39290,6 +39418,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:type:ES.X.5-pesetas:denomination.value": [
@@ -39298,6 +39432,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:type:IE.X.10-pence:denomination.value": [
@@ -39306,6 +39446,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:type:PT.X.20-centavos:denomination.value": [
@@ -39314,6 +39460,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:type:BS.X.1-cent.2:denomination.value": [
@@ -39322,6 +39474,12 @@
     "assignment": "HW-grok-verify-20261104-2",
     "outcome": "left out",
     "ts": "2026-11-06T15:30:08Z"
+   },
+   {
+    "agent": "gemini",
+    "assignment": "HW-gemini-verify-20261106-1",
+    "outcome": "left out",
+    "ts": "2026-11-17T04:29:32Z"
    }
   ],
   "verify:specimen:C298:issue.mint_marks": [
