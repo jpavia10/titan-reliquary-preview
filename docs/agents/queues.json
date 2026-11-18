@@ -227,21 +227,25 @@
     },
     {
      "title": "Blind second read of the ledger photo facts, items 1-180",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-21",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json, items 1 to 180, and only the ones with has_photo true: read country, year, denomination and mint from the coin's photo without looking at Gemini's file first (AI_START_HERE 2b). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-BLIND-1'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-BLIND-1\"}} Before you save: every line has run_id GT-LEDGER-BLIND-1; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every photo item in 1-180 read or marked unreadable; Claude compares your read with Gemini's and the ledger.",
-     "n": 12
+     "n": 12,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-17 and merged at the Nov 18 intake: agreements re-cited, the privy marks filed as disagreements D0190-D0199 (CONTRIBUTOR_SCORES Muse row 53)."
     },
     {
      "title": "Blind second read of the ledger photo facts, items 181-360",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-22",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json, items 181 to 360, and only the ones with has_photo true: read country, year, denomination and mint from the coin's photo without looking at Gemini's file first (AI_START_HERE 2b). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-BLIND-2'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-BLIND-2\"}} Before you save: every line has run_id GT-LEDGER-BLIND-2; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every photo item in 181-360 read or marked unreadable; Claude compares your read with Gemini's and the ledger.",
-     "n": 13
+     "n": 13,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-17 and merged at the Nov 18 intake: agreements re-cited, the privy marks filed as disagreements D0190-D0199 (CONTRIBUTOR_SCORES Muse row 53)."
     }
    ],
    "drive_note": "NEW (2026-11-08): PHOTO ROOMS (task 11, before your other tasks). Joseph wants every theme's third space to be a super high quality photograph, with the app layering live depth, light and particles over it. The request is 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/'; take rooms nobody has claimed, from the bottom of the priority-1 list upward, the five files of each room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/'. NEW (2026-11-05): your 33 chat coins are merged as C305-C337 with their photos and scored (row 48: 7 of 10; read FEEDBACK for Muse first). For the next new coins: a Phase 1 type id never carries a catalogue number ({ISO}.X.{denomination}, e.g. GB.X.half-penny); the default value goes inside the specimen create as new.value; face value in the major unit (20 pence = 0.2 GBP). The loop no longer gives you your own new coins to check. Next, in order: your open sheets on this page by due date, then the sound hunt (task 10; rules in docs/agents/SOUND_HUNT.md; answers in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'), then the era citations (task 7). FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): run no Fleet Command job and write nothing in the Drive folder 'Fleet Command'. Standing rules: open each answer sheet from its GitHub link below. Work only from this page, those sheets and the records on GitHub, never from a saved copy of the repository. Read the coin's year before you answer. A file is rejected whole if a line names an assignment that is not yours or a coin that is not on that sheet. Time stamps need seconds (2026-10-23T14:05:00Z)."
@@ -440,75 +444,91 @@
     },
     {
      "title": "Ledger facts, part 1 of 8: confirm items 1-90 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-19",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 1 to 90. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p1'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 1-90 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 24
+     "n": 24,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 2 of 8: confirm items 91-180 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-20",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 91 to 180. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p2'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 91-180 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 25
+     "n": 25,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 3 of 8: confirm items 181-270 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-21",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 181 to 270. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p3'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 181-270 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 26
+     "n": 26,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 4 of 8: confirm items 271-360 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-22",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 271 to 360. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p4'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 271-360 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 27
+     "n": 27,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 5 of 8: confirm items 361-450 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-23",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 361 to 450. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p5'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 361-450 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 28
+     "n": 28,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 6 of 8: confirm items 451-540 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-24",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 451 to 540. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p6'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 451-540 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 29
+     "n": 29,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 7 of 8: confirm items 541-630 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-25",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 541 to 630. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p7'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 541-630 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 30
+     "n": 30,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Ledger facts, part 8 of 8: confirm items 631-715 from the photo or the catalogue (blind)",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-26",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ledger-facts.json and take items 631 to 715. Each is a fact that still rests only on the original ledger. For country, year, denomination and mint read the coin's own photo (Drive 'Titan Reliquary/photos/', by coin id); for mintage, composition, catalog and design use its catalogue entry. No current value is given: send what you read or find. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-LEDGER-p8'. Items whose photo is missing or unreadable: one line each in source as 'FILL | unreadable: why'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C023\",\"field\":\"issue.year\",\"old\":null,\"new\":1987,\"source\":\"photo C023_obv.webp: date 1987 below the bust, read at full zoom\",\"verified\":false,\"phase\":1,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase1-photo\",\"inputs\":[{\"file\":\"C023_obv.webp\"}],\"run_id\":\"GT-LEDGER-p1\"}} Before you save: every line has run_id GT-LEDGER-pN; the source names the photo file and where on the coin you read it; you did not look up the ledger's value first; unreadable items carry source 'FILL | unreadable: <why>'; the file is valid JSON Lines (one object per line).",
      "done_when": "Every one of items 631-715 answered or marked unreadable with a reason; Claude compares each with the ledger and settles differences.",
-     "n": 31
+     "n": 31,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "AI-guessed facts, part 1 of 2: replace items 1-52 with cited facts",
@@ -530,84 +550,102 @@
     },
     {
      "title": "Second source, part 1 of 9: items 1-95 of the 850 single-source facts",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-22",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 1 to 95: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p1'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 1-95 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 34
+     "n": 34,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 2 of 9: items 96-190 of the 850 single-source facts",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-23",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 96 to 190: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p2'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 96-190 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 35
+     "n": 35,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 3 of 9: items 191-285 of the 850 single-source facts",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-24",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 191 to 285: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p3'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 191-285 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 36
+     "n": 36,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 4 of 9: items 286-380 of the 850 single-source facts",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-25",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 286 to 380: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p4'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 286-380 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 37
+     "n": 37,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 5 of 9: items 381-475 of the 850 single-source facts",
-     "state": "next",
+     "state": "done",
      "due": "2026-11-26",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 381 to 475: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p5'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 381-475 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 38
+     "n": 38,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 6 of 9: items 476-570 of the 850 single-source facts",
-     "state": "next",
+     "state": "done",
      "due": "2026-11-27",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 476 to 570: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p6'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 476-570 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 39
+     "n": 39,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 7 of 9: items 571-665 of the 850 single-source facts",
-     "state": "next",
+     "state": "done",
      "due": "2026-11-28",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 571 to 665: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p7'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 571-665 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 40
+     "n": 40,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 8 of 9: items 666-760 of the 850 single-source facts",
-     "state": "next",
+     "state": "done",
      "due": "2026-11-29",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 666 to 760: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p8'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 666-760 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 41
+     "n": 41,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     },
     {
      "title": "Second source, part 9 of 9: items 761-850 of the 850 single-source facts",
-     "state": "next",
+     "state": "done",
      "due": "2026-11-30",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-single-source.json, items 761 to 850: each fact has one source today. Send a second, independent one (a different catalogue, price guide or page, never the same one again). Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence, send agree or what is wrong. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-p9'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"specimen\",\"id\":\"C150\",\"field\":\"value.usd\",\"old\":null,\"new\":4.5,\"source\":\"PCGS Price Guide https://www.pcgs.com/pcgsprice/... row 1964 25C VF-20, read 2026-11-17; grade from photo C150_obv.webp\",\"verified\":false,\"phase\":2,\"confidence\":\"med\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"C150_obv.webp\"}],\"run_id\":\"GT-SECOND-p1\"}} Before you save: the source differs from the one already on record (the item lists it as 'source' when known); values carry the grade you assumed and the date you read the price; stories: one line per wrong sentence with the correction, or new = old with 'agree' when it all holds.",
      "done_when": "Items 761-850 each answered with a different source than the one on record; Claude spot-checks 10.",
-     "n": 42
+     "n": 42,
+     "closed": "2026-11-18",
+     "review": "Delivered 2026-11-18 and merged at the Nov 18 intake: agreements re-cited, differences filed as disagreements for a third reader (CONTRIBUTOR_SCORES Gemini row 70)."
     }
    ],
    "drive_note": "CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answer: monkey. The codeword is only in this current page, never in an old copy of the repository, so it tells Joseph you are reading the right doc. WHEN JOSEPH SAYS 'DO THE HOMEWORK' (Joseph, 2026-10-29): that is the whole instruction. Do not ask what he means, do not summarise this page back to him, do not offer options and do not wait for a reply. Joseph cannot see your replies (the Gemini app hides them), so anything you write only in the chat is lost: the files you save in Drive are the only answer that counts. Every time: (1) Take the first unfinished task in the ORDER below. (2) Work it only from the files it names. (3) Save the answer yourself in the Drive folder the task names, with the exact file name it gives (UTC time in the name, e.g. sound_gemini_20261029-1530.json), as plain JSON or JSONL, never as a Google Doc. (4) Save again under the same name after every 10 answers, so nothing is lost when the session stops. (5) Before you stop, open that Drive folder and check the file is there and opens; if you cannot see it, save it again. (6) Start the next task in the ORDER. Never say 'done' without the file in the folder. ORDER this week (2026-11-08): FIRST the photo rooms (task 23): the art request 'artreq_20261108-1500_room-layers-all.json' in Drive 'Titan Reliquary/art-requests (any AI: images + video)/', one room at a time from the top of its list, at the largest image size you can make, the five files of each room in 'Titan Reliquary/art-incoming (AI images + video)/artreq_20261108-1500_room-layers-all/'. THEN the compact pack HW-gemini-PACK-20261107 (part 1 of 1, 2 lines) in your Drive sheet folder 'Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/', answered as answers_gemini_HW-gemini-PACK-20261107_part1_YYYYMMDD-HHMM.jsonl in 'collection-incoming (AI change files)/', one JSON row per line code (the rules are on top of the part). The packs of 11-05 and 11-06 and the album prices are DONE and merged: do not answer them again. The five rooms (task 18) are DONE and received (score 9). Then the blind album reading (task 2). Then the Prometheus homework in Drive 'Prometheus Hub/Pillars/' (your doc 'HOMEWORK — Gemini' lists every pillar's tasks with the folder for each). When one task is finished, start the next without asking: Joseph only says 'continue'. FLEET COMMAND IS PAUSED (Joseph, 2026-10-28): write no fleet-*.json file anywhere and send nothing to the Fleet Command folder. Standing rules: never put a file in the chat for Joseph to copy and never ask him to paste or pass anything on; work only from this page, your Drive sheet folder and the records on GitHub, never from a saved copy of the repository (the Drive folder 'AI experiements/Titan/repo' is an old copy: never open it). A change file is rejected whole when a line names an assignment that is not yours or a coin that is not on that sheet. Read the coin and the year each blank names before you answer. Never write a number, a file name, a URL or a quote you did not open and read in this session; cite the exact entry page, never a search page. Never claim you ran or checked something you did not. Your last round (2026-11-06): the three packs (446 facts, all 9 planted values caught) and the 890 album prices merged, scores 10, 10, 10 and 10; one file of 11-05 scored 6 for four Drive file ids that do not exist (never write an id you did not open). Reasons in your FEEDBACK doc."

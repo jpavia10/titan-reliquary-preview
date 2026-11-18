@@ -53,6 +53,19 @@ LOT_PREFIX = {"bullion": "B", "set": "S", "housing": "H", "stamp": "P"}
 ASSIGNMENTS = os.path.join(ROOT, "docs", "agents", "homework", "assignments.json")
 DIVERT_KINDS = {"verify"}          # assignment kinds whose lines check a fact: a different value is filed as a disagreement, never applied
 SPOT_CHECK = {"id": "spot-check-claude", "kind": "verify"}     # fix list #95: Claude's own spot checks at an intake go the same way as an AI's check
+# Titan's trust projects that CHECK facts already on file (docs/agents/queues.json: blind ledger reads, second sources, spot checks, third-reader
+# reviews; their lines carry provenance.run_id 'GT-LEDGER-p2', 'GT-LEDGER-BLIND-1', 'GT-SECOND-p4', 'GT-SPOT-...', 'GT-REVIEW-...') go the same way as a verify
+# sheet: the same value = a re-citation (a second, independent source), a different value = a disagreement for a third reader, never an overwrite.
+# A blind read was given no value to compare, so its "old": null is not a stale edit, and a check writes no value, so the phase tiers do not apply
+# (2026-11-18: the project template asked for phase 1 and "old": null, and 19 files bounced on that alone). GT-AIFACTS replaces facts: normal rules.
+PROJECT_CHECK = re.compile(r"^GT-(LEDGER|SECOND|SPOT|REVIEW)(-|$)")
+
+
+def project_check(e):
+    """The run_id of a Titan check-project line (see PROJECT_CHECK), else None."""
+    pv = e.get("provenance") if isinstance(e.get("provenance"), dict) else {}
+    rid = str(pv.get("run_id") or "")
+    return rid if PROJECT_CHECK.match(rid) and e.get("op", "set") == "set" and e.get("entity") != "photo" and str(e.get("by", "")).startswith("model:") else None
 
 
 # A check answer is compared by what it says, not how it is typed (owner, 2026-10-15: Muse's check sheets came back with catalogue
@@ -397,6 +410,8 @@ class Applier:
         fields = touched_fields(e)
         if by == "owner" or by.startswith("person:"):
             return [sys_msg(e["entity"], f) for f in fields if tier_of(e["entity"], f) == "system" and not self.owner_confirm(e, f)]
+        if project_check(e):           # a check writes no value (re-citation or a disagreement): only the system fields stay off limits
+            return [sys_msg(e["entity"], f) for f in fields if tier_of(e["entity"], f) == "system"]
         if "phase" not in e:
             return ["a model's event needs \"phase\": 1 (quick pass from a staging photo), 1.5 (album scans) or 2 (critical analysis with pro photos and sources)"]
         ok = PHASE_TIERS.get(e["phase"], set())
@@ -472,6 +487,14 @@ class Applier:
             if asg.get("kind") in DIVERT_KINDS and op == "set" and e["entity"] != "photo":
                 r = self.divert(e, asg)
                 if r: self.done.add(event_key(e)); return r
+        elif project_check(e):
+            if "old" in e and e["old"] is None: del e["old"]      # a blind read: nothing was shown, so nothing can be stale
+            if e["entity"] == "specimen" and e["field"] in ("country", "denomination"):
+                # these live on the coin's type (ISO code, value + unit), not on the specimen: nothing to compare here, so nothing is filed
+                self.log.append(f"left out (a type-level field, not on the specimen): {e['entity']} {e['id']} {e['field']} = {j(e.get('new'))[:40]}")
+                self.done.add(event_key(e)); return "left"
+            r = self.divert(e, {"id": project_check(e), "kind": "verify"})
+            if r: self.done.add(event_key(e)); return r
         elif e.get("by") == "model:claude" and op == "set" and e["entity"] != "photo" and (e.get("provenance") or {}).get("workflow") == "spot-check":
             r = self.divert(e, SPOT_CHECK)       # agrees: re-cited (Checked); differs: a disagreement for a third reader, never an overwrite
             if r: self.done.add(event_key(e)); return r

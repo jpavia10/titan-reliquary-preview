@@ -1,0 +1,91 @@
+REJECTED changes_gemini_20261118-1615_GT-LEDGER-p2.jsonl: 2 problem(s); nothing was changed
+  line 66: specimen C074 does not exist
+  line 81: specimen C085 does not exist
+  notes: left out (no value given): specimen C043 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C044 country = "USSR"
+  notes: re-read from the photo (value unchanged): specimen C044 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C045 country = "Netherlands"
+  notes: left out (a type-level field, not on the specimen): specimen C045 denomination = null
+  notes: left out (no value given): specimen C045 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C046 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C046 denomination = null
+  notes: left out (a type-level field, not on the specimen): specimen C047 country = "Brazil"
+  notes: re-read from the photo (value unchanged): specimen C047 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C048 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C049 country = "France"
+  notes: left out (no value given): specimen C049 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C050 country = "Germany"
+  notes: re-read from the photo (value unchanged): specimen C050 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C051 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C051 denomination = null
+  notes: left out (a type-level field, not on the specimen): specimen C052 country = "France"
+  notes: left out (a type-level field, not on the specimen): specimen C052 denomination = null
+  notes: left out (no value given): specimen C052 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C053 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C053 denomination = null
+  notes: left out (a type-level field, not on the specimen): specimen C054 country = "France"
+  notes: left out (a type-level field, not on the specimen): specimen C054 denomination = null
+  notes: left out (no value given): specimen C054 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C055 country = "Italy"
+  notes: left out (a type-level field, not on the specimen): specimen C055 denomination = "50 euro cent"
+  notes: left out (no value given): specimen C055 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C056 country = "Portugal"
+  notes: left out (a type-level field, not on the specimen): specimen C056 denomination = null
+  notes: left out (no value given): specimen C056 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C057 country = null
+  notes: left out (a type-level field, not on the specimen): specimen C057 denomination = null
+  notes: left out (a type-level field, not on the specimen): specimen C058 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C058 denomination = "50 Pfennig"
+  notes: left out (a type-level field, not on the specimen): specimen C059 country = "France"
+  notes: left out (no value given): specimen C059 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C060 country = "France"
+  notes: left out (no value given): specimen C060 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C061 country = "Italy"
+  notes: left out (a type-level field, not on the specimen): specimen C061 denomination = "20 euro cent"
+  notes: left out (a type-level field, not on the specimen): specimen C062 country = "France"
+  notes: left out (no value given): specimen C062 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C063 country = "France"
+  notes: left out (no value given): specimen C063 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C064 country = "Malta"
+  notes: left out (no value given): specimen C064 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C065 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C066 country = "Switzerland"
+  notes: re-read from the photo (value unchanged): specimen C066 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C067 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C068 country = "Switzerland"
+  notes: disagreement D0169 filed, NOT applied: specimen C068 issue.mint_marks record ["B"] vs Gemini []
+  notes: left out (a type-level field, not on the specimen): specimen C069 country = "Jamaica"
+  notes: left out (no value given): specimen C069 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C070 country = "Netherlands"
+  notes: left out (no value given): specimen C070 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C071 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C072 country = "France"
+  notes: left out (no value given): specimen C072 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C073 country = null
+  notes: left out (a type-level field, not on the specimen): specimen C073 denomination = null
+  notes: left out (no value given): specimen C073 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C074 country = null
+  notes: left out (a type-level field, not on the specimen): specimen C074 denomination = null
+  notes: left out (a type-level field, not on the specimen): specimen C075 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C076 country = "Switzerland"
+  notes: disagreement D0170 filed, NOT applied: specimen C076 issue.mint_marks record ["B"] vs Gemini []
+  notes: left out (a type-level field, not on the specimen): specimen C077 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C078 country = "Switzerland"
+  notes: left out (no value given): specimen C078 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C079 country = "Switzerland"
+  notes: left out (no value given): specimen C079 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C080 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C081 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C082 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C083 country = "Switzerland"
+  notes: left out (a type-level field, not on the specimen): specimen C084 country = "Italy"
+  notes: left out (a type-level field, not on the specimen): specimen C085 country = null
+  notes: left out (a type-level field, not on the specimen): specimen C086 country = null
+  notes: left out (a type-level field, not on the specimen): specimen C087 country = null
+  notes: left out (a type-level field, not on the specimen): specimen C088 country = "United States"
+  notes: left out (no value given): specimen C088 issue.mint_marks
+  notes: left out (a type-level field, not on the specimen): specimen C089 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C089 denomination = "10 pfennig"
+  notes: left out (a type-level field, not on the specimen): specimen C090 country = "Germany"
+  notes: left out (a type-level field, not on the specimen): specimen C090 denomination = null
+  notes: left out (no value given): specimen C090 issue.mint_marks
