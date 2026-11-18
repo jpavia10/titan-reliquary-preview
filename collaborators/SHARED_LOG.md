@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### 2026-11-18 Claude: intake of 46 Gemini and Muse files (1,055 facts); check projects take the verify path
+- Merged Gemini's ledger-fact parts 1-8, second-source parts 1-9 (814 lines, exact catalogue entries, no disagreement) and homework sheets, and Muse's blind reads, era re-citations and homework. Agreements re-cited; differences filed as disagreements for a third reader, never overwritten (privy marks on C004/C007/C010/C032/C041, read the same by Gemini and Muse blind; design texts). 10 files bounced on the AIs' own errors (bare-URL provenance inputs, an off-sheet coin, GT-AIFACTS `old` not the record's, the NOID batch without `op: create`); FEEDBACK docs written. Scores: Muse row 53 (9/10, third 8+ in a row), Gemini row 70 (7/10).
+- `apply_changes.py`: lines with run_id GT-LEDGER / GT-SECOND / GT-SPOT / GT-REVIEW go the verify way (blind `old: null` is not stale; no phase tiers for a check; specimen country/denomination left out, they live on the type). My Nov 16 project template had caused 19 files to bounce. test_pipeline 55/55, parity OK. backup-zip fixed (65 MB to 32 MB; it failed daily since Nov 15).
+
 ### 2026-11-16 Claude: Titan homework loaded (owner: "aggressively assign homework ... all titan aspects")
 - New projects from the trust gaps in data/status.json, item lists in docs/agents/projects/: 715 ledger-only facts (titan-ledger-facts, 8 parts), 103 AI-guessed facts (titan-ai-facts, 2 parts), 850 single-source facts (titan-single-source, 9 parts), 25 facts under question (titan-review-facts). Gemini 19 parts, Grok the 25 + two spot-checks of Gemini, Muse a blind second read of the ledger photo facts. Stale room-photo tasks closed; Grok's GPU worlds dropped (no code-built worlds).
 - The data-derived pools are near empty for Gemini (left: its own facts, held or parked items), so projects carry the load until the next publish. Homework only (owner allowed homework to main 2026-11-16); the app is still paused.
