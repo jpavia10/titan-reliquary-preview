@@ -483,8 +483,13 @@ class LoopUpgrades(unittest.TestCase):
         sheet = HW.sheet(a, r["pool"], r["roles"])
         self.assertTrue(all(ln["source"].startswith("FILL (") and ln["new"] in (None, "", [], "unknown") for ln in sheet), sheet[0])
         answers = {"nominal.edge": "Plain", "period": "Republic", "nominal.alignment": "coin", "nominal.thickness_mm": 1.5,
-                   "design.obverse": "Arms · REPUBLIC · date", "design.reverse": "Value · 10 · CENTS"}   # whichever blank the live data still has
-        ln = copy.deepcopy(next(x for x in sheet if x["field"] in answers))
+                   "design.obverse": "Arms · REPUBLIC · date", "design.reverse": "Value · 10 · CENTS",
+                   "design.designers": ["Test Engraver (obverse)"]}   # whichever blank the live data still has
+        # The live data keeps filling blanks (2026-11-18: the first open fill sheet only asked for designers), so take any open fill sheet's line
+        cands = [(x, ln) for x in r["state"]["assignments"] if x["kind"] == "fill" and x["status"] == "open"
+                 for ln in HW.sheet(x, r["pool"], r["roles"]) if ln["field"] in answers]
+        self.assertTrue(cands, "no open fill line with a field this test can answer")
+        a, ln = cands[0]; ln = copy.deepcopy(ln)
         ln["new"] = answers[ln["field"]]; ln["source"] = "https://en.numista.com/catalogue/pieces99999.html: Features table row"
         status, rep, _ = apply(tmp, [ln], f"changes_{a['agent']}_20261009-1204.jsonl")
         self.assertEqual(status, "applied", rep)
