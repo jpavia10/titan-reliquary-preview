@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-17 04:29 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-18 03:42 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -113,26 +113,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-gemini-fill-20261107-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-17  (fix list #72)
-
-Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
-
-**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
-
-**Answer sheet:** in the compact pack HW-gemini-PACK-20261107 (1 part): answer its numbered lines as answers_gemini_HW-gemini-PACK-20261107_partN_YYYYMMDD-HHMM.jsonl, one JSON row per line code (the full sheet: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261107-1.jsonl)
-
-Items:
-- **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces42670.html
-- **C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces14370.html
-
-Answer sheet (the same as the link):
-
-```jsonl
-{"ts": "2026-11-07T16:53:12Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-07", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261107-1", "run_id": "HW-gemini-fill-20261107-1", "inputs": []}}
-{"ts": "2026-11-07T16:53:12Z", "by": "model:gemini", "entity": "type", "id": "JM.KM.190", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-07", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261107-1", "run_id": "HW-gemini-fill-20261107-1", "inputs": []}}
-```
-
-### 2. HW-gemini-verify-20261111-1 · Second reader · Check 39 facts another AI wrote · due 2026-11-18  (fix list #18)
+### 1. HW-gemini-verify-20261111-1 · Second reader · Check 39 facts another AI wrote · due 2026-11-18  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -225,7 +206,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:26:13Z", "by": "model:gemini", "entity": "type", "id": "JP.X.10-yen", "op": "set", "field": "denomination.value", "new": null, "source": "FILL (denomination of C344 · Japan · Heisei 14 (2002)): the photo file you read it from, e.g. C344_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261111-1", "run_id": "HW-gemini-verify-20261111-1", "inputs": [{"file": "C344_obv.webp"}, {"file": "C344_rev.webp"}]}}
 ```
 
-### 3. HW-gemini-value-20261111-1 · Appraiser · Cite collector values for 12 coins · due 2026-11-21  (fix list #62)
+### 2. HW-gemini-value-20261111-1 · Appraiser · Cite collector values for 12 coins · due 2026-11-21  (fix list #62)
 
 For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.
 
@@ -276,7 +257,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:26:13Z", "by": "model:gemini", "entity": "specimen", "id": "C354", "op": "set", "field": "value.confidence", "old": "low", "new": "low", "source": "FILL (C354 · India · 2014 · 2 rupees · INR): exact price page URL + the grade you assumed and why", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-value", "assignment": "HW-gemini-value-20261111-1", "run_id": "HW-gemini-value-20261111-1", "inputs": []}}
 ```
 
-### 4. HW-gemini-story-check-20261111-1 · Fact-checker · Fact-check 12 coin stories · due 2026-11-18  (fix list #73)
+### 3. HW-gemini-story-check-20261111-1 · Fact-checker · Fact-check 12 coin stories · due 2026-11-18  (fix list #73)
 
 Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
@@ -315,7 +296,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:26:13Z", "by": "model:gemini", "entity": "specimen", "id": "C354", "op": "set", "field": "story", "old": "A two rupees from the India of 2014, part of the series launched in 2011 to carry the rupee's new symbol - the sign that blends the Latin R with the Devanagari RA, adopted in 2010 to give the currency a mark of its own like the dollar or the pound. It sits above the big 2, with lotus flowers curling up both sides. The other face carries the Lion Capital of Ashoka, the four lions of the emperor's pillar that India took as its state emblem, with the country's name in Hindi on the left and English on the right and the motto Truth Alone Triumphs beneath. The small dot under the date marks it as a product of the Noida mint, outside Delhi.", "new": "A two rupees from the India of 2014, part of the series launched in 2011 to carry the rupee's new symbol - the sign that blends the Latin R with the Devanagari RA, adopted in 2010 to give the currency a mark of its own like the dollar or the pound. It sits above the big 2, with lotus flowers curling up both sides. The other face carries the Lion Capital of Ashoka, the four lions of the emperor's pillar that India took as its state emblem, with the country's name in Hindi on the left and English on the right and the motto Truth Alone Triumphs beneath. The small dot under the date marks it as a product of the Noida mint, outside Delhi.", "source": "FILL (C354 · India · 2014 · 2 rupees · INR): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-story-check", "assignment": "HW-gemini-story-check-20261111-1", "run_id": "HW-gemini-story-check-20261111-1", "inputs": []}}
 ```
 
-### 5. HW-gemini-cite-20261111-1 · Cataloguer · Cite the catalogue facts of 10 coin types · due 2026-11-18  (fix list #72)
+### 4. HW-gemini-cite-20261111-1 · Cataloguer · Cite the catalogue facts of 10 coin types · due 2026-11-18  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -396,7 +377,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:26:13Z", "by": "model:gemini", "entity": "type", "id": "AU.X.10-cents", "op": "set", "field": "issues.1.mintage", "old": null, "new": null, "source": "FILL (AU 10 cents (AU.X.10-cents)): exact entry URL + the table row you read (this line is the 2008 issue: read the 2008 row, not the type's first year)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-cite", "assignment": "HW-gemini-cite-20261111-1", "run_id": "HW-gemini-cite-20261111-1", "inputs": []}}
 ```
 
-### 6. HW-gemini-fill-20261111-1 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-21  (fix list #72)
+### 5. HW-gemini-fill-20261111-1 · Cataloguer · Fill the blank facts of 12 coin types · due 2026-11-21  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -517,7 +498,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:26:13Z", "by": "model:gemini", "entity": "type", "id": "MX.X.5-pesos", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C324 · Mexico · 2005 · 5 pesos · MXN (MX.X.5-pesos)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261111-1", "run_id": "HW-gemini-fill-20261111-1", "inputs": []}}
 ```
 
-### 7. HW-gemini-fill-20261111-2 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-21  (fix list #72)
+### 6. HW-gemini-fill-20261111-2 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-21  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -536,7 +517,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:26:13Z", "by": "model:gemini", "entity": "type", "id": "VA.X.20-lire", "op": "set", "field": "nominal.thickness_mm", "old": null, "new": null, "source": "FILL (C305 · Vatican City · 1958 · 20 lire · VAL (VA.X.20-lire)): the exact entry URL for the coin we hold + the line you read (`new` = a number in mm; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261111-2", "run_id": "HW-gemini-fill-20261111-2", "inputs": []}}
 ```
 
-### 8. HW-gemini-read-mint-20261111-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-18  (fix list #57)
+### 7. HW-gemini-read-mint-20261111-1 · Photo reader · Read the mint mark on 1 coins from their photos · due 2026-11-18  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -554,7 +535,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:35:27Z", "by": "model:gemini", "entity": "specimen", "id": "C351", "op": "set", "field": "issue.mint_text", "old": "mint letter below the eagle's thunderbolt not readable in the photos", "new": "mint letter below the eagle's thunderbolt not readable in the photos", "source": "FILL (C351 · France · 1867 · 10 centimes · FRF): the photo file you read it from, e.g. C351_obv.webp, and where on the coin the mark is", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-read-mint", "assignment": "HW-gemini-read-mint-20261111-1", "run_id": "HW-gemini-read-mint-20261111-1", "inputs": [{"file": "C351_obv.webp"}, {"file": "C351_rev.webp"}]}}
 ```
 
-### 9. HW-gemini-verify-20261111-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-18  (fix list #18)
+### 8. HW-gemini-verify-20261111-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-18  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -571,7 +552,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-11T15:35:27Z", "by": "model:gemini", "entity": "type", "id": "CH.KM.24a.1", "op": "set", "field": "period", "old": "Federal State", "new": "Federal State", "source": "FILL (period of C001 · Switzerland · 1969 · 1 franc · CHF): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-11", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261111-2", "run_id": "HW-gemini-verify-20261111-2", "inputs": []}}
 ```
 
-### 10. HW-gemini-read-mint-20261112-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-19  (fix list #57)
+### 9. HW-gemini-read-mint-20261112-1 · Photo reader · Read the mint mark on 3 coins from their photos · due 2026-11-19  (fix list #57)
 
 Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. ["D"]) and `issue.mint_text` (e.g. "D (Denver), left of the date", or "no mint mark (Philadelphia)") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.
 
@@ -595,7 +576,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-12T03:00:17Z", "by": "model:gemini", "entity": "specimen", "id": "C287", "op": "set", "field": "issue.mint_text", "old": "not read on photo", "new": "not read on photo", "source": "FILL (C287 · Italy · 1979 · 50 lire · ITL): the photo file you read it from, e.g. C287_rev.webp, and where on the coin the mark is", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-12", "workflow": "homework-read-mint", "assignment": "HW-gemini-read-mint-20261112-1", "run_id": "HW-gemini-read-mint-20261112-1", "inputs": [{"file": "C287_rev.webp"}]}}
 ```
 
-### 11. HW-gemini-verify-20261112-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-19  (fix list #18)
+### 10. HW-gemini-verify-20261112-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-19  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -612,7 +593,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-12T03:00:17Z", "by": "model:gemini", "entity": "specimen", "id": "C053", "op": "set", "field": "issue.mint_marks", "new": null, "source": "FILL (mint of C053 · Germany · 2011 · 20 euro cent · EUR): the photo file you read it from, e.g. C053_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-12", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261112-1", "run_id": "HW-gemini-verify-20261112-1", "inputs": [{"file": "C053_obv.webp"}]}}
 ```
 
-### 12. HW-gemini-research-20261115-1 · Researcher · Answer 1 open research questions · due 2026-11-25  (fix list #3)
+### 11. HW-gemini-research-20261115-1 · Researcher · Answer 1 open research questions · due 2026-11-25  (fix list #3)
 
 Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.
 
@@ -629,7 +610,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-15T01:56:48Z", "by": "model:gemini", "entity": "specimen", "id": "C300", "op": "set", "field": "research.open_questions", "old": ["Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1)."], "new": [], "source": "FILL (C300 · Bahamas · 1984 · 25 cents · BSD): the exact source that answers the question (URL / Numista N# + row / book + page)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-15", "workflow": "homework-research", "assignment": "HW-gemini-research-20261115-1", "run_id": "HW-gemini-research-20261115-1", "inputs": []}}
 ```
 
-### 13. HW-gemini-verify-20261116-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-23  (fix list #18)
+### 12. HW-gemini-verify-20261116-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-23  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -646,7 +627,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-16T02:10:27Z", "by": "model:gemini", "entity": "specimen", "id": "C037", "op": "set", "field": "issue.mint_marks", "new": null, "source": "FILL (mint of C037 · Germany · 2002 · 10 euro cent · EUR): the photo file you read it from, e.g. C037_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-16", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261116-1", "run_id": "HW-gemini-verify-20261116-1", "inputs": [{"file": "C037_obv.webp"}]}}
 ```
 
-### 14. HW-gemini-cite-20261117-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-24  (fix list #72)
+### 13. HW-gemini-cite-20261117-1 · Cataloguer · Cite the catalogue facts of 4 coin types · due 2026-11-24  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -669,7 +650,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-17T04:29:32Z", "by": "model:gemini", "entity": "type", "id": "TT.KM.32", "op": "set", "field": "issues.0.mintage", "old": null, "new": null, "source": "FILL (TT 25 cents (TT.KM.32)): exact entry URL + the table row you read (this line is the 2014 issue: read the 2014 row, not the type's first year)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-17", "workflow": "homework-cite", "assignment": "HW-gemini-cite-20261117-1", "run_id": "HW-gemini-cite-20261117-1", "inputs": []}}
 ```
 
-### 15. HW-gemini-fill-20261117-1 · Cataloguer · Fill the blank facts of 8 coin types · due 2026-11-27  (fix list #72)
+### 14. HW-gemini-fill-20261117-1 · Cataloguer · Fill the blank facts of 8 coin types · due 2026-11-27  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -698,6 +679,25 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-17T04:29:32Z", "by": "model:gemini", "entity": "type", "id": "JP.Y.74", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C206 · Japan · 1971 · 1 yen · JPY (JP.Y.74)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-17", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261117-1", "run_id": "HW-gemini-fill-20261117-1", "inputs": []}}
 {"ts": "2026-11-17T04:29:32Z", "by": "model:gemini", "entity": "type", "id": "MX.KM.415", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C259 · Mexico · 1940 · 1 centavo · MXP (MX.KM.415)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-17", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261117-1", "run_id": "HW-gemini-fill-20261117-1", "inputs": []}}
 {"ts": "2026-11-17T04:29:32Z", "by": "model:gemini", "entity": "type", "id": "MX.KM.424", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C166 · Mexico · 1944 · 5 centavos · MXP (MX.KM.424)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-17", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261117-1", "run_id": "HW-gemini-fill-20261117-1", "inputs": []}}
+```
+
+### 15. HW-gemini-fill-20261118-1 · Cataloguer · Fill the blank facts of 2 coin types · due 2026-11-28  (fix list #72)
+
+Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
+
+**Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261118-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces42670.html
+- **C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces14370.html
+
+Answer sheet (the same as the link):
+
+```jsonl
+{"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
+{"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "JM.KM.190", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
 ```
 
 ## Projects (after the homework)
@@ -754,6 +754,6 @@ Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/doc
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 59; expired: 10.
+- Assignments answered: 59; expired: 11.
 - Your facts checked by another contributor: 636 (623 confirmed, 13 wrong; error rate 2.0 %, 95 % range 1-4 %). Checks you did for others: 635. Open disagreements you are part of: 10. Values planted wrong on purpose in your checks: you caught 22 of 22.
 - Share of your new facts that get checked first: 15 %.

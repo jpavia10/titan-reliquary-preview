@@ -1,82 +1,7 @@
 {
  "agent": "gemini",
- "updated": "2026-11-17T04:29:32Z",
+ "updated": "2026-11-18T03:42:57Z",
  "assignments": [
-  {
-   "id": "HW-gemini-fill-20261107-1",
-   "agent": "gemini",
-   "kind": "fill",
-   "issued": "2026-11-07T16:53:12Z",
-   "lease_until": "2026-11-17T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "fill:GT.KM.277.6a",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null
-    },
-    {
-     "item": "fill:JM.KM.190",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null
-    }
-   ],
-   "extended": [
-    {
-     "from": "2026-11-17T16:53:12Z",
-     "to": "2026-11-17T23:59:00Z",
-     "reason": "sent 2026-11-07 as compact pack HW-gemini-PACK-20261107 (1 Drive part, tools/agents/compact_sheet.py)"
-    }
-   ],
-   "parts": 1,
-   "pack": "HW-gemini-PACK-20261107",
-   "items_full": [
-    {
-     "item": "fill:GT.KM.277.6a",
-     "kind": "fill",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": null,
-     "coins": [
-      "C202"
-     ],
-     "label": "C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces42670.html"
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:JM.KM.190",
-     "kind": "fill",
-     "entity": "type",
-     "id": "JM.KM.190",
-     "field": null,
-     "coins": [
-      "C230"
-     ],
-     "label": "C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": "https://en.numista.com/catalogue/pieces14370.html"
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
   {
    "id": "HW-gemini-verify-20261111-1",
    "agent": "gemini",
@@ -4864,6 +4789,72 @@
        "designers"
       ],
       "numista_url": "https://en.numista.com/catalogue/pieces3136.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261118-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-18T03:42:57Z",
+   "lease_until": "2026-11-28T03:42:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:GT.KM.277.6a",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.190",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "fill:GT.KM.277.6a",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null,
+     "coins": [
+      "C202"
+     ],
+     "label": "C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces42670.html"
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JM.KM.190",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": null,
+     "coins": [
+      "C230"
+     ],
+     "label": "C230 · Jamaica · 2015 · 10 dollars · JMD (JM.KM.190)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": "https://en.numista.com/catalogue/pieces14370.html"
      },
      "blind": false,
      "inputs": []

@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-17T04:29:32Z",
+ "updated": "2026-11-18T03:42:57Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -186,7 +186,8 @@
   "grok-verify-20261116": 1,
   "muse-verify-20261116": 1,
   "gemini-cite-20261117": 1,
-  "gemini-fill-20261117": 1
+  "gemini-fill-20261117": 1,
+  "gemini-fill-20261118": 1
  },
  "assignments": [
   {
@@ -30331,9 +30332,13 @@
    "kind": "fill",
    "issued": "2026-11-07T16:53:12Z",
    "lease_until": "2026-11-17T23:59:00Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-18T03:42:57Z",
+   "result": {
+    "items": 2,
+    "closed": 0,
+    "left": 2
+   },
    "items": [
     {
      "item": "fill:GT.KM.277.6a",
@@ -33648,6 +33653,30 @@
      "item": "fill:MX.KM.424",
      "entity": "type",
      "id": "MX.KM.424",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-fill-20261118-1",
+   "agent": "gemini",
+   "kind": "fill",
+   "issued": "2026-11-18T03:42:57Z",
+   "lease_until": "2026-11-28T03:42:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "fill:GT.KM.277.6a",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": null
+    },
+    {
+     "item": "fill:JM.KM.190",
+     "entity": "type",
+     "id": "JM.KM.190",
      "field": null
     }
    ]

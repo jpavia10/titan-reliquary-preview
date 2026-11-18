@@ -6,14 +6,6 @@
    "name": "Gemini",
    "sheets": [
     {
-     "id": "HW-gemini-fill-20261107-1",
-     "kind": "fill",
-     "due": "2026-11-17",
-     "path": "docs/agents/homework/sheets/HW-gemini-fill-20261107-1.jsonl",
-     "sha256": "9485c957e6b604523dcdc1f3fc3f2817400915b628b8aede243f89c660309286",
-     "lines": 2
-    },
-    {
      "id": "HW-gemini-verify-20261111-1",
      "kind": "verify",
      "due": "2026-11-18",
@@ -124,6 +116,14 @@
      "path": "docs/agents/homework/sheets/HW-gemini-fill-20261117-1.jsonl",
      "sha256": "ea2a9eea369e7466edf888300de380e6a6e36a44bc649cbf0e3b5588d062e73c",
      "lines": 8
+    },
+    {
+     "id": "HW-gemini-fill-20261118-1",
+     "kind": "fill",
+     "due": "2026-11-28",
+     "path": "docs/agents/homework/sheets/HW-gemini-fill-20261118-1.jsonl",
+     "sha256": "59b4e80edae81b4cdf9056f40fbdcea59ba5f9f0d7d467edc0c69356eda86c62",
+     "lines": 2
     }
    ]
   },
