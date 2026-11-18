@@ -1,0 +1,5 @@
+REJECTED changes_gemini_20261118-1515_HW-gemini-verify-20261106-1.jsonl: 3 problem(s); nothing was changed
+  line 1: provenance.inputs.0: 'https://en.numista.com/173' is not of type 'object'
+  line 2: provenance.inputs.0: 'https://en.numista.com/181' is not of type 'object'
+  line 3: provenance.inputs.0: 'https://en.numista.com/724' is not of type 'object'
+  notes: stale, not counted: specimen C325 issue.mint_marks changed after assignment HW-gemini-verify-20261106-1 was issued (now ["R"]); nothing written

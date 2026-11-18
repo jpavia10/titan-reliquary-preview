@@ -1,1336 +1,7 @@
 {
  "agent": "muse",
- "updated": "2026-11-18T03:42:57Z",
+ "updated": "2026-11-18T20:56:37Z",
  "assignments": [
-  {
-   "id": "HW-muse-verify-20261113-1",
-   "agent": "muse",
-   "kind": "verify",
-   "issued": "2026-11-13T02:38:16Z",
-   "lease_until": "2026-11-20T02:38:16Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:GT.KM.239.2:design.text",
-     "entity": "type",
-     "id": "GT.KM.239.2",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:CH.KM.21a.3:design.text",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:NL.KM.107.2:design.text",
-     "entity": "type",
-     "id": "NL.KM.107.2",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:CH.KM.24a.3:design.text",
-     "entity": "type",
-     "id": "CH.KM.24a.3",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SU.Y.97:design.text",
-     "entity": "type",
-     "id": "SU.Y.97",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SU.Y.93:design.text",
-     "entity": "type",
-     "id": "SU.Y.93",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SU.Y.126a:design.text",
-     "entity": "type",
-     "id": "SU.Y.126a",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:BM.X.10-cents:design.text",
-     "entity": "type",
-     "id": "BM.X.10-cents",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.KM.415:design.text",
-     "entity": "type",
-     "id": "MX.KM.415",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:JM.KM.65:design.text",
-     "entity": "type",
-     "id": "JM.KM.65",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.KM.440:design.text",
-     "entity": "type",
-     "id": "MX.KM.440",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:JM.KM.146:design.text",
-     "entity": "type",
-     "id": "JM.KM.146",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.KM.424:design.text",
-     "entity": "type",
-     "id": "MX.KM.424",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.KM.502:design.text",
-     "entity": "type",
-     "id": "MX.KM.502",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:KR.KM.4:design.text",
-     "entity": "type",
-     "id": "KR.KM.4",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.KM.604:design.text",
-     "entity": "type",
-     "id": "MX.KM.604",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:JM.KM.189:design.text",
-     "entity": "type",
-     "id": "JM.KM.189",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:PH.KM.198:design.text",
-     "entity": "type",
-     "id": "PH.KM.198",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:TT.KM.31:design.text",
-     "entity": "type",
-     "id": "TT.KM.31",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:JP.Y.73a:design.text",
-     "entity": "type",
-     "id": "JP.Y.73a",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:JP.Y.74:design.text",
-     "entity": "type",
-     "id": "JP.Y.74",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.KM.936:design.text",
-     "entity": "type",
-     "id": "MX.KM.936",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX.X.10-centavos:design.text",
-     "entity": "type",
-     "id": "MX.X.10-centavos",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:TW.KM.551:design.text",
-     "entity": "type",
-     "id": "TW.KM.551",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:BR.KM.648.1:design.text",
-     "entity": "type",
-     "id": "BR.KM.648.1",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:IN.KM.92.2:design.text",
-     "entity": "type",
-     "id": "IN.KM.92.2",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:TR.KM.1241:design.text",
-     "entity": "type",
-     "id": "TR.KM.1241",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:MX-CHI.KM.612:design.text",
-     "entity": "type",
-     "id": "MX-CHI.KM.612",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:VN-SOV.KM.1:design.text",
-     "entity": "type",
-     "id": "VN-SOV.KM.1",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:CR.KM.214.2:design.text",
-     "entity": "type",
-     "id": "CR.KM.214.2",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:KR.KM.35.2:design.text",
-     "entity": "type",
-     "id": "KR.KM.35.2",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:NL.KM.170:design.text",
-     "entity": "type",
-     "id": "NL.KM.170",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:KR.KM.103:design.text",
-     "entity": "type",
-     "id": "KR.KM.103",
-     "field": "design.text"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:GT.KM.239.2:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GT.KM.239.2",
-     "field": "design.text",
-     "coins": [
-      "C235"
-     ],
-     "label": "design of C235 · Guatemala · 1934 · 10 centavos · GTQ",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "arms · Quetzal · crossed rifles/swords · laurel · REPUBLICA DE GUATEMALA · 0.720 · 1934 // Quetzal on column · LEY DE 26 DE NOVIEMBRE DE 1924 · 10 · CENTAVOS",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.21a.3:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.21a.3",
-     "field": "design.text",
-     "coins": [
-      "C077"
-     ],
-     "label": "design of C077 · Switzerland · 1991 · 2 francs · CHF",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "standing Helvetia (obv) · 2 Fr. in oak + alpine wreath (rev) · engravers Antoine Bovy / Albert Walch · 23 stars (canton of Jura, from 1983), medal alignment",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.107.2:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.107.2",
-     "field": "design.text",
-     "coins": [
-      "C255"
-     ],
-     "label": "design of C255 · Netherlands · 1892 · 1 cent · NLG",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse crowned rampant lion with sword & arrows in beaded circle · KONINGRIJK DER NEDERLANDEN · date · reverse 1 CENT in wreath",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CH.KM.24a.3:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CH.KM.24a.3",
-     "field": "design.text",
-     "coins": [
-      "C094"
-     ],
-     "label": "design of C094 · Switzerland · 1986 · 1 franc · CHF",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "standing Helvetia within 23 stars (obv) · value in oak + alpine wreath (rev)",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SU.Y.97:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SU.Y.97",
-     "field": "design.text",
-     "coins": [
-      "C261"
-     ],
-     "label": "design of C261 · USSR · 1932 · 15 kopecks · SUR",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse USSR arms · reverse worker with hammer left · shield 15 · КОП. · date · rim СОЮЗ СОВЕТСКИХ СОЦИАЛИСТИЧЕСКИХ РЕСПУБЛИК",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SU.Y.93:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SU.Y.93",
-     "field": "design.text",
-     "coins": [
-      "C260"
-     ],
-     "label": "design of C260 · USSR · 1931 · 3 kopecks · SUR",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse USSR arms hammer & sickle · reverse big 3 · КОПЕЙКИ · wheat ears · 1931",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SU.Y.126a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SU.Y.126a",
-     "field": "design.text",
-     "coins": [
-      "C042",
-      "C044"
-     ],
-     "label": "design of C042 · USSR · 1962 · 1 kopek · SUR",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse USSR arms СССР (15-ribbon type 1961–91) · reverse big 1 КОПЕЙКА · wheat ears · date",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:BM.X.10-cents:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BM.X.10-cents",
-     "field": "design.text",
-     "coins": [
-      "C277"
-     ],
-     "label": "design of C277 · Bermuda · 2004 · 10 cents · BMD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "The obverse shows Queen Elizabeth the Second wearing a tiara and facing right, with the words Elizabeth II Bermuda. The reverse shows a Bermuda lily flower, with the date above it and the words Ten Cents below.",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.415:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.415",
-     "field": "design.text",
-     "coins": [
-      "C259"
-     ],
-     "label": "design of C259 · Mexico · 1940 · 1 centavo · MXP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "national arms / ESTADOS UNIDOS MEXICANOS (obv) · value big 1 over shaded ¢ monogram · laurel wreath · 1940",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:JM.KM.65:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JM.KM.65",
-     "field": "design.text",
-     "coins": [
-      "C069"
-     ],
-     "label": "design of C069 · Jamaica · 1975 · 50 cents · JMD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "arms · crocodile · Taino supporters · OUT OF MANY, ONE PEOPLE · JAMAICA · FIFTY CENTS · 1975",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.440:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.440",
-     "field": "design.text",
-     "coins": [
-      "C244",
-      "C257"
-     ],
-     "label": "design of C244 · Mexico · 1964 · 20 centavos · MXP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "reverse Pyramid of the Sun at Teotihuacan · Popocatépetl & Iztaccíhuatl · radiant Phrygian cap · big 20 · CENTAVOS · date · Mo · national arms obverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:JM.KM.146:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JM.KM.146",
-     "field": "design.text",
-     "coins": [
-      "C253"
-     ],
-     "label": "design of C253 · Jamaica · 1993 · 10 cents · JMD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "arms · crocodile crest · Taino supporters · pineapple cross · OUT OF MANY, ONE PEOPLE · JAMAICA · TEN CENTS · 1993",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.424:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.424",
-     "field": "design.text",
-     "coins": [
-      "C166"
-     ],
-     "label": "design of C166 · Mexico · 1944 · 5 centavos · MXP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse Josefa Ortiz de Domínguez left · CINCO CENTAVOS · 1944 · Mo · reverse national arms",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.502:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.502",
-     "field": "design.text",
-     "coins": [
-      "C209"
-     ],
-     "label": "design of C209 · Mexico · 1987 · 5 pesos · MXP (pre-nuevo)",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "value side $ · big 5 · 1987 · Mo · scroll ornament · beaded rim · national arms reverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:KR.KM.4:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "KR.KM.4",
-     "field": "design.text",
-     "coins": [
-      "C247"
-     ],
-     "label": "design of C247 · South Korea · 1966 · 1 won · KRW",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "Rose of Sharon (Hibiscus syriacus) · 일원 · 한국은행 // THE BANK OF KOREA · big 1 · 1966",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.604:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.604",
-     "field": "design.text",
-     "coins": [
-      "C236",
-      "C315"
-     ],
-     "label": "design of C236 · Mexico · 2010 · 2 pesos · MXN (nuevo)",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "value side $ · big 2 · 2010 · Mo · Aztec Sun Stone / Ring of Days glyphs on outer ring · national arms reverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:JM.KM.189:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JM.KM.189",
-     "field": "design.text",
-     "coins": [
-      "C219"
-     ],
-     "label": "design of C219 · Jamaica · 2015 · 1 dollar · JMD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "reverse arms · crocodile crest · Taino supporters · JAMAICA · ONE DOLLAR · 2015 · heptagon",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:PH.KM.198:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "PH.KM.198",
-     "field": "design.text",
-     "coins": [
-      "C246"
-     ],
-     "label": "design of C246 · Philippines · 1971 · 10 sentimos · PHP",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "portrait Francisco Baltazar (Balagtas) left · SAMPUNG SENTIMOS · big 10 · arms / date reverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:TT.KM.31:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "TT.KM.31",
-     "field": "design.text",
-     "coins": [
-      "C207"
-     ],
-     "label": "design of C207 · Trinidad and Tobago · 2016 · 10 cents · TTD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse arms · Scarlet Ibis + Cocrico · REPUBLIC OF TRINIDAD AND TOBAGO · 2016 · motto ribbon · denom 10 on reverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:JP.Y.73a:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JP.Y.73a",
-     "field": "design.text",
-     "coins": [
-      "C220",
-      "C270"
-     ],
-     "label": "design of C220 · Japan · 1982 · 10 yen · JPY",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "Phoenix Hall / Byodoin temple · 日本国 · 十円 // big 10 · bay laurel (evergreen, tokiwa) wreath · Showa regnal-year date (昭和 57 = 1982, 63 = 1988)",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:JP.Y.74:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JP.Y.74",
-     "field": "design.text",
-     "coins": [
-      "C206",
-      "C222"
-     ],
-     "label": "design of C206 · Japan · 1971 · 1 yen · JPY",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.936:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.936",
-     "field": "design.text",
-     "coins": [
-      "C271"
-     ],
-     "label": "design of C271 · Mexico · 2013 · 50 centavos · MXN (nuevo)",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "value side (shown) 2013 at top · large 50¢ center · Mo mint mark below · stylized Aztec Calendar Stone Anillo del Sacrificio (Ring of Sacrifice) geometric border of feathers/blade-handles · national arms / ESTADOS UNIDOS MEXICANOS reverse not shown",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.X.10-centavos:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.10-centavos",
-     "field": "design.text",
-     "coins": [
-      "C274",
-      "C323"
-     ],
-     "label": "design of C274 · Mexico · 1995 · 10 centavos · MXN",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the words Estados Unidos Mexicanos. The reverse shows stylized rays from the Aztec sun stone around the denomination and mint mark.",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:TW.KM.551:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "TW.KM.551",
-     "field": "design.text",
-     "coins": [
-      "C200"
-     ],
-     "label": "design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse Chiang Kai-shek left · 中華民國 and the year (C200: 九十七年 = ROC year 97 = 2008) · reverse 壹圓 · 1",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:BR.KM.648.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "BR.KM.648.1",
-     "field": "design.text",
-     "coins": [
-      "C047"
-     ],
-     "label": "design of C047 · Brazil · 2006 · 5 centavos · BRL",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse Tiradentes portrait · BRASIL · dove & Inconfidência triangle · reverse Southern Cross globe · 5 CENTAVOS · 2006",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:IN.KM.92.2:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IN.KM.92.2",
-     "field": "design.text",
-     "coins": [
-      "C203"
-     ],
-     "label": "design of C203 · India · 2001 · 1 rupee · INR",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion Capital reverse",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:TR.KM.1241:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "TR.KM.1241",
-     "field": "design.text",
-     "coins": [
-      "C208"
-     ],
-     "label": "design of C208 · Turkey · 2011 · 10 kuruş · TRY",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse Atatürk portrait / state legend · reverse crescent+star · big 10 · KURUŞ · date · Rumi-style border",
-      "their_source": "Correction (Claude, 2026-10-24) of Muse's fill text from the Numista entry it cites (changes_muse_20261024-0550..0601): the entry's letterin",
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": true
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX-CHI.KM.612:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX-CHI.KM.612",
-     "field": "design.text",
-     "coins": [
-      "C114"
-     ],
-     "label": "design of C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "reverse large 5 pierced by vertical sword/spear · centavo monogram · EJERCITO CONSTITUCIONALISTA · 1914 · obverse Liberty cap · REPUBLICA MEXICANA · E. DE CHIHA · often SALAZAR",
-      "their_source": "https://en.numista.com/32634 and C114_Mexico_Chihuahua_1914_5Centavos_rev.jpeg (Numista #32634 KM# 612 Obverse: Phrygian Liberty cap and ray",
-      "links": [
-       "https://en.numista.com/32634",
-       "https://en.numista.com/catalogue/pieces32634.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:VN-SOV.KM.1:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "VN-SOV.KM.1",
-     "field": "design.text",
-     "coins": [
-      "C258"
-     ],
-     "label": "design of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)",
-     "authors": [
-      "claude"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Claude",
-      "ledger": false,
-      "value": "obverse three women in profile facing left · QUỐC-GIA VIỆT-NAM · 1953 (engraver Lucien Georges Bazor) · reverse rice plant · VIỆT-NAM · 20 SU (engraver Lucien Georges Bazor)",
-      "their_source": "disagreement D0127 settled for the claim (Gemini): the phone photo photos/p1/C258_rev.webp shows one rice plant dividing 20 SU under VIỆT-NA",
-      "links": [
-       "https://ngccoin.com/price-guide/world/viet-nam-state-of-south-viet-nam-20-su-km-2-1953-cuid-1078927-duid-1602770",
-       "https://coinvarieties.com/index.php/South_Vietnam_1953(a"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:CR.KM.214.2:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CR.KM.214.2",
-     "field": "design.text",
-     "coins": [
-      "C016"
-     ],
-     "label": "design of C016 · Costa Rica · 1985 · 5 colones · CRC",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse national arms in heptagon · AMERICA CENTRAL · large ship · reverse 5 COLONES · B.C.C.R. · coffee + Braille",
-      "their_source": "https://en.numista.com/catalogue/pieces69.html (Obverse: arms of Costa Rica with COSTA RICA AMERICA CENTRAL REPUBLICA DE COSTA RICA 1985 wit",
-      "links": [
-       "https://en.numista.com/catalogue/pieces69.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:KR.KM.35.2:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "KR.KM.35.2",
-     "field": "design.text",
-     "coins": [
-      "C210",
-      "C307",
-      "C311",
-      "C335"
-     ],
-     "label": "design of C210 · South Korea · 2000 · 100 won · KRW",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "value side 2000 · big 100 · 한국은행 · beaded rim · Yi Sun-sin portrait reverse",
-      "their_source": "https://en.numista.com/1037 (Numista N# 1037, KM# 9, sister 100 Won Admiral Yi Sun-sin entry): Obverse \"Admiral Yi Sun-sin (1545-1598) ... E",
-      "links": [
-       "https://en.numista.com/1037",
-       "https://en.numista.com/catalogue/pieces1052.html",
-       "https://en.numista.com/catalogue/pieces1037.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:NL.KM.170:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NL.KM.170",
-     "field": "design.text",
-     "coins": [
-      "C198"
-     ],
-     "label": "design of C198 · Netherlands · 1948 · 1 cent · NLG",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "obverse WILHELMINA KONINGIN DER NEDERLANDEN · reverse 1 · CENT · date · fish + caduceus",
-      "their_source": "https://en.numista.com/catalogue/pieces2562.html (Obverse: Queen Wilhelmina facing left, WILHELMINA KONINGIN DER NEDERLANDEN; Reverse: 1, di",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2562.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:KR.KM.103:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "KR.KM.103",
-     "field": "design.text",
-     "coins": [
-      "C266",
-      "C267",
-      "C314"
-     ],
-     "label": "design of C266 · South Korea · 2012 · 10 won · KRW",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Gemini",
-      "ledger": false,
-      "value": "value side curved date · large centered 10 · 한국은행 (Bank of Korea) · beaded rim · reverse Dabotap Pagoda (십 원) · designer unknown",
-      "their_source": "https://en.numista.com/2796 (Numista N# 2796, KM# 6a, sister 10 Won Dabotap Pagoda entry): Obverse \"Dabotap Pagoda ... Engraver: Kang Bak (강",
-      "links": [
-       "https://en.numista.com/2796",
-       "https://en.numista.com/catalogue/pieces1654.html",
-       "https://en.numista.com/978"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-muse-arbitrate-20261114-1",
-   "agent": "muse",
-   "kind": "arbitrate",
-   "issued": "2026-11-14T02:27:40Z",
-   "lease_until": "2026-11-21T02:27:40Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0153",
-     "entity": "type",
-     "id": "MX.KM.443",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0155",
-     "entity": "type",
-     "id": "DE.KM.105",
-     "field": "design.text"
-    },
-    {
-     "item": "arb:D0156",
-     "entity": "specimen",
-     "id": "C163",
-     "field": "issue.mint_marks"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0153",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "MX.KM.443",
-     "field": "design.text",
-     "coins": [
-      "C263"
-     ],
-     "label": "D0153 MX.KM.443 design.text",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": "national arms / ESTADOS UNIDOS MEXICANOS (obv, not shown) · Balanza scales · scroll LEY · Phrygian cap rays · crossed sword · 25 · Cs. (rev)"
-      },
-      "claim": {
-       "value": "obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · reverse balance scales with radiant Phrygian liberty cap and scroll inscribed LEY · 25 Cs · Mo · date (Lorenzo Rafael)",
-       "by": "model:gemini",
-       "source": "https://en.numista.com/catalogue/pieces972.html Obverse: Mexican coat of arms with ESTADOS UNIDOS MEXICANOS; Reverse: Liberty cap above scales and LEY scroll flanked by 25 Cs with Mo and date below (Lorenzo Rafael) [corrected from German Pfennig oak seedling design]",
-       "ts": "2026-11-05T14:20:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0155",
-     "kind": "arbitrate",
-     "entity": "type",
-     "id": "DE.KM.105",
-     "field": "design.text",
-     "coins": [
-      "C029",
-      "C187",
-      "C188",
-      "C189",
-      "C190",
-      "C191",
-      "C192"
-     ],
-     "label": "D0155 DE.KM.105 design.text",
-     "authors": [
-      "claude",
-      "gemini"
-     ],
-     "payload": {
-      "record": {
-       "by": "model:claude",
-       "source": "Third reader for D0061: The oak seedling side carries BUNDESREPUBLIK DEUTSCHLAND and the date and is the obverse; the value side with PFENNIG, the rye ears and the mint mark is the reverse (Numista N#854 https://en.numista.com/catalogue/pieces854.html; the same rule as the Oct 20 settlements for the German oak coins). [phase 2; confidence high]",
-       "ts": "2026-10-21T03:31:05Z",
-       "value": "oak seedling · BUNDESREPUBLIK DEUTSCHLAND obverse (Adolf Jäger) · value / PFENNIG reverse"
-      },
-      "claim": {
-       "value": "oak seedling obverse with BUNDESREPUBLIK DEUTSCHLAND and date (Adolf Jäger) · value 1 between rye ears / PFENNIG reverse",
-       "by": "model:gemini",
-       "source": "https://en.numista.com/catalogue/pieces854.html (Numista N# 854 Obverse: oak seedling above date, BUNDESREPUBLIK DEUTSCHLAND, Adolf Jäger; Reverse: 1 and mintmark between two rye ears above PFENNIG)",
-       "ts": "2026-11-05T14:36:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0156",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C163",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C163"
-     ],
-     "label": "D0156 C163 issue.mint_marks",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "BSP"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:gemini",
-       "source": "photo:C163_rev.jpeg (Drive ID 1rN9s5lC0i2_dF6qJ7kL8mN9oP0qR1sT2) + https://en.numista.com/catalogue/pieces4084.html — 1984 Philippines 50 Sentimo has no mintmark; reverse photo C163_rev.jpeg shows eagle and '50 SENTIMO' with no mintmark",
-       "ts": "2026-11-05T14:40:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
   {
    "id": "HW-muse-verify-20261114-1",
    "agent": "muse",
@@ -1391,65 +62,248 @@
    ]
   },
   {
-   "id": "HW-muse-fill-20261116-1",
+   "id": "HW-muse-fill-20261118-1",
    "agent": "muse",
    "kind": "fill",
-   "issued": "2026-11-16T02:10:27Z",
-   "lease_until": "2026-11-26T02:10:27Z",
+   "issued": "2026-11-18T20:53:03Z",
+   "lease_until": "2026-11-28T20:53:03Z",
    "status": "open",
    "closed": null,
    "result": null,
    "items": [
     {
-     "item": "fill:JP.X.100-yen",
+     "item": "fill:AU.X.50-cents",
      "entity": "type",
-     "id": "JP.X.100-yen",
+     "id": "AU.X.50-cents",
      "field": null
     },
     {
-     "item": "fill:KR.X.10-won",
+     "item": "fill:CR.X.10-colones",
      "entity": "type",
-     "id": "KR.X.10-won",
+     "id": "CR.X.10-colones",
+     "field": null
+    },
+    {
+     "item": "fill:EC.X.10-cents",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "fill:FR.X.10-centimes",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": null
+    },
+    {
+     "item": "fill:GG.X.8-doubles",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": null
+    },
+    {
+     "item": "fill:IN.X.2-rupees",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": null
+    },
+    {
+     "item": "fill:JP.X.10-yen",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.1-peso",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": null
+    },
+    {
+     "item": "fill:MX.X.20-centavos",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
      "field": null
     }
    ],
    "items_full": [
     {
-     "item": "fill:JP.X.100-yen",
+     "item": "fill:AU.X.50-cents",
      "kind": "fill",
      "entity": "type",
-     "id": "JP.X.100-yen",
+     "id": "AU.X.50-cents",
      "field": null,
      "coins": [
-      "C340"
+      "C349"
      ],
-     "label": "C340 · Japan · 2015 · 100 yen · JPY (JP.X.100-yen)",
+     "label": "C349 · Australia · 1977 · 50 cents · AUD (AU.X.50-cents)",
      "authors": [],
      "payload": {
       "blank": [
        "designers"
       ],
-      "numista_url": "https://en.numista.com/catalogue/pieces2121.html"
+      "numista_url": null
      },
      "blind": false,
      "inputs": []
     },
     {
-     "item": "fill:KR.X.10-won",
+     "item": "fill:CR.X.10-colones",
      "kind": "fill",
      "entity": "type",
-     "id": "KR.X.10-won",
+     "id": "CR.X.10-colones",
      "field": null,
      "coins": [
-      "C342"
+      "C343"
      ],
-     "label": "C342 · South Korea · 2001 · 10 won · KRW (KR.X.10-won)",
+     "label": "C343 · Costa Rica · 2008 · 10 colones · CRC (CR.X.10-colones)",
      "authors": [],
      "payload": {
       "blank": [
        "designers"
       ],
-      "numista_url": "https://en.numista.com/catalogue/pieces978.html"
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:EC.X.10-cents",
+     "kind": "fill",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": null,
+     "coins": [
+      "C350"
+     ],
+     "label": "C350 · East Caribbean States · 1991 · 10 cents · XCD (EC.X.10-cents)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:FR.X.10-centimes",
+     "kind": "fill",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": null,
+     "coins": [
+      "C351"
+     ],
+     "label": "C351 · France · 1867 · 10 centimes · FRF (FR.X.10-centimes)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:GG.X.8-doubles",
+     "kind": "fill",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": null,
+     "coins": [
+      "C347"
+     ],
+     "label": "C347 · Guernsey · 1893 · 8 doubles · GGP (GG.X.8-doubles)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:IN.X.2-rupees",
+     "kind": "fill",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": null,
+     "coins": [
+      "C354"
+     ],
+     "label": "C354 · India · 2014 · 2 rupees · INR (IN.X.2-rupees)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:JP.X.10-yen",
+     "kind": "fill",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": null,
+     "coins": [
+      "C344",
+      "C353"
+     ],
+     "label": "C344 · Japan · Heisei 14 (2002) · 10 yen · JPY (JP.X.10-yen)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.X.1-peso",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": null,
+     "coins": [
+      "C346"
+     ],
+     "label": "C346 · Mexico · 1975 · 1 peso · MXP (MX.X.1-peso)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "fill:MX.X.20-centavos",
+     "kind": "fill",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": null,
+     "coins": [
+      "C352"
+     ],
+     "label": "C352 · Mexico · 1943 · 20 centavos · MXP (MX.X.20-centavos)",
+     "authors": [],
+     "payload": {
+      "blank": [
+       "designers"
+      ],
+      "numista_url": null
      },
      "blind": false,
      "inputs": []
@@ -1457,74 +311,839 @@
    ]
   },
   {
-   "id": "HW-muse-verify-20261116-1",
+   "id": "HW-muse-cite-20261118-1",
    "agent": "muse",
-   "kind": "verify",
-   "issued": "2026-11-16T02:10:27Z",
-   "lease_until": "2026-11-23T02:10:27Z",
+   "kind": "cite",
+   "issued": "2026-11-18T20:53:03Z",
+   "lease_until": "2026-11-25T20:53:03Z",
    "status": "open",
    "closed": null,
    "result": null,
    "items": [
     {
-     "item": "verify:type:IT.KM.211:period",
+     "item": "cite:EC.X.10-cents",
      "entity": "type",
-     "id": "IT.KM.211",
+     "id": "EC.X.10-cents",
+     "field": null
+    },
+    {
+     "item": "cite:FR.X.10-centimes",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": null
+    },
+    {
+     "item": "cite:IN.X.2-rupees",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": null
+    },
+    {
+     "item": "cite:AU.X.50-cents",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": null
+    },
+    {
+     "item": "cite:CR.X.10-colones",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": null
+    },
+    {
+     "item": "cite:GG.X.8-doubles",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": null
+    },
+    {
+     "item": "cite:JP.X.10-yen",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.1-peso",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": null
+    },
+    {
+     "item": "cite:MX.X.20-centavos",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:EC.X.10-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": null,
+     "coins": [
+      "C350"
+     ],
+     "label": "EC 10 cents (EC.X.10-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1991,
+        "mint_marks": [],
+        "coins": [
+         "C350"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 1.78,
+      "diameter_mm": 18.06,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 1991"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1991,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:FR.X.10-centimes",
+     "kind": "cite",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": null,
+     "coins": [
+      "C351"
+     ],
+     "label": "FR 10 centimes (FR.X.10-centimes)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 1,
+        "year": 1867,
+        "mint_marks": [
+         "K"
+        ],
+        "coins": [
+         "C351"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 10.0,
+      "diameter_mm": 30.0,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class",
+       "issues.1.mintage: 1867 K"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1867,
+       "mint": [
+        "K"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:IN.X.2-rupees",
+     "kind": "cite",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": null,
+     "coins": [
+      "C354"
+     ],
+     "label": "IN 2 rupees (IN.X.2-rupees)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2014,
+        "mint_marks": [
+         "●"
+        ],
+        "coins": [
+         "C354"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 4.9,
+      "diameter_mm": 25.0,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class",
+       "issues.0.mintage: 2014 ●"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2014,
+       "mint": [
+        "●"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "cite:AU.X.50-cents",
+     "kind": "cite",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": null,
+     "coins": [
+      "C349"
+     ],
+     "label": "AU 50 cents (AU.X.50-cents)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1977,
+        "mint_marks": [],
+        "coins": [
+         "C349"
+        ],
+        "mintage": 25067000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 15.55,
+      "diameter_mm": 31.51,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:CR.X.10-colones",
+     "kind": "cite",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": null,
+     "coins": [
+      "C343"
+     ],
+     "label": "CR 10 colones (CR.X.10-colones)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2008,
+        "mint_marks": [],
+        "coins": [
+         "C343"
+        ],
+        "mintage": 200000000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 1.1,
+      "diameter_mm": 23.5,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:GG.X.8-doubles",
+     "kind": "cite",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": null,
+     "coins": [
+      "C347"
+     ],
+     "label": "GG 8 doubles (GG.X.8-doubles)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1893,
+        "mint_marks": [],
+        "coins": [
+         "C347"
+        ],
+        "mintage": 118000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 9.6,
+      "diameter_mm": 31.6,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:JP.X.10-yen",
+     "kind": "cite",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": null,
+     "coins": [
+      "C344",
+      "C353"
+     ],
+     "label": "JP 10 yen (JP.X.10-yen)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 2002,
+        "mint_marks": [],
+        "coins": [
+         "C344"
+        ],
+        "mintage": 455425000,
+        "mintage_label": "reference",
+        "mint_read": true
+       },
+       {
+        "N": 1,
+        "year": 1996,
+        "mint_marks": [],
+        "coins": [
+         "C353"
+        ],
+        "mintage": 546024000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 4.5,
+      "diameter_mm": 23.5,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:MX.X.1-peso",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": null,
+     "coins": [
+      "C346"
+     ],
+     "label": "MX 1 peso (MX.X.1-peso)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1975,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C346"
+        ],
+        "mintage": 205979000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 9.0,
+      "diameter_mm": 29.0,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "cite:MX.X.20-centavos",
+     "kind": "cite",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": null,
+     "coins": [
+      "C352"
+     ],
+     "label": "MX 20 centavos (MX.X.20-centavos)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1943,
+        "mint_marks": [
+         "Mo"
+        ],
+        "coins": [
+         "C352"
+        ],
+        "mintage": 46350000,
+        "mintage_label": "reference",
+        "mint_read": true
+       }
+      ],
+      "catalogs": [],
+      "weight_g": 10.0,
+      "diameter_mm": 28.5,
+      "composition": "",
+      "ask": [
+       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
+       "composition.text + composition.metal_class"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261118-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-18T20:53:03Z",
+   "lease_until": "2026-11-25T20:53:03Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0172",
+     "entity": "specimen",
+     "id": "C157",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "arb:D0173",
+     "entity": "specimen",
+     "id": "C180",
+     "field": "issue.mintage"
+    },
+    {
+     "item": "arb:D0174",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "issue.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0172",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C157",
+     "field": "issue.mintage",
+     "coins": [
+      "C157"
+     ],
+     "label": "D0172 C157 issue.mintage",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": 490202020
+      },
+      "claim": {
+       "value": 490202000,
+       "by": "model:gemini",
+       "source": "Numista N#25746 (https://en.numista.com/catalogue/pieces25746.html), 2014  mintage row: 490,202,000",
+       "ts": "2026-11-18T17:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0173",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C180",
+     "field": "issue.mintage",
+     "coins": [
+      "C180"
+     ],
+     "label": "D0173 C180 issue.mintage",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": 339802350
+      },
+      "claim": {
+       "value": 339802000,
+       "by": "model:gemini",
+       "source": "Numista N#25766 (https://en.numista.com/catalogue/pieces25766.html), 2012  mintage row: 339,802,000",
+       "ts": "2026-11-18T17:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0174",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C221",
+     "field": "issue.mintage",
+     "coins": [
+      "C221"
+     ],
+     "label": "D0174 C221 issue.mintage",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": 110003011
+      },
+      "claim": {
+       "value": 109988000,
+       "by": "model:gemini",
+       "source": "Numista N#5 (https://en.numista.com/catalogue/pieces5.html), 1986  mintage row: 109,988,000",
+       "ts": "2026-11-18T17:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261118-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-18T20:53:03Z",
+   "lease_until": "2026-11-25T20:53:03Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:specimen:C351:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C351",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:issues.0.mintage",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:ruler",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:JM.KM.190:design.text",
+     "entity": "type",
+     "id": "JM.KM.190",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:issues.0.mintage",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:ruler",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:GT.KM.277.6a:design.text",
+     "entity": "type",
+     "id": "GT.KM.277.6a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:issues.0.mintage",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:period",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
      "field": "period"
     },
     {
-     "item": "verify:type:SK.KM.96:period",
+     "item": "verify:type:MX.X.1-peso:issues.0.mintage",
      "entity": "type",
-     "id": "SK.KM.96",
+     "id": "MX.X.1-peso",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:ruler",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:period",
+     "entity": "type",
+     "id": "MX.X.1-peso",
      "field": "period"
     },
     {
-     "item": "verify:type:DE.KM.207:period",
+     "item": "verify:type:AU.X.10-cents:issues.1.mintage",
      "entity": "type",
-     "id": "DE.KM.207",
+     "id": "AU.X.10-cents",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:issues.0.mintage",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:ruler",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:period",
+     "entity": "type",
+     "id": "CR.X.10-colones",
      "field": "period"
     },
     {
-     "item": "verify:type:ES.KM.1040:period",
+     "item": "verify:type:NO.X.50-ore:ruler",
      "entity": "type",
-     "id": "ES.KM.1040",
+     "id": "NO.X.50-ore",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:specimen:C287:issue.mint_marks",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:issues.0.mintage",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "issues.0.mintage"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:issues.1.mintage",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:ruler",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "ruler"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:period",
+     "entity": "type",
+     "id": "JP.X.10-yen",
      "field": "period"
     },
     {
-     "item": "verify:type:IE.KM.32:period",
+     "item": "verify:type:IN.X.2-rupees:period",
      "entity": "type",
-     "id": "IE.KM.32",
-     "field": "period"
-    },
-    {
-     "item": "verify:type:NL.KM.234:period",
-     "entity": "type",
-     "id": "NL.KM.234",
+     "id": "IN.X.2-rupees",
      "field": "period"
     }
    ],
    "items_full": [
     {
-     "item": "verify:type:IT.KM.211:period",
+     "item": "verify:specimen:C351:issue.mint_marks",
      "kind": "verify",
-     "entity": "type",
-     "id": "IT.KM.211",
-     "field": "period",
+     "entity": "specimen",
+     "id": "C351",
+     "field": "issue.mint_marks",
      "coins": [
-      "C039"
+      "C351"
      ],
-     "label": "period of C039 · Italy · 2010 · 2 euro cent · EUR",
+     "label": "mint of C351 · France · 1867 · 10 centimes · FRF",
      "authors": [
       "gemini"
      ],
      "payload": {
-      "fact": "period",
+      "fact": "mint",
       "author": "Gemini",
       "ledger": false,
-      "value": "Eurozone",
-      "their_source": "https://en.numista.com/catalogue/pieces130.html (\"Issuer: Italy · Period: Republic (1946-date) · Currency: Euro (2002-date)\")",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_obv.webp",
+        "file": "C351_obv.webp",
+        "original": "NOID_France_1867_10Centimes_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1kQH2ehDb_zFhY8CcHWn8aSuk3ih6tlr5/view"
+       },
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_rev.webp",
+        "file": "C351_rev.webp",
+        "original": "NOID_France_1867_10Centimes_rev.jpeg",
+        "drive": "https://drive.google.com/file/d/1Cno86aZ6OXDTW2UU8AuGcHCnY68GJEKG/view"
+       }
+      ],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C351_obv.webp",
+      "C351_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C347"
+     ],
+     "label": "mintage of C347 · Guernsey · 1893 · 8 doubles · GGP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1893,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "ruler",
+     "coins": [
+      "C347"
+     ],
+     "label": "ruler of C347 · Guernsey · 1893 · 8 doubles · GGP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Victoria",
+      "their_source": "https://en.numista.com/catalogue/pieces5044.html — Issuer Guernsey Queen Victoria (1837-1901) (read 2026-11-17)",
       "links": [
-       "https://en.numista.com/catalogue/pieces130.html"
+       "https://en.numista.com/catalogue/pieces5044.html"
       ],
       "photos": [],
       "audit": false,
@@ -1536,26 +1155,27 @@
      "inputs": []
     },
     {
-     "item": "verify:type:SK.KM.96:period",
+     "item": "verify:type:JM.KM.190:design.text",
      "kind": "verify",
      "entity": "type",
-     "id": "SK.KM.96",
-     "field": "period",
+     "id": "JM.KM.190",
+     "field": "design.text",
      "coins": [
-      "C038"
+      "C230"
      ],
-     "label": "period of C038 · Slovakia · 2009 · 2 euro cent · EUR",
+     "label": "design of C230 · Jamaica · 2015 · 10 dollars · JMD",
      "authors": [
       "gemini"
      ],
      "payload": {
-      "fact": "period",
+      "fact": "design",
       "author": "Gemini",
       "ledger": false,
-      "value": "Eurozone",
-      "their_source": "https://en.numista.com/catalogue/pieces5085.html (\"Issuer: Slovakia · Period: Slovak Republic (1993-date) · Currency: Euro (2009-date)\")",
+      "value": "arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date",
+      "their_source": "Numista N#14370 https://en.numista.com/catalogue/pieces14370.html (Jamaica 10 Dollars Round 2008-2025, KM#190) shares the standard Jamaican ",
       "links": [
-       "https://en.numista.com/catalogue/pieces5085.html"
+       "https://en.numista.com/catalogue/pieces14370.html",
+       "https://en.numista.com/catalogue/pieces934.html"
       ],
       "photos": [],
       "audit": false,
@@ -1567,33 +1187,62 @@
      "inputs": []
     },
     {
-     "item": "verify:type:DE.KM.207:period",
+     "item": "verify:type:AU.X.50-cents:issues.0.mintage",
      "kind": "verify",
      "entity": "type",
-     "id": "DE.KM.207",
-     "field": "period",
+     "id": "AU.X.50-cents",
+     "field": "issues.0.mintage",
      "coins": [
-      "C132",
-      "C133",
-      "C134",
-      "C135",
-      "C136",
-      "C137",
-      "C138",
-      "C273"
+      "C349"
      ],
-     "label": "period of C132 · Germany · 2002 · 1 euro cent · EUR",
+     "label": "mintage of C349 · Australia · 1977 · 50 cents · AUD",
      "authors": [
       "gemini"
      ],
      "payload": {
-      "fact": "period",
+      "fact": "mintage",
       "author": "Gemini",
       "ledger": false,
-      "value": "Eurozone",
-      "their_source": "https://en.numista.com/catalogue/pieces105.html (\"Issuer: Germany · Period: Federal Republic (1949-date) · Currency: Euro (2002-date)\")",
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1977,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "ruler",
+     "coins": [
+      "C349"
+     ],
+     "label": "ruler of C349 · Australia · 1977 · 50 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "https://en.numista.com/catalogue/pieces5524.html — Issuer Australia Queen Elizabeth II (1952-2022) (read 2026-11-17)",
       "links": [
-       "https://en.numista.com/catalogue/pieces105.html"
+       "https://en.numista.com/catalogue/pieces5524.html"
       ],
       "photos": [],
       "audit": false,
@@ -1605,26 +1254,27 @@
      "inputs": []
     },
     {
-     "item": "verify:type:ES.KM.1040:period",
+     "item": "verify:type:GT.KM.277.6a:design.text",
      "kind": "verify",
      "entity": "type",
-     "id": "ES.KM.1040",
-     "field": "period",
+     "id": "GT.KM.277.6a",
+     "field": "design.text",
      "coins": [
-      "C140"
+      "C202"
      ],
-     "label": "period of C140 · Spain · 2008 · 1 euro cent · EUR",
+     "label": "design of C202 · Guatemala · 2010 · 10 centavos · GTQ",
      "authors": [
       "gemini"
      ],
      "payload": {
-      "fact": "period",
+      "fact": "design",
       "author": "Gemini",
       "ledger": false,
-      "value": "Eurozone",
-      "their_source": "https://en.numista.com/catalogue/pieces81.html (\"Issuer: Spain · King: Juan Carlos I (1975-2014) · Currency: Euro (2002-date)\")",
+      "value": "reverse Maya stela · 10 CENTAVOS · MONOLITO DE QUIRIGUA · date on arms side",
+      "their_source": "Numista N#42670 https://en.numista.com/catalogue/pieces42670.html (Guatemala 10 Centavos Magnetic 2009-2024, KM#277.6a) and Numista N#3136: ",
       "links": [
-       "https://en.numista.com/catalogue/pieces81.html"
+       "https://en.numista.com/catalogue/pieces42670.html",
+       "https://en.numista.com/catalogue/pieces3136.html"
       ],
       "photos": [],
       "audit": false,
@@ -1636,16 +1286,53 @@
      "inputs": []
     },
     {
-     "item": "verify:type:IE.KM.32:period",
+     "item": "verify:type:MX.X.20-centavos:issues.0.mintage",
      "kind": "verify",
      "entity": "type",
-     "id": "IE.KM.32",
+     "id": "MX.X.20-centavos",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C352"
+     ],
+     "label": "mintage of C352 · Mexico · 1943 · 20 centavos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1943,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
      "field": "period",
      "coins": [
-      "C101",
-      "C143"
+      "C352"
      ],
-     "label": "period of C101 · Ireland · 2002 · 1 euro cent · EUR",
+     "label": "period of C352 · Mexico · 1943 · 20 centavos · MXP",
      "authors": [
       "gemini"
      ],
@@ -1653,10 +1340,10 @@
       "fact": "period",
       "author": "Gemini",
       "ledger": false,
-      "value": "Eurozone",
-      "their_source": "https://en.numista.com/catalogue/pieces121.html (\"Issuer: Ireland · Period: Republic (1937-date) · Currency: Euro (2002-date)\")",
+      "value": "United Mexican States/Mexican Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces3933.html — Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)",
       "links": [
-       "https://en.numista.com/catalogue/pieces121.html"
+       "https://en.numista.com/catalogue/pieces3933.html"
       ],
       "photos": [],
       "audit": false,
@@ -1668,15 +1355,84 @@
      "inputs": []
     },
     {
-     "item": "verify:type:NL.KM.234:period",
+     "item": "verify:type:MX.X.1-peso:issues.0.mintage",
      "kind": "verify",
      "entity": "type",
-     "id": "NL.KM.234",
+     "id": "MX.X.1-peso",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C346"
+     ],
+     "label": "mintage of C346 · Mexico · 1975 · 1 peso · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1975,
+       "mint": [
+        "Mo"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "ruler",
+     "coins": [
+      "C350"
+     ],
+     "label": "ruler of C350 · East Caribbean States · 1991 · 10 cents · XCD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Elizabeth II",
+      "their_source": "https://en.numista.com/catalogue/pieces932.html — Issuer East Caribbean States Queen Elizabeth II (1952-2022) (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces932.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.1-peso",
      "field": "period",
      "coins": [
-      "C142"
+      "C346"
      ],
-     "label": "period of C142 · Netherlands · 2000 · 1 euro cent · EUR",
+     "label": "period of C346 · Mexico · 1975 · 1 peso · MXP",
      "authors": [
       "gemini"
      ],
@@ -1684,10 +1440,381 @@
       "fact": "period",
       "author": "Gemini",
       "ledger": false,
-      "value": "Eurozone",
-      "their_source": "https://en.numista.com/catalogue/pieces145.html (\"Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Euro (1999-date)\")",
+      "value": "United Mexican States/Mexican Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces1105.html — Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)",
       "links": [
-       "https://en.numista.com/catalogue/pieces145.html"
+       "https://en.numista.com/catalogue/pieces1105.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.10-cents:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.10-cents",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C345"
+     ],
+     "label": "mintage of C345 · Australia · 2008 · 10 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 2008,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C343"
+     ],
+     "label": "mintage of C343 · Costa Rica · 2008 · 10 colones · CRC",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2008,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "ruler",
+     "coins": [
+      "C351"
+     ],
+     "label": "ruler of C351 · France · 1867 · 10 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Napoleon III",
+      "their_source": "https://en.numista.com/catalogue/pieces480.html — Issuer France Emperor Napoleon III (Napoléon III) (1852-1870) (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces480.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "period",
+     "coins": [
+      "C343"
+     ],
+     "label": "period of C343 · Costa Rica · 2008 · 10 colones · CRC",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Second Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces3756.html — Period Second Republic (1948-date) (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3756.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NO.X.50-ore:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NO.X.50-ore",
+     "field": "ruler",
+     "coins": [
+      "C333"
+     ],
+     "label": "ruler of C333 · Norway · 1977 · 50 øre · NOK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Olav V",
+      "their_source": "https://en.numista.com/catalogue/pieces1439.html — Issuer Norway Issuing bank Norges Bank King Olav V (1957-1991) (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1439.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:specimen:C287:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C287",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C287"
+     ],
+     "label": "mint of C287 · Italy · 1979 · 50 lire · ITL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "rev",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp",
+        "file": "C287_rev.webp",
+        "original": "C287_Italy_1979_50Lire_rev.jpg",
+        "drive": "https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C287_rev.webp"
+     ]
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:issues.0.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "issues.0.mintage",
+     "coins": [
+      "C344"
+     ],
+     "label": "mintage of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 2002,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C353"
+     ],
+     "label": "mintage of C353 · Japan · Heisei 8 (1996) · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1996,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:ruler",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "ruler",
+     "coins": [
+      "C344",
+      "C353"
+     ],
+     "label": "ruler of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "ruler",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Heisei",
+      "their_source": "https://en.numista.com/catalogue/pieces3047.html — Issuer Japan Emperor Heisei (1989-2019) (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3047.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "period",
+     "coins": [
+      "C344",
+      "C353"
+     ],
+     "label": "period of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Heisei era",
+      "their_source": "https://en.numista.com/catalogue/pieces3047.html — Years 1-31 (1989-2019) Dating Japan - Heisei era (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3047.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "period",
+     "coins": [
+      "C354"
+     ],
+     "label": "period of C354 · India · 2014 · 2 rupees · INR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Republic",
+      "their_source": "https://en.numista.com/catalogue/pieces24942.html — Issuer India Period Republic (1950-date) (read 2026-11-17)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces24942.html"
       ],
       "photos": [],
       "audit": false,

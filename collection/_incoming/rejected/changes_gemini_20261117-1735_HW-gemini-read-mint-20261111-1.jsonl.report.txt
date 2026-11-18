@@ -1,0 +1,3 @@
+REJECTED changes_gemini_20261117-1735_HW-gemini-read-mint-20261111-1.jsonl: 1 problem(s); nothing was changed
+  line 1: could not apply this event (TypeError: can only join an iterable); check the field path and that `new` has the right type (see collection/templates/FIELDS.md)
+  notes: stale, not counted: specimen C351 issue.mint_text changed after the assignment was written (now "mint letter below the eagle's thunderbolt not readable in t); nothing written
