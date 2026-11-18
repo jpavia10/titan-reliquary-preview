@@ -31,7 +31,9 @@ jobs:
       - name: Build the zip
         run: |
           set -euo pipefail
-          git archive --format=zip --prefix=titan-reliquary-preview/ -o titan-reliquary-site.zip HEAD -- . ':(exclude)art/splash' ':(exclude)audio' ':(exclude,glob)notes/**/*.png' ':(exclude,glob)notes/**/*.jpg' ':(exclude,glob)notes/**/*.webm'
+          # Room layer sets, coin cutouts and merged change files have their originals on Drive and full copies in git; left out so the
+          # zip stays under the Drive sync limit (it reached 65 MB with them and failed every day from 2026-11-15 to 11-18).
+          git archive --format=zip --prefix=titan-reliquary-preview/ -o titan-reliquary-site.zip HEAD -- . ':(exclude)art/splash' ':(exclude)audio' ':(exclude,glob)notes/**/*.png' ':(exclude,glob)notes/**/*.jpg' ':(exclude,glob)notes/**/*.webm' ':(exclude)art/rooms' ':(exclude)photos/cut' ':(exclude)collection/_incoming'
           ls -l titan-reliquary-site.zip
           size=$(stat -c %s titan-reliquary-site.zip)
           if [ "$size" -gt 48000000 ]; then echo "::error::backup zip is $size bytes (> 48 MB, too big for the Drive sync)"; exit 1; fi
