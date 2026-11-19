@@ -1,10 +1,18 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-19 22:22 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-19 23:36 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
 **Status:** active. Loaded to the maximum (owner, 2026-10-22: "Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). Off probation 2026-10-23: 4 files in a row scored 8+ with no accuracy fault (changes_gemini_20261023-1644 to -1647; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate like Grok's. 2026-10-23 (owner: 'update its homework but keep its scope high'): + fill (blank Phase 2 facts, the kind its design-text redo did well), and theme, motion and music builds as projects.
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
+
+## Finish first
+
+### AI-guessed facts, part 1b: the 6 lines that bounced (re-read the record, then resend)  (fix list trust)
+
+Six lines of changes_gemini_20261119-1018.jsonl were rejected (the other 29 merged): SU.Y.126a and IN.KM.92.2 (your `old` value lost its Cyrillic СССР and the Hindi रुपया: copy `old` from the record exactly, Unicode intact), BR.KM.648 and TW.Y.551 (no such type id: find the coin's real type id in collection/types by country, year and denomination), JP.Y.73a and MX.KM.604 (part 2 already set them: send nothing unless part 1's text differs). Same form and rules as part 1 (run_id 'GT-AIFACTS-p1b'), one file changes_gemini_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/'.
+
+**Done when:** The 4 real lines merged (2 bad ids fixed, 2 old values exact); nothing sent for the 2 already set.
 
 ## Homework (generated from the data)
 
