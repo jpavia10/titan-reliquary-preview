@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-18T20:53:03Z",
- "content_hash": "f5b433eadce55030",
+ "generated_at": "2026-11-19T01:19:57Z",
+ "content_hash": "b13add1e5a304602",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:f5b433eadce55030",
+  "ledger_version": "v3:b13add1e5a304602",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5411.63,
@@ -880,13 +880,23 @@
    "tags": []
   },
   "AU.X.50-cents": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "70",
+     "system": "KM"
+    },
+    {
+     "number": "5524",
+     "system": "Numista",
+     "url": "https://en.numista.com/5524"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "cupronickel",
-    "text": ""
+    "text": "Copper-nickel (75% Copper, 25% Nickel)"
    },
    "country": "AU",
    "denomination": {
@@ -897,7 +907,10 @@
     "value": 50
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Arnold Machin (obverse)",
+     "Stuart Devlin (reverse)"
+    ],
     "legend": null,
     "obverse": "2nd portrait of Queen Elizabeth II facing right wearing the Girls of Great Britain and Ireland Tiara · ELIZABETH II AUSTRALIA date",
     "reverse": "Outer design of 25 overlapping crowns in a circle. Inner starburst with lettering and value surrounding · :SILVER JUBILEE: 50 CENTS",
@@ -3224,13 +3237,23 @@
    "tags": []
   },
   "CR.X.10-colones": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "228b",
+     "system": "KM"
+    },
+    {
+     "number": "3756",
+     "system": "Numista",
+     "url": "https://en.numista.com/3756"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "aluminum",
-    "text": ""
+    "text": "Aluminium"
    },
    "country": "CR",
    "denomination": {
@@ -3264,7 +3287,7 @@
    ],
    "legal_tender": {
     "status": "demonetized",
-    "text": "",
+    "text": "demonetized 1 July 2026",
     "until": null
    },
    "nominal": {
@@ -5917,13 +5940,32 @@
    "tags": []
   },
   "EC.X.10-cents": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "13",
+     "system": "KM"
+    },
+    {
+     "number": "932",
+     "system": "Numista",
+     "url": "https://en.numista.com/932"
+    },
+    {
+     "number": "37",
+     "system": "KM"
+    },
+    {
+     "number": "5712",
+     "system": "Numista",
+     "url": "https://en.numista.com/5712"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "cupronickel",
-    "text": ""
+    "text": "Copper-nickel (1981-2000); Nickel-plated steel (2002-date)"
    },
    "country": "EC",
    "denomination": {
@@ -5934,7 +5976,11 @@
     "value": 10
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Arnold Machin (1981-2000 obverse)",
+     "Ian Rank-Broadley (2002-date obverse)",
+     "Thomas Humphrey Paget (reverse)"
+    ],
     "legend": null,
     "obverse": "Portrait of Queen Elizabeth II facing right · QUEEN ELIZABETH THE SECOND",
     "reverse": "The Golden Hind, ship of Sir Francis Drake, sailing left above denomination · EAST CARIBBEAN STATES date 10 TEN CENTS",
@@ -7800,13 +7846,23 @@
    "tags": []
   },
   "FR.X.10-centimes": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "798",
+     "system": "KM"
+    },
+    {
+     "number": "480",
+     "system": "Numista",
+     "url": "https://en.numista.com/480"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "bronze",
-    "text": ""
+    "text": "Bronze"
    },
    "country": "FR",
    "denomination": {
@@ -7817,7 +7873,10 @@
     "value": 10
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Désiré-Albert Barre (obverse)",
+     "Jacques-Jean Barre (reverse)"
+    ],
     "legend": null,
     "obverse": "Portrait facing left inside beaded circle, lettering around outside, date underneath · NAPOLEON III EMPEREUR BARRE date",
     "reverse": "Eagle, mintmark below · EMPIRE FRANÇAIS mint mark * DIX CENTIMES *",
@@ -7850,7 +7909,7 @@
    ],
    "legal_tender": {
     "status": "demonetized",
-    "text": "",
+    "text": "demonetized 31 October 1934",
     "until": null
    },
    "nominal": {
@@ -10389,13 +10448,23 @@
    "tags": []
   },
   "GG.X.8-doubles": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "7",
+     "system": "KM"
+    },
+    {
+     "number": "5044",
+     "system": "Numista",
+     "url": "https://en.numista.com/5044"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "bronze",
-    "text": ""
+    "text": "Bronze"
    },
    "country": "GG",
    "denomination": {
@@ -10429,7 +10498,7 @@
    ],
    "legal_tender": {
     "status": "demonetized",
-    "text": "",
+    "text": "demonetized (1971 decimalization)",
     "until": null
    },
    "nominal": {
@@ -11508,13 +11577,23 @@
    "tags": []
   },
   "IN.X.2-rupees": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "395",
+     "system": "KM"
+    },
+    {
+     "number": "24942",
+     "system": "Numista",
+     "url": "https://en.numista.com/24942"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "steel",
-    "text": ""
+    "text": "Stainless steel"
    },
    "country": "IN",
    "denomination": {
@@ -12849,13 +12928,23 @@
    "tags": []
   },
   "JP.X.10-yen": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "97",
+     "system": "Y"
+    },
+    {
+     "number": "3047",
+     "system": "Numista",
+     "url": "https://en.numista.com/3047"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "bronze",
-    "text": ""
+    "text": "Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)"
    },
    "country": "JP",
    "denomination": {
@@ -14947,13 +15036,23 @@
    "tags": []
   },
   "MX.X.1-peso": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "460",
+     "system": "KM"
+    },
+    {
+     "number": "1105",
+     "system": "Numista",
+     "url": "https://en.numista.com/1105"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "cupronickel",
-    "text": ""
+    "text": "Copper-nickel (75% Copper, 25% Nickel)"
    },
    "country": "MX",
    "denomination": {
@@ -14989,7 +15088,7 @@
    ],
    "legal_tender": {
     "status": "demonetized",
-    "text": "",
+    "text": "demonetized 15 November 1995",
     "until": null
    },
    "nominal": {
@@ -15220,13 +15319,23 @@
    "tags": []
   },
   "MX.X.20-centavos": {
-   "catalogs": [],
+   "catalogs": [
+    {
+     "number": "439",
+     "system": "KM"
+    },
+    {
+     "number": "3933",
+     "system": "Numista",
+     "url": "https://en.numista.com/3933"
+    }
+   ],
    "class": "coin",
    "commemorates": null,
    "composition": {
     "fineness": null,
     "metal_class": "bronze",
-    "text": ""
+    "text": "Bronze (95% Copper, 5% Zinc)"
    },
    "country": "MX",
    "denomination": {
@@ -15237,7 +15346,10 @@
     "value": 20
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Manuel Luna Negrete (reverse)",
+     "Francisco Rivera Paniagua (reverse)"
+    ],
     "legend": null,
     "obverse": "The Mexican coat of arms with a legend at the top supported by a wreath with a beaded rim · ESTADOS UNIDOS MEXICANOS",
     "reverse": "The value at the top with the radiant Liberty cap in between and the mintmark underneath, pyramid at center with volcanoes Ixtaccihuatl and Popocatepetl, value and date at bottom · 20 mint mark TEOTIHUACÁN CENTAVOS date",
@@ -15262,7 +15374,7 @@
    ],
    "legal_tender": {
     "status": "demonetized",
-    "text": "",
+    "text": "demonetized",
     "until": null
    },
    "nominal": {
@@ -20759,7 +20871,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:31:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -20846,7 +20958,7 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -24779,7 +24891,7 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -30864,7 +30976,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:36:01Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -30951,7 +31063,7 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -34788,7 +34900,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T20:09:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T15:22:00Z",
+    "phase2_at": "2026-11-19T01:06:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -40185,7 +40297,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:31:03Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -41344,7 +41456,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T20:42:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -42602,7 +42714,7 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:51Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:31:00Z",
+    "phase2_at": "2026-11-19T01:01:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -43583,7 +43695,7 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:06:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -43670,7 +43782,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T20:39:01Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -45719,7 +45831,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-19T01:01:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -47059,7 +47171,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:31:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -47148,7 +47260,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T20:15:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-17T17:35:00Z",
+    "phase2_at": "2026-11-19T01:07:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -83992,13 +84104,14 @@
    },
    "period": {
     "level": "checked",
-    "by": "Claude + Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#185 https://en.numista.com/catalogue/pieces185.html: Period 'Federal State (1848-date)'",
+    "by": "Claude + Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/185 (\"Issuer Switzerland › Switzerland (1848-date) Period Federal State (1848-date)\")",
     "links": [
+     "https://en.numista.com/185",
      "https://en.numista.com/catalogue/pieces185.html"
     ],
-    "n": 2
+    "n": 3
    }
   },
   "C002": {
@@ -85270,9 +85383,10 @@
    "mintage": {
     "level": "checked",
     "by": "Gemini + Grok",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Schön# 27a) & NGC World Coin Price Guide https://www.ngccoin.com/price-guide/world/ — 1971 B",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/181 (\"1971 34 472 000 $ 0.50 $ 0.50 $ 0.54 $ 0.54 $ 0.54 $ 0.55 $ 0.58 KM# 23a.1\")",
     "links": [
+     "https://en.numista.com/181",
      "https://www.ngccoin.com/price-guide/world/",
      "https://en.numista.com/catalogue/pieces181.html"
     ],
@@ -91285,9 +91399,10 @@
    "mintage": {
     "level": "checked",
     "by": "Gemini + Grok",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Y# 24) & NGC World Coin Price Guide https://www.ngccoin.com/price-guide/world/ — 1979 B mint",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/173 (\"1979 18 000 000 $ 0.12 $ 0.12 $ 0.20 $ 0.28 $ 0.43 $ 0.97\")",
     "links": [
+     "https://en.numista.com/173",
      "https://www.ngccoin.com/price-guide/world/",
      "https://en.numista.com/catalogue/pieces173.html"
     ],
@@ -92050,13 +92165,14 @@
    },
    "period": {
     "level": "checked",
-    "by": "Claude + Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#185 https://en.numista.com/catalogue/pieces185.html: Period 'Federal State (1848-date)'",
+    "by": "Claude + Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/185 (\"Issuer Switzerland › Switzerland (1848-date) Period Federal State (1848-date)\")",
     "links": [
+     "https://en.numista.com/185",
      "https://en.numista.com/catalogue/pieces185.html"
     ],
-    "n": 2
+    "n": 3
    }
   },
   "C094": {
@@ -101247,12 +101363,12 @@
    "mintage": {
     "level": "checked",
     "by": "Gemini + Grok + Muse",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Schön# 95) & NGC World Coin Price Guide https://www.ngccoin.com/price-guide/world/ — 1978 R ",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/724 (\"1978 R Photo 416 808 000 $ 0.13 $ 0.14 $ 0.17 $ 0.20 $ 0.22 $ 0.30 $ 0.54\")",
     "links": [
+     "https://en.numista.com/724",
      "https://www.ngccoin.com/price-guide/world/",
-     "https://en.numista.com/catalogue/pieces724.html",
-     "https://www.coinsbook.net/coins/stainless-steel-coin-50-lire-large-type-km-951"
+     "https://en.numista.com/catalogue/pieces724.html"
     ],
     "n": 3
    },
@@ -105464,9 +105580,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Grok",
-    "ts": "2026-11-06",
-    "source": "https://en.numista.com/catalogue/pieces959.html (\"Composition: Brass (95% Copper, 5% Zinc) | Obverse: The Mexican coat of arms | Reverse: Th",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/959 (\"Composition Brass (95% Copper, 5% Zinc) ... The value is at the top with the radiant Liberty cap in between, an",
     "links": [
+     "https://en.numista.com/959",
      "https://en.numista.com/catalogue/pieces959.html"
     ],
     "n": 2
@@ -110723,9 +110840,10 @@
    "mintage": {
     "level": "checked",
     "by": "Gemini + Grok",
-    "ts": "2026-11-06",
-    "source": "https://en.numista.com/catalogue/pieces724.html (\"1978 R | Photo | 416 808 000 | $ 0.14 | $ 0.15 | $ 0.17 | $ 0.20 | $ 0.23 | $ 0.30 | $ 0.5",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/724 (\"1978 R Photo 416 808 000 $ 0.13 $ 0.14 $ 0.17 $ 0.20 $ 0.22 $ 0.30 $ 0.54\")",
     "links": [
+     "https://en.numista.com/724",
      "https://en.numista.com/catalogue/pieces724.html"
     ],
     "n": 2
@@ -111421,9 +111539,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces33337.html — Issuer Vatican City Pope Pius XII (1939-1958) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/33337 (\"Issuer Vatican City Pope Pius XII (1939-1958)\")",
     "links": [
+     "https://en.numista.com/33337",
      "https://en.numista.com/catalogue/pieces33337.html"
     ],
     "n": 2
@@ -111708,13 +111827,14 @@
    },
    "period": {
     "level": "checked",
-    "by": "Claude + Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#185 https://en.numista.com/catalogue/pieces185.html: Period 'Federal State (1848-date)'",
+    "by": "Claude + Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/185 (\"Issuer Switzerland › Switzerland (1848-date) Period Federal State (1848-date)\")",
     "links": [
+     "https://en.numista.com/185",
      "https://en.numista.com/catalogue/pieces185.html"
     ],
-    "n": 2
+    "n": 3
    }
   },
   "C309": {
@@ -111790,9 +111910,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces870.html — Issuer United Kingdom King George VI (1936-1952) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/870 (\"Issuer United Kingdom King George VI (1936-1952)\")",
     "links": [
+     "https://en.numista.com/870",
      "https://en.numista.com/catalogue/pieces870.html"
     ],
     "n": 2
@@ -111871,9 +111992,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces7.html — Issuer France Period Fifth Republic (1958-date) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/7 (\"Issuer France Period Fifth Republic (1958-date)\")",
     "links": [
+     "https://en.numista.com/7",
      "https://en.numista.com/catalogue/pieces7.html"
     ],
     "n": 2
@@ -112049,9 +112171,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces2149.html — Issuer Czech Republic Period Republic (1993-date) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/2149 (\"Issuer Czech Republic Period Republic (1993-date)\")",
     "links": [
+     "https://en.numista.com/2149",
      "https://en.numista.com/catalogue/pieces2149.html"
     ],
     "n": 2
@@ -112129,9 +112252,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces4077.html — Issuer Russia › Russian Federation (1991-date) ... Period Russian Federation (1991-date) ",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/4077 (\"Issuer Russia › Russian Federation (1991-date) ... Period Russian Federation (1991-date)\")",
     "links": [
+     "https://en.numista.com/4077",
      "https://en.numista.com/catalogue/pieces4077.html"
     ],
     "n": 2
@@ -112408,9 +112532,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces5628.html — Issuer United Kingdom Queen Elizabeth II (1952-2022) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5628 (\"Issuer United Kingdom Queen Elizabeth II (1952-2022)\")",
     "links": [
+     "https://en.numista.com/5628",
      "https://en.numista.com/catalogue/pieces5628.html"
     ],
     "n": 2
@@ -112694,9 +112819,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces586.html — Issuer Mexico Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/586 (\"Issuer Mexico Period United Mexican States/Mexican Republic (1823-date)\")",
     "links": [
+     "https://en.numista.com/586",
      "https://en.numista.com/catalogue/pieces586.html"
     ],
     "n": 2
@@ -112773,9 +112899,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces6862.html — Issuer Sweden King Carl XVI Gustaf (1973-date) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/6862 (\"Issuer Sweden King Carl XVI Gustaf (1973-date)\")",
     "links": [
+     "https://en.numista.com/6862",
      "https://en.numista.com/catalogue/pieces6862.html"
     ],
     "n": 2
@@ -112951,9 +113078,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces3282.html — Issuer Portugal Period Second Republic (1926-1974) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3282 (\"Issuer Portugal Period Second Republic (1926-1974)\")",
     "links": [
+     "https://en.numista.com/3282",
      "https://en.numista.com/catalogue/pieces3282.html"
     ],
     "n": 2
@@ -113134,9 +113262,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces589.html — Issuer Mexico Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/589 (\"Issuer Mexico Period United Mexican States/Mexican Republic (1823-date)\")",
     "links": [
+     "https://en.numista.com/589",
      "https://en.numista.com/catalogue/pieces589.html"
     ],
     "n": 2
@@ -113165,8 +113294,8 @@
    "mint": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-06",
-    "source": "C325_rev.webp (\"Reverse shows Vulcan standing at anvil with 1955 at upper left, L.50 at right, and mint mark R below L.50.\")",
+    "ts": "2026-11-19",
+    "source": "C325_rev.webp (\"Reverse reads 1955 at left and L.50 at right with Vulcan at anvil; capital R mint mark (Rome) clearly visible below the 0 of",
     "n": 2
    },
    "catalog": {
@@ -113312,9 +113441,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces3159.html — Issuer The Bahamas Queen Elizabeth II (1952-2022) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3159 (\"Issuer The Bahamas Queen Elizabeth II (1952-2022)\")",
     "links": [
+     "https://en.numista.com/3159",
      "https://en.numista.com/catalogue/pieces3159.html"
     ],
     "n": 2
@@ -113498,13 +113628,14 @@
    },
    "period": {
     "level": "checked",
-    "by": "Claude + Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#185 https://en.numista.com/catalogue/pieces185.html: Period 'Federal State (1848-date)'",
+    "by": "Claude + Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/185 (\"Issuer Switzerland › Switzerland (1848-date) Period Federal State (1848-date)\")",
     "links": [
+     "https://en.numista.com/185",
      "https://en.numista.com/catalogue/pieces185.html"
     ],
-    "n": 2
+    "n": 3
    }
   },
   "C329": {
@@ -113659,9 +113790,10 @@
    "period": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces1457.html — Issuer Ireland Period Republic (1937-date) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1457 (\"Issuer Ireland Period Republic (1937-date)\")",
     "links": [
+     "https://en.numista.com/1457",
      "https://en.numista.com/catalogue/pieces1457.html"
     ],
     "n": 2
@@ -113740,9 +113872,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces1282.html — Issuer Australia Queen Elizabeth II (1952-2022) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1282 (\"Issuer Australia Queen Elizabeth II (1952-2022)\")",
     "links": [
+     "https://en.numista.com/1282",
      "https://en.numista.com/catalogue/pieces1282.html"
     ],
     "n": 2
@@ -113855,8 +113988,8 @@
    "denomination": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-06",
-    "source": "C333_rev.webp (\"Reverse clearly shows large 50 above ØRE and NORGE, flanked by AB and ØH monograms with crossed hammers below.\")",
+    "ts": "2026-11-19",
+    "source": "C333_rev.webp (\"Reverse of C333_rev.webp reads large 50 above ØRE NORGE with crossed hammers\")",
     "n": 2
    },
    "mint": {
@@ -113985,9 +114118,10 @@
    "ruler": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "https://en.numista.com/catalogue/pieces1262.html — Issuer Spain King Juan Carlos I (1975-2014) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1262 (\"Issuer Spain King Juan Carlos I (1975-2014)\")",
     "links": [
+     "https://en.numista.com/1262",
      "https://en.numista.com/catalogue/pieces1262.html"
     ],
     "n": 2
@@ -114721,14 +114855,18 @@
     "source": "photo NOID_CostaRica_2008_10Colones_obv.jpeg (pen label: COSTA RICA 2008 10 COLONES); identified from the owner's chat photos, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C343_obv.webp (\"Obverse reads REPUBLICA DE COSTA RICA around coat of arms with date 2008 at bottom\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_CostaRica_2008_10Colones_obv.jpeg (pen label: COSTA RICA 2008 10 COLONES); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C343_rev.webp (\"Reverse reads large numeral 10 above COLONES inside wreath and B. C. C. R. below\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
@@ -114736,13 +114874,23 @@
     "ts": "2026-11-11",
     "source": "photos NOID_CostaRica_2008_10Colones_obv.jpeg + _rev.jpeg (cut as photos/p1/C343_obv.webp, C343_rev.webp; Claude, 2026-11-11): no mint mark "
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3756 (\"Number N# 3756 References KM# 228b , Schön# 89b\")",
+    "links": [
+     "https://en.numista.com/3756",
+     "https://en.numista.com/catalogue/pieces3756.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3756.html — Composition Aluminium Weight 1.1 g (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3756 (\"Composition Aluminium Weight 1.1 g\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces3756.html"
+     "https://en.numista.com/3756"
     ]
    },
    "mintage": {
@@ -114755,20 +114903,23 @@
     ]
    },
    "value": {
-    "level": "reference",
-    "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3756.html — 2008 200 000 000 $ 0.11 $ 0.25 $ 0.25 $ 0.27 $ 0.35 $ 0.58 $ 0.58 (full G-UNC table) (rea",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3756 (\"2008 200 000 000 $ 0.11 $ 0.25 $ 0.25 $ 0.27 $ 0.35 $ 0.58 $ 0.58 (VG/F = $0.25)\")",
     "links": [
+     "https://en.numista.com/3756",
      "https://en.numista.com/catalogue/pieces3756.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3756.html — The arms of Costa Rica (seven stars ... three smoking volcanoes ... sunrise) ... Value ab",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3756 (\"The arms of Costa Rica (seven stars ... three smoking volcanoes ... sunrise) ... Value above coffee branches .",
     "links": [
+     "https://en.numista.com/3756",
      "https://en.numista.com/catalogue/pieces3756.html"
     ],
     "n": 2
@@ -114795,22 +114946,33 @@
     "like": "country"
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C344_rev.webp (\"Reverse shows large numeral 10 above kanji date inside laurel wreath\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"Number N# 3047 References Y# 97 , JNDA# 02-9 , Schön# 74\")",
+    "links": [
+     "https://en.numista.com/3047",
+     "https://en.numista.com/catalogue/pieces3047.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3047.html — Composition Bronze (95% Copper, 3-4% Zinc, 1-2% Tin) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"Composition Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces3047.html"
+     "https://en.numista.com/3047"
     ]
    },
    "mintage": {
@@ -114823,21 +114985,23 @@
     ]
    },
    "value": {
-    "level": "reference",
-    "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3047.html — 14 (2002) Photo 455 425 000 $ 0.13 $ 0.15 $ 0.18 $ 0.19 $ 0.21 $ 0.22 (full G-AU table) (",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"14 (2002) Photo 455 425 000 $ 0.13 $ 0.15 $ 0.18 $ 0.19 $ 0.21 $ 0.22 (VG = $0.15)\")",
     "links": [
+     "https://en.numista.com/3047",
      "https://en.numista.com/catalogue/pieces3047.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3047.html — Obverse Phoenix Hall (Hōō-dō, Byōdō-in Temple) in center with Country name on top and val",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"Obverse Phoenix Hall (Hōō-dō, Byōdō-in Temple) in center with Country name on top and value below ... Reverse ",
     "links": [
-     "https://en.numista.com/catalogue/pieces3047.html"
+     "https://en.numista.com/3047"
     ]
    },
    "ruler": {
@@ -114867,8 +115031,11 @@
     "source": "photo NOID_Australia_2008_10Cents_obv.jpeg (pen label: AUSTRALIA 2008 10 CENTS); identified from the owner's chat photos, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C345_obv.webp (\"Obverse reads ELIZABETH II AUSTRALIA 2008 around crowned portrait right\")",
+    "n": 2
    },
    "denomination": {
     "level": "photo",
@@ -114920,9 +115087,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces1565.html — Obverse 4th portrait of Queen Elizabeth II ... Designer: Ian Rank-Broadley Reverse Male S",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1565 (\"Obverse 4th portrait of Queen Elizabeth II ... Designer: Ian Rank-Broadley Reverse Male Superb Lyrebird (Menur",
     "links": [
+     "https://en.numista.com/1565",
      "https://en.numista.com/catalogue/pieces1565.html"
     ],
     "n": 2
@@ -114956,26 +115124,43 @@
     "source": "photo NOID_Mexico_1975_1Peso_obv.jpeg (pen label: MEXICO 1975 1 PESO); identified from the owner's chat photos, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C346_obv.webp (\"Side with José María Morelos portrait left reads UN PESO at left, Mo mint mark at right, and 1975 at bottom\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_Mexico_1975_1Peso_obv.jpeg (pen label: MEXICO 1975 1 PESO); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C346_obv.webp (\"Morelos portrait side reads UN PESO (1 peso) along left rim with 1975 below and Mo at right\")",
+    "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C346_obv.webp (\"Morelos portrait side shows Mo (Mexico City) mint mark behind neck at right, with UN PESO and 1975\")",
+    "n": 2
+   },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1105 (\"Number N# 1105 References KM# 460 , Schön# 70\")",
+    "links": [
+     "https://en.numista.com/1105",
+     "https://en.numista.com/catalogue/pieces1105.html"
+    ]
    },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces1105.html — Composition Copper-nickel (75% Copper, 25% Nickel) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1105 (\"Composition Copper-nickel (75% Copper, 25% Nickel)\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces1105.html"
+     "https://en.numista.com/1105"
     ]
    },
    "mintage": {
@@ -114999,9 +115184,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces1105.html — Obverse National Arms (Eagle on cactus facing left with snake in beak above wreath) ... R",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/1105 (\"Obverse National Arms (Eagle on cactus facing left with snake in beak above wreath) ... Reverse Value with por",
     "links": [
+     "https://en.numista.com/1105",
      "https://en.numista.com/catalogue/pieces1105.html"
     ],
     "n": 2
@@ -115024,26 +115210,40 @@
     "source": "photo NOID_Guernsey_1893_8Doubles_obv.jpeg (pen label: GUERNSEY 1893 8 DOUBLES); identified from the owner's chat photos, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C347_rev.webp (\"Reverse reads 8 DOUBLES 1893 inside laurel wreath with H mint mark below ribbon\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_Guernsey_1893_8Doubles_rev.jpeg (pen label: GUERNSEY 1893 8 DOUBLES); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C347_rev.webp (\"Reverse reads large numeral 8 above DOUBLES and 1893 inside laurel wreath\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5044 (\"Number N# 5044 References KM# 7 , Schön# 8\")",
+    "links": [
+     "https://en.numista.com/5044",
+     "https://en.numista.com/catalogue/pieces5044.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces5044.html — Composition Bronze Weight 9.6 g (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5044 (\"Composition Bronze Weight 9.6 g\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces5044.html"
+     "https://en.numista.com/5044"
     ]
    },
    "mintage": {
@@ -115067,9 +115267,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces5044.html — Issuer Guernsey Queen Victoria (1837-1901) ... Value 8 Doubles (1/240) ... Composition Br",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5044 (\"Issuer Guernsey Queen Victoria (1837-1901) ... Value 8 Doubles (1/240) ... Composition Bronze ... National arm",
     "links": [
+     "https://en.numista.com/5044",
      "https://en.numista.com/catalogue/pieces5044.html"
     ],
     "n": 2
@@ -115092,8 +115293,11 @@
     "source": "photo NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 2004 10 CENTS); identified from the owner's chat phot"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C348_rev.webp (\"Reverse reads EAST CARIBBEAN STATES 2004 around Golden Hind ship with 10 — 10 and TEN CENTS\")",
+    "n": 2
    },
    "denomination": {
     "level": "checked",
@@ -115139,20 +115343,23 @@
     "source": "photo NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 2004 10 CENTS); identified from the owner's chat phot"
    },
    "value": {
-    "level": "reference",
-    "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces5712.html — 2004 $ 0.12 $ 0.24 $ 0.28 $ 0.30 $ 0.36 $ 0.51 $ 1.00 (full G-UNC table) (read 2026-11-17",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5712 (\"2004 $ 0.12 $ 0.24 $ 0.28 $ 0.30 $ 0.36 $ 0.51 $ 1.00 (VF = $0.30)\")",
     "links": [
+     "https://en.numista.com/5712",
      "https://en.numista.com/catalogue/pieces5712.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces5712.html — Obverse ... Engraver: Ian Rank-Broadley Reverse The Golden Hind ... Engraver: Thomas Hump",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5712 (\"Obverse ... Engraver: Ian Rank-Broadley Reverse The Golden Hind ... Engraver: Thomas Humphrey Paget\")",
     "links": [
+     "https://en.numista.com/5712",
      "https://en.numista.com/catalogue/pieces5712.html"
     ],
     "n": 2
@@ -115188,26 +115395,40 @@
     "source": "photo NOID_Australia_1977_50Cents_obv.jpeg (pen label: AUSTRALIA 1977 50 CENTS); identified from the owner's chat photos, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C349_obv.webp (\"Obverse reads ELIZABETH II AUSTRALIA 1977 around crowned portrait right\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_Australia_1977_50Cents_rev.jpeg (pen label: AUSTRALIA 1977 50 CENTS); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C349_rev.webp (\"Reverse reads SILVER JUBILEE · 50 CENTS around central starburst and emblems\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5524 (\"Number N# 5524 References KM# 70 , Schön# 59\")",
+    "links": [
+     "https://en.numista.com/5524",
+     "https://en.numista.com/catalogue/pieces5524.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces5524.html — Composition Copper-nickel (75% Copper, 25% Nickel) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5524 (\"Composition Copper-nickel (75% Copper, 25% Nickel)\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces5524.html"
+     "https://en.numista.com/5524"
     ]
    },
    "mintage": {
@@ -115231,10 +115452,10 @@
    "story": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces5524.html — Commemorative issue: 25th Anniversary of the Accession of Elizabeth II ... Outer design o",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/5524 (\"Commemorative issue: 25th Anniversary of the Accession of Elizabeth II ... Outer design of 25 overlapping crow",
     "links": [
-     "https://en.numista.com/catalogue/pieces5524.html"
+     "https://en.numista.com/5524"
     ]
    },
    "ruler": {
@@ -115255,25 +115476,41 @@
     "source": "photo NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg (pen label: EAST CARIBBEAN STATES 1991 10 CENTS); identified from the owner's chat phot"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C350_rev.webp (\"Reverse reads EAST CARIBBEAN STATES 1991 above Golden Hind sailing ship, 10 — 10, TEN CENTS\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_EastCaribbeanStates_1991_10Cents_rev.jpeg (pen label: EAST CARIBBEAN STATES 1991 10 CENTS); new type for a chat-photo specimen, 2"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C350_rev.webp (\"Reverse reads 10 on each side of ship and TEN CENTS below (EAST CARIBBEAN STATES 1991)\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/932 (\"Number N# 932 References KM# 13 , Schön# 3 (1981-2000) and N# 5712 KM# 37 (2002-date)\")",
+    "links": [
+     "https://en.numista.com/932",
+     "https://en.numista.com/catalogue/pieces932.html",
+     "https://en.numista.com/catalogue/pieces5712.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces932.html — Composition Copper-nickel Weight 1.78 g (1991 issue on N# 932; 2004 issue on N# 5712 is st",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/932 (\"N# 932: Composition Copper-nickel; N# 5712: Composition Nickel-plated steel\")",
     "links": [
+     "https://en.numista.com/932",
      "https://en.numista.com/catalogue/pieces932.html",
      "https://en.numista.com/catalogue/pieces5712.html"
     ]
@@ -115296,10 +115533,10 @@
    "story": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces932.html — Obverse Portrait of Queen Elizabeth II facing right ... Engraver: Arnold Machin Reverse Th",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/932 (\"Obverse Portrait of Queen Elizabeth II facing right ... Engraver: Arnold Machin Reverse The \"Golden Hind\", ship",
     "links": [
-     "https://en.numista.com/catalogue/pieces932.html"
+     "https://en.numista.com/932"
     ]
    },
    "ruler": {
@@ -115324,10 +115561,11 @@
     "like": "country"
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_France_1867_10Centimes_rev.jpeg (pen label: FRANCE 1867 10 CENTIMES); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C351_rev.webp (\"Reverse reads EMPIRE FRANCAIS above eagle with K mint mark and DIX CENTIMES (10 centimes) below\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
@@ -115335,13 +115573,23 @@
     "ts": "2026-11-18",
     "source": "C351_rev.webp (Drive original NOID_France_1867_10Centimes_rev.jpeg): capital letter K (Bordeaux mint) clearly visible at full zoom below the"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/480 (\"Number N# 480 References Franc 2014# 134 , Gad 1789# 253 , KM# 798\")",
+    "links": [
+     "https://en.numista.com/480",
+     "https://en.numista.com/catalogue/pieces480.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces480.html — Composition Bronze Weight 10 g (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/480 (\"Composition Bronze Weight 10 g\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces480.html"
+     "https://en.numista.com/480"
     ]
    },
    "mintage": {
@@ -115353,18 +115601,20 @@
    "value": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces480.html — No 1867 price row is listed on N# 480, so low confidence agrees (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/480 (\"No 1867 price row is listed on N# 480, so low confidence agrees\")",
     "links": [
+     "https://en.numista.com/480",
      "https://en.numista.com/catalogue/pieces480.html"
     ]
    },
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces480.html — Issuer France Emperor Napoleon III (Napoléon III) (1852-1870) ... Composition Bronze ... E",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/480 (\"Issuer France Emperor Napoleon III (Napoléon III) (1852-1870) ... Composition Bronze ... EMPIRE FRANÇAIS ... * ",
     "links": [
+     "https://en.numista.com/480",
      "https://en.numista.com/catalogue/pieces480.html"
     ],
     "n": 2
@@ -115387,26 +115637,43 @@
     "source": "photo NOID_Mexico_1943_20Centavos_obv.jpeg (pen label: MEXICO 1943 20 CENTAVOS); date verified from enhanced crops and the type's 1943 start"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C352_rev.webp (\"Reverse reads 20 under radiant Phrygian cap, Mo mint mark, pyramid and volcanoes, CENTAVOS, and date 1943 at bottom\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_Mexico_1943_20Centavos_rev.jpeg (pen label: MEXICO 1943 20 CENTAVOS); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C352_rev.webp (\"Reverse reads large 20 divided by radiant Phrygian cap at top and CENTAVOS above 1943 at bottom\")",
+    "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C352_rev.webp (\"Reverse shows Mo (Mexico City) mint mark directly beneath radiant Phrygian cap between 20 and pyramid\")",
+    "n": 2
+   },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3933 (\"Number N# 3933 References KM# 439 , Schön# 38\")",
+    "links": [
+     "https://en.numista.com/3933",
+     "https://en.numista.com/catalogue/pieces3933.html"
+    ]
    },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3933.html — Composition Bronze (95% Copper, 5% Zinc) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3933 (\"Composition Bronze (95% Copper, 5% Zinc)\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces3933.html"
+     "https://en.numista.com/3933"
     ]
    },
    "mintage": {
@@ -115430,9 +115697,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3933.html — 1943 Mo Photo 46 350 000 ... pyramid at the center motive along with landscape, consistin",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3933 (\"1943 Mo Photo 46 350 000 ... pyramid at the center motive along with landscape, consisting of the volcanoes Ix",
     "links": [
+     "https://en.numista.com/3933",
      "https://en.numista.com/catalogue/pieces3933.html"
     ],
     "n": 2
@@ -115455,26 +115723,40 @@
     "source": "photo NOID_Japan_1996_10Yen_obv.jpeg (pen label: JAPAN 1996 10 YEN); era year verified glyph-by-glyph from an enlarged crop, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C340_rev.webp (\"Reverse of Japan 10 yen reads large 10 above kanji 平成八年 (Heisei 8 = 1996)\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C344_rev.webp (\"Reverse shows large numeral 10 above kanji date inside laurel wreath\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"Number N# 3047 References Y# 97 , JNDA# 02-9 , Schön# 74\")",
+    "links": [
+     "https://en.numista.com/3047",
+     "https://en.numista.com/catalogue/pieces3047.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3047.html — Composition Bronze (95% Copper, 3-4% Zinc, 1-2% Tin) (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"Composition Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces3047.html"
+     "https://en.numista.com/3047"
     ]
    },
    "mintage": {
@@ -115498,9 +115780,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces3047.html — Obverse Phoenix Hall (Hōō-dō, Byōdō-in Temple) in center with Country name on top and val",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/3047 (\"Obverse Phoenix Hall (Hōō-dō, Byōdō-in Temple) in center with Country name on top and value below ... 8 (1996)",
     "links": [
+     "https://en.numista.com/3047",
      "https://en.numista.com/catalogue/pieces3047.html"
     ],
     "n": 2
@@ -115532,26 +115815,40 @@
     "source": "photo NOID_India_2014_2Rupees_obv.jpeg (pen label: INDIA 2014 2 RUPEES); date and dot mint mark verified from enhanced crops, 2026-11-09"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C338_rev.webp (\"Reverse reads ₹ symbol above large numeral 2 and date 2014 below with dot mint mark\")",
+    "n": 2
    },
    "denomination": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "photo NOID_India_2014_2Rupees_rev.jpeg (pen label: INDIA 2014 2 RUPEES); new type for a chat-photo specimen, 2026-11-09"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-19",
+    "source": "C338_rev.webp (\"Reverse shows ₹ symbol above large numeral 2 flanked by flowers, with 2014 below\")",
+    "n": 2
    },
    "mint": {
     "level": "photo",
     "like": "country"
    },
+   "catalog": {
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/24942 (\"Number N# 24942 References KM# 395\")",
+    "links": [
+     "https://en.numista.com/24942",
+     "https://en.numista.com/catalogue/pieces24942.html"
+    ]
+   },
    "composition": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces24942.html — Composition Stainless steel Weight 4.9 g (read 2026-11-17)",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/24942 (\"Composition Stainless steel Weight 4.9 g\")",
     "links": [
-     "https://en.numista.com/catalogue/pieces24942.html"
+     "https://en.numista.com/24942"
     ]
    },
    "mintage": {
@@ -115572,9 +115869,10 @@
    "story": {
     "level": "checked",
     "by": "Gemini + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces24942.html — Series: New rupee sign (₹) ... Obverse Ashoka Pillar Lion Capitol ... Reverse Denominati",
+    "ts": "2026-11-19",
+    "source": "https://en.numista.com/24942 (\"Series: New rupee sign (₹) ... Obverse Ashoka Pillar Lion Capitol ... Reverse Denomination and date below the",
     "links": [
+     "https://en.numista.com/24942",
      "https://en.numista.com/catalogue/pieces24942.html"
     ],
     "n": 2

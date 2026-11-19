@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-18T20:56:37Z",
+ "updated": "2026-11-19T01:19:57Z",
  "assignments": [
   {
    "id": "HW-gemini-verify-20261112-1",
@@ -700,6 +700,46 @@
      "payload": {
       "story": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.",
       "shorthand": "Eight doubles from Guernsey, dated 1893 "
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-contradiction-20261119-1",
+   "agent": "gemini",
+   "kind": "contradiction",
+   "issued": "2026-11-19T01:19:57Z",
+   "lease_until": "2026-11-26T01:19:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:two_numbers:EC.X.10-cents",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "catalogs"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "contra:two_numbers:EC.X.10-cents",
+     "kind": "contradiction",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "catalogs",
+     "coins": [
+      "C350"
+     ],
+     "label": "EC.X.10-cents",
+     "authors": [],
+     "payload": {
+      "rule": "two_numbers",
+      "detail": "2 Numista numbers: 932, 5712",
+      "ask": "This type carries two numbers in the same catalogue. Send the whole catalogs list with the one right number per catalogue (the entry URL in source).",
+      "record": null
      },
      "blind": false,
      "inputs": []

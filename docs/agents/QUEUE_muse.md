@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-18 20:56 UTC)
+# WORK QUEUE for Muse (updated 2026-11-19 01:19 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -52,7 +52,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
 
-### 2. HW-muse-fill-20261118-1 · Cataloguer · Fill the blank facts of 9 coin types · due 2026-11-28  (fix list #72)
+### 2. HW-muse-fill-20261118-1 · Cataloguer · Fill the blank facts of 5 coin types · due 2026-11-28  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
@@ -61,17 +61,13 @@ Each coin type below has Phase 2 facts that are still blank (listed per type). O
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-fill-20261118-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **C349 · Australia · 1977 · 50 cents · AUD (AU.X.50-cents)**: blank: designers. No entry on record yet: find the one for this year.
-- **C343 · Costa Rica · 2008 · 10 colones · CRC (CR.X.10-colones)**: blank: designers. No entry on record yet: find the one for this year.
-- **C350 · East Caribbean States · 1991 · 10 cents · XCD (EC.X.10-cents)**: blank: designers. No entry on record yet: find the one for this year.
-- **C351 · France · 1867 · 10 centimes · FRF (FR.X.10-centimes)**: blank: designers. No entry on record yet: find the one for this year.
-- **C347 · Guernsey · 1893 · 8 doubles · GGP (GG.X.8-doubles)**: blank: designers. No entry on record yet: find the one for this year.
-- **C354 · India · 2014 · 2 rupees · INR (IN.X.2-rupees)**: blank: designers. No entry on record yet: find the one for this year.
-- **C344 · Japan · Heisei 14 (2002) · 10 yen · JPY (JP.X.10-yen)**: blank: designers. No entry on record yet: find the one for this year.
-- **C346 · Mexico · 1975 · 1 peso · MXP (MX.X.1-peso)**: blank: designers. No entry on record yet: find the one for this year.
-- **C352 · Mexico · 1943 · 20 centavos · MXP (MX.X.20-centavos)**: blank: designers. No entry on record yet: find the one for this year.
+- **C343 · Costa Rica · 2008 · 10 colones · CRC (CR.X.10-colones)**: blank: designers. Entry on record: https://en.numista.com/3756
+- **C347 · Guernsey · 1893 · 8 doubles · GGP (GG.X.8-doubles)**: blank: designers. Entry on record: https://en.numista.com/5044
+- **C354 · India · 2014 · 2 rupees · INR (IN.X.2-rupees)**: blank: designers. Entry on record: https://en.numista.com/24942
+- **C344 · Japan · Heisei 14 (2002) · 10 yen · JPY (JP.X.10-yen)**: blank: designers. Entry on record: https://en.numista.com/3047
+- **C346 · Mexico · 1975 · 1 peso · MXP (MX.X.1-peso)**: blank: designers. Entry on record: https://en.numista.com/1105
 
-### 3. HW-muse-cite-20261118-1 · Cataloguer · Cite the catalogue facts of 9 coin types · due 2026-11-25  (fix list #72)
+### 3. HW-muse-cite-20261118-1 · Cataloguer · Cite the catalogue facts of 3 coin types · due 2026-11-25  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -80,15 +76,9 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261118-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **EC 10 cents (EC.X.10-cents)** coins C350. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class; issues.0.mintage: 1991
-- **FR 10 centimes (FR.X.10-centimes)** coins C351. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class; issues.1.mintage: 1867 K
-- **IN 2 rupees (IN.X.2-rupees)** coins C354. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class; issues.0.mintage: 2014 ●
-- **AU 50 cents (AU.X.50-cents)** coins C349. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class
-- **CR 10 colones (CR.X.10-colones)** coins C343. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class
-- **GG 8 doubles (GG.X.8-doubles)** coins C347. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class
-- **JP 10 yen (JP.X.10-yen)** coins C344, C353. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class
-- **MX 1 peso (MX.X.1-peso)** coins C346. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class
-- **MX 20 centavos (MX.X.20-centavos)** coins C352. Ask: catalogs: add the Numista entry {system: "Numista", number, url}; composition.text + composition.metal_class
+- **EC 10 cents (EC.X.10-cents)** coins C350. Ask: issues.0.mintage: 1991. Note: «The type carries two numbers in one catalogue (2 Numista numbers: 932, 5712): say which one this coin is.»
+- **FR 10 centimes (FR.X.10-centimes)** coins C351. Ask: issues.1.mintage: 1867 K
+- **IN 2 rupees (IN.X.2-rupees)** coins C354. Ask: issues.0.mintage: 2014 ●
 
 ### 4. HW-muse-arbitrate-20261118-1 · Arbiter · Settle 3 disagreements between two AIs · due 2026-11-25  (fix list #18)
 
@@ -136,6 +126,33 @@ Items:
 - **period of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** `type JP.X.10-yen period` = `Heisei era` (written by Gemini: «https://en.numista.com/catalogue/pieces3047.html — Years 1-31 (1989-2019) Dating Japan - Heisei era (read 2026-11-17)»)
 - **period of C354 · India · 2014 · 2 rupees · INR** `type IN.X.2-rupees period` = `Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces24942.html — Issuer India Period Republic (1950-date) (read 2026-11-17)»)
 
+### 6. HW-muse-verify-20261119-1 · Second reader · Check 17 facts another AI wrote · due 2026-11-26  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261119-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **catalog of C347 · Guernsey · 1893 · 8 doubles · GGP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GG.X.8-doubles catalogs` [audit sample]
+- **composition of C347 · Guernsey · 1893 · 8 doubles · GGP** `type GG.X.8-doubles composition.text` = `Bronze` (written by Gemini: «https://en.numista.com/5044 ("Composition Bronze Weight 9.6 g")») [audit sample]
+- **catalog of C349 · Australia · 1977 · 50 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.50-cents catalogs` [audit sample]
+- **composition of C350 · East Caribbean States · 1991 · 10 cents · XCD** `type EC.X.10-cents composition.text` = `Copper-nickel (1981-2000); Nickel-plated steel (2002-date)` (written by Gemini: «https://en.numista.com/932 ("N# 932: Composition Copper-nickel; N# 5712: Composition Nickel-plated steel")») [audit sample]
+- **composition of C349 · Australia · 1977 · 50 cents · AUD** `type AU.X.50-cents composition.text` = `Copper-nickel (75% Copper, 25% Nickel)` (written by Gemini: «https://en.numista.com/5524 ("Composition Copper-nickel (75% Copper, 25% Nickel)")»)
+- **catalog of C352 · Mexico · 1943 · 20 centavos · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.20-centavos catalogs`
+- **composition of C352 · Mexico · 1943 · 20 centavos · MXP** `type MX.X.20-centavos composition.text` = `copper-plated steel` (written by Gemini: «https://en.numista.com/3933 ("Composition Bronze (95% Copper, 5% Zinc)")»)
+- **catalog of C346 · Mexico · 1975 · 1 peso · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.1-peso catalogs`
+- **composition of C346 · Mexico · 1975 · 1 peso · MXP** `type MX.X.1-peso composition.text` = `Copper-nickel (75% Copper, 25% Nickel)` (written by Gemini: «https://en.numista.com/1105 ("Composition Copper-nickel (75% Copper, 25% Nickel)")»)
+- **catalog of C343 · Costa Rica · 2008 · 10 colones · CRC** (blind: look it up yourself in your own exact source; the first value is not shown) `type CR.X.10-colones catalogs`
+- **catalog of C351 · France · 1867 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.X.10-centimes catalogs`
+- **composition of C343 · Costa Rica · 2008 · 10 colones · CRC** `type CR.X.10-colones composition.text` = `Aluminium` (written by Gemini: «https://en.numista.com/3756 ("Composition Aluminium Weight 1.1 g")»)
+- **composition of C351 · France · 1867 · 10 centimes · FRF** `type FR.X.10-centimes composition.text` = `Bronze` (written by Gemini: «https://en.numista.com/480 ("Composition Bronze Weight 10 g")»)
+- **catalog of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.10-yen catalogs`
+- **composition of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** `type JP.X.10-yen composition.text` = `Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)` (written by Gemini: «https://en.numista.com/3047 ("Composition Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)")»)
+- **catalog of C354 · India · 2014 · 2 rupees · INR** (blind: look it up yourself in your own exact source; the first value is not shown) `type IN.X.2-rupees catalogs`
+- **composition of C354 · India · 2014 · 2 rupees · INR** `type IN.X.2-rupees composition.text` = `Stainless steel` (written by Gemini: «https://en.numista.com/24942 ("Composition Stainless steel Weight 4.9 g")»)
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -155,5 +172,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 12.
-- Your facts checked by another contributor: 943 (926 confirmed, 17 wrong; error rate 1.8 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 33. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 967 (950 confirmed, 17 wrong; error rate 1.8 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

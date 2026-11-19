@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-18T20:56:37Z",
+ "updated": "2026-11-19T01:19:57Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261114-1",
@@ -128,26 +128,6 @@
    ],
    "items_full": [
     {
-     "item": "fill:AU.X.50-cents",
-     "kind": "fill",
-     "entity": "type",
-     "id": "AU.X.50-cents",
-     "field": null,
-     "coins": [
-      "C349"
-     ],
-     "label": "C349 · Australia · 1977 · 50 cents · AUD (AU.X.50-cents)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
      "item": "fill:CR.X.10-colones",
      "kind": "fill",
      "entity": "type",
@@ -162,47 +142,7 @@
       "blank": [
        "designers"
       ],
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:EC.X.10-cents",
-     "kind": "fill",
-     "entity": "type",
-     "id": "EC.X.10-cents",
-     "field": null,
-     "coins": [
-      "C350"
-     ],
-     "label": "C350 · East Caribbean States · 1991 · 10 cents · XCD (EC.X.10-cents)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:FR.X.10-centimes",
-     "kind": "fill",
-     "entity": "type",
-     "id": "FR.X.10-centimes",
-     "field": null,
-     "coins": [
-      "C351"
-     ],
-     "label": "C351 · France · 1867 · 10 centimes · FRF (FR.X.10-centimes)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/3756"
      },
      "blind": false,
      "inputs": []
@@ -222,7 +162,7 @@
       "blank": [
        "designers"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/5044"
      },
      "blind": false,
      "inputs": []
@@ -242,7 +182,7 @@
       "blank": [
        "designers"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/24942"
      },
      "blind": false,
      "inputs": []
@@ -263,7 +203,7 @@
       "blank": [
        "designers"
       ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/3047"
      },
      "blind": false,
      "inputs": []
@@ -283,27 +223,7 @@
       "blank": [
        "designers"
       ],
-      "numista_url": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "fill:MX.X.20-centavos",
-     "kind": "fill",
-     "entity": "type",
-     "id": "MX.X.20-centavos",
-     "field": null,
-     "coins": [
-      "C352"
-     ],
-     "label": "C352 · Mexico · 1943 · 20 centavos · MXP (MX.X.20-centavos)",
-     "authors": [],
-     "payload": {
-      "blank": [
-       "designers"
-      ],
-      "numista_url": null
+      "numista_url": "https://en.numista.com/1105"
      },
      "blind": false,
      "inputs": []
@@ -401,16 +321,31 @@
         "mint_read": true
        }
       ],
-      "catalogs": [],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "13"
+       },
+       {
+        "system": "Numista",
+        "number": "932"
+       },
+       {
+        "system": "KM",
+        "number": "37"
+       },
+       {
+        "system": "Numista",
+        "number": "5712"
+       }
+      ],
       "weight_g": 1.78,
       "diameter_mm": 18.06,
-      "composition": "",
+      "composition": "Copper-nickel (1981-2000); Nickel-plated steel (2002-date)",
       "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class",
        "issues.0.mintage: 1991"
       ],
-      "note": null
+      "note": "The type carries two numbers in one catalogue (2 Numista numbers: 932, 5712): say which one this coin is."
      },
      "blind": false,
      "inputs": [],
@@ -449,13 +384,20 @@
         "mint_read": true
        }
       ],
-      "catalogs": [],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "798"
+       },
+       {
+        "system": "Numista",
+        "number": "480"
+       }
+      ],
       "weight_g": 10.0,
       "diameter_mm": 30.0,
-      "composition": "",
+      "composition": "Bronze",
       "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class",
        "issues.1.mintage: 1867 K"
       ],
       "note": null
@@ -499,13 +441,20 @@
         "mint_read": true
        }
       ],
-      "catalogs": [],
+      "catalogs": [
+       {
+        "system": "KM",
+        "number": "395"
+       },
+       {
+        "system": "Numista",
+        "number": "24942"
+       }
+      ],
       "weight_g": 4.9,
       "diameter_mm": 25.0,
-      "composition": "",
+      "composition": "Stainless steel",
       "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class",
        "issues.0.mintage: 2014 ●"
       ],
       "note": null
@@ -521,250 +470,6 @@
        "qualifier": null
       }
      }
-    },
-    {
-     "item": "cite:AU.X.50-cents",
-     "kind": "cite",
-     "entity": "type",
-     "id": "AU.X.50-cents",
-     "field": null,
-     "coins": [
-      "C349"
-     ],
-     "label": "AU 50 cents (AU.X.50-cents)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1977,
-        "mint_marks": [],
-        "coins": [
-         "C349"
-        ],
-        "mintage": 25067000,
-        "mintage_label": "reference",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": 15.55,
-      "diameter_mm": 31.51,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "cite:CR.X.10-colones",
-     "kind": "cite",
-     "entity": "type",
-     "id": "CR.X.10-colones",
-     "field": null,
-     "coins": [
-      "C343"
-     ],
-     "label": "CR 10 colones (CR.X.10-colones)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2008,
-        "mint_marks": [],
-        "coins": [
-         "C343"
-        ],
-        "mintage": 200000000,
-        "mintage_label": "reference",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": 1.1,
-      "diameter_mm": 23.5,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "cite:GG.X.8-doubles",
-     "kind": "cite",
-     "entity": "type",
-     "id": "GG.X.8-doubles",
-     "field": null,
-     "coins": [
-      "C347"
-     ],
-     "label": "GG 8 doubles (GG.X.8-doubles)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1893,
-        "mint_marks": [],
-        "coins": [
-         "C347"
-        ],
-        "mintage": 118000,
-        "mintage_label": "reference",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": 9.6,
-      "diameter_mm": 31.6,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "cite:JP.X.10-yen",
-     "kind": "cite",
-     "entity": "type",
-     "id": "JP.X.10-yen",
-     "field": null,
-     "coins": [
-      "C344",
-      "C353"
-     ],
-     "label": "JP 10 yen (JP.X.10-yen)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 2002,
-        "mint_marks": [],
-        "coins": [
-         "C344"
-        ],
-        "mintage": 455425000,
-        "mintage_label": "reference",
-        "mint_read": true
-       },
-       {
-        "N": 1,
-        "year": 1996,
-        "mint_marks": [],
-        "coins": [
-         "C353"
-        ],
-        "mintage": 546024000,
-        "mintage_label": "reference",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": 4.5,
-      "diameter_mm": 23.5,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "cite:MX.X.1-peso",
-     "kind": "cite",
-     "entity": "type",
-     "id": "MX.X.1-peso",
-     "field": null,
-     "coins": [
-      "C346"
-     ],
-     "label": "MX 1 peso (MX.X.1-peso)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1975,
-        "mint_marks": [
-         "Mo"
-        ],
-        "coins": [
-         "C346"
-        ],
-        "mintage": 205979000,
-        "mintage_label": "reference",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": 9.0,
-      "diameter_mm": 29.0,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "cite:MX.X.20-centavos",
-     "kind": "cite",
-     "entity": "type",
-     "id": "MX.X.20-centavos",
-     "field": null,
-     "coins": [
-      "C352"
-     ],
-     "label": "MX 20 centavos (MX.X.20-centavos)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1943,
-        "mint_marks": [
-         "Mo"
-        ],
-        "coins": [
-         "C352"
-        ],
-        "mintage": 46350000,
-        "mintage_label": "reference",
-        "mint_read": true
-       }
-      ],
-      "catalogs": [],
-      "weight_g": 10.0,
-      "diameter_mm": 28.5,
-      "composition": "",
-      "ask": [
-       "catalogs: add the Numista entry {system: \"Numista\", number, url}",
-       "composition.text + composition.metal_class"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": []
     }
    ]
   },
@@ -1815,6 +1520,637 @@
       "their_source": "https://en.numista.com/catalogue/pieces24942.html — Issuer India Period Republic (1950-date) (read 2026-11-17)",
       "links": [
        "https://en.numista.com/catalogue/pieces24942.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261119-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-19T01:19:57Z",
+   "lease_until": "2026-11-26T01:19:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GG.X.8-doubles:catalogs",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:composition.text",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:catalogs",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:composition.text",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:composition.text",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:catalogs",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:composition.text",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:catalogs",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:composition.text",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:catalogs",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:catalogs",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:composition.text",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:composition.text",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:catalogs",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:composition.text",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:catalogs",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:composition.text",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "composition.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:GG.X.8-doubles:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "catalogs",
+     "coins": [
+      "C347"
+     ],
+     "label": "catalog of C347 · Guernsey · 1893 · 8 doubles · GGP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "composition.text",
+     "coins": [
+      "C347"
+     ],
+     "label": "composition of C347 · Guernsey · 1893 · 8 doubles · GGP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bronze",
+      "their_source": "https://en.numista.com/5044 (\"Composition Bronze Weight 9.6 g\")",
+      "links": [
+       "https://en.numista.com/5044"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "catalogs",
+     "coins": [
+      "C349"
+     ],
+     "label": "catalog of C349 · Australia · 1977 · 50 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "composition.text",
+     "coins": [
+      "C350"
+     ],
+     "label": "composition of C350 · East Caribbean States · 1991 · 10 cents · XCD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel (1981-2000); Nickel-plated steel (2002-date)",
+      "their_source": "https://en.numista.com/932 (\"N# 932: Composition Copper-nickel; N# 5712: Composition Nickel-plated steel\")",
+      "links": [
+       "https://en.numista.com/932",
+       "https://en.numista.com/catalogue/pieces932.html",
+       "https://en.numista.com/catalogue/pieces5712.html"
+      ],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "composition.text",
+     "coins": [
+      "C349"
+     ],
+     "label": "composition of C349 · Australia · 1977 · 50 cents · AUD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel (75% Copper, 25% Nickel)",
+      "their_source": "https://en.numista.com/5524 (\"Composition Copper-nickel (75% Copper, 25% Nickel)\")",
+      "links": [
+       "https://en.numista.com/5524"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "catalogs",
+     "coins": [
+      "C352"
+     ],
+     "label": "catalog of C352 · Mexico · 1943 · 20 centavos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "composition.text",
+     "coins": [
+      "C352"
+     ],
+     "label": "composition of C352 · Mexico · 1943 · 20 centavos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bronze (95% Copper, 5% Zinc)",
+      "their_source": "https://en.numista.com/3933 (\"Composition Bronze (95% Copper, 5% Zinc)\")",
+      "links": [
+       "https://en.numista.com/3933"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "catalogs",
+     "coins": [
+      "C346"
+     ],
+     "label": "catalog of C346 · Mexico · 1975 · 1 peso · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "composition.text",
+     "coins": [
+      "C346"
+     ],
+     "label": "composition of C346 · Mexico · 1975 · 1 peso · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Copper-nickel (75% Copper, 25% Nickel)",
+      "their_source": "https://en.numista.com/1105 (\"Composition Copper-nickel (75% Copper, 25% Nickel)\")",
+      "links": [
+       "https://en.numista.com/1105"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "catalogs",
+     "coins": [
+      "C343"
+     ],
+     "label": "catalog of C343 · Costa Rica · 2008 · 10 colones · CRC",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "catalogs",
+     "coins": [
+      "C351"
+     ],
+     "label": "catalog of C351 · France · 1867 · 10 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "composition.text",
+     "coins": [
+      "C343"
+     ],
+     "label": "composition of C343 · Costa Rica · 2008 · 10 colones · CRC",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Aluminium",
+      "their_source": "https://en.numista.com/3756 (\"Composition Aluminium Weight 1.1 g\")",
+      "links": [
+       "https://en.numista.com/3756"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "composition.text",
+     "coins": [
+      "C351"
+     ],
+     "label": "composition of C351 · France · 1867 · 10 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bronze",
+      "their_source": "https://en.numista.com/480 (\"Composition Bronze Weight 10 g\")",
+      "links": [
+       "https://en.numista.com/480"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "catalogs",
+     "coins": [
+      "C344",
+      "C353"
+     ],
+     "label": "catalog of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "composition.text",
+     "coins": [
+      "C344",
+      "C353"
+     ],
+     "label": "composition of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)",
+      "their_source": "https://en.numista.com/3047 (\"Composition Bronze (95% Copper, 3-4% Zinc, 1-2% Tin)\")",
+      "links": [
+       "https://en.numista.com/3047"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "catalogs",
+     "coins": [
+      "C354"
+     ],
+     "label": "catalog of C354 · India · 2014 · 2 rupees · INR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:composition.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "composition.text",
+     "coins": [
+      "C354"
+     ],
+     "label": "composition of C354 · India · 2014 · 2 rupees · INR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "composition",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Stainless steel",
+      "their_source": "https://en.numista.com/24942 (\"Composition Stainless steel Weight 4.9 g\")",
+      "links": [
+       "https://en.numista.com/24942"
       ],
       "photos": [],
       "audit": false,

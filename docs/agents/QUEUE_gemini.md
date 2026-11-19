@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-18 20:56 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-19 01:19 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -150,6 +150,23 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C347", "op": "set", "field": "story", "old": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.", "new": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.", "source": "FILL (C347 · Guernsey · 1893 · 8 doubles · GGP): plain-English rewrite of the existing story; no facts changed", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-plain-story", "assignment": "HW-gemini-plain-story-20261118-1", "run_id": "HW-gemini-plain-story-20261118-1", "inputs": []}}
 ```
 
+### 6. HW-gemini-contradiction-20261119-1 · Fact fixer · Settle 1 contradictions in the record · due 2026-11-26  (fix list #102)
+
+Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.
+
+**Done when:** One change file; an item you could not settle is left out (it goes back to the pool).
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-contradiction-20261119-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **EC.X.10-cents** (two_numbers): «2 Numista numbers: 932, 5712». This type carries two numbers in the same catalogue. Send the whole catalogs list with the one right number per catalogue (the entry URL in source). `type EC.X.10-cents catalogs`
+
+Answer sheet (the same as the link):
+
+```jsonl
+{"ts": "2026-11-19T01:19:57Z", "by": "model:gemini", "entity": "type", "id": "EC.X.10-cents", "op": "set", "field": "catalogs", "old": [{"number": "13", "system": "KM"}, {"number": "932", "system": "Numista", "url": "https://en.numista.com/932"}, {"number": "37", "system": "KM"}, {"number": "5712", "system": "Numista", "url": "https://en.numista.com/5712"}], "new": [{"number": "13", "system": "KM"}, {"number": "932", "system": "Numista", "url": "https://en.numista.com/932"}, {"number": "37", "system": "KM"}, {"number": "5712", "system": "Numista", "url": "https://en.numista.com/5712"}], "source": "FILL (EC.X.10-cents): the exact source that settles it (URL + the row you read) and what you checked", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-19", "workflow": "homework-contradiction", "assignment": "HW-gemini-contradiction-20261119-1", "run_id": "HW-gemini-contradiction-20261119-1", "inputs": []}}
+```
+
 ## Projects (after the homework)
 
 ### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
@@ -175,5 +192,5 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 11.
-- Your facts checked by another contributor: 1060 (1045 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 650. Open disagreements you are part of: 33. Values planted wrong on purpose in your checks: you caught 22 of 22.
+- Your facts checked by another contributor: 1084 (1069 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 672. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
 - Share of your new facts that get checked first: 15 %.
