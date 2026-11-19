@@ -3,32 +3,12 @@ CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answ
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Gemini (updated 2026-11-19 20:54 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-19 22:22 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
 **Status:** active. Loaded to the maximum (owner, 2026-10-22: "Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). Off probation 2026-10-23: 4 files in a row scored 8+ with no accuracy fault (changes_gemini_20261023-1644 to -1647; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate like Grok's. 2026-10-23 (owner: 'update its homework but keep its scope high'): + fill (blank Phase 2 facts, the kind its design-text redo did well), and theme, motion and music builds as projects.
 **How you get this:** Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).
-
-## Finish first
-
-### Second reader for all 33 albums, from the page photos (blind)  (fix list #55)
-
-Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {"A001": {"photos": [file names], "slots": [{"label": "1941-D", "state": "filled|empty|unclear"}]}, ...}.
-
-**Done when:** One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.
-
-### AI-guessed facts, part 1 of 2: replace items 1-52 with cited facts  (fix list trust)
-
-Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 1 to 52 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p1'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-17T10:00:00Z","by":"model:<your exact model>","entity":"type","id":"MX.KM.433","field":"design.text","old":null,"new":"<the catalogue wording>","source":"Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, Obverse/Reverse description","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"https://en.numista.com/catalogue/pieces1234.html"}],"run_id":"GT-AIFACTS-p1"}} Before you save: every source names the exact catalogue entry (Numista N# with URL, or KM# with book and page) and the row you read; design text is the catalogue's wording, not yours; mintages are for that year and mint only.
-
-**Done when:** Items 1-52 each carry an exact source; Claude opens 10 at random.
-
-### AI-guessed facts, part 2 of 2: replace items 53-103 with cited facts  (fix list trust)
-
-Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 53 to 103 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p2'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-17T10:00:00Z","by":"model:<your exact model>","entity":"type","id":"MX.KM.433","field":"design.text","old":null,"new":"<the catalogue wording>","source":"Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, Obverse/Reverse description","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"https://en.numista.com/catalogue/pieces1234.html"}],"run_id":"GT-AIFACTS-p1"}} Before you save: every source names the exact catalogue entry (Numista N# with URL, or KM# with book and page) and the row you read; design text is the catalogue's wording, not yours; mintages are for that year and mint only.
-
-**Done when:** Items 53-103 each carry an exact source; Claude opens 10 at random.
 
 ## Homework (generated from the data)
 

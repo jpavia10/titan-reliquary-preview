@@ -1,315 +1,319 @@
 {
-  "schema": "titan-roles/1",
-  "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
-  "updated": "2026-11-05",
-  "agents": {
-    "grok": {
-      "name": "Grok",
-      "status": "active",
-      "probation": false,
-      "by": [
-        "model:grok-bot",
-        "model:grok"
-      ],
-      "model": "grok-bot",
-      "caps": [
-        "web",
-        "numista",
-        "drive",
-        "vision",
-        "code"
-      ],
-      "capacity": 24,
-      "kinds": [
-        "research",
-        "arbitrate",
-        "contradiction",
-        "catno",
-        "cite",
-        "value",
-        "story-check",
-        "verify",
-        "read-mint"
-      ],
-      "strength": "Strongest contributor, treated as a top model (owner, 2026-10-10: \"Grok is basically opus if it needs to be so I think they get the hardest shit\"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.",
-      "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).",
-      "per_kind": 4
-    },
-    "muse": {
-      "name": "Muse",
-      "status": "active",
-      "probation": false,
-      "by": [
-        "model:muse-spark",
-        "model:muse"
-      ],
-      "model": "muse-spark",
-      "caps": [
-        "drive",
-        "numista",
-        "vision",
-        "web"
-      ],
-      "capacity": 40,
-      "kinds": [
-        "fill",
-        "research",
-        "cite",
-        "catno",
-        "value",
-        "contradiction",
-        "story-check",
-        "arbitrate",
-        "verify",
-        "plain-story",
-        "read-mint"
-      ],
-      "strength": "Researcher and writer, loaded up (owner, 2026-10-23: \"Load up muse\"; 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.",
-      "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
-      "per_kind": 8,
-      "full_batches": true
-    },
-    "gemini": {
-      "name": "Gemini",
-      "status": "active",
-      "probation": false,
-      "onboarding": false,
-      "by": [
-        "model:gemini"
-      ],
-      "model": "gemini",
-      "caps": [
-        "drive",
-        "numista",
-        "vision",
-        "web",
-        "code"
-      ],
-      "capacity": 400,
-      "kinds": [
-        "arbitrate",
-        "contradiction",
-        "read-mint",
-        "verify",
-        "research",
-        "value",
-        "story-check",
-        "cite",
-        "catno",
-        "plain-story",
-        "fill"
-      ],
-      "strength": "Loaded to the maximum (owner, 2026-10-22: \"Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework\"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). Off probation 2026-10-23: 4 files in a row scored 8+ with no accuracy fault (changes_gemini_20261023-1644 to -1647; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate like Grok's. 2026-10-23 (owner: 'update its homework but keep its scope high'): + fill (blank Phase 2 facts, the kind its design-text redo did well), and theme, motion and music builds as projects.",
-      "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).",
-      "inline_sheets": true,
-      "full_batches": true,
-      "per_kind": 40,
-      "lease_days": 10,
-      "load_note": "2026-11-05 owner: 'load up gemini to retarded level' / 'a cruel amount of homework ... clear measurable objectives'. Capacity 400 open sheets, up to 40 of a kind, 10-day leases (a load this size needs the time; an ignored sheet still returns to the pool).",
-      "priority": 10
-    },
-    "chatgpt": {
-      "name": "ChatGPT",
-      "status": "parked",
-      "probation": false,
-      "by": [
-        "model:chatgpt",
-        "model:gpt"
-      ],
-      "model": "chatgpt",
-      "caps": [
-        "web",
-        "code"
-      ],
-      "capacity": 0,
-      "kinds": [],
-      "strength": "Parked (owner, 2026-10-10: \"Chatgpt is too manual so I dont expect stuff to come from there since it requires me\"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.",
-      "reach": "Its page is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md; it takes part only when it can save its files to Drive itself (ChatGPT's Google Drive connector). Joseph never pastes anything for it (owner, 2026-10-23)."
-    },
-    "gemini-api": {
-      "name": "Gemini API",
-      "status": "active",
-      "probation": true,
-      "onboarding": true,
-      "by": [
-        "model:gemini-api"
-      ],
-      "model": "gemini-api",
-      "sub_sources": true,
-      "caps": [
-        "vision",
-        "code"
-      ],
-      "capacity": 4,
-      "kinds": [
-        "read-mint",
-        "verify",
-        "plain-story"
-      ],
-      "verify_blind_only": true,
-      "takes_parked": false,
-      "takes_parked_note": "Off since 2026-11-04: the parked photo checks are the photos two AIs found unreadable; the API guessed on them (C036 year where Grok saw only 200?, C031 citing the wrong side) instead of leaving them blank. It takes ordinary pool items only.",
-      "run_by": "claude",
-      "strength": "New source (owner, 2026-10-31: \"Gemini api will be a new source and sub sources based on model used\"): the Gemini API on the owner's free-tier key, run by Claude from the session (tools/gemini/run_homework.py). Each model it runs on is a sub-source (by model:gemini-api:<model>, e.g. model:gemini-api:gemini-3.8-flash), measured on its own. It reads coin photos and checks photo readings with 3.6 Flash, and rewords stories with 3.5 Flash Lite (owner, 2026-11-01: \"Flash lite should probably be used for text only stuff\"; Lite misread real years and face values in the photo test, so it takes no photo work); it has no web search (the free tier has no search quota) and opens only pages it names that let Google's fetcher in (Wikipedia, Foronum, CoinArchives; Numista, NGC, uCoin and Colnect refuse it), so it takes no cite, catno, fill, value or research work. On probation like any new AI: every fact it writes is checked first. Not independent of the Gemini app (one vendor, one model family): it never checks the app's facts, the app never checks its facts, and the two together never make a fact Checked.",
-      "reach": "No Drive, no chat: Claude runs it (python3 tools/gemini/run_homework.py), which answers its open sheets in docs/agents/homework/sheets/ and writes collection/_incoming/changes_gemini-api_YYYYMMDD-HHMM.jsonl; publish.py merges it like any contributor's file. A line citing a web page it did not actually open is dropped before the file is written."
-    }
+ "schema": "titan-roles/1",
+ "about": "Who does which homework (docs/agents/RESEARCH_LOOP.md). tools/agents/homework.py reads this file at every publish: it hands each active AI new assignments from the open work pools in the order of its `kinds` list, never gives an AI its own facts to check, and never lets one AI hold more than `capacity` open assignments. Claude edits this file when the owner changes who is active, or when the measured numbers say an AI should do more or less of a kind.",
+ "updated": "2026-11-05",
+ "agents": {
+  "grok": {
+   "name": "Grok",
+   "status": "active",
+   "probation": true,
+   "by": [
+    "model:grok-bot",
+    "model:grok"
+   ],
+   "model": "grok-bot",
+   "caps": [
+    "web",
+    "numista",
+    "drive",
+    "vision",
+    "code"
+   ],
+   "capacity": 6,
+   "kinds": [
+    "research",
+    "arbitrate",
+    "contradiction",
+    "catno",
+    "cite",
+    "value",
+    "story-check",
+    "verify",
+    "read-mint"
+   ],
+   "strength": "Strongest contributor, treated as a top model (owner, 2026-10-10: \"Grok is basically opus if it needs to be so I think they get the hardest shit\"): research questions, disagreements to settle, catalogue numbers and citations first, plus the code and security reviews.",
+   "reach": "Drive doc 'WORK QUEUE for Grok' in Titan Reliquary/ (the same page is docs/agents/QUEUE_grok.md on GitHub). Drops change files in Drive collection-incoming (AI change files).",
+   "per_kind": 2,
+   "pace": "one",
+   "pace_note": "\"grok is on probation because it used 84.6 of my quota without being prompted and likely no results\"",
+   "probation_since": "2026-11-19",
+   "probation_rule": "Owner 2026-11-19: Grok used 84.6% of his quota unprompted and nothing reached Drive after Nov 15. Small, checkable assignments only (capacity 6, 2 per kind), one per session and only when Joseph asks; every fact it writes is checked first. Off probation after 3 files in a row score 8+ (RESEARCH_LOOP.md section 9)."
   },
-  "kinds": {
-    "cite": {
-      "role": "Cataloguer",
-      "title": "Cite the catalogue facts of {n} coin types",
-      "batch": 40,
-      "lease_days": 7,
-      "needs": [
-        "numista"
-      ],
-      "fix": "#72",
-      "what": "For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).",
-      "done_when": "One change file answering this assignment; everything you left out goes back to the pool."
-    },
-    "catno": {
-      "role": "Cataloguer",
-      "title": "Settle {n} catalogue numbers that disagree with Numista",
-      "batch": 40,
-      "lease_days": 7,
-      "needs": [
-        "numista"
-      ],
-      "fix": "#74",
-      "what": "Each row is a catalogue number (Schön, Jaeger) where the record and the Numista entry disagree. Open the entry, and send the type's whole `catalogs` list with the corrected number (or the same list when the record is right), with the entry URL in `source`.",
-      "done_when": "One change file; a row you could not settle is left out."
-    },
-    "verify": {
-      "role": "Second reader",
-      "title": "Check {n} facts another AI wrote",
-      "batch": 80,
-      "lease_days": 7,
-      "needs": [],
-      "fix": "#18",
-      "what": "Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.",
-      "done_when": "One change file; a fact you could not check is left out."
-    },
-    "read-mint": {
-      "role": "Photo reader",
-      "title": "Read the mint mark on {n} coins from their photos",
-      "batch": 30,
-      "lease_days": 7,
-      "needs": [
-        "vision"
-      ],
-      "fix": "#57",
-      "what": "Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. [\"D\"]) and `issue.mint_text` (e.g. \"D (Denver), left of the date\", or \"no mint mark (Philadelphia)\") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.",
-      "done_when": "One change file; unreadable coins left out."
-    },
-    "story-check": {
-      "role": "Fact-checker",
-      "title": "Fact-check {n} coin stories",
-      "batch": 50,
-      "lease_days": 7,
-      "needs": [
-        "web"
-      ],
-      "fix": "#73",
-      "what": "Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.",
-      "done_when": "One change file covering every story you could check."
-    },
-    "plain-story": {
-      "role": "Writer",
-      "title": "Rewrite {n} stories in plain English",
-      "batch": 40,
-      "lease_days": 7,
-      "needs": [],
-      "fix": "#60",
-      "what": "Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.",
-      "done_when": "One change file; the stories pass the plain-English check."
-    },
-    "research": {
-      "role": "Researcher",
-      "title": "Answer {n} open research questions",
-      "batch": 12,
-      "lease_days": 10,
-      "needs": [
-        "web"
-      ],
-      "fix": "#3",
-      "what": "Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.",
-      "done_when": "One change file; questions you could not settle left out."
-    },
-    "value": {
-      "role": "Appraiser",
-      "title": "Cite collector values for {n} coins",
-      "batch": 60,
-      "lease_days": 10,
-      "needs": [
-        "web"
-      ],
-      "fix": "#62",
-      "what": "For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.",
-      "done_when": "One change file; coins without a price page left out."
-    },
-    "arbitrate": {
-      "role": "Arbiter",
-      "title": "Settle {n} disagreements between two AIs",
-      "batch": 15,
-      "lease_days": 7,
-      "needs": [
-        "web"
-      ],
-      "fix": "#18",
-      "what": "Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.",
-      "done_when": "One change file; unsettled items left out."
-    },
-    "contradiction": {
-      "role": "Fact fixer",
-      "title": "Settle {n} contradictions in the record",
-      "batch": 20,
-      "lease_days": 7,
-      "needs": [
-        "web"
-      ],
-      "fix": "#102",
-      "what": "Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.",
-      "done_when": "One change file; an item you could not settle is left out (it goes back to the pool)."
-    },
-    "fill": {
-      "role": "Cataloguer",
-      "title": "Fill the blank facts of {n} coin types",
-      "batch": 12,
-      "lease_days": 10,
-      "needs": [
-        "numista"
-      ],
-      "fix": "#72",
-      "what": "Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.",
-      "done_when": "One change file answering this assignment; the lines you left as FILL go back to the pool."
-    }
+  "muse": {
+   "name": "Muse",
+   "status": "active",
+   "probation": false,
+   "by": [
+    "model:muse-spark",
+    "model:muse"
+   ],
+   "model": "muse-spark",
+   "caps": [
+    "drive",
+    "numista",
+    "vision",
+    "web"
+   ],
+   "capacity": 40,
+   "kinds": [
+    "fill",
+    "research",
+    "cite",
+    "catno",
+    "value",
+    "contradiction",
+    "story-check",
+    "arbitrate",
+    "verify",
+    "plain-story",
+    "read-mint"
+   ],
+   "strength": "Researcher and writer, loaded up (owner, 2026-10-23: \"Load up muse\"; 2026-10-10: \"I think muse wants to step up so maybe see what they got in them\"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.",
+   "reach": "Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).",
+   "per_kind": 8,
+   "full_batches": true
   },
-  "audit": {
-    "about": "How much of each author's work is checked first (the verify pool is ordered by it). Probation: everything. New (fewer than new_until_checks checked facts): new_rate. After that: twice the measured error rate plus 10 %, between min_rate and 1. An AI stops getting fact-writing kinds (it still checks others and rewords stories) when, after demote_min_checks checks, even the LOW end of the 95 % range of its error rate is above demote_error_rate: a few unlucky checks never demote anyone.",
-    "probation_rate": 1.0,
-    "new_rate": 0.5,
-    "new_until_checks": 20,
-    "min_rate": 0.15,
-    "demote_error_rate": 0.15,
-    "demote_min_checks": 10
+  "gemini": {
+   "name": "Gemini",
+   "status": "active",
+   "probation": false,
+   "onboarding": false,
+   "by": [
+    "model:gemini"
+   ],
+   "model": "gemini",
+   "caps": [
+    "drive",
+    "numista",
+    "vision",
+    "web",
+    "code"
+   ],
+   "capacity": 400,
+   "kinds": [
+    "arbitrate",
+    "contradiction",
+    "read-mint",
+    "verify",
+    "research",
+    "value",
+    "story-check",
+    "cite",
+    "catno",
+    "plain-story",
+    "fill"
+   ],
+   "strength": "Loaded to the maximum (owner, 2026-10-22: \"Homework is the best way I can get it to listen to me and complete tasks. Load it up with an obscene amount of homework\"). Measured 2026-10-22: 0 of 16 assignments issued since Oct 14 answered; tonight's design-text file 11 of 26 right (its redo on 2026-10-23: 24 of 26, score 8); blind locked photo test 76 % core, 3.0 % invented (ties Grok). Capacity 40, up to 8 batches per kind, 5-day deadlines (an ignored sheet goes back to the pool for Grok and Muse sooner). Off probation 2026-10-23: 4 files in a row scored 8+ with no accuracy fault (changes_gemini_20261023-1644 to -1647; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate like Grok's. 2026-10-23 (owner: 'update its homework but keep its scope high'): + fill (blank Phase 2 facts, the kind its design-text redo did well), and theme, motion and music builds as projects.",
+   "reach": "Drive doc 'WORK QUEUE for Gemini' in Titan Reliquary/ (docs/agents/QUEUE_gemini.md), from whichever Gemini Joseph opens: the Gemini app (Argon), Antigravity or Gemini Spark. Files go to Drive collection-incoming (AI change files) as changes_gemini_YYYYMMDD-HHMM.jsonl. Gemini saves every file itself; nothing goes through Joseph (owner, 2026-10-23).",
+   "inline_sheets": true,
+   "full_batches": true,
+   "per_kind": 40,
+   "lease_days": 10,
+   "load_note": "2026-11-05 owner: 'load up gemini to retarded level' / 'a cruel amount of homework ... clear measurable objectives'. Capacity 400 open sheets, up to 40 of a kind, 10-day leases (a load this size needs the time; an ignored sheet still returns to the pool).",
+   "priority": 10
   },
-  "calibration": {
-    "about": "Every active AI takes each blind photo pack on this cadence (fix list #4 bake-off, #19 locked test). tools/agents/homework.py puts a due test at the top of the AI's page; Claude scores it (tools/bakeoff/score.py --key ... --record ... --agent ID), which logs it in docs/agents/homework/calibration.jsonl. The main pack compares AIs; the locked pack (its coin ids exist only in the Drive _locked key) decides who reads Phase 2, so it is taken only after the main pack.",
-    "packs": [
-      {
-        "id": "main",
-        "dir": "docs/bakeoff/pack-20261008-main",
-        "photos": 30,
-        "every_days": 180
-      },
-      {
-        "id": "locked",
-        "dir": "docs/bakeoff/pack-20261008-locked",
-        "photos": 15,
-        "every_days": 90,
-        "after": "main"
-      }
-    ]
+  "chatgpt": {
+   "name": "ChatGPT",
+   "status": "parked",
+   "probation": false,
+   "by": [
+    "model:chatgpt",
+    "model:gpt"
+   ],
+   "model": "chatgpt",
+   "caps": [
+    "web",
+    "code"
+   ],
+   "capacity": 0,
+   "kinds": [],
+   "strength": "Parked (owner, 2026-10-10: \"Chatgpt is too manual so I dont expect stuff to come from there since it requires me\"): no Drive access, so every task needs Joseph to paste it. Its projects moved to Grok (reviews) and Muse (Dad's guide). Nothing is expected from it.",
+   "reach": "Its page is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_chatgpt.md; it takes part only when it can save its files to Drive itself (ChatGPT's Google Drive connector). Joseph never pastes anything for it (owner, 2026-10-23)."
   },
-  "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101). 2026-10-20 (owner: \"give new aggressive homework assignments\"): capacity Grok 24, Muse 20, Gemini 16; per_kind 4/4/3; batches up (verify 80, cite 40, story-check 50, value 60, arbitrate 15, contradiction 20, read-mint 30, plain-story 40, research 12); the ledger's year, mint and face value on every photographed coin join the check pool as blind photo reads, first in line (#125). Gates unchanged. 2026-10-22 (owner: \"Load it up with an obscene amount of homework. Almost like a punishment for being so bad.\"): Gemini capacity 40, per_kind 8, lease_days 5 (its own deadline: tools/agents/homework.py takes the shorter of the kind's lease and the AI's), catno added; Grok and Muse are served first in every round, so Gemini's extra batches come from what is left. Gates unchanged."
+  "gemini-api": {
+   "name": "Gemini API",
+   "status": "active",
+   "probation": true,
+   "onboarding": true,
+   "by": [
+    "model:gemini-api"
+   ],
+   "model": "gemini-api",
+   "sub_sources": true,
+   "caps": [
+    "vision",
+    "code"
+   ],
+   "capacity": 4,
+   "kinds": [
+    "read-mint",
+    "verify",
+    "plain-story"
+   ],
+   "verify_blind_only": true,
+   "takes_parked": false,
+   "takes_parked_note": "Off since 2026-11-04: the parked photo checks are the photos two AIs found unreadable; the API guessed on them (C036 year where Grok saw only 200?, C031 citing the wrong side) instead of leaving them blank. It takes ordinary pool items only.",
+   "run_by": "claude",
+   "strength": "New source (owner, 2026-10-31: \"Gemini api will be a new source and sub sources based on model used\"): the Gemini API on the owner's free-tier key, run by Claude from the session (tools/gemini/run_homework.py). Each model it runs on is a sub-source (by model:gemini-api:<model>, e.g. model:gemini-api:gemini-3.8-flash), measured on its own. It reads coin photos and checks photo readings with 3.6 Flash, and rewords stories with 3.5 Flash Lite (owner, 2026-11-01: \"Flash lite should probably be used for text only stuff\"; Lite misread real years and face values in the photo test, so it takes no photo work); it has no web search (the free tier has no search quota) and opens only pages it names that let Google's fetcher in (Wikipedia, Foronum, CoinArchives; Numista, NGC, uCoin and Colnect refuse it), so it takes no cite, catno, fill, value or research work. On probation like any new AI: every fact it writes is checked first. Not independent of the Gemini app (one vendor, one model family): it never checks the app's facts, the app never checks its facts, and the two together never make a fact Checked.",
+   "reach": "No Drive, no chat: Claude runs it (python3 tools/gemini/run_homework.py), which answers its open sheets in docs/agents/homework/sheets/ and writes collection/_incoming/changes_gemini-api_YYYYMMDD-HHMM.jsonl; publish.py merges it like any contributor's file. A line citing a web page it did not actually open is dropped before the file is written."
+  }
+ },
+ "kinds": {
+  "cite": {
+   "role": "Cataloguer",
+   "title": "Cite the catalogue facts of {n} coin types",
+   "batch": 40,
+   "lease_days": 7,
+   "needs": [
+    "numista"
+   ],
+   "fix": "#72",
+   "what": "For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).",
+   "done_when": "One change file answering this assignment; everything you left out goes back to the pool."
+  },
+  "catno": {
+   "role": "Cataloguer",
+   "title": "Settle {n} catalogue numbers that disagree with Numista",
+   "batch": 40,
+   "lease_days": 7,
+   "needs": [
+    "numista"
+   ],
+   "fix": "#74",
+   "what": "Each row is a catalogue number (Schön, Jaeger) where the record and the Numista entry disagree. Open the entry, and send the type's whole `catalogs` list with the corrected number (or the same list when the record is right), with the entry URL in `source`.",
+   "done_when": "One change file; a row you could not settle is left out."
+  },
+  "verify": {
+   "role": "Second reader",
+   "title": "Check {n} facts another AI wrote",
+   "batch": 80,
+   "lease_days": 7,
+   "needs": [],
+   "fix": "#18",
+   "what": "Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.",
+   "done_when": "One change file; a fact you could not check is left out."
+  },
+  "read-mint": {
+   "role": "Photo reader",
+   "title": "Read the mint mark on {n} coins from their photos",
+   "batch": 30,
+   "lease_days": 7,
+   "needs": [
+    "vision"
+   ],
+   "fix": "#57",
+   "what": "Phase 1 cannot finish until every coin's mint mark is read. Open each coin's photo (GitHub link or Drive original), find the mint mark where this country puts it, and send `issue.mint_marks` (e.g. [\"D\"]) and `issue.mint_text` (e.g. \"D (Denver), left of the date\", or \"no mint mark (Philadelphia)\") with the photo file name in `source`. If the side with the mark is not in the photo, or you cannot read it at full zoom, leave the coin out: it goes on Joseph's shoot list. Never guess.",
+   "done_when": "One change file; unreadable coins left out."
+  },
+  "story-check": {
+   "role": "Fact-checker",
+   "title": "Fact-check {n} coin stories",
+   "batch": 50,
+   "lease_days": 7,
+   "needs": [
+    "web"
+   ],
+   "fix": "#73",
+   "what": "Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.",
+   "done_when": "One change file covering every story you could check."
+  },
+  "plain-story": {
+   "role": "Writer",
+   "title": "Rewrite {n} stories in plain English",
+   "batch": 40,
+   "lease_days": 7,
+   "needs": [],
+   "fix": "#60",
+   "what": "Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.",
+   "done_when": "One change file; the stories pass the plain-English check."
+  },
+  "research": {
+   "role": "Researcher",
+   "title": "Answer {n} open research questions",
+   "batch": 12,
+   "lease_days": 10,
+   "needs": [
+    "web"
+   ],
+   "fix": "#3",
+   "what": "Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.",
+   "done_when": "One change file; questions you could not settle left out."
+  },
+  "value": {
+   "role": "Appraiser",
+   "title": "Cite collector values for {n} coins",
+   "batch": 60,
+   "lease_days": 10,
+   "needs": [
+    "web"
+   ],
+   "fix": "#62",
+   "what": "For each coin, find the retail value for its type, date and mint in the grade its phone photo suggests, from a named price page (NGC World Price Guide, PCGS CoinFacts, or Numista's value table for that row). Send value.est_usd and value.confidence (med when the page gives that grade, low when you assumed it); source = the exact page URL and the grade you assumed and why. Silver coins are never below melt (data/prices.json has the spot). Leave a coin out when no page covers it.",
+   "done_when": "One change file; coins without a price page left out."
+  },
+  "arbitrate": {
+   "role": "Arbiter",
+   "title": "Settle {n} disagreements between two AIs",
+   "batch": 15,
+   "lease_days": 7,
+   "needs": [
+    "web"
+   ],
+   "fix": "#18",
+   "what": "Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.",
+   "done_when": "One change file; unsettled items left out."
+  },
+  "contradiction": {
+   "role": "Fact fixer",
+   "title": "Settle {n} contradictions in the record",
+   "batch": 20,
+   "lease_days": 7,
+   "needs": [
+    "web"
+   ],
+   "fix": "#102",
+   "what": "Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.",
+   "done_when": "One change file; an item you could not settle is left out (it goes back to the pool)."
+  },
+  "fill": {
+   "role": "Cataloguer",
+   "title": "Fill the blank facts of {n} coin types",
+   "batch": 12,
+   "lease_days": 10,
+   "needs": [
+    "numista"
+   ],
+   "fix": "#72",
+   "what": "Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.",
+   "done_when": "One change file answering this assignment; the lines you left as FILL go back to the pool."
+  }
+ },
+ "audit": {
+  "about": "How much of each author's work is checked first (the verify pool is ordered by it). Probation: everything. New (fewer than new_until_checks checked facts): new_rate. After that: twice the measured error rate plus 10 %, between min_rate and 1. An AI stops getting fact-writing kinds (it still checks others and rewords stories) when, after demote_min_checks checks, even the LOW end of the 95 % range of its error rate is above demote_error_rate: a few unlucky checks never demote anyone.",
+  "probation_rate": 1.0,
+  "new_rate": 0.5,
+  "new_until_checks": 20,
+  "min_rate": 0.15,
+  "demote_error_rate": 0.15,
+  "demote_min_checks": 10
+ },
+ "calibration": {
+  "about": "Every active AI takes each blind photo pack on this cadence (fix list #4 bake-off, #19 locked test). tools/agents/homework.py puts a due test at the top of the AI's page; Claude scores it (tools/bakeoff/score.py --key ... --record ... --agent ID), which logs it in docs/agents/homework/calibration.jsonl. The main pack compares AIs; the locked pack (its coin ids exist only in the Drive _locked key) decides who reads Phase 2, so it is taken only after the main pack.",
+  "packs": [
+   {
+    "id": "main",
+    "dir": "docs/bakeoff/pack-20261008-main",
+    "photos": 30,
+    "every_days": 180
+   },
+   {
+    "id": "locked",
+    "dir": "docs/bakeoff/pack-20261008-locked",
+    "photos": 15,
+    "every_days": 90,
+    "after": "main"
+   }
+  ]
+ },
+ "load_note": "Owner, 2026-10-10: \"Make sure you give a retarded amount of work to the other agents at all times. Dont throttle it.\" (Claude is out until Wednesday.) Capacity raised (Grok 14, Muse 12, Gemini 6), per_kind 2 for Grok and Muse (a second batch of a kind whose pool is deep), Gemini full batches while onboarding (every fact it writes is still checked), batches roughly doubled. The quality gates are unchanged: nobody checks their own facts, an exact source on every fact, verify lines never overwrite. Retuned the same day (owner): Grok gets the hardest kinds first and capacity 16; Muse steps up to research, citations and values first; Gemini capacity 10 with every kind; ChatGPT parked. 2026-10-15 (owner): Gemini unpaused on every surface (Argon chat, Antigravity, Spark), arbitration first, so Grok-vs-Muse disagreements no longer wait for Claude (#101). 2026-10-20 (owner: \"give new aggressive homework assignments\"): capacity Grok 24, Muse 20, Gemini 16; per_kind 4/4/3; batches up (verify 80, cite 40, story-check 50, value 60, arbitrate 15, contradiction 20, read-mint 30, plain-story 40, research 12); the ledger's year, mint and face value on every photographed coin join the check pool as blind photo reads, first in line (#125). Gates unchanged. 2026-10-22 (owner: \"Load it up with an obscene amount of homework. Almost like a punishment for being so bad.\"): Gemini capacity 40, per_kind 8, lease_days 5 (its own deadline: tools/agents/homework.py takes the shorter of the kind's lease and the AI's), catno added; Grok and Muse are served first in every round, so Gemini's extra batches come from what is left. Gates unchanged."
 }

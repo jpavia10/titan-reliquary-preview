@@ -932,8 +932,12 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
     ag = roles["agents"][agent]
     q = next((x for x in queues.get("agents", []) if x["id"] == agent), {"tasks": []})
     L = [f"<!-- doc-status: current; normative: yes (for {ag['name']}) -->", f"# WORK QUEUE for {ag['name']} (updated {now[:16].replace('T', ' ')} UTC)", "",
-         f"From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next "
-         f"without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on "
+         (f"PROBATION (Joseph, 2026-11-19: {ag.get('pace_note', 'one assignment at a time')}): do ONE assignment per session, and only when Joseph asks you to. "
+          f"Save its one file, say what you saved, then STOP: do not start the next one, do not run in the background, do not re-read this page on your own. Rules that always apply:"
+          if ag.get("pace") == "one" else
+          f"From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next "
+          f"without waiting. Rules that always apply:")
+         + f" data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on "
          f"every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.", "",
          f"**Status:** {ag['status']}{' (probation: every fact you write is checked by another AI until 3 submissions in a row score 8+)' if ag.get('probation') else ''}. {ag['strength']}",
          f"**How you get this:** {ag['reach']}", ""]
@@ -957,7 +961,7 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
               "**Done when:** the answer file is in Drive; Claude scores it and your numbers appear in collaborators/MODEL_ACCURACY.md.", ""]
     mine = [a for a in state["assignments"] if a["agent"] == agent and a["status"] == "open"]
     if mine:
-        L += ["## Homework (generated from the data)", "", HOW, ""]
+        L += ["## Homework (generated from the data)", "", HOW.replace("6. When you finish, start the next assignment straight away.", "6. Probation: one assignment per session, only when Joseph asks; then stop.") if ag.get("pace") == "one" else HOW, ""]
         for n, a in enumerate(mine, 1):
             kd = roles["kinds"][a["kind"]]; items = [pool[x["item"]] for x in a["items"] if x["item"] in pool]
             L += [f"### {n}. {a['id']} · {kd['role']} · {kd['title'].format(n=len(items))} · due {a['lease_until'][:10]}  (fix list {kd['fix']})", "",
