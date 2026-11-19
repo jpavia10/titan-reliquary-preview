@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-18T20:56:37Z",
+ "updated": "2026-11-19T01:19:57Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -197,7 +197,10 @@
   "muse-arbitrate-20261118": 1,
   "grok-arbitrate-20261118": 2,
   "muse-verify-20261118": 1,
-  "grok-verify-20261118": 1
+  "grok-verify-20261118": 1,
+  "gemini-contradiction-20261119": 1,
+  "muse-verify-20261119": 1,
+  "grok-arbitrate-20261119": 1
  },
  "assignments": [
   {
@@ -34508,6 +34511,162 @@
      "entity": "type",
      "id": "IN.X.2-rupees",
      "field": "denomination.value"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-contradiction-20261119-1",
+   "agent": "gemini",
+   "kind": "contradiction",
+   "issued": "2026-11-19T01:19:57Z",
+   "lease_until": "2026-11-26T01:19:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "contra:two_numbers:EC.X.10-cents",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "catalogs"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261119-1",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-19T01:19:57Z",
+   "lease_until": "2026-11-26T01:19:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GG.X.8-doubles:catalogs",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:GG.X.8-doubles:composition.text",
+     "entity": "type",
+     "id": "GG.X.8-doubles",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:catalogs",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:composition.text",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:AU.X.50-cents:composition.text",
+     "entity": "type",
+     "id": "AU.X.50-cents",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:catalogs",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.20-centavos:composition.text",
+     "entity": "type",
+     "id": "MX.X.20-centavos",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:catalogs",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:MX.X.1-peso:composition.text",
+     "entity": "type",
+     "id": "MX.X.1-peso",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:catalogs",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:catalogs",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:CR.X.10-colones:composition.text",
+     "entity": "type",
+     "id": "CR.X.10-colones",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:FR.X.10-centimes:composition.text",
+     "entity": "type",
+     "id": "FR.X.10-centimes",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:catalogs",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:JP.X.10-yen:composition.text",
+     "entity": "type",
+     "id": "JP.X.10-yen",
+     "field": "composition.text"
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:catalogs",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:IN.X.2-rupees:composition.text",
+     "entity": "type",
+     "id": "IN.X.2-rupees",
+     "field": "composition.text"
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261119-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-19T01:19:57Z",
+   "lease_until": "2026-11-26T01:19:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0200",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "issue.year"
+    },
+    {
+     "item": "arb:D0201",
+     "entity": "specimen",
+     "id": "C354",
+     "field": "issue.mint_marks"
     }
    ]
   }

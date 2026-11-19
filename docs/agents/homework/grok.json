@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-18T20:56:37Z",
+ "updated": "2026-11-19T01:19:57Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261115-1",
@@ -7087,382 +7087,6 @@
    ],
    "items_full": [
     {
-     "item": "verify:specimen:C352:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C352",
-     "field": "issue.year",
-     "coins": [
-      "C352"
-     ],
-     "label": "year of C352 · Mexico · 20 centavos · MXP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C352_obv.webp",
-        "file": "C352_obv.webp",
-        "original": "NOID_Mexico_1943_20Centavos_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1wmSX6Edn_rO3qUjeX41q31T2eGvIEz3l/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C352_rev.webp",
-        "file": "C352_rev.webp",
-        "original": "NOID_Mexico_1943_20Centavos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1_4yGRuIkkBVU6xGn5U3RHh1lmw0wpCN8/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C352_obv.webp",
-      "C352_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C344:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C344",
-     "field": "issue.year",
-     "coins": [
-      "C344"
-     ],
-     "label": "year of C344 · Japan · 10 yen · JPY",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C344_obv.webp",
-        "file": "C344_obv.webp",
-        "original": "NOID_Japan_2002_10Yen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1lneLJv0dvuH65FcKSFCM_0zfl-BFx6uR/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C344_rev.webp",
-        "file": "C344_rev.webp",
-        "original": "NOID_Japan_2002_10Yen_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1ULcFQWzCunwD0HkExJmTjE-hpUdPNG66/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C344_obv.webp",
-      "C344_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C347:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C347",
-     "field": "issue.year",
-     "coins": [
-      "C347"
-     ],
-     "label": "year of C347 · Guernsey · 8 doubles · GGP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C347_obv.webp",
-        "file": "C347_obv.webp",
-        "original": "NOID_Guernsey_1893_8Doubles_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1Wn9hxJooPZ10kXFBsLLJdnNZM1yvaZWm/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C347_rev.webp",
-        "file": "C347_rev.webp",
-        "original": "NOID_Guernsey_1893_8Doubles_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1lNzB7mNHMciJClpTxgNNSZGHIgkg9CWB/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C347_obv.webp",
-      "C347_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:GG.X.8-doubles:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GG.X.8-doubles",
-     "field": "denomination.value",
-     "coins": [
-      "C347"
-     ],
-     "label": "denomination of C347 · Guernsey · 1893",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C347_obv.webp",
-        "file": "C347_obv.webp",
-        "original": "NOID_Guernsey_1893_8Doubles_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1Wn9hxJooPZ10kXFBsLLJdnNZM1yvaZWm/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C347_rev.webp",
-        "file": "C347_rev.webp",
-        "original": "NOID_Guernsey_1893_8Doubles_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1lNzB7mNHMciJClpTxgNNSZGHIgkg9CWB/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C347_obv.webp",
-      "C347_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C349:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C349",
-     "field": "issue.year",
-     "coins": [
-      "C349"
-     ],
-     "label": "year of C349 · Australia · 50 cents · AUD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C349_obv.webp",
-        "file": "C349_obv.webp",
-        "original": "NOID_Australia_1977_50Cents_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1ECOaGEpvQyqd1vWXopDnOWtDMiIfqkED/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C349_rev.webp",
-        "file": "C349_rev.webp",
-        "original": "NOID_Australia_1977_50Cents_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1CUJbNpTJIXdS5hK43__f9Xh3L38c6EvT/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C349_obv.webp",
-      "C349_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:AU.X.50-cents:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "AU.X.50-cents",
-     "field": "denomination.value",
-     "coins": [
-      "C349"
-     ],
-     "label": "denomination of C349 · Australia · 1977",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C349_obv.webp",
-        "file": "C349_obv.webp",
-        "original": "NOID_Australia_1977_50Cents_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1ECOaGEpvQyqd1vWXopDnOWtDMiIfqkED/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C349_rev.webp",
-        "file": "C349_rev.webp",
-        "original": "NOID_Australia_1977_50Cents_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1CUJbNpTJIXdS5hK43__f9Xh3L38c6EvT/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C349_obv.webp",
-      "C349_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C352:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C352",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C352"
-     ],
-     "label": "mint of C352 · Mexico · 1943 · 20 centavos · MXP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C352_obv.webp",
-        "file": "C352_obv.webp",
-        "original": "NOID_Mexico_1943_20Centavos_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1wmSX6Edn_rO3qUjeX41q31T2eGvIEz3l/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C352_rev.webp",
-        "file": "C352_rev.webp",
-        "original": "NOID_Mexico_1943_20Centavos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1_4yGRuIkkBVU6xGn5U3RHh1lmw0wpCN8/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C352_obv.webp",
-      "C352_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:MX.X.20-centavos:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.20-centavos",
-     "field": "denomination.value",
-     "coins": [
-      "C352"
-     ],
-     "label": "denomination of C352 · Mexico · 1943",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C352_obv.webp",
-        "file": "C352_obv.webp",
-        "original": "NOID_Mexico_1943_20Centavos_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1wmSX6Edn_rO3qUjeX41q31T2eGvIEz3l/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C352_rev.webp",
-        "file": "C352_rev.webp",
-        "original": "NOID_Mexico_1943_20Centavos_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1_4yGRuIkkBVU6xGn5U3RHh1lmw0wpCN8/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C352_obv.webp",
-      "C352_rev.webp"
-     ]
-    },
-    {
      "item": "verify:type:GB.X.1-shilling:ruler",
      "kind": "verify",
      "entity": "type",
@@ -7492,335 +7116,6 @@
      },
      "blind": false,
      "inputs": []
-    },
-    {
-     "item": "verify:specimen:C348:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C348",
-     "field": "issue.year",
-     "coins": [
-      "C348"
-     ],
-     "label": "year of C348 · East Caribbean States · 10 cents · XCD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C348_obv.webp",
-        "file": "C348_obv.webp",
-        "original": "NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1GHvFNvAfIGIgqIfZ2ioXAjhz3D_DTkzj/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C348_rev.webp",
-        "file": "C348_rev.webp",
-        "original": "NOID_EastCaribbeanStates_2004_10Cents_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1eS4s8PSghDlOXYJt-8oegTLzR6AF8ryO/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C348_obv.webp",
-      "C348_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C346:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C346",
-     "field": "issue.year",
-     "coins": [
-      "C346"
-     ],
-     "label": "year of C346 · Mexico · 1 peso · MXP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C346_obv.webp",
-        "file": "C346_obv.webp",
-        "original": "NOID_Mexico_1975_1Peso_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1FkuH1mtZhf9i9S8QDCbmHDYVOZIklAt_/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C346_rev.webp",
-        "file": "C346_rev.webp",
-        "original": "NOID_Mexico_1975_1Peso_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/16RXE4kwc-XmligBMcRR6qrFR68HrwHqs/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C346_obv.webp",
-      "C346_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C350:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C350",
-     "field": "issue.year",
-     "coins": [
-      "C350"
-     ],
-     "label": "year of C350 · East Caribbean States · 10 cents · XCD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C350_obv.webp",
-        "file": "C350_obv.webp",
-        "original": "NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1lFbOZLYXqggJxCBHdRFdbrUdc7-fvE2L/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C350_rev.webp",
-        "file": "C350_rev.webp",
-        "original": "NOID_EastCaribbeanStates_1991_10Cents_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/10dW0W9iQ3qjTmsKnOylu425aez2Eyn7W/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C350_obv.webp",
-      "C350_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C346:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C346",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C346"
-     ],
-     "label": "mint of C346 · Mexico · 1975 · 1 peso · MXP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C346_obv.webp",
-        "file": "C346_obv.webp",
-        "original": "NOID_Mexico_1975_1Peso_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1FkuH1mtZhf9i9S8QDCbmHDYVOZIklAt_/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C346_rev.webp",
-        "file": "C346_rev.webp",
-        "original": "NOID_Mexico_1975_1Peso_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/16RXE4kwc-XmligBMcRR6qrFR68HrwHqs/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C346_obv.webp",
-      "C346_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:EC.X.10-cents:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "EC.X.10-cents",
-     "field": "denomination.value",
-     "coins": [
-      "C350"
-     ],
-     "label": "denomination of C350 · East Caribbean States · 1991",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C350_obv.webp",
-        "file": "C350_obv.webp",
-        "original": "NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1lFbOZLYXqggJxCBHdRFdbrUdc7-fvE2L/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C350_rev.webp",
-        "file": "C350_rev.webp",
-        "original": "NOID_EastCaribbeanStates_1991_10Cents_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/10dW0W9iQ3qjTmsKnOylu425aez2Eyn7W/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C350_obv.webp",
-      "C350_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:MX.X.1-peso:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.X.1-peso",
-     "field": "denomination.value",
-     "coins": [
-      "C346"
-     ],
-     "label": "denomination of C346 · Mexico · 1975",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C346_obv.webp",
-        "file": "C346_obv.webp",
-        "original": "NOID_Mexico_1975_1Peso_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1FkuH1mtZhf9i9S8QDCbmHDYVOZIklAt_/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C346_rev.webp",
-        "file": "C346_rev.webp",
-        "original": "NOID_Mexico_1975_1Peso_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/16RXE4kwc-XmligBMcRR6qrFR68HrwHqs/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C346_obv.webp",
-      "C346_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C343:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C343",
-     "field": "issue.year",
-     "coins": [
-      "C343"
-     ],
-     "label": "year of C343 · Costa Rica · 10 colones · CRC",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C343_obv.webp",
-        "file": "C343_obv.webp",
-        "original": "NOID_CostaRica_2008_10Colones_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1IofMtwEBha5TNB076uYk3AEPq0rRt1fM/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C343_rev.webp",
-        "file": "C343_rev.webp",
-        "original": "NOID_CostaRica_2008_10Colones_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/13DOZibGEz4pfJmrU-y7uVA6a5kT4dyvn/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C343_obv.webp",
-      "C343_rev.webp"
-     ]
     },
     {
      "item": "verify:specimen:C351:issue.year",
@@ -7868,383 +7163,96 @@
       "C351_obv.webp",
       "C351_rev.webp"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "id": "HW-grok-arbitrate-20261119-1",
+   "agent": "grok",
+   "kind": "arbitrate",
+   "issued": "2026-11-19T01:19:57Z",
+   "lease_until": "2026-11-26T01:19:57Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
     {
-     "item": "verify:type:CR.X.10-colones:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "CR.X.10-colones",
-     "field": "denomination.value",
-     "coins": [
-      "C343"
-     ],
-     "label": "denomination of C343 · Costa Rica · 2008",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C343_obv.webp",
-        "file": "C343_obv.webp",
-        "original": "NOID_CostaRica_2008_10Colones_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1IofMtwEBha5TNB076uYk3AEPq0rRt1fM/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C343_rev.webp",
-        "file": "C343_rev.webp",
-        "original": "NOID_CostaRica_2008_10Colones_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/13DOZibGEz4pfJmrU-y7uVA6a5kT4dyvn/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C343_obv.webp",
-      "C343_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:FR.X.10-centimes:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "FR.X.10-centimes",
-     "field": "denomination.value",
-     "coins": [
-      "C351"
-     ],
-     "label": "denomination of C351 · France · 1867",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_obv.webp",
-        "file": "C351_obv.webp",
-        "original": "NOID_France_1867_10Centimes_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1kQH2ehDb_zFhY8CcHWn8aSuk3ih6tlr5/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_rev.webp",
-        "file": "C351_rev.webp",
-        "original": "NOID_France_1867_10Centimes_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1Cno86aZ6OXDTW2UU8AuGcHCnY68GJEKG/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C351_obv.webp",
-      "C351_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C345:issue.year",
-     "kind": "verify",
+     "item": "arb:D0200",
      "entity": "specimen",
-     "id": "C345",
-     "field": "issue.year",
-     "coins": [
-      "C345"
-     ],
-     "label": "year of C345 · Australia · 10 cents · AUD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C345_obv.webp",
-        "file": "C345_obv.webp",
-        "original": "NOID_Australia_2008_10Cents_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1n_Hcl094Cf3gXmV2chpeEN_F91ogBAen/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C345_rev.webp",
-        "file": "C345_rev.webp",
-        "original": "NOID_Australia_2008_10Cents_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1Y20qqwR840_ekRU-DOVnjU2zKNNVBBgg/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C345_obv.webp",
-      "C345_rev.webp"
-     ]
+     "id": "C344",
+     "field": "issue.year"
     },
     {
-     "item": "verify:specimen:C353:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C353",
-     "field": "issue.year",
-     "coins": [
-      "C353"
-     ],
-     "label": "year of C353 · Japan · 10 yen · JPY",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C353_obv.webp",
-        "file": "C353_obv.webp",
-        "original": "NOID_Japan_1996_10Yen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1xjxEvzjvVPvBUZnI2Z8M2qNxWMUqJBFH/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C353_rev.webp",
-        "file": "C353_rev.webp",
-        "original": "NOID_Japan_1996_10Yen_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1tKmr6LhOfsUNTpd50Ky6vWR9KsxRTmZs/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C353_obv.webp",
-      "C353_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:JP.X.10-yen:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JP.X.10-yen",
-     "field": "denomination.value",
-     "coins": [
-      "C344",
-      "C353"
-     ],
-     "label": "denomination of C344 · Japan · Heisei 14 (2002)",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C344_obv.webp",
-        "file": "C344_obv.webp",
-        "original": "NOID_Japan_2002_10Yen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1lneLJv0dvuH65FcKSFCM_0zfl-BFx6uR/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C344_rev.webp",
-        "file": "C344_rev.webp",
-        "original": "NOID_Japan_2002_10Yen_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1ULcFQWzCunwD0HkExJmTjE-hpUdPNG66/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C344_obv.webp",
-      "C344_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C354:issue.year",
-     "kind": "verify",
+     "item": "arb:D0201",
      "entity": "specimen",
      "id": "C354",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0200",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C344",
      "field": "issue.year",
      "coins": [
-      "C354"
+      "C344"
      ],
-     "label": "year of C354 · India · 2 rupees · INR",
+     "label": "D0200 C344 issue.year",
      "authors": [
+      "gemini",
       "muse"
      ],
      "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C354_obv.webp",
-        "file": "C354_obv.webp",
-        "original": "NOID_India_2014_2Rupees_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1TnCneaP5OiVIRm4HZCjr_uVCEbTwGw0w/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C354_rev.webp",
-        "file": "C354_rev.webp",
-        "original": "NOID_India_2014_2Rupees_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1glF3BqU-9ttS3lIsqeh0ROaQkSMRAlUr/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
+      "record": {
+       "by": "model:muse-spark",
+       "source": "photo NOID_Japan_2002_10Yen_obv.jpeg (pen label: JAPAN 2002 10 YEN); identified from the owner's chat photos, 2026-11-09 [phase 1; confidence med]",
+       "ts": "2026-11-09T17:25:02Z",
+       "value": 2002
+      },
+      "claim": {
+       "value": 2007,
+       "by": "model:gemini",
+       "source": "C344_rev.webp (\"Reverse below numeral 10 reads kanji 平成十九年 (Heisei 19 = 2007; fourth character is 九 = 9, not 四 = 4)\")",
+       "ts": "2026-11-19T01:07:00Z"
+      }
      },
-     "blind": true,
-     "inputs": [
-      "C354_obv.webp",
-      "C354_rev.webp"
-     ]
+     "blind": false,
+     "inputs": []
     },
     {
-     "item": "verify:specimen:C354:issue.mint_marks",
-     "kind": "verify",
+     "item": "arb:D0201",
+     "kind": "arbitrate",
      "entity": "specimen",
      "id": "C354",
      "field": "issue.mint_marks",
      "coins": [
       "C354"
      ],
-     "label": "mint of C354 · India · 2014 · 2 rupees · INR",
+     "label": "D0201 C354 issue.mint_marks",
      "authors": [
+      "gemini",
       "muse"
      ],
      "payload": {
-      "fact": "mint",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C354_obv.webp",
-        "file": "C354_obv.webp",
-        "original": "NOID_India_2014_2Rupees_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1TnCneaP5OiVIRm4HZCjr_uVCEbTwGw0w/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C354_rev.webp",
-        "file": "C354_rev.webp",
-        "original": "NOID_India_2014_2Rupees_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1glF3BqU-9ttS3lIsqeh0ROaQkSMRAlUr/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
+      "record": {
+       "by": "model:muse-spark",
+       "source": "photo NOID_India_2014_2Rupees_obv.jpeg (pen label: INDIA 2014 2 RUPEES); date and dot mint mark verified from enhanced crops, 2026-11-09 [phase 1; confidence high]",
+       "ts": "2026-11-09T20:42:02Z",
+       "value": [
+        "●"
+       ]
+      },
+      "claim": {
+       "value": [],
+       "by": "model:gemini",
+       "source": "C338_rev.webp (\"Reverse shows a round dot privy mark (Noida mint) below date 2014; no letter mint marks on coin\")",
+       "ts": "2026-11-19T01:07:00Z"
+      }
      },
-     "blind": true,
-     "inputs": [
-      "C354_obv.webp",
-      "C354_rev.webp"
-     ]
-    },
-    {
-     "item": "verify:type:IN.X.2-rupees:denomination.value",
-     "kind": "verify",
-     "entity": "type",
-     "id": "IN.X.2-rupees",
-     "field": "denomination.value",
-     "coins": [
-      "C354"
-     ],
-     "label": "denomination of C354 · India · 2014",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "denomination",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C354_obv.webp",
-        "file": "C354_obv.webp",
-        "original": "NOID_India_2014_2Rupees_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1TnCneaP5OiVIRm4HZCjr_uVCEbTwGw0w/view"
-       },
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C354_rev.webp",
-        "file": "C354_rev.webp",
-        "original": "NOID_India_2014_2Rupees_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1glF3BqU-9ttS3lIsqeh0ROaQkSMRAlUr/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C354_obv.webp",
-      "C354_rev.webp"
-     ]
+     "blind": false,
+     "inputs": []
     }
    ]
   }
