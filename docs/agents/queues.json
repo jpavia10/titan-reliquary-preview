@@ -182,17 +182,21 @@
      "n": 10,
      "title": "Sound hunt: music and room sounds for your 17 themes (22 pieces of music, 85 field recordings)",
      "fix": "#83",
-     "state": "now",
+     "state": "done",
      "what": "Every theme is getting its own room (a second space to be in the theme away from the collection) with its own soundscape, and more of its own recorded music. Your 17 themes are under agents.muse in https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/sound_hunt_20261029.json: for each, its mood, the music it already plays (music_have: never send those), how many more pieces it needs (music_needed) and the five sounds its room needs (field_needed: bed-1, bed-2 = long steady sounds; detail-1..3 = short events). Rules and the exact file shape: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/SOUND_HUNT.md (real recordings only: a microphone in a real place, or named people playing real instruments; a licence stated on the file's own page, quoted word for word: public domain, CC0, CC BY or CC BY-SA; Wikimedia Commons first, then NASA, NOAA, the US National Park Service sound gallery, the US military bands, Musopen, archive.org; never MIDI, synthesizer, virtual instrument, AI audio, Pixabay, Freesound, YouTube or BBC Sound Effects). Save sound_muse_{YYYYMMDD-HHMM}.json in Drive 'Titan Reliquary/sound-incoming (AI music + field recording finds)/'; save again every 10 finds under the same name; list every slot you could not fill in not_found with what you searched. Do it after your open sheets, before the album-price project.",
-     "done_when": "Every theme on your list has its music and its five room sounds, or a not_found line saying what you searched. Claude opens every page, checks the licence, runs the good ones through the intake and they become that theme's music and room sound."
+     "done_when": "Every theme on your list has its music and its five room sounds, or a not_found line saying what you searched. Claude opens every page, checks the licence, runs the good ones through the intake and they become that theme's music and room sound.",
+     "review": "Done 2026-11-19: sound_muse_20261117-1605.json filed in docs/music/finds/ (10 music, 25 field, 73 not found) in the 2026-11-19 intake. Closed by Claude.",
+     "closed": "2026-11-19"
     },
     {
      "n": 7,
      "title": "Cite your own era fields: 263 'period' facts on 138 types are still 'AI guess'",
      "fix": "#48",
-     "state": "now",
+     "state": "done",
      "what": "Your round-3 file (2026-10-03) wrote `period`, `ruler` and `series` for 193 types with one general source, so every era in the app still says 'AI guess'. Re-cite them type by type: open the type's Numista entry (the record's `catalogs` has the N# for most), read its 'Period' (and 'Ruler' where it has one) line, and send `type {id} period` (and `ruler`) with the exact entry URL in source. Same value with a source = a re-citation (it becomes Reference, then a second reader makes it Checked); a different value = a correction, say why in one line. Work in batches of 40 types, one change file each, in the order of data/index.json. Never write a period that is a country status ('British Overseas Territory' is not an era).",
-     "done_when": "All 138 types answered (or left out with a reason) across as many files as you need."
+     "done_when": "All 138 types answered (or left out with a reason) across as many files as you need.",
+     "review": "Done 2026-11-18: changes_muse_20261117-1551..1555.jsonl (era re-citations) merged in the 2026-11-18 intake. Closed 2026-11-19 by Claude (it had been left open).",
+     "closed": "2026-11-19"
     },
     {
      "n": 8,
@@ -214,9 +218,11 @@
      "n": 2,
      "title": "Second reader on Grok's Numista batches",
      "fix": "#72",
-     "state": "now",
+     "state": "done",
      "what": "If you already started this spot check (5 facts from each of Grok's 9 sweep batches, reported in your FEEDBACK doc), finish it the same way. If you have not started, skip it: the 'Second reader' homework below is the same job with a pre-filled answer sheet, and it counts towards your probation.",
-     "done_when": "Either your 45-fact report in the FEEDBACK doc, or the verify homework answered."
+     "done_when": "Either your 45-fact report in the FEEDBACK doc, or the verify homework answered.",
+     "review": "Done 2026-11-18: changes_muse_20261117-1110.jsonl and its verify files merged in the 2026-11-18 intake (collection/_incoming/applied/). Closed 2026-11-19 by Claude (it had been left open).",
+     "closed": "2026-11-19"
     },
     {
      "n": 3,
