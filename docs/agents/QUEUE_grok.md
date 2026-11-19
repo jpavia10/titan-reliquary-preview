@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-19 03:29 UTC)
+# WORK QUEUE for Grok (updated 2026-11-19 20:54 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -181,7 +181,7 @@ Items:
 - **composition of C320 · Sweden · 1991 · 1 krona · SEK** `type SE.X.1-krona composition.text` = `Copper-nickel (75% Copper, 25% Nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces6862.html ("Composition: Copper-nickel (75% Copper, 25% Nickel)")»)
 - **mintage of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.210 issues.3.mintage`
 
-### 5. HW-grok-cite-20261116-1 · Cataloguer · Cite the catalogue facts of 2 coin types · due 2026-11-23  (fix list #72)
+### 5. HW-grok-cite-20261116-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-23  (fix list #72)
 
 For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
 
@@ -190,7 +190,6 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261116-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **FR 20 centimes (FR.KM.930)** coins C005, C041, C321, C339. Ask: issues.3.mintage: 1983
 - **RU 20 roubles (RU.X.20-roubles)** coins C313. Ask: issues.0.mintage: 1992
 
 ### 6. HW-grok-story-check-20261116-1 · Fact-checker · Fact-check 6 coin stories · due 2026-11-23  (fix list #73)
@@ -205,7 +204,7 @@ Items:
 - **C305 · Vatican City · 1958 · 20 lire · VAL**: «A 1958 Vatican 20 lire showing Charity (Caritas) standing with children. It was struck in Rome for Pope Pius XII as a standard circulation issue with a mintage of 60,000.» Record: «{"country": "Vatican City", "year": "1958", "denom": "20 lire · VAL", "mint": "no mint letter visible on the shown reverse; Rome mint", "refs": "KM#A52 · Berman#3409 · Numista#33337", "metal": "Aluminium bronze · 3.60 g · 21.25 mm · Reeded", "specs": "thickness unknown · coin alignment", "mintage": "60,000", "ruler": "Pius XII"}»
 - **C320 · Sweden · 1991 · 1 krona · SEK**: «A 1991 Swedish 1 krona with the stylized portrait of Carl XVI Gustaf. This copper-nickel design, used from 1982 to 2000, was succeeded by a new portrait in 2001 before the smaller modern coin arrived in 2016.» Record: «{"country": "Sweden", "year": "1991", "denom": "1 krona · SEK", "mint": "Eskilstuna mint", "refs": "KM#852a · Schön#74a · Numista#6862", "metal": "Copper-nickel (75% Copper, 25% Nickel) · 7.00 g · 25 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "34,179,398", "ruler": "Carl XVI Gustaf"}»
 - **C322 · Portugal · 1970 · 20 centavos · PTE**: «A 1970 Portuguese 20 centavos with the five escutcheons (quinas) of the Portuguese shield forming a cross.» Record: «{"country": "Portugal", "year": "1970", "denom": "20 centavos · PTE", "mint": "Lisbon mint (no mint mark on type)", "refs": "KM#595 · Gomes#R 17 · Schön#54 · Numista#3282", "metal": "Bronze (Cu 950 + Sn 30 + Zn 20) · 1.80 g · 16 mm · Plain", "specs": "thickness 1.15 mm · coin alignment", "mintage": "16,120,000", "period": "Second Republic"}»
-- **C323 · Mexico · 1994 · 10 centavos · MXN**: «A 1994 Mexican 10 centavos - the small stainless-steel coin with the Ring of the Sacrifice from the Aztec calendar stone on this side.» Record: «{"country": "Mexico", "year": "1994", "denom": "10 centavos · MXN", "mint": "Mo", "refs": "KM#547 · Schön#143 · Numista#581", "metal": "stainless steel · 2.08 g · 17 mm · plain", "specs": "thickness 1.33 mm · coin alignment", "mintage": "557,000,000", "design": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the wo…»
+- **C323 · Mexico · 1994 · 10 centavos · MXN**: «A 1994 Mexican 10 centavos - the small stainless-steel coin with the Ring of the Sacrifice from the Aztec calendar stone on this side.» Record: «{"country": "Mexico", "year": "1994", "denom": "10 centavos · MXN", "mint": "Mo", "refs": "KM#547 · Schön#143 · Numista#581", "metal": "stainless steel · 2.08 g · 17 mm · plain", "specs": "thickness 1.33 mm · coin alignment", "mintage": "557,000,000", "design": "Obverse: The national emblem of Mexico depicting a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-…»
 - **C326 · Bahamas · 1974 · 1 cent · BSD**: «A 1974 Bahamian cent - the first year the newly independent Bahamas put its own coat of arms on the cent. A starfish is on the other side.» Record: «{"country": "Bahamas", "year": "1974", "denom": "1 cent · BSD", "mint": "no mint mark on type", "refs": "KM#59 · Schön#34 · Numista#3159", "metal": "nickel brass (79% copper, 20% zinc, 1% nickel) · 3.16 g · 19.05 mm · Plain", "specs": "thickness 1.4 mm · medal alignment", "mintage": "11,000", "ruler": "Elizabeth II"}»
 - **C334 · Spain · 1989 · 5 pesetas · ESP**: «A 1989 Spanish 5 pesetas with King Juan Carlos I on this side. The other side carries the king's personal coat of arms.» Record: «{"country": "Spain", "year": "1989", "denom": "5 pesetas · ESP", "mint": "Madrid mint (no mint mark on type)", "refs": "KM#833 · Schön#63 · Numista#1262", "metal": "aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manganese) · 3.00 g · 17.5 mm · Plain", "specs": "thickness 1.5 mm · coin alignment", "mintage": "109,270,000", "ruler": "Juan Carlos I"}»
 
@@ -244,7 +243,7 @@ Items:
 - **period of C253 · Jamaica · 1993 · 10 cents · JMD** `type JM.KM.146 period` = `Independent Jamaica` (written by Gemini: «https://en.numista.com/catalogue/pieces2617.html ("Issuer: Jamaica · Period: Commonwealth realm (1962-date)")»)
 - **period of C185 · Cayman Islands · 1996 · 5 cents · KYD** `type KY.KM.88a period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces10222.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)"»)
 - **period of C205 · United Kingdom · 1982 · 20 pence · GBP** `type GB.KM.931 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces865.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **design of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 design.text` = `young tree / 日本国 · 一円 // big 1 · Showa regnal-year date (昭和 40 = 1965, 51 = 1976)` (written by Gemini: «https://en.numista.com/catalogue/pieces1003.html ("Obverse: Second portrait of Queen Elizabeth II right, ELIZABETH II AUSTRALIA (Arnold Mach»)
+- **design of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 design.text` = `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion C…` (written by Gemini: «https://en.numista.com/catalogue/pieces1003.html ("Obverse: Second portrait of Queen Elizabeth II right, ELIZABETH II AUSTRALIA (Arnold Mach»)
 - **period of C152 · United Kingdom · 2001 · 10 pence · GBP** `type GB.KM.989 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces2236.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (deci»)
 - **period of C269 · Cayman Islands · 1990 · 1 cent · KYD** `type KY.KM.87 period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces7364.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)")»)
 - **year of C272 · Austria · 2 groschen · ATS** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C272 issue.year`. Photos: none
@@ -396,5 +395,5 @@ When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per par
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 47; expired: 23.
-- Your facts checked by another contributor: 1166 (1150 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
+- Your facts checked by another contributor: 1161 (1145 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 15 %.

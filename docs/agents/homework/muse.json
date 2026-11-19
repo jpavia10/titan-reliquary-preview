@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-19T03:29:37Z",
+ "updated": "2026-11-19T20:54:21Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261114-1",
@@ -329,14 +329,6 @@
        {
         "system": "Numista",
         "number": "932"
-       },
-       {
-        "system": "KM",
-        "number": "37"
-       },
-       {
-        "system": "Numista",
-        "number": "5712"
        }
       ],
       "weight_g": 1.78,
@@ -345,7 +337,7 @@
       "ask": [
        "issues.0.mintage: 1991"
       ],
-      "note": "The type carries two numbers in one catalogue (2 Numista numbers: 932, 5712): say which one this coin is."
+      "note": null
      },
      "blind": false,
      "inputs": [],
@@ -2151,6 +2143,1027 @@
       "their_source": "https://en.numista.com/24942 (\"Composition Stainless steel Weight 4.9 g\")",
       "links": [
        "https://en.numista.com/24942"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261119-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-19T20:53:38Z",
+   "lease_until": "2026-11-26T20:53:38Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0164",
+     "entity": "specimen",
+     "id": "C004",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0165",
+     "entity": "specimen",
+     "id": "C007",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0166",
+     "entity": "specimen",
+     "id": "C010",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0167",
+     "entity": "specimen",
+     "id": "C032",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0168",
+     "entity": "specimen",
+     "id": "C041",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0169",
+     "entity": "specimen",
+     "id": "C104",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0170",
+     "entity": "specimen",
+     "id": "C125",
+     "field": "issue.mint_marks"
+    },
+    {
+     "item": "arb:D0171",
+     "entity": "specimen",
+     "id": "C144",
+     "field": "issue.mint_marks"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "arb:D0164",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C004",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C004"
+     ],
+     "label": "D0164 C004 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "caduceus",
+        "bunch of grapes"
+       ],
+       "by": "model:gemini",
+       "source": "photo C004_obv.webp: two small privy marks flank the date 2000 at the bottom, read on an enlarged crop - a caduceus (Utrecht mint mark) to the left of the date and a bunch-of-grapes mintmaster mark to the right",
+       "ts": "2026-11-18T16:15:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0165",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C007",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C007"
+     ],
+     "label": "D0165 C007 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "owl"
+       ],
+       "by": "model:gemini",
+       "source": "photo C007_rev.webp: small privy mark immediately left of the date 1963; at full zoom its device reads as an owl, though worn and not crisp",
+       "ts": "2026-11-18T16:15:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0166",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C010",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C010"
+     ],
+     "label": "D0166 C010 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "caduceus",
+        "star"
+       ],
+       "by": "model:gemini",
+       "source": "photo C010_rev.webp: two small marks flank the date 1996 at the bottom, read on an enlarged crop - a caduceus to the left of the date and a small star-shaped mintmaster mark to the right",
+       "ts": "2026-11-18T16:15:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0167",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C032",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C032"
+     ],
+     "label": "D0167 C032 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "BP"
+       ],
+       "by": "model:gemini",
+       "source": "photo C032_rev.webp: BP struck in small letters below the large 1, above FORINT, read at full size",
+       "ts": "2026-11-18T16:15:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0168",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C041",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C041"
+     ],
+     "label": "D0168 C041 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "cornucopia",
+        "owl"
+       ],
+       "by": "model:gemini",
+       "source": "photo C041_rev.webp: two small privy marks flank the date 1974 at the bottom, read on an enlarged contrast crop - a cornucopia to the left of the date and an owl to the right; heavy glare covers the centre of the coin",
+       "ts": "2026-11-18T16:15:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0169",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C104",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C104"
+     ],
+     "label": "D0169 C104 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "lozenge (diamond) outline with small inner device, left of date",
+        "small grape-bunch-like cluster, right of date"
+       ],
+       "by": "model:gemini",
+       "source": "photo C104_rev.webp: two small pictorial privy marks flank the date 1996 in enlarged crops - left of date a diamond/lozenge outline containing a small inner device; right of date a small cluster resembling a bunch of grapes; shapes described as seen, not named",
+       "ts": "2026-11-18T17:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0170",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C125",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C125"
+     ],
+     "label": "D0170 C125 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "cornucopia",
+        "dolphin"
+       ],
+       "by": "model:gemini",
+       "source": "photo C125_rev.webp: two privy marks flank the 1984 date on the reverse, read at enlargement - a cornucopia (horn of plenty) to the left of the date and a dolphin to the right of the date",
+       "ts": "2026-11-18T17:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "arb:D0171",
+     "kind": "arbitrate",
+     "entity": "specimen",
+     "id": "C144",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C144"
+     ],
+     "label": "D0171 C144 issue.mint_marks",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "record": {
+       "by": null,
+       "source": null,
+       "ts": null,
+       "value": []
+      },
+      "claim": {
+       "value": [
+        "crossed hammers"
+       ],
+       "by": "model:gemini",
+       "source": "photo C144_rev.webp: a crossed hammer-and-pick mint mark device read in the centre field above the stylised animal design, confirmed in an enlarged crop",
+       "ts": "2026-11-18T17:10:00Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261119-2",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-19T20:53:38Z",
+   "lease_until": "2026-11-26T20:53:38Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:FR.KM.929:issues.5.mintage",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": "issues.5.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.929:issues.6.mintage",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": "issues.6.mintage"
+    },
+    {
+     "item": "verify:type:SU.Y.93:design.text",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.415:design.text",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:HU.KM.575:issues.1.mintage",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "issues.1.mintage"
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:catalogs",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "catalogs"
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.3.mintage",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.3.mintage"
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.4.mintage",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.4.mintage"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:FR.KM.929:issues.5.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": "issues.5.mintage",
+     "coins": [
+      "C007"
+     ],
+     "label": "mintage of C007 · France · 1963 · 10 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.5.mintage": {
+       "year": 1963,
+       "mint": [
+        "cornucopia",
+        "owl"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:FR.KM.929:issues.6.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.929",
+     "field": "issues.6.mintage",
+     "coins": [
+      "C125"
+     ],
+     "label": "mintage of C125 · France · 1984 · 10 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.6.mintage": {
+       "year": 1984,
+       "mint": [
+        "cornucopia",
+        "dolphin"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:SU.Y.93:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.93",
+     "field": "design.text",
+     "coins": [
+      "C260"
+     ],
+     "label": "design of C260 · USSR · 1931 · 3 kopecks · SUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: The arms of the Soviet Union. Reverse: The value above the date flanked by wheat sprigs",
+      "their_source": "Numista N#4042 https://en.numista.com/catalogue/pieces4042.html, Obverse and Reverse sections (Y# 93)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces4042.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:BM.X.10-cents:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "BM.X.10-cents",
+     "field": "design.text",
+     "coins": [
+      "C277"
+     ],
+     "label": "design of C277 · Bermuda · 2004 · 10 cents · BMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Head of Queen Elizabeth II wearing a tiara facing right. Reverse: Bermuda lily, date above, denomination below.",
+      "their_source": "Numista N#3214 https://en.numista.com/catalogue/pieces3214.html, Obverse and Reverse sections (KM# 109)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces3214.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.415:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.415",
+     "field": "design.text",
+     "coins": [
+      "C259"
+     ],
+     "label": "design of C259 · Mexico · 1940 · 1 centavo · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: The phrase \"Estados Unidos Mexicanos\" on the top of the coin around the rim above an older version of the Mexican coat of arms (A Mexican golden eagle standing on a prickly pear cactus devouring a rattlesnake). At the base of the cactus, there is a holm oak (Encina) branch on one side and a laurel branch on the other. Reverse: The year at the top and the denomination over the cent symbol in the center surrounded by a wreath and the mintmark below",
+      "their_source": "Numista N#5133 https://en.numista.com/catalogue/pieces5133.html, Obverse and Reverse sections (KM# 415)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5133.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:HU.KM.575:issues.1.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "HU.KM.575",
+     "field": "issues.1.mintage",
+     "coins": [
+      "C032"
+     ],
+     "label": "mintage of C032 · Hungary · 1967 · 1 forint · HUF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.1.mintage": {
+       "year": 1967,
+       "mint": [
+        "BP"
+       ],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:EC.X.10-cents:catalogs",
+     "kind": "verify",
+     "entity": "type",
+     "id": "EC.X.10-cents",
+     "field": "catalogs",
+     "coins": [
+      "C350"
+     ],
+     "label": "catalog of C350 · East Caribbean States · 1991 · 10 cents · XCD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "catalog",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.3.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.3.mintage",
+     "coins": [
+      "C339"
+     ],
+     "label": "mintage of C339 · France · 1983 · 20 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 1983,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    },
+    {
+     "item": "verify:type:FR.KM.930:issues.4.mintage",
+     "kind": "verify",
+     "entity": "type",
+     "id": "FR.KM.930",
+     "field": "issues.4.mintage",
+     "coins": [
+      "C041"
+     ],
+     "label": "mintage of C041 · France · 1974 · 20 centimes · FRF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mintage",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": true,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.4.mintage": {
+       "year": 1974,
+       "mint": [
+        "cornucopia",
+        "owl"
+       ],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261119-3",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-19T20:54:21Z",
+   "lease_until": "2026-11-26T20:54:21Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:GT.KM.239.2:design.text",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:design.text",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.65:design.text",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:MX.KM.440:design.text",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:JM.KM.146:design.text",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:KR.KM.4:design.text",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:DE.KM.105:design.text",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:GT.KM.239.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "GT.KM.239.2",
+     "field": "design.text",
+     "coins": [
+      "C235"
+     ],
+     "label": "design of C235 · Guatemala · 1934 · 10 centavos · GTQ",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Coat of arms, with legend at top, fineness and date at bottom. Reverse: Quetzal on pillar, with value number at left and unit at bottom of pillar. With legend around.",
+      "their_source": "Numista N#5128 https://en.numista.com/catalogue/pieces5128.html, Obverse and Reverse description (item 44: C235)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5128.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:NL.KM.107.2:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "NL.KM.107.2",
+     "field": "design.text",
+     "coins": [
+      "C255"
+     ],
+     "label": "design of C255 · Netherlands · 1892 · 1 cent · NLG",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Crowned rampant lion left on a field of 15 small shields all within beaded circle, date below. Reverse: Value within wreath",
+      "their_source": "Numista N#1070 https://en.numista.com/catalogue/pieces1070.html, Obverse and Reverse description (item 51: C255)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces1070.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:CH.KM.24a.3:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "CH.KM.24a.3",
+     "field": "design.text",
+     "coins": [
+      "C094"
+     ],
+     "label": "design of C094 · Switzerland · 1986 · 1 franc · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Full-length figure of Helvetia, standing, facing left, wearing toga, holding spear in right hand, and supporting shield with coat of arms of Switzerland with left hand. 22 stars around, representing the 22 cantons of the Swiss confederation. In 1983, a 23rd star was added for the Canton of Jura, which was founded in 1979. Reverse: Wreath formed of oak and alpine rose branches tied with a ribbon below.",
+      "their_source": "Numista N#185 https://en.numista.com/catalogue/pieces185.html, Obverse and Reverse description (item 14: C094)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces185.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.65:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.65",
+     "field": "design.text",
+     "coins": [
+      "C069"
+     ],
+     "label": "design of C069 · Jamaica · 1975 · 50 cents · JMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Coat of arms of Jamaica. Reverse: Bust of Marcus Garvey facing front-right.",
+      "their_source": "Numista N#7457 https://en.numista.com/catalogue/pieces7457.html, Obverse and Reverse description (item 10: C069)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces7457.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:MX.KM.440:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "MX.KM.440",
+     "field": "design.text",
+     "coins": [
+      "C244",
+      "C257"
+     ],
+     "label": "design of C244 · Mexico · 1964 · 20 centavos · MXP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: The Mexican coat of arms with the bigger emblem at the top, supported at the bottom by a wreath and an eagle facing left. Reverse: The value is at the top with the radiant Liberty cap in between, and the mintmark underneath. The pyramid in the center motive of the landscape along with volcanoes and flora is under the sun which divides the denomination and is above the mintmark. The location of the pyramid, Teotihuacán, is written at the pyramid's base. The volcanoes Ixtaccihuatl and Popocatepetl are in the background.",
+      "their_source": "Numista N#959 https://en.numista.com/catalogue/pieces959.html, Obverse and Reverse description (items 47, 52: C244, C257)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces959.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:JM.KM.146:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "JM.KM.146",
+     "field": "design.text",
+     "coins": [
+      "C253"
+     ],
+     "label": "design of C253 · Jamaica · 1993 · 10 cents · JMD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Coat of arms of Jamaica. Reverse: Bust of Paul Bogle facing forward.",
+      "their_source": "Numista N#2617 https://en.numista.com/catalogue/pieces2617.html, Obverse and Reverse description (item 50: C253)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces2617.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:KR.KM.4:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.KM.4",
+     "field": "design.text",
+     "coins": [
+      "C247"
+     ],
+     "label": "design of C247 · South Korea · 1966 · 1 won · KRW",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Rose of Sharon (Hibiscus syriacus), South Korea national flower. Reverse: Denomination",
+      "their_source": "Numista N#5993 https://en.numista.com/catalogue/pieces5993.html, Obverse and Reverse description (item 49: C247)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces5993.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:DE.KM.105:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "DE.KM.105",
+     "field": "design.text",
+     "coins": [
+      "C029",
+      "C187",
+      "C188",
+      "C189",
+      "C190",
+      "C191",
+      "C192"
+     ],
+     "label": "design of C029 · Germany · 1972 · 1 Pfennig · DEM",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: An oak seedling above the date, circular legend around. Reverse: The mintmark in between two rye ears above the denomination in two lines.",
+      "their_source": "Numista N#854 https://en.numista.com/catalogue/pieces854.html, Obverse and Reverse description (items 3, 28-33: C029, C187-C192)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces854.html"
       ],
       "photos": [],
       "audit": false,

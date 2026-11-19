@@ -3,4 +3,16 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-Nothing waiting: every outside AI's file is scored.
+## Gemini
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_gemini_20261119-1013.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 28 lines: 28 in the change log, 0 filed as disagreements; cross-checked so far: 11 held, 0 wrong |
+| `changes_gemini_20261119-1018_filtered.jsonl` | **6 / 7** + accuracy ? | 1 | 2 | ? | 2 | 1 | 29 lines: 29 in the change log, 0 filed as disagreements; file name is not changes_{agent}_{YYYYMMDD-HHMM}.jsonl; nothing cross-checked yet |
+| `changes_gemini_20261119-1731.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 left blank; answered 2 of 2 items of HW-gemini-fill-20261118-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_gemini_20261119-1732.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); answered 1 of 1 items of HW-gemini-plain-story-20261118-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_gemini_20261119-1733.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-gemini-contradiction-20261119-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_gemini_20261119-1734.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-gemini-verify-20261119-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+| `changes_gemini_20261119-1735.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 4 lines: 3 in the change log, 0 filed as disagreements, 1 not written (stale, no change or already applied); answered 4 of 4 items of HW-gemini-verify-20261118-1 (with its other files for the same sheet); cross-checked so far: 3 held, 0 wrong |
+| `changes_gemini_20261119-1736.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 10 lines: 10 in the change log, 0 filed as disagreements; answered 10 of 10 items of HW-gemini-arbitrate-20261118-1 (with its other files for the same sheet); cross-checked so far: 2 held, 0 wrong |
+| `changes_gemini_20261119-1018.jsonl` | bounced, unscored | | | | | | rejected: line 6: stale edit: type SU.Y.126a design.text is now "obverse USSR arms СССР (15-ribbon type 1961–91) · reverse big 1 КОПЕЙКА · wheat, the contribution expected "obverse USSR arms CCCP (15-ribbon typ |

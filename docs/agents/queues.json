@@ -399,10 +399,10 @@
      "n": 2,
      "title": "Second reader for all 33 albums, from the page photos (blind)",
      "fix": "#55",
-     "state": "now",
+     "state": "done",
      "what": "Every album was read hole by hole from Joseph's page photos by one reader only (Claude); a second, blind reading makes the counts trustworthy. The 81 page photos are in Drive 'Titan Reliquary/_raw_capture/_phase1/albums' (file names start with the album id, e.g. A001_Lincoln_1941-1950_idx021.jpeg; the list with Drive ids is https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/photos/raw_capture_index.json). Do NOT open data/wants.json or collection/albums.json first: read the photos only. For each album: every hole's printed label (year and mint) and whether a coin sits in it (filled / empty / unclear); a printed circle that is not a hole is not a slot. Save one file albums_gemini_{YYYYMMDD-HHMM}.json in Drive 'reviews-incoming (AI deep reviews)': {\"A001\": {\"photos\": [file names], \"slots\": [{\"label\": \"1941-D\", \"state\": \"filled|empty|unclear\"}]}, ...}.",
      "done_when": "One JSON file for as many of the 33 albums as you can read; Claude compares it with the records and files every difference for a third look.",
-     "review": "2026-11-18: albums_gemini_20261117-2025.json REJECTED, not used: it is the record, not a blind read. Its hole labels are Claude's own notes from the 2026-10-03 reading (e.g. 'Blank hole, year unread (obverse showing)'), in the record's order in 28 of 33 albums, and it agrees on 1,769 of 1,776 holes with no difference at all. Redo it from the page photos only, without opening collection/albums.json or data/wants.json; write what you see, including holes you cannot read ('unclear').",
+     "review": "2026-11-19: albums_gemini_20261119-0932.json ACCEPTED (scores #76, 9/10): a real blind read, all 1,408 comparable holes agree. Differences for a third look (Joseph or Claude with the photos): 5 printed circles counted as holes in the record (A002 2019-W, A004 1996-W, A007 1970-D, A013 2020-W, A033 1936 Dot); A031 1937-D 3-Legged not in Gemini's read; 3 unclear holes (A026 after 2011, A029 x2); A021, A025, A030 unread because their page photos' Drive links are dead (raw_capture_index.json, to be relinked).",
      "due": "2026-11-25"
     },
     {
@@ -543,21 +543,23 @@
     },
     {
      "title": "AI-guessed facts, part 1 of 2: replace items 1-52 with cited facts",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-20",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 1 to 52 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p1'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"type\",\"id\":\"MX.KM.433\",\"field\":\"design.text\",\"old\":null,\"new\":\"<the catalogue wording>\",\"source\":\"Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, Obverse/Reverse description\",\"verified\":false,\"phase\":2,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"https://en.numista.com/catalogue/pieces1234.html\"}],\"run_id\":\"GT-AIFACTS-p1\"}} Before you save: every source names the exact catalogue entry (Numista N# with URL, or KM# with book and page) and the row you read; design text is the catalogue's wording, not yours; mintages are for that year and mint only.",
      "done_when": "Items 1-52 each carry an exact source; Claude opens 10 at random.",
-     "n": 32
+     "n": 32,
+     "review": "2026-11-19: changes_gemini_20261119-1018.jsonl, 29 of 35 lines merged (scores #74, 7/10); 6 lines go back as GT-AIFACTS-p1b."
     },
     {
      "title": "AI-guessed facts, part 2 of 2: replace items 53-103 with cited facts",
-     "state": "now",
+     "state": "done",
      "due": "2026-11-21",
      "fix": "trust",
      "what": "Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-ai-facts.json, items 53 to 103 (71 are design texts, 23 mintages): replace each with the catalogue's own wording or number and its exact entry (Numista N# URL with the row, or KM# with book and page). Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-AIFACTS-p2'. Exactly one line per item, in this form (an example, use your own data): {\"ts\":\"2026-11-17T10:00:00Z\",\"by\":\"model:<your exact model>\",\"entity\":\"type\",\"id\":\"MX.KM.433\",\"field\":\"design.text\",\"old\":null,\"new\":\"<the catalogue wording>\",\"source\":\"Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, Obverse/Reverse description\",\"verified\":false,\"phase\":2,\"confidence\":\"high\",\"provenance\":{\"model\":\"<your exact model>\",\"prompt_version\":\"AI_START_HERE@2026-11-16\",\"workflow\":\"phase2-research\",\"inputs\":[{\"file\":\"https://en.numista.com/catalogue/pieces1234.html\"}],\"run_id\":\"GT-AIFACTS-p1\"}} Before you save: every source names the exact catalogue entry (Numista N# with URL, or KM# with book and page) and the row you read; design text is the catalogue's wording, not yours; mintages are for that year and mint only.",
      "done_when": "Items 53-103 each carry an exact source; Claude opens 10 at random.",
-     "n": 33
+     "n": 33,
+     "review": "2026-11-19: changes_gemini_20261119-1013.jsonl merged, 28 lines (scores #73, 10/10); 10 random lines of both parts match Numista word for word."
     },
     {
      "title": "Second source, part 1 of 9: items 1-95 of the 850 single-source facts",

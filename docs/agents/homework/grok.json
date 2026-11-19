@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-19T03:29:37Z",
+ "updated": "2026-11-19T20:54:21Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261115-1",
@@ -3559,99 +3559,6 @@
    ],
    "items_full": [
     {
-     "item": "cite:FR.KM.930",
-     "kind": "cite",
-     "entity": "type",
-     "id": "FR.KM.930",
-     "field": null,
-     "coins": [
-      "C005",
-      "C041",
-      "C321",
-      "C339"
-     ],
-     "label": "FR 20 centimes (FR.KM.930)",
-     "authors": [],
-     "payload": {
-      "issues": [
-       {
-        "N": 0,
-        "year": 1974,
-        "mint_marks": [],
-        "coins": [
-         "C041"
-        ],
-        "mintage": 54348811,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 1,
-        "year": 1986,
-        "mint_marks": [],
-        "coins": [
-         "C005"
-        ],
-        "mintage": 40000011,
-        "mintage_label": "checked",
-        "mint_read": true
-       },
-       {
-        "N": 2,
-        "year": 1988,
-        "mint_marks": [],
-        "coins": [
-         "C321"
-        ],
-        "mintage": 223220011,
-        "mintage_label": "reference",
-        "mint_read": true
-       },
-       {
-        "N": 3,
-        "year": 1983,
-        "mint_marks": [],
-        "coins": [
-         "C339"
-        ],
-        "mintage": null,
-        "mintage_label": null,
-        "mint_read": true
-       }
-      ],
-      "catalogs": [
-       {
-        "system": "KM",
-        "number": "930"
-       },
-       {
-        "system": "Schön",
-        "number": "230"
-       },
-       {
-        "system": "Numista",
-        "number": "4"
-       }
-      ],
-      "weight_g": 4.0,
-      "diameter_mm": 23.5,
-      "composition": "aluminum-bronze (Cu 92 / Al 6 / Ni 2)",
-      "ask": [
-       "issues.3.mintage: 1983"
-      ],
-      "note": null
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 1983,
-       "mint": [],
-       "qualifier": null
-      }
-     }
-    },
-    {
      "item": "cite:RU.X.20-roubles",
      "kind": "cite",
      "entity": "type",
@@ -3872,7 +3779,7 @@
        "metal": "stainless steel · 2.08 g · 17 mm · plain",
        "specs": "thickness 1.33 mm · coin alignment",
        "mintage": "557,000,000",
-       "design": "The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cactus and holding a snake in its beak, with the words Estados Unidos Mexicanos. The reverse shows stylized rays from the Aztec sun stone around the denomination and mint mark.",
+       "design": "Obverse: The national emblem of Mexico depicting a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-wreath of oak and laurel below and the legend “ESTADOS UNIDOS MEXICANOS” forming the upper semicircle. Reverse: On a six-sided field, at center, the denomination 10¢ with the date above and the mint mark Ṁ below. To the right and below, a partial border of stylized solar rays of the Ring on the Sacrifice (Anillo del Sacrificio) on the Aztec calendar stone (Piedra del Sol).",
        "period": "United Mexican States/Mexican Republic"
       }
      },

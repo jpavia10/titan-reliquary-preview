@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-19 03:29 UTC)
+# WORK QUEUE for Muse (updated 2026-11-19 20:54 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -76,7 +76,7 @@ For each coin type below, open its Numista entry (or find it) and send the facts
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261118-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **EC 10 cents (EC.X.10-cents)** coins C350. Ask: issues.0.mintage: 1991. Note: «The type carries two numbers in one catalogue (2 Numista numbers: 932, 5712): say which one this coin is.»
+- **EC 10 cents (EC.X.10-cents)** coins C350. Ask: issues.0.mintage: 1991
 - **FR 10 centimes (FR.X.10-centimes)** coins C351. Ask: issues.1.mintage: 1867 K
 - **IN 2 rupees (IN.X.2-rupees)** coins C354. Ask: issues.0.mintage: 2014 ●
 
@@ -153,6 +153,61 @@ Items:
 - **catalog of C354 · India · 2014 · 2 rupees · INR** (blind: look it up yourself in your own exact source; the first value is not shown) `type IN.X.2-rupees catalogs`
 - **composition of C354 · India · 2014 · 2 rupees · INR** `type IN.X.2-rupees composition.text` = `Stainless steel` (written by Gemini: «https://en.numista.com/24942 ("Composition Stainless steel Weight 4.9 g")»)
 
+### 7. HW-muse-arbitrate-20261119-1 · Arbiter · Settle 8 disagreements between two AIs · due 2026-11-26  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261119-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0164 C004 issue.mint_marks**: record `[]` (None: «null») vs claim `["caduceus", "bunch of grapes"]` (model:gemini: «photo C004_obv.webp: two small privy marks flank the date 2000 at the bottom, read on an enlarged crop - a caduceus (Ut…»)
+- **D0165 C007 issue.mint_marks**: record `[]` (None: «null») vs claim `["owl"]` (model:gemini: «photo C007_rev.webp: small privy mark immediately left of the date 1963; at full zoom its device reads as an owl, thoug…»)
+- **D0166 C010 issue.mint_marks**: record `[]` (None: «null») vs claim `["caduceus", "star"]` (model:gemini: «photo C010_rev.webp: two small marks flank the date 1996 at the bottom, read on an enlarged crop - a caduceus to the le…»)
+- **D0167 C032 issue.mint_marks**: record `[]` (None: «null») vs claim `["BP"]` (model:gemini: «photo C032_rev.webp: BP struck in small letters below the large 1, above FORINT, read at full size»)
+- **D0168 C041 issue.mint_marks**: record `[]` (None: «null») vs claim `["cornucopia", "owl"]` (model:gemini: «photo C041_rev.webp: two small privy marks flank the date 1974 at the bottom, read on an enlarged contrast crop - a cor…»)
+- **D0169 C104 issue.mint_marks**: record `[]` (None: «null») vs claim `["lozenge (diamond) outline with small inner device, left of date", "small grape-bunch-li…` (model:gemini: «photo C104_rev.webp: two small pictorial privy marks flank the date 1996 in enlarged crops - left of date a diamond/loz…»)
+- **D0170 C125 issue.mint_marks**: record `[]` (None: «null») vs claim `["cornucopia", "dolphin"]` (model:gemini: «photo C125_rev.webp: two privy marks flank the 1984 date on the reverse, read at enlargement - a cornucopia (horn of pl…»)
+- **D0171 C144 issue.mint_marks**: record `[]` (None: «null») vs claim `["crossed hammers"]` (model:gemini: «photo C144_rev.webp: a crossed hammer-and-pick mint mark device read in the centre field above the stylised animal desi…»)
+
+### 8. HW-muse-verify-20261119-2 · Second reader · Check 9 facts another AI wrote · due 2026-11-26  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261119-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mintage of C007 · France · 1963 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.5.mintage` [audit sample]
+- **mintage of C125 · France · 1984 · 10 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.929 issues.6.mintage` [audit sample]
+- **design of C260 · USSR · 1931 · 3 kopecks · SUR** `type SU.Y.93 design.text` = `Obverse: The arms of the Soviet Union. Reverse: The value above the date flanked by wheat…` (written by Gemini: «Numista N#4042 https://en.numista.com/catalogue/pieces4042.html, Obverse and Reverse sections (Y# 93)»)
+- **design of C277 · Bermuda · 2004 · 10 cents · BMD** `type BM.X.10-cents design.text` = `Obverse: Head of Queen Elizabeth II wearing a tiara facing right. Reverse: Bermuda lily, …` (written by Gemini: «Numista N#3214 https://en.numista.com/catalogue/pieces3214.html, Obverse and Reverse sections (KM# 109)»)
+- **design of C259 · Mexico · 1940 · 1 centavo · MXP** `type MX.KM.415 design.text` = `Obverse: The phrase "Estados Unidos Mexicanos" on the top of the coin around the rim abov…` (written by Gemini: «Numista N#5133 https://en.numista.com/catalogue/pieces5133.html, Obverse and Reverse sections (KM# 415)»)
+- **mintage of C032 · Hungary · 1967 · 1 forint · HUF** (blind: look it up yourself in your own exact source; the first value is not shown) `type HU.KM.575 issues.1.mintage`
+- **catalog of C350 · East Caribbean States · 1991 · 10 cents · XCD** (blind: look it up yourself in your own exact source; the first value is not shown) `type EC.X.10-cents catalogs`
+- **mintage of C339 · France · 1983 · 20 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.930 issues.3.mintage`
+- **mintage of C041 · France · 1974 · 20 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.930 issues.4.mintage`
+
+### 9. HW-muse-verify-20261119-3 · Second reader · Check 8 facts another AI wrote · due 2026-11-26  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261119-3.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **design of C235 · Guatemala · 1934 · 10 centavos · GTQ** `type GT.KM.239.2 design.text` = `Génie de la Liberté atop the July Column, Paris, between R F (obv; engravers Jean-Luc Mar…` (written by Gemini: «Numista N#5128 https://en.numista.com/catalogue/pieces5128.html, Obverse and Reverse description (item 44: C235)»)
+- **design of C255 · Netherlands · 1892 · 1 cent · NLG** `type NL.KM.107.2 design.text` = `Obverse: Crowned rampant lion left on a field of 15 small shields all within beaded circl…` (written by Gemini: «Numista N#1070 https://en.numista.com/catalogue/pieces1070.html, Obverse and Reverse description (item 51: C255)»)
+- **design of C094 · Switzerland · 1986 · 1 franc · CHF** `type CH.KM.24a.3 design.text` = `Obverse: Full-length figure of Helvetia, standing, facing left, wearing toga, holding spe…` (written by Gemini: «Numista N#185 https://en.numista.com/catalogue/pieces185.html, Obverse and Reverse description (item 14: C094)»)
+- **design of C069 · Jamaica · 1975 · 50 cents · JMD** `type JM.KM.65 design.text` = `Obverse: Coat of arms of Jamaica. Reverse: Bust of Marcus Garvey facing front-right.` (written by Gemini: «Numista N#7457 https://en.numista.com/catalogue/pieces7457.html, Obverse and Reverse description (item 10: C069)»)
+- **design of C244 · Mexico · 1964 · 20 centavos · MXP** `type MX.KM.440 design.text` = `Obverse: The Mexican coat of arms with the bigger emblem at the top, supported at the bot…` (written by Gemini: «Numista N#959 https://en.numista.com/catalogue/pieces959.html, Obverse and Reverse description (items 47, 52: C244, C257)»)
+- **design of C253 · Jamaica · 1993 · 10 cents · JMD** `type JM.KM.146 design.text` = `Obverse: Coat of arms of Jamaica. Reverse: Bust of Paul Bogle facing forward.` (written by Gemini: «Numista N#2617 https://en.numista.com/catalogue/pieces2617.html, Obverse and Reverse description (item 50: C253)»)
+- **design of C247 · South Korea · 1966 · 1 won · KRW** `type KR.KM.4 design.text` = `Obverse: The national emblem of Mexico (a Mexican golden eagle perched on a prickly pear …` (written by Gemini: «Numista N#5993 https://en.numista.com/catalogue/pieces5993.html, Obverse and Reverse description (item 49: C247)»)
+- **design of C029 · Germany · 1972 · 1 Pfennig · DEM** `type DE.KM.105 design.text` = `Obverse: An oak seedling above the date, circular legend around. Reverse: The mintmark in…` (written by Gemini: «Numista N#854 https://en.numista.com/catalogue/pieces854.html, Obverse and Reverse description (items 3, 28-33: C029, C187-C192)»)
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -172,5 +227,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 12.
-- Your facts checked by another contributor: 967 (950 confirmed, 17 wrong; error rate 1.8 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 959 (940 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-19T03:29:37Z",
+ "updated": "2026-11-19T20:54:21Z",
  "assignments": [
   {
    "id": "HW-gemini-fill-20261118-1",
@@ -49,567 +49,6 @@
    ]
   },
   {
-   "id": "HW-gemini-arbitrate-20261118-1",
-   "agent": "gemini",
-   "kind": "arbitrate",
-   "issued": "2026-11-18T20:53:03Z",
-   "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "arb:D0190",
-     "entity": "specimen",
-     "id": "C004",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0191",
-     "entity": "specimen",
-     "id": "C007",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0192",
-     "entity": "specimen",
-     "id": "C010",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0193",
-     "entity": "specimen",
-     "id": "C032",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0194",
-     "entity": "specimen",
-     "id": "C041",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0195",
-     "entity": "specimen",
-     "id": "C068",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0196",
-     "entity": "specimen",
-     "id": "C076",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0197",
-     "entity": "specimen",
-     "id": "C104",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0198",
-     "entity": "specimen",
-     "id": "C125",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "arb:D0199",
-     "entity": "specimen",
-     "id": "C144",
-     "field": "issue.mint_marks"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "arb:D0190",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C004",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C004"
-     ],
-     "label": "D0190 C004 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "caduceus",
-        "bunch of grapes"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C004_obv.webp: two small privy marks flank the date 2000 at the bottom, read on an enlarged crop - a caduceus (Utrecht mint mark) to the left of the date and a bunch-of-grapes mintmaster mark to the right",
-       "ts": "2026-11-17T15:12:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0191",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C007",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C007"
-     ],
-     "label": "D0191 C007 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "owl"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C007_rev.webp: small privy mark immediately left of the date 1963; at full zoom its device reads as an owl, though worn and not crisp",
-       "ts": "2026-11-17T15:15:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0192",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C010",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C010"
-     ],
-     "label": "D0192 C010 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "caduceus",
-        "star"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C010_rev.webp: two small marks flank the date 1996 at the bottom, read on an enlarged crop - a caduceus to the left of the date and a small star-shaped mintmaster mark to the right",
-       "ts": "2026-11-17T15:12:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0193",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C032",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C032"
-     ],
-     "label": "D0193 C032 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "BP"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C032_rev.webp: BP struck in small letters below the large 1, above FORINT, read at full size",
-       "ts": "2026-11-17T15:15:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0194",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C041",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C041"
-     ],
-     "label": "D0194 C041 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "cornucopia",
-        "owl"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C041_rev.webp: two small privy marks flank the date 1974 at the bottom, read on an enlarged contrast crop - a cornucopia to the left of the date and an owl to the right; heavy glare covers the centre of the coin",
-       "ts": "2026-11-17T15:12:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0195",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C068",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C068"
-     ],
-     "label": "D0195 C068 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "photo C068_obv.webp: obverse checked at full zoom below the bust and around the 1963 date; only small stars flank the date and no mint letter appears on this side (only the obverse was photographed)",
-       "ts": "2026-11-17T15:15:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0196",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C076",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C076"
-     ],
-     "label": "D0196 C076 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": [
-        "B"
-       ]
-      },
-      "claim": {
-       "value": [],
-       "by": "model:muse-spark",
-       "source": "photo C076_obv.webp: obverse checked at full zoom around the 1989 date; the date is flanked only by two small star clusters and no mint letter appears on this side (only the obverse was photographed)",
-       "ts": "2026-11-17T15:15:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0197",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C104",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C104"
-     ],
-     "label": "D0197 C104 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "lozenge (diamond) outline with small inner device, left of date",
-        "small grape-bunch-like cluster, right of date"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C104_rev.webp: two small pictorial privy marks flank the date 1996 in enlarged crops - left of date a diamond/lozenge outline containing a small inner device; right of date a small cluster resembling a bunch of grapes; shapes described as seen, not named",
-       "ts": "2026-11-17T15:23:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0198",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C125",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C125"
-     ],
-     "label": "D0198 C125 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "cornucopia",
-        "dolphin"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C125_rev.webp: two privy marks flank the 1984 date on the reverse, read at enlargement - a cornucopia (horn of plenty) to the left of the date and a dolphin to the right of the date",
-       "ts": "2026-11-17T15:22:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "arb:D0199",
-     "kind": "arbitrate",
-     "entity": "specimen",
-     "id": "C144",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C144"
-     ],
-     "label": "D0199 C144 issue.mint_marks",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "record": {
-       "by": null,
-       "source": null,
-       "ts": null,
-       "value": []
-      },
-      "claim": {
-       "value": [
-        "crossed hammers"
-       ],
-       "by": "model:muse-spark",
-       "source": "photo C144_rev.webp: a crossed hammer-and-pick mint mark device read in the centre field above the stylised animal design, confirmed in an enlarged crop",
-       "ts": "2026-11-17T15:21:00Z"
-      }
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-verify-20261118-1",
-   "agent": "gemini",
-   "kind": "verify",
-   "issued": "2026-11-18T20:53:03Z",
-   "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:TT.KM.32:period",
-     "entity": "type",
-     "id": "TT.KM.32",
-     "field": "period"
-    },
-    {
-     "item": "verify:type:MX.KM.443:design.text",
-     "entity": "type",
-     "id": "MX.KM.443",
-     "field": "design.text"
-    },
-    {
-     "item": "verify:type:SA.KM.20:ruler",
-     "entity": "type",
-     "id": "SA.KM.20",
-     "field": "ruler"
-    },
-    {
-     "item": "verify:type:GT.KM.277.6a:period",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": "period"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:TT.KM.32:period",
-     "kind": "verify",
-     "entity": "type",
-     "id": "TT.KM.32",
-     "field": "period",
-     "coins": [
-      "C204"
-     ],
-     "label": "period of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "period",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Republic",
-      "their_source": "Numista N#1159 https://en.numista.com/catalogue/pieces1159.html: Period 'Republic (1976-date)'; differs from the record's 'Republic of Trini",
-      "links": [
-       "https://en.numista.com/catalogue/pieces1159.html"
-      ],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:MX.KM.443:design.text",
-     "kind": "verify",
-     "entity": "type",
-     "id": "MX.KM.443",
-     "field": "design.text",
-     "coins": [
-      "C263"
-     ],
-     "label": "design of C263 · Mexico · 1950 · 25 centavos · MXP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "design",
-      "author": "Muse",
-      "ledger": false,
-      "value": "obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · reverse balance scales with radiant Phrygian liberty cap and scroll inscribed LEY · 25 Cs · Mo · date (Lorenzo Rafael)",
-      "their_source": "ARBITRATION D0153 — claim wins. Numista N#972 https://en.numista.com/catalogue/pieces972.html: Obverse 'Coat of arms', lettering ESTADOS UNI",
-      "links": [
-       "https://en.numista.com/catalogue/pieces972.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:SA.KM.20:ruler",
-     "kind": "verify",
-     "entity": "type",
-     "id": "SA.KM.20",
-     "field": "ruler",
-     "coins": [
-      "C231"
-     ],
-     "label": "ruler of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "ruler",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Saud bin Abdulaziz",
-      "their_source": "Numista N#2940 https://en.numista.com/catalogue/pieces2940.html: Ruler 'Saud bin Abdulaziz (1953-1964)'; differs from the record's 'King Sau",
-      "links": [
-       "https://en.numista.com/catalogue/pieces2940.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
-    {
-     "item": "verify:type:GT.KM.277.6a:period",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GT.KM.277.6a",
-     "field": "period",
-     "coins": [
-      "C202"
-     ],
-     "label": "period of C202 · Guatemala · 2010 · 10 centavos · GTQ",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "period",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Republic",
-      "their_source": "Numista N#42670 https://en.numista.com/catalogue/pieces42670.html: Period 'Republic (1841-date)'; differs from the record's 'Republic of Gua",
-      "links": [
-       "https://en.numista.com/catalogue/pieces42670.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
    "id": "HW-gemini-plain-story-20261118-1",
    "agent": "gemini",
    "kind": "plain-story",
@@ -648,101 +87,60 @@
    ]
   },
   {
-   "id": "HW-gemini-contradiction-20261119-1",
-   "agent": "gemini",
-   "kind": "contradiction",
-   "issued": "2026-11-19T01:19:57Z",
-   "lease_until": "2026-11-26T01:19:57Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "contra:two_numbers:EC.X.10-cents",
-     "entity": "type",
-     "id": "EC.X.10-cents",
-     "field": "catalogs"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "contra:two_numbers:EC.X.10-cents",
-     "kind": "contradiction",
-     "entity": "type",
-     "id": "EC.X.10-cents",
-     "field": "catalogs",
-     "coins": [
-      "C350"
-     ],
-     "label": "EC.X.10-cents",
-     "authors": [],
-     "payload": {
-      "rule": "two_numbers",
-      "detail": "2 Numista numbers: 932, 5712",
-      "ask": "This type carries two numbers in the same catalogue. Send the whole catalogs list with the one right number per catalogue (the entry URL in source).",
-      "record": null
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-verify-20261119-1",
+   "id": "HW-gemini-verify-20261119-2",
    "agent": "gemini",
    "kind": "verify",
-   "issued": "2026-11-19T03:29:37Z",
-   "lease_until": "2026-11-26T03:29:37Z",
+   "issued": "2026-11-19T20:53:38Z",
+   "lease_until": "2026-11-26T20:53:38Z",
    "status": "open",
    "closed": null,
    "result": null,
    "items": [
     {
-     "item": "verify:specimen:C053:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C053",
-     "field": "issue.mint_marks"
+     "item": "verify:type:NO.KM.460:issues.3.mintage",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "issues.3.mintage"
     }
    ],
    "items_full": [
     {
-     "item": "verify:specimen:C053:issue.mint_marks",
+     "item": "verify:type:NO.KM.460:issues.3.mintage",
      "kind": "verify",
-     "entity": "specimen",
-     "id": "C053",
-     "field": "issue.mint_marks",
+     "entity": "type",
+     "id": "NO.KM.460",
+     "field": "issues.3.mintage",
      "coins": [
-      "C053"
+      "C144"
      ],
-     "label": "mint of C053 · Germany · 2011 · 20 euro cent · EUR",
+     "label": "mintage of C144 · Norway · 1998 · 50 øre · NOK",
      "authors": [
-      "grok"
+      "muse"
      ],
      "payload": {
-      "fact": "mint",
-      "author": "Grok",
+      "fact": "mintage",
+      "author": "Muse",
       "ledger": false,
       "value": null,
       "their_source": null,
       "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C053_obv.webp",
-        "file": "C053_obv.webp",
-        "original": "C053_Germany_2011-J_20EuroCent_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
+      "photos": [],
+      "audit": true,
+      "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
      },
-     "blind": true,
-     "inputs": [
-      "C053_obv.webp"
-     ]
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.3.mintage": {
+       "year": 1998,
+       "mint": [
+        "JEJ"
+       ],
+       "qualifier": null
+      }
+     }
     }
    ]
   }

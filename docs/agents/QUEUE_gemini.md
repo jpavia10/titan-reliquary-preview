@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-19 03:29 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-19 20:54 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -58,65 +58,7 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
 ```
 
-### 2. HW-gemini-arbitrate-20261118-1 · Arbiter · Settle 10 disagreements between two AIs · due 2026-11-25  (fix list #18)
-
-Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
-
-**Done when:** One change file; unsettled items left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-arbitrate-20261118-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **D0190 C004 issue.mint_marks**: record `[]` (None: «null») vs claim `["caduceus", "bunch of grapes"]` (model:muse-spark: «photo C004_obv.webp: two small privy marks flank the date 2000 at the bottom, read on an enlarged crop - a caduceus (Ut…»)
-- **D0191 C007 issue.mint_marks**: record `[]` (None: «null») vs claim `["owl"]` (model:muse-spark: «photo C007_rev.webp: small privy mark immediately left of the date 1963; at full zoom its device reads as an owl, thoug…»)
-- **D0192 C010 issue.mint_marks**: record `[]` (None: «null») vs claim `["caduceus", "star"]` (model:muse-spark: «photo C010_rev.webp: two small marks flank the date 1996 at the bottom, read on an enlarged crop - a caduceus to the le…»)
-- **D0193 C032 issue.mint_marks**: record `[]` (None: «null») vs claim `["BP"]` (model:muse-spark: «photo C032_rev.webp: BP struck in small letters below the large 1, above FORINT, read at full size»)
-- **D0194 C041 issue.mint_marks**: record `[]` (None: «null») vs claim `["cornucopia", "owl"]` (model:muse-spark: «photo C041_rev.webp: two small privy marks flank the date 1974 at the bottom, read on an enlarged contrast crop - a cor…»)
-- **D0195 C068 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «photo C068_obv.webp: obverse checked at full zoom below the bust and around the 1963 date; only small stars flank the d…»)
-- **D0196 C076 issue.mint_marks**: record `["B"]` (None: «null») vs claim `[]` (model:muse-spark: «photo C076_obv.webp: obverse checked at full zoom around the 1989 date; the date is flanked only by two small star clus…»)
-- **D0197 C104 issue.mint_marks**: record `[]` (None: «null») vs claim `["lozenge (diamond) outline with small inner device, left of date", "small grape-bunch-li…` (model:muse-spark: «photo C104_rev.webp: two small pictorial privy marks flank the date 1996 in enlarged crops - left of date a diamond/loz…»)
-- **D0198 C125 issue.mint_marks**: record `[]` (None: «null») vs claim `["cornucopia", "dolphin"]` (model:muse-spark: «photo C125_rev.webp: two privy marks flank the 1984 date on the reverse, read at enlargement - a cornucopia (horn of pl…»)
-- **D0199 C144 issue.mint_marks**: record `[]` (None: «null») vs claim `["crossed hammers"]` (model:muse-spark: «photo C144_rev.webp: a crossed hammer-and-pick mint mark device read in the centre field above the stylised animal desi…»)
-
-Answer sheet (the same as the link):
-
-```jsonl
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C004", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0190 C004 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C007", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0191 C007 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C010", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0192 C010 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C032", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0193 C032 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C041", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0194 C041 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C068", "op": "set", "field": "issue.mint_marks", "old": ["B"], "new": ["B"], "source": "FILL (D0195 C068 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C076", "op": "set", "field": "issue.mint_marks", "old": ["B"], "new": ["B"], "source": "FILL (D0196 C076 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C104", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0197 C104 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C125", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0198 C125 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C144", "op": "set", "field": "issue.mint_marks", "old": [], "new": [], "source": "FILL (D0199 C144 issue.mint_marks): exact entry URL + the table row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-arbitrate", "assignment": "HW-gemini-arbitrate-20261118-1", "run_id": "HW-gemini-arbitrate-20261118-1", "inputs": []}}
-```
-
-### 3. HW-gemini-verify-20261118-1 · Second reader · Check 4 facts another AI wrote · due 2026-11-25  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261118-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **period of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD** `type TT.KM.32 period` = `Republic` (written by Muse: «Numista N#1159 https://en.numista.com/catalogue/pieces1159.html: Period 'Republic (1976-date)'; differs from the record's 'Republic of Trini») [audit sample]
-- **design of C263 · Mexico · 1950 · 25 centavos · MXP** `type MX.KM.443 design.text` = `obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · re…` (written by Muse: «ARBITRATION D0153 — claim wins. Numista N#972 https://en.numista.com/catalogue/pieces972.html: Obverse 'Coat of arms', lettering ESTADOS UNI»)
-- **ruler of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR** `type SA.KM.20 ruler` = `Saud bin Abdulaziz` (written by Muse: «Numista N#2940 https://en.numista.com/catalogue/pieces2940.html: Ruler 'Saud bin Abdulaziz (1953-1964)'; differs from the record's 'King Sau»)
-- **period of C202 · Guatemala · 2010 · 10 centavos · GTQ** `type GT.KM.277.6a period` = `Republic` (written by Muse: «Numista N#42670 https://en.numista.com/catalogue/pieces42670.html: Period 'Republic (1841-date)'; differs from the record's 'Republic of Gua»)
-
-Answer sheet (the same as the link):
-
-```jsonl
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "type", "id": "TT.KM.32", "op": "set", "field": "period", "old": "Republic", "new": "Republic", "source": "FILL (period of C204 · Trinidad and Tobago · 2014 · 25 cents · TTD): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261118-1", "run_id": "HW-gemini-verify-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "type", "id": "MX.KM.443", "op": "set", "field": "design.text", "old": "obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · reverse balance scales with radiant Phrygian liberty cap and scroll inscribed LEY · 25 Cs · Mo · date (Lorenzo Rafael)", "new": "obverse Mexican coat of arms (eagle on cactus with snake) · ESTADOS UNIDOS MEXICANOS · reverse balance scales with radiant Phrygian liberty cap and scroll inscribed LEY · 25 Cs · Mo · date (Lorenzo Rafael)", "source": "FILL (design of C263 · Mexico · 1950 · 25 centavos · MXP): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261118-1", "run_id": "HW-gemini-verify-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "type", "id": "SA.KM.20", "op": "set", "field": "ruler", "old": "Saud bin Abdulaziz", "new": "Saud bin Abdulaziz", "source": "FILL (ruler of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261118-1", "run_id": "HW-gemini-verify-20261118-1", "inputs": []}}
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "period", "old": "Republic", "new": "Republic", "source": "FILL (period of C202 · Guatemala · 2010 · 10 centavos · GTQ): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261118-1", "run_id": "HW-gemini-verify-20261118-1", "inputs": []}}
-```
-
-### 4. HW-gemini-plain-story-20261118-1 · Writer · Rewrite 1 stories in plain English · due 2026-11-25  (fix list #60)
+### 2. HW-gemini-plain-story-20261118-1 · Writer · Rewrite 1 stories in plain English · due 2026-11-25  (fix list #60)
 
 Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
 
@@ -133,38 +75,21 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C347", "op": "set", "field": "story", "old": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.", "new": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.", "source": "FILL (C347 · Guernsey · 1893 · 8 doubles · GGP): plain-English rewrite of the existing story; no facts changed", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-plain-story", "assignment": "HW-gemini-plain-story-20261118-1", "run_id": "HW-gemini-plain-story-20261118-1", "inputs": []}}
 ```
 
-### 5. HW-gemini-contradiction-20261119-1 · Fact fixer · Settle 1 contradictions in the record · due 2026-11-26  (fix list #102)
-
-Each item is a place where the record contradicts itself (found by the truth checks on every publish: a mintage on a coin whose mint mark nobody read, two numbers in one catalogue, a year its type was never struck, a weight far from the catalogue's). Each item says what to send. Settle it with an exact source: the corrected value for the field named, or the same value with your source when the record is right after all. Never guess; leave an item out when no source settles it.
-
-**Done when:** One change file; an item you could not settle is left out (it goes back to the pool).
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-contradiction-20261119-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **EC.X.10-cents** (two_numbers): «2 Numista numbers: 932, 5712». This type carries two numbers in the same catalogue. Send the whole catalogs list with the one right number per catalogue (the entry URL in source). `type EC.X.10-cents catalogs`
-
-Answer sheet (the same as the link):
-
-```jsonl
-{"ts": "2026-11-19T01:19:57Z", "by": "model:gemini", "entity": "type", "id": "EC.X.10-cents", "op": "set", "field": "catalogs", "old": [{"number": "13", "system": "KM"}, {"number": "932", "system": "Numista", "url": "https://en.numista.com/932"}, {"number": "37", "system": "KM"}, {"number": "5712", "system": "Numista", "url": "https://en.numista.com/5712"}], "new": [{"number": "13", "system": "KM"}, {"number": "932", "system": "Numista", "url": "https://en.numista.com/932"}, {"number": "37", "system": "KM"}, {"number": "5712", "system": "Numista", "url": "https://en.numista.com/5712"}], "source": "FILL (EC.X.10-cents): the exact source that settles it (URL + the row you read) and what you checked", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-19", "workflow": "homework-contradiction", "assignment": "HW-gemini-contradiction-20261119-1", "run_id": "HW-gemini-contradiction-20261119-1", "inputs": []}}
-```
-
-### 6. HW-gemini-verify-20261119-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-26  (fix list #18)
+### 3. HW-gemini-verify-20261119-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-26  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261119-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261119-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **mint of C053 · Germany · 2011 · 20 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C053 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C053_obv.webp (original: https://drive.google.com/file/d/1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l/view)
+- **mintage of C144 · Norway · 1998 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.KM.460 issues.3.mintage` [audit sample]
 
 Answer sheet (the same as the link):
 
 ```jsonl
-{"ts": "2026-11-19T03:29:37Z", "by": "model:gemini", "entity": "specimen", "id": "C053", "op": "set", "field": "issue.mint_marks", "new": null, "source": "FILL (mint of C053 · Germany · 2011 · 20 euro cent · EUR): the photo file you read it from, e.g. C053_obv.webp, and what you read on the coin (write null in new when you cannot read it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-19", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261119-1", "run_id": "HW-gemini-verify-20261119-1", "inputs": [{"file": "C053_obv.webp"}]}}
+{"ts": "2026-11-19T20:53:38Z", "by": "model:gemini", "entity": "type", "id": "NO.KM.460", "op": "set", "field": "issues.3.mintage", "new": null, "source": "FILL (mintage of C144 · Norway · 1998 · 50 øre · NOK): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read (this line is the 1998 JEJ issue: read the 1998 JEJ (that mint only, not all mints added) row, not the type's first year)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-19", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261119-2", "run_id": "HW-gemini-verify-20261119-2", "inputs": []}}
 ```
 
 ## Projects (after the homework)
@@ -191,6 +116,6 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 72; expired: 12.
-- Your facts checked by another contributor: 1084 (1069 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 672. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
+- Assignments answered: 76; expired: 12.
+- Your facts checked by another contributor: 1072 (1057 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 676. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
 - Share of your new facts that get checked first: 15 %.

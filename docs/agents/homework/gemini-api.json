@@ -1,6 +1,6 @@
 {
  "agent": "gemini-api",
- "updated": "2026-11-19T03:29:37Z",
+ "updated": "2026-11-19T20:54:21Z",
  "assignments": [
   {
    "id": "HW-gemini-api-verify-20261115-1",
@@ -162,6 +162,45 @@
      ]
     },
     {
+     "item": "verify:specimen:C068:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C068",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C068"
+     ],
+     "label": "mint of C068 · Switzerland · 1963 · 20 rappen · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp",
+        "file": "C068_obv.webp",
+        "original": "C068_Switzerland_1963_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C068_obv.webp"
+     ]
+    },
+    {
      "item": "verify:specimen:C165:issue.year",
      "kind": "verify",
      "entity": "specimen",
@@ -237,6 +276,45 @@
      "blind": true,
      "inputs": [
       "C246_obv.webp"
+     ]
+    },
+    {
+     "item": "verify:specimen:C076:issue.mint_marks",
+     "kind": "verify",
+     "entity": "specimen",
+     "id": "C076",
+     "field": "issue.mint_marks",
+     "coins": [
+      "C076"
+     ],
+     "label": "mint of C076 · Switzerland · 1989 · 20 rappen · CHF",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "mint",
+      "author": "Gemini",
+      "ledger": false,
+      "value": null,
+      "their_source": null,
+      "links": [],
+      "photos": [
+       {
+        "side": "obv",
+        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C076_obv.webp",
+        "file": "C076_obv.webp",
+        "original": "C076_Switzerland_1989_20Rappen_obv.jpeg",
+        "drive": "https://drive.google.com/file/d/1__5E3wSeMlaByKFjm131nDWBf8lBL2ps/view"
+       }
+      ],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": true,
+     "inputs": [
+      "C076_obv.webp"
      ]
     },
     {

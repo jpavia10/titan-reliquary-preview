@@ -1,26 +1,25 @@
 {
- "updated": "2026-11-19T03:29:37Z",
+ "updated": "2026-11-19T20:54:21Z",
  "pools": {
-  "cite": 26,
-  "contradiction": 1,
+  "cite": 25,
   "story-check": 14,
   "plain-story": 1,
   "research": 1,
   "value": 1,
   "read-mint": 3,
-  "arbitrate": 46,
+  "arbitrate": 36,
   "fill": 42,
-  "verify": 317
+  "verify": 333
  },
  "agents": {
   "claude": {
-   "confirmed": 382,
+   "confirmed": 379,
    "wrong": 3,
    "checks_done": 220,
    "disagreements_open": 0,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 385,
+   "checked_n": 382,
    "error_rate": 0.008,
    "error_ci95": [
     0.003,
@@ -28,27 +27,27 @@
    ]
   },
   "grok": {
-   "confirmed": 1150,
+   "confirmed": 1145,
    "wrong": 16,
    "checks_done": 364,
    "disagreements_open": 0,
    "canaries_caught": 6,
    "canaries_missed": 0,
-   "checked_n": 1166,
+   "checked_n": 1161,
    "error_rate": 0.014,
    "error_ci95": [
-    0.008,
+    0.009,
     0.022
    ]
   },
   "gemini": {
-   "confirmed": 1069,
+   "confirmed": 1057,
    "wrong": 15,
-   "checks_done": 672,
+   "checks_done": 676,
    "disagreements_open": 35,
    "canaries_caught": 22,
    "canaries_missed": 0,
-   "checked_n": 1084,
+   "checked_n": 1072,
    "error_rate": 0.014,
    "error_ci95": [
     0.008,
@@ -56,17 +55,17 @@
    ]
   },
   "muse": {
-   "confirmed": 950,
-   "wrong": 17,
+   "confirmed": 940,
+   "wrong": 19,
    "checks_done": 422,
-   "disagreements_open": 35,
+   "disagreements_open": 25,
    "canaries_caught": 11,
    "canaries_missed": 0,
-   "checked_n": 967,
-   "error_rate": 0.018,
+   "checked_n": 959,
+   "error_rate": 0.02,
    "error_ci95": [
-    0.011,
-    0.028
+    0.013,
+    0.031
    ]
   },
   "gemini-api": {
@@ -114,7 +113,7 @@
    "confirmed": 0,
    "wrong": 0,
    "checks_done": 0,
-   "disagreements_open": 21,
+   "disagreements_open": 11,
    "canaries_caught": 0,
    "canaries_missed": 0,
    "checked_n": 0,
@@ -338,6 +337,7 @@
   "verify:type:MT.KM.129:denomination.value",
   "verify:type:MT.KM.132:denomination.value",
   "verify:type:MX.KM.424:catalogs",
+  "verify:type:MX.KM.443:design.text",
   "verify:type:MX.X.10-centavos:denomination.value",
   "verify:type:NG.KM.10.1:design.text",
   "verify:type:NL.KM.236:denomination.value",
@@ -360,8 +360,8 @@
  ],
  "open_assignments": {
   "grok": 12,
-  "muse": 6,
-  "gemini": 6,
+  "muse": 9,
+  "gemini": 3,
   "chatgpt": 0,
   "gemini-api": 1
  }

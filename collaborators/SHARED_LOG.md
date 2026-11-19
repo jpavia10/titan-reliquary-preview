@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### 2026-11-19 Claude: intake 3, Gemini 4 Neon's Titan work (data and homework only; app unchanged)
+- Merged 80 events: AI-guessed facts part 2 (28) and part 1 (29 of 35; 6 bad lines bounced: two type ids that do not exist, two old values that lost their Cyrillic/Devanagari, two already set by part 2), six homework sheets; D0190-D0199 settled; C053 mint F confirmed by eye. 10 random lines checked on Numista's API: 10 of 10 word for word.
+- Album second read redo accepted (9/10): all 1,408 comparable holes agree; 5 printed circles, 3 unclear holes and 3 dead photo links (A021/A025/A030 in raw_capture_index.json) are filed for a third look. Scores #73-#76.
+
 ### 2026-11-19 Claude: intake 2 (packs missed on the 18th), album read rejected, Grok third reader, Drive pages now point to GitHub
 - Gemini's 7 `answers_gemini_*` pack files were not change files, so the first intake missed them: expanded with `tools/agents/compact_sheet.py answers` (a distinct `--now` per file) and merged, 85 facts. Gemini's `albums_gemini_20261117-2025.json` is the record copied back (same hole order in 28 of 33 albums): rejected, scored 2/10, task gemini 2 reopened for a real blind read. Muse's sound finds filed (`docs/music/finds/sound_muse_20261117-1605.json`).
 - Grok has the new third-reader task for D0164-D0199 (`GT-REVIEW-D0164`). The Drive pages `WORK QUEUE for {AI}` and the hub `HOMEWORK — {AI}` docs are now pointers to the live GitHub pages plus the Forge ledger rule (they had gone stale within a day), so rule 10's "copy each QUEUE into Drive" step is no longer needed.
