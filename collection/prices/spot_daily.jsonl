@@ -67,4 +67,5 @@
 {"date":"2026-11-16","xag_usd":47.25,"xau_usd":3869.2,"source":"yahoo finance daily close SI=F+GC=F (futures, not spot)","fetched_at":"2026-11-17T04:29:25Z"}
 {"date":"2026-11-17","xag_usd":45.92,"xau_usd":3792.0,"source":"yahoo finance daily close SI=F+GC=F (futures, not spot)","fetched_at":"2026-11-18T03:42:55Z"}
 {"date":"2026-11-18","xag_usd":44.58,"xau_usd":3706.1001,"source":"yahoo finance daily close SI=F+GC=F (futures, not spot)","fetched_at":"2026-11-19T03:29:35Z"}
-{"date":"2026-11-19","xag_usd":44.853,"xau_usd":3712.8501,"source":"gold-api.com quote (api.gold-api.com XAG + XAU) (provisional until the daily close is available)","fetched_at":"2026-11-19T03:29:32Z","provisional":true}
+{"date":"2026-11-19","xag_usd":41.26,"xau_usd":3531.7,"source":"yahoo finance daily close SI=F+GC=F (futures, not spot)","fetched_at":"2026-11-20T03:17:34Z"}
+{"date":"2026-11-20","xag_usd":41.688,"xau_usd":3533.2,"source":"gold-api.com quote (api.gold-api.com XAG + XAU) (provisional until the daily close is available)","fetched_at":"2026-11-20T03:17:34Z","provisional":true}
