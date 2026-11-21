@@ -1,0 +1,1561 @@
+{
+ "about": "Empty fields on Titan's coin types: designers, physical specs, period, and issue mintages. Fill each from the exact catalogue entry for that type (Numista N# with the row you read, or KM# with book and page); leave FILL when the entry does not say. Copy 'old' exactly.",
+ "made": "2026-11-21",
+ "count": 130,
+ "parts": 2,
+ "per_part": 70,
+ "items": [
+  {
+   "type": "BR.KM.648.1",
+   "field": "design.designers",
+   "old": [],
+   "label": "BR 5.0 centavos (BR.KM.648.1)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 1,
+   "part": 1,
+   "coins": [
+    "C047"
+   ]
+  },
+  {
+   "type": "BS.X.1-cent",
+   "field": "design.designers",
+   "old": [],
+   "label": "BS 1 cent (BS.X.1-cent)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 2,
+   "part": 1,
+   "coins": [
+    "C276",
+    "C306",
+    "C327",
+    "C332"
+   ]
+  },
+  {
+   "type": "BS.X.1-cent",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BS 1 cent (BS.X.1-cent) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 3,
+   "part": 1,
+   "coins": [
+    "C276",
+    "C306",
+    "C327",
+    "C332"
+   ]
+  },
+  {
+   "type": "BS.X.25-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BS 25 cents (BS.X.25-cents) · 1984 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 4,
+   "part": 1,
+   "coins": [
+    "C300"
+   ]
+  },
+  {
+   "type": "BS.X.5-cents",
+   "field": "design.designers",
+   "old": [],
+   "label": "BS 5 cents (BS.X.5-cents)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 5,
+   "part": 1,
+   "coins": [
+    "C291"
+   ]
+  },
+  {
+   "type": "BS.X.5-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BS 5 cents (BS.X.5-cents) · 1984 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 6,
+   "part": 1,
+   "coins": [
+    "C291"
+   ]
+  },
+  {
+   "type": "BZ.X.25-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BZ 25 cents (BZ.X.25-cents) · 2007 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 7,
+   "part": 1,
+   "coins": [
+    "C280",
+    "C317"
+   ]
+  },
+  {
+   "type": "BZ.X.25-cents",
+   "field": "issues.1.mintage",
+   "old": null,
+   "label": "BZ 25 cents (BZ.X.25-cents) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 8,
+   "part": 1,
+   "coins": [
+    "C280",
+    "C317"
+   ]
+  },
+  {
+   "type": "CH.KM.24a",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "CH 1.0 franc (CH.KM.24a)",
+   "want": "coin or medal",
+   "n": 9,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "CR.KM.214.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "CR 5.0 colones (CR.KM.214.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 10,
+   "part": 1,
+   "coins": [
+    "C016"
+   ]
+  },
+  {
+   "type": "CR.X.10-colones",
+   "field": "design.designers",
+   "old": [],
+   "label": "CR 10 colones (CR.X.10-colones)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 11,
+   "part": 1,
+   "coins": [
+    "C343"
+   ]
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "design.designers",
+   "old": [],
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 12,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "grams",
+   "n": 13,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "mm",
+   "n": 14,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "mm",
+   "n": 15,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "n": 16,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "coin or medal",
+   "n": 17,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "period",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "the catalogue's period or ruler name",
+   "n": 18,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig) · 1918 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 19,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "design.designers",
+   "old": [],
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 20,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "grams",
+   "n": 21,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "mm",
+   "n": 22,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "mm",
+   "n": 23,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "n": 24,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "coin or medal",
+   "n": 25,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "period",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "the catalogue's period or ruler name",
+   "n": 26,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr) · None no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 27,
+   "part": 1,
+   "coins": [
+    "T001",
+    "T002"
+   ]
+  },
+  {
+   "type": "EC.KM.37",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "EC 10.0 cents (EC.KM.37) · 2004 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 28,
+   "part": 1,
+   "coins": [
+    "C159",
+    "C348"
+   ]
+  },
+  {
+   "type": "EC.KM.38",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "EC 10.0 cents (EC.KM.38) · 2004 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 29,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "EC.X.10-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "EC 10 cents (EC.X.10-cents) · 1991 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 30,
+   "part": 1,
+   "coins": [
+    "C350"
+   ]
+  },
+  {
+   "type": "ER.KM.46",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "ER 50.0 cents (ER.KM.46) · 1997 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 31,
+   "part": 1,
+   "coins": [
+    "C212"
+   ]
+  },
+  {
+   "type": "FR.X.10-centimes",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "FR 10 centimes (FR.X.10-centimes) · 1867 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 32,
+   "part": 1,
+   "coins": [
+    "C351"
+   ]
+  },
+  {
+   "type": "FR.X.10-centimes",
+   "field": "issues.1.mintage",
+   "old": null,
+   "label": "FR 10 centimes (FR.X.10-centimes) · 1867 K",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 33,
+   "part": 1,
+   "coins": [
+    "C351"
+   ]
+  },
+  {
+   "type": "GG.X.8-doubles",
+   "field": "design.designers",
+   "old": [],
+   "label": "GG 8 doubles (GG.X.8-doubles)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 34,
+   "part": 1,
+   "coins": [
+    "C347"
+   ]
+  },
+  {
+   "type": "GT.KM.239.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "GT 10.0 centavos (GT.KM.239.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 35,
+   "part": 1,
+   "coins": [
+    "C235"
+   ]
+  },
+  {
+   "type": "GT.KM.277.1",
+   "field": "design.designers",
+   "old": [],
+   "label": "GT 10.0 centavos (GT.KM.277.1)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 36,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "GT.KM.277.1",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "GT 10.0 centavos (GT.KM.277.1) · 2010 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 37,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "GT.KM.277.6a",
+   "field": "design.designers",
+   "old": [],
+   "label": "GT 10.0 centavos (GT.KM.277.6a)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 38,
+   "part": 1,
+   "coins": [
+    "C202"
+   ]
+  },
+  {
+   "type": "GT.KM.277.6a",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "GT 10.0 centavos (GT.KM.277.6a) · 2010 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 39,
+   "part": 1,
+   "coins": [
+    "C202"
+   ]
+  },
+  {
+   "type": "HK.KM.69a",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "HK 1.0 $ (HK.KM.69a) · 1998 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 40,
+   "part": 1,
+   "coins": [
+    "C146"
+   ]
+  },
+  {
+   "type": "HN.X.50-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "HN 50 centavos (HN.X.50-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 41,
+   "part": 1,
+   "coins": [
+    "C286"
+   ]
+  },
+  {
+   "type": "IN.KM.92.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "IN 1.0 rupee (IN.KM.92.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 42,
+   "part": 1,
+   "coins": [
+    "C203"
+   ]
+  },
+  {
+   "type": "IN.KM.92.2",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "IN 1.0 rupee (IN.KM.92.2) · 2001 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 43,
+   "part": 1,
+   "coins": [
+    "C203"
+   ]
+  },
+  {
+   "type": "IN.X.2-rupees",
+   "field": "design.designers",
+   "old": [],
+   "label": "IN 2 rupees (IN.X.2-rupees)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 44,
+   "part": 1,
+   "coins": [
+    "C354"
+   ]
+  },
+  {
+   "type": "IN.X.2-rupees",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "IN 2 rupees (IN.X.2-rupees) · 2014 ●",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 45,
+   "part": 1,
+   "coins": [
+    "C354"
+   ]
+  },
+  {
+   "type": "JM.KM.146",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 10.0 cents (JM.KM.146) · 1993 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 46,
+   "part": 1,
+   "coins": [
+    "C253"
+   ]
+  },
+  {
+   "type": "JM.KM.189",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 1.0 dollar (JM.KM.189) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 47,
+   "part": 1,
+   "coins": [
+    "C219"
+   ]
+  },
+  {
+   "type": "JM.KM.190",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 10.0 dollars (JM.KM.190) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 48,
+   "part": 1,
+   "coins": [
+    "C230"
+   ]
+  },
+  {
+   "type": "JM.KM.191",
+   "field": "design.designers",
+   "old": [],
+   "label": "JM 10.0 dollars (JM.KM.191)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 49,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "JM.KM.191",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 10.0 dollars (JM.KM.191) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 50,
+   "part": 1,
+   "coins": []
+  },
+  {
+   "type": "JP.X.10-yen",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 10 yen (JP.X.10-yen)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 51,
+   "part": 1,
+   "coins": [
+    "C344",
+    "C353"
+   ]
+  },
+  {
+   "type": "JP.X.100-yen",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 100 yen (JP.X.100-yen)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 52,
+   "part": 1,
+   "coins": [
+    "C340"
+   ]
+  },
+  {
+   "type": "JP.Y.73a",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 10.0 yen (JP.Y.73a)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 53,
+   "part": 1,
+   "coins": [
+    "C220",
+    "C270"
+   ]
+  },
+  {
+   "type": "JP.Y.74",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 1.0 yen (JP.Y.74)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 54,
+   "part": 1,
+   "coins": [
+    "C206",
+    "C222"
+   ]
+  },
+  {
+   "type": "KR.X.10-won",
+   "field": "design.designers",
+   "old": [],
+   "label": "KR 10 won (KR.X.10-won)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 55,
+   "part": 1,
+   "coins": [
+    "C342"
+   ]
+  },
+  {
+   "type": "KY.KM.87",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "KY 1.0 cent (KY.KM.87) · 1990 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 56,
+   "part": 1,
+   "coins": [
+    "C269"
+   ]
+  },
+  {
+   "type": "KY.KM.88a",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "KY 5.0 cents (KY.KM.88a) · 1996 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 57,
+   "part": 1,
+   "coins": [
+    "C185",
+    "C214"
+   ]
+  },
+  {
+   "type": "MX-CHI.KM.612",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "MX 5.0 centavos (MX-CHI.KM.612)",
+   "want": "grams",
+   "n": 58,
+   "part": 1,
+   "coins": [
+    "C114"
+   ]
+  },
+  {
+   "type": "MX-CHI.KM.612",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "MX 5.0 centavos (MX-CHI.KM.612) · 1914 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 59,
+   "part": 1,
+   "coins": [
+    "C114"
+   ]
+  },
+  {
+   "type": "MX.KM.415",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 1.0 centavo (MX.KM.415)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 60,
+   "part": 1,
+   "coins": [
+    "C259"
+   ]
+  },
+  {
+   "type": "MX.KM.424",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5.0 centavos (MX.KM.424)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 61,
+   "part": 1,
+   "coins": [
+    "C166"
+   ]
+  },
+  {
+   "type": "MX.KM.440",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 20.0 centavos (MX.KM.440)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 62,
+   "part": 1,
+   "coins": [
+    "C244",
+    "C257"
+   ]
+  },
+  {
+   "type": "MX.KM.502",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5.0 pesos (MX.KM.502)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 63,
+   "part": 1,
+   "coins": [
+    "C209"
+   ]
+  },
+  {
+   "type": "MX.KM.604",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 2.0 pesos (MX.KM.604)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 64,
+   "part": 1,
+   "coins": [
+    "C236",
+    "C315"
+   ]
+  },
+  {
+   "type": "MX.KM.604",
+   "field": "issues.1.mintage",
+   "old": null,
+   "label": "MX 2.0 pesos (MX.KM.604) · 1998 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 65,
+   "part": 1,
+   "coins": [
+    "C236",
+    "C315"
+   ]
+  },
+  {
+   "type": "MX.KM.936",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 50.0 centavos (MX.KM.936)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 66,
+   "part": 1,
+   "coins": [
+    "C271"
+   ]
+  },
+  {
+   "type": "MX.X.1-peso",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 1 peso (MX.X.1-peso)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 67,
+   "part": 1,
+   "coins": [
+    "C346"
+   ]
+  },
+  {
+   "type": "MX.X.10-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 10 centavos (MX.X.10-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 68,
+   "part": 1,
+   "coins": [
+    "C274",
+    "C323"
+   ]
+  },
+  {
+   "type": "MX.X.10-centavos",
+   "field": "issues.1.mintage",
+   "old": null,
+   "label": "MX 10 centavos (MX.X.10-centavos) · 1994 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 69,
+   "part": 1,
+   "coins": [
+    "C274",
+    "C323"
+   ]
+  },
+  {
+   "type": "MX.X.2-nuevos-pesos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 2 nuevos pesos (MX.X.2-nuevos-pesos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 70,
+   "part": 1,
+   "coins": [
+    "C319"
+   ]
+  },
+  {
+   "type": "MX.X.2-nuevos-pesos",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "MX 2 nuevos pesos (MX.X.2-nuevos-pesos) · 1994 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 71,
+   "part": 2,
+   "coins": [
+    "C319"
+   ]
+  },
+  {
+   "type": "MX.X.5-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5 centavos (MX.X.5-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 72,
+   "part": 2,
+   "coins": [
+    "C294"
+   ]
+  },
+  {
+   "type": "MX.X.5-pesos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5 pesos (MX.X.5-pesos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 73,
+   "part": 2,
+   "coins": [
+    "C324"
+   ]
+  },
+  {
+   "type": "MX.X.5-pesos",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "MX 5 pesos (MX.X.5-pesos) · 2005 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 74,
+   "part": 2,
+   "coins": [
+    "C324"
+   ]
+  },
+  {
+   "type": "MX.X.50-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 50 centavos (MX.X.50-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 75,
+   "part": 2,
+   "coins": [
+    "C284"
+   ]
+  },
+  {
+   "type": "MX.X.500-pesos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 500 pesos (MX.X.500-pesos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 76,
+   "part": 2,
+   "coins": [
+    "C293",
+    "C301"
+   ]
+  },
+  {
+   "type": "NL.KM.107.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "NL 1.0 cent (NL.KM.107.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 77,
+   "part": 2,
+   "coins": [
+    "C255"
+   ]
+  },
+  {
+   "type": "PH.KM.198",
+   "field": "design.designers",
+   "old": [],
+   "label": "PH 10.0 sentimos (PH.KM.198)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 78,
+   "part": 2,
+   "coins": [
+    "C246"
+   ]
+  },
+  {
+   "type": "PH.X.1-piso",
+   "field": "design.designers",
+   "old": [],
+   "label": "PH 1 piso (PH.X.1-piso)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 79,
+   "part": 2,
+   "coins": [
+    "C279"
+   ]
+  },
+  {
+   "type": "PH.X.1-piso",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "PH 1 piso (PH.X.1-piso) · 1997 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 80,
+   "part": 2,
+   "coins": [
+    "C279"
+   ]
+  },
+  {
+   "type": "RU.X.20-roubles",
+   "field": "design.designers",
+   "old": [],
+   "label": "RU 20 roubles (RU.X.20-roubles)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 81,
+   "part": 2,
+   "coins": [
+    "C313"
+   ]
+  },
+  {
+   "type": "RU.X.20-roubles",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "RU 20 roubles (RU.X.20-roubles) · 1992 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 82,
+   "part": 2,
+   "coins": [
+    "C313"
+   ]
+  },
+  {
+   "type": "SA.KM.20",
+   "field": "design.designers",
+   "old": [],
+   "label": "SA 1.0 qirsh (SA.KM.20)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 83,
+   "part": 2,
+   "coins": [
+    "C231"
+   ]
+  },
+  {
+   "type": "SU.Y.126a",
+   "field": "design.designers",
+   "old": [],
+   "label": "SU 1.0 kopek (SU.Y.126a)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 84,
+   "part": 2,
+   "coins": [
+    "C042",
+    "C044"
+   ]
+  },
+  {
+   "type": "SU.Y.93",
+   "field": "design.designers",
+   "old": [],
+   "label": "SU 3.0 kopecks (SU.Y.93)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 85,
+   "part": 2,
+   "coins": [
+    "C260"
+   ]
+  },
+  {
+   "type": "SU.Y.97",
+   "field": "design.designers",
+   "old": [],
+   "label": "SU 15.0 kopecks (SU.Y.97)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 86,
+   "part": 2,
+   "coins": [
+    "C261"
+   ]
+  },
+  {
+   "type": "TR.KM.1240",
+   "field": "design.designers",
+   "old": [],
+   "label": "TR 10.0 kuruş (TR.KM.1240)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 87,
+   "part": 2,
+   "coins": []
+  },
+  {
+   "type": "TR.KM.1240",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "TR 10.0 kuruş (TR.KM.1240)",
+   "want": "mm",
+   "n": 88,
+   "part": 2,
+   "coins": []
+  },
+  {
+   "type": "TR.KM.1240",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TR 10.0 kuruş (TR.KM.1240) · 2011 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 89,
+   "part": 2,
+   "coins": []
+  },
+  {
+   "type": "TR.KM.1241",
+   "field": "design.designers",
+   "old": [],
+   "label": "TR 10.0 kuruş (TR.KM.1241)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 90,
+   "part": 2,
+   "coins": [
+    "C208"
+   ]
+  },
+  {
+   "type": "TT.KM.31",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TT 10.0 cents (TT.KM.31) · 2016 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 91,
+   "part": 2,
+   "coins": [
+    "C207"
+   ]
+  },
+  {
+   "type": "TT.KM.32",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TT 25.0 cents (TT.KM.32) · 2014 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 92,
+   "part": 2,
+   "coins": [
+    "C204"
+   ]
+  },
+  {
+   "type": "TT.KM.33",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TT 25.0 cents (TT.KM.33) · 2014 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 93,
+   "part": 2,
+   "coins": []
+  },
+  {
+   "type": "TW.KM.551",
+   "field": "design.designers",
+   "old": [],
+   "label": "TW 1.0 yuan (TW.KM.551)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 94,
+   "part": 2,
+   "coins": [
+    "C200"
+   ]
+  },
+  {
+   "type": "TW.KM.551",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TW 1.0 yuan (TW.KM.551) · 2008 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 95,
+   "part": 2,
+   "coins": [
+    "C200"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "design.designers",
+   "old": [],
+   "label": "US None novelty slug (US.X.none)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 96,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "grams",
+   "n": 97,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "mm",
+   "n": 98,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "mm",
+   "n": 99,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "n": 100,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "coin or medal",
+   "n": 101,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "period",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "the catalogue's period or ruler name",
+   "n": 102,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.none",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US None novelty slug (US.X.none) · 1970 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 103,
+   "part": 2,
+   "coins": [
+    "T004"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "design.designers",
+   "old": [],
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 104,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "grams",
+   "n": 105,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "mm",
+   "n": 106,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "mm",
+   "n": 107,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "n": 108,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "coin or medal",
+   "n": 109,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "period",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "the catalogue's period or ruler name",
+   "n": 110,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1) · 2013 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 111,
+   "part": 2,
+   "coins": [
+    "T005"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "design.designers",
+   "old": [],
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 112,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "grams",
+   "n": 113,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "mm",
+   "n": 114,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "mm",
+   "n": 115,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "n": 116,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "coin or medal",
+   "n": 117,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "period",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "the catalogue's period or ruler name",
+   "n": 118,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50) · 2009 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 119,
+   "part": 2,
+   "coins": [
+    "T006"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "design.designers",
+   "old": [],
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 120,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "grams",
+   "n": 121,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "mm",
+   "n": 122,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "mm",
+   "n": 123,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "n": 124,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "coin or medal",
+   "n": 125,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "period",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "the catalogue's period or ruler name",
+   "n": 126,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony) · None no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "n": 127,
+   "part": 2,
+   "coins": [
+    "T003"
+   ]
+  },
+  {
+   "type": "VA.X.20-lire",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "VA 20 lire (VA.X.20-lire)",
+   "want": "mm",
+   "n": 128,
+   "part": 2,
+   "coins": [
+    "C305"
+   ]
+  },
+  {
+   "type": "VN-SOV.KM.1",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "VN 20.0 su (VN-SOV.KM.1)",
+   "want": "mm",
+   "n": 129,
+   "part": 2,
+   "coins": [
+    "C258"
+   ]
+  },
+  {
+   "type": "VN.KM.71",
+   "field": "design.designers",
+   "old": [],
+   "label": "VN 1000.0 đồng (VN.KM.71)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "n": 130,
+   "part": 2,
+   "coins": [
+    "C232"
+   ]
+  }
+ ]
+}

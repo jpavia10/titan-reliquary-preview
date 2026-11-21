@@ -1,0 +1,3399 @@
+{
+ "about": "Facts with one source only (certainty 'reference'), made by Grok, Muse, Claude or the ledger import, never by Gemini. Send a second, independent source for each: a different catalogue, price guide or page than 'source_on_record'. Values: a dated price page and the grade you assumed from the photo, never below melt. Stories: check every sentence; send agree (new = old) or one line per wrong sentence with the correction.",
+ "made": "2026-11-21",
+ "count": 339,
+ "parts": 4,
+ "per_part": 85,
+ "items": [
+  {
+   "specimen": "C001",
+   "fact": "design",
+   "coin": "Switzerland 1969 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+   "n": 1,
+   "part": 1
+  },
+  {
+   "specimen": "C002",
+   "fact": "value",
+   "coin": "Switzerland 1963 5 rappen · CHF",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces168.html (Numista N#168): value table row '1963 B', grade F = $0.27; grade assumed F: no photo of thi",
+   "n": 2,
+   "part": 1
+  },
+  {
+   "specimen": "C004",
+   "fact": "story",
+   "coin": "Netherlands 2000 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces147.html: all claims hold (Beatrix profile with BEATRIX KONINGIN DER NEDERLANDEN, com",
+   "n": 3,
+   "part": 1
+  },
+  {
+   "specimen": "C005",
+   "fact": "value",
+   "coin": "France 1986 20 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces4.html (Numista N#4): value table row '1986 ((fr) Dont 13 000 en set FDC et 2 000 en set BU)', grade ",
+   "n": 4,
+   "part": 1
+  },
+  {
+   "specimen": "C005",
+   "fact": "story",
+   "coin": "France 1986 20 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces4.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 5,
+   "part": 1
+  },
+  {
+   "specimen": "C006",
+   "fact": "value",
+   "coin": "Germany 1984 1 Deutsche Mark · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces846.html (Numista N#846): value table row '1984', grade XF = $1.10; grade assumed XF: lettering and o",
+   "n": 6,
+   "part": 1
+  },
+  {
+   "specimen": "C007",
+   "fact": "value",
+   "coin": "France 1963 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1963', grade XF = $0.25; grade assumed XF: design and letterin",
+   "n": 7,
+   "part": 1
+  },
+  {
+   "specimen": "C007",
+   "fact": "story",
+   "coin": "France 1963 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 8,
+   "part": 1
+  },
+  {
+   "specimen": "C008",
+   "fact": "value",
+   "coin": "Switzerland 1968 1/2 franc · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces181.html (Numista N#181): value table row '1968 B', grade XF = $0.57; grade assumed XF: wreath leaves",
+   "n": 9,
+   "part": 1
+  },
+  {
+   "specimen": "C011",
+   "fact": "value",
+   "coin": "Italy 1970 50 lire · ITL",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): value table row '1970 R', grade XF = $0.29; grade assumed XF: Vulcan's musc",
+   "n": 10,
+   "part": 1
+  },
+  {
+   "specimen": "C012",
+   "fact": "value",
+   "coin": "France 1962 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1962', grade XF = $0.56; grade assumed XF: Semeuse branch and ",
+   "n": 11,
+   "part": 1
+  },
+  {
+   "specimen": "C012",
+   "fact": "story",
+   "coin": "France 1962 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces6.html (Numista N#6, KM#925.1): all claims hold. Obverse: The Sower, designed by Osca",
+   "n": 12,
+   "part": 1
+  },
+  {
+   "specimen": "C013",
+   "fact": "value",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces664.html (Numista N#664): value table row '1971', grade XF = $0.21; grade assumed XF: design and lett",
+   "n": 13,
+   "part": 1
+  },
+  {
+   "specimen": "C013",
+   "fact": "story",
+   "coin": "United Kingdom 1971 2 new pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces664.html: all claims hold (Machin portrait (designer Arnold Machin), Prince of Wales ",
+   "n": 14,
+   "part": 1
+  },
+  {
+   "specimen": "C015",
+   "fact": "value",
+   "coin": "Switzerland 1971 1/2 franc · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces181.html (Numista N#181): value table row '1971', grade XF = $0.55; grade assumed XF: wreath and lett",
+   "n": 15,
+   "part": 1
+  },
+  {
+   "specimen": "C016",
+   "fact": "value",
+   "coin": "Costa Rica 1985 5 colones · CRC",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces69.html (Numista N#69): value table row '1985', grade XF = $0.46; grade assumed XF: arms and legend c",
+   "n": 16,
+   "part": 1
+  },
+  {
+   "specimen": "C017",
+   "fact": "value",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1999', grade F = $0.43; grade assumed F: no photo of this coin",
+   "n": 17,
+   "part": 1
+  },
+  {
+   "specimen": "C017",
+   "fact": "story",
+   "coin": "France 1999 1 franc · FRF (nouveau franc)",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces6.html (Numista N#6, KM#925.1): all claims hold. Obverse: The Sower, designed by Osca",
+   "n": 18,
+   "part": 1
+  },
+  {
+   "specimen": "C019",
+   "fact": "mint",
+   "coin": "Germany 1981 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C019_obv.webp: oak-seedling side shown (date at bottom); mint letter is on the value side per Numista N#854 (1 pfennig) / N#658 (5 pfennig) ",
+   "n": 19,
+   "part": 1
+  },
+  {
+   "specimen": "C019",
+   "fact": "value",
+   "coin": "Germany 1981 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1981 rows 1981 D / 1981 F / 1981 G / 1981 J', grade XF = $",
+   "n": 20,
+   "part": 1
+  },
+  {
+   "specimen": "C020",
+   "fact": "value",
+   "coin": "United Kingdom 1973 ½ new penny · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces856.html (Numista N#856): value table row '1973', grade VF = $0.16; grade assumed VF: high points wor",
+   "n": 21,
+   "part": 1
+  },
+  {
+   "specimen": "C021",
+   "fact": "value",
+   "coin": "Germany 1970 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1970 J', grade VF = $0.20; grade assumed VF: high points w",
+   "n": 22,
+   "part": 1
+  },
+  {
+   "specimen": "C023",
+   "fact": "mint",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iron, 3.5 g, 21 mm, engr",
+   "n": 23,
+   "part": 1
+  },
+  {
+   "specimen": "C023",
+   "fact": "value",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 20 Pfennigs - Neuenburg 1918 (N#40312), https://en.numista.com/40312 -- VF $7.50, XF $8.90. Assumed VF (typical circula",
+   "n": 24,
+   "part": 1
+  },
+  {
+   "specimen": "C023",
+   "fact": "story",
+   "coin": "Austria 1918 20 heller",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iron, 3.5 g, 21 mm, engr",
+   "n": 25,
+   "part": 1
+  },
+  {
+   "specimen": "C024",
+   "fact": "story",
+   "coin": "United Kingdom 1977 2 new pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces664.html: all claims hold (Machin portrait (designer Arnold Machin), Prince of Wales ",
+   "n": 26,
+   "part": 1
+  },
+  {
+   "specimen": "C025",
+   "fact": "value",
+   "coin": "France 1965 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 1 Franc - France (N#6), https://en.numista.com/catalogue/pieces6.html -- 1965 XF $0.35. Value $0.35 confirmed; adding s",
+   "n": 27,
+   "part": 1
+  },
+  {
+   "specimen": "C025",
+   "fact": "story",
+   "coin": "France 1965 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces6.html (Numista N#6, KM#925.1): all claims hold. Obverse: The Sower, designed by Osca",
+   "n": 28,
+   "part": 1
+  },
+  {
+   "specimen": "C026",
+   "fact": "value",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces110.html (Numista N#110): value table row '2002 G', grade XF = $0.56; grade assumed XF: Brandenburg G",
+   "n": 29,
+   "part": 1
+  },
+  {
+   "specimen": "C026",
+   "fact": "story",
+   "coin": "Germany 2002 50 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces110.html: all claims hold (Brandenburg Gate in the 12 stars by Reinhart Heinsdorff, c",
+   "n": 30,
+   "part": 1
+  },
+  {
+   "specimen": "C027",
+   "fact": "value",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): value table row '2002 R', grade XF = $0.22; grade assumed XF: design and le",
+   "n": 31,
+   "part": 1
+  },
+  {
+   "specimen": "C027",
+   "fact": "story",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces133.html: all claims hold (Boccioni's sculpture by Maria Angela Cassol, common side L",
+   "n": 32,
+   "part": 1
+  },
+  {
+   "specimen": "C028",
+   "fact": "catalog",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#2183 (https://en.numista.com/catalogue/pieces2183.html): references KM# 127 (confirmed); entry url added; Numista lists no Schön n",
+   "n": 33,
+   "part": 1
+  },
+  {
+   "specimen": "C028",
+   "fact": "story",
+   "coin": "Malta 2013 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces2183.html: all claims hold (Mnajdra temple altar with MALTA, common side Luc Luycx, c",
+   "n": 34,
+   "part": 1
+  },
+  {
+   "specimen": "C030",
+   "fact": "mint",
+   "coin": "Germany 1982 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C030_obv.webp: oak-seedling side shown (date at bottom); mint letter is on the value side per Numista N#854 (1 pfennig) / N#658 (5 pfennig) ",
+   "n": 35,
+   "part": 1
+  },
+  {
+   "specimen": "C032",
+   "fact": "value",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1124.html (Numista N#1124): value table row '1967 BP.', grade XF = $0.37; grade assumed XF: design an",
+   "n": 36,
+   "part": 1
+  },
+  {
+   "specimen": "C032",
+   "fact": "story",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces1124.html: all claims hold (arms of the Hungarian People's Republic with wreath and s",
+   "n": 37,
+   "part": 1
+  },
+  {
+   "specimen": "C033",
+   "fact": "value",
+   "coin": "France 1969 1/2 franc · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): value table row '1969 (F. 198/8)', grade VF = $0.22; grade assumed VF: high poi",
+   "n": 38,
+   "part": 1
+  },
+  {
+   "specimen": "C033",
+   "fact": "story",
+   "coin": "France 1969 1/2 franc · FRF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces5.html (N#5): corrected the Sower design date — the story said Oscar Roty first drew ",
+   "n": 39,
+   "part": 1
+  },
+  {
+   "specimen": "C035",
+   "fact": "mint",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C035_obv.webp: oak-planter side shown; mint letter is on the value side per type design (Numista N#847) — no letter on this side",
+   "n": 40,
+   "part": 1
+  },
+  {
+   "specimen": "C035",
+   "fact": "value",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces847.html (Numista N#847): value table row '1971 rows 1971 D [Reeded edge] / 1971 F [Reeded edge] / 19",
+   "n": 41,
+   "part": 1
+  },
+  {
+   "specimen": "C035",
+   "fact": "story",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Agree — every claim checked against Numista N#847 (https://en.numista.com/catalogue/pieces847.html) (design, designer, sides, composition, d",
+   "n": 42,
+   "part": 1
+  },
+  {
+   "specimen": "C036",
+   "fact": "year",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/catalogue/pieces132.html — mintage table row '2007 R' (circulation) = 104 955 490, matching this specimen's filed iss",
+   "n": 43,
+   "part": 1
+  },
+  {
+   "specimen": "C036",
+   "fact": "value",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces132.html (Numista N#132): value table row '2007 R', grade XF = $0.11; grade assumed XF: design and le",
+   "n": 44,
+   "part": 1
+  },
+  {
+   "specimen": "C036",
+   "fact": "story",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces132.html: all claims hold (detail of Botticelli's Birth of Venus by Claudia Momoni, c",
+   "n": 45,
+   "part": 1
+  },
+  {
+   "specimen": "C037",
+   "fact": "value",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces108.html (Numista N#108): value table row '2002 rows 2002 A / 2002 D / 2002 F / 2002 G / 2002 J', gra",
+   "n": 46,
+   "part": 1
+  },
+  {
+   "specimen": "C037",
+   "fact": "story",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces108.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff, common side Luc L",
+   "n": 47,
+   "part": 1
+  },
+  {
+   "specimen": "C038",
+   "fact": "story",
+   "coin": "Slovakia 2009 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces5085.html: all claims hold (Kriváň in the High Tatras with SLOVENSKO, engraver Drahom",
+   "n": 48,
+   "part": 1
+  },
+  {
+   "specimen": "C039",
+   "fact": "story",
+   "coin": "Italy 2010 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces130.html: all claims hold (Mole Antonelliana by Luciana De Simoni, common side Luc Lu",
+   "n": 49,
+   "part": 1
+  },
+  {
+   "specimen": "C040",
+   "fact": "story",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces149.html: all claims hold (Beatrix profile with BEATRIX KONINGIN DER NEDERLANDEN, com",
+   "n": 50,
+   "part": 1
+  },
+  {
+   "specimen": "C041",
+   "fact": "value",
+   "coin": "France 1974 20 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces4.html (Numista N#4): value table row '1974 ((fr) Dont 98 800 en set FDC)', grade VF = $0.18; grade a",
+   "n": 51,
+   "part": 1
+  },
+  {
+   "specimen": "C041",
+   "fact": "story",
+   "coin": "France 1974 20 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces4.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 52,
+   "part": 1
+  },
+  {
+   "specimen": "C042",
+   "fact": "mintage",
+   "coin": "USSR 1962 1 kopek · SUR",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista numisview (https://numisview.com/api/v1/printables/checklist/soviet-union/union/1-kopek/reform.pdf); USSR 1k 1962; Numista N#767 lis",
+   "n": 53,
+   "part": 1
+  },
+  {
+   "specimen": "C042",
+   "fact": "value",
+   "coin": "USSR 1962 1 kopek · SUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces767.html (Numista N#767): value table row '1962', grade VF = $0.72; grade assumed VF: high points wor",
+   "n": 54,
+   "part": 1
+  },
+  {
+   "specimen": "C043",
+   "fact": "catalog",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#2184 (https://en.numista.com/catalogue/pieces2184.html): references KM# 128 (confirmed); entry url added; Numista lists no Schön n",
+   "n": 55,
+   "part": 1
+  },
+  {
+   "specimen": "C043",
+   "fact": "value",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2184.html (Numista N#2184): value table row '2008 F (\"F\" mark in Star)', grade XF = $0.11; grade assu",
+   "n": 56,
+   "part": 1
+  },
+  {
+   "specimen": "C043",
+   "fact": "story",
+   "coin": "Malta 2008 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces2184.html: all claims hold (arms of Malta with MALTA, common side Luc Luycx, Nordic g",
+   "n": 57,
+   "part": 1
+  },
+  {
+   "specimen": "C044",
+   "fact": "mintage",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista numisview (https://numisview.com/api/v1/printables/checklist/soviet-union/union/1-kopek/reform.pdf); USSR 1k 1974; Numista N#767 lis",
+   "n": 58,
+   "part": 1
+  },
+  {
+   "specimen": "C044",
+   "fact": "value",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces767.html (Numista N#767): value table row '1974', grade VF = $0.16; grade assumed VF: high points wor",
+   "n": 59,
+   "part": 1
+  },
+  {
+   "specimen": "C045",
+   "fact": "story",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Agree — Willem-Alexander became king on 30 April 2013 (https://en.wikipedia.org/wiki/Willem-Alexander_of_the_Netherlands); 12 EU stars per N",
+   "n": 60,
+   "part": 1
+  },
+  {
+   "specimen": "C046",
+   "fact": "story",
+   "coin": "Germany 2010 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces106.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+   "n": 61,
+   "part": 1
+  },
+  {
+   "specimen": "C047",
+   "fact": "value",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1049.html (Numista N#1049): value table row '2006 (\"T\" partially inside stripes)', grade VF = $0.12; ",
+   "n": 62,
+   "part": 1
+  },
+  {
+   "specimen": "C047",
+   "fact": "period",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#1049 https://en.numista.com/catalogue/pieces1049.html: Period 'Federative Republic of Brazil (1967-date)'; differs from the record",
+   "n": 63,
+   "part": 1
+  },
+  {
+   "specimen": "C048",
+   "fact": "value",
+   "coin": "Germany 1993 1 Deutsche Mark · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces846.html (Numista N#846): value table row '1993 D', grade XF = $1.10; grade assumed XF: seen through ",
+   "n": 64,
+   "part": 1
+  },
+  {
+   "specimen": "C050",
+   "fact": "value",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces846.html (Numista N#846): value table row '1982 G', grade VF = $0.75; grade assumed VF: lettering sof",
+   "n": 65,
+   "part": 1
+  },
+  {
+   "specimen": "C051",
+   "fact": "mint",
+   "coin": "Germany 1986 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C051_obv.webp: oak-seedling side shown (date at bottom); mint letter is on the value side per Numista N#854 (1 pfennig) / N#658 (5 pfennig) ",
+   "n": 66,
+   "part": 1
+  },
+  {
+   "specimen": "C053",
+   "fact": "story",
+   "coin": "Germany 2011 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces6319.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff in the 12 stars, ",
+   "n": 67,
+   "part": 1
+  },
+  {
+   "specimen": "C054",
+   "fact": "value",
+   "coin": "France 2010 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): value table row '2010', grade XF = $0.11; grade assumed XF: design and le",
+   "n": 68,
+   "part": 1
+  },
+  {
+   "specimen": "C055",
+   "fact": "value",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces134.html (Numista N#134): value table row '2002 R', grade VF = $0.56; grade assumed VF: seen hazy thr",
+   "n": 69,
+   "part": 1
+  },
+  {
+   "specimen": "C055",
+   "fact": "story",
+   "coin": "Italy 2002 50 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces134.html: all claims hold (equestrian statue of Marcus Aurelius on the patterned Camp",
+   "n": 70,
+   "part": 1
+  },
+  {
+   "specimen": "C056",
+   "fact": "story",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces157.html: all claims hold (second royal seal of 1142 with seven castles and five shie",
+   "n": 71,
+   "part": 1
+  },
+  {
+   "specimen": "C057",
+   "fact": "mint",
+   "coin": "Germany 1982 50 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C057_rev.webp: oak-planter side shown; mint letter is on the value side per type design (Numista N#847) — no letter on this side",
+   "n": 72,
+   "part": 1
+  },
+  {
+   "specimen": "C058",
+   "fact": "mint",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C058_rev.webp: oak-planter side shown; mint letter is on the value side per type design (Numista N#847) — no letter on this side",
+   "n": 73,
+   "part": 1
+  },
+  {
+   "specimen": "C058",
+   "fact": "story",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Agree — every claim checked against Numista N#847 (https://en.numista.com/catalogue/pieces847.html) (design, designer, sides, composition, d",
+   "n": 74,
+   "part": 1
+  },
+  {
+   "specimen": "C059",
+   "fact": "value",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 1 Franc (Signature O. Roty) - France (N#6), https://en.numista.com/catalogue/pieces6.html -- 1960 VF $0.34. Value $0.34",
+   "n": 75,
+   "part": 1
+  },
+  {
+   "specimen": "C059",
+   "fact": "story",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Agree — every claim checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) (design, designer, sides, composition, dates",
+   "n": 76,
+   "part": 1
+  },
+  {
+   "specimen": "C060",
+   "fact": "value",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): value table row '1971 (F. 198/10)', grade VF = $0.20; grade assumed VF: high po",
+   "n": 77,
+   "part": 1
+  },
+  {
+   "specimen": "C060",
+   "fact": "story",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Agree — every claim checked against Numista N#5 (https://en.numista.com/catalogue/pieces5.html) (design, designer, sides, composition, dates",
+   "n": 78,
+   "part": 1
+  },
+  {
+   "specimen": "C061",
+   "fact": "value",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): value table row '2002 R', grade XF = $0.22; grade assumed XF: design and le",
+   "n": 79,
+   "part": 1
+  },
+  {
+   "specimen": "C061",
+   "fact": "story",
+   "coin": "Italy 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces133.html: all claims hold (Boccioni's sculpture by Maria Angela Cassol, common side L",
+   "n": 80,
+   "part": 1
+  },
+  {
+   "specimen": "C062",
+   "fact": "value",
+   "coin": "France 1998 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1998', grade XF = $0.17; grade assumed XF: design and letterin",
+   "n": 81,
+   "part": 1
+  },
+  {
+   "specimen": "C062",
+   "fact": "story",
+   "coin": "France 1998 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 82,
+   "part": 1
+  },
+  {
+   "specimen": "C063",
+   "fact": "value",
+   "coin": "France 1995 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1995', grade XF = $0.17; grade assumed XF: design and letterin",
+   "n": 83,
+   "part": 1
+  },
+  {
+   "specimen": "C063",
+   "fact": "story",
+   "coin": "France 1995 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 84,
+   "part": 1
+  },
+  {
+   "specimen": "C064",
+   "fact": "story",
+   "coin": "Malta 2008 1 euro · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces2187.html: all claims hold (Maltese cross by Noel Galea Bason, common side Luc Luycx,",
+   "n": 85,
+   "part": 1
+  },
+  {
+   "specimen": "C065",
+   "fact": "story",
+   "coin": "Switzerland 2014 5 francs · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces195.html: all claims hold (herdsman's head (often mistaken for William Tell) and Swis",
+   "n": 86,
+   "part": 2
+  },
+  {
+   "specimen": "C066",
+   "fact": "story",
+   "coin": "Switzerland 1976 5 francs · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces195.html: all claims hold (herdsman's head (often mistaken for William Tell) and Swis",
+   "n": 87,
+   "part": 2
+  },
+  {
+   "specimen": "C067",
+   "fact": "mint",
+   "coin": "Switzerland 1981 2 francs · CHF",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "see D0129 (https://coinvarieties.com/index.php/Switzerland_1985_2_francs)",
+   "n": 88,
+   "part": 2
+  },
+  {
+   "specimen": "C068",
+   "fact": "denomination",
+   "coin": "Switzerland 1963 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+   "n": 89,
+   "part": 2
+  },
+  {
+   "specimen": "C070",
+   "fact": "story",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces152.html: all claims hold (Beatrix facing left with vertical BEATRIX KONINGIN DER NED",
+   "n": 90,
+   "part": 2
+  },
+  {
+   "specimen": "C071",
+   "fact": "story",
+   "coin": "Germany 2003 2 euro · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces112.html: all claims hold (eagle by Heinz Hoyer and Sneschana Russewa-Hoyer, common s",
+   "n": 91,
+   "part": 2
+  },
+  {
+   "specimen": "C073",
+   "fact": "story",
+   "coin": "USA 1976 25 cents · USD · Bicentennial (1776–1976)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "Agree — every claim checked against Numista N#56 (https://en.numista.com/catalogue/pieces56.html) (design, designer, sides, composition, dat",
+   "n": 92,
+   "part": 2
+  },
+  {
+   "specimen": "C075",
+   "fact": "mint",
+   "coin": "Switzerland 1982 5 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "see D0133 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+   "n": 93,
+   "part": 2
+  },
+  {
+   "specimen": "C075",
+   "fact": "value",
+   "coin": "Switzerland 1982 5 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces171.html (Numista N#171): value table row '1982', grade VF = $0.20; grade assumed VF: high points wor",
+   "n": 94,
+   "part": 2
+  },
+  {
+   "specimen": "C076",
+   "fact": "denomination",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+   "n": 95,
+   "part": 2
+  },
+  {
+   "specimen": "C076",
+   "fact": "story",
+   "coin": "Switzerland 1989 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Agree — every claim checked against Numista N#178 (https://en.numista.com/catalogue/pieces178.html) (design, designer, sides, composition, d",
+   "n": 96,
+   "part": 2
+  },
+  {
+   "specimen": "C078",
+   "fact": "denomination",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+   "n": 97,
+   "part": 2
+  },
+  {
+   "specimen": "C078",
+   "fact": "story",
+   "coin": "Switzerland 1969 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces178.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+   "n": 98,
+   "part": 2
+  },
+  {
+   "specimen": "C079",
+   "fact": "denomination",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+   "n": 99,
+   "part": 2
+  },
+  {
+   "specimen": "C079",
+   "fact": "story",
+   "coin": "Switzerland 1991 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces178.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+   "n": 100,
+   "part": 2
+  },
+  {
+   "specimen": "C080",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces111.html: all claims hold (eagle by Heinz Hoyer and Sneschana Russewa-Hoyer, common s",
+   "n": 101,
+   "part": 2
+  },
+  {
+   "specimen": "C081",
+   "fact": "mint",
+   "coin": "Switzerland 1983 5 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "see D0131 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+   "n": 102,
+   "part": 2
+  },
+  {
+   "specimen": "C081",
+   "fact": "value",
+   "coin": "Switzerland 1983 5 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces171.html (Numista N#171): value table row '1983', grade XF = $0.22; grade assumed XF: design and lett",
+   "n": 103,
+   "part": 2
+  },
+  {
+   "specimen": "C082",
+   "fact": "composition",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Ledger import",
+   "source_on_record": "C082 gives the alloy 'CuNi 75/25'; C242 'CuNi' (same type KM#27, same 3.00 g / 19.15 mm)",
+   "n": 104,
+   "part": 2
+  },
+  {
+   "specimen": "C082",
+   "fact": "value",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces173.html (Numista N#173): value table row '1979', grade XF = $0.28; grade assumed XF: design and lett",
+   "n": 105,
+   "part": 2
+  },
+  {
+   "specimen": "C082",
+   "fact": "story",
+   "coin": "Switzerland 1979 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces173.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+   "n": 106,
+   "part": 2
+  },
+  {
+   "specimen": "C083",
+   "fact": "mint",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "see D0132 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+   "n": 107,
+   "part": 2
+  },
+  {
+   "specimen": "C083",
+   "fact": "composition",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Ledger import",
+   "source_on_record": "C082 gives the alloy 'CuNi 75/25'; C242 'CuNi' (same type KM#27, same 3.00 g / 19.15 mm)",
+   "n": 108,
+   "part": 2
+  },
+  {
+   "specimen": "C083",
+   "fact": "value",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces173.html (Numista N#173): value table row '1981', grade VF = $0.22; grade assumed VF: high points wor",
+   "n": 109,
+   "part": 2
+  },
+  {
+   "specimen": "C083",
+   "fact": "story",
+   "coin": "Switzerland 1981 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces173.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+   "n": 110,
+   "part": 2
+  },
+  {
+   "specimen": "C084",
+   "fact": "value",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces135.html (Numista N#135): value table row '2002 R', grade XF = $1.10; grade assumed XF: Vitruvian Man",
+   "n": 111,
+   "part": 2
+  },
+  {
+   "specimen": "C084",
+   "fact": "story",
+   "coin": "Italy 2002 1 euro · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces135.html: all claims hold (Vitruvian Man by Laura Cretara, common side Luc Luycx, cop",
+   "n": 112,
+   "part": 2
+  },
+  {
+   "specimen": "C088",
+   "fact": "value",
+   "coin": "USA 1957 10¢ Roosevelt",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces52.html: value table row '1957', grade F = $3.80; grade assumed F: hair above the ear worn nearly smo",
+   "n": 113,
+   "part": 2
+  },
+  {
+   "specimen": "C089",
+   "fact": "mint",
+   "coin": "Germany 1995 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C089_obv.webp: oak-seedling side shown (date at bottom); mint letter is on the value side per Numista N#854 (1 pfennig) / N#658 (5 pfennig) ",
+   "n": 114,
+   "part": 2
+  },
+  {
+   "specimen": "C093",
+   "fact": "mint",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "see D0130 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+   "n": 115,
+   "part": 2
+  },
+  {
+   "specimen": "C093",
+   "fact": "value",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces185.html (Numista N#185): value table row '1970', grade VF = $1.10; grade assumed VF: wreath leaves f",
+   "n": 116,
+   "part": 2
+  },
+  {
+   "specimen": "C093",
+   "fact": "design",
+   "coin": "Switzerland 1970 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+   "n": 117,
+   "part": 2
+  },
+  {
+   "specimen": "C094",
+   "fact": "value",
+   "coin": "Switzerland 1986 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces185.html (Numista N#185): value table row '1986 B', grade XF = $1.10; grade assumed XF: wreath and le",
+   "n": 118,
+   "part": 2
+  },
+  {
+   "specimen": "C095",
+   "fact": "value",
+   "coin": "France 1999 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): value table row '1999', grade VF = $0.11; grade assumed VF: high points wor",
+   "n": 119,
+   "part": 2
+  },
+  {
+   "specimen": "C096",
+   "fact": "value",
+   "coin": "France 2002 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): value table row '2002', grade VF = $0.11; grade assumed VF: high points wor",
+   "n": 120,
+   "part": 2
+  },
+  {
+   "specimen": "C097",
+   "fact": "value",
+   "coin": "France 2015 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): value table row '2015', grade VF = $0.11; grade assumed VF: high points w",
+   "n": 121,
+   "part": 2
+  },
+  {
+   "specimen": "C098",
+   "fact": "story",
+   "coin": "Spain 2000 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces83.html: all claims hold (main facade of the Cathedral of Santiago de Compostela by G",
+   "n": 122,
+   "part": 2
+  },
+  {
+   "specimen": "C099",
+   "fact": "story",
+   "coin": "Germany 2002 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces107.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+   "n": 123,
+   "part": 2
+  },
+  {
+   "specimen": "C100",
+   "fact": "story",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces106.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+   "n": 124,
+   "part": 2
+  },
+  {
+   "specimen": "C101",
+   "fact": "story",
+   "coin": "Ireland 2002 1 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces121.html: all claims hold (Celtic harp with éire by Jarlath Hayes, common side Luc Lu",
+   "n": 125,
+   "part": 2
+  },
+  {
+   "specimen": "C102",
+   "fact": "story",
+   "coin": "Germany 2015 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces6319.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff in the 12 stars, ",
+   "n": 126,
+   "part": 2
+  },
+  {
+   "specimen": "C103",
+   "fact": "value",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces846.html (Numista N#846): value table row '1982 J', grade XF = $0.54; grade assumed XF: lettering and",
+   "n": 127,
+   "part": 2
+  },
+  {
+   "specimen": "C114",
+   "fact": "story",
+   "coin": "Mexico (Chihuahua) 1914 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Plain-English rewrite of the existing story; no facts changed. Copper and design verified against KM-613 (PCGS 160224: https://www.greatcoll",
+   "n": 128,
+   "part": 2
+  },
+  {
+   "specimen": "C117",
+   "fact": "value",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 1 Franc - France (N#6), https://en.numista.com/catalogue/pieces6.html -- 1960 F $0.22. Value $0.22 confirmed; adding so",
+   "n": 129,
+   "part": 2
+  },
+  {
+   "specimen": "C118",
+   "fact": "value",
+   "coin": "France 1960 1 franc · FRF (nouveau franc)",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 1 Franc - France (N#6), https://en.numista.com/catalogue/pieces6.html -- 1960 F $0.22. Value $0.22 confirmed; adding so",
+   "n": 130,
+   "part": 2
+  },
+  {
+   "specimen": "C119",
+   "fact": "value",
+   "coin": "France 1977 1 franc · FRF (nouveau franc)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1977', grade F = $0.22; grade assumed F: no photo of this coin",
+   "n": 131,
+   "part": 2
+  },
+  {
+   "specimen": "C120",
+   "fact": "story",
+   "coin": "Ireland 2013 5 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces123.html: all claims hold (Celtic harp with éire by Jarlath Hayes, common side Luc Lu",
+   "n": 132,
+   "part": 2
+  },
+  {
+   "specimen": "C121",
+   "fact": "story",
+   "coin": "Germany 2014 5 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces107.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+   "n": 133,
+   "part": 2
+  },
+  {
+   "specimen": "C124",
+   "fact": "value",
+   "coin": "France 1967 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1967 ((fr) Dont 2 305 en set FDC)', grade VF = $0.16; grade as",
+   "n": 134,
+   "part": 2
+  },
+  {
+   "specimen": "C124",
+   "fact": "story",
+   "coin": "France 1967 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 135,
+   "part": 2
+  },
+  {
+   "specimen": "C125",
+   "fact": "value",
+   "coin": "France 1984 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1984 ((fr) Dont 13 836 en set FDC)', grade XF = $0.15; grade a",
+   "n": 136,
+   "part": 2
+  },
+  {
+   "specimen": "C125",
+   "fact": "story",
+   "coin": "France 1984 10 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+   "n": 137,
+   "part": 2
+  },
+  {
+   "specimen": "C126",
+   "fact": "story",
+   "coin": "Germany 2002 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces106.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+   "n": 138,
+   "part": 2
+  },
+  {
+   "specimen": "C127",
+   "fact": "story",
+   "coin": "France 2010 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces98.html: all claims hold (Marianne by Fabienne Courtiade with RF and 12 stars, common",
+   "n": 139,
+   "part": 2
+  },
+  {
+   "specimen": "C128",
+   "fact": "story",
+   "coin": "France 2017 2 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces98.html: all claims hold (Marianne by Fabienne Courtiade with RF and 12 stars, common",
+   "n": 140,
+   "part": 2
+  },
+  {
+   "specimen": "C129",
+   "fact": "value",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces101.html (Numista N#101): value table row '2000', grade F = $0.22; grade assumed F: no photo of this ",
+   "n": 141,
+   "part": 2
+  },
+  {
+   "specimen": "C129",
+   "fact": "story",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces101.html: all claims hold (modern Sower by Laurent Jorio after Oscar Roty with RF and",
+   "n": 142,
+   "part": 2
+  },
+  {
+   "specimen": "C130",
+   "fact": "value",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces101.html (Numista N#101): value table row '2000', grade F = $0.22; grade assumed F: no photo of this ",
+   "n": 143,
+   "part": 2
+  },
+  {
+   "specimen": "C130",
+   "fact": "story",
+   "coin": "France 2000 20 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces101.html: all claims hold (modern Sower by Laurent Jorio after Oscar Roty with RF and",
+   "n": 144,
+   "part": 2
+  },
+  {
+   "specimen": "C131",
+   "fact": "value",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces109.html (Numista N#109): value table row '2002 rows 2002 A / 2002 D / 2002 F / 2002 G / 2002 J', gra",
+   "n": 145,
+   "part": 2
+  },
+  {
+   "specimen": "C131",
+   "fact": "story",
+   "coin": "Germany 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces109.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff in the 12 stars, c",
+   "n": 146,
+   "part": 2
+  },
+  {
+   "specimen": "C132",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 147,
+   "part": 2
+  },
+  {
+   "specimen": "C133",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 148,
+   "part": 2
+  },
+  {
+   "specimen": "C134",
+   "fact": "story",
+   "coin": "Germany 2002 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 149,
+   "part": 2
+  },
+  {
+   "specimen": "C135",
+   "fact": "story",
+   "coin": "Germany 2008 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 150,
+   "part": 2
+  },
+  {
+   "specimen": "C136",
+   "fact": "story",
+   "coin": "Germany 2009 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 151,
+   "part": 2
+  },
+  {
+   "specimen": "C137",
+   "fact": "story",
+   "coin": "Germany 2012 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 152,
+   "part": 2
+  },
+  {
+   "specimen": "C138",
+   "fact": "story",
+   "coin": "Germany 2015 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+   "n": 153,
+   "part": 2
+  },
+  {
+   "specimen": "C139",
+   "fact": "story",
+   "coin": "Spain 2014 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces10856.html: all claims hold (main facade of the Cathedral of Santiago de Compostela b",
+   "n": 154,
+   "part": 2
+  },
+  {
+   "specimen": "C140",
+   "fact": "story",
+   "coin": "Spain 2008 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces81.html: all claims hold (main facade of the Cathedral of Santiago de Compostela by G",
+   "n": 155,
+   "part": 2
+  },
+  {
+   "specimen": "C141",
+   "fact": "story",
+   "coin": "France 2009 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces97.html: all claims hold (Marianne by Fabienne Courtiade with RF and 12 stars, common",
+   "n": 156,
+   "part": 2
+  },
+  {
+   "specimen": "C142",
+   "fact": "value",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces145.html (Numista N#145): value table row '2000', grade F = $0.01; grade assumed F: no photo of this ",
+   "n": 157,
+   "part": 2
+  },
+  {
+   "specimen": "C142",
+   "fact": "story",
+   "coin": "Netherlands 2000 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces145.html: all claims hold (Beatrix profile with BEATRIX KONINGIN DER NEDERLANDEN, com",
+   "n": 158,
+   "part": 2
+  },
+  {
+   "specimen": "C143",
+   "fact": "value",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces121.html (Numista N#121): value table row '2004', grade F = $0.01; grade assumed F: no photo of this ",
+   "n": 159,
+   "part": 2
+  },
+  {
+   "specimen": "C143",
+   "fact": "story",
+   "coin": "Ireland 2004 1 euro cent · EUR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces121.html: all claims hold (Celtic harp with éire by Jarlath Hayes, common side Luc Lu",
+   "n": 160,
+   "part": 2
+  },
+  {
+   "specimen": "C144",
+   "fact": "value",
+   "coin": "Norway 1998 50 øre · NOK",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1442.html (Numista N#1442): value table row '1998', grade XF = $0.28; grade assumed XF: toned, orname",
+   "n": 161,
+   "part": 2
+  },
+  {
+   "specimen": "C145",
+   "fact": "value",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2834.html (Numista N#2834): value table row '1996 So', grade XF = $0.53; grade assumed XF: O'Higgins ",
+   "n": 162,
+   "part": 2
+  },
+  {
+   "specimen": "C145",
+   "fact": "story",
+   "coin": "Chile 1996 50 pesos · CLP",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#2834 https://en.numista.com/catalogue/pieces2834.html read 2026-10-24: Obverse portrait of Bernardo O'Higgins right, lettering 'RE",
+   "n": 163,
+   "part": 2
+  },
+  {
+   "specimen": "C146",
+   "fact": "mint",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C146_rev.webp: value/date side read, nothing beside 1998 or ONE DOLLAR; other side (Bauhinia) per Numista lettering 香 港 HONG KONG only; http",
+   "n": 164,
+   "part": 2
+  },
+  {
+   "specimen": "C146",
+   "fact": "value",
+   "coin": "Hong Kong 1998 $1 · HKD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2118.html (Numista N#2118): value table row '1998', grade XF = $0.56; grade assumed XF: lettering and",
+   "n": 165,
+   "part": 2
+  },
+  {
+   "specimen": "C147",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+   "n": 166,
+   "part": 2
+  },
+  {
+   "specimen": "C148",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+   "n": 167,
+   "part": 2
+  },
+  {
+   "specimen": "C148",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+   "n": 168,
+   "part": 2
+  },
+  {
+   "specimen": "C149",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+   "n": 169,
+   "part": 2
+  },
+  {
+   "specimen": "C149",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+   "n": 170,
+   "part": 2
+  },
+  {
+   "specimen": "C150",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+   "n": 171,
+   "part": 3
+  },
+  {
+   "specimen": "C150",
+   "fact": "story",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+   "n": 172,
+   "part": 3
+  },
+  {
+   "specimen": "C151",
+   "fact": "value",
+   "coin": "United Kingdom 1992 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+   "n": 173,
+   "part": 3
+  },
+  {
+   "specimen": "C152",
+   "fact": "value",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): value table row '2001', grade XF = $0.30; grade assumed XF: design and le",
+   "n": 174,
+   "part": 3
+  },
+  {
+   "specimen": "C153",
+   "fact": "value",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): value table row '2008', grade XF = $0.35; grade assumed XF: design and le",
+   "n": 175,
+   "part": 3
+  },
+  {
+   "specimen": "C154",
+   "fact": "value",
+   "coin": "United Kingdom 2010 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces7350.html (Numista N#7350): value table row '2010', grade F = $0.15; grade assumed F: no photo of thi",
+   "n": 176,
+   "part": 3
+  },
+  {
+   "specimen": "C155",
+   "fact": "value",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): value table row '2013', grade F = $0.15; grade assumed F: no photo of t",
+   "n": 177,
+   "part": 3
+  },
+  {
+   "specimen": "C155",
+   "fact": "story",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces25746.html: all claims hold",
+   "n": 178,
+   "part": 3
+  },
+  {
+   "specimen": "C156",
+   "fact": "value",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): value table row '2013', grade F = $0.15; grade assumed F: no photo of t",
+   "n": 179,
+   "part": 3
+  },
+  {
+   "specimen": "C156",
+   "fact": "story",
+   "coin": "United Kingdom 2013 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces25746.html: all claims hold",
+   "n": 180,
+   "part": 3
+  },
+  {
+   "specimen": "C157",
+   "fact": "value",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): value table row '2014', grade XF = $0.24; grade assumed XF: design and ",
+   "n": 181,
+   "part": 3
+  },
+  {
+   "specimen": "C157",
+   "fact": "story",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces25746.html: all claims hold",
+   "n": 182,
+   "part": 3
+  },
+  {
+   "specimen": "C158",
+   "fact": "value",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces70549.html (Numista N#70549): value table row '2016', grade F = $0.13; grade assumed F: no photo of t",
+   "n": 183,
+   "part": 3
+  },
+  {
+   "specimen": "C158",
+   "fact": "story",
+   "coin": "United Kingdom 2016 10 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces70549.html: all claims hold",
+   "n": 184,
+   "part": 3
+  },
+  {
+   "specimen": "C159",
+   "fact": "mint",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C159_rev.webp: ship/date side read, no mark beside 2004 or TEN CENTS; other side per Numista: QUEEN ELIZABETH THE SECOND IRB (IRB = engraver",
+   "n": 185,
+   "part": 3
+  },
+  {
+   "specimen": "C159",
+   "fact": "story",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces5712.html: all claims hold",
+   "n": 186,
+   "part": 3
+  },
+  {
+   "specimen": "C160",
+   "fact": "value",
+   "coin": "Canada 1939 5 cents · CAD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces413.html (Numista N#413): value table row '1939', grade VF = $0.67; grade assumed VF: beaver fur and ",
+   "n": 187,
+   "part": 3
+  },
+  {
+   "specimen": "C161",
+   "fact": "value",
+   "coin": "Mexico 1945 10 centavos · MXP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C161 value.face.currency=MXN, year 1945",
+   "n": 188,
+   "part": 3
+  },
+  {
+   "specimen": "C163",
+   "fact": "mint",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "ARBITRATION D0156 — record stands; claim rejected. A mint mark exists: the specimen's own mint_text records 'small mark by talons (soft on p",
+   "n": 189,
+   "part": 3
+  },
+  {
+   "specimen": "C164",
+   "fact": "value",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces4004.html (Numista N#4004): value table row '1932', grade F = $0.53; grade assumed F: Britannia worn ",
+   "n": 190,
+   "part": 3
+  },
+  {
+   "specimen": "C165",
+   "fact": "value",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1516.html (Numista N#1516): value table row '1973', grade XF = $0.28; grade assumed XF: hair lines an",
+   "n": 191,
+   "part": 3
+  },
+  {
+   "specimen": "C166",
+   "fact": "value",
+   "coin": "Mexico 1944 5 centavos · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C166 value.face.currency=MXN, year 1944",
+   "n": 192,
+   "part": 3
+  },
+  {
+   "specimen": "C167",
+   "fact": "value",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1990 (Obverse A (see comments))', grade F = $0.11; grade a",
+   "n": 193,
+   "part": 3
+  },
+  {
+   "specimen": "C168",
+   "fact": "value",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1990 (Obverse A (see comments))', grade F = $0.11; grade a",
+   "n": 194,
+   "part": 3
+  },
+  {
+   "specimen": "C169",
+   "fact": "value",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1992 (Obverse C (see comments))', grade F = $0.11; grade a",
+   "n": 195,
+   "part": 3
+  },
+  {
+   "specimen": "C170",
+   "fact": "value",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1996 (Obverse B (see comments))', grade F = $0.11; grade a",
+   "n": 196,
+   "part": 3
+  },
+  {
+   "specimen": "C171",
+   "fact": "value",
+   "coin": "United Kingdom 1996 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1996 (Obverse B (see comments))', grade F = $0.11; grade a",
+   "n": 197,
+   "part": 3
+  },
+  {
+   "specimen": "C172",
+   "fact": "value",
+   "coin": "United Kingdom 1997 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1997 (Obverse B or C (see comments))', grade F = $0.10; gr",
+   "n": 198,
+   "part": 3
+  },
+  {
+   "specimen": "C173",
+   "fact": "value",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '1998', grade XF = $0.25; grade assumed XF: design and lett",
+   "n": 199,
+   "part": 3
+  },
+  {
+   "specimen": "C174",
+   "fact": "value",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '2000', grade XF = $0.18; grade assumed XF: design and lett",
+   "n": 200,
+   "part": 3
+  },
+  {
+   "specimen": "C175",
+   "fact": "value",
+   "coin": "United Kingdom 2001 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '2001', grade F = $0.08; grade assumed F: no photo of this ",
+   "n": 201,
+   "part": 3
+  },
+  {
+   "specimen": "C176",
+   "fact": "value",
+   "coin": "United Kingdom 2007 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '2007', grade F = $0.11; grade assumed F: no photo of this ",
+   "n": 202,
+   "part": 3
+  },
+  {
+   "specimen": "C177",
+   "fact": "value",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): value table row '2009', grade VF = $0.19; grade assumed VF: high points w",
+   "n": 203,
+   "part": 3
+  },
+  {
+   "specimen": "C178",
+   "fact": "value",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): value table row '2010', grade F = $0.15; grade assumed F: no photo of thi",
+   "n": 204,
+   "part": 3
+  },
+  {
+   "specimen": "C179",
+   "fact": "value",
+   "coin": "United Kingdom 2010 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): value table row '2010', grade F = $0.15; grade assumed F: no photo of thi",
+   "n": 205,
+   "part": 3
+  },
+  {
+   "specimen": "C180",
+   "fact": "value",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): value table row '2012', grade XF = $0.18; grade assumed XF: design and ",
+   "n": 206,
+   "part": 3
+  },
+  {
+   "specimen": "C180",
+   "fact": "story",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces25766.html: all claims hold",
+   "n": 207,
+   "part": 3
+  },
+  {
+   "specimen": "C181",
+   "fact": "value",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): value table row '2014', grade F = $0.13; grade assumed F: no photo of t",
+   "n": 208,
+   "part": 3
+  },
+  {
+   "specimen": "C181",
+   "fact": "story",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces25766.html: all claims hold",
+   "n": 209,
+   "part": 3
+  },
+  {
+   "specimen": "C182",
+   "fact": "value",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): value table row '2014', grade F = $0.13; grade assumed F: no photo of t",
+   "n": 210,
+   "part": 3
+  },
+  {
+   "specimen": "C182",
+   "fact": "story",
+   "coin": "United Kingdom 2014 5 pence · GBP",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces25766.html: all claims hold",
+   "n": 211,
+   "part": 3
+  },
+  {
+   "specimen": "C183",
+   "fact": "value",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): value table row '2015', grade XF = $0.16; grade assumed XF: design and ",
+   "n": 212,
+   "part": 3
+  },
+  {
+   "specimen": "C184",
+   "fact": "value",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): value table row '2016', grade XF = $0.11; grade assumed XF: design and ",
+   "n": 213,
+   "part": 3
+  },
+  {
+   "specimen": "C184",
+   "fact": "story",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces70547.html: all claims hold",
+   "n": 214,
+   "part": 3
+  },
+  {
+   "specimen": "C185",
+   "fact": "mint",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C185_obv.webp: portrait/date side read: CAYMAN ISLANDS ELIZABETH II, 1996 below, no mint letter (RDM under the bust is engraver Maklouf); ot",
+   "n": 215,
+   "part": 3
+  },
+  {
+   "specimen": "C187",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+   "n": 216,
+   "part": 3
+  },
+  {
+   "specimen": "C188",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+   "n": 217,
+   "part": 3
+  },
+  {
+   "specimen": "C189",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+   "n": 218,
+   "part": 3
+  },
+  {
+   "specimen": "C190",
+   "fact": "value",
+   "coin": "Germany 1985 1 Pfennig · DEM",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+   "n": 219,
+   "part": 3
+  },
+  {
+   "specimen": "C191",
+   "fact": "value",
+   "coin": "Germany 1986 1 Pfennig · DEM",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1986 rows 1986 D / 1986 F / 1986 G / 1986 J', grade F = $0",
+   "n": 220,
+   "part": 3
+  },
+  {
+   "specimen": "C192",
+   "fact": "value",
+   "coin": "Germany 1991 1 Pfennig · DEM",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1991 rows 1991 A / 1991 D / 1991 F / 1991 G / 1991 J', gra",
+   "n": 221,
+   "part": 3
+  },
+  {
+   "specimen": "C193",
+   "fact": "value",
+   "coin": "France 1973 5 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2.html (Numista N#2): value table row '1973 ((fr) Dont 79 000 en set FDC)', grade VF = $0.11; grade a",
+   "n": 222,
+   "part": 3
+  },
+  {
+   "specimen": "C194",
+   "fact": "value",
+   "coin": "France 1980 5 centimes · FRF",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2.html (Numista N#2): value table row '1980 ((fr) Dont 60 000 en set FDC)', grade VF = $0.11; grade a",
+   "n": 223,
+   "part": 3
+  },
+  {
+   "specimen": "C195",
+   "fact": "value",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1971 F', grade VF = $0.11; grade assumed VF: high points w",
+   "n": 224,
+   "part": 3
+  },
+  {
+   "specimen": "C196",
+   "fact": "value",
+   "coin": "Germany 1987 5 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1987 F', grade XF = $0.22; grade assumed XF: design and le",
+   "n": 225,
+   "part": 3
+  },
+  {
+   "specimen": "C197",
+   "fact": "value",
+   "coin": "Germany 1992 5 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1992 F', grade VF = $0.11; grade assumed VF: high points w",
+   "n": 226,
+   "part": 3
+  },
+  {
+   "specimen": "C198",
+   "fact": "value",
+   "coin": "Netherlands 1948 1 cent · NLG",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2562.html (Numista N#2562): value table row '1948', grade VF = $0.24; grade assumed VF: high points w",
+   "n": 227,
+   "part": 3
+  },
+  {
+   "specimen": "C199",
+   "fact": "value",
+   "coin": "Italy 1978 50 lire · ITL",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): value table row '1978 R', grade VF = $0.20; grade assumed VF: figure worn a",
+   "n": 228,
+   "part": 3
+  },
+  {
+   "specimen": "C200",
+   "fact": "mint",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C200_obv.webp, C200_rev.webp: both sides read (Chiang Kai-shek with 中華民國九十七年; 壹圓 1): no mint mark; https://en.numista.com/catalogue/pieces96",
+   "n": 229,
+   "part": 3
+  },
+  {
+   "specimen": "C200",
+   "fact": "catalog",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "Numista N#966, https://en.numista.com/catalogue/pieces966.html - References row Y# 551, Schön# 21, no KM number (Muse's read, verify-2026110",
+   "n": 230,
+   "part": 3
+  },
+  {
+   "specimen": "C200",
+   "fact": "mintage",
+   "coin": "Taiwan (ROC) 2008 1 yuan · TWD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Titan Round 4 mintage research 2026-10-03 (Numista Y#536, TW 1 yuan 1978 (NGC agrees; worklist KM#551/Y#551 is the 1981+ type))",
+   "n": 231,
+   "part": 3
+  },
+  {
+   "specimen": "C201",
+   "fact": "story",
+   "coin": "Nigeria 1976 10 kobo · NGN",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces4461.html: all claims hold",
+   "n": 232,
+   "part": 3
+  },
+  {
+   "specimen": "C202",
+   "fact": "mint",
+   "coin": "Guatemala 2010 10 centavos · GTQ",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C202_rev.webp: monolith/value side read, no mark; other side per Numista: arms, REPUBLICA DE GUATEMALA, LIBERTAD 15 DE SETIEMBRE DE 1821, da",
+   "n": 233,
+   "part": 3
+  },
+  {
+   "specimen": "C203",
+   "fact": "story",
+   "coin": "India 2001 1 rupee · INR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces1609.html (N#1609, India 1 Rupee 1992-2004, KM#92): all claims hold — stainless steel",
+   "n": 234,
+   "part": 3
+  },
+  {
+   "specimen": "C204",
+   "fact": "mint",
+   "coin": "Trinidad and Tobago 2014 25 cents · TTD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C204_obv.webp: arms/date side read at full zoom (Drive original C204_Trinidad-and-Tobago_2014_25Cents_obv.jpeg): 2014 alone, no FM (Franklin",
+   "n": 235,
+   "part": 3
+  },
+  {
+   "specimen": "C206",
+   "fact": "value",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1590.html (Numista N#1590): value table row '51 (1976) (昭和五十一年)', grade XF = $0.17; grade assumed XF:",
+   "n": 236,
+   "part": 3
+  },
+  {
+   "specimen": "C207",
+   "fact": "mint",
+   "coin": "Trinidad and Tobago 2016 10 cents · TTD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C207_obv.webp: arms/date side read at full zoom (Drive original C207_Trinidad-and-Tobago_2016_10Cents_obv.jpeg): 2016 alone, no FM (Franklin",
+   "n": 237,
+   "part": 3
+  },
+  {
+   "specimen": "C208",
+   "fact": "mint",
+   "coin": "Turkey 2011 10 kuruş · TRY",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#6165, 10 Kuruş Turkey 2009-2022 KM#1241 https://en.numista.com/6165 (obverse legend TÜRKİYE CUMHURİYETİ / reverse 10 KURUŞ + date ",
+   "n": 238,
+   "part": 3
+  },
+  {
+   "specimen": "C210",
+   "fact": "mint",
+   "coin": "South Korea 2000 100 won · KRW",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#1052, 100 Won South Korea 1983-2026 KM#35 https://en.numista.com/1052 (Mint: Korea Minting and Security Printing Corporation (한국조폐",
+   "n": 239,
+   "part": 3
+  },
+  {
+   "specimen": "C212",
+   "fact": "value",
+   "coin": "Eritrea 1997 50 cents · ERN (nakfa)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista VF $0.98. Note: task lists ER.KM.46 but Numista assigns 50c = KM#47 (KM#46 is the 25c). Nickel clad steel, no precious metal. Grade ",
+   "n": 240,
+   "part": 3
+  },
+  {
+   "specimen": "C213",
+   "fact": "value",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces867.html (Numista N#867): value table row '1991', grade XF = $0.18; grade assumed XF: design and lett",
+   "n": 241,
+   "part": 3
+  },
+  {
+   "specimen": "C214",
+   "fact": "mint",
+   "coin": "Cayman Islands 1996 5 cents · KYD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C214_obv.webp: portrait/date side read: 1996 below, no mint letter (RDM = engraver Maklouf); other side per Numista: crayfish, 5, SD (design",
+   "n": 242,
+   "part": 3
+  },
+  {
+   "specimen": "C215",
+   "fact": "mint",
+   "coin": "Cayman Islands 2008 5 cents · KYD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C215_obv.webp: portrait/date side read: CAYMAN ISLANDS ELIZABETH II 2008, no mint letter (IRB = engraver Rank-Broadley); other side per Numi",
+   "n": 243,
+   "part": 3
+  },
+  {
+   "specimen": "C216",
+   "fact": "value",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces665.html (Numista N#665): value table row '1971', grade F = $0.09; grade assumed F: no photo of this ",
+   "n": 244,
+   "part": 3
+  },
+  {
+   "specimen": "C216",
+   "fact": "story",
+   "coin": "United Kingdom 1971 1 penny · GBP (decimal)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces665.html: all claims hold",
+   "n": 245,
+   "part": 3
+  },
+  {
+   "specimen": "C217",
+   "fact": "value",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): value table row '1998', grade XF = $0.12; grade assumed XF: design and lett",
+   "n": 246,
+   "part": 3
+  },
+  {
+   "specimen": "C217",
+   "fact": "story",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces862.html: all claims hold",
+   "n": 247,
+   "part": 3
+  },
+  {
+   "specimen": "C218",
+   "fact": "value",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces4038.html (Numista N#4038): value table row '2010', grade XF = $0.14; grade assumed XF: design and le",
+   "n": 248,
+   "part": 3
+  },
+  {
+   "specimen": "C218",
+   "fact": "story",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces4038.html: all claims hold",
+   "n": 249,
+   "part": 3
+  },
+  {
+   "specimen": "C219",
+   "fact": "value",
+   "coin": "Jamaica 2015 1 dollar · JMD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces14369.html (Numista N#14369): value table row '2015', grade XF = $0.29; grade assumed XF: arms and le",
+   "n": 250,
+   "part": 3
+  },
+  {
+   "specimen": "C220",
+   "fact": "year",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/catalogue/pieces922.html — mintage table row '57 (1982)' = 890 000 000, matching this specimen's filed issue mintage;",
+   "n": 251,
+   "part": 3
+  },
+  {
+   "specimen": "C220",
+   "fact": "composition",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true,
+   "made_by": "Ledger import",
+   "source_on_record": "C270 gives the alloy; C220 says 'bronze' (same type Y#73a, same 4.5 g / 23.5 mm)",
+   "n": 252,
+   "part": 3
+  },
+  {
+   "specimen": "C222",
+   "fact": "value",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1590.html (Numista N#1590): value table row '40 (1965) (昭和四十年)', grade XF = $0.22; grade assumed XF: ",
+   "n": 253,
+   "part": 3
+  },
+  {
+   "specimen": "C224",
+   "fact": "value",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1966 D', grade VF = $0.22; grade assumed VF: high points w",
+   "n": 254,
+   "part": 3
+  },
+  {
+   "specimen": "C225",
+   "fact": "value",
+   "coin": "Germany 1977 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1977 J', grade VF = $0.15; grade assumed VF: high points w",
+   "n": 255,
+   "part": 3
+  },
+  {
+   "specimen": "C226",
+   "fact": "value",
+   "coin": "Germany 1980 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1980 F', grade VF = $0.11; grade assumed VF: high points w",
+   "n": 256,
+   "part": 4
+  },
+  {
+   "specimen": "C227",
+   "fact": "value",
+   "coin": "Germany 1984 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1984 D', grade XF = $0.24; grade assumed XF: design and le",
+   "n": 257,
+   "part": 4
+  },
+  {
+   "specimen": "C228",
+   "fact": "value",
+   "coin": "Germany 1989 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1989 G', grade XF = $0.17; grade assumed XF: design and le",
+   "n": 258,
+   "part": 4
+  },
+  {
+   "specimen": "C229",
+   "fact": "value",
+   "coin": "Germany 1990 10 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1990 F', grade VF = $0.12; grade assumed VF: high points w",
+   "n": 259,
+   "part": 4
+  },
+  {
+   "specimen": "C230",
+   "fact": "value",
+   "coin": "Jamaica 2015 10 dollars · JMD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces14370.html (Numista N#14370): value table row '2015', grade AU = $0.79; grade assumed AU: bright surf",
+   "n": 260,
+   "part": 4
+  },
+  {
+   "specimen": "C231",
+   "fact": "value",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Correction: live $0.35 (low, unsourced) has no documented basis. Krause-derived worldcoinscatalog KM#40 1958 row G $0.62 (https://www.worldc",
+   "n": 261,
+   "part": 4
+  },
+  {
+   "specimen": "C231",
+   "fact": "story",
+   "coin": "Saudi Arabia AH 1378 (1958) 1 qirsh · SAR",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces2940.html: Value-side sentence placed المملكة العربية السعودية on the value side's ri",
+   "n": 262,
+   "part": 4
+  },
+  {
+   "specimen": "C232",
+   "fact": "mint",
+   "coin": "Vietnam 2003 1000 đồng · VND",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "uCoin Vietnam 1000 dong 2003 KM#72 https://en.ucoin.net/coin/vietnam-1000-dong-2003/?tid=24538 (Mint: Finland, Helsinki-Vantaa, mintage 250,",
+   "n": 263,
+   "part": 4
+  },
+  {
+   "specimen": "C235",
+   "fact": "period",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#5128 https://en.numista.com/catalogue/pieces5128.html: Period 'Republic (1841-date)'; differs from the record's 'Jorge Ubico era' ",
+   "n": 264,
+   "part": 4
+  },
+  {
+   "specimen": "C237",
+   "fact": "value",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1971 D', grade VF = $0.16; grade assumed VF: high points w",
+   "n": 265,
+   "part": 4
+  },
+  {
+   "specimen": "C238",
+   "fact": "value",
+   "coin": "Germany 1973 2 Deutsche Mark · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces844.html (Numista N#844): value table row '1973 D', grade XF = $1.30; grade assumed XF: eagle feather",
+   "n": 266,
+   "part": 4
+  },
+  {
+   "specimen": "C239",
+   "fact": "value",
+   "coin": "Australia 1944 1 penny · AUD (pre-decimal)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces5788.html (Numista N#5788): value table row '1944', grade VG = $0.99; grade assumed VG: very dark and",
+   "n": 267,
+   "part": 4
+  },
+  {
+   "specimen": "C240",
+   "fact": "value",
+   "coin": "Italy 1965 100 lire · ITL",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces304.html (Numista N#304): value table row '1965 R', grade VF = $0.22; grade assumed VF: Italia figure",
+   "n": 268,
+   "part": 4
+  },
+  {
+   "specimen": "C241",
+   "fact": "value",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): value table row '1997', grade F = $0.11; grade assumed F: no photo of this ",
+   "n": 269,
+   "part": 4
+  },
+  {
+   "specimen": "C241",
+   "fact": "story",
+   "coin": "United Kingdom 1997 1 penny · GBP (decimal)",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces860.html: all claims hold",
+   "n": 270,
+   "part": 4
+  },
+  {
+   "specimen": "C242",
+   "fact": "composition",
+   "coin": "Switzerland 1883 10 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Ledger import",
+   "source_on_record": "C082 gives the alloy 'CuNi 75/25'; C242 'CuNi' (same type KM#27, same 3.00 g / 19.15 mm)",
+   "n": 271,
+   "part": 4
+  },
+  {
+   "specimen": "C243",
+   "fact": "value",
+   "coin": "France 1946 5 francs · FRF (old franc · pre-nouveau)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1190.html (Numista N#1190): value table row '1946', grade VF = $1.10; grade assumed VF: wreath and le",
+   "n": 272,
+   "part": 4
+  },
+  {
+   "specimen": "C244",
+   "fact": "value",
+   "coin": "Mexico 1964 20 centavos · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C244 value.face.currency=MXN, year 1964",
+   "n": 273,
+   "part": 4
+  },
+  {
+   "specimen": "C245",
+   "fact": "value",
+   "coin": "Greece 1970 2 drachmai · GRD",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces545.html (Numista N#545): value table row '1970', grade F = $0.20; grade assumed F: no photo of this ",
+   "n": 274,
+   "part": 4
+  },
+  {
+   "specimen": "C246",
+   "fact": "value",
+   "coin": "Philippines 1971 10 sentimos · PHP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3752.html (Numista N#3752): value table row '1971 (Denver Mint)', grade XF = $0.28; grade assumed XF:",
+   "n": 275,
+   "part": 4
+  },
+  {
+   "specimen": "C247",
+   "fact": "value",
+   "coin": "South Korea 1966 1 won · KRW",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces5993.html (Numista N#5993): value table row '1966', grade XF = $0.35; grade assumed XF: design and le",
+   "n": 276,
+   "part": 4
+  },
+  {
+   "specimen": "C248",
+   "fact": "period",
+   "coin": "Greece 1982 2 drachmes · GRD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#549 https://en.numista.com/catalogue/pieces549.html: Period 'Third Hellenic Republic (1974-date)'; differs from the record's 'Hell",
+   "n": 277,
+   "part": 4
+  },
+  {
+   "specimen": "C249",
+   "fact": "value",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 20 Cents - Australia (N#1003), https://en.numista.com/1003 -- 1966 VF $0.38.",
+   "n": 278,
+   "part": 4
+  },
+  {
+   "specimen": "C249",
+   "fact": "story",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces1003.html: all claims hold",
+   "n": 279,
+   "part": 4
+  },
+  {
+   "specimen": "C251",
+   "fact": "value",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): value table row '1984', grade VF = $0.13; grade assumed VF: high points w",
+   "n": 280,
+   "part": 4
+  },
+  {
+   "specimen": "C252",
+   "fact": "value",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Correction: Numista N#1055 (https://en.numista.com/1055) 1962 row XF $0.98 (NGC 1962 XF $0.80); live $0.97 has no exact row match. Filed typ",
+   "n": 281,
+   "part": 4
+  },
+  {
+   "specimen": "C253",
+   "fact": "story",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces2617.html: all claims hold — composition row 'Nickel plated steel'; obverse 'Coat of ",
+   "n": 282,
+   "part": 4
+  },
+  {
+   "specimen": "C254",
+   "fact": "value",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces3935.html (Numista N#3935): value table row '1951', grade VF = $1.10; grade assumed VF: no phone phot",
+   "n": 283,
+   "part": 4
+  },
+  {
+   "specimen": "C254",
+   "fact": "story",
+   "coin": "Vatican City 1951 10 lire · VAL",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces3935.html: all claims hold",
+   "n": 284,
+   "part": 4
+  },
+  {
+   "specimen": "C255",
+   "fact": "value",
+   "coin": "Netherlands 1892 1 cent · NLG",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1070.html (Numista N#1070): value table row '1892', grade F = $1.60; grade assumed F: no phone photo ",
+   "n": 285,
+   "part": 4
+  },
+  {
+   "specimen": "C256",
+   "fact": "denomination",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+   "n": 286,
+   "part": 4
+  },
+  {
+   "specimen": "C256",
+   "fact": "story",
+   "coin": "Switzerland 1959 20 rappen · CHF",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces178.html: all claims hold",
+   "n": 287,
+   "part": 4
+  },
+  {
+   "specimen": "C257",
+   "fact": "value",
+   "coin": "Mexico 1967 20 centavos · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C257 value.face.currency=MXN, year 1967",
+   "n": 288,
+   "part": 4
+  },
+  {
+   "specimen": "C257",
+   "fact": "story",
+   "coin": "Mexico 1967 20 centavos · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces959.html: all claims hold — composition row 'Brass (95% Copper, 5% Zinc)' (brass is r",
+   "n": 289,
+   "part": 4
+  },
+  {
+   "specimen": "C258",
+   "fact": "mint",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true,
+   "made_by": "Claude",
+   "source_on_record": "D0127: the 20 su 1953 has no dragon side; date on the obverse with the three women (https://coinvarieties.com/index.php/South_Vietnam_1953(a",
+   "n": 290,
+   "part": 4
+  },
+  {
+   "specimen": "C258",
+   "fact": "value",
+   "coin": "Vietnam (State of Vietnam) 1953 20 su · VND (State of Vietnam đồng)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces5904.html (Numista N#5904): value table row '1953', grade XF = $2.80; grade assumed XF: rice stalks a",
+   "n": 291,
+   "part": 4
+  },
+  {
+   "specimen": "C259",
+   "fact": "value",
+   "coin": "Mexico 1940 1 centavo · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C259 value.face.currency=MXN, year 1940",
+   "n": 292,
+   "part": 4
+  },
+  {
+   "specimen": "C260",
+   "fact": "mint",
+   "coin": "USSR 1931 3 kopecks · SUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C260_rev.webp: value/date side read; only the dot after 1931 that is part of the design (Numista lettering '3 КОПЕЙКИ 1926 ·'); https://en.n",
+   "n": 293,
+   "part": 4
+  },
+  {
+   "specimen": "C260",
+   "fact": "value",
+   "coin": "USSR 1931 3 kopecks · SUR",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 3 Kopecks (7 Ribbons) - Soviet Union (N#4042), https://en.numista.com/catalogue/pieces4042.html -- 1931 VF $0.74. Value",
+   "n": 294,
+   "part": 4
+  },
+  {
+   "specimen": "C261",
+   "fact": "mint",
+   "coin": "USSR 1932 15 kopecks · SUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "C261_rev.webp: worker/date side read, no letter or mark beside 1932 г. or below 15 КОП; https://en.numista.com/catalogue/pieces5269.html lis",
+   "n": 295,
+   "part": 4
+  },
+  {
+   "specimen": "C261",
+   "fact": "value",
+   "coin": "USSR 1932 15 kopecks · SUR",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces5269.html (Numista N#5269): value table row '1932', grade F = $1.10; grade assumed F: worker figure a",
+   "n": 296,
+   "part": 4
+  },
+  {
+   "specimen": "C262",
+   "fact": "value",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): value table row '1984', grade XF = $0.17; grade assumed XF: design and le",
+   "n": 297,
+   "part": 4
+  },
+  {
+   "specimen": "C264",
+   "fact": "story",
+   "coin": "Singapore 1973 10 cents · SGD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces1671.html (Numista N#1671, KM#3): all claims hold. Reverse: Crowned Seahorse; obverse",
+   "n": 298,
+   "part": 4
+  },
+  {
+   "specimen": "C265",
+   "fact": "mint",
+   "coin": "Germany 1950 5 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "C265_obv.webp: oak-seedling side shown (date at bottom); mint letter is on the value side per Numista N#854 (1 pfennig) / N#658 (5 pfennig) ",
+   "n": 299,
+   "part": 4
+  },
+  {
+   "specimen": "C265",
+   "fact": "value",
+   "coin": "Germany 1950 5 Pfennig · DEM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1950 rows 1950 D [Writing closer to rim] / 1950 F / 1950 G",
+   "n": 300,
+   "part": 4
+  },
+  {
+   "specimen": "C266",
+   "fact": "value",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1654.html (Numista N#1654): value table row '2012', grade XF = $0.17; grade assumed XF: design and le",
+   "n": 301,
+   "part": 4
+  },
+  {
+   "specimen": "C267",
+   "fact": "value",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces1654.html (Numista N#1654): value table row '2013', grade XF = $0.17; grade assumed XF: design and le",
+   "n": 302,
+   "part": 4
+  },
+  {
+   "specimen": "C269",
+   "fact": "value",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces7364.html (Numista N#7364): value table row '1990', grade XF = $0.34; grade assumed XF: design and le",
+   "n": 303,
+   "part": 4
+  },
+  {
+   "specimen": "C270",
+   "fact": "composition",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true,
+   "made_by": "Ledger import",
+   "source_on_record": "C270 gives the alloy; C220 says 'bronze' (same type Y#73a, same 4.5 g / 23.5 mm)",
+   "n": 304,
+   "part": 4
+  },
+  {
+   "specimen": "C271",
+   "fact": "value",
+   "coin": "Mexico 2013 50 centavos · MXN (nuevo)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://en.numista.com/catalogue/pieces18097.html (Numista N#18097): value table row '2013 Mo', grade XF = $0.22; grade assumed XF: design a",
+   "n": 305,
+   "part": 4
+  },
+  {
+   "specimen": "C272",
+   "fact": "value",
+   "coin": "Austria 1925 2 groschen · ATS",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Numista value table, 2 Groschen - Austria (N#1944), https://en.numista.com/1944 -- 1925 F/VF $0.33. Assumed F/VF (typical circulated; no gra",
+   "n": 306,
+   "part": 4
+  },
+  {
+   "specimen": "C276",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/catalogue/pieces92216.html — 1 Cent (Small type - Magnetic), Bahamas 2014-2015; References: Schön#190a (no KM), N#922",
+   "n": 307,
+   "part": 4
+  },
+  {
+   "specimen": "C278",
+   "fact": "denomination",
+   "coin": "Switzerland 1980 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+   "n": 308,
+   "part": 4
+  },
+  {
+   "specimen": "C278",
+   "fact": "value",
+   "coin": "Switzerland 1980 20 rappen · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/178 - 1980 Switzerland 20 rappen (KM#29a, N#178) has an explicit 1980 row in the Numista value table; VF=$0.27 verifi",
+   "n": 309,
+   "part": 4
+  },
+  {
+   "specimen": "C279",
+   "fact": "story",
+   "coin": "Philippines 1997 1 piso · PHP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://en.numista.com/catalogue/pieces1681.html: all claims hold — obverse 'Head of Jose Rizal facing right' lettering 'REP",
+   "n": 310,
+   "part": 4
+  },
+  {
+   "specimen": "C281",
+   "fact": "value",
+   "coin": "France 1994 5 francs · FRF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Confidence updated per value research 20261015-0328. https://en.numista.com/8",
+   "n": 311,
+   "part": 4
+  },
+  {
+   "specimen": "C282",
+   "fact": "value",
+   "coin": "Yugoslavia 1965 50 para · YUD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Correction: Numista N#2006 (https://en.numista.com/2006) 1965 row G $0.15 / F $0.17 / VF $0.17; typical circulated F/VF = $0.17. Live $0.25 ",
+   "n": 312,
+   "part": 4
+  },
+  {
+   "specimen": "C283",
+   "fact": "value",
+   "coin": "Germany 2002 10 euro cent · EUR",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/108 - 2002 Germany 10c (KM#210) is covered for all five 2002 mint marks in the Numista table; all circulated grades a",
+   "n": 313,
+   "part": 4
+  },
+  {
+   "specimen": "C284",
+   "fact": "value",
+   "coin": "Mexico 2009 50 centavos · MXN",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/583 - 2009 Mexico 50 centavos (KM#549, N#583) has an explicit 2009 row in the Numista value table; VF=$0.22 verified ",
+   "n": 314,
+   "part": 4
+  },
+  {
+   "specimen": "C286",
+   "fact": "value",
+   "coin": "Honduras 2012 50 centavos · HNL",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/3190 - 2012 Honduras 50 centavos (KM#84a.2) has an explicit 2012 row in the Numista value table; VF=$0.52 verified ag",
+   "n": 315,
+   "part": 4
+  },
+  {
+   "specimen": "C287",
+   "fact": "value",
+   "coin": "Italy 1979 50 lire · ITL",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Correction: Numista N#724 (https://en.numista.com/724) 1979 row VF $0.20; typical circulated = $0.20. Live $0.75 (low) has no row match — cl",
+   "n": 316,
+   "part": 4
+  },
+  {
+   "specimen": "C289",
+   "fact": "value",
+   "coin": "Argentina 1954 5 centavos · ARM",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html) value table, row '1954', F column = $0.28 (grade F given by the page's own",
+   "n": 317,
+   "part": 4
+  },
+  {
+   "specimen": "C290",
+   "fact": "value",
+   "coin": "United Kingdom 2013 1 penny · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html) value table, row '2013', XF column = $0.11 (grade XF given by the page's o",
+   "n": 318,
+   "part": 4
+  },
+  {
+   "specimen": "C291",
+   "fact": "value",
+   "coin": "Bahamas 1984 5 cents · BSD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#5010 (https://en.numista.com/catalogue/pieces5010.html) value table, row '1984', VF column = $0.54 (grade VF given by the page's o",
+   "n": 319,
+   "part": 4
+  },
+  {
+   "specimen": "C292",
+   "fact": "value",
+   "coin": "United Kingdom 2002 1 penny · GBP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#862 (https://en.numista.com/catalogue/pieces862.html) value table, row '2002', VF column = $0.11 (grade VF given by the page's own",
+   "n": 320,
+   "part": 4
+  },
+  {
+   "specimen": "C294",
+   "fact": "value",
+   "coin": "Mexico 1969 5 centavos · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#953 (https://en.numista.com/catalogue/pieces953.html) value table, row '1969 Mo', VF column = $0.31 (grade VF given by the page's ",
+   "n": 321,
+   "part": 4
+  },
+  {
+   "specimen": "C295",
+   "fact": "value",
+   "coin": "Australia 2006 10 cents · AUD",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html) value table, row '2006', XF column = $0.25 (grade XF given by the page's o",
+   "n": 322,
+   "part": 4
+  },
+  {
+   "specimen": "C300",
+   "fact": "denomination",
+   "coin": "Bahamas 1984 25 cents · BSD",
+   "has_photo": false,
+   "made_by": "Claude",
+   "source_on_record": "Numista N#9352 (https://en.numista.com/catalogue/pieces9352.html): Bahamas 25 cents KM#63.1, 1974-1992, sailing sloop, which covers 1984 (ci",
+   "n": 323,
+   "part": 4
+  },
+  {
+   "specimen": "C301",
+   "fact": "story",
+   "coin": "Mexico 1989 500 pesos · MXP",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "corrected against https://en.numista.com/catalogue/pieces819.html: Reverse reads 'Portrait of Francisco Ignacio Madero facing right with the",
+   "n": 324,
+   "part": 4
+  },
+  {
+   "specimen": "C304",
+   "fact": "value",
+   "coin": "Mexico 1981 20 pesos · MXP",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C304 value.face.currency=MXN, year 1981",
+   "n": 325,
+   "part": 4
+  },
+  {
+   "specimen": "C306",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/catalogue/pieces92216.html — 1 Cent (Small type - Magnetic), Bahamas 2014-2015; References: Schön#190a (no KM), N#922",
+   "n": 326,
+   "part": 4
+  },
+  {
+   "specimen": "C308",
+   "fact": "design",
+   "coin": "Switzerland 1968 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+   "n": 327,
+   "part": 4
+  },
+  {
+   "specimen": "C327",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/catalogue/pieces92216.html — 1 Cent (Small type - Magnetic), Bahamas 2014-2015; References: Schön#190a (no KM), N#922",
+   "n": 328,
+   "part": 4
+  },
+  {
+   "specimen": "C328",
+   "fact": "design",
+   "coin": "Switzerland 1976 1 franc · CHF",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+   "n": 329,
+   "part": 4
+  },
+  {
+   "specimen": "C329",
+   "fact": "ruler",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#882 https://en.numista.com/catalogue/pieces882.html: Queen 'Elizabeth II (1952-2022)'",
+   "n": 330,
+   "part": 4
+  },
+  {
+   "specimen": "C332",
+   "fact": "catalog",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "https://en.numista.com/catalogue/pieces92216.html — 1 Cent (Small type - Magnetic), Bahamas 2014-2015; References: Schön#190a (no KM), N#922",
+   "n": 331,
+   "part": 4
+  },
+  {
+   "specimen": "C342",
+   "fact": "period",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Numista N#978 https://en.numista.com/catalogue/pieces978.html: Period 'Republic (1948-date)'; differs from the record's 'Republic of Korea' ",
+   "n": 332,
+   "part": 4
+  },
+  {
+   "specimen": "T001",
+   "fact": "value",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": false,
+   "made_by": "Muse",
+   "source_on_record": "Dealer listing: Golden Rule Enterprises, GERMANY compositions spiel mark (mid-late 19th c.), $8.00, https://www.goldenruleenterprises.org/pr",
+   "n": 333,
+   "part": 4
+  },
+  {
+   "specimen": "T002",
+   "fact": "value",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Dealer listing: Golden Rule Enterprises, GERMANY compositions spiel mark (mid-late 19th c.), $8.00, https://www.goldenruleenterprises.org/pr",
+   "n": 334,
+   "part": 4
+  },
+  {
+   "specimen": "T003",
+   "fact": "value",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "https://www.icollector.com/Pony-Ride-Tokens-Approx-45ct-196554_i56902289 — iCollector lot 196554, approx. 45 'Meijer is for Kids, Free Pony ",
+   "n": 335,
+   "part": 4
+  },
+  {
+   "specimen": "T003",
+   "fact": "story",
+   "coin": "USA ND Ride token (Sandy the Pony · Meijer)",
+   "has_photo": true,
+   "made_by": "Grok",
+   "source_on_record": "checked against https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp (and T003_rev.webp): all claims hold — sides read",
+   "n": 336,
+   "part": 4
+  },
+  {
+   "specimen": "T004",
+   "fact": "value",
+   "coin": "USA ca. 1970s Miniature “penny” in printed cardboard flap",
+   "has_photo": false,
+   "made_by": "Grok",
+   "source_on_record": "https://coinquest.com/cgi-bin/cq/coins.pl?coin=14728 — CoinQuest 'Token US Nixon Penny 1974' (miniature ~1/4-cent-size penny in cardboard ho",
+   "n": 337,
+   "part": 4
+  },
+  {
+   "specimen": "T005",
+   "fact": "value",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "No named catalog covers prop money; value is a novelty/resale estimate. Reference: MJM Magic sells single realistic prop bills retail (singl",
+   "n": 338,
+   "part": 4
+  },
+  {
+   "specimen": "T006",
+   "fact": "value",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true,
+   "made_by": "Muse",
+   "source_on_record": "Dealer retail: MJM Magic, '$50.00 Single Prop Bill - Realistic Fake Money', $3.16, https://www.mjmmagic.com/store/5000-single-prop-bill-real",
+   "n": 339,
+   "part": 4
+  }
+ ]
+}
