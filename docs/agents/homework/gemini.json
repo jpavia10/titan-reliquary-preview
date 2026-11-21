@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-21T03:14:24Z",
+ "updated": "2026-11-21T09:49:23Z",
  "assignments": [
   {
    "id": "HW-gemini-fill-20261118-1",
@@ -45,102 +45,6 @@
      },
      "blind": false,
      "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-plain-story-20261118-1",
-   "agent": "gemini",
-   "kind": "plain-story",
-   "issued": "2026-11-18T20:53:03Z",
-   "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "plain:C347",
-     "entity": "specimen",
-     "id": "C347",
-     "field": "story"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "plain:C347",
-     "kind": "plain-story",
-     "entity": "specimen",
-     "id": "C347",
-     "field": "story",
-     "coins": [
-      "C347"
-     ],
-     "label": "C347 · Guernsey · 1893 · 8 doubles · GGP",
-     "authors": [],
-     "payload": {
-      "story": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.",
-      "shorthand": "Eight doubles from Guernsey, dated 1893 "
-     },
-     "blind": false,
-     "inputs": []
-    }
-   ]
-  },
-  {
-   "id": "HW-gemini-verify-20261119-2",
-   "agent": "gemini",
-   "kind": "verify",
-   "issued": "2026-11-19T20:53:38Z",
-   "lease_until": "2026-11-26T20:53:38Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
-   "items": [
-    {
-     "item": "verify:type:NO.KM.460:issues.3.mintage",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": "issues.3.mintage"
-    }
-   ],
-   "items_full": [
-    {
-     "item": "verify:type:NO.KM.460:issues.3.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "NO.KM.460",
-     "field": "issues.3.mintage",
-     "coins": [
-      "C144"
-     ],
-     "label": "mintage of C144 · Norway · 1998 · 50 øre · NOK",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": true,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.3.mintage": {
-       "year": 1998,
-       "mint": [
-        "JEJ"
-       ],
-       "qualifier": null
-      }
-     }
     }
    ]
   }

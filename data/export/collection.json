@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-21T03:14:24Z",
- "content_hash": "25b68999ad8e3039",
+ "generated_at": "2026-11-21T09:39:26Z",
+ "content_hash": "b1cdfc3290b86e56",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:25b68999ad8e3039",
+  "ledger_version": "v3:b1cdfc3290b86e56",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5411.63,
@@ -1087,7 +1087,7 @@
     "legend": null,
     "obverse": "Portrait of Joaquím José da Silva Xavier (Tiradentes) · BRASIL · TIRADENTES",
     "reverse": "Denomination above the date in front of diagonal stripes and the southern cross · 5 · CENTAVOS · date",
-    "text": "obverse Tiradentes portrait · BRASIL · dove & Inconfidência triangle · reverse Southern Cross globe · 5 CENTAVOS · 2006"
+    "text": "Obverse: Portrait of Joaquím José da Silva Xavier (Tiradentes). Reverse: Denomination above the date in front of diagonal stripes and the southern cross"
    },
    "die_variety": null,
    "error_type": null,
@@ -11561,7 +11561,7 @@
     "legend": null,
     "obverse": "Ashoka lion capitol with the country name on both sides · भारत INDIA · सत्यमेव जयते",
     "reverse": "Value flanked by corn stalks and the denomination in Devanagari above · रुपया · 1 · RUPEE · date",
-    "text": "value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion Capital reverse"
+    "text": "Obverse: Ashoka lion capitol with the country name on both sides. Reverse: Value flanked by corn stalks and the denomination in Devanagari above"
    },
    "die_variety": null,
    "error_type": null,
@@ -18183,7 +18183,7 @@
     "legend": null,
     "obverse": "The arms of the Soviet Union (15 ribbons on the wreath, 7 + 1 + 7) · СССР",
     "reverse": "Value and date within wheat sprigs. · 1 · КОПЕЙКА · date",
-    "text": "obverse USSR arms СССР (15-ribbon type 1961–91) · reverse big 1 КОПЕЙКА · wheat ears · date"
+    "text": "Obverse: The arms of the Soviet Union (15 ribbons on the wreath, 7 + 1 + 7). Reverse: Value and date within wheat sprigs."
    },
    "die_variety": null,
    "error_type": null,
@@ -18956,7 +18956,7 @@
     "legend": null,
     "obverse": "Chiang Kai-shek bust left, date above · 中華民國 · date (Republic of China year)",
     "reverse": "Denomination · 圓壹 · 1",
-    "text": "obverse Chiang Kai-shek left · 中華民國 and the year (C200: 九十七年 = ROC year 97 = 2008) · reverse 壹圓 · 1"
+    "text": "Obverse: Chiang Kai-shek bust left, date above. Reverse: Denomination"
    },
    "die_variety": null,
    "error_type": null,
@@ -40372,7 +40372,7 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:31:03Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T18:12:30Z",
+    "phase2_at": "2026-11-21T05:03:00Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -40381,7 +40381,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.",
+   "story": "This 1893 eight doubles coin from Guernsey is the oldest coin in this batch, struck during Queen Victoria's reign, though Guernsey's coins show no royal portrait and instead feature the island's shield with three lions from its Norman past and a sprig of leaves. The double was Guernsey's own Channel Islands currency counted eight to a British penny, so this large bronze piece matched the size of a penny, and Guernsey kept its doubles for a century before adopting the pound in full. It is the first coin from Guernsey in the collection. This piece shows plenty of age, with dark toning, smooth wear in places, and pale corrosion spots on the shield side.",
    "tags": [],
    "tax_lot": null,
    "type": "GG.X.8-doubles",
@@ -87967,15 +87967,13 @@
     "n": 2
    },
    "design": {
-    "level": "checked",
-    "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Schön# 75a, Obverse/Reverse description) & NGC World Coin Price Guide https://www.ngccoin.co",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#767 https://en.numista.com/catalogue/pieces767.html, Obverse and Reverse description (items 6-7: C042, C044)",
     "links": [
-     "https://www.ngccoin.com/price-guide/world/",
      "https://en.numista.com/catalogue/pieces767.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "checked",
@@ -88143,15 +88141,13 @@
     "n": 2
    },
    "design": {
-    "level": "checked",
-    "by": "Gemini + Muse",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Schön# 75a, Obverse/Reverse description) & NGC World Coin Price Guide https://www.ngccoin.co",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#767 https://en.numista.com/catalogue/pieces767.html, Obverse and Reverse description (items 6-7: C042, C044)",
     "links": [
-     "https://www.ngccoin.com/price-guide/world/",
      "https://en.numista.com/catalogue/pieces767.html"
-    ],
-    "n": 2
+    ]
    },
    "period": {
     "level": "checked",
@@ -88416,10 +88412,10 @@
    "design": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Schön# 156, Obverse/Reverse description) & NGC World Coin Price Guide https://www.ngccoin.co",
+    "ts": "2026-11-21",
+    "source": "Numista N#1049 https://en.numista.com/catalogue/pieces1049.html, Obverse and Reverse description (item 8: C047)",
     "links": [
-     "https://www.ngccoin.com/price-guide/world/"
+     "https://en.numista.com/catalogue/pieces1049.html"
     ]
    },
    "period": {
@@ -96516,13 +96512,15 @@
     "n": 2
    },
    "mintage": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista N#1442 (https://en.numista.com/catalogue/pieces1442.html); Norway 50 ore 1998. Provenance audit 2026-10-15: upgraded from AI-level t",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "Numista N#1442 https://en.numista.com/1442 (KM# 460, Norway 50 øre 1996-2011): 1998 JEJ circulation row reads \"1998 JEJ 30 898 003\" (separat",
     "links": [
+     "https://en.numista.com/1442",
      "https://en.numista.com/catalogue/pieces1442.html"
-    ]
+    ],
+    "n": 2
    },
    "value": {
     "level": "reference",
@@ -101702,15 +101700,13 @@
     "n": 3
    },
    "design": {
-    "level": "checked",
-    "by": "Claude + Grok + Muse",
-    "ts": "2026-11-17",
-    "source": "https://en.numista.com/catalogue/pieces966.html — Obverse: 'Chiang Kai-shek bust left, date above'. Lettering (read right-to-left): '中華民國' +",
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#966 https://en.numista.com/catalogue/pieces966.html, Obverse and Reverse description (item 34: C200)",
     "links": [
-     "https://en.numista.com/catalogue/pieces966.html",
-     "https://www.ngccoin.com/price-guide/world/china-taiwan-region-yuan-y-551-1002011-992010-cuid-1068657-duid-1290837"
-    ],
-    "n": 3
+     "https://en.numista.com/catalogue/pieces966.html"
+    ]
    },
    "period": {
     "level": "checked",
@@ -101962,10 +101958,10 @@
    "design": {
     "level": "reference",
     "by": "Gemini",
-    "ts": "2026-11-18",
-    "source": "Standard Catalog of World Coins (Krause-Mishler Schön# 216, Obverse/Reverse description) & NGC World Coin Price Guide https://www.ngccoin.co",
+    "ts": "2026-11-21",
+    "source": "Numista N#1609 https://en.numista.com/catalogue/pieces1609.html, Obverse and Reverse description (item 36: C203)",
     "links": [
-     "https://www.ngccoin.com/price-guide/world/"
+     "https://en.numista.com/catalogue/pieces1609.html"
     ]
    },
    "period": {
@@ -115498,15 +115494,10 @@
     ]
    },
    "story": {
-    "level": "checked",
-    "by": "Gemini + Muse",
-    "ts": "2026-11-19",
-    "source": "https://en.numista.com/5044 (\"Issuer Guernsey Queen Victoria (1837-1901) ... Value 8 Doubles (1/240) ... Composition Bronze ... National arm",
-    "links": [
-     "https://en.numista.com/5044",
-     "https://en.numista.com/catalogue/pieces5044.html"
-    ],
-    "n": 2
+    "level": "ai",
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "plain-English rewrite of the existing story; no facts changed"
    },
    "ruler": {
     "level": "reference",

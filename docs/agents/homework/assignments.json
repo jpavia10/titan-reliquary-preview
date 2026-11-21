@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-21T03:14:24Z",
+ "updated": "2026-11-21T09:49:23Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -203,7 +203,8 @@
   "grok-arbitrate-20261119": 1,
   "gemini-verify-20261119": 2,
   "muse-arbitrate-20261119": 1,
-  "muse-verify-20261121": 1
+  "muse-verify-20261121": 2,
+  "muse-story-check-20261121": 1
  },
  "assignments": [
   {
@@ -33903,9 +33904,13 @@
    "kind": "plain-story",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-21T09:39:26Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "plain:C347",
@@ -34721,9 +34726,13 @@
    "kind": "verify",
    "issued": "2026-11-19T20:53:38Z",
    "lease_until": "2026-11-26T20:53:38Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-21T09:39:26Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "verify:type:NO.KM.460:issues.3.mintage",
@@ -34934,6 +34943,48 @@
      "entity": "specimen",
      "id": "C298",
      "field": "issue.mint_marks"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261121-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-11-21T09:39:26Z",
+   "lease_until": "2026-11-28T09:39:26Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C347",
+     "entity": "specimen",
+     "id": "C347",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261121-2",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-21T09:39:26Z",
+   "lease_until": "2026-11-28T09:39:26Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text"
     }
    ]
   }

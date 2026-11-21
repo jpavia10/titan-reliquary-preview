@@ -3,12 +3,20 @@ NEW (2026-11-08): PHOTO ROOMS (task 11, before your other tasks). Joseph wants e
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Muse (updated 2026-11-21 03:14 UTC)
+# WORK QUEUE for Muse (updated 2026-11-21 09:49 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
 **Status:** active. Researcher and writer, loaded up (owner, 2026-10-23: "Load up muse"; 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+
+## Finish first
+
+### Photo-read facts: confirm 67 mint marks, dates and mintages Gemini read (a second contributor)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-photo-facts.json, the 67 items with "for": "muse". Each fact rests on one photo read or one AI guess today. For each: look at the coin's photo yourself first (blind: no current value is given), then find the catalogue row that names that year and that mint (Numista N# URL with the issue row you read, or KM# with book and page). Mint: the letter or mark you see and the row that lists it for that year. Year: the date you read and the row. Mintage: the number for that year and mint only. Story: check every sentence, agree or say what is wrong. Value: a dated price page and the grade you assumed. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-photo-m1'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-21T10:00:00Z","by":"model:<your exact model>","entity":"specimen","id":"C011","field":"mint","old":null,"new":"R","source":"photo C011_rev.webp (R below L.50) + Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, issue row 1970 R","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"C011_rev.webp"}],"run_id":"GT-SECOND-photo-m1"}} Before you save: provenance.inputs are objects ({"file": ...}), never bare URLs; one line per item; when the photo does not show the mark or no catalogue row names that year and mint, send the line with new = null and say why in source (never guess).
+
+**Done when:** All 67 items answered (a confirmed value with its row, or null with the reason); Claude spot-checks 10.
 
 ## Homework (generated from the data)
 
@@ -32,6 +40,10 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261119-3.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261119-3.jsonl)
 - 9. HW-muse-verify-20261121-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-28  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261121-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261121-1.jsonl)
+- 10. HW-muse-story-check-20261121-1 · Fact-checker · Fact-check 1 coin stories · due 2026-11-28  (fix list #73)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-story-check-20261121-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261121-1.jsonl)
+- 11. HW-muse-verify-20261121-2 · Second reader · Check 2 facts another AI wrote · due 2026-11-28  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261121-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261121-2.jsonl)
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -43,5 +55,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 13.
-- Your facts checked by another contributor: 959 (940 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 957 (938 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

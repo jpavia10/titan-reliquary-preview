@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### 2026-11-21 Claude: intake 4, Gemini's overnight run 3 (data and homework only; app unchanged)
+- Merged `changes_gemini_20261120-2101..2104`: AI-guessed facts part 1b (the 4 real lines of the 6 that bounced: BR.KM.648.1 and TW.KM.551 found, Cyrillic and Devanagari kept), the C347 plain story, the 1998 JEJ 50 øre mintage re-cited; the Guatemala designer fill rightly left blank (N# 42670 names none). All 6 opened on Numista's API: 6 of 6 exact. Score #77 (10/10).
+- New project `docs/agents/projects/titan-photo-facts.json`: 159 facts that rest on one photo read or one AI guess, confirmed against a catalogue row by an AI that did not make them (Gemini 92, Muse 67; run ids GT-SECOND-photo-g1/-m1). Found while sizing it: the 273 ledger-only countries (and 126 denominations) cannot rise, because check lines on a specimen's country or denomination are dropped (they live on the type) and nothing lifts the specimen's certainty from the type; a pipeline fix, not homework.
+
 ### 2026-11-19 Claude: intake 3, Gemini 4 Neon's Titan work (data and homework only; app unchanged)
 - Merged 80 events: AI-guessed facts part 2 (28) and part 1 (29 of 35; 6 bad lines bounced: two type ids that do not exist, two old values that lost their Cyrillic/Devanagari, two already set by part 2), six homework sheets; D0190-D0199 settled; C053 mint F confirmed by eye. 10 random lines checked on Numista's API: 10 of 10 word for word.
 - Album second read redo accepted (9/10): all 1,408 comparable holes agree; 5 printed circles, 3 unclear holes and 3 dead photo links (A021/A025/A030 in raw_capture_index.json) are filed for a third look. Scores #73-#76.

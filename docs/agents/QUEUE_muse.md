@@ -1,10 +1,18 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-21 03:14 UTC)
+# WORK QUEUE for Muse (updated 2026-11-21 09:49 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
 **Status:** active. Researcher and writer, loaded up (owner, 2026-10-23: "Load up muse"; 2026-10-10: "I think muse wants to step up so maybe see what they got in them"): capacity 40, up to 8 batches per kind, every kind incl. catalogue numbers and the new 'fill' sheets (blank specs, designers, obverse/reverse text on the types we hold). Harder work first (research questions, catalogue citations, collector values). Off probation 2026-10-24: 4 files in a row scored 10 with no accuracy fault (changes_muse_20261024-0509 to -0552; RESEARCH_LOOP.md section 9); its facts are now checked at the measured-error rate.
 **How you get this:** Drive doc 'WORK QUEUE for Muse' in Titan Reliquary/ (docs/agents/QUEUE_muse.md). Drops change files in Drive collection-incoming (AI change files).
+
+## Finish first
+
+### Photo-read facts: confirm 67 mint marks, dates and mintages Gemini read (a second contributor)  (fix list trust)
+
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-photo-facts.json, the 67 items with "for": "muse". Each fact rests on one photo read or one AI guess today. For each: look at the coin's photo yourself first (blind: no current value is given), then find the catalogue row that names that year and that mint (Numista N# URL with the issue row you read, or KM# with book and page). Mint: the letter or mark you see and the row that lists it for that year. Year: the date you read and the row. Mintage: the number for that year and mint only. Story: check every sentence, agree or say what is wrong. Value: a dated price page and the grade you assumed. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-photo-m1'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-21T10:00:00Z","by":"model:<your exact model>","entity":"specimen","id":"C011","field":"mint","old":null,"new":"R","source":"photo C011_rev.webp (R below L.50) + Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, issue row 1970 R","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"C011_rev.webp"}],"run_id":"GT-SECOND-photo-m1"}} Before you save: provenance.inputs are objects ({"file": ...}), never bare URLs; one line per item; when the photo does not show the mark or no catalogue row names that year and mint, send the line with new = null and say why in source (never guess).
+
+**Done when:** All 67 items answered (a confirmed value with its row, or null with the reason); Claude spot-checks 10.
 
 ## Homework (generated from the data)
 
@@ -174,7 +182,7 @@ Items:
 - **design of C069 · Jamaica · 1975 · 50 cents · JMD** `type JM.KM.65 design.text` = `Obverse: Coat of arms of Jamaica. Reverse: Bust of Marcus Garvey facing front-right.` (written by Gemini: «Numista N#7457 https://en.numista.com/catalogue/pieces7457.html, Obverse and Reverse description (item 10: C069)»)
 - **design of C244 · Mexico · 1964 · 20 centavos · MXP** `type MX.KM.440 design.text` = `Obverse: The Mexican coat of arms with the bigger emblem at the top, supported at the bot…` (written by Gemini: «Numista N#959 https://en.numista.com/catalogue/pieces959.html, Obverse and Reverse description (items 47, 52: C244, C257)»)
 - **design of C253 · Jamaica · 1993 · 10 cents · JMD** `type JM.KM.146 design.text` = `Obverse: Coat of arms of Jamaica. Reverse: Bust of Paul Bogle facing forward.` (written by Gemini: «Numista N#2617 https://en.numista.com/catalogue/pieces2617.html, Obverse and Reverse description (item 50: C253)»)
-- **design of C247 · South Korea · 1966 · 1 won · KRW** `type KR.KM.4 design.text` = `Obverse: The national emblem of Mexico (a Mexican golden eagle perched on a prickly pear …` (written by Gemini: «Numista N#5993 https://en.numista.com/catalogue/pieces5993.html, Obverse and Reverse description (item 49: C247)»)
+- **design of C247 · South Korea · 1966 · 1 won · KRW** `type KR.KM.4 design.text` = `Obverse: The coat of arms of the Soviet Union. Reverse: Value on shield held by figure at…` (written by Gemini: «Numista N#5993 https://en.numista.com/catalogue/pieces5993.html, Obverse and Reverse description (item 49: C247)»)
 - **design of C029 · Germany · 1972 · 1 Pfennig · DEM** `type DE.KM.105 design.text` = `Obverse: An oak seedling above the date, circular legend around. Reverse: The mintmark in…` (written by Gemini: «Numista N#854 https://en.numista.com/catalogue/pieces854.html, Obverse and Reverse description (items 3, 28-33: C029, C187-C192)»)
 
 ### 9. HW-muse-verify-20261121-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-28  (fix list #18)
@@ -187,6 +195,29 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 
 Items:
 - **mint of C298 · Italy · 1978 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C298 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C298_rev.webp
+
+### 10. HW-muse-story-check-20261121-1 · Fact-checker · Fact-check 1 coin stories · due 2026-11-28  (fix list #73)
+
+Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
+
+**Done when:** One change file covering every story you could check.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261121-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C347 · Guernsey · 1893 · 8 doubles · GGP**: «This 1893 eight doubles coin from Guernsey is the oldest coin in this batch, struck during Queen Victoria's reign, though Guernsey's coins show no royal portrait and instead feature the island's shield with three lions from its Norman past and a sprig of leaves. The double was Guernsey's own Channel Islands currency counted eight to a British penny, so this large bronze piece matched the size of a penny, and Guernsey kept its doubles for a century before adopting the pound in full. It is the first coin from Guernsey in the collection. This piece shows plenty of age, with dark toning, smooth wear in places, and pale corrosion spots on the shield side.» Record: «{"country": "Guernsey", "year": "1893", "denom": "8 doubles · GGP", "mint": "no mint mark read — the area below the date is too dark in the photos to call", "refs": "KM#7 · Numista#5044", "metal": "Bronze · 9.60 g · 31.6 mm · Plain", "specs": "thickness 2 mm · medal alignment", "mintage": "118,000", "ruler": "Victoria"}»
+
+### 11. HW-muse-verify-20261121-2 · Second reader · Check 2 facts another AI wrote · due 2026-11-28  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261121-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **design of C042 · USSR · 1962 · 1 kopek · SUR** `type SU.Y.126a design.text` = `Obverse: The arms of the Soviet Union (15 ribbons on the wreath, 7 + 1 + 7). Reverse: Val…` (written by Gemini: «Numista N#767 https://en.numista.com/catalogue/pieces767.html, Obverse and Reverse description (items 6-7: C042, C044)»)
+- **design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD** `type TW.KM.551 design.text` = `obverse Atatürk portrait / state legend · reverse crescent+star · big 10 · KURUŞ · date ·…` (written by Gemini: «Numista N#966 https://en.numista.com/catalogue/pieces966.html, Obverse and Reverse description (item 34: C200)»)
 
 ## Projects (after the homework)
 
@@ -207,5 +238,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 13.
-- Your facts checked by another contributor: 959 (940 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 957 (938 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

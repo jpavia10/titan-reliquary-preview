@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-21T03:14:24Z",
+ "updated": "2026-11-21T09:49:23Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261118-1",
@@ -3173,6 +3173,145 @@
      "inputs": [
       "C298_rev.webp"
      ]
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261121-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-11-21T09:39:26Z",
+   "lease_until": "2026-11-28T09:39:26Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C347",
+     "entity": "specimen",
+     "id": "C347",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C347",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C347",
+     "field": "story",
+     "coins": [
+      "C347"
+     ],
+     "label": "C347 · Guernsey · 1893 · 8 doubles · GGP",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "This 1893 eight doubles coin from Guernsey is the oldest coin in this batch, struck during Queen Victoria's reign, though Guernsey's coins show no royal portrait and instead feature the island's shield with three lions from its Norman past and a sprig of leaves. The double was Guernsey's own Channel Islands currency counted eight to a British penny, so this large bronze piece matched the size of a penny, and Guernsey kept its doubles for a century before adopting the pound in full. It is the first coin from Guernsey in the collection. This piece shows plenty of age, with dark toning, smooth wear in places, and pale corrosion spots on the shield side.",
+      "record": {
+       "country": "Guernsey",
+       "year": "1893",
+       "denom": "8 doubles · GGP",
+       "mint": "no mint mark read — the area below the date is too dark in the photos to call",
+       "refs": "KM#7 · Numista#5044",
+       "metal": "Bronze · 9.60 g · 31.6 mm · Plain",
+       "specs": "thickness 2 mm · medal alignment",
+       "mintage": "118,000",
+       "ruler": "Victoria"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-verify-20261121-2",
+   "agent": "muse",
+   "kind": "verify",
+   "issued": "2026-11-21T09:39:26Z",
+   "lease_until": "2026-11-28T09:39:26Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text"
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:SU.Y.126a:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "SU.Y.126a",
+     "field": "design.text",
+     "coins": [
+      "C042",
+      "C044"
+     ],
+     "label": "design of C042 · USSR · 1962 · 1 kopek · SUR",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: The arms of the Soviet Union (15 ribbons on the wreath, 7 + 1 + 7). Reverse: Value and date within wheat sprigs.",
+      "their_source": "Numista N#767 https://en.numista.com/catalogue/pieces767.html, Obverse and Reverse description (items 6-7: C042, C044)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces767.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "verify:type:TW.KM.551:design.text",
+     "kind": "verify",
+     "entity": "type",
+     "id": "TW.KM.551",
+     "field": "design.text",
+     "coins": [
+      "C200"
+     ],
+     "label": "design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "fact": "design",
+      "author": "Gemini",
+      "ledger": false,
+      "value": "Obverse: Chiang Kai-shek bust left, date above. Reverse: Denomination",
+      "their_source": "Numista N#966 https://en.numista.com/catalogue/pieces966.html, Obverse and Reverse description (item 34: C200)",
+      "links": [
+       "https://en.numista.com/catalogue/pieces966.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
+     },
+     "blind": false,
+     "inputs": []
     }
    ]
   }

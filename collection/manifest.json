@@ -19,7 +19,7 @@
   "photos": 310,
   "valuations": 730,
   "spot_days": 72,
-  "changes": 10776,
+  "changes": 10782,
   "lots_by_kind": {
    "bullion": 21,
    "housing": 4,
@@ -45,7 +45,7 @@
    "total": 0.1322
   }
  },
- "content_hash": "25b68999ad8e30396ffcfa36a3e855f5fc62afd5d85f9e24a9388d6f57ced4f3",
+ "content_hash": "b1cdfc3290b86e56937f884a5c13fa9ef6a92358e952b3d4690abfcbab6e233a",
  "files": [
   {
    "path": "CURATION_OPEN.md",
@@ -79,13 +79,13 @@
   },
   {
    "path": "changes.chain",
-   "sha256": "e9381e5d501f906f5b57fb8e87ea9da6ce8c9d432057ae50cfc8f85ca2d3f104",
-   "bytes": 425070
+   "sha256": "0bb3c7413578e50dbf98b847f8b1800bc3eee2398eaf3088b5f20c4ad7ed945e",
+   "bytes": 425310
   },
   {
    "path": "changes.jsonl",
-   "sha256": "bc39ab6962a18b522e74f157bc3020ed108a73ee7e61a8769562ac328ad4a2c1",
-   "bytes": 7992164
+   "sha256": "e7f4993f9dc6f7a5dd5c44faa1f10aa0055eeb039462b5f4da1011ded63c02cd",
+   "bytes": 7997452
   },
   {
    "path": "disagreements.jsonl",
@@ -289,8 +289,8 @@
   },
   {
    "path": "specimens/GG.json",
-   "sha256": "bb16b716ca958f3d7df31be88cd596d1b8c3dc00f9efaeb89b1cdaeb1753852c",
-   "bytes": 2753
+   "sha256": "525f630932ae3243868ff82d3afc927a6b80d234bbc000d65bd527860c49d37a",
+   "bytes": 2762
   },
   {
    "path": "specimens/GR.json",
@@ -499,8 +499,8 @@
   },
   {
    "path": "types/BR.json",
-   "sha256": "9b5c357f790a65d92a9401b9b80724e6469d75609e49f7472763eb0700a5c6fd",
-   "bytes": 1588
+   "sha256": "e6b96046e4cba7b5c71fd2bf08281441bec52b38676885964100afef710186b4",
+   "bytes": 1617
   },
   {
    "path": "types/BS.json",
@@ -619,8 +619,8 @@
   },
   {
    "path": "types/IN.json",
-   "sha256": "d05876598591e63e23c2f3a9d4e35c2d25ba8a69e59f765836f1eef129b4b8b9",
-   "bytes": 2936
+   "sha256": "d395c6c6e7582cffae5d211f09290a55c4ee9f4c374aafdee490c3bbc5ba50fc",
+   "bytes": 2961
   },
   {
    "path": "types/IT.json",
@@ -709,8 +709,8 @@
   },
   {
    "path": "types/SU.json",
-   "sha256": "2f2abbf704292f61dee2ff83b50f4ccb8925249a4c83e51ff52815a0fdacaa0d",
-   "bytes": 4738
+   "sha256": "b524df6629665d354e6a7047c20f2cf53304d192d0b090acda26c760a80a58bc",
+   "bytes": 4752
   },
   {
    "path": "types/TH.json",
@@ -729,8 +729,8 @@
   },
   {
    "path": "types/TW.json",
-   "sha256": "04fe497b5a4e02c8f9569ca8d32627e3052a6b9c4c6f843e53af004ea45c5560",
-   "bytes": 1478
+   "sha256": "f943cd79130b7835a937df81648bfbc7abf58a698d34d269acb55ab1d4542c0a",
+   "bytes": 1425
   },
   {
    "path": "types/US.json",

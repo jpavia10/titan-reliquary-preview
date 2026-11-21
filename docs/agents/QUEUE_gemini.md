@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-21 03:14 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-21 09:49 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -8,11 +8,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### AI-guessed facts, part 1b: the 6 lines that bounced (re-read the record, then resend)  (fix list trust)
+### Photo-read facts: confirm 92 mint marks, dates and mintages with the catalogue row (made by Muse, Claude, Grok)  (fix list trust)
 
-Six lines of changes_gemini_20261119-1018.jsonl were rejected (the other 29 merged): SU.Y.126a and IN.KM.92.2 (your `old` value lost its Cyrillic СССР and the Hindi रुपया: copy `old` from the record exactly, Unicode intact), BR.KM.648 and TW.Y.551 (no such type id: find the coin's real type id in collection/types by country, year and denomination), JP.Y.73a and MX.KM.604 (part 2 already set them: send nothing unless part 1's text differs). Same form and rules as part 1 (run_id 'GT-AIFACTS-p1b'), one file changes_gemini_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/'.
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-photo-facts.json, the 92 items with "for": "gemini". Each fact rests on one photo read or one AI guess today. For each: look at the coin's photo yourself first (blind: no current value is given), then find the catalogue row that names that year and that mint (Numista N# URL with the issue row you read, or KM# with book and page). Mint: the letter or mark you see and the row that lists it for that year. Year: the date you read and the row. Mintage: the number for that year and mint only. Story: check every sentence, agree or say what is wrong. Value: a dated price page and the grade you assumed. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-photo-g1'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-21T10:00:00Z","by":"model:<your exact model>","entity":"specimen","id":"C011","field":"mint","old":null,"new":"R","source":"photo C011_rev.webp (R below L.50) + Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, issue row 1970 R","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"C011_rev.webp"}],"run_id":"GT-SECOND-photo-g1"}} Before you save: provenance.inputs are objects ({"file": ...}), never bare URLs; one line per item; when the photo does not show the mark or no catalogue row names that year and mint, send the line with new = null and say why in source (never guess).
 
-**Done when:** The 4 real lines merged (2 bad ids fixed, 2 old values exact); nothing sent for the 2 already set.
+**Done when:** All 92 items answered (a confirmed value with its row, or null with the reason); Claude spot-checks 10 on Numista's API.
 
 ## Homework (generated from the data)
 
@@ -46,40 +46,6 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
 ```
 
-### 2. HW-gemini-plain-story-20261118-1 · Writer · Rewrite 1 stories in plain English · due 2026-11-25  (fix list #60)
-
-Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
-
-**Done when:** One change file; the stories pass the plain-English check.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-plain-story-20261118-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C347 · Guernsey · 1893 · 8 doubles · GGP**: «Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.» (shorthand: `Eight doubles from Guernsey, dated 1893 `)
-
-Answer sheet (the same as the link):
-
-```jsonl
-{"ts": "2026-11-18T20:53:03Z", "by": "model:gemini", "entity": "specimen", "id": "C347", "op": "set", "field": "story", "old": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.", "new": "Eight doubles from Guernsey, dated 1893 — the oldest coin in this batch, struck while Queen Victoria was on the throne, though Guernsey's coins show no portrait: just the island's shield with its three lions, inherited from the island's Norman past, and a sprig of leaves. The double was Guernsey's own money, a Channel Islands coinage counted eight to a British penny, and this big bronze piece is the penny-sized one — Guernsey kept its doubles for a century before joining the pound in full. It is the collection's first coin from Guernsey. This one has lived a life: dark, worn smooth in places, with pale corrosion spots on the shield side.", "source": "FILL (C347 · Guernsey · 1893 · 8 doubles · GGP): plain-English rewrite of the existing story; no facts changed", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-plain-story", "assignment": "HW-gemini-plain-story-20261118-1", "run_id": "HW-gemini-plain-story-20261118-1", "inputs": []}}
-```
-
-### 3. HW-gemini-verify-20261119-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-26  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261119-2.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **mintage of C144 · Norway · 1998 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.KM.460 issues.3.mintage` [audit sample]
-
-Answer sheet (the same as the link):
-
-```jsonl
-{"ts": "2026-11-19T20:53:38Z", "by": "model:gemini", "entity": "type", "id": "NO.KM.460", "op": "set", "field": "issues.3.mintage", "new": null, "source": "FILL (mintage of C144 · Norway · 1998 · 50 øre · NOK): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read (this line is the 1998 JEJ issue: read the 1998 JEJ (that mint only, not all mints added) row, not the type's first year)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-19", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261119-2", "run_id": "HW-gemini-verify-20261119-2", "inputs": []}}
-```
-
 ## Projects (after the homework)
 
 ### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
@@ -104,6 +70,6 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 76; expired: 12.
-- Your facts checked by another contributor: 1072 (1057 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 676. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
+- Assignments answered: 78; expired: 12.
+- Your facts checked by another contributor: 1071 (1056 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 677. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
 - Share of your new facts that get checked first: 15 %.

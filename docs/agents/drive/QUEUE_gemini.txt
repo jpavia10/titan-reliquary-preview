@@ -3,7 +3,7 @@ CODEWORD CHECK (Joseph, 2026-10-23): when Joseph asks you for the codeword, answ
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_gemini.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Gemini (updated 2026-11-21 03:14 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-21 09:49 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -12,11 +12,11 @@ From Claude (integrator), on Joseph's instruction: there is always work queued f
 
 ## Finish first
 
-### AI-guessed facts, part 1b: the 6 lines that bounced (re-read the record, then resend)  (fix list trust)
+### Photo-read facts: confirm 92 mint marks, dates and mintages with the catalogue row (made by Muse, Claude, Grok)  (fix list trust)
 
-Six lines of changes_gemini_20261119-1018.jsonl were rejected (the other 29 merged): SU.Y.126a and IN.KM.92.2 (your `old` value lost its Cyrillic СССР and the Hindi रुपया: copy `old` from the record exactly, Unicode intact), BR.KM.648 and TW.Y.551 (no such type id: find the coin's real type id in collection/types by country, year and denomination), JP.Y.73a and MX.KM.604 (part 2 already set them: send nothing unless part 1's text differs). Same form and rules as part 1 (run_id 'GT-AIFACTS-p1b'), one file changes_gemini_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/'.
+Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/projects/titan-photo-facts.json, the 92 items with "for": "gemini". Each fact rests on one photo read or one AI guess today. For each: look at the coin's photo yourself first (blind: no current value is given), then find the catalogue row that names that year and that mint (Numista N# URL with the issue row you read, or KM# with book and page). Mint: the letter or mark you see and the row that lists it for that year. Year: the date you read and the row. Mintage: the number for that year and mint only. Story: check every sentence, agree or say what is wrong. Value: a dated price page and the grade you assumed. Save as changes_{you}_{YYYYMMDD-HHMM}.jsonl in Drive 'Titan Reliquary/collection-incoming (AI change files)/' (AI_START_HERE), provenance on every line with run_id 'GT-SECOND-photo-g1'. Exactly one line per item, in this form (an example, use your own data): {"ts":"2026-11-21T10:00:00Z","by":"model:<your exact model>","entity":"specimen","id":"C011","field":"mint","old":null,"new":"R","source":"photo C011_rev.webp (R below L.50) + Numista N#1234 https://en.numista.com/catalogue/pieces1234.html, issue row 1970 R","verified":false,"phase":2,"confidence":"high","provenance":{"model":"<your exact model>","prompt_version":"AI_START_HERE@2026-11-16","workflow":"phase2-research","inputs":[{"file":"C011_rev.webp"}],"run_id":"GT-SECOND-photo-g1"}} Before you save: provenance.inputs are objects ({"file": ...}), never bare URLs; one line per item; when the photo does not show the mark or no catalogue row names that year and mint, send the line with new = null and say why in source (never guess).
 
-**Done when:** The 4 real lines merged (2 bad ids fixed, 2 old values exact); nothing sent for the 2 already set.
+**Done when:** All 92 items answered (a confirmed value with its row, or null with the reason); Claude spot-checks 10 on Numista's API.
 
 ## Homework (generated from the data)
 
@@ -24,10 +24,6 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
 
 - 1. HW-gemini-fill-20261118-1 · Cataloguer · Fill the blank facts of 1 coin types · due 2026-11-28  (fix list #72)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-fill-20261118-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261118-1.jsonl)
-- 2. HW-gemini-plain-story-20261118-1 · Writer · Rewrite 1 stories in plain English · due 2026-11-25  (fix list #60)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-plain-story-20261118-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-plain-story-20261118-1.jsonl)
-- 3. HW-gemini-verify-20261119-2 · Second reader · Check 1 facts another AI wrote · due 2026-11-26  (fix list #18)
-  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Gemini/HW-gemini-verify-20261119-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261119-2.jsonl)
 ## Projects (after the homework)
 
 ### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
@@ -44,6 +40,6 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 76; expired: 12.
-- Your facts checked by another contributor: 1072 (1057 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 676. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
+- Assignments answered: 78; expired: 12.
+- Your facts checked by another contributor: 1071 (1056 confirmed, 15 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 677. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 22 of 22.
 - Share of your new facts that get checked first: 15 %.

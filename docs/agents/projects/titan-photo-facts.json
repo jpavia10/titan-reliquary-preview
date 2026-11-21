@@ -1,0 +1,1281 @@
+{
+ "about": "Facts that rest on one photo read or one AI guess (certainty 'photo' or 'ai'): mint marks, dates, mintages, stories, a value. Confirm each with a catalogue row that names that year AND that mint (Numista N# with the issue row, or KM# with book and page), read blind from the coin's own photo first: no current value is given. Each AI gets only facts another contributor made ('for').",
+ "made": "2026-11-21",
+ "count": 159,
+ "gemini": 92,
+ "muse": 67,
+ "items": [
+  {
+   "specimen": "C014",
+   "fact": "mint",
+   "coin": "Switzerland 1974 2 francs · CHF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 1
+  },
+  {
+   "specimen": "C018",
+   "fact": "mint",
+   "coin": "Germany 1983 2 Pfennig · DEM",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 2
+  },
+  {
+   "specimen": "C044",
+   "fact": "mint",
+   "coin": "USSR 1974 1 kopek · SUR",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 3
+  },
+  {
+   "specimen": "C047",
+   "fact": "mint",
+   "coin": "Brazil 2006 5 centavos · BRL",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 4
+  },
+  {
+   "specimen": "C048",
+   "fact": "mint",
+   "coin": "Germany 1993 1 Deutsche Mark · DEM",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 5
+  },
+  {
+   "specimen": "C050",
+   "fact": "mint",
+   "coin": "Germany 1982 1 Deutsche Mark · DEM",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 6
+  },
+  {
+   "specimen": "C066",
+   "fact": "mint",
+   "coin": "Switzerland 1976 5 francs · CHF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 7
+  },
+  {
+   "specimen": "C240",
+   "fact": "mint",
+   "coin": "Italy 1965 100 lire · ITL",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 8
+  },
+  {
+   "specimen": "C272",
+   "fact": "mint",
+   "coin": "Austria 1925 2 groschen · ATS",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 9
+  },
+  {
+   "specimen": "C273",
+   "fact": "mint",
+   "coin": "Germany 2005 1 euro cent · EUR",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 10
+  },
+  {
+   "specimen": "C275",
+   "fact": "mint",
+   "coin": "United Kingdom 1992 5 pence · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 11
+  },
+  {
+   "specimen": "C276",
+   "fact": "mint",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 12
+  },
+  {
+   "specimen": "C276",
+   "fact": "mintage",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 13
+  },
+  {
+   "specimen": "C277",
+   "fact": "mint",
+   "coin": "Bermuda 2004 10 cents · BMD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 14
+  },
+  {
+   "specimen": "C278",
+   "fact": "mint",
+   "coin": "Switzerland 1980 20 rappen · CHF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 15
+  },
+  {
+   "specimen": "C279",
+   "fact": "mint",
+   "coin": "Philippines 1997 1 piso · PHP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 16
+  },
+  {
+   "specimen": "C279",
+   "fact": "mintage",
+   "coin": "Philippines 1997 1 piso · PHP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 17
+  },
+  {
+   "specimen": "C280",
+   "fact": "mint",
+   "coin": "Belize 2007 25 cents · BZD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 18
+  },
+  {
+   "specimen": "C280",
+   "fact": "mintage",
+   "coin": "Belize 2007 25 cents · BZD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 19
+  },
+  {
+   "specimen": "C281",
+   "fact": "mint",
+   "coin": "France 1994 5 francs · FRF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 20
+  },
+  {
+   "specimen": "C282",
+   "fact": "mint",
+   "coin": "Yugoslavia 1965 50 para · YUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 21
+  },
+  {
+   "specimen": "C286",
+   "fact": "mint",
+   "coin": "Honduras 2012 50 centavos · HNL",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 22
+  },
+  {
+   "specimen": "C288",
+   "fact": "mint",
+   "coin": "Australia 1983 1 cent · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 23
+  },
+  {
+   "specimen": "C289",
+   "fact": "mint",
+   "coin": "Argentina 1954 5 centavos · ARM",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 24
+  },
+  {
+   "specimen": "C290",
+   "fact": "mint",
+   "coin": "United Kingdom 2013 1 penny · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 25
+  },
+  {
+   "specimen": "C291",
+   "fact": "mint",
+   "coin": "Bahamas 1984 5 cents · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 26
+  },
+  {
+   "specimen": "C291",
+   "fact": "mintage",
+   "coin": "Bahamas 1984 5 cents · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 27
+  },
+  {
+   "specimen": "C292",
+   "fact": "mint",
+   "coin": "United Kingdom 2002 1 penny · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 28
+  },
+  {
+   "specimen": "C293",
+   "fact": "year",
+   "coin": "Mexico 1988 500 pesos · MXP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 29
+  },
+  {
+   "specimen": "C295",
+   "fact": "mint",
+   "coin": "Australia 2006 10 cents · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 30
+  },
+  {
+   "specimen": "C296",
+   "fact": "mint",
+   "coin": "United Kingdom 1990 5 pence · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 31
+  },
+  {
+   "specimen": "C297",
+   "fact": "mint",
+   "coin": "United Kingdom 1988 1 penny · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 32
+  },
+  {
+   "specimen": "C300",
+   "fact": "mintage",
+   "coin": "Bahamas 1984 25 cents · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 33
+  },
+  {
+   "specimen": "C300",
+   "fact": "value",
+   "coin": "Bahamas 1984 25 cents · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 34
+  },
+  {
+   "specimen": "C301",
+   "fact": "year",
+   "coin": "Mexico 1989 500 pesos · MXP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 35
+  },
+  {
+   "specimen": "C302",
+   "fact": "mint",
+   "coin": "United Kingdom 1922 1 penny · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 36
+  },
+  {
+   "specimen": "C303",
+   "fact": "year",
+   "coin": "Australia 1983 1 cent · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 37
+  },
+  {
+   "specimen": "C303",
+   "fact": "mint",
+   "coin": "Australia 1983 1 cent · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 38
+  },
+  {
+   "specimen": "C305",
+   "fact": "mint",
+   "coin": "Vatican City 1958 20 lire · VAL",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 39
+  },
+  {
+   "specimen": "C306",
+   "fact": "mint",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 40
+  },
+  {
+   "specimen": "C306",
+   "fact": "mintage",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 41
+  },
+  {
+   "specimen": "C307",
+   "fact": "mint",
+   "coin": "South Korea 1988 100 won · KRW",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 42
+  },
+  {
+   "specimen": "C309",
+   "fact": "mint",
+   "coin": "United Kingdom 1937 ½ penny · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 43
+  },
+  {
+   "specimen": "C310",
+   "fact": "mint",
+   "coin": "France 1979 2 francs · FRF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 44
+  },
+  {
+   "specimen": "C311",
+   "fact": "mint",
+   "coin": "South Korea 1997 100 won · KRW",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 45
+  },
+  {
+   "specimen": "C312",
+   "fact": "mint",
+   "coin": "Czech Republic 2008 5 korun · CZK",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 46
+  },
+  {
+   "specimen": "C313",
+   "fact": "mint",
+   "coin": "Russia 1992 20 roubles · RUR",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 47
+  },
+  {
+   "specimen": "C313",
+   "fact": "mintage",
+   "coin": "Russia 1992 20 roubles · RUR",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 48
+  },
+  {
+   "specimen": "C314",
+   "fact": "mint",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 49
+  },
+  {
+   "specimen": "C316",
+   "fact": "mint",
+   "coin": "United Kingdom 2014 20 pence · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 50
+  },
+  {
+   "specimen": "C317",
+   "fact": "mint",
+   "coin": "Belize 2015 25 cents · BZD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 51
+  },
+  {
+   "specimen": "C317",
+   "fact": "mintage",
+   "coin": "Belize 2015 25 cents · BZD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 52
+  },
+  {
+   "specimen": "C318",
+   "fact": "mint",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 53
+  },
+  {
+   "specimen": "C320",
+   "fact": "mint",
+   "coin": "Sweden 1991 1 krona · SEK",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 54
+  },
+  {
+   "specimen": "C321",
+   "fact": "mint",
+   "coin": "France 1988 20 centimes · FRF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 55
+  },
+  {
+   "specimen": "C322",
+   "fact": "mint",
+   "coin": "Portugal 1970 20 centavos · PTE",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 56
+  },
+  {
+   "specimen": "C326",
+   "fact": "mint",
+   "coin": "Bahamas 1974 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 57
+  },
+  {
+   "specimen": "C327",
+   "fact": "mint",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 58
+  },
+  {
+   "specimen": "C327",
+   "fact": "mintage",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 59
+  },
+  {
+   "specimen": "C328",
+   "fact": "mint",
+   "coin": "Switzerland 1976 1 franc · CHF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 60
+  },
+  {
+   "specimen": "C329",
+   "fact": "mint",
+   "coin": "United Kingdom 1962 1 shilling · GBP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 61
+  },
+  {
+   "specimen": "C330",
+   "fact": "mint",
+   "coin": "Ireland 1995 10 pence · IEP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 62
+  },
+  {
+   "specimen": "C331",
+   "fact": "mint",
+   "coin": "Australia 1966 10 cents · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 63
+  },
+  {
+   "specimen": "C332",
+   "fact": "mint",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 64
+  },
+  {
+   "specimen": "C332",
+   "fact": "mintage",
+   "coin": "Bahamas 2015 1 cent · BSD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 65
+  },
+  {
+   "specimen": "C333",
+   "fact": "mint",
+   "coin": "Norway 1977 50 øre · NOK",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 66
+  },
+  {
+   "specimen": "C334",
+   "fact": "mint",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 67
+  },
+  {
+   "specimen": "C334",
+   "fact": "story",
+   "coin": "Spain 1989 5 pesetas · ESP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 68
+  },
+  {
+   "specimen": "C335",
+   "fact": "mint",
+   "coin": "South Korea 1994 100 won · KRW",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 69
+  },
+  {
+   "specimen": "C337",
+   "fact": "mint",
+   "coin": "Switzerland 1944 5 rappen · CHF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 70
+  },
+  {
+   "specimen": "C338",
+   "fact": "mint",
+   "coin": "Jamaica 1977 10 cents · JMD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 71
+  },
+  {
+   "specimen": "C339",
+   "fact": "mint",
+   "coin": "France 1983 20 centimes · FRF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 72
+  },
+  {
+   "specimen": "C340",
+   "fact": "mint",
+   "coin": "Japan 2015 100 yen · JPY",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 73
+  },
+  {
+   "specimen": "C342",
+   "fact": "mint",
+   "coin": "South Korea 2001 10 won · KRW",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 74
+  },
+  {
+   "specimen": "C343",
+   "fact": "mint",
+   "coin": "Costa Rica 2008 10 colones · CRC",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 75
+  },
+  {
+   "specimen": "C344",
+   "fact": "year",
+   "coin": "Japan Heisei 14 (2002) 10 yen · JPY",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 76
+  },
+  {
+   "specimen": "C344",
+   "fact": "mint",
+   "coin": "Japan Heisei 14 (2002) 10 yen · JPY",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 77
+  },
+  {
+   "specimen": "C345",
+   "fact": "mint",
+   "coin": "Australia 2008 10 cents · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 78
+  },
+  {
+   "specimen": "C347",
+   "fact": "mint",
+   "coin": "Guernsey 1893 8 doubles · GGP",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 79
+  },
+  {
+   "specimen": "C348",
+   "fact": "mint",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 80
+  },
+  {
+   "specimen": "C348",
+   "fact": "mintage",
+   "coin": "East Caribbean States 2004 10 cents · XCD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 81
+  },
+  {
+   "specimen": "C349",
+   "fact": "mint",
+   "coin": "Australia 1977 50 cents · AUD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 82
+  },
+  {
+   "specimen": "C350",
+   "fact": "mint",
+   "coin": "East Caribbean States 1991 10 cents · XCD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 83
+  },
+  {
+   "specimen": "C350",
+   "fact": "mintage",
+   "coin": "East Caribbean States 1991 10 cents · XCD",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 84
+  },
+  {
+   "specimen": "C351",
+   "fact": "year",
+   "coin": "France 1867 10 centimes · FRF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 85
+  },
+  {
+   "specimen": "C351",
+   "fact": "mintage",
+   "coin": "France 1867 10 centimes · FRF",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 86
+  },
+  {
+   "specimen": "C353",
+   "fact": "mint",
+   "coin": "Japan Heisei 8 (1996) 10 yen · JPY",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 87
+  },
+  {
+   "specimen": "C354",
+   "fact": "mint",
+   "coin": "India 2014 2 rupees · INR",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 88
+  },
+  {
+   "specimen": "C354",
+   "fact": "mintage",
+   "coin": "India 2014 2 rupees · INR",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 89
+  },
+  {
+   "specimen": "T001",
+   "fact": "story",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 90
+  },
+  {
+   "specimen": "T002",
+   "fact": "mint",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 91
+  },
+  {
+   "specimen": "T002",
+   "fact": "story",
+   "coin": "Germany ND Spielmarke “20” (GR)",
+   "has_photo": true,
+   "for": "gemini",
+   "n": 92
+  },
+  {
+   "specimen": "C011",
+   "fact": "mint",
+   "coin": "Italy 1970 50 lire · ITL",
+   "has_photo": true,
+   "for": "muse",
+   "n": 1
+  },
+  {
+   "specimen": "C032",
+   "fact": "year",
+   "coin": "Hungary 1967 1 forint · HUF",
+   "has_photo": true,
+   "for": "muse",
+   "n": 2
+  },
+  {
+   "specimen": "C035",
+   "fact": "year",
+   "coin": "Germany 1971 50 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 3
+  },
+  {
+   "specimen": "C036",
+   "fact": "mint",
+   "coin": "Italy 2007 10 euro cent · EUR",
+   "has_photo": true,
+   "for": "muse",
+   "n": 4
+  },
+  {
+   "specimen": "C040",
+   "fact": "year",
+   "coin": "Netherlands 2001 20 euro cent · EUR",
+   "has_photo": true,
+   "for": "muse",
+   "n": 5
+  },
+  {
+   "specimen": "C045",
+   "fact": "year",
+   "coin": "Netherlands 2014 5 euro cent · EUR",
+   "has_photo": true,
+   "for": "muse",
+   "n": 6
+  },
+  {
+   "specimen": "C056",
+   "fact": "year",
+   "coin": "Portugal 2002 20 euro cent · EUR",
+   "has_photo": true,
+   "for": "muse",
+   "n": 7
+  },
+  {
+   "specimen": "C058",
+   "fact": "year",
+   "coin": "Germany 1985 50 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 8
+  },
+  {
+   "specimen": "C060",
+   "fact": "year",
+   "coin": "France 1971 1/2 franc · FRF",
+   "has_photo": true,
+   "for": "muse",
+   "n": 9
+  },
+  {
+   "specimen": "C068",
+   "fact": "year",
+   "coin": "Switzerland 1963 20 rappen · CHF",
+   "has_photo": true,
+   "for": "muse",
+   "n": 10
+  },
+  {
+   "specimen": "C070",
+   "fact": "year",
+   "coin": "Netherlands 2002 2 euro · EUR",
+   "has_photo": true,
+   "for": "muse",
+   "n": 11
+  },
+  {
+   "specimen": "C152",
+   "fact": "mint",
+   "coin": "United Kingdom 2001 10 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 12
+  },
+  {
+   "specimen": "C153",
+   "fact": "mint",
+   "coin": "United Kingdom 2008 10 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 13
+  },
+  {
+   "specimen": "C157",
+   "fact": "mint",
+   "coin": "United Kingdom 2014 10 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 14
+  },
+  {
+   "specimen": "C163",
+   "fact": "year",
+   "coin": "Philippines 1984 50 sentimo · PHP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 15
+  },
+  {
+   "specimen": "C164",
+   "fact": "mint",
+   "coin": "United Kingdom 1932 ½ penny · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 16
+  },
+  {
+   "specimen": "C165",
+   "fact": "year",
+   "coin": "Sweden 1973 1 krona · SEK",
+   "has_photo": true,
+   "for": "muse",
+   "n": 17
+  },
+  {
+   "specimen": "C166",
+   "fact": "year",
+   "coin": "Mexico 1944 5 centavos · MXP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 18
+  },
+  {
+   "specimen": "C166",
+   "fact": "mint",
+   "coin": "Mexico 1944 5 centavos · MXP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 19
+  },
+  {
+   "specimen": "C173",
+   "fact": "mint",
+   "coin": "United Kingdom 1998 5 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 20
+  },
+  {
+   "specimen": "C174",
+   "fact": "mint",
+   "coin": "United Kingdom 2000 5 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 21
+  },
+  {
+   "specimen": "C177",
+   "fact": "mint",
+   "coin": "United Kingdom 2009 5 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 22
+  },
+  {
+   "specimen": "C180",
+   "fact": "mint",
+   "coin": "United Kingdom 2012 5 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 23
+  },
+  {
+   "specimen": "C183",
+   "fact": "mint",
+   "coin": "United Kingdom 2015 5 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 24
+  },
+  {
+   "specimen": "C184",
+   "fact": "mint",
+   "coin": "United Kingdom 2016 5 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 25
+  },
+  {
+   "specimen": "C195",
+   "fact": "year",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 26
+  },
+  {
+   "specimen": "C195",
+   "fact": "mint",
+   "coin": "Germany 1971 5 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 27
+  },
+  {
+   "specimen": "C197",
+   "fact": "mint",
+   "coin": "Germany 1992 5 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 28
+  },
+  {
+   "specimen": "C205",
+   "fact": "mint",
+   "coin": "United Kingdom 1982 20 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 29
+  },
+  {
+   "specimen": "C206",
+   "fact": "mint",
+   "coin": "Japan 1971 1 yen · JPY",
+   "has_photo": true,
+   "for": "muse",
+   "n": 30
+  },
+  {
+   "specimen": "C209",
+   "fact": "mint",
+   "coin": "Mexico 1987 5 pesos · MXP (pre-nuevo)",
+   "has_photo": true,
+   "for": "muse",
+   "n": 31
+  },
+  {
+   "specimen": "C211",
+   "fact": "mint",
+   "coin": "Italy 1987 500 lire · ITL",
+   "has_photo": true,
+   "for": "muse",
+   "n": 32
+  },
+  {
+   "specimen": "C213",
+   "fact": "mint",
+   "coin": "United Kingdom 1991 2 pence · GBP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 33
+  },
+  {
+   "specimen": "C217",
+   "fact": "mint",
+   "coin": "United Kingdom 1998 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "for": "muse",
+   "n": 34
+  },
+  {
+   "specimen": "C218",
+   "fact": "mint",
+   "coin": "United Kingdom 2010 1 penny · GBP (decimal)",
+   "has_photo": true,
+   "for": "muse",
+   "n": 35
+  },
+  {
+   "specimen": "C220",
+   "fact": "mint",
+   "coin": "Japan 1982 10 yen · JPY",
+   "has_photo": true,
+   "for": "muse",
+   "n": 36
+  },
+  {
+   "specimen": "C221",
+   "fact": "year",
+   "coin": "France 1986 1/2 franc · FRF",
+   "has_photo": true,
+   "for": "muse",
+   "n": 37
+  },
+  {
+   "specimen": "C222",
+   "fact": "year",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true,
+   "for": "muse",
+   "n": 38
+  },
+  {
+   "specimen": "C222",
+   "fact": "mint",
+   "coin": "Japan 1965 1 yen · JPY",
+   "has_photo": true,
+   "for": "muse",
+   "n": 39
+  },
+  {
+   "specimen": "C224",
+   "fact": "year",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 40
+  },
+  {
+   "specimen": "C224",
+   "fact": "mint",
+   "coin": "Germany 1966 10 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 41
+  },
+  {
+   "specimen": "C225",
+   "fact": "mint",
+   "coin": "Germany 1977 10 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 42
+  },
+  {
+   "specimen": "C226",
+   "fact": "mint",
+   "coin": "Germany 1980 10 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 43
+  },
+  {
+   "specimen": "C227",
+   "fact": "mint",
+   "coin": "Germany 1984 10 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 44
+  },
+  {
+   "specimen": "C229",
+   "fact": "mint",
+   "coin": "Germany 1990 10 Pfennig · DEM",
+   "has_photo": true,
+   "for": "muse",
+   "n": 45
+  },
+  {
+   "specimen": "C234",
+   "fact": "mint",
+   "coin": "United Kingdom 1968 10 new pence · GBP (large module)",
+   "has_photo": true,
+   "for": "muse",
+   "n": 46
+  },
+  {
+   "specimen": "C235",
+   "fact": "mint",
+   "coin": "Guatemala 1934 10 centavos · GTQ",
+   "has_photo": true,
+   "for": "muse",
+   "n": 47
+  },
+  {
+   "specimen": "C240",
+   "fact": "year",
+   "coin": "Italy 1965 100 lire · ITL",
+   "has_photo": true,
+   "for": "muse",
+   "n": 48
+  },
+  {
+   "specimen": "C244",
+   "fact": "mint",
+   "coin": "Mexico 1964 20 centavos · MXP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 49
+  },
+  {
+   "specimen": "C248",
+   "fact": "mint",
+   "coin": "Greece 1982 2 drachmes · GRD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 50
+  },
+  {
+   "specimen": "C249",
+   "fact": "mint",
+   "coin": "Australia 1966 20 cents · AUD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 51
+  },
+  {
+   "specimen": "C250",
+   "fact": "mint",
+   "coin": "Singapore 1967 20 cents · SGD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 52
+  },
+  {
+   "specimen": "C251",
+   "fact": "mint",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 53
+  },
+  {
+   "specimen": "C252",
+   "fact": "mint",
+   "coin": "Cuba 1962 20 centavos · CUP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 54
+  },
+  {
+   "specimen": "C253",
+   "fact": "mint",
+   "coin": "Jamaica 1993 10 cents · JMD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 55
+  },
+  {
+   "specimen": "C259",
+   "fact": "mint",
+   "coin": "Mexico 1940 1 centavo · MXP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 56
+  },
+  {
+   "specimen": "C262",
+   "fact": "mint",
+   "coin": "Yugoslavia 1984 1 dinar · YUD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 57
+  },
+  {
+   "specimen": "C264",
+   "fact": "mint",
+   "coin": "Singapore 1973 10 cents · SGD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 58
+  },
+  {
+   "specimen": "C266",
+   "fact": "mint",
+   "coin": "South Korea 2012 10 won · KRW",
+   "has_photo": true,
+   "for": "muse",
+   "n": 59
+  },
+  {
+   "specimen": "C267",
+   "fact": "mint",
+   "coin": "South Korea 2013 10 won · KRW",
+   "has_photo": true,
+   "for": "muse",
+   "n": 60
+  },
+  {
+   "specimen": "C269",
+   "fact": "mint",
+   "coin": "Cayman Islands 1990 1 cent · KYD",
+   "has_photo": true,
+   "for": "muse",
+   "n": 61
+  },
+  {
+   "specimen": "C270",
+   "fact": "mint",
+   "coin": "Japan 1988 10 yen · JPY",
+   "has_photo": true,
+   "for": "muse",
+   "n": 62
+  },
+  {
+   "specimen": "C272",
+   "fact": "year",
+   "coin": "Austria 1925 2 groschen · ATS",
+   "has_photo": true,
+   "for": "muse",
+   "n": 63
+  },
+  {
+   "specimen": "C347",
+   "fact": "story",
+   "coin": "Guernsey 1893 8 doubles · GGP",
+   "has_photo": true,
+   "for": "muse",
+   "n": 64
+  },
+  {
+   "specimen": "C351",
+   "fact": "mint",
+   "coin": "France 1867 10 centimes · FRF",
+   "has_photo": true,
+   "for": "muse",
+   "n": 65
+  },
+  {
+   "specimen": "T005",
+   "fact": "story",
+   "coin": "USA 2013 Prop $1 (Series 2013 style)",
+   "has_photo": true,
+   "for": "muse",
+   "n": 66
+  },
+  {
+   "specimen": "T006",
+   "fact": "story",
+   "coin": "USA 2009 Prop $50 (Series 2009 style)",
+   "has_photo": true,
+   "for": "muse",
+   "n": 67
+  }
+ ]
+}

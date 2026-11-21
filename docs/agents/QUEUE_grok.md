@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-21 03:14 UTC)
+# WORK QUEUE for Grok (updated 2026-11-21 09:49 UTC)
 
 PROBATION (Joseph, 2026-11-19: "grok is on probation because it used 84.6 of my quota without being prompted and likely no results"): do ONE assignment per session, and only when Joseph asks you to. Save its one file, say what you saved, then STOP: do not start the next one, do not run in the background, do not re-read this page on your own. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -243,7 +243,7 @@ Items:
 - **period of C253 · Jamaica · 1993 · 10 cents · JMD** `type JM.KM.146 period` = `Independent Jamaica` (written by Gemini: «https://en.numista.com/catalogue/pieces2617.html ("Issuer: Jamaica · Period: Commonwealth realm (1962-date)")»)
 - **period of C185 · Cayman Islands · 1996 · 5 cents · KYD** `type KY.KM.88a period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces10222.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)"»)
 - **period of C205 · United Kingdom · 1982 · 20 pence · GBP** `type GB.KM.931 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces865.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **design of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 design.text` = `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion C…` (written by Gemini: «https://en.numista.com/catalogue/pieces1003.html ("Obverse: Second portrait of Queen Elizabeth II right, ELIZABETH II AUSTRALIA (Arnold Mach»)
+- **design of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 design.text` = `value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse…` (written by Gemini: «https://en.numista.com/catalogue/pieces1003.html ("Obverse: Second portrait of Queen Elizabeth II right, ELIZABETH II AUSTRALIA (Arnold Mach»)
 - **period of C152 · United Kingdom · 2001 · 10 pence · GBP** `type GB.KM.989 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces2236.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (deci»)
 - **period of C269 · Cayman Islands · 1990 · 1 cent · KYD** `type KY.KM.87 period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces7364.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)")»)
 - **year of C272 · Austria · 2 groschen · ATS** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C272 issue.year`. Photos: none
@@ -395,5 +395,5 @@ When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per par
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 47; expired: 23.
-- Your facts checked by another contributor: 1161 (1145 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
+- Your facts checked by another contributor: 1160 (1144 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 100 %.
