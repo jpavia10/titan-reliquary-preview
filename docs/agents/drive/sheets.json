@@ -66,8 +66,8 @@
      "kind": "verify",
      "due": "2026-11-25",
      "path": "docs/agents/homework/sheets/HW-grok-verify-20261118-1.jsonl",
-     "sha256": "db361a2bb935a158e27f70375811b30c08906d80e09ca7796a1a938775712b4c",
-     "lines": 2
+     "sha256": "0c032f3a68fb6ab857ad670421a878fac50000afbcde62f610980d530235ddd7",
+     "lines": 1
     },
     {
      "id": "HW-grok-arbitrate-20261119-1",
@@ -206,6 +206,22 @@
      "path": "docs/agents/homework/sheets/HW-muse-verify-20261122-2.jsonl",
      "sha256": "a4d58a078468438fc1f03c53f1c8f30ed03db3af7bc7f28a843d9a0ada88f979",
      "lines": 4
+    },
+    {
+     "id": "HW-muse-arbitrate-20261122-1",
+     "kind": "arbitrate",
+     "due": "2026-11-29",
+     "path": "docs/agents/homework/sheets/HW-muse-arbitrate-20261122-1.jsonl",
+     "sha256": "6f438ba5fdb2bdc73e41cc1d7b5b5f921a9b388e4adce78b0784d317abb903c2",
+     "lines": 15
+    },
+    {
+     "id": "HW-muse-arbitrate-20261122-2",
+     "kind": "arbitrate",
+     "due": "2026-11-29",
+     "path": "docs/agents/homework/sheets/HW-muse-arbitrate-20261122-2.jsonl",
+     "sha256": "a284a3a78e7df8381e425fcb8ee06ccc442921780349039ba4b24065aad938c6",
+     "lines": 13
     }
    ]
   },
@@ -217,8 +233,8 @@
      "kind": "verify",
      "due": "2026-11-29",
      "path": "docs/agents/homework/sheets/HW-gemini-api-verify-20261122-1.jsonl",
-     "sha256": "28e695cab65adc796a3dcb2473b6039a628605b78a61fd1cb50cedef87fa8316",
-     "lines": 14
+     "sha256": "0cfc02412bec62311fdbad060c894b266f59c75c04dee65c0cd95d14ef6e6ed3",
+     "lines": 13
     }
    ]
   }

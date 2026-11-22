@@ -7,7 +7,8 @@ Drafted from the merge and the cross-checks since (rubric: top of `collaborators
 
 | File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
 |---|---|---|---|---|---|---|---|
-| `changes_gemini_20261120-2101.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; nothing cross-checked yet |
-| `changes_gemini_20261120-2102.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 left blank; answered 2 of 2 items of HW-gemini-fill-20261118-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261120-2103.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-gemini-plain-story-20261118-1 (with its other files for the same sheet); nothing cross-checked yet |
-| `changes_gemini_20261120-2104.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-gemini-verify-20261119-2 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+| `changes_gemini_20261121-1145.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; nothing cross-checked yet |
+| `changes_gemini_20261121-1148.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 56 lines: 53 in the change log, 2 filed as disagreements, 1 not written (stale, no change or already applied); cross-checked so far: 53 held, 0 wrong |
+| `changes_gemini_20261121-1149.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 37 lines: 35 in the change log, 2 filed as disagreements; cross-checked so far: 35 held, 0 wrong |
+| `changes_gemini_20261121-1150.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 35 lines: 24 in the change log, 9 filed as disagreements, 2 not written (stale, no change or already applied); cross-checked so far: 24 held, 0 wrong |
+| `changes_gemini_20261121-1159.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 64 lines: 38 in the change log, 23 filed as disagreements, 3 not written (stale, no change or already applied); cross-checked so far: 38 held, 0 wrong |

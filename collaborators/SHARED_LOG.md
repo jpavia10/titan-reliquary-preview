@@ -5,6 +5,11 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### 2026-11-22 Claude: intake 5, Gemini's overnight run 4, Titan part (data and homework only; app unchanged)
+- Merged `changes_gemini_20261121-1145..1159` (469 lines; originals and the remap script in `collection/_incoming/originals-20261122/`): 150 events, 145 facts to Checked (2,166 to 2,311, 57.9 %), 35 value/catalogue differences filed for a third reader (Muse's arbitrate homework took them), D0228 (JP.Y.73a bronze, same alloy) settled by Claude. Score #78 (9/10).
+- Pipeline: a second value now agrees with the record within 30 % or 30 cents (`VALUE_BAND`, `check_verdict`; test added, 56/56, parity OK). The round-2 sheet had no field paths (Claude's fault): lines were mapped to `value.est_usd`, `issue.mint_marks`, the type's `catalogs`/`denomination.value`/`composition.text`/`ruler`; free text went to round 3.
+- New project `titan-second-source-3.json` (109 stories, designs and periods WITH the record text; Gemini tasks 51-52, run ids GT-SECOND-r1/r2). Open: MX.X.2-nuevos-pesos, MX.X.5-pesos, MX.KM.604 and MX.X.10-centavos each carry a no-mint-mark issue row beside the Mo row Numista lists (coins read 'no mint mark visible'); a curation question, not homework.
+
 ### 2026-11-21 Claude: intake 4, Gemini's overnight run 3 (data and homework only; app unchanged)
 - Merged `changes_gemini_20261120-2101..2104`: AI-guessed facts part 1b (the 4 real lines of the 6 that bounced: BR.KM.648.1 and TW.KM.551 found, Cyrillic and Devanagari kept), the C347 plain story, the 1998 JEJ 50 øre mintage re-cited; the Guatemala designer fill rightly left blank (N# 42670 names none). All 6 opened on Numista's API: 6 of 6 exact. Score #77 (10/10).
 - New project `docs/agents/projects/titan-photo-facts.json`: 159 facts that rest on one photo read or one AI guess, confirmed against a catalogue row by an AI that did not make them (Gemini 92, Muse 67; run ids GT-SECOND-photo-g1/-m1). Found while sizing it: the 273 ledger-only countries (and 126 denominations) cannot rise, because check lines on a specimen's country or denomination are dropped (they live on the type) and nothing lifts the specimen's certainty from the type; a pipeline fix, not homework.

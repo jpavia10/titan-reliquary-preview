@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-22 02:14 UTC)
+# WORK QUEUE for Muse (updated 2026-11-22 03:11 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -323,6 +323,54 @@ Items:
 - **composition of C320 · Sweden · 1991 · 1 krona · SEK** `type SE.X.1-krona composition.text` = `Copper-nickel (75% Copper, 25% Nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces6862.html ("Composition: Copper-nickel (75% Copper, 25% Nickel)")»)
 - **mintage of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.210 issues.3.mintage`
 
+### 14. HW-muse-arbitrate-20261122-1 · Arbiter · Settle 15 disagreements between two AIs · due 2026-11-29  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261122-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0202 C153 value.est_usd**: record `0.35` (model:grok-bot: «https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): value table row '2008', grade XF = $0.35; grade assu…») vs claim `0.88` (model:gemini: «uCoin KM# 989 (https://en.ucoin.net/coin/united_kingdom-10-pence-1998-2008/?tid=1669, read 2026-11-21): 2008 10p (minta…»)
+- **D0203 C224 value.est_usd**: record `0.22` (model:grok-bot: «https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1966 D', grade VF = $0.22; grade assu…») vs claim `1.12` (model:gemini: «Foronum KM# 108 / FO# 581 (https://en.foronum.com/coins-catalog/germany-federalrep/n-581-10-pfennig/1966D, read 2026-11…»)
+- **D0204 C145 value.est_usd**: record `0.53` (model:grok-bot: «https://en.numista.com/catalogue/pieces2834.html (Numista N#2834): value table row '1996 So', grade XF = $0.53; grade a…») vs claim `0.05` (model:gemini: «uCoin https://en.ucoin.net/coin/chile-50-pesos-1981-2024/?tid=11231 (Chile 50 pesos KM# 219, legal-tender face value 50…»)
+- **D0205 C146 value.est_usd**: record `0.56` (model:grok-bot: «https://en.numista.com/catalogue/pieces2118.html (Numista N#2118): value table row '1998', grade XF = $0.56; grade assu…») vs claim `0.13` (model:gemini: «uCoin https://en.ucoin.net/coin/hong_kong-1-dollar-1994-2019/?tid=14555 (Hong Kong 1 dollar KM# 69a, legal-tender face …»)
+- **D0206 C016 value.est_usd**: record `0.46` (model:grok-bot: «https://en.numista.com/catalogue/pieces69.html (Numista N#69): value table row '1985', grade XF = $0.46; grade assumed …») vs claim `2.02` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/costa-rica/n-375-5-colones row 1985 grade XF = $2.02 (KM#214.2, stainless …»)
+- **D0208 C025 value.est_usd**: record `0.35` (model:grok-bot: «https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1965', grade XF = $0.35; grade assumed XF…») vs claim `1.56` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/france/n-416-1-franc row 1965 grade XF = $1.56 (KM#925.1), read 2026-11-21»)
+- **D0209 C033 value.est_usd**: record `0.22` (model:grok-bot: «https://en.numista.com/catalogue/pieces5.html (Numista N#5): value table row '1969 (F. 198/8)', grade VF = $0.22; grade…») vs claim `0.55` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/france/n-411-12-franc/1969 row 1969 grade VF = $0.55 (KM#931.1, mintage 47…»)
+- **D0210 C041 value.est_usd**: record `0.18` (model:grok-bot: «https://en.numista.com/catalogue/pieces4.html (Numista N#4): value table row '1974 ((fr) Dont 98 800 en set FDC)', grad…») vs claim `0.56` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/france/n-410-20-centimes row 1974 grade VF = $0.56 (KM#930, mintage 54,250…»)
+- **D0211 C047 value.est_usd**: record `0.12` (model:grok-bot: «https://en.numista.com/catalogue/pieces1049.html (Numista N#1049): value table row '2006 ("T" partially inside stripes)…») vs claim `0.45` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/brazil/n-10385-5-centavos-joaquim-jose-da-silva-xavier-tiradentes row 2006…»)
+- **D0212 C050 value.est_usd**: record `0.75` (model:grok-bot: «https://en.numista.com/catalogue/pieces846.html (Numista N#846): value table row '1982 G', grade VF = $0.75; grade assu…») vs claim `1.46` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/germany-federalrep/n-584-1-mark/1982G row 1982 G Karlsruhe grade VF = $1.4…»)
+- **D0213 C059 value.est_usd**: record `0.34` (model:grok-bot: «https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1960', grade VF = $0.34; grade assumed VF…») vs claim `1.57` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/france/n-416-1-franc row 1960 grade VF = $1.57 (KM#925.1), read 2026-11-21»)
+- **D0214 C063 value.est_usd**: record `0.17` (model:grok-bot: «https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1995', grade XF = $0.17; grade assumed XF…») vs claim `0.59` (model:gemini: «Foronum https://en.foronum.com/coins-catalog/france/n-408-10-centimes row 1995 grade XF = $0.59 (KM#929), read 2026-11-…»)
+- **D0215 C227 value.est_usd**: record `0.24` (model:grok-bot: «https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1984 D', grade XF = $0.24; grade assu…») vs claim `0.89` (model:gemini: «MA-Shops Münzhandlung Krogoll (https://www.ma-shops.com/krogoll/item.php?id=11343, read 2026-11-21): BRD 10 Pfennig 198…»)
+- **D0216 C228 value.est_usd**: record `0.17` (model:grok-bot: «https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1989 G', grade XF = $0.17; grade assu…») vs claim `1.5` (model:gemini: «eBay dealer listing coinsandmore (https://www.ebay.com/itm/225956054753, read 2026-11-21): 1989-G Germany 10 Pfennig (K…»)
+- **D0217 C229 value.est_usd**: record `0.12` (model:grok-bot: «https://en.numista.com/catalogue/pieces850.html (Numista N#850): value table row '1990 F', grade VF = $0.12; grade assu…») vs claim `0.99` (model:gemini: «eBay dealer listing EdwardOregonCoins (https://www.ebay.com/itm/135300254813, read 2026-11-21): 1990 F Germany 10 Pfenn…»)
+
+### 15. HW-muse-arbitrate-20261122-2 · Arbiter · Settle 13 disagreements between two AIs · due 2026-11-29  (fix list #18)
+
+Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
+
+**Done when:** One change file; unsettled items left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261122-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **D0218 C230 value.est_usd**: record `0.79` (model:grok-bot: «https://en.numista.com/catalogue/pieces14370.html (Numista N#14370): value table row '2015', grade AU = $0.79; grade as…») vs claim `0.16` (model:gemini: «uCoin Jamaica 10 Dollars 2008-2025 (KM#190, https://en.ucoin.net/coin/jamaica-10-dollars-2008-2025/?tid=24497, read 202…»)
+- **D0220 C237 value.est_usd**: record `0.16` (model:grok-bot: «https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1971 D', grade VF = $0.16; grade assu…») vs claim `2.46` (model:gemini: «eBay dealer listing The Coin Nerd (https://www.ebay.com/itm/278218111483, read 2026-11-21): 1971-D Germany 5 Pfennig (K…»)
+- **D0221 C238 value.est_usd**: record `1.3` (model:grok-bot: «https://en.numista.com/catalogue/pieces844.html (Numista N#844): value table row '1973 D', grade XF = $1.30; grade assu…») vs claim `1.96` (model:gemini: «Foronum Germany 2 Mark Konrad Adenauer KM#124 FO#1819 (https://en.foronum.com/coins-catalog/germany-federalrep/n-1819-2…»)
+- **D0222 C243 value.est_usd**: record `1.1` (model:grok-bot: «https://en.numista.com/catalogue/pieces1190.html (Numista N#1190): value table row '1946', grade VF = $1.10; grade assu…») vs claim `0.11` (model:gemini: «uCoin France 5 Francs 1945-1952 KM#888b (https://en.ucoin.net/coin/france-5-francs-1945-1952/?tid=9942, read 2026-11-21…»)
+- **D0223 C245 value.est_usd**: record `0.2` (model:grok-bot: «https://en.numista.com/catalogue/pieces545.html (Numista N#545): value table row '1970', grade F = $0.20; grade assumed…») vs claim `0.54` (model:gemini: «uCoin Greece 2 Drachmas 1966-1970 KM#90 (https://en.ucoin.net/coin/greece-2-drachmas-1966-1970/?tid=27084, read 2026-11…»)
+- **D0225 C255 value.est_usd**: record `1.6` (model:grok-bot: «https://en.numista.com/catalogue/pieces1070.html (Numista N#1070): value table row '1892', grade F = $1.60; grade assum…») vs claim `6.48` (model:gemini: «eBay dealer listing J AND J COINS N MORE (https://www.ebay.com/itm/334256695769, read 2026-11-21): 1892 Netherlands 1 C…»)
+- **D0226 C260 value.est_usd**: record `0.74` (model:gemini: «https://en.numista.com/catalogue/pieces4042.html (Numista N#4042): value table rows '1931', grade VF median = $0.74; gr…») vs claim `0.01` (model:gemini: «uCoin USSR 3 Kopeks 1926-1935 Y#93 (https://en.ucoin.net/coin/ussr-3-kopeks-1926-1935/?tid=8760, read 2026-11-21): 1931…»)
+- **D0227 C261 value.est_usd**: record `1.1` (model:grok-bot: «https://en.numista.com/catalogue/pieces5269.html (Numista N#5269): value table row '1932', grade F = $1.10; grade assum…») vs claim `0.06` (model:gemini: «uCoin USSR 15 Kopeks 1931-1934 Y#96 (https://en.ucoin.net/coin/ussr-15-kopeks-1931-1934/?tid=8856, read 2026-11-21): 19…»)
+- **D0229 C271 value.est_usd**: record `0.22` (model:grok-bot: «https://en.numista.com/catalogue/pieces18097.html (Numista N#18097): value table row '2013 Mo', grade XF = $0.22; grade…») vs claim `0.68` (model:gemini: «Foronum Mexico 50 Centavos 2013 KM#936 FO#6762 (https://en.foronum.com/coins-catalog/mexico/n-6762-50-centavos/2013, re…»)
+- **D0232 C290 value.est_usd**: record `0.11` (model:grok-bot: «Numista N#4038 (https://en.numista.com/catalogue/pieces4038.html) value table, row '2013', XF column = $0.11 (grade XF …») vs claim `0.74` (model:gemini: «Foronum UK 1 Penny Elizabeth II Shield KM#1107 FO#5369 (https://en.foronum.com/coins-catalog/united-kingdom/n-5369-1-pe…»)
+- **D0233 C292 value.est_usd**: record `0.11` (model:grok-bot: «Numista N#862 (https://en.numista.com/catalogue/pieces862.html) value table, row '2002', VF column = $0.11 (grade VF gi…») vs claim `0.43` (model:gemini: «Foronum UK 1 Penny Elizabeth II 2002 KM#986 FO#429 (https://en.foronum.com/coins-catalog/united-kingdom/n-429-1-penny-e…»)
+- **D0234 C295 value.est_usd**: record `0.25` (model:grok-bot: «Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html) value table, row '2006', XF column = $0.25 (grade XF …») vs claim `0.86` (model:gemini: «Foronum Australia 10 Cents Elizabeth II 2006 KM#402 FO#2986 (https://en.foronum.com/coins-catalog/australia/n-2986-10-c…»)
+- **D0235 T003 value.est_usd**: record `0.42` (model:grok-bot: «https://www.icollector.com/Pony-Ride-Tokens-Approx-45ct-196554_i56902289 — iCollector lot 196554, approx. 45 'Meijer is…») vs claim `11.99` (model:gemini: «eBay dealer listing TJ's Premium Products (https://www.ebay.com/itm/126574946259, read 2026-11-21): Free Pony Ride Meij…»)
+
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -342,5 +390,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 13.
-- Your facts checked by another contributor: 957 (938 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 973 (954 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 32. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

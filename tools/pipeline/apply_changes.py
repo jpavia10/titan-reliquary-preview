@@ -59,6 +59,7 @@ SPOT_CHECK = {"id": "spot-check-claude", "kind": "verify"}     # fix list #95: C
 # A blind read was given no value to compare, so its "old": null is not a stale edit, and a check writes no value, so the phase tiers do not apply
 # (2026-11-18: the project template asked for phase 1 and "old": null, and 19 files bounced on that alone). GT-AIFACTS replaces facts: normal rules.
 PROJECT_CHECK = re.compile(r"^GT-(LEDGER|SECOND|SPOT|REVIEW)(-|$)")
+VALUE_BAND = (0.30, 0.30)          # a second value agrees within 30 % of the larger one, or within 30 cents (sub-dollar coins)
 
 
 def project_check(e):
@@ -109,6 +110,12 @@ def alloy_key(s):
 def check_verdict(field, cur, new):
     """same | partial (agrees with every catalogue it names but leaves some of the record's out) | differs."""
     if cur == new: return "same", ""
+    if field.split(".")[-1] == "est_usd" and all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in (cur, new)):
+        # A value is an estimate: a second appraisal supports it when close (GT-SECOND round 2, 2026-11-22: 151 blind second values;
+        # exact equality would have filed nearly every one as a disagreement). Far apart = a disagreement for a third reader.
+        if abs(new - cur) <= max(VALUE_BAND[1], VALUE_BAND[0] * max(abs(cur), abs(new))):
+            return "same", f" (second appraisal ${new:g} is within {int(VALUE_BAND[0] * 100)} % or ${VALUE_BAND[1]:.2f} of ${cur:g})"
+        return "differs", ""
     if field.split(".")[-1] == "catalogs":
         a, b = cat_pairs(cur), cat_pairs(new)
         if a is not None and b is not None:
@@ -596,7 +603,8 @@ class Applier:
             return "left"
         if verdict == "same":
             if e["new"] != cur:
-                self.log.append(f"same value, typed differently (counted as agreeing; the record keeps its own form): {ent} {rid} {field}{note}")
+                what = "a close second value" if field.endswith("est_usd") else "same value, typed differently"
+                self.log.append(f"{what} (counted as agreeing; the record keeps its own form): {ent} {rid} {field}{note}")
                 e["new"] = cur           # set() then logs a re-citation of the record's own value, never the sheet's spelling
             if setter is not None and PV.family(PV.agent_of(setter.get("by"))) == PV.family(PV.agent_of(e["by"])):
                 self.log.append(f"own fact re-stated (a citation, not a cross-check): {ent} {rid} {field}")

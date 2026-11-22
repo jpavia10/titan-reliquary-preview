@@ -78,6 +78,7 @@ line per field, `old` = the record now, `provenance.assignment` = the id, `sourc
   `changes_{ai}_{YYYYMMDD-HHMM}.jsonl` in Drive `collection-incoming (AI change files)`.
 - A line whose source still starts with `FILL` is **left out**: no error, the item goes back to the pool.
 - A homework line whose `old` no longer matches the record is **stale**: skipped and reported, never a rejection.
+- A second **value** (`value.est_usd`) agrees when it is within 30 % of the larger value or within 30 cents (2026-11-22, `VALUE_BAND` in apply_changes.py): an estimate is never typed the same twice.
 - In a **verify** assignment nothing is ever overwritten: the same value with an exact source or photo = a logged re-citation
   (the fact becomes Checked); a different value = a record in `collection/disagreements.jsonl` (fix list #18), not applied.
 - Blind verify lines have no `old` and `new: null`: the reader fills in what it sees; null = left out. Since 2026-10-14 looked-up numbers (mintage, weight, catalogue number) are blind too (Grok review GRK-R-03): the page shows neither the first value nor its source, so a check is a real second reading, never an echo. Reading the same catalogue entry yourself is fine; copying the first writer's value is not possible any more.

@@ -1,6 +1,6 @@
 {
  "agent": "gemini-api",
- "updated": "2026-11-22T02:14:48Z",
+ "updated": "2026-11-22T03:11:11Z",
  "assignments": [
   {
    "id": "HW-gemini-api-verify-20261122-1",
@@ -619,45 +619,6 @@
      "blind": true,
      "inputs": [
       "C079_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C220:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C220",
-     "field": "issue.year",
-     "coins": [
-      "C220"
-     ],
-     "label": "year of C220 · Japan · 10 yen · JPY",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Muse",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "rev",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C220_rev.webp",
-        "file": "C220_rev.webp",
-        "original": "C220_Japan_1982_10Yen_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1BrB1q-McMnGiYY1oDceA7UKGEVq8xKfp/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C220_rev.webp"
      ]
     }
    ]

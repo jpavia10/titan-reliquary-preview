@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini API) -->
-# WORK QUEUE for Gemini API (updated 2026-11-22 02:14 UTC)
+# WORK QUEUE for Gemini API (updated 2026-11-22 03:11 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -35,7 +35,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-gemini-api-verify-20261122-1 · Second reader · Check 14 facts another AI wrote · due 2026-11-29  (fix list #18)
+### 1. HW-gemini-api-verify-20261122-1 · Second reader · Check 13 facts another AI wrote · due 2026-11-29  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -57,7 +57,6 @@ Items:
 - **denomination of C040 · Netherlands · 2001** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type NL.KM.239 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C040_obv.webp (original: https://drive.google.com/file/d/1r6Th7Zhgg1zXk1PEng1o7or6olp0dgl8/view)
 - **denomination of C056 · Portugal · 2002** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type PT.KM.744 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C056_obv.webp (original: https://drive.google.com/file/d/1lEfFNu8FlfKw3MvuzvEnD0RjyaOcBXGW/view)
 - **mint of C079 · Switzerland · 1991 · 20 rappen · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C079 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C079_obv.webp (original: https://drive.google.com/file/d/1UW9Fg9zqMqTI4CUG4HQaVYCb3_3QUDn4/view)
-- **year of C220 · Japan · 10 yen · JPY** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C220 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C220_rev.webp (original: https://drive.google.com/file/d/1BrB1q-McMnGiYY1oDceA7UKGEVq8xKfp/view)
 
 ## Projects (after the homework)
 

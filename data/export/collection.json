@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-22T02:14:48Z",
- "content_hash": "5bbcf489ce9013c2",
+ "generated_at": "2026-11-22T03:03:55Z",
+ "content_hash": "d0e9164a8177819e",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:5bbcf489ce9013c2",
+  "ledger_version": "v3:d0e9164a8177819e",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5411.63,
@@ -19441,16 +19441,16 @@
     "until": null
    },
    "nominal": {
-    "alignment": null,
+    "alignment": "medal",
     "diameter_approx": false,
     "diameter_max_mm": null,
     "diameter_min_mm": null,
-    "diameter_mm": null,
-    "edge": null,
+    "diameter_mm": 20,
+    "edge": "Plain",
     "shape": null,
     "thickness_mm": null,
     "weight_approx": false,
-    "weight_g": null,
+    "weight_g": 3.8,
     "weight_max_g": null,
     "weight_min_g": null
    },
@@ -20051,8 +20051,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-17T04:39:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20144,8 +20144,8 @@
     "phase": 2,
     "phase1_at": "2026-10-28T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-24T05:44:39Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:50:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20228,7 +20228,7 @@
     "phase": 2,
     "phase1_at": "2026-10-02T04:46:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -20415,7 +20415,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -20504,8 +20504,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-28T02:52:07Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21375,8 +21375,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-17T04:44:56Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22247,7 +22247,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -22429,7 +22429,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-05T14:44:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -22609,7 +22609,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -22884,7 +22884,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -23066,7 +23066,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -23527,7 +23527,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -23617,7 +23617,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -23707,7 +23707,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -23797,7 +23797,7 @@
     "phase": 2,
     "phase1_at": "2026-10-06T09:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -23889,7 +23889,7 @@
     "phase": 2,
     "phase1_at": "2026-10-06T09:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -25852,7 +25852,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -26122,7 +26122,7 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -26213,7 +26213,7 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -28218,7 +28218,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -28911,7 +28911,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -28995,7 +28995,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -29079,7 +29079,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -29163,7 +29163,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -29331,7 +29331,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -30423,7 +30423,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -30597,7 +30597,7 @@
     "phase": 2,
     "phase1_at": "2026-10-06T03:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -30774,8 +30774,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:30:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -30866,8 +30866,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:30:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -30955,7 +30955,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-05T14:20:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -31659,7 +31659,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -31751,7 +31751,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:36:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -31841,7 +31841,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -31930,7 +31930,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -32564,8 +32564,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:45:32Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:50:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32745,8 +32745,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-01T03:39:26Z",
-    "phase2_by": "model:gemini-api:gemini-3.6-flash"
+    "phase2_at": "2026-11-21T19:50:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32837,7 +32837,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -33109,8 +33109,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:26:15Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33199,8 +33199,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:26:15Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33289,8 +33289,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:26:15Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33378,7 +33378,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -33467,7 +33467,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -33556,7 +33556,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -33646,8 +33646,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-30T02:46:37Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34008,8 +34008,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34097,8 +34097,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T18:56:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34628,7 +34628,7 @@
     "phase": 2,
     "phase1_at": "2026-10-06T03:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -35065,7 +35065,7 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:15:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36222,7 +36222,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36310,7 +36310,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36398,7 +36398,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36486,7 +36486,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36576,7 +36576,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36754,7 +36754,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -36842,8 +36842,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36930,8 +36930,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37022,8 +37022,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37110,7 +37110,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37201,7 +37201,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37289,7 +37289,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37377,7 +37377,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37465,7 +37465,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:46:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37553,7 +37553,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37641,7 +37641,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37729,7 +37729,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37819,7 +37819,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37909,7 +37909,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -37997,7 +37997,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -38085,7 +38085,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -38175,7 +38175,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -38263,7 +38263,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -38351,7 +38351,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -38441,8 +38441,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38529,8 +38529,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38617,8 +38617,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38707,7 +38707,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -38797,8 +38797,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-28T02:52:07Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38977,7 +38977,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -39065,7 +39065,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -39155,7 +39155,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -39247,7 +39247,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -39425,7 +39425,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -40637,7 +40637,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -40823,8 +40823,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:39:48Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40909,7 +40909,7 @@
     "phase": 2,
     "phase1_at": "2026-10-08T18:15:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -41002,7 +41002,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:36:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -41268,8 +41268,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T03:33:42Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:49:59Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41718,7 +41718,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -41806,7 +41806,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -41980,7 +41980,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -42072,7 +42072,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -42164,7 +42164,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -42256,7 +42256,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -42439,7 +42439,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -42527,7 +42527,7 @@
     "phase": 2,
     "phase1_at": "2026-10-08T18:15:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -43417,7 +43417,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -43507,7 +43507,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -43948,7 +43948,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -44038,7 +44038,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:49:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -44128,7 +44128,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -44219,7 +44219,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -44739,8 +44739,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:46:37Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -44917,8 +44917,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:31:53Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:48:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45007,7 +45007,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -45098,8 +45098,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-30T02:43:06Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45273,7 +45273,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -45541,7 +45541,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:41:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -45633,7 +45633,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -45908,7 +45908,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T01:01:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -45999,7 +45999,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -46091,7 +46091,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -46455,7 +46455,7 @@
     "phase": 2,
     "phase1_at": "2026-10-08T18:15:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -46631,8 +46631,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-24T05:09:02Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -46807,8 +46807,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T23:55:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-09T04:30:16Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -48060,7 +48060,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -48427,7 +48427,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:36:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -48788,7 +48788,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:41:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -49318,7 +49318,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -49844,7 +49844,7 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:13:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-05T14:44:00Z",
+    "phase2_at": "2026-11-21T19:50:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -49934,8 +49934,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:15:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:46:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:50:43Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -50026,7 +50026,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -50118,8 +50118,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-30T02:43:06Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -50300,7 +50300,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -50386,7 +50386,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -50472,7 +50472,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -50564,7 +50564,7 @@
     "phase": 2,
     "phase1_at": "2026-10-16T05:45:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:48:43Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -50750,7 +50750,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:49:59Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -50936,8 +50936,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:39:29Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-21T19:59:54Z",
+    "phase2_by": "model:gemini"
    },
    "seller_type": null,
    "sentimental": null,
@@ -51211,7 +51211,7 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -51475,7 +51475,7 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -51565,7 +51565,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -51655,7 +51655,7 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -51741,7 +51741,7 @@
     "phase": 2,
     "phase1_at": "2026-10-06T03:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
+    "phase2_at": "2026-11-21T19:59:54Z",
     "phase2_by": "model:gemini"
    },
    "seller_type": null,
@@ -84236,13 +84236,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces168.html (Numista N#168): value table row '1963 B', grade F = $0.27; grade assumed F: no photo of thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/switzerland/n-700-5rappen/1963 row 1963 Berna grade F = $0.37 (KM#26, no photo -> grade F), rea",
     "links": [
+     "https://en.foronum.com/coins-catalog/switzerland/n-700-5rappen/1963",
      "https://en.numista.com/catalogue/pieces168.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -84514,13 +84516,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces4.html (Numista N#4): value table row '1986 ((fr) Dont 13 000 en set FDC et 2 000 en set BU)', grade ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-410-20-centimes row 1986 grade XF = $0.45 (VF = $0.27; KM#930), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-410-20-centimes",
      "https://en.numista.com/catalogue/pieces4.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -84702,13 +84706,15 @@
     ]
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1963', grade XF = $0.25; grade assumed XF: design and letterin",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-408-10-centimes row 1963 grade XF = $0.28 (KM#929), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-408-10-centimes",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -84797,13 +84803,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces181.html (Numista N#181): value table row '1968 B', grade XF = $0.57; grade assumed XF: wreath leaves",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-1-2-franc-1968-2026/?tid=1104 legal-tender face value floor 0.5 CHF = $0.61 USD (KM#23a, 1968 B,",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-2-franc-1968-2026/?tid=1104",
      "https://en.numista.com/catalogue/pieces181.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -85199,13 +85207,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1962', grade XF = $0.56; grade assumed XF: Semeuse branch and ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-416-1-franc row 1962 grade XF = $0.62 (KM#925.1), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-416-1-franc",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -85300,13 +85310,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces664.html (Numista N#664): value table row '1971', grade XF = $0.21; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/united-kingdom/n-430-2-new-pence-elizabeth-ii/1971 row 1971 grade XF = $0.34 (KM#916, mintage 1",
     "links": [
+     "https://en.foronum.com/coins-catalog/united-kingdom/n-430-2-new-pence-elizabeth-ii/1971",
      "https://en.numista.com/catalogue/pieces664.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -85509,13 +85521,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces181.html (Numista N#181): value table row '1971', grade XF = $0.55; grade assumed XF: wreath and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-1-2-franc-1968-2026/?tid=1104 legal-tender face value floor 0.5 CHF = $0.61 USD (KM#23a, 1971, g",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-2-franc-1968-2026/?tid=1104",
      "https://en.numista.com/catalogue/pieces181.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -85673,13 +85687,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1999', grade F = $0.43; grade assumed F: no photo of this coin",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-416-1-franc row 1999 grade F = $0.64 (KM#925.1, no photo -> grade F), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-416-1-franc",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -86201,12 +86217,12 @@
    },
    "mint": {
     "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-23",
-    "source": "Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iron, 3.5 g, 21 mm, engr",
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/austria/n-3652-20-heller and uCoin https://en.ucoin.net/coin/austria-20-hellers-1916-1918/?tid=",
     "links": [
-     "https://en.numista.com/catalogue/pieces6133.html",
-     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+     "https://en.foronum.com/coins-catalog/austria/n-3652-20-heller",
+     "https://en.ucoin.net/coin/austria-20-hellers-1916-1918/?tid=44724"
     ]
    },
    "catalog": {
@@ -86254,7 +86270,13 @@
    },
    "story": {
     "level": "reference",
-    "like": "mint"
+    "by": "Claude",
+    "ts": "2026-10-23",
+    "source": "Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iron, 3.5 g, 21 mm, engr",
+    "links": [
+     "https://en.numista.com/catalogue/pieces6133.html",
+     "https://numisquare.com/20-heller-1916-1918-1077918220.html"
+    ]
    },
    "design": {
     "level": "checked",
@@ -86535,13 +86557,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces110.html (Numista N#110): value table row '2002 G', grade XF = $0.56; grade assumed XF: Brandenburg G",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/germany-federalrep/n-133-50-euro-cent row 2002 G grade XF = $0.64 (KM#212, mintage 256,650,000)",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-133-50-euro-cent",
      "https://en.numista.com/catalogue/pieces110.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -86621,13 +86645,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): value table row '2002 R', grade XF = $0.22; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/italy/n-218-20-euro-cent row 2002 grade XF = $0.28 (KM#214, mintage 1,411,686,000), read 2026-1",
     "links": [
+     "https://en.foronum.com/coins-catalog/italy/n-218-20-euro-cent",
      "https://en.numista.com/catalogue/pieces133.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -87071,13 +87097,15 @@
     ]
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1124.html (Numista N#1124): value table row '1967 BP.', grade XF = $0.37; grade assumed XF: design an",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/hungary/n-469-1-forint row 1967 Budapest grade XF = $0.25 (KM#575, aluminium 1.40g 22.80mm, min",
     "links": [
+     "https://en.foronum.com/coins-catalog/hungary/n-469-1-forint",
      "https://en.numista.com/catalogue/pieces1124.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -87324,13 +87352,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces847.html (Numista N#847): value table row '1971 rows 1971 D [Reeded edge] / 1971 F [Reeded edge] / 19",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/germany-federalrep/n-582-50-pfennig/1971F row 1971 F (representative of unseen mintmark D/F/G/J",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-582-50-pfennig/1971F",
      "https://en.numista.com/catalogue/pieces847.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -87365,13 +87395,16 @@
   },
   "C036": {
    "year": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-30",
-    "source": "https://en.numista.com/catalogue/pieces132.html — mintage table row '2007 R' (circulation) = 104 955 490, matching this specimen's filed iss",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/italy-10-euro-cent-2002-2007/?tid=488 confirms 2007 R circulation issue with exact mintage 104,955,490 (Foro",
     "links": [
+     "https://en.ucoin.net/coin/italy-10-euro-cent-2002-2007/?tid=488",
+     "https://en.foronum.com/coins-catalog/italy/n-217-10-euro-cent/2007",
      "https://en.numista.com/catalogue/pieces132.html"
-    ]
+    ],
+    "n": 2
    },
    "mint": {
     "level": "photo",
@@ -87413,13 +87446,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces132.html (Numista N#132): value table row '2007 R', grade XF = $0.11; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/italy/n-217-10-euro-cent/2007 row 2007 Roma grade XF = $0.18 (KM#213), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/italy/n-217-10-euro-cent/2007",
      "https://en.numista.com/catalogue/pieces132.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -87502,13 +87537,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces108.html (Numista N#108): value table row '2002 rows 2002 A / 2002 D / 2002 F / 2002 G / 2002 J', gra",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/germany-federalrep/n-131-10-euro-cent rows 2002 A/D/F/G/J grade XF = $0.12-$0.15 (median $0.13:",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-131-10-euro-cent",
      "https://en.numista.com/catalogue/pieces108.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -87948,13 +87985,15 @@
     ]
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces767.html (Numista N#767): value table row '1962', grade VF = $0.72; grade assumed VF: high points wor",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/urss/n-7197-1-kopek row 1962 grade VF = $0.46 (Y#126a, brass 1.00g 15.00mm), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/urss/n-7197-1-kopek",
      "https://en.numista.com/catalogue/pieces767.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -88028,13 +88067,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces2184.html (Numista N#2184): value table row '2008 F (\"F\" mark in Star)', grade XF = $0.11; grade assu",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/malta/n-767-10-euro-cent row 2008 F-Pessac grade XF = $0.21 (KM#128, mintage 41,000,000), read ",
     "links": [
+     "https://en.foronum.com/coins-catalog/malta/n-767-10-euro-cent",
      "https://en.numista.com/catalogue/pieces2184.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -88122,13 +88163,15 @@
     ]
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces767.html (Numista N#767): value table row '1974', grade VF = $0.16; grade assumed VF: high points wor",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/urss/n-7197-1-kopek row 1974 grade VF = $0.12 (Y#126a), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/urss/n-7197-1-kopek",
      "https://en.numista.com/catalogue/pieces767.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -89024,13 +89067,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): value table row '2010', grade XF = $0.11; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-802-10-euro-cent row 2010 grade XF = $0.29 (KM#1410, mintage 76,000,000), read 2026-11",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-802-10-euro-cent",
      "https://en.numista.com/catalogue/pieces3510.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -89105,13 +89150,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces134.html (Numista N#134): value table row '2002 R', grade VF = $0.56; grade assumed VF: seen hazy thr",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/italy/n-219-50-euro-cent/2002 row 2002 Roma grade VF = $0.65 (KM#215, mintage 1,136,568,000), r",
     "links": [
+     "https://en.foronum.com/coins-catalog/italy/n-219-50-euro-cent/2002",
      "https://en.numista.com/catalogue/pieces134.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -89536,13 +89583,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces5.html (Numista N#5): value table row '1971 (F. 198/10)', grade VF = $0.20; grade assumed VF: high po",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-411-12-franc/1971 row 1971 grade VF = $0.22 (KM#931.1, mintage 36,068,000), read 2026-",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-411-12-franc/1971",
      "https://en.numista.com/catalogue/pieces5.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -89625,13 +89674,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces133.html (Numista N#133): value table row '2002 R', grade XF = $0.22; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/italy/n-218-20-euro-cent row 2002 grade XF = $0.28 (KM#214, mintage 1,411,686,000), read 2026-1",
     "links": [
+     "https://en.foronum.com/coins-catalog/italy/n-218-20-euro-cent",
      "https://en.numista.com/catalogue/pieces133.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -89708,13 +89759,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1998', grade XF = $0.17; grade assumed XF: design and letterin",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum https://en.foronum.com/coins-catalog/france/n-408-10-centimes row 1998 grade XF = $0.46 (KM#929), read 2026-11-21",
     "links": [
+     "https://en.foronum.com/coins-catalog/france/n-408-10-centimes",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -90141,13 +90194,15 @@
     "n": 3
    },
    "mint": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-30",
-    "source": "see D0129 (https://coinvarieties.com/index.php/Switzerland_1985_2_francs)",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-2-francs-1968-2026/?tid=1106 (Switzerland 2 francs KM# 21a, 1981 row: UNC mintage 13,852,000, Ma",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-2-francs-1968-2026/?tid=1106",
      "https://coinvarieties.com/index.php/Switzerland_1985_2_francs"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -90232,13 +90287,16 @@
     "source": "C068_obv.webp — read '* 1963 *' at bottom below Libertas portrait"
    },
    "denomination": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Switzerland 20 Rappen 1939-2026 KM#29a (https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102, read 2026-11-21): Denomin",
     "links": [
-     "https://en.numista.com/catalogue/pieces178.html"
-    ]
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
+     "https://en.foronum.com/coins-catalog/switzerland/n-4068-20-rappen",
+     "https://www.swissmint.ch/en/circulation-coins"
+    ],
+    "n": 2
    },
    "mint": {
     "level": "reference",
@@ -90837,13 +90895,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-30",
-    "source": "see D0133 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101 (Switzerland 5 rappen KM# 26c, 1982 row: UNC mintage 75,340,000, Ma",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101",
      "https://coinvarieties.com/index.php/Switzerland_1973_10_rappen"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -90878,13 +90938,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces171.html (Numista N#171): value table row '1982', grade VF = $0.20; grade assumed VF: high points wor",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101 (Switzerland 5 rappen KM# 26c, legal-tender face value 0.05 CHF = $",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101",
      "https://en.numista.com/catalogue/pieces171.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -90928,13 +90990,16 @@
     "n": 2
    },
    "denomination": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Switzerland 20 Rappen 1939-2026 KM#29a (https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102, read 2026-11-21): Denomin",
     "links": [
-     "https://en.numista.com/catalogue/pieces178.html"
-    ]
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
+     "https://en.foronum.com/coins-catalog/switzerland/n-4068-20-rappen",
+     "https://www.swissmint.ch/en/circulation-coins"
+    ],
+    "n": 2
    },
    "mint": {
     "level": "reference",
@@ -91135,13 +91200,16 @@
     "n": 2
    },
    "denomination": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Switzerland 20 Rappen 1939-2026 KM#29a (https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102, read 2026-11-21): Denomin",
     "links": [
-     "https://en.numista.com/catalogue/pieces178.html"
-    ]
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
+     "https://en.foronum.com/coins-catalog/switzerland/n-4068-20-rappen",
+     "https://www.swissmint.ch/en/circulation-coins"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -91226,13 +91294,16 @@
     "n": 2
    },
    "denomination": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Switzerland 20 Rappen 1939-2026 KM#29a (https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102, read 2026-11-21): Denomin",
     "links": [
-     "https://en.numista.com/catalogue/pieces178.html"
-    ]
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
+     "https://en.foronum.com/coins-catalog/switzerland/n-4068-20-rappen",
+     "https://www.swissmint.ch/en/circulation-coins"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -91427,13 +91498,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-30",
-    "source": "see D0131 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101 (Switzerland 5 rappen KM# 26c, 1983 row: UNC mintage 92,746,000, Ma",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101",
      "https://coinvarieties.com/index.php/Switzerland_1973_10_rappen"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -91468,13 +91541,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces171.html (Numista N#171): value table row '1983', grade XF = $0.22; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101 (Switzerland 5 rappen KM# 26c, legal-tender face value 0.05 CHF = $",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-5-rappen-1981-2026/?tid=1101",
      "https://en.numista.com/catalogue/pieces171.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -91549,9 +91624,13 @@
    },
    "composition": {
     "level": "reference",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "C082 gives the alloy 'CuNi 75/25'; C242 'CuNi' (same type KM#27, same 3.00 g / 19.15 mm)"
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#173 Switzerland 10 Rappen KM#27 (https://en.numista.com/173, read 2026-11-21): Composition = Copper-nickel (75% copper, 25% nickel",
+    "links": [
+     "https://en.numista.com/173",
+     "https://en.numista.com/catalogue/pieces173.html"
+    ]
    },
    "mintage": {
     "level": "checked",
@@ -91566,13 +91645,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces173.html (Numista N#173): value table row '1979', grade XF = $0.28; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103 (Switzerland 10 rappen KM# 27, legal-tender face value 0.1 CHF = $",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103",
      "https://en.numista.com/catalogue/pieces173.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -91625,13 +91706,16 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-30",
-    "source": "see D0132 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103 (Switzerland 10 rappen KM# 27, 1981 row: UNC mintage 30,140,000, M",
     "links": [
-     "https://coinvarieties.com/index.php/Switzerland_1973_10_rappen"
-    ]
+     "https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103",
+     "https://en.numista.com/173",
+     "https://en.numista.com/catalogue/pieces173.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -91646,9 +91730,13 @@
    },
    "composition": {
     "level": "reference",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "C082 gives the alloy 'CuNi 75/25'; C242 'CuNi' (same type KM#27, same 3.00 g / 19.15 mm)"
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#173 Switzerland 10 Rappen KM#27 (https://en.numista.com/173, read 2026-11-21): Composition = Copper-nickel (75% copper, 25% nickel",
+    "links": [
+     "https://en.numista.com/173",
+     "https://en.numista.com/catalogue/pieces173.html"
+    ]
    },
    "mintage": {
     "level": "checked",
@@ -91662,13 +91750,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces173.html (Numista N#173): value table row '1981', grade VF = $0.22; grade assumed VF: high points wor",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103 (Switzerland 10 rappen KM# 27, legal-tender face value 0.1 CHF = $",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103",
      "https://en.numista.com/catalogue/pieces173.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -91764,13 +91854,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces135.html (Numista N#135): value table row '2002 R', grade XF = $1.10; grade assumed XF: Vitruvian Man",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/italy-1-euro-2002-2007/?tid=510 (Italy 1 euro KM# 216, legal-tender face value 1 EUR = $1.10 USD; 2002 R off",
     "links": [
+     "https://en.ucoin.net/coin/italy-1-euro-2002-2007/?tid=510",
      "https://en.numista.com/catalogue/pieces135.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -91858,13 +91950,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-09",
-    "source": "https://en.numista.com/catalogue/pieces52.html: value table row '1957', grade F = $3.80; grade assumed F: hair above the ear worn nearly smo",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "NGC Coin Explorer Price Guide https://www.ngccoin.com/coin-explorer/united-states/dimes/roosevelt-dimes-1946-date/15114/1957-10c-ms/ (1957 1",
     "links": [
+     "https://www.ngccoin.com/coin-explorer/united-states/dimes/roosevelt-dimes-1946-date/15114/1957-10c-ms/",
      "https://en.numista.com/catalogue/pieces52.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -92253,13 +92347,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-30",
-    "source": "see D0130 (https://coinvarieties.com/index.php/Switzerland_1973_10_rappen)",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 (Switzerland 1 franc KM# 24a, 1970 row: UNC mintage 24,240,000, Mark",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
      "https://coinvarieties.com/index.php/Switzerland_1973_10_rappen"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -92293,13 +92389,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces185.html (Numista N#185): value table row '1970', grade VF = $1.10; grade assumed VF: wreath leaves f",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 (Switzerland 1 franc KM# 24a, legal-tender face value 1 CHF = $1.19 ",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
      "https://en.numista.com/catalogue/pieces185.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -92394,13 +92492,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces185.html (Numista N#185): value table row '1986 B', grade XF = $1.10; grade assumed XF: wreath and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 (Switzerland 1 franc KM# 24a, legal-tender face value 1 CHF = $1.19 ",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
      "https://en.numista.com/catalogue/pieces185.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -92473,13 +92573,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): value table row '1999', grade VF = $0.11; grade assumed VF: high points wor",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-10-euro-cent-1999-2006/?tid=953 (France 10 euro cent KM# 1285, legal-tender face value 0.1 EUR = $0.1",
     "links": [
+     "https://en.ucoin.net/coin/france-10-euro-cent-1999-2006/?tid=953",
      "https://en.numista.com/catalogue/pieces100.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -92552,13 +92654,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces100.html (Numista N#100): value table row '2002', grade VF = $0.11; grade assumed VF: high points wor",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-10-euro-cent-1999-2006/?tid=953 (France 10 euro cent KM# 1285, legal-tender face value 0.1 EUR = $0.1",
     "links": [
+     "https://en.ucoin.net/coin/france-10-euro-cent-1999-2006/?tid=953",
      "https://en.numista.com/catalogue/pieces100.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -92632,13 +92736,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces3510.html (Numista N#3510): value table row '2015', grade VF = $0.11; grade assumed VF: high points w",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-10-euro-cent-2007-2023/?tid=958 (France 10 euro cent KM# 1410, legal-tender face value 0.1 EUR = $0.1",
     "links": [
+     "https://en.ucoin.net/coin/france-10-euro-cent-2007-2023/?tid=958",
      "https://en.numista.com/catalogue/pieces3510.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -94344,13 +94450,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista value table, 1 Franc - France (N#6), https://en.numista.com/catalogue/pieces6.html -- 1960 F $0.22. Value $0.22 confirmed; adding so",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 (France 1 franc KM# 925, 1960 mintage 406,375,001; live 1960 seller offer",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -94426,13 +94534,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista value table, 1 Franc - France (N#6), https://en.numista.com/catalogue/pieces6.html -- 1960 F $0.22. Value $0.22 confirmed; adding so",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 (France 1 franc KM# 925, 1960 mintage 406,375,001; live 1960 seller offer",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -94509,13 +94619,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces6.html (Numista N#6): value table row '1977', grade F = $0.22; grade assumed F: no photo of this coin",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 (France 1 franc KM# 925, 1977 mintage 230,085,000; live 1977 seller offer",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -94946,13 +95058,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces3.html (Numista N#3): value table row '1967 ((fr) Dont 2 305 en set FDC)', grade VF = $0.16; grade as",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998 (France 10 centimes KM# 929, 1967 mintage 196,728,001; live 1967 sell",
     "links": [
+     "https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -95355,13 +95469,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces101.html (Numista N#101): value table row '2000', grade F = $0.22; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960 (France 20 euro cent KM# 1286, legal-tender face value 0.2 EUR = $0.2",
     "links": [
+     "https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960",
      "https://en.numista.com/catalogue/pieces101.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -95427,13 +95543,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces101.html (Numista N#101): value table row '2000', grade F = $0.22; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960 (France 20 euro cent KM# 1286, legal-tender face value 0.2 EUR = $0.2",
     "links": [
+     "https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960",
      "https://en.numista.com/catalogue/pieces101.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -95513,13 +95631,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces109.html (Numista N#109): value table row '2002 rows 2002 A / 2002 D / 2002 F / 2002 G / 2002 J', gra",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/germany-20-euro-cent-2002-2007/?tid=197 (Germany 20 euro cent KM# 211, legal-tender face value 0.2 EUR = $0.",
     "links": [
+     "https://en.ucoin.net/coin/germany-20-euro-cent-2002-2007/?tid=197",
      "https://en.numista.com/catalogue/pieces109.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -96345,13 +96465,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces145.html (Numista N#145): value table row '2000', grade F = $0.01; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/netherlands-1-euro-cent-1999-2013/?tid=643 (Netherlands 1 euro cent KM# 234, legal-tender face value 0.01 EU",
     "links": [
+     "https://en.ucoin.net/coin/netherlands-1-euro-cent-1999-2013/?tid=643",
      "https://en.numista.com/catalogue/pieces145.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -96427,13 +96549,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces121.html (Numista N#121): value table row '2004', grade F = $0.01; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/ireland-1-euro-cent-2002-2026/?tid=289 (Ireland 1 euro cent KM# 32, legal-tender face value 0.01 EUR = $0.01",
     "links": [
+     "https://en.ucoin.net/coin/ireland-1-euro-cent-2002-2026/?tid=289",
      "https://en.numista.com/catalogue/pieces121.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -96523,13 +96647,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1442.html (Numista N#1442): value table row '1998', grade XF = $0.28; grade assumed XF: toned, orname",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/norway-50-ore-1996-2011/?tid=6762 (Norway 50 øre KM# 460, 1998 JJE mintage 30,913,000; live 1998 offer $0.11",
     "links": [
+     "https://en.ucoin.net/coin/norway-50-ore-1996-2011/?tid=6762",
      "https://en.numista.com/catalogue/pieces1442.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -96669,13 +96795,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C146_rev.webp: value/date side read, nothing beside 1998 or ONE DOLLAR; other side (Bauhinia) per Numista lettering 香 港 HONG KONG only; http",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/hong_kong-1-dollar-1994-2019/?tid=14555 (Hong Kong 1 dollar KM# 69a, 1998 row: no mintmark; obverse legend '",
     "links": [
+     "https://en.ucoin.net/coin/hong_kong-1-dollar-1994-2019/?tid=14555",
      "https://en.numista.com/catalogue/pieces2118.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -96857,13 +96985,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516 (UK 10 pence KM# 938b, legal-tender face value 0.1 GBP = $0.13 U",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -96940,13 +97070,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516 (UK 10 pence KM# 938b, legal-tender face value 0.1 GBP = $0.13 U",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97023,13 +97155,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 1992 10p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97106,13 +97240,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces879.html (Numista N#879): value table row '1992 rows 1992 [Type 1A, flat edge] / 1992 [Type 1A, wire ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 1992 10p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97201,13 +97337,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces2236.html (Numista N#2236): value table row '2001', grade XF = $0.30; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 2001 10p Type 5 below BU worth fa",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces2236.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97381,13 +97519,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces7350.html (Numista N#7350): value table row '2010', grade F = $0.15; grade assumed F: no photo of thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 1110 (https://en.ucoin.net/coin/united_kingdom-10-pence-2008-2010/?tid=4981, read 2026-11-21): 2010 10p (mintage 96,600,500) catal",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-2008-2010/?tid=4981",
      "https://en.numista.com/catalogue/pieces7350.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97474,13 +97614,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): value table row '2013', grade F = $0.15; grade assumed F: no photo of t",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 2013 10p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces25746.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97567,13 +97709,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): value table row '2013', grade F = $0.15; grade assumed F: no photo of t",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 2013 10p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces25746.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97672,13 +97816,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces25746.html (Numista N#25746): value table row '2014', grade XF = $0.24; grade assumed XF: design and ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 2014 10p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces25746.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97762,13 +97908,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces70549.html (Numista N#70549): value table row '2016', grade F = $0.13; grade assumed F: no photo of t",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec10.html (Coin News Jun 2024, read 2026-11-21): 2016 10p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec10.html",
      "https://en.numista.com/catalogue/pieces70549.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -97842,13 +97990,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C159_rev.webp: ship/date side read, no mark beside 2004 or TEN CENTS; other side per Numista: QUEEN ELIZABETH THE SECOND IRB (IRB = engraver",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 37 (https://en.ucoin.net/coin/eastern_caribbean-10-cents-2002-2007/?tid=41620, read 2026-11-21): 2004 row lists no mint mark (IRB ",
     "links": [
+     "https://en.ucoin.net/coin/eastern_caribbean-10-cents-2002-2007/?tid=41620",
      "https://en.numista.com/catalogue/pieces5712.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -98044,13 +98194,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C161 value.face.currency=MXN, year 1945",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "Numista N#6694 (https://en.numista.com/6694, read 2026-11-21): value table row '1945 M' (mintage 9,558,000), grade F = $0.30 USD; grade assu",
     "links": [
-     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json"
-    ]
+     "https://en.numista.com/6694",
+     "https://en.numista.com/catalogue/pieces6694.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -98352,13 +98504,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces4004.html (Numista N#4004): value table row '1932', grade F = $0.53; grade assumed F: Britannia worn ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "All Coin Values https://www.allcoinvalues.com/united-kingdom/1932-uk-halfpenny-value2c-george-v.html (read 2026-11-21): 1932 UK halfpenny gr",
     "links": [
+     "https://www.allcoinvalues.com/united-kingdom/1932-uk-halfpenny-value2c-george-v.html",
      "https://en.numista.com/catalogue/pieces4004.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -98444,13 +98598,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1516.html (Numista N#1516): value table row '1973', grade XF = $0.28; grade assumed XF: hair lines an",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 826a (https://en.ucoin.net/coin/sweden-1-krona-1968-1973/?tid=11643, read 2026-11-21): 1973 U 1 krona (mintage 142,000,000) catalo",
     "links": [
+     "https://en.ucoin.net/coin/sweden-1-krona-1968-1973/?tid=11643",
      "https://en.numista.com/catalogue/pieces1516.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -98554,13 +98710,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C166 value.face.currency=MXN, year 1944",
+    "level": "checked",
+    "by": "Gemini + Grok + Muse",
+    "ts": "2026-11-21",
+    "source": "Numista N#3136 (https://en.numista.com/3136, read 2026-11-21): value table row '1944 Mo' (mintage 53,463,000), grade VF = $0.44 USD (F $0.26",
     "links": [
-     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json"
-    ]
+     "https://en.numista.com/3136",
+     "https://en.numista.com/catalogue/pieces3136.html"
+    ],
+    "n": 3
    },
    "story": {
     "level": "checked",
@@ -98628,13 +98786,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1990 (Obverse A (see comments))', grade F = $0.11; grade a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1990s 5p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces875.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -98711,13 +98871,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1990 (Obverse A (see comments))', grade F = $0.11; grade a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1990s 5p below BU worth face valu",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces875.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -98793,13 +98955,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1992 (Obverse C (see comments))', grade F = $0.11; grade a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1992 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces875.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -98876,13 +99040,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1996 (Obverse B (see comments))', grade F = $0.11; grade a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1996 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces875.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -98959,13 +99125,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1996 (Obverse B (see comments))', grade F = $0.11; grade a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1996 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces875.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99042,13 +99210,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces875.html (Numista N#875): value table row '1997 (Obverse B or C (see comments))', grade F = $0.10; gr",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1997 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces875.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99138,13 +99308,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '1998', grade XF = $0.25; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 1998 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces876.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99236,13 +99408,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '2000', grade XF = $0.18; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2000 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces876.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99318,13 +99492,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '2001', grade F = $0.08; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2001 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces876.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99400,13 +99576,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces876.html (Numista N#876): value table row '2007', grade F = $0.11; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2007 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces876.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99504,13 +99682,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): value table row '2009', grade VF = $0.19; grade assumed VF: high points w",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2009 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces6612.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99609,13 +99789,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): value table row '2010', grade F = $0.15; grade assumed F: no photo of thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2010 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces6612.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99714,13 +99896,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces6612.html (Numista N#6612): value table row '2010', grade F = $0.15; grade assumed F: no photo of thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2010 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces6612.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99830,13 +100014,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): value table row '2012', grade XF = $0.18; grade assumed XF: design and ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2012 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces25766.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -99933,13 +100119,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): value table row '2014', grade F = $0.13; grade assumed F: no photo of t",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2014 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces25766.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -100036,13 +100224,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces25766.html (Numista N#25766): value table row '2014', grade F = $0.13; grade assumed F: no photo of t",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2014 5p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces25766.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -100154,13 +100344,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): value table row '2015', grade XF = $0.16; grade assumed XF: design and ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 1109d (https://en.ucoin.net/coin/united_kingdom-5-pence-2011-2015/?tid=13569, read 2026-11-21): 2015 5p (mintage 163,000,000) cata",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-5-pence-2011-2015/?tid=13569",
      "https://en.numista.com/catalogue/pieces70547.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -100272,13 +100464,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces70547.html (Numista N#70547): value table row '2016', grade XF = $0.11; grade assumed XF: design and ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec05.html (Coin News Aug 2018, read 2026-11-21): 2016 5p Type 8 below BU worth fac",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec05.html",
      "https://en.numista.com/catalogue/pieces70547.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -100341,13 +100535,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C185_obv.webp: portrait/date side read: CAYMAN ISLANDS ELIZABETH II, 1996 below, no mint letter (RDM under the bust is engraver Maklouf); ot",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "LastDodo KM# 88a (https://www.lastdodo.com/en/items/7714151-cayman-islands-5-cents-1996, read 2026-11-21): Mint mark 'None (British Royal Mi",
     "links": [
+     "https://www.lastdodo.com/en/items/7714151-cayman-islands-5-cents-1996",
      "https://en.numista.com/catalogue/pieces10222.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -100541,13 +100737,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum KM# 105 (https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J, read 2026-11-21): 1985J 1 Pfennig collector ",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J",
      "https://en.numista.com/catalogue/pieces854.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -100616,13 +100814,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum KM# 105 (https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J, read 2026-11-21): 1985J 1 Pfennig collector ",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J",
      "https://en.numista.com/catalogue/pieces854.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -100691,13 +100891,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum KM# 105 (https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J, read 2026-11-21): 1985J 1 Pfennig collector ",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J",
      "https://en.numista.com/catalogue/pieces854.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -100766,13 +100968,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1985 rows 1985 D / 1985 F / 1985 G / 1985 J', grade F = $0",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum KM# 105 (https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J, read 2026-11-21): 1985J 1 Pfennig collector ",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1985J",
      "https://en.numista.com/catalogue/pieces854.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -100916,13 +101120,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces854.html (Numista N#854): value table row '1991 rows 1991 A / 1991 D / 1991 F / 1991 G / 1991 J', gra",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum KM# 105 (https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1991G, read 2026-11-21): 1991G 1 Pfennig grade F = ",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-575-1-pfennig/1991G",
      "https://en.numista.com/catalogue/pieces854.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -101585,13 +101791,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces724.html (Numista N#724): value table row '1978 R', grade VF = $0.20; grade assumed VF: figure worn a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Silver Age Coins KM# 95.1 (https://www.silveragecoins.com/en/details?item=8257, read 2026-11-21): 1978 R 50 Lire value table grade VF = $0.1",
     "links": [
+     "https://www.silveragecoins.com/en/details?item=8257",
      "https://en.numista.com/catalogue/pieces724.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -101645,13 +101853,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C200_obv.webp, C200_rev.webp: both sides read (Chiang Kai-shek with 中華民國九十七年; 壹圓 1): no mint mark; https://en.numista.com/catalogue/pieces96",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Y# 551 (https://en.ucoin.net/coin/taiwan-1-dollar-1981-2024/?tid=22992, read 2026-11-21): 2008 (ROC year 97) 1 dollar row has no mint ",
     "links": [
+     "https://en.ucoin.net/coin/taiwan-1-dollar-1981-2024/?tid=22992",
      "https://en.numista.com/catalogue/pieces966.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -101825,13 +102035,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C202_rev.webp: monolith/value side read, no mark; other side per Numista: arms, REPUBLICA DE GUATEMALA, LIBERTAD 15 DE SETIEMBRE DE 1821, da",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 277.6 (https://en.ucoin.net/coin/guatemala-10-centavos-2009-2024/?tid=32382, read 2026-11-21): 2010 10 centavos row has no mint ma",
     "links": [
+     "https://en.ucoin.net/coin/guatemala-10-centavos-2009-2024/?tid=32382",
      "https://en.numista.com/catalogue/pieces42670.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -101997,13 +102209,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C204_obv.webp: arms/date side read at full zoom (Drive original C204_Trinidad-and-Tobago_2014_25Cents_obv.jpeg): 2014 alone, no FM (Franklin",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 32 (https://en.ucoin.net/coin/trinidad_tobago-25-cents-1976-2016/?tid=30960, read 2026-11-21): 2014 25 cents row has blank Mark co",
     "links": [
+     "https://en.ucoin.net/coin/trinidad_tobago-25-cents-1976-2016/?tid=30960",
      "https://en.numista.com/catalogue/pieces1159.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -102290,13 +102504,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C207_obv.webp: arms/date side read at full zoom (Drive original C207_Trinidad-and-Tobago_2016_10Cents_obv.jpeg): 2016 alone, no FM (Franklin",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 31 (https://en.ucoin.net/coin/trinidad_tobago-10-cents-1976-2016/?tid=30951, read 2026-11-21): 2016 10 cents row has blank Mark co",
     "links": [
+     "https://en.ucoin.net/coin/trinidad_tobago-10-cents-1976-2016/?tid=30951",
      "https://en.numista.com/catalogue/pieces3463.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -102383,15 +102599,15 @@
     "n": 3
    },
    "mint": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-11",
-    "source": "Numista N#6165, 10 Kuruş Turkey 2009-2022 KM#1241 https://en.numista.com/6165 (obverse legend TÜRKİYE CUMHURİYETİ / reverse 10 KURUŞ + date ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 1241 (https://en.ucoin.net/coin/turkey-10-kurus-2009-2022/?tid=5698, read 2026-11-21): 2011 10 kurus (mintage 156,279,000) has no ",
     "links": [
-     "https://en.numista.com/6165",
-     "https://en.numista.com/catalogue/mint.php?id=1364",
+     "https://en.ucoin.net/coin/turkey-10-kurus-2009-2022/?tid=5698",
      "https://en.numista.com/catalogue/pieces6165.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -102579,15 +102795,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-11",
-    "source": "Numista N#1052, 100 Won South Korea 1983-2026 KM#35 https://en.numista.com/1052 (Mint: Korea Minting and Security Printing Corporation (한국조폐",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 35 (https://en.ucoin.net/coin/south_korea-100-won-1983-2026/?tid=15965, read 2026-11-21): 2000 100 won (mintage 423,000,000) has n",
     "links": [
-     "https://en.numista.com/1052",
-     "https://www.ngccoin.com/price-guide/world/korea-south-100-won-km-35.2-1984-2012-cuid-1125075-duid-1438022",
+     "https://en.ucoin.net/coin/south_korea-100-won-1983-2026/?tid=15965",
      "https://en.numista.com/catalogue/pieces1052.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -102915,13 +103131,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces867.html (Numista N#867): value table row '1991', grade XF = $0.18; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec02.html (Coin News May 2024, read 2026-11-21): 1991 2p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec02.html",
      "https://en.numista.com/catalogue/pieces867.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -102970,13 +103188,15 @@
     "level": "review"
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C214_obv.webp: portrait/date side read: 1996 below, no mint letter (RDM = engraver Maklouf); other side per Numista: crayfish, 5, SD (design",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "LastDodo KM# 88a (https://www.lastdodo.com/en/items/7714151-cayman-islands-5-cents-1996, read 2026-11-21): Mint mark 'None (British Royal Mi",
     "links": [
+     "https://www.lastdodo.com/en/items/7714151-cayman-islands-5-cents-1996",
      "https://en.numista.com/catalogue/pieces10222.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -103059,13 +103279,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C215_obv.webp: portrait/date side read: CAYMAN ISLANDS ELIZABETH II 2008, no mint letter (IRB = engraver Rank-Broadley); other side per Numi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin KM# 132 (https://en.ucoin.net/coin/cayman_islands-5-cents-1999-2022/?tid=35746, read 2026-11-21): 2008 5 cents (mintage 3,000,000) has",
     "links": [
+     "https://en.ucoin.net/coin/cayman_islands-5-cents-1999-2022/?tid=35746",
      "https://en.numista.com/catalogue/pieces2698.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -103186,13 +103408,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces665.html (Numista N#665): value table row '1971', grade F = $0.09; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec01.html (Coin News May 2024, read 2026-11-21): 1971 1p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec01.html",
      "https://en.numista.com/catalogue/pieces665.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -103283,13 +103507,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces862.html (Numista N#862): value table row '1998', grade XF = $0.12; grade assumed XF: design and lett",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec01.html (Coin News May 2024, read 2026-11-21): 1998 1p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec01.html",
      "https://en.numista.com/catalogue/pieces862.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -103377,13 +103603,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces4038.html (Numista N#4038): value table row '2010', grade XF = $0.14; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Coins of the UK https://www.coins-of-the-uk.co.uk/values/dec01.html (Coin News May 2024, read 2026-11-21): 2010 1p below BU worth face value",
     "links": [
+     "https://www.coins-of-the-uk.co.uk/values/dec01.html",
      "https://en.numista.com/catalogue/pieces4038.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -103536,13 +103764,15 @@
   },
   "C220": {
    "year": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-30",
-    "source": "https://en.numista.com/catalogue/pieces922.html — mintage table row '57 (1982)' = 890 000 000, matching this specimen's filed issue mintage;",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Y# 73a (https://en.ucoin.net/coin/japan-10-yen-1959-1989/?tid=2361, read 2026-11-21): 1982 (昭和五十七年, Showa 57) 10 yen confirmed, mintag",
     "links": [
+     "https://en.ucoin.net/coin/japan-10-yen-1959-1989/?tid=2361",
      "https://en.numista.com/catalogue/pieces922.html"
-    ]
+    ],
+    "n": 2
    },
    "denomination": {
     "level": "checked",
@@ -103570,9 +103800,12 @@
    },
    "composition": {
     "level": "reference",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "C270 gives the alloy; C220 says 'bronze' (same type Y#73a, same 4.5 g / 23.5 mm)"
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin Y# 73a (https://en.ucoin.net/coin/japan-10-yen-1959-1989/?tid=2361, read 2026-11-21): Japan 10 yen 1959-1989 composition confirmed as ",
+    "links": [
+     "https://en.ucoin.net/coin/japan-10-yen-1959-1989/?tid=2361"
+    ]
    },
    "mintage": {
     "level": "checked",
@@ -103775,13 +104008,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1590.html (Numista N#1590): value table row '40 (1965) (昭和四十年)', grade XF = $0.22; grade assumed XF: ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum Y# 74 / FO# 2752 (https://en.foronum.com/coins-catalog/japan/n-2752-1-yen/1965, read 2026-11-21): 1965 (Showa 40) 1 yen grade XF = $",
     "links": [
+     "https://en.foronum.com/coins-catalog/japan/n-2752-1-yen/1965",
      "https://en.numista.com/catalogue/pieces1590.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -105338,13 +105573,16 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces5788.html (Numista N#5788): value table row '1944', grade VG = $0.99; grade assumed VG: very dark and",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "AllCoinValues 1944 Australian Penny (https://www.allcoinvalues.com/australian-coins-and-notes/1944-australian-penny-value.html, read 2026-11",
     "links": [
+     "https://www.allcoinvalues.com/australian-coins-and-notes/1944-australian-penny-value.html",
+     "https://en.ucoin.net/coin/australia-1-penny-1938-1948/?tid=33028",
      "https://en.numista.com/catalogue/pieces5788.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -105434,13 +105672,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces304.html (Numista N#304): value table row '1965 R', grade VF = $0.22; grade assumed VF: Italia figure",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Italy 100 Lire 1955-1989 KM#96.1 (https://en.ucoin.net/coin/italy-100-lire-1955-1989/?tid=9568, read 2026-11-21): 1965 R (36,440,000 m",
     "links": [
+     "https://en.ucoin.net/coin/italy-100-lire-1955-1989/?tid=9568",
      "https://en.numista.com/catalogue/pieces304.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -105509,13 +105749,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces860.html (Numista N#860): value table row '1997', grade F = $0.11; grade assumed F: no photo of this ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin UK 1 Penny 1992-1997 KM#935a (https://en.ucoin.net/coin/united_kingdom-1-penny-1992-1997/?tid=1478, read 2026-11-21): 1997 (396,874,00",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-1-penny-1992-1997/?tid=1478",
      "https://en.numista.com/catalogue/pieces860.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -105592,9 +105834,13 @@
    },
    "composition": {
     "level": "reference",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "C082 gives the alloy 'CuNi 75/25'; C242 'CuNi' (same type KM#27, same 3.00 g / 19.15 mm)"
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#173 Switzerland 10 Rappen KM#27 (https://en.numista.com/173, read 2026-11-21): Composition = Copper-nickel (75% copper, 25% nickel",
+    "links": [
+     "https://en.numista.com/173",
+     "https://en.numista.com/catalogue/pieces173.html"
+    ]
    },
    "mintage": {
     "level": "checked",
@@ -105788,13 +106034,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C244 value.face.currency=MXN, year 1964",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Numista N#959 Mexico 20 Centavos KM#440 (https://en.numista.com/959, read 2026-11-21): row '1964 Mo' (28,654,000 mintage, Brass 95% Cu/5% Zn",
     "links": [
-     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json"
-    ]
+     "https://en.numista.com/959",
+     "https://en.numista.com/catalogue/pieces959.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -105954,13 +106202,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces3752.html (Numista N#3752): value table row '1971 (Denver Mint)', grade XF = $0.28; grade assumed XF:",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum Philippines 10 Sentimos 1971 KM#198 FO#4643 (https://en.foronum.com/coins-catalog/philippines/n-4643-10-sentimos/1971, read 2026-11-",
     "links": [
+     "https://en.foronum.com/coins-catalog/philippines/n-4643-10-sentimos/1971",
      "https://en.numista.com/catalogue/pieces3752.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -106041,13 +106291,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces5993.html (Numista N#5993): value table row '1966', grade XF = $0.35; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin South Korea 1 Won 1966-1967 KM#4 (https://en.ucoin.net/coin/south_korea-1-won-1966-1967/?tid=24745, read 2026-11-21): 1966 (7,000,000 ",
     "links": [
+     "https://en.ucoin.net/coin/south_korea-1-won-1966-1967/?tid=24745",
      "https://en.numista.com/catalogue/pieces5993.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -106227,14 +106479,16 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista value table, 20 Cents - Australia (N#1003), https://en.numista.com/1003 -- 1966 VF $0.38.",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Australia 20 Cents 1966-1984 KM#66 (https://en.ucoin.net/coin/australia-20-cents-1966-1984/?tid=13450, read 2026-11-21): 1966 (58,223,",
     "links": [
+     "https://en.ucoin.net/coin/australia-20-cents-1966-1984/?tid=13450",
      "https://en.numista.com/1003",
      "https://en.numista.com/catalogue/pieces1003.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -106422,13 +106676,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): value table row '1984', grade VF = $0.13; grade assumed VF: high points w",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Yugoslavia 1 Dinar 1982-1986 KM#86 (https://en.ucoin.net/coin/yugoslavia-1-dinar-1982-1986/?tid=18094, read 2026-11-21): 1984 (172,185",
     "links": [
+     "https://en.ucoin.net/coin/yugoslavia-1-dinar-1982-1986/?tid=18094",
      "https://en.numista.com/catalogue/pieces2417.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -106687,13 +106943,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces3935.html (Numista N#3935): value table row '1951', grade VF = $1.10; grade assumed VF: no phone phot",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Vatican City 10 Lire 1951-1958 KM#52 (https://en.ucoin.net/coin/vatican_city-10-lire-1951-1958/?tid=53216, read 2026-11-21): 1951 (1,1",
     "links": [
+     "https://en.ucoin.net/coin/vatican_city-10-lire-1951-1958/?tid=53216",
      "https://en.numista.com/catalogue/pieces3935.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -106821,13 +107079,16 @@
   },
   "C256": {
    "denomination": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Switzerland 20 Rappen 1939-2026 KM#29a (https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102, read 2026-11-21): Denomin",
     "links": [
-     "https://en.numista.com/catalogue/pieces178.html"
-    ]
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
+     "https://en.foronum.com/coins-catalog/switzerland/n-4068-20-rappen",
+     "https://www.swissmint.ch/en/circulation-coins"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -106952,13 +107213,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C257 value.face.currency=MXN, year 1967",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Numista N#959 Mexico 20 Centavos KM#440 (https://en.numista.com/959, read 2026-11-21): row '1967 Mo' (46,847,000 mintage, Brass 95% Cu/5% Zn",
     "links": [
-     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json"
-    ]
+     "https://en.numista.com/959",
+     "https://en.numista.com/catalogue/pieces959.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",
@@ -107043,13 +107306,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces5904.html (Numista N#5904): value table row '1953', grade XF = $2.80; grade assumed XF: rice stalks a",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin South Vietnam 20 Su 1953 KM#2 (https://en.ucoin.net/coin/south_vietnam-20-su-1953/?tid=62258, read 2026-11-21): 1953 (15,000,000 minta",
     "links": [
+     "https://en.ucoin.net/coin/south_vietnam-20-su-1953/?tid=62258",
      "https://en.numista.com/catalogue/pieces5904.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -107149,13 +107414,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C259 value.face.currency=MXN, year 1940",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "Numista N#5133 Mexico 1 Centavo KM#415 (https://en.numista.com/5133, read 2026-11-21): row '1940 Mo' (10,000,000 mintage, Bronze, 3 g, 19.5 ",
     "links": [
-     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json"
-    ]
+     "https://en.numista.com/5133",
+     "https://en.numista.com/catalogue/pieces5133.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -107211,13 +107478,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C260_rev.webp: value/date side read; only the dot after 1931 that is part of the design (Numista lettering '3 КОПЕЙКИ 1926 ·'); https://en.n",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin USSR 3 Kopeks 1926-1935 Y#93 (https://en.ucoin.net/coin/ussr-3-kopeks-1926-1935/?tid=8760, read 2026-11-21): 1931 row lists no mint ma",
     "links": [
+     "https://en.ucoin.net/coin/ussr-3-kopeks-1926-1935/?tid=8760",
      "https://en.numista.com/catalogue/pieces4042.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -107316,13 +107585,15 @@
     "n": 2
    },
    "mint": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "C261_rev.webp: worker/date side read, no letter or mark beside 1932 г. or below 15 КОП; https://en.numista.com/catalogue/pieces5269.html lis",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin USSR 15 Kopeks 1931-1934 Y#96 (https://en.ucoin.net/coin/ussr-15-kopeks-1931-1934/?tid=8856, read 2026-11-21): 1932 row lists no mint ",
     "links": [
+     "https://en.ucoin.net/coin/ussr-15-kopeks-1931-1934/?tid=8856",
      "https://en.numista.com/catalogue/pieces5269.html"
-    ]
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -107459,13 +107730,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "https://en.numista.com/catalogue/pieces2417.html (Numista N#2417): value table row '1984', grade XF = $0.17; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Yugoslavia 1 Dinar 1982-1986 KM#86 (https://en.ucoin.net/coin/yugoslavia-1-dinar-1982-1986/?tid=18094, read 2026-11-21): 1984 (172,185",
     "links": [
+     "https://en.ucoin.net/coin/yugoslavia-1-dinar-1982-1986/?tid=18094",
      "https://en.numista.com/catalogue/pieces2417.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -107772,13 +108045,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces658.html (Numista N#658): value table row '1950 rows 1950 D [Writing closer to rim] / 1950 F / 1950 G",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum Germany 5 Pfennig 1950 KM#107 FO#579 (https://en.foronum.com/coins-catalog/germany-federalrep/n-579-5-pfennig/1950, read 2026-11-21)",
     "links": [
+     "https://en.foronum.com/coins-catalog/germany-federalrep/n-579-5-pfennig/1950",
      "https://en.numista.com/catalogue/pieces658.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -107873,13 +108148,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1654.html (Numista N#1654): value table row '2012', grade XF = $0.17; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum South Korea 10 Won 2006-2024 KM#103 FO#6298 (https://en.foronum.com/coins-catalog/south-korea/n-6298-10-won, read 2026-11-21): row '",
     "links": [
+     "https://en.foronum.com/coins-catalog/south-korea/n-6298-10-won",
      "https://en.numista.com/catalogue/pieces1654.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -107976,13 +108253,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces1654.html (Numista N#1654): value table row '2013', grade XF = $0.17; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum South Korea 10 Won 2006-2024 KM#103 FO#6298 (https://en.foronum.com/coins-catalog/south-korea/n-6298-10-won, read 2026-11-21): row '",
     "links": [
+     "https://en.foronum.com/coins-catalog/south-korea/n-6298-10-won",
      "https://en.numista.com/catalogue/pieces1654.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -108160,13 +108439,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "https://en.numista.com/catalogue/pieces7364.html (Numista N#7364): value table row '1990', grade XF = $0.34; grade assumed XF: design and le",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Cayman Islands 1 Cent 1987-1990 KM#87 (https://en.ucoin.net/coin/cayman_islands-1-cent-1987-1990/?tid=35667, read 2026-11-21): 1990 (B",
     "links": [
+     "https://en.ucoin.net/coin/cayman_islands-1-cent-1987-1990/?tid=35667",
      "https://en.numista.com/catalogue/pieces7364.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -108247,9 +108528,12 @@
    },
    "composition": {
     "level": "reference",
-    "by": "Ledger import",
-    "ts": "2026-09-30",
-    "source": "C270 gives the alloy; C220 says 'bronze' (same type Y#73a, same 4.5 g / 23.5 mm)"
+    "by": "Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin Y# 73a (https://en.ucoin.net/coin/japan-10-yen-1959-1989/?tid=2361, read 2026-11-21): Japan 10 yen 1959-1989 composition confirmed as ",
+    "links": [
+     "https://en.ucoin.net/coin/japan-10-yen-1959-1989/?tid=2361"
+    ]
    },
    "mintage": {
     "level": "checked",
@@ -108468,14 +108752,16 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Numista value table, 2 Groschen - Austria (N#1944), https://en.numista.com/1944 -- 1925 F/VF $0.33. Assumed F/VF (typical circulated; no gra",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Austria 2 Groschen 1925-1938 KM#2837 (https://en.ucoin.net/coin/austria-2-groschen-1925-1938/?tid=32932, read 2026-11-21): 1925 (30,29",
     "links": [
+     "https://en.ucoin.net/coin/austria-2-groschen-1925-1938/?tid=32932",
      "https://en.numista.com/1944",
      "https://en.numista.com/catalogue/pieces1944.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -109016,13 +109302,16 @@
     "n": 2
    },
    "denomination": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Numista N#178 (https://en.numista.com/catalogue/pieces178.html): Value line '20 Rappen'. Page title '20 Rappen (Libertas; copper-nickel) - S",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Switzerland 20 Rappen 1939-2026 KM#29a (https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102, read 2026-11-21): Denomin",
     "links": [
-     "https://en.numista.com/catalogue/pieces178.html"
-    ]
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
+     "https://en.foronum.com/coins-catalog/switzerland/n-4068-20-rappen",
+     "https://www.swissmint.ch/en/circulation-coins"
+    ],
+    "n": 2
    },
    "mint": {
     "level": "photo",
@@ -109352,13 +109641,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Confidence updated per value research 20261015-0328. https://en.numista.com/8",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum France 5 Francs Sower KM#926a.1 FO#3637 (https://en.foronum.com/coins-catalog/france/n-3637-5-francs, read 2026-11-21): row '1994D' ",
     "links": [
-     "https://en.numista.com/8"
-    ]
+     "https://en.foronum.com/coins-catalog/france/n-3637-5-francs",
+     "https://en.numista.com/catalogue/pieces8.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -109449,14 +109740,16 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Correction: Numista N#2006 (https://en.numista.com/2006) 1965 row G $0.15 / F $0.17 / VF $0.17; typical circulated F/VF = $0.17. Live $0.25 ",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Yugoslavia 50 Para 1965-1981 KM#46 (https://en.ucoin.net/coin/yugoslavia-50-para-1965-1981/?tid=18059, read 2026-11-21): 1965 (Copper-",
     "links": [
+     "https://en.ucoin.net/coin/yugoslavia-50-para-1965-1981/?tid=18059",
      "https://en.numista.com/2006",
      "https://en.numista.com/catalogue/pieces2006.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -109546,13 +109839,16 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "https://en.numista.com/108 - 2002 Germany 10c (KM#210) is covered for all five 2002 mint marks in the Numista table; all circulated grades a",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Germany 10 Euro Cent 2002-2006 KM#210 (https://en.ucoin.net/coin/germany-10-euro-cent-2002-2006/?tid=196, read 2026-11-21): face value",
     "links": [
-     "https://en.numista.com/108"
-    ]
+     "https://en.ucoin.net/coin/germany-10-euro-cent-2002-2006/?tid=196",
+     "https://en.numista.com/108",
+     "https://en.numista.com/catalogue/pieces108.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -109647,14 +109943,15 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "https://en.numista.com/583 - 2009 Mexico 50 centavos (KM#549, N#583) has an explicit 2009 row in the Numista value table; VF=$0.22 verified ",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Mexico 50 Centavos 1992-2009 KM#549 (https://en.ucoin.net/coin/mexico-50-centavos-1992-2009/?tid=10391, read 2026-11-21): 2009 Mo (12-",
     "links": [
-     "https://en.numista.com/583",
-     "https://en.numista.com/catalogue/pieces583.html"
-    ]
+     "https://en.ucoin.net/coin/mexico-50-centavos-1992-2009/?tid=10391",
+     "https://en.numista.com/583"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -109852,13 +110149,16 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "https://en.numista.com/3190 - 2012 Honduras 50 centavos (KM#84a.2) has an explicit 2012 row in the Numista value table; VF=$0.52 verified ag",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "Foronum Honduras 50 Centavos KM#84.2a FO#6864 (https://en.foronum.com/coins-catalog/honduras/n-6864-50-centavos, read 2026-11-21): row '2012",
     "links": [
+     "https://en.foronum.com/coins-catalog/honduras/n-6864-50-centavos",
+     "https://www.banknoteworld.com/honduras-50-centavos-coin-1991-2019-km-84a-mint.html",
      "https://en.numista.com/3190"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -109953,14 +110253,16 @@
     "n": 3
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Correction: Numista N#724 (https://en.numista.com/724) 1979 row VF $0.20; typical circulated = $0.20. Live $0.75 (low) has no row match — cl",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin Italy 50 Lire 1954-1989 KM#95.1 (https://en.ucoin.net/coin/italy-50-lire-1954-1989/?tid=9567, read 2026-11-21): 1979 R (315,000,000 mi",
     "links": [
+     "https://en.ucoin.net/coin/italy-50-lire-1954-1989/?tid=9567",
      "https://en.numista.com/724",
      "https://en.numista.com/catalogue/pieces724.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -110147,13 +110449,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Numista N#4835 (https://en.numista.com/catalogue/pieces4835.html) value table, row '1954', F column = $0.28 (grade F given by the page's own",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Argentina 5 Centavos 1954-1956 KM#50 (https://en.ucoin.net/coin/argentina-5-centavos-1954-1956/?tid=21367, read 2026-11-21): 1954 (50,",
     "links": [
+     "https://en.ucoin.net/coin/argentina-5-centavos-1954-1956/?tid=21367",
      "https://en.numista.com/catalogue/pieces4835.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -110362,13 +110666,15 @@
     "source": "Muse photo NOID_Bahamas_1984_5Cents_obv.jpg (Drive STAGING id 1IxWkEWLRroC9trCLDuqU8GGHCF9VqfSh), re-filed by Claude from Muse's changes_mus"
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Numista N#5010 (https://en.numista.com/catalogue/pieces5010.html) value table, row '1984', VF column = $0.54 (grade VF given by the page's o",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "Foronum Bahamas 5 Cents 1984 KM#60 FO#317 (https://en.foronum.com/coins-catalog/bahamas/n-317-5-cents/1984, read 2026-11-21): 1984 (CuNi, 3.",
     "links": [
+     "https://en.foronum.com/coins-catalog/bahamas/n-317-5-cents/1984",
      "https://en.numista.com/catalogue/pieces5010.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -110668,13 +110974,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Numista N#953 (https://en.numista.com/catalogue/pieces953.html) value table, row '1969 Mo', VF column = $0.31 (grade VF given by the page's ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "uCoin Mexico 5 Centavos 1954-1969 KM#426 (https://en.ucoin.net/coin/mexico-5-centavos-1954-1969/?tid=28294, read 2026-11-21): 1969 Mo (210,4",
     "links": [
+     "https://en.ucoin.net/coin/mexico-5-centavos-1954-1969/?tid=28294",
      "https://en.numista.com/catalogue/pieces953.html"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -111233,13 +111541,15 @@
     "source": "Muse's changes_muse_20261012-2130.jsonl (Bahamas 1984 25 cents). Its photo NOID_Bahamas_1984_25Cents_obv.jpg (Drive id 1OQx9r-sJmAaEVTddVStL"
    },
    "denomination": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-14",
-    "source": "Numista N#9352 (https://en.numista.com/catalogue/pieces9352.html): Bahamas 25 cents KM#63.1, 1974-1992, sailing sloop, which covers 1984 (ci",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "uCoin Bahamas catalog (https://en.ucoin.net/catalog/?country=bahamas&year=1983, read 2026-11-21): confirms Bahamas circulation coin denomina",
     "links": [
+     "https://en.ucoin.net/catalog/?country=bahamas&year=1983",
      "https://en.numista.com/catalogue/pieces9352.html"
-    ]
+    ],
+    "n": 2
    },
    "mint": {
     "level": "review",
@@ -111653,13 +111963,15 @@
     "n": 2
    },
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json C304 value.face.currency=MXN, year 1981",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-21",
+    "source": "Numista N#987 Mexico 20 Pesos KM#486 (https://en.numista.com/987, read 2026-11-21): row '1981 Mo' (250,573,000 mintage, CuNi 75/25, 15.2 g, ",
     "links": [
-     "https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/collection/specimens/MX.json"
-    ]
+     "https://en.numista.com/987",
+     "https://en.numista.com/catalogue/pieces987.html"
+    ],
+    "n": 2
    },
    "story": {
     "level": "checked",
@@ -113935,13 +114247,15 @@
     "n": 2
    },
    "ruler": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#882 https://en.numista.com/catalogue/pieces882.html: Queen 'Elizabeth II (1952-2022)'",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "uCoin UK 1 Shilling 1954-1970 KM#904 (https://en.ucoin.net/coin/united_kingdom-1-shilling-1954-1970/?tid=3850, read 2026-11-21): Ruler = 'El",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-1-shilling-1954-1970/?tid=3850",
      "https://en.numista.com/catalogue/pieces882.html"
-    ]
+    ],
+    "n": 2
    }
   },
   "C330": {
@@ -116112,13 +116426,15 @@
   },
   "T001": {
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Dealer listing: Golden Rule Enterprises, GERMANY compositions spiel mark (mid-late 19th c.), $8.00, https://www.goldenruleenterprises.org/pr",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "eBay dealer listing Boardwalk Numismatics (https://www.ebay.com/itm/358559297081, read 2026-11-21): Undated Germany Spiel-Marke Token Buy It",
     "links": [
+     "https://www.ebay.com/itm/358559297081",
      "https://www.goldenruleenterprises.org/product/germany-compositions-spiel-mark-mid-late19th-c/"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "ai",
@@ -116145,13 +116461,15 @@
     "source": "T002_obv.webp, T002_rev.webp: both sides read (GR monogram in ring of stars; 20 in wreath); no letter, initials or mark anywhere at full zoo"
    },
    "value": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-15",
-    "source": "Dealer listing: Golden Rule Enterprises, GERMANY compositions spiel mark (mid-late 19th c.), $8.00, https://www.goldenruleenterprises.org/pr",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-21",
+    "source": "eBay dealer listing Boardwalk Numismatics (https://www.ebay.com/itm/358559297081, read 2026-11-21): Undated Germany Spiel-Marke Token Buy It",
     "links": [
+     "https://www.ebay.com/itm/358559297081",
      "https://www.goldenruleenterprises.org/product/germany-compositions-spiel-mark-mid-late19th-c/"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "photo",
@@ -116192,13 +116510,15 @@
   },
   "T004": {
    "value": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "https://coinquest.com/cgi-bin/cq/coins.pl?coin=14728 — CoinQuest 'Token US Nixon Penny 1974' (miniature ~1/4-cent-size penny in cardboard ho",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-21",
+    "source": "eBay listing (https://www.ebay.com/itm/166052825776, read 2026-11-21): 1974 Nixon Inflation Worth Less and Lesser miniature penny in printed",
     "links": [
+     "https://www.ebay.com/itm/166052825776",
      "https://coinquest.com/cgi-bin/cq/coins.pl?coin=14728"
-    ]
+    ],
+    "n": 2
    },
    "story": {
     "level": "reference",

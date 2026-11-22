@@ -3,7 +3,7 @@ NEW (2026-11-08): PHOTO ROOMS (task 11, before your other tasks). Joseph wants e
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_muse.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Muse (updated 2026-11-22 02:14 UTC)
+# WORK QUEUE for Muse (updated 2026-11-22 03:11 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -48,6 +48,10 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261122-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261122-1.jsonl)
 - 13. HW-muse-verify-20261122-2 · Second reader · Check 4 facts another AI wrote · due 2026-11-29  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-verify-20261122-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261122-2.jsonl)
+- 14. HW-muse-arbitrate-20261122-1 · Arbiter · Settle 15 disagreements between two AIs · due 2026-11-29  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-arbitrate-20261122-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261122-1.jsonl)
+- 15. HW-muse-arbitrate-20261122-2 · Arbiter · Settle 13 disagreements between two AIs · due 2026-11-29  (fix list #18)
+  **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Muse/HW-muse-arbitrate-20261122-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-arbitrate-20261122-2.jsonl)
 ## Projects (after the homework)
 
 ### Read new coin photos (with Grok, blind)  [ALWAYS]  (fix list #55)
@@ -59,5 +63,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 13.
-- Your facts checked by another contributor: 957 (938 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 25. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 973 (954 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 32. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

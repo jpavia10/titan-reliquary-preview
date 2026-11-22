@@ -727,6 +727,14 @@ class Provenance(unittest.TestCase):
         for miss in ("Round 3 research (Numista/NGC/Krause-verified)", "Numista says so", "catalogued type record GB.KM.1109d", "Royal Mint", "per catalog"):
             self.assertEqual(P.classify(self.E(source=miss)), "ai", miss)
 
+    def test_a_close_second_value_agrees_a_far_one_differs(self):
+        """GT-SECOND round 2 (2026-11-22): a second appraisal within 30 % or 30 cents supports the value; far apart goes to a third reader."""
+        import apply_changes as A
+        for cur, new, want in ((0.95, 0.71, "same"), (0.12, 0.40, "same"), (10.0, 13.0, "same"), (7.5, 0.68, "differs"),
+                               (0.42, 11.99, "differs"), (1.6, 6.48, "differs"), (2.0, 2.0, "same")):
+            self.assertEqual(A.check_verdict("value.est_usd", cur, new)[0], want, (cur, new))
+        self.assertEqual(A.check_verdict("issues.0.mintage", 1000, 1100)[0], "differs")     # only values carry the band
+
     def test_history_grouping(self):
         P = self.P
         evs = [self.E(field="story", ts="2026-10-03T10:00:00Z"), self.E(entity="type", id="XX.KM.1", field="ruler", ts="2026-10-03T10:00:01Z"),

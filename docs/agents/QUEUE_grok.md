@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-22 02:14 UTC)
+# WORK QUEUE for Grok (updated 2026-11-22 03:11 UTC)
 
 PROBATION (Joseph, 2026-11-19: "grok is on probation because it used 84.6 of my quota without being prompted and likely no results"): do ONE assignment per session, and only when Joseph asks you to. Save its one file, say what you saved, then STOP: do not start the next one, do not run in the background, do not re-read this page on your own. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -205,7 +205,7 @@ Items:
 - **D0188 IN.KM.92.2 design.text**: record `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion C…` (model:gemini: «Standard Catalog of World Coins (Krause-Mishler Schön# 216, Obverse/Reverse description) & NGC World Coin Price Guide h…») vs claim `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · corn stalks flanking · Ashoka Lion …` (model:muse-spark: «https://en.numista.com/catalogue/pieces1609.html — Reverse: 'Value flanked by corn stalks and the denomination in Devan…»)
 - **D0189 MX-CHI.KM.612 design.text**: record `reverse large 5 pierced by vertical sword/spear · centavo monogram · EJERCITO CONSTITUCIO…` (model:gemini: «Standard Catalog of World Coins (Krause-Mishler KM# 612, Obverse/Reverse description) & NGC World Coin Price Guide http…») vs claim `obverse cap and rays surrounded by legend · REPUBLICA MEXICANA · LIBERTAD · E. DE CHIHA ·…` (model:muse-spark: «https://en.numista.com/catalogue/pieces32634.html — Obverse: 'Cap and rays surrounded by legend.' Lettering: 'REPUBLICA…»)
 
-### 8. HW-grok-verify-20261118-1 · Second reader · Check 2 facts another AI wrote · due 2026-11-25  (fix list #18)
+### 8. HW-grok-verify-20261118-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-25  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -214,7 +214,6 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 **Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261118-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **ruler of C329 · United Kingdom · 1962 · 1 shilling · GBP** `type GB.X.1-shilling ruler` = `Elizabeth II` (written by Muse: «Numista N#882 https://en.numista.com/catalogue/pieces882.html: Queen 'Elizabeth II (1952-2022)'»)
 - **year of C351 · France · 10 centimes · FRF** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C351 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_obv.webp (original: https://drive.google.com/file/d/1kQH2ehDb_zFhY8CcHWn8aSuk3ih6tlr5/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_rev.webp (original: https://drive.google.com/file/d/1Cno86aZ6OXDTW2UU8AuGcHCnY68GJEKG/view)
 
 ### 9. HW-grok-arbitrate-20261119-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-26  (fix list #18)
@@ -278,5 +277,5 @@ When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per par
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 47; expired: 26.
-- Your facts checked by another contributor: 1160 (1144 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
+- Your facts checked by another contributor: 1278 (1262 confirmed, 16 wrong; error rate 1.3 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 27. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 100 %.

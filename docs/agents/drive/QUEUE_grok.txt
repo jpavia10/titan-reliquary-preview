@@ -3,7 +3,7 @@ NEW (2026-11-08): PHOTO ROOMS (task 15, before your other tasks). Joseph wants e
 The newest version of this page, always current (every assignment with its answer sheet): https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/QUEUE_grok.md. Open it first; it wins over this copy.
 Your answer sheets are in Drive: `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/` (one file per assignment, replaced when it changes; a closed one is removed). Work only from this page and those sheets. Never from a saved or downloaded copy of the repository, an old sheet or another AI's sheet: lines from them are rejected.
 
-# WORK QUEUE for Grok (updated 2026-11-22 02:14 UTC)
+# WORK QUEUE for Grok (updated 2026-11-22 03:11 UTC)
 
 PROBATION (Joseph, 2026-11-19: "grok is on probation because it used 84.6 of my quota without being prompted and likely no results"): do ONE assignment per session, and only when Joseph asks you to. Save its one file, say what you saved, then STOP: do not start the next one, do not run in the background, do not re-read this page on your own. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -60,7 +60,7 @@ Each assignment below has a pre-filled answer sheet; the full instructions and e
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261118-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261118-1.jsonl)
 - 7. HW-grok-arbitrate-20261118-2 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-25  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261118-2.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261118-2.jsonl)
-- 8. HW-grok-verify-20261118-1 · Second reader · Check 2 facts another AI wrote · due 2026-11-25  (fix list #18)
+- 8. HW-grok-verify-20261118-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-25  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-verify-20261118-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261118-1.jsonl)
 - 9. HW-grok-arbitrate-20261119-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-26  (fix list #18)
   **Answer sheet:** Drive `Titan Reliquary/homework sheets (current: refreshed every hour)/Grok/HW-grok-arbitrate-20261119-1.jsonl` (the same file: https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-arbitrate-20261119-1.jsonl)
@@ -105,5 +105,5 @@ When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per par
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 47; expired: 26.
-- Your facts checked by another contributor: 1160 (1144 confirmed, 16 wrong; error rate 1.4 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 0. Values planted wrong on purpose in your checks: you caught 6 of 6.
+- Your facts checked by another contributor: 1278 (1262 confirmed, 16 wrong; error rate 1.3 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 27. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 100 %.

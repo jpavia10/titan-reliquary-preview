@@ -1,6 +1,6 @@
 {
  "agent": "grok",
- "updated": "2026-11-22T02:14:48Z",
+ "updated": "2026-11-22T03:11:11Z",
  "assignments": [
   {
    "id": "HW-grok-value-20261115-1",
@@ -3507,37 +3507,6 @@
     }
    ],
    "items_full": [
-    {
-     "item": "verify:type:GB.X.1-shilling:ruler",
-     "kind": "verify",
-     "entity": "type",
-     "id": "GB.X.1-shilling",
-     "field": "ruler",
-     "coins": [
-      "C329"
-     ],
-     "label": "ruler of C329 · United Kingdom · 1962 · 1 shilling · GBP",
-     "authors": [
-      "muse"
-     ],
-     "payload": {
-      "fact": "ruler",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Elizabeth II",
-      "their_source": "Numista N#882 https://en.numista.com/catalogue/pieces882.html: Queen 'Elizabeth II (1952-2022)'",
-      "links": [
-       "https://en.numista.com/catalogue/pieces882.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": []
-    },
     {
      "item": "verify:specimen:C351:issue.year",
      "kind": "verify",

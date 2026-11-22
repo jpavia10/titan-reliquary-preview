@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-22T02:14:48Z",
+ "updated": "2026-11-22T03:11:11Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -207,7 +207,8 @@
   "muse-story-check-20261121": 1,
   "gemini-verify-20261122": 1,
   "gemini-api-verify-20261122": 1,
-  "muse-verify-20261122": 2
+  "muse-verify-20261122": 2,
+  "muse-arbitrate-20261122": 2
  },
  "assignments": [
   {
@@ -35646,6 +35647,204 @@
      "entity": "type",
      "id": "DE.KM.210",
      "field": "issues.3.mintage"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261122-1",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-22T03:03:55Z",
+   "lease_until": "2026-11-29T03:03:55Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0202",
+     "entity": "specimen",
+     "id": "C153",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0203",
+     "entity": "specimen",
+     "id": "C224",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0204",
+     "entity": "specimen",
+     "id": "C145",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0205",
+     "entity": "specimen",
+     "id": "C146",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0206",
+     "entity": "specimen",
+     "id": "C016",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0208",
+     "entity": "specimen",
+     "id": "C025",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0209",
+     "entity": "specimen",
+     "id": "C033",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0210",
+     "entity": "specimen",
+     "id": "C041",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0211",
+     "entity": "specimen",
+     "id": "C047",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0212",
+     "entity": "specimen",
+     "id": "C050",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0213",
+     "entity": "specimen",
+     "id": "C059",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0214",
+     "entity": "specimen",
+     "id": "C063",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0215",
+     "entity": "specimen",
+     "id": "C227",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0216",
+     "entity": "specimen",
+     "id": "C228",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0217",
+     "entity": "specimen",
+     "id": "C229",
+     "field": "value.est_usd"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-arbitrate-20261122-2",
+   "agent": "muse",
+   "kind": "arbitrate",
+   "issued": "2026-11-22T03:03:55Z",
+   "lease_until": "2026-11-29T03:03:55Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "arb:D0218",
+     "entity": "specimen",
+     "id": "C230",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0220",
+     "entity": "specimen",
+     "id": "C237",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0221",
+     "entity": "specimen",
+     "id": "C238",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0222",
+     "entity": "specimen",
+     "id": "C243",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0223",
+     "entity": "specimen",
+     "id": "C245",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0225",
+     "entity": "specimen",
+     "id": "C255",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0226",
+     "entity": "specimen",
+     "id": "C260",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0227",
+     "entity": "specimen",
+     "id": "C261",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0228",
+     "entity": "type",
+     "id": "JP.Y.73a",
+     "field": "composition.text"
+    },
+    {
+     "item": "arb:D0229",
+     "entity": "specimen",
+     "id": "C271",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0232",
+     "entity": "specimen",
+     "id": "C290",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0233",
+     "entity": "specimen",
+     "id": "C292",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0234",
+     "entity": "specimen",
+     "id": "C295",
+     "field": "value.est_usd"
+    },
+    {
+     "item": "arb:D0235",
+     "entity": "specimen",
+     "id": "T003",
+     "field": "value.est_usd"
     }
    ]
   }
