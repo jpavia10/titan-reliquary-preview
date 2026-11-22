@@ -1,0 +1,1559 @@
+{
+ "about": "Round 2 of the type gaps (2026-11-22): the fields Numista does not give (Gemini read Numista for each in round 1; 'numista_read' says what it found). Find them in another catalogue: uCoin, Foronum, Colnect, the issuing mint's or central bank's own page, or a national numismatic catalogue. Leave a field unsent when no catalogue gives it.",
+ "made": "2026-11-22",
+ "count": 120,
+ "parts": 2,
+ "per_part": 60,
+ "items": [
+  {
+   "type": "MX.X.5-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5 centavos (MX.X.5-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C294"
+   ],
+   "n": 1,
+   "numista_read": "Checked Numista N#580 (https://en.numista.com/580, 1992-2002 KM#546), N#3152 (https://en.numista.com/3152, 1970-1976 KM#427), and N#953 (https://en.numista.com/953, 1954-1969 KM#426): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "MX.X.5-pesos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5 pesos (MX.X.5-pesos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C324"
+   ],
+   "n": 2,
+   "numista_read": "Numista N#589 https://en.numista.com/589 (5 Pesos non magnetic core, Mexico, 1997-2026, KM#605): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "MX.X.50-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 50 centavos (MX.X.50-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C284"
+   ],
+   "n": 3,
+   "numista_read": "Checked Numista N#583 (https://en.numista.com/583, 1992-2009 KM#549), N#18097 (https://en.numista.com/18097, 2009-2026 KM#936), and N#3951 (https://en.numista.com/3951, 1970-1983 KM#452): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "MX.X.500-pesos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 500 pesos (MX.X.500-pesos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C293",
+    "C301"
+   ],
+   "n": 4,
+   "numista_read": "Numista N#819 https://en.numista.com/819 (500 Pesos, Mexico, 1986-1992, KM#529): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "NL.KM.107.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "NL 1.0 cent (NL.KM.107.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C255"
+   ],
+   "n": 5,
+   "numista_read": "Numista N#1070 https://en.numista.com/1070 (1 Cent, Netherlands, 1877-1900, KM#107.2): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "PH.KM.198",
+   "field": "design.designers",
+   "old": [],
+   "label": "PH 10.0 sentimos (PH.KM.198)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C246"
+   ],
+   "n": 6,
+   "numista_read": "Numista N#3752 https://en.numista.com/3752 (10 Sentimos, Philippines, 1967-1974, KM#198): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "PH.X.1-piso",
+   "field": "design.designers",
+   "old": [],
+   "label": "PH 1 piso (PH.X.1-piso)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C279"
+   ],
+   "n": 7,
+   "numista_read": "Numista N#1681 https://en.numista.com/1681 (1 Piso Non-magnetic, Philippines, 1995-2003, KM#269): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "PH.X.1-piso",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "PH 1 piso (PH.X.1-piso) · 1997 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C279"
+   ],
+   "n": 8,
+   "numista_read": "Numista N#1681 https://en.numista.com/1681 (1 Piso Non-magnetic, Philippines, KM#269), Manage my collection table: 1997 PI mintage is blank",
+   "part": 1
+  },
+  {
+   "type": "RU.X.20-roubles",
+   "field": "design.designers",
+   "old": [],
+   "label": "RU 20 roubles (RU.X.20-roubles)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C313"
+   ],
+   "n": 9,
+   "numista_read": "Numista N#4077 https://en.numista.com/4077 (20 Roubles non-magnetic segmented edge, Russian Federation, 1992, Y#314): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "RU.X.20-roubles",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "RU 20 roubles (RU.X.20-roubles) · 1992 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C313"
+   ],
+   "n": 10,
+   "numista_read": "Numista N#4077 https://en.numista.com/4077 (20 Roubles, Russian Federation, 1992, Y#314), Manage my collection table: 1992 mintage is blank",
+   "part": 1
+  },
+  {
+   "type": "SA.KM.20",
+   "field": "design.designers",
+   "old": [],
+   "label": "SA 1.0 qirsh (SA.KM.20)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C231"
+   ],
+   "n": 11,
+   "numista_read": "Checked Numista N#11632 (https://en.numista.com/11632, 1/2 Qirsh 1356, KM#20) and N#11350 (https://en.numista.com/11350, 1 Qirsh 1356, KM#21): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "SU.Y.126a",
+   "field": "design.designers",
+   "old": [],
+   "label": "SU 1.0 kopek (SU.Y.126a)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C042",
+    "C044"
+   ],
+   "n": 12,
+   "numista_read": "Numista N#767 https://en.numista.com/767 (1 Kopeck, Soviet Union, 1961-1991, Y#126a): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "SU.Y.93",
+   "field": "design.designers",
+   "old": [],
+   "label": "SU 3.0 kopecks (SU.Y.93)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C260"
+   ],
+   "n": 13,
+   "numista_read": "Numista N#4042 https://en.numista.com/4042 (3 Kopecks 7 Ribbons, Soviet Union, 1926-1937, Y#93): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "SU.Y.97",
+   "field": "design.designers",
+   "old": [],
+   "label": "SU 15.0 kopecks (SU.Y.97)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C261"
+   ],
+   "n": 14,
+   "numista_read": "Checked Numista N#4045 (https://en.numista.com/4045, 20 Kopecks 1931-1934, Y#97) and N#5269 (https://en.numista.com/5269, 15 Kopecks 1931-1934, Y#96): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "TR.KM.1240",
+   "field": "design.designers",
+   "old": [],
+   "label": "TR 10.0 kuruş (TR.KM.1240)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [],
+   "n": 15,
+   "numista_read": "Checked Numista N#7047 (https://en.numista.com/7047, 5 Kurus, KM#1240) and N#6165 (https://en.numista.com/6165, 10 Kurus, KM#1241): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "TR.KM.1240",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "TR 10.0 kuruş (TR.KM.1240)",
+   "want": "mm",
+   "coins": [],
+   "n": 16,
+   "numista_read": "Catalogue conflict: KM#1240 on Numista N#7047 (https://en.numista.com/7047) is 5 Kurus (thickness 1.65 mm), whereas label 'TR 10.0 kurus' is KM#1241 on N#6165 (https://en.numista.com/6165, thickness 1.55 mm); left null rather than guessing",
+   "part": 1
+  },
+  {
+   "type": "TR.KM.1240",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TR 10.0 kuruş (TR.KM.1240) · 2011 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [],
+   "n": 17,
+   "numista_read": "Catalogue conflict: KM#1240 on Numista N#7047 (https://en.numista.com/7047) is 5 Kurus (2011 mintage 128 820 000), whereas label 'TR 10.0 kurus' is KM#1241 on N#6165 (https://en.numista.com/6165, 2011 mintage 156 279 000); left null rather ",
+   "part": 1
+  },
+  {
+   "type": "TR.KM.1241",
+   "field": "design.designers",
+   "old": [],
+   "label": "TR 10.0 kuruş (TR.KM.1241)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C208"
+   ],
+   "n": 18,
+   "numista_read": "Numista N#6165 https://en.numista.com/6165 (10 Kurus, Turkey, 2009-2022, KM#1241): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "TT.KM.31",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TT 10.0 cents (TT.KM.31) · 2016 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C207"
+   ],
+   "n": 19,
+   "numista_read": "Numista N#3463 https://en.numista.com/3463 (10 Cents, Trinidad and Tobago, KM#31), Manage my collection table: 2016 mintage is blank",
+   "part": 1
+  },
+  {
+   "type": "TT.KM.32",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TT 25.0 cents (TT.KM.32) · 2014 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C204"
+   ],
+   "n": 20,
+   "numista_read": "Numista N#1159 https://en.numista.com/1159 (25 Cents Non-Magnetic, Trinidad and Tobago, KM#32), Manage my collection table: 2014 mintage is blank",
+   "part": 1
+  },
+  {
+   "type": "TT.KM.33",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TT 25.0 cents (TT.KM.33) · 2014 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [],
+   "n": 21,
+   "numista_read": "Checked Numista N#5206 (https://en.numista.com/5206, 50 Cents, KM#33, 1976-2003: no 2014 issue) and N#1159 (https://en.numista.com/1159, 25 Cents, KM#32: 2014 mintage is blank)",
+   "part": 1
+  },
+  {
+   "type": "TW.KM.551",
+   "field": "design.designers",
+   "old": [],
+   "label": "TW 1.0 yuan (TW.KM.551)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C200"
+   ],
+   "n": 22,
+   "numista_read": "Numista N#966 https://en.numista.com/966 (1 New Dollar / 1 Yuan, Taiwan, 1981-2024, Y#551): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "TW.KM.551",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "TW 1.0 yuan (TW.KM.551) · 2008 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C200"
+   ],
+   "n": 23,
+   "numista_read": "Numista N#966 https://en.numista.com/966 (1 New Dollar / 1 Yuan, Taiwan, Y#551), Manage my collection table: 97 (2008) mintage is blank",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "design.designers",
+   "old": [],
+   "label": "US None novelty slug (US.X.none)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "T004"
+   ],
+   "n": 24,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "grams",
+   "coins": [
+    "T004"
+   ],
+   "n": 25,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "mm",
+   "coins": [
+    "T004"
+   ],
+   "n": 26,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "mm",
+   "coins": [
+    "T004"
+   ],
+   "n": 27,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "coins": [
+    "T004"
+   ],
+   "n": 28,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "coin or medal",
+   "coins": [
+    "T004"
+   ],
+   "n": 29,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "period",
+   "old": null,
+   "label": "US None novelty slug (US.X.none)",
+   "want": "the catalogue's period or ruler name",
+   "coins": [
+    "T004"
+   ],
+   "n": 30,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.none",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US None novelty slug (US.X.none) · 1970 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "T004"
+   ],
+   "n": 31,
+   "numista_read": "Unmatched novelty slug (US.X.none, coin T004): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "design.designers",
+   "old": [],
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "T005"
+   ],
+   "n": 32,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "grams",
+   "coins": [
+    "T005"
+   ],
+   "n": 33,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "mm",
+   "coins": [
+    "T005"
+   ],
+   "n": 34,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "mm",
+   "coins": [
+    "T005"
+   ],
+   "n": 35,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "coins": [
+    "T005"
+   ],
+   "n": 36,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "coin or medal",
+   "coins": [
+    "T005"
+   ],
+   "n": 37,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "period",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1)",
+   "want": "the catalogue's period or ruler name",
+   "coins": [
+    "T005"
+   ],
+   "n": 38,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-1",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US 1 $ (US.X.prop-1) · 2013 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "T005"
+   ],
+   "n": 39,
+   "numista_read": "Unmatched US $1 prop item (US.X.prop-1, coin T005): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "design.designers",
+   "old": [],
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "T006"
+   ],
+   "n": 40,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "grams",
+   "coins": [
+    "T006"
+   ],
+   "n": 41,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "mm",
+   "coins": [
+    "T006"
+   ],
+   "n": 42,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "mm",
+   "coins": [
+    "T006"
+   ],
+   "n": 43,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "coins": [
+    "T006"
+   ],
+   "n": 44,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "coin or medal",
+   "coins": [
+    "T006"
+   ],
+   "n": 45,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "period",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50)",
+   "want": "the catalogue's period or ruler name",
+   "coins": [
+    "T006"
+   ],
+   "n": 46,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.prop-50",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US 50 $ (US.X.prop-50) · 2009 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "T006"
+   ],
+   "n": 47,
+   "numista_read": "Unmatched US $50 prop item (US.X.prop-50, coin T006): no identifiable official Numista or standard catalogue entry; left null per rule",
+   "part": 1
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "design.designers",
+   "old": [],
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "T003"
+   ],
+   "n": 48,
+   "numista_read": "Numista N#88013 https://en.numista.com/88013 (Meijer - Pony Ride / Sandy the Penny Pony, TC#350112): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "mm",
+   "coins": [
+    "T003"
+   ],
+   "n": 49,
+   "numista_read": "Numista N#88013 https://en.numista.com/88013 (Meijer - Pony Ride / Sandy the Penny Pony, TC#350112), Features: thickness not listed",
+   "part": 1
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "period",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony)",
+   "want": "the catalogue's period or ruler name",
+   "coins": [
+    "T003"
+   ],
+   "n": 50,
+   "numista_read": "Numista N#88013 https://en.numista.com/88013 (Meijer - Pony Ride / Sandy the Penny Pony, TC#350112), Features: no Period or ruler field listed (exonumia token)",
+   "part": 1
+  },
+  {
+   "type": "US.X.ride-token-sandy-the-pony",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "US None ride token (US.X.ride-token-sandy-the-pony) · None no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "T003"
+   ],
+   "n": 51,
+   "numista_read": "Numista N#88013 https://en.numista.com/88013 (Meijer - Pony Ride / Sandy the Penny Pony, TC#350112), Manage my collection table: ND mintage is blank",
+   "part": 1
+  },
+  {
+   "type": "VA.X.20-lire",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "VA 20 lire (VA.X.20-lire)",
+   "want": "mm",
+   "coins": [
+    "C305"
+   ],
+   "n": 52,
+   "numista_read": "Ambiguous type without Pope/year (VA.X.20-lire, coin C305): checked Numista N#6948 (https://en.numista.com/6948, Paul VI 1970-1977: 1.60 mm) and N#33337 (https://en.numista.com/33337, Pius XII 1957-1958: thickness not listed); cannot match ",
+   "part": 1
+  },
+  {
+   "type": "VN-SOV.KM.1",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "VN 20.0 su (VN-SOV.KM.1)",
+   "want": "mm",
+   "coins": [
+    "C258"
+   ],
+   "n": 53,
+   "numista_read": "Catalogue conflict / omitted thickness: Numista N#5904 (https://en.numista.com/5904, South Vietnam 20 Su 1953, KM#2) omits thickness; N#5903 (https://en.numista.com/5903, KM#1) is 10 Su (thickness 1.63 mm), conflicting with label '20.0 su';",
+   "part": 1
+  },
+  {
+   "type": "VN.KM.71",
+   "field": "design.designers",
+   "old": [],
+   "label": "VN 1000.0 đồng (VN.KM.71)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C232"
+   ],
+   "n": 54,
+   "numista_read": "Checked Numista N#4984 (https://en.numista.com/4984, 200 Dong 2003, KM#71) and N#2104 (https://en.numista.com/2104, 1000 Dong 2003, KM#72): no designer or engraver listed on Obverse or Reverse",
+   "part": 1
+  },
+  {
+   "type": "BR.KM.648.1",
+   "field": "design.designers",
+   "old": [],
+   "label": "BR 5.0 centavos (BR.KM.648.1)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C047"
+   ],
+   "n": 55,
+   "numista_read": "Numista N#1049 https://en.numista.com/1049, Obverse/Reverse; quote: \"No engraver or designer listed on page for 5 Centavos (Tiradentes) KM# 648.\"",
+   "part": 1
+  },
+  {
+   "type": "BS.X.1-cent",
+   "field": "design.designers",
+   "old": [],
+   "label": "BS 1 cent (BS.X.1-cent)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C276",
+    "C306",
+    "C327",
+    "C332"
+   ],
+   "n": 56,
+   "numista_read": "Numista N#92216 https://en.numista.com/92216 & N#20937 https://en.numista.com/20937, Obverse/Reverse; quote: \"No engraver or designer listed on either 2015 1 Cent Bahamas entry.\"",
+   "part": 1
+  },
+  {
+   "type": "BS.X.1-cent",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BS 1 cent (BS.X.1-cent) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C276",
+    "C306",
+    "C327",
+    "C332"
+   ],
+   "n": 57,
+   "numista_read": "Numista N#92216 https://en.numista.com/92216 & N#20937 https://en.numista.com/20937, Manage my collection table; quote: \"No mintage column or figure listed for 2015 on either magnetic or non-magnetic 1 Cent page.\"",
+   "part": 1
+  },
+  {
+   "type": "BS.X.25-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BS 25 cents (BS.X.25-cents) · 1984 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C300"
+   ],
+   "n": 58,
+   "numista_read": "Numista N#9352 https://en.numista.com/9352, Manage my collection table; quote: \"1984 FM | 1 036 | Proof\" (no 1984 circulation/no-mint-mark row listed).",
+   "part": 1
+  },
+  {
+   "type": "BS.X.5-cents",
+   "field": "design.designers",
+   "old": [],
+   "label": "BS 5 cents (BS.X.5-cents)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C291"
+   ],
+   "n": 59,
+   "numista_read": "Numista N#5010 https://en.numista.com/5010, Obverse/Reverse; quote: \"No engraver or designer listed on page for 5 Cents (non-magnetic) KM# 60.\"",
+   "part": 1
+  },
+  {
+   "type": "BS.X.5-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BS 5 cents (BS.X.5-cents) · 1984 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C291"
+   ],
+   "n": 60,
+   "numista_read": "Numista N#5010 https://en.numista.com/5010, Manage my collection table; quote: \"1984\" row has blank mintage (only 1984 FM Proof lists 1 036).",
+   "part": 1
+  },
+  {
+   "type": "BZ.X.25-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "BZ 25 cents (BZ.X.25-cents) · 2007 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C280",
+    "C317"
+   ],
+   "n": 61,
+   "numista_read": "Numista N#2238 https://en.numista.com/2238, Manage my collection table; quote: \"2007\" row has blank mintage on 25 Cents Elizabeth II KM# 36.",
+   "part": 2
+  },
+  {
+   "type": "BZ.X.25-cents",
+   "field": "issues.1.mintage",
+   "old": null,
+   "label": "BZ 25 cents (BZ.X.25-cents) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C280",
+    "C317"
+   ],
+   "n": 62,
+   "numista_read": "Numista N#2238 https://en.numista.com/2238, Manage my collection table; quote: \"2015\" row has blank mintage on 25 Cents Elizabeth II KM# 36.",
+   "part": 2
+  },
+  {
+   "type": "CH.KM.24a",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "CH 1.0 franc (CH.KM.24a)",
+   "want": "coin or medal",
+   "coins": [],
+   "n": 63,
+   "numista_read": "Numista N#185 https://en.numista.com/185, Features; quote: \"Orientation: Variable alignment ↺\" (KM#24a.1 1968-1981 coin alignment; KM#24a.2-24a.3 1982-2026 medal alignment).",
+   "part": 2
+  },
+  {
+   "type": "CR.KM.214.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "CR 5.0 colones (CR.KM.214.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C016"
+   ],
+   "n": 64,
+   "numista_read": "Numista N#69 https://en.numista.com/69, Obverse/Reverse; quote: \"No engraver or designer listed on page for 5 Colones Costa Rica KM# 214.\"",
+   "part": 2
+  },
+  {
+   "type": "CR.X.10-colones",
+   "field": "design.designers",
+   "old": [],
+   "label": "CR 10 colones (CR.X.10-colones)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C343"
+   ],
+   "n": 65,
+   "numista_read": "Numista N#3270 https://en.numista.com/3270, Obverse/Reverse; quote: \"No engraver or designer listed on page for 10 Colones Costa Rica KM# 215.\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "design.designers",
+   "old": [],
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [],
+   "n": 66,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "grams",
+   "coins": [],
+   "n": 67,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "mm",
+   "coins": [],
+   "n": 68,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "mm",
+   "coins": [],
+   "n": 69,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "coins": [],
+   "n": 70,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "coin or medal",
+   "coins": [],
+   "n": 71,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "period",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig)",
+   "want": "the catalogue's period or ruler name",
+   "coins": [],
+   "n": 72,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE-EMP.X.20-pfennig",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "DE 20.0 Pfennig (DE-EMP.X.20-pfennig) · 1918 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [],
+   "n": 73,
+   "numista_read": "Numista catalogue search; quote: \"No single official 1918 German Empire 20 Pfennig coin exists (imperial 20 Pfennig ended 1892; 1918 issues are municipal Notgeld with unspecified city).\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "design.designers",
+   "old": [],
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 74,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.weight_g",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "grams",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 75,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.diameter_mm",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "mm",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 76,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.thickness_mm",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "mm",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 77,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.edge",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "plain / reeded / lettered / segmented, as the catalogue says",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 78,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "nominal.alignment",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "coin or medal",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 79,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "period",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr)",
+   "want": "the catalogue's period or ruler name",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 80,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "DE.X.spielmarke-20-gr",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "DE None Spielmarke (DE.X.spielmarke-20-gr) · None no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "T001",
+    "T002"
+   ],
+   "n": 81,
+   "numista_read": "Numista catalogue search; quote: \"Generic German Spielmarke token with no catalogue number, issuer, date, or inscription; cannot match with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "EC.KM.37",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "EC 10.0 cents (EC.KM.37) · 2004 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C159",
+    "C348"
+   ],
+   "n": 82,
+   "numista_read": "Numista N#5712 https://en.numista.com/5712, Manage my collection table; quote: \"No mintage column or figure listed for 2004 on 10 Cents Elizabeth II (4th portrait) KM# 37.\"",
+   "part": 2
+  },
+  {
+   "type": "EC.KM.38",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "EC 10.0 cents (EC.KM.38) · 2004 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [],
+   "n": 83,
+   "numista_read": "Numista N#5714 https://en.numista.com/5714, Features & table; quote: \"25 Cents - Elizabeth II (4th portrait) KM# 38\" (catalogue mismatch with 10 cents label; also no mintage listed for 2004).",
+   "part": 2
+  },
+  {
+   "type": "EC.X.10-cents",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "EC 10 cents (EC.X.10-cents) · 1991 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C350"
+   ],
+   "n": 84,
+   "numista_read": "Numista N#932 https://en.numista.com/932, Manage my collection table; quote: \"1991\" row has blank mintage on 10 Cents Elizabeth II (2nd portrait) KM# 13.",
+   "part": 2
+  },
+  {
+   "type": "ER.KM.46",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "ER 50.0 cents (ER.KM.46) · 1997 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C212"
+   ],
+   "n": 85,
+   "numista_read": "Numista N#2404 https://en.numista.com/2404 (KM#46 = 25 Cents) & N#2403 https://en.numista.com/2403 (KM#47 = 50 Cents); quote: \"Catalogue mismatch (KM#46 is 25 Cents); neither page lists a 1997 mintage.\"",
+   "part": 2
+  },
+  {
+   "type": "FR.X.10-centimes",
+   "field": "issues.1.mintage",
+   "old": null,
+   "label": "FR 10 centimes (FR.X.10-centimes) · 1867 K",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C351"
+   ],
+   "n": 86,
+   "numista_read": "Numista N#480 https://en.numista.com/480 & N#320 https://en.numista.com/320, Manage my collection table; quote: \"No 1867 K issue exists on either Napoleon III 10 Centimes entry (N#480 regular issues end 1865).\"",
+   "part": 2
+  },
+  {
+   "type": "GG.X.8-doubles",
+   "field": "design.designers",
+   "old": [],
+   "label": "GG 8 doubles (GG.X.8-doubles)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C347"
+   ],
+   "n": 87,
+   "numista_read": "Numista N#4021 https://en.numista.com/4021 (KM#16, Reverse Engraver: Paul Vincze), N#5044 https://en.numista.com/5044 & N#5685 https://en.numista.com/5685 (no engraver); quote: \"Year/KM unspecified; cannot match type with certainty.\"",
+   "part": 2
+  },
+  {
+   "type": "GT.KM.239.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "GT 10.0 centavos (GT.KM.239.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C235"
+   ],
+   "n": 88,
+   "numista_read": "Numista N#5128 https://en.numista.com/5128, Obverse/Reverse; quote: \"No engraver or designer listed on page for 10 Centavos Guatemala KM# 239.1-239.3.\"",
+   "part": 2
+  },
+  {
+   "type": "GT.KM.277.1",
+   "field": "design.designers",
+   "old": [],
+   "label": "GT 10.0 centavos (GT.KM.277.1)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [],
+   "n": 89,
+   "numista_read": "Numista N#2259 https://en.numista.com/2259, Obverse/Reverse; quote: \"No engraver or designer listed on page for 10 Centavos (Non-magnetic) Guatemala KM# 277.1-277.6.\"",
+   "part": 2
+  },
+  {
+   "type": "GT.KM.277.1",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "GT 10.0 centavos (GT.KM.277.1) · 2010 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [],
+   "n": 90,
+   "numista_read": "Numista N#2259 https://en.numista.com/2259, Manage my collection table; quote: \"Years: 1976-2009\" (no 2010 issue exists on non-magnetic KM# 277.1-277.6).",
+   "part": 2
+  },
+  {
+   "type": "GT.KM.277.6a",
+   "field": "design.designers",
+   "old": [],
+   "label": "GT 10.0 centavos (GT.KM.277.6a)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C202"
+   ],
+   "n": 91,
+   "numista_read": "Numista N#42670 https://en.numista.com/42670, Obverse/Reverse; quote: \"No engraver or designer listed on page for 10 Centavos (Magnetic) Guatemala KM# 277.6a.\"",
+   "part": 2
+  },
+  {
+   "type": "GT.KM.277.6a",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "GT 10.0 centavos (GT.KM.277.6a) · 2010 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C202"
+   ],
+   "n": 92,
+   "numista_read": "Numista N#42670 https://en.numista.com/42670, Manage my collection table; quote: \"2010\" row has blank mintage on 10 Centavos (Magnetic) Guatemala KM# 277.6a.",
+   "part": 2
+  },
+  {
+   "type": "HK.KM.69a",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "HK 1.0 $ (HK.KM.69a) · 1998 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C146"
+   ],
+   "n": 93,
+   "numista_read": "Numista N#2118 https://en.numista.com/2118, Manage my collection table; quote: \"No mintage column or figure listed for 1998 on 1 Dollar Hong Kong KM# 69a.\"",
+   "part": 2
+  },
+  {
+   "type": "HN.X.50-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "HN 50 centavos (HN.X.50-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C286"
+   ],
+   "n": 94,
+   "numista_read": "Numista N#3190 https://en.numista.com/3190 & N#7026 https://en.numista.com/7026, Obverse/Reverse; quote: \"No engraver or designer listed on either magnetic (KM#84a) or non-magnetic (KM#84) 50 Centavos Honduras page.\"",
+   "part": 2
+  },
+  {
+   "type": "IN.KM.92.2",
+   "field": "design.designers",
+   "old": [],
+   "label": "IN 1.0 rupee (IN.KM.92.2)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C203"
+   ],
+   "n": 95,
+   "numista_read": "Numista N#1609 https://en.numista.com/1609, Obverse/Reverse; quote: \"No engraver or designer listed on page for 1 Rupee India KM# 92 / KM# 92.2.\"",
+   "part": 2
+  },
+  {
+   "type": "IN.KM.92.2",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "IN 1.0 rupee (IN.KM.92.2) · 2001 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C203"
+   ],
+   "n": 96,
+   "numista_read": "Numista N#1609 https://en.numista.com/1609, Manage my collection table; quote: \"No mintage column or figure listed for 2001 (no mint mark / Calcutta) on 1 Rupee India KM# 92.\"",
+   "part": 2
+  },
+  {
+   "type": "IN.X.2-rupees",
+   "field": "design.designers",
+   "old": [],
+   "label": "IN 2 rupees (IN.X.2-rupees)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C354"
+   ],
+   "n": 97,
+   "numista_read": "Numista N#24942 https://en.numista.com/24942, Obverse/Reverse; quote: \"No engraver or designer listed on page for 2 Rupees India KM# 395.\"",
+   "part": 2
+  },
+  {
+   "type": "IN.X.2-rupees",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "IN 2 rupees (IN.X.2-rupees) · 2014 ●",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C354"
+   ],
+   "n": 98,
+   "numista_read": "Numista N#24942 https://en.numista.com/24942, Manage my collection table; quote: \"No mintage column or figure listed for 2014 ● on 2 Rupees India KM# 395.\"",
+   "part": 2
+  },
+  {
+   "type": "JM.KM.146",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 10.0 cents (JM.KM.146) · 1993 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C253"
+   ],
+   "n": 99,
+   "numista_read": "Numista N#2617 https://en.numista.com/2617, Manage my collection table; quote: \"No mintage column or figure listed for 1993 on 10 Cents (Large) Jamaica KM# 146.1.\"",
+   "part": 2
+  },
+  {
+   "type": "JM.KM.189",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 1.0 dollar (JM.KM.189) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C219"
+   ],
+   "n": 100,
+   "numista_read": "Numista N#14369 https://en.numista.com/14369, Manage my collection table; quote: \"No mintage column or figure listed for 2015 on 1 Dollar (Round) Jamaica KM# 189.\"",
+   "part": 2
+  },
+  {
+   "type": "JM.KM.190",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 10.0 dollars (JM.KM.190) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C230"
+   ],
+   "n": 101,
+   "numista_read": "Numista N#14370 https://en.numista.com/14370, Manage my collection table; quote: \"No mintage column or figure listed for 2015 on 10 Dollars (Round) Jamaica KM# 190.\"",
+   "part": 2
+  },
+  {
+   "type": "JM.KM.191",
+   "field": "design.designers",
+   "old": [],
+   "label": "JM 10.0 dollars (JM.KM.191)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [],
+   "n": 102,
+   "numista_read": "Numista N#79681 https://en.numista.com/79681 (20 Dollars Magnetic = KM# 206); quote: \"No Jamaica KM# 191 entry found on Numista; 2015 20 Dollars N#79681 (KM#206) also lists no engraver.\"",
+   "part": 2
+  },
+  {
+   "type": "JM.KM.191",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "JM 10.0 dollars (JM.KM.191) · 2015 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [],
+   "n": 103,
+   "numista_read": "Numista N#79681 https://en.numista.com/79681 (20 Dollars Magnetic = KM# 206); quote: \"No Jamaica KM# 191 entry found on Numista; 2015 20 Dollars N#79681 (KM#206) also has no mintage column for 2015.\"",
+   "part": 2
+  },
+  {
+   "type": "JP.X.10-yen",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 10 yen (JP.X.10-yen)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C344",
+    "C353"
+   ],
+   "n": 104,
+   "numista_read": "Numista N#922 https://en.numista.com/922 & N#3047 https://en.numista.com/3047, Obverse/Reverse; quote: \"No engraver or designer listed on either 10 Yen Shōwa (Y#73a) or 10 Yen Heisei (Y#97) page.\"",
+   "part": 2
+  },
+  {
+   "type": "JP.X.100-yen",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 100 yen (JP.X.100-yen)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C340"
+   ],
+   "n": 105,
+   "numista_read": "Numista N#1589 https://en.numista.com/1589 & N#2121 https://en.numista.com/2121, Obverse/Reverse; quote: \"No engraver or designer listed on either 100 Yen Shōwa (Y#82) or 100 Yen Heisei (Y#98) page.\"",
+   "part": 2
+  },
+  {
+   "type": "JP.Y.73a",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 10.0 yen (JP.Y.73a)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C220",
+    "C270"
+   ],
+   "n": 106,
+   "numista_read": "Numista N#922 https://en.numista.com/922, Obverse/Reverse; quote: \"No engraver or designer listed on page for 10 Yen - Shōwa (Smooth edge) Y# 73a.\"",
+   "part": 2
+  },
+  {
+   "type": "JP.Y.74",
+   "field": "design.designers",
+   "old": [],
+   "label": "JP 1.0 yen (JP.Y.74)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C206",
+    "C222"
+   ],
+   "n": 107,
+   "numista_read": "Numista N#1590 https://en.numista.com/1590, Obverse/Reverse; quote: \"No engraver or designer listed on page for 1 Yen - Shōwa Y# 74.\"",
+   "part": 2
+  },
+  {
+   "type": "KR.X.10-won",
+   "field": "design.designers",
+   "old": [],
+   "label": "KR 10 won (KR.X.10-won)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C342"
+   ],
+   "n": 108,
+   "numista_read": "Numista N#1654 https://en.numista.com/1654 & N#978 https://en.numista.com/978, Obverse/Reverse; quote: \"No engraver or designer listed on either 10 Won South Korea KM# 103 or KM# 33 page.\"",
+   "part": 2
+  },
+  {
+   "type": "KY.KM.87",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "KY 1.0 cent (KY.KM.87) · 1990 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C269"
+   ],
+   "n": 109,
+   "numista_read": "Numista N#7364 https://en.numista.com/7364, Manage my collection table; quote: \"1990\" row has blank mintage on 1 Cent Elizabeth II (3rd portrait; non-magnetic) KM# 87.",
+   "part": 2
+  },
+  {
+   "type": "KY.KM.88a",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "KY 5.0 cents (KY.KM.88a) · 1996 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C185",
+    "C214"
+   ],
+   "n": 110,
+   "numista_read": "Numista N#10222 https://en.numista.com/10222, Manage my collection table; quote: \"No mintage column or figure listed for 1996 on 5 Cents Elizabeth II (3rd portrait; magnetic) KM# 88a.\"",
+   "part": 2
+  },
+  {
+   "type": "MX-CHI.KM.612",
+   "field": "issues.0.mintage",
+   "old": null,
+   "label": "MX 5.0 centavos (MX-CHI.KM.612) · 1914 no mint mark",
+   "want": "the mintage for that year and mint only (an integer); leave FILL when the table is blank",
+   "coins": [
+    "C114"
+   ],
+   "n": 111,
+   "numista_read": "Numista N#32634 https://en.numista.com/32634, Manage my collection table; quote: \"No mintage column or figure listed for 1914 on 5 Centavos State of Chihuahua KM# 612.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.KM.415",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 1.0 centavo (MX.KM.415)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C259"
+   ],
+   "n": 112,
+   "numista_read": "Numista N#5133 https://en.numista.com/5133, Obverse/Reverse; quote: \"No engraver or designer listed on page for 1 Centavo Mexico KM# 415.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.KM.424",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5.0 centavos (MX.KM.424)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C166"
+   ],
+   "n": 113,
+   "numista_read": "Numista N#3136 https://en.numista.com/3136, Obverse/Reverse; quote: \"No engraver or designer listed on page for 5 Centavos Mexico KM# 424.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.KM.440",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 20.0 centavos (MX.KM.440)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C244",
+    "C257"
+   ],
+   "n": 114,
+   "numista_read": "Numista N#959 https://en.numista.com/959, Obverse/Reverse; quote: \"No engraver or designer listed on page for 20 Centavos (Type 2 National Emblem) Mexico KM# 440.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.KM.502",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 5.0 pesos (MX.KM.502)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C209"
+   ],
+   "n": 115,
+   "numista_read": "Numista N#3445 https://en.numista.com/3445, Obverse/Reverse; quote: \"No engraver or designer listed on page for 5 Pesos Mexico KM# 502.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.KM.604",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 2.0 pesos (MX.KM.604)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C236",
+    "C315"
+   ],
+   "n": 116,
+   "numista_read": "Numista N#587 https://en.numista.com/587, Obverse/Reverse; quote: \"No engraver or designer listed on page for 2 Pesos (non magnetic core) Mexico KM# 604.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.KM.936",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 50.0 centavos (MX.KM.936)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C271"
+   ],
+   "n": 117,
+   "numista_read": "Numista N#18097 https://en.numista.com/18097, Obverse/Reverse; quote: \"No engraver or designer listed on page for 50 Centavos (small type) Mexico KM# 936.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.X.1-peso",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 1 peso (MX.X.1-peso)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C346"
+   ],
+   "n": 118,
+   "numista_read": "Numista N#585 https://en.numista.com/585, Obverse/Reverse; quote: \"No engraver or designer listed on page for 1 Peso (non magnetic core) Mexico KM# 603.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.X.10-centavos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 10 centavos (MX.X.10-centavos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C274",
+    "C323"
+   ],
+   "n": 119,
+   "numista_read": "Numista N#581 https://en.numista.com/581, Obverse/Reverse; quote: \"No engraver or designer listed on page for 10 Centavos (large type) Mexico KM# 547.\"",
+   "part": 2
+  },
+  {
+   "type": "MX.X.2-nuevos-pesos",
+   "field": "design.designers",
+   "old": [],
+   "label": "MX 2 nuevos pesos (MX.X.2-nuevos-pesos)",
+   "want": "a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\"]; leave FILL when the catalogue names none",
+   "coins": [
+    "C319"
+   ],
+   "n": 120,
+   "numista_read": "Numista N#586 https://en.numista.com/586, Obverse/Reverse; quote: \"No engraver or designer listed on page for 2 Nuevos Pesos Mexico KM# 551.\"",
+   "part": 2
+  }
+ ]
+}
