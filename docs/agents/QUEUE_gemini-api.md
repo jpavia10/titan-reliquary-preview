@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini API) -->
-# WORK QUEUE for Gemini API (updated 2026-11-21 15:54 UTC)
+# WORK QUEUE for Gemini API (updated 2026-11-22 02:14 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -35,25 +35,21 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-gemini-api-verify-20261115-1 · Second reader · Check 18 facts another AI wrote · due 2026-11-22  (fix list #18)
+### 1. HW-gemini-api-verify-20261122-1 · Second reader · Check 14 facts another AI wrote · due 2026-11-29  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
 **Done when:** One change file; a fact you could not check is left out.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-api-verify-20261115-1.jsonl (save your edited copy as changes_gemini-api_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-api-verify-20261122-1.jsonl (save your edited copy as changes_gemini-api_YYYYMMDD-HHMM.jsonl)
 
 Items:
 - **mint of C078 · Switzerland · 1969 · 20 rappen · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C078 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C078_obv.webp (original: https://drive.google.com/file/d/1NBBKww5p8WQrxtPOxkxoWxRBGn57Numb/view)
-- **mint of C068 · Switzerland · 1963 · 20 rappen · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C068 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp (original: https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view)
-- **year of C165 · Sweden · 1 krona · SEK** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C165 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C165_obv.webp (original: https://drive.google.com/file/d/1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa/view)
 - **year of C246 · Philippines · 10 sentimos · PHP** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C246 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C246_obv.webp (original: https://drive.google.com/file/d/1Ixbs84zzxGmoczfCLfvybNjZEZvDG6pk/view)
-- **mint of C076 · Switzerland · 1989 · 20 rappen · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C076 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C076_obv.webp (original: https://drive.google.com/file/d/1__5E3wSeMlaByKFjm131nDWBf8lBL2ps/view)
 - **denomination of C165 · Sweden · 1973** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type SE.KM.826a denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C165_obv.webp (original: https://drive.google.com/file/d/1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa/view)
 - **denomination of C207 · Trinidad and Tobago · 2016** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type TT.KM.31 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C207_obv.webp (original: https://drive.google.com/file/d/1AIEgGtZg-rnaPmGFS9IICZMZKqCkfcK2/view)
 - **denomination of C019 · Germany · 1981** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type DE.KM.108 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C019_obv.webp (original: https://drive.google.com/file/d/1KgkQJAI4bRpwo-X8t2zG2OypETwJbCfb/view)
 - **denomination of C173 · United Kingdom · 1998** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GB.KM.988 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C173_obv.webp (original: https://drive.google.com/file/d/1YHvY3T2fD94Rz7GlU1x2fuqZL4QWgX6u/view)
-- **mint of C227 · Germany · 1984 · 10 Pfennig · DEM** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C227 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C227_obv.webp (original: https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view)
 - **denomination of C131 · Germany · 2002** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type DE.KM.211 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C131_obv.webp (original: https://drive.google.com/file/d/1dDIlK9QjkJHY60kWaQHUYXMKmXQGV0pq/view)
 - **denomination of C053 · Germany · 2011** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type DE.KM.255 denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C053_obv.webp (original: https://drive.google.com/file/d/1XTQ52oaxj491yv-w_EfJlwp-c6jKO59l/view)
 - **denomination of C157 · United Kingdom · 2014** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type GB.KM.1110d denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C157_obv.webp (original: https://drive.google.com/file/d/1mB199zPnfMsVm2Yv4a9zaVbX-SxTDsxA/view)
@@ -73,6 +69,6 @@ Whenever NOID photos appear in Drive STAGING, Claude runs each new photo through
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 4; expired: 1.
+- Assignments answered: 4; expired: 2.
 - Your facts checked by another contributor: 11 (3 confirmed, 8 wrong; error rate 72.7 %, 95 % range 43-90 %). Checks you did for others: 6. Open disagreements you are part of: 1.
 - Share of your new facts that get checked first: 100 %.

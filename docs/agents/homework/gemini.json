@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-21T15:54:46Z",
+ "updated": "2026-11-22T02:14:48Z",
  "assignments": [
   {
    "id": "HW-gemini-fill-20261118-1",
@@ -42,6 +42,57 @@
        "designers"
       ],
       "numista_url": "https://en.numista.com/catalogue/pieces42670.html"
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-verify-20261122-1",
+   "agent": "gemini",
+   "kind": "verify",
+   "issued": "2026-11-22T02:14:48Z",
+   "lease_until": "2026-11-29T02:14:48Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "verify:type:KR.X.10-won:period",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "period"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "verify:type:KR.X.10-won:period",
+     "kind": "verify",
+     "entity": "type",
+     "id": "KR.X.10-won",
+     "field": "period",
+     "coins": [
+      "C342"
+     ],
+     "label": "period of C342 · South Korea · 2001 · 10 won · KRW",
+     "authors": [
+      "muse"
+     ],
+     "payload": {
+      "fact": "period",
+      "author": "Muse",
+      "ledger": false,
+      "value": "Republic",
+      "their_source": "Numista N#978 https://en.numista.com/catalogue/pieces978.html: Period 'Republic (1948-date)'; differs from the record's 'Republic of Korea' ",
+      "links": [
+       "https://en.numista.com/catalogue/pieces978.html"
+      ],
+      "photos": [],
+      "audit": false,
+      "lookup_blind": false,
+      "recheck": false,
+      "ai_guess": false
      },
      "blind": false,
      "inputs": []

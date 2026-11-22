@@ -1,13 +1,13 @@
 {
  "agent": "gemini-api",
- "updated": "2026-11-21T15:54:46Z",
+ "updated": "2026-11-22T02:14:48Z",
  "assignments": [
   {
-   "id": "HW-gemini-api-verify-20261115-1",
+   "id": "HW-gemini-api-verify-20261122-1",
    "agent": "gemini-api",
    "kind": "verify",
-   "issued": "2026-11-15T01:56:48Z",
-   "lease_until": "2026-11-22T01:56:48Z",
+   "issued": "2026-11-22T02:14:48Z",
+   "lease_until": "2026-11-29T02:14:48Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -19,28 +19,10 @@
      "field": "issue.mint_marks"
     },
     {
-     "item": "verify:specimen:C068:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C068",
-     "field": "issue.mint_marks"
-    },
-    {
-     "item": "verify:specimen:C165:issue.year",
-     "entity": "specimen",
-     "id": "C165",
-     "field": "issue.year"
-    },
-    {
      "item": "verify:specimen:C246:issue.year",
      "entity": "specimen",
      "id": "C246",
      "field": "issue.year"
-    },
-    {
-     "item": "verify:specimen:C076:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C076",
-     "field": "issue.mint_marks"
     },
     {
      "item": "verify:type:SE.KM.826a:denomination.value",
@@ -65,12 +47,6 @@
      "entity": "type",
      "id": "GB.KM.988",
      "field": "denomination.value"
-    },
-    {
-     "item": "verify:specimen:C227:issue.mint_marks",
-     "entity": "specimen",
-     "id": "C227",
-     "field": "issue.mint_marks"
     },
     {
      "item": "verify:type:DE.KM.211:denomination.value",
@@ -162,84 +138,6 @@
      ]
     },
     {
-     "item": "verify:specimen:C068:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C068",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C068"
-     ],
-     "label": "mint of C068 · Switzerland · 1963 · 20 rappen · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp",
-        "file": "C068_obv.webp",
-        "original": "C068_Switzerland_1963_20Rappen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C068_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C165:issue.year",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C165",
-     "field": "issue.year",
-     "coins": [
-      "C165"
-     ],
-     "label": "year of C165 · Sweden · 1 krona · SEK",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "year",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C165_obv.webp",
-        "file": "C165_obv.webp",
-        "original": "C165_Sweden_ND_1Krona_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C165_obv.webp"
-     ]
-    },
-    {
      "item": "verify:specimen:C246:issue.year",
      "kind": "verify",
      "entity": "specimen",
@@ -276,45 +174,6 @@
      "blind": true,
      "inputs": [
       "C246_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C076:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C076",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C076"
-     ],
-     "label": "mint of C076 · Switzerland · 1989 · 20 rappen · CHF",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C076_obv.webp",
-        "file": "C076_obv.webp",
-        "original": "C076_Switzerland_1989_20Rappen_obv.jpeg",
-        "drive": "https://drive.google.com/file/d/1__5E3wSeMlaByKFjm131nDWBf8lBL2ps/view"
-       }
-      ],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C076_obv.webp"
      ]
     },
     {
@@ -484,45 +343,6 @@
      "blind": true,
      "inputs": [
       "C173_obv.webp"
-     ]
-    },
-    {
-     "item": "verify:specimen:C227:issue.mint_marks",
-     "kind": "verify",
-     "entity": "specimen",
-     "id": "C227",
-     "field": "issue.mint_marks",
-     "coins": [
-      "C227"
-     ],
-     "label": "mint of C227 · Germany · 1984 · 10 Pfennig · DEM",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mint",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [
-       {
-        "side": "obv",
-        "url": "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C227_obv.webp",
-        "file": "C227_obv.webp",
-        "original": "C224_C225_C226_C227_C228_C229_Germany_10Pfennig_rev.jpeg",
-        "drive": "https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view"
-       }
-      ],
-      "audit": true,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": true,
-     "inputs": [
-      "C227_obv.webp"
      ]
     },
     {

@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-21 15:54 UTC)
+# WORK QUEUE for Muse (updated 2026-11-22 02:14 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -218,6 +218,110 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **design of C042 · USSR · 1962 · 1 kopek · SUR** `type SU.Y.126a design.text` = `Obverse: The arms of the Soviet Union (15 ribbons on the wreath, 7 + 1 + 7). Reverse: Val…` (written by Gemini: «Numista N#767 https://en.numista.com/catalogue/pieces767.html, Obverse and Reverse description (items 6-7: C042, C044)»)
 - **design of C200 · Taiwan (ROC) · 2008 · 1 yuan · TWD** `type TW.KM.551 design.text` = `obverse Atatürk portrait / state legend · reverse crescent+star · big 10 · KURUŞ · date ·…` (written by Gemini: «Numista N#966 https://en.numista.com/catalogue/pieces966.html, Obverse and Reverse description (item 34: C200)»)
+
+### 12. HW-muse-verify-20261122-1 · Second reader · Check 80 facts another AI wrote · due 2026-11-29  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261122-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mintage of C328 · Switzerland · 1976 · 1 franc · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.24a.1 issues.4.mintage` [audit sample]
+- **catalog of C309 · United Kingdom · 1937 · ½ penny · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.half-penny catalogs` [audit sample]
+- **catalog of C324 · Mexico · 2005 · 5 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.5-pesos catalogs` [audit sample]
+- **catalog of C329 · United Kingdom · 1962 · 1 shilling · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.1-shilling catalogs` [audit sample]
+- **mintage of C307 · South Korea · 1988 · 100 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.35.2 issues.1.mintage` [audit sample]
+- **mintage of C335 · South Korea · 1994 · 100 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.35.2 issues.3.mintage` [audit sample]
+- **catalog of C342 · South Korea · 2001 · 10 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.X.10-won catalogs` [audit sample]
+- **mint of C227 · Germany · 1984 · 10 Pfennig · DEM** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C227 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C227_obv.webp (original: https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view)
+- **catalog of C333 · Norway · 1977 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.X.50-ore catalogs` [audit sample]
+- **mintage of C312 · Czech Republic · 2008 · 5 korun · CZK** (blind: look it up yourself in your own exact source; the first value is not shown) `type CZ.X.5-korun issues.0.mintage` [audit sample]
+- **composition of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** `type DD.X.10-pfennig composition.text` = `aluminium` (written by Gemini: «https://en.numista.com/catalogue/pieces1925.html ("Composition: Aluminium | Weight: 1.5 g | Diameter: 21 mm")») [audit sample]
+- **composition of C333 · Norway · 1977 · 50 øre · NOK** `type NO.X.50-ore composition.text` = `Copper-nickel (75% Cu, 25% Ni)` (written by Gemini: «https://en.numista.com/catalogue/pieces1439.html ("Composition: Copper-nickel (75% Cu, 25% Ni)")») [audit sample]
+- **catalog of C305 · Vatican City · 1958 · 20 lire · VAL** (blind: look it up yourself in your own exact source; the first value is not shown) `type VA.X.20-lire catalogs`
+- **mintage of C305 · Vatican City · 1958 · 20 lire · VAL** (blind: look it up yourself in your own exact source; the first value is not shown) `type VA.X.20-lire issues.0.mintage`
+- **composition of C305 · Vatican City · 1958 · 20 lire · VAL** `type VA.X.20-lire composition.text` = `Aluminium bronze` (written by Gemini: «https://en.numista.com/catalogue/pieces33337.html ("Composition: Aluminium bronze")»)
+- **mintage of C308 · Switzerland · 1968 · 1 franc · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.24a.1 issues.3.mintage`
+- **catalog of C340 · Japan · 2015 · 100 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.100-yen catalogs`
+- **mintage of C340 · Japan · 2015 · 100 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.100-yen issues.0.mintage`
+- **composition of C340 · Japan · 2015 · 100 yen · JPY** `type JP.X.100-yen composition.text` = `copper-nickel (75% copper, 25% nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces2121.html ("Composition: Copper-nickel (75% Copper, 25% Nickel) | Weight: 4.8 g")»)
+- **period of C340 · Japan · 2015 · 100 yen · JPY** `type JP.X.100-yen period` = `Heisei era` (written by Gemini: «https://en.numista.com/catalogue/pieces2121.html ("Emperor: Heisei (1989-2019) | Years: 1-31 (1989-2019) | Dating: Japan - Heisei era")»)
+- **mintage of C309 · United Kingdom · 1937 · ½ penny · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.half-penny issues.0.mintage`
+- **composition of C309 · United Kingdom · 1937 · ½ penny · GBP** `type GB.X.half-penny composition.text` = `Bronze` (written by Gemini: «https://en.numista.com/catalogue/pieces870.html ("Composition: Bronze")»)
+- **catalog of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.2-nuevos-pesos catalogs`
+- **mintage of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.2-nuevos-pesos issues.1.mintage`
+- **composition of C319 · Mexico · 1994 · 2 nuevos pesos · MXN** `type MX.X.2-nuevos-pesos composition.text` = `Bimetallic: aluminium bronze centre in stainless steel ring` (written by Gemini: «https://en.numista.com/catalogue/pieces586.html ("Composition: Bimetallic: aluminium bronze centre in stainless steel ring")»)
+- **catalog of C310 · France · 1979 · 2 francs · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.X.2-francs catalogs`
+- **mintage of C337 · Switzerland · 1944 · 5 rappen · CHF** (blind: look it up yourself in your own exact source; the first value is not shown) `type CH.KM.26 issues.1.mintage`
+- **mintage of C310 · France · 1979 · 2 francs · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.X.2-francs issues.0.mintage`
+- **mintage of C324 · Mexico · 2005 · 5 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.5-pesos issues.1.mintage`
+- **composition of C310 · France · 1979 · 2 francs · FRF** `type FR.X.2-francs composition.text` = `nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces7.html ("Features: Composition Nickel")»)
+- **composition of C324 · Mexico · 2005 · 5 pesos · MXN** `type MX.X.5-pesos composition.text` = `Bimetallic: aluminium bronze centre in stainless steel ring` (written by Gemini: «https://en.numista.com/catalogue/pieces589.html ("Composition: Bimetallic: aluminium bronze centre in stainless steel ring")»)
+- **catalog of C313 · Russia · 1992 · 20 roubles · RUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type RU.X.20-roubles catalogs`
+- **mintage of C329 · United Kingdom · 1962 · 1 shilling · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.1-shilling issues.0.mintage`
+- **composition of C329 · United Kingdom · 1962 · 1 shilling · GBP** `type GB.X.1-shilling composition.text` = `copper-nickel (75% Cu, 25% Ni)` (written by Gemini: «https://en.numista.com/catalogue/pieces882.html ("Features: Composition Copper-nickel (75% Cu, 25% Ni)")»)
+- **composition of C313 · Russia · 1992 · 20 roubles · RUR** `type RU.X.20-roubles composition.text` = `Copper-nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces4077.html ("Composition: Copper-nickel")»)
+- **catalog of C326 · Bahamas · 1974 · 1 cent · BSD** (blind: look it up yourself in your own exact source; the first value is not shown) `type BS.X.1-cent.2 catalogs`
+- **mintage of C326 · Bahamas · 1974 · 1 cent · BSD** (blind: look it up yourself in your own exact source; the first value is not shown) `type BS.X.1-cent.2 issues.0.mintage`
+- **composition of C326 · Bahamas · 1974 · 1 cent · BSD** `type BS.X.1-cent.2 composition.text` = `nickel brass (79% copper, 20% zinc, 1% nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces3159.html ("Features: Composition Nickel brass (79% Copper, 20% Zinc, 1% Nickel)")»)
+- **catalog of C330 · Ireland · 1995 · 10 pence · IEP** (blind: look it up yourself in your own exact source; the first value is not shown) `type IE.X.10-pence catalogs`
+- **mintage of C330 · Ireland · 1995 · 10 pence · IEP** (blind: look it up yourself in your own exact source; the first value is not shown) `type IE.X.10-pence issues.0.mintage`
+- **composition of C330 · Ireland · 1995 · 10 pence · IEP** `type IE.X.10-pence composition.text` = `Copper-nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces1457.html ("Composition: Copper-nickel")»)
+- **mintage of C325 · Italy · 1955 · 50 lire · ITL** (blind: look it up yourself in your own exact source; the first value is not shown) `type IT.KM.95.1 issues.5.mintage`
+- **mintage of C315 · Mexico · 1998 · 2 pesos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.KM.604 issues.2.mintage`
+- **catalog of C331 · Australia · 1966 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents.2 catalogs`
+- **catalog of C322 · Portugal · 1970 · 20 centavos · PTE** (blind: look it up yourself in your own exact source; the first value is not shown) `type PT.X.20-centavos catalogs`
+- **mintage of C331 · Australia · 1966 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents.2 issues.0.mintage`
+- **mintage of C311 · South Korea · 1997 · 100 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.KM.35.2 issues.2.mintage`
+- **mintage of C322 · Portugal · 1970 · 20 centavos · PTE** (blind: look it up yourself in your own exact source; the first value is not shown) `type PT.X.20-centavos issues.0.mintage`
+- **composition of C331 · Australia · 1966 · 10 cents · AUD** `type AU.X.10-cents.2 composition.text` = `copper-nickel (75% copper, 25% nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces1282.html ("Features: Composition Copper-nickel (75% Copper, 25% Nickel)")»)
+- **composition of C322 · Portugal · 1970 · 20 centavos · PTE** `type PT.X.20-centavos composition.text` = `Bronze (Cu 950 + Sn 30 + Zn 20)` (written by Gemini: «https://en.numista.com/catalogue/pieces3282.html ("Composition: Bronze (Cu 950 + Sn 30 + Zn 20)")»)
+- **mint of C244 · Mexico · 1964 · 20 centavos · MXP** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C244 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C244_rev.webp (original: https://drive.google.com/file/d/1uW_45e9r21AxxRKTcGTosKV6UcsWeR5t/view)
+- **year of C068 · Switzerland · 20 rappen · CHF** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C068 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp (original: https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view)
+- **mint of C068 · Switzerland · 1963 · 20 rappen · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C068 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C068_obv.webp (original: https://drive.google.com/file/d/1Z9W3YbOSzCC5qdeQOHdDRzFdcGOlBfMD/view)
+- **mint of C011 · Italy · 1970 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C011 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C011_rev.webp (original: https://drive.google.com/file/d/1QlzMuGznkB5QiwZZNo47yahgAXy_HBMN/view)
+- **year of C165 · Sweden · 1 krona · SEK** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C165 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C165_obv.webp (original: https://drive.google.com/file/d/1prFkfrDasGCbxUSN08zkqVe6JzJHoGEa/view)
+- **year of C221 · France · 1/2 franc · FRF** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C221 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C221_rev.webp (original: https://drive.google.com/file/d/1WPbtSoJxu4yWCRuBjuaHAZqQvWAE8xQu/view)
+- **mint of C076 · Switzerland · 1989 · 20 rappen · CHF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C076 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C076_obv.webp (original: https://drive.google.com/file/d/1__5E3wSeMlaByKFjm131nDWBf8lBL2ps/view)
+- **catalog of C316 · United Kingdom · 2014 · 20 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.20-pence catalogs`
+- **mintage of C316 · United Kingdom · 2014 · 20 pence · GBP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GB.X.20-pence issues.0.mintage`
+- **mintage of C342 · South Korea · 2001 · 10 won · KRW** (blind: look it up yourself in your own exact source; the first value is not shown) `type KR.X.10-won issues.0.mintage`
+- **composition of C316 · United Kingdom · 2014 · 20 pence · GBP** `type GB.X.20-pence composition.text` = `Copper-nickel` (written by Gemini: «https://en.numista.com/catalogue/pieces5628.html ("Composition: Copper-nickel")»)
+- **composition of C342 · South Korea · 2001 · 10 won · KRW** `type KR.X.10-won composition.text` = `brass (65% copper, 35% zinc)` (written by Gemini: «https://en.numista.com/catalogue/pieces978.html ("Composition: Brass (65% Copper, 35% Zinc) | Weight: 4.06 g")»)
+- **year of C040 · Netherlands · 20 euro cent · EUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C040 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C040_obv.webp (original: https://drive.google.com/file/d/1r6Th7Zhgg1zXk1PEng1o7or6olp0dgl8/view)
+- **year of C056 · Portugal · 20 euro cent · EUR** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C056 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C056_obv.webp (original: https://drive.google.com/file/d/1lEfFNu8FlfKw3MvuzvEnD0RjyaOcBXGW/view)
+- **catalog of C312 · Czech Republic · 2008 · 5 korun · CZK** (blind: look it up yourself in your own exact source; the first value is not shown) `type CZ.X.5-korun catalogs`
+- **catalog of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** (blind: look it up yourself in your own exact source; the first value is not shown) `type DD.X.10-pfennig catalogs`
+- **catalog of C334 · Spain · 1989 · 5 pesetas · ESP** (blind: look it up yourself in your own exact source; the first value is not shown) `type ES.X.5-pesetas catalogs`
+- **mintage of C341 · German Democratic Republic · 1968 · 10 Pfennig · DDM** (blind: look it up yourself in your own exact source; the first value is not shown) `type DD.X.10-pfennig issues.0.mintage`
+- **mintage of C334 · Spain · 1989 · 5 pesetas · ESP** (blind: look it up yourself in your own exact source; the first value is not shown) `type ES.X.5-pesetas issues.0.mintage`
+- **mintage of C321 · France · 1988 · 20 centimes · FRF** (blind: look it up yourself in your own exact source; the first value is not shown) `type FR.KM.930 issues.2.mintage`
+- **mintage of C323 · Mexico · 1994 · 10 centavos · MXN** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.10-centavos issues.2.mintage`
+- **mintage of C333 · Norway · 1977 · 50 øre · NOK** (blind: look it up yourself in your own exact source; the first value is not shown) `type NO.X.50-ore issues.0.mintage`
+- **composition of C312 · Czech Republic · 2008 · 5 korun · CZK** `type CZ.X.5-korun composition.text` = `nickel plated steel` (written by Gemini: «https://en.numista.com/catalogue/pieces2149.html ("Features: Composition Nickel plated steel")»)
+- **composition of C334 · Spain · 1989 · 5 pesetas · ESP** `type ES.X.5-pesetas composition.text` = `aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manganese)` (written by Gemini: «https://en.numista.com/catalogue/pieces1262.html ("Composition: Aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manga»)
+- **year of C222 · Japan · 1 yen · JPY** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C222 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C222_rev.webp (original: https://drive.google.com/file/d/15-zLaCNLyJ6epdlZH7iPAFUJaNFbEuKc/view)
+- **year of C224 · Germany · 10 Pfennig · DEM** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C224 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C224_obv.webp (original: https://drive.google.com/file/d/1TS4U6teQ0f3ZdAVdp5mR4nGBO3lAgMmQ/view)
+- **year of C240 · Italy · 100 lire · ITL** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C240 issue.year`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C240_rev.webp (original: https://drive.google.com/file/d/1EYCNaNZjAuuVbxcSucl3igc3w6KiU3yR/view)
+- **catalog of C338 · Jamaica · 1977 · 10 cents · JMD** (blind: look it up yourself in your own exact source; the first value is not shown) `type JM.X.10-cents catalogs`
+- **catalog of C320 · Sweden · 1991 · 1 krona · SEK** (blind: look it up yourself in your own exact source; the first value is not shown) `type SE.X.1-krona catalogs`
+- **mintage of C338 · Jamaica · 1977 · 10 cents · JMD** (blind: look it up yourself in your own exact source; the first value is not shown) `type JM.X.10-cents issues.0.mintage`
+
+### 13. HW-muse-verify-20261122-2 · Second reader · Check 4 facts another AI wrote · due 2026-11-29  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-verify-20261122-2.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **mintage of C320 · Sweden · 1991 · 1 krona · SEK** (blind: look it up yourself in your own exact source; the first value is not shown) `type SE.X.1-krona issues.0.mintage`
+- **composition of C338 · Jamaica · 1977 · 10 cents · JMD** `type JM.X.10-cents composition.text` = `aluminum-bronze (Cu 95, Al 5)` (written by Gemini: «https://en.numista.com/catalogue/pieces934.html ("Composition: Copper-nickel (75% Copper, 25% Nickel) | Weight: 5.66 g")»)
+- **composition of C320 · Sweden · 1991 · 1 krona · SEK** `type SE.X.1-krona composition.text` = `Copper-nickel (75% Copper, 25% Nickel)` (written by Gemini: «https://en.numista.com/catalogue/pieces6862.html ("Composition: Copper-nickel (75% Copper, 25% Nickel)")»)
+- **mintage of C336 · Germany · 2002 · 10 euro cent · EUR** (blind: look it up yourself in your own exact source; the first value is not shown) `type DE.KM.210 issues.3.mintage`
 
 ## Projects (after the homework)
 

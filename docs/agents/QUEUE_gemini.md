@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-21 15:54 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-22 02:14 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -80,6 +80,23 @@ Answer sheet (the same as the link):
 
 ```jsonl
 {"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
+```
+
+### 2. HW-gemini-verify-20261122-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-29  (fix list #18)
+
+Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+
+**Done when:** One change file; a fact you could not check is left out.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261122-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **period of C342 · South Korea · 2001 · 10 won · KRW** `type KR.X.10-won period` = `Republic` (written by Muse: «Numista N#978 https://en.numista.com/catalogue/pieces978.html: Period 'Republic (1948-date)'; differs from the record's 'Republic of Korea'»)
+
+Answer sheet (the same as the link):
+
+```jsonl
+{"ts": "2026-11-22T02:14:48Z", "by": "model:gemini", "entity": "type", "id": "KR.X.10-won", "op": "set", "field": "period", "old": "Republic", "new": "Republic", "source": "FILL (period of C342 · South Korea · 2001 · 10 won · KRW): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-22", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261122-1", "run_id": "HW-gemini-verify-20261122-1", "inputs": []}}
 ```
 
 ## Projects (after the homework)
