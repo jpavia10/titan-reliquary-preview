@@ -497,9 +497,16 @@ class Applier:
         elif project_check(e):
             if "old" in e and e["old"] is None: del e["old"]      # a blind read: nothing was shown, so nothing can be stale
             if e["entity"] == "specimen" and e["field"] in ("country", "denomination"):
-                # these live on the coin's type (ISO code, value + unit), not on the specimen: nothing to compare here, so nothing is filed
-                self.log.append(f"left out (a type-level field, not on the specimen): {e['entity']} {e['id']} {e['field']} = {j(e.get('new'))[:40]}")
-                self.done.add(event_key(e)); return "left"
+                # these live on the coin's type (ISO code; value + unit). Since 2026-11-22 the check goes to the type, so the coin's country and
+                # denomination can rise from ledger-only (273 and 126 facts were stuck because these lines were dropped).
+                moved = self.to_type(e)
+                if moved is None:
+                    self.log.append(f"left out (a type-level field it could not read as a code or a number): {e['entity']} {e['id']} {e['field']} = {j(e.get('new'))[:40]}")
+                    self.done.add(event_key(e)); return "left"
+                if event_key(moved) in self.done:
+                    self.log.append(f"already applied: type {moved['id']} {moved['field']} (from specimen {e['id']})"); return "skipped"
+                self.log.append(f"checked on the type: specimen {e['id']} {e['field']} -> type {moved['id']} {moved['field']} = {j(moved['new'])[:40]}")
+                e = moved
             r = self.divert(e, {"id": project_check(e), "kind": "verify"})
             if r: self.done.add(event_key(e)); return r
         elif e.get("by") == "model:claude" and op == "set" and e["entity"] != "photo" and (e.get("provenance") or {}).get("workflow") == "spot-check":
@@ -573,6 +580,27 @@ class Applier:
             f = x["field"]
             if f == field or field.startswith(f + ".") or f == "(new record)": return x
         return None
+
+    def to_type(self, e):
+        """A specimen country/denomination check as the same check on the coin's type ("CH" or "Switzerland" -> country "CH";
+        "20 rappen" or 20 -> denomination.value 20), or None when the value cannot be read that way."""
+        sp = self.c.specs.get(e["id"])
+        if sp is None or not sp.get("type"): return None
+        v = e.get("new")
+        if e["field"] == "country":
+            if not isinstance(v, str): return None
+            s = v.strip(); iso = s.upper() if re.fullmatch(r"[A-Za-z]{2}", s) else next((i.get("iso") or i["id"] for i in self.c.issuers if (i.get("name") or "").casefold() == s.casefold()), None)
+            if not iso: return None
+            field, new = "country", iso
+        else:
+            if isinstance(v, (int, float)) and not isinstance(v, bool): new = v
+            else:
+                m = re.match(r"\s*(\d+(?:[.,]\d+)?)\b", str(v or "")) if isinstance(v, str) else None
+                if not m: return None
+                x = m.group(1).replace(",", "."); new = float(x) if "." in x else int(x)
+            field = "denomination.value"
+        out = copy.deepcopy(e); out.update(entity="type", id=sp["type"], field=field, new=new); out.pop("old", None)
+        return out
 
     def divert(self, e, asg):
         """A verify line: same value -> None (set() logs the re-citation); stale -> "stale"; different value -> a disagreement, not applied."""

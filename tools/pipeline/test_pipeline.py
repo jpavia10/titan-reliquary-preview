@@ -465,6 +465,23 @@ class Pipeline(unittest.TestCase):
         tmp = sandbox(); f = write_events(tmp, "changes_bad.jsonl", [ev(entity="specimen", id="C001", op="create", field="(new record)", new={"type": "CH.KM.24a.1", "year_raw": 1969})])
         r = self.apply(tmp, f); self.assertEqual(r.returncode, 1); self.assertNotIn("Traceback", r.stderr)                                       # year_raw must be a string
 
+    def test_a_coins_country_and_denomination_check_goes_to_its_type(self):
+        """2026-11-22: a check-project line on a specimen's country or denomination is compared on the coin's type (it used to be dropped)."""
+        tmp = sandbox(); coll = os.path.join(tmp, "collection")
+        sp = C.Collection(coll).specs["C001"]; t = sp["type"]
+        src = "Numista N#185 https://en.numista.com/catalogue/pieces185.html, obverse and reverse, read 2026-10-08"
+        mk = lambda i, f, v: {"ts": f"2026-10-08T05:0{i}:00Z", "by": "model:gemini", "entity": "specimen", "id": "C001", "op": "set", "field": f, "new": v, "source": src,
+                              "verified": False, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "AI_START_HERE@2026-11-16",
+                              "workflow": "phase2-research", "inputs": [{"file": "https://en.numista.com/catalogue/pieces185.html"}], "run_id": "GT-SECOND-r1"}}
+        r = self.apply(tmp, write_events(tmp, "changes_gemini_20261008-0500.jsonl", [mk(0, "country", "Switzerland"), mk(1, "denomination", "1 franc"), mk(2, "country", "Atlantis")]))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertIn(f"type {t} country", r.stdout); self.assertIn(f"type {t} denomination.value", r.stdout)
+        self.assertIn("could not read as a code or a number", r.stdout)                  # an unknown country is left out, never filed
+        col = C.Collection(coll)
+        self.assertEqual(col.types[t]["country"], "CH"); self.assertEqual(col.types[t]["denomination"]["value"], 1.0)   # nothing overwritten
+        ev = [e for e in col.changes if e["entity"] == "type" and e["id"] == t and e["ts"].startswith("2026-10-08T05:0")]
+        self.assertEqual(sorted(e["field"] for e in ev), ["country", "denomination.value"])
+
     def test_junk_sources_rejected(self):
         for src in ("n/a", "unknown", "AI", "short", "None", "ai estimate", "   "):
             self.reject([ev(entity="specimen", id="C001", field="notes", new="x", source=src)], "source")

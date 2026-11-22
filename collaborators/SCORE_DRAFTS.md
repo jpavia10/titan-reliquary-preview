@@ -3,12 +3,4 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-## Gemini
-
-| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
-|---|---|---|---|---|---|---|---|
-| `changes_gemini_20261121-1145.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 4 lines: 4 in the change log, 0 filed as disagreements; nothing cross-checked yet |
-| `changes_gemini_20261121-1148.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 56 lines: 53 in the change log, 2 filed as disagreements, 1 not written (stale, no change or already applied); cross-checked so far: 53 held, 0 wrong |
-| `changes_gemini_20261121-1149.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 37 lines: 35 in the change log, 2 filed as disagreements; cross-checked so far: 35 held, 0 wrong |
-| `changes_gemini_20261121-1150.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 35 lines: 24 in the change log, 9 filed as disagreements, 2 not written (stale, no change or already applied); cross-checked so far: 24 held, 0 wrong |
-| `changes_gemini_20261121-1159.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 64 lines: 38 in the change log, 23 filed as disagreements, 3 not written (stale, no change or already applied); cross-checked so far: 38 held, 0 wrong |
+Nothing waiting: every outside AI's file is scored.
