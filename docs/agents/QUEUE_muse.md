@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-23 16:08 UTC)
+# WORK QUEUE for Muse (updated 2026-11-23 22:36 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -35,7 +35,7 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-muse-verify-20261118-1 · Second reader · Check 23 facts another AI wrote · due 2026-11-25  (fix list #18)
+### 1. HW-muse-verify-20261118-1 · Second reader · Check 22 facts another AI wrote · due 2026-11-25  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -45,28 +45,27 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 
 Items:
 - **mint of C351 · France · 1867 · 10 centimes · FRF** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C351 issue.mint_marks`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_obv.webp (original: https://drive.google.com/file/d/1kQH2ehDb_zFhY8CcHWn8aSuk3ih6tlr5/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_rev.webp (original: https://drive.google.com/file/d/1Cno86aZ6OXDTW2UU8AuGcHCnY68GJEKG/view)
-- **mintage of C347 · Guernsey · 1893 · 8 doubles · GGP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GG.X.8-doubles issues.0.mintage`
-- **ruler of C347 · Guernsey · 1893 · 8 doubles · GGP** `type GG.X.8-doubles ruler` = `Victoria` (written by Gemini: «https://en.numista.com/catalogue/pieces5044.html — Issuer Guernsey Queen Victoria (1837-1901) (read 2026-11-17)»)
-- **design of C230 · Jamaica · 2015 · 10 dollars · JMD** `type JM.KM.190 design.text` = `arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date` (written by Gemini: «Numista N#14370 https://en.numista.com/catalogue/pieces14370.html (Jamaica 10 Dollars Round 2008-2025, KM#190) shares the standard Jamaican»)
-- **mintage of C349 · Australia · 1977 · 50 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.50-cents issues.0.mintage`
-- **ruler of C349 · Australia · 1977 · 50 cents · AUD** `type AU.X.50-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces5524.html — Issuer Australia Queen Elizabeth II (1952-2022) (read 2026-11-17)»)
-- **design of C202 · Guatemala · 2010 · 10 centavos · GTQ** `type GT.KM.277.6a design.text` = `reverse Maya stela · 10 CENTAVOS · MONOLITO DE QUIRIGUA · date on arms side` (written by Gemini: «Numista N#42670 https://en.numista.com/catalogue/pieces42670.html (Guatemala 10 Centavos Magnetic 2009-2024, KM#277.6a) and Numista N#3136:»)
-- **mintage of C352 · Mexico · 1943 · 20 centavos · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.20-centavos issues.0.mintage`
-- **period of C352 · Mexico · 1943 · 20 centavos · MXP** `type MX.X.20-centavos period` = `United Mexican States/Mexican Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces3933.html — Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)»)
-- **mintage of C346 · Mexico · 1975 · 1 peso · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.1-peso issues.0.mintage`
-- **ruler of C350 · East Caribbean States · 1991 · 10 cents · XCD** `type EC.X.10-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces932.html — Issuer East Caribbean States Queen Elizabeth II (1952-2022) (read 2026-11-17)»)
-- **period of C346 · Mexico · 1975 · 1 peso · MXP** `type MX.X.1-peso period` = `United Mexican States/Mexican Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces1105.html — Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)»)
-- **mintage of C345 · Australia · 2008 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents issues.1.mintage`
-- **mintage of C343 · Costa Rica · 2008 · 10 colones · CRC** (blind: look it up yourself in your own exact source; the first value is not shown) `type CR.X.10-colones issues.0.mintage`
-- **ruler of C351 · France · 1867 · 10 centimes · FRF** `type FR.X.10-centimes ruler` = `Napoleon III` (written by Gemini: «https://en.numista.com/catalogue/pieces480.html — Issuer France Emperor Napoleon III (Napoléon III) (1852-1870) (read 2026-11-17)»)
-- **period of C343 · Costa Rica · 2008 · 10 colones · CRC** `type CR.X.10-colones period` = `Second Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces3756.html — Period Second Republic (1948-date) (read 2026-11-17)»)
-- **ruler of C333 · Norway · 1977 · 50 øre · NOK** `type NO.X.50-ore ruler` = `Olav V` (written by Gemini: «https://en.numista.com/catalogue/pieces1439.html — Issuer Norway Issuing bank Norges Bank King Olav V (1957-1991) (read 2026-11-17)»)
+- **mintage of C347 · Guernsey · 1893 · 8 doubles · GGP** (blind: look it up yourself in your own exact source; the first value is not shown) `type GG.X.8-doubles issues.0.mintage` [audit sample]
+- **ruler of C347 · Guernsey · 1893 · 8 doubles · GGP** `type GG.X.8-doubles ruler` = `Victoria` (written by Gemini: «https://en.numista.com/catalogue/pieces5044.html — Issuer Guernsey Queen Victoria (1837-1901) (read 2026-11-17)») [audit sample]
+- **design of C230 · Jamaica · 2015 · 10 dollars · JMD** `type JM.KM.190 design.text` = `arms · crocodile crest · Taino supporters · motto ribbon · JAMAICA · TEN DOLLARS · date` (written by Gemini: «Numista N#14370 https://en.numista.com/catalogue/pieces14370.html (Jamaica 10 Dollars Round 2008-2025, KM#190) shares the standard Jamaican») [audit sample]
+- **mintage of C349 · Australia · 1977 · 50 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.50-cents issues.0.mintage` [audit sample]
+- **ruler of C349 · Australia · 1977 · 50 cents · AUD** `type AU.X.50-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces5524.html — Issuer Australia Queen Elizabeth II (1952-2022) (read 2026-11-17)») [audit sample]
+- **design of C202 · Guatemala · 2010 · 10 centavos · GTQ** `type GT.KM.277.6a design.text` = `reverse Maya stela · 10 CENTAVOS · MONOLITO DE QUIRIGUA · date on arms side` (written by Gemini: «Numista N#42670 https://en.numista.com/catalogue/pieces42670.html (Guatemala 10 Centavos Magnetic 2009-2024, KM#277.6a) and Numista N#3136:») [audit sample]
+- **mintage of C352 · Mexico · 1943 · 20 centavos · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.20-centavos issues.0.mintage` [audit sample]
+- **period of C352 · Mexico · 1943 · 20 centavos · MXP** `type MX.X.20-centavos period` = `United Mexican States/Mexican Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces3933.html — Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)») [audit sample]
+- **mintage of C346 · Mexico · 1975 · 1 peso · MXP** (blind: look it up yourself in your own exact source; the first value is not shown) `type MX.X.1-peso issues.0.mintage` [audit sample]
+- **ruler of C350 · East Caribbean States · 1991 · 10 cents · XCD** `type EC.X.10-cents ruler` = `Elizabeth II` (written by Gemini: «https://en.numista.com/catalogue/pieces932.html — Issuer East Caribbean States Queen Elizabeth II (1952-2022) (read 2026-11-17)») [audit sample]
+- **period of C346 · Mexico · 1975 · 1 peso · MXP** `type MX.X.1-peso period` = `United Mexican States/Mexican Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces1105.html — Period United Mexican States/Mexican Republic (1823-date) (read 2026-11-17)») [audit sample]
+- **mintage of C345 · Australia · 2008 · 10 cents · AUD** (blind: look it up yourself in your own exact source; the first value is not shown) `type AU.X.10-cents issues.1.mintage` [audit sample]
+- **mintage of C343 · Costa Rica · 2008 · 10 colones · CRC** (blind: look it up yourself in your own exact source; the first value is not shown) `type CR.X.10-colones issues.0.mintage` [audit sample]
+- **ruler of C351 · France · 1867 · 10 centimes · FRF** `type FR.X.10-centimes ruler` = `Napoleon III` (written by Gemini: «https://en.numista.com/catalogue/pieces480.html — Issuer France Emperor Napoleon III (Napoléon III) (1852-1870) (read 2026-11-17)») [audit sample]
+- **period of C343 · Costa Rica · 2008 · 10 colones · CRC** `type CR.X.10-colones period` = `Second Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces3756.html — Period Second Republic (1948-date) (read 2026-11-17)») [audit sample]
+- **ruler of C333 · Norway · 1977 · 50 øre · NOK** `type NO.X.50-ore ruler` = `Olav V` (written by Gemini: «https://en.numista.com/catalogue/pieces1439.html — Issuer Norway Issuing bank Norges Bank King Olav V (1957-1991) (read 2026-11-17)») [audit sample]
 - **mint of C287 · Italy · 1979 · 50 lire · ITL** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C287 issue.mint_marks`. Photos: rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C287_rev.webp (original: https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view)
-- **mintage of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.10-yen issues.0.mintage`
-- **mintage of C353 · Japan · Heisei 8 (1996) · 10 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.10-yen issues.1.mintage`
-- **ruler of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** `type JP.X.10-yen ruler` = `Heisei` (written by Gemini: «https://en.numista.com/catalogue/pieces3047.html — Issuer Japan Emperor Heisei (1989-2019) (read 2026-11-17)»)
-- **period of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** `type JP.X.10-yen period` = `Heisei era` (written by Gemini: «https://en.numista.com/catalogue/pieces3047.html — Years 1-31 (1989-2019) Dating Japan - Heisei era (read 2026-11-17)»)
-- **period of C354 · India · 2014 · 2 rupees · INR** `type IN.X.2-rupees period` = `Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces24942.html — Issuer India Period Republic (1950-date) (read 2026-11-17)»)
+- **mintage of C353 · Japan · Heisei 8 (1996) · 10 yen · JPY** (blind: look it up yourself in your own exact source; the first value is not shown) `type JP.X.10-yen issues.1.mintage` [audit sample]
+- **ruler of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** `type JP.X.10-yen ruler` = `Heisei` (written by Gemini: «https://en.numista.com/catalogue/pieces3047.html — Issuer Japan Emperor Heisei (1989-2019) (read 2026-11-17)») [audit sample]
+- **period of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY** `type JP.X.10-yen period` = `Heisei era` (written by Gemini: «https://en.numista.com/catalogue/pieces3047.html — Years 1-31 (1989-2019) Dating Japan - Heisei era (read 2026-11-17)») [audit sample]
+- **period of C354 · India · 2014 · 2 rupees · INR** `type IN.X.2-rupees period` = `Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces24942.html — Issuer India Period Republic (1950-date) (read 2026-11-17)») [audit sample]
 
 ### 2. HW-muse-arbitrate-20261122-1 · Arbiter · Settle 15 disagreements between two AIs · due 2026-11-29  (fix list #18)
 
@@ -135,5 +134,5 @@ Whenever NOID photos appear in STAGING: Phase 1 change file per AI_START_HERE, w
 ## Your numbers (measured, not self-reported)
 
 - Assignments answered: 72; expired: 13.
-- Your facts checked by another contributor: 973 (954 confirmed, 19 wrong; error rate 2.0 %, 95 % range 1-3 %). Checks you did for others: 422. Open disagreements you are part of: 32. Values planted wrong on purpose in your checks: you caught 11 of 11.
+- Your facts checked by another contributor: 1022 (999 confirmed, 23 wrong; error rate 2.3 %, 95 % range 2-3 %). Checks you did for others: 422. Open disagreements you are part of: 35. Values planted wrong on purpose in your checks: you caught 11 of 11.
 - Share of your new facts that get checked first: 15 %.

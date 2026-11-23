@@ -1,70 +1,72 @@
 {
- "updated": "2026-11-23T16:08:20Z",
+ "updated": "2026-11-23T22:36:01Z",
  "pools": {
-  "cite": 25,
-  "story-check": 15,
+  "cite": 26,
+  "story-check": 14,
+  "plain-story": 1,
   "research": 1,
   "value": 1,
   "read-mint": 3,
-  "arbitrate": 71,
-  "fill": 42,
-  "verify": 331
+  "arbitrate": 74,
+  "fill": 41,
+  "verify": 325
  },
  "agents": {
   "claude": {
-   "confirmed": 385,
+   "confirmed": 404,
    "wrong": 3,
    "checks_done": 220,
    "disagreements_open": 0,
    "canaries_caught": 0,
    "canaries_missed": 0,
-   "checked_n": 388,
-   "error_rate": 0.008,
+   "checked_n": 407,
+   "error_rate": 0.007,
    "error_ci95": [
     0.003,
-    0.022
+    0.021
    ]
   },
   "grok": {
-   "confirmed": 1262,
-   "wrong": 16,
+   "confirmed": 1357,
+   "wrong": 17,
    "checks_done": 364,
    "disagreements_open": 27,
    "canaries_caught": 6,
    "canaries_missed": 0,
-   "checked_n": 1278,
-   "error_rate": 0.013,
-   "error_ci95": [
-    0.008,
-    0.02
-   ]
-  },
-  "gemini": {
-   "confirmed": 1197,
-   "wrong": 15,
-   "checks_done": 677,
-   "disagreements_open": 71,
-   "canaries_caught": 22,
-   "canaries_missed": 0,
-   "checked_n": 1212,
+   "checked_n": 1374,
    "error_rate": 0.012,
    "error_ci95": [
     0.008,
     0.02
    ]
   },
+  "gemini": {
+   "confirmed": 1361,
+   "wrong": 15,
+   "checks_done": 678,
+   "disagreements_open": 74,
+   "canaries_caught": 22,
+   "canaries_missed": 0,
+   "checked_n": 1376,
+   "error_rate": 0.011,
+   "error_ci95": [
+    0.007,
+    0.018
+   ],
+   "model_changed": "2026-11-23"
+  },
   "muse": {
-   "confirmed": 954,
-   "wrong": 19,
+   "confirmed": 999,
+   "wrong": 23,
    "checks_done": 422,
-   "disagreements_open": 32,
+   "disagreements_open": 35,
    "canaries_caught": 11,
    "canaries_missed": 0,
-   "checked_n": 973,
-   "error_rate": 0.02,
+   "checked_n": 1022,
+   "error_rate": 0.023,
    "error_ci95": [
-    0.013,
-    0.03
+    0.015,
+    0.034
    ]
   },
   "gemini-api": {
@@ -360,7 +362,7 @@
  "open_assignments": {
   "grok": 0,
   "muse": 3,
-  "gemini": 2,
+  "gemini": 3,
   "chatgpt": 0,
   "gemini-api": 1
  }

@@ -14,11 +14,19 @@
      "lines": 1
     },
     {
-     "id": "HW-gemini-verify-20261122-1",
-     "kind": "verify",
-     "due": "2026-11-29",
-     "path": "docs/agents/homework/sheets/HW-gemini-verify-20261122-1.jsonl",
-     "sha256": "5282934bd321e3198dda0b48401e37c52cbb21761dc445f22923ea754aa3f690",
+     "id": "HW-gemini-story-check-20261123-1",
+     "kind": "story-check",
+     "due": "2026-11-30",
+     "path": "docs/agents/homework/sheets/HW-gemini-story-check-20261123-1.jsonl",
+     "sha256": "ecb75dc68afec210b320528c8dcc366020082e05bf5f5ab6afbdc2b4e4f40c46",
+     "lines": 2
+    },
+    {
+     "id": "HW-gemini-plain-story-20261123-1",
+     "kind": "plain-story",
+     "due": "2026-11-30",
+     "path": "docs/agents/homework/sheets/HW-gemini-plain-story-20261123-1.jsonl",
+     "sha256": "7a52b29a558ece20fbeae89cd10a7efae85280ecb35a4cfaba00631d781af072",
      "lines": 1
     }
    ]
@@ -31,8 +39,8 @@
      "kind": "verify",
      "due": "2026-11-25",
      "path": "docs/agents/homework/sheets/HW-muse-verify-20261118-1.jsonl",
-     "sha256": "2ac3e3315131799fe4adcf152009dc3986c05b56f1dc595c3c61c64f2d9edcfb",
-     "lines": 23
+     "sha256": "40f27fad48c8d26341e01ebb305e15103df290d68928df6e2eb834919e305058",
+     "lines": 22
     },
     {
      "id": "HW-muse-arbitrate-20261122-1",

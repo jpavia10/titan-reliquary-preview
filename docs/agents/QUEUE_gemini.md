@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-23 16:08 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-23 22:36 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -38,6 +38,8 @@ Open https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/doc
 
 **Done when:** Items 61-120 answered: a filled line with its catalogue, or listed in the run report as not given anywhere; Claude opens 10.
 
+**Your model changed** (gemini → gemini-task-mode, 2026-11-23): for 30 days every new fact you write is checked first, and both photo tests are due again so we know how the new model reads coins (fix list #100).
+
 ## Homework (generated from the data)
 
 How homework works (read once):
@@ -70,21 +72,40 @@ Answer sheet (the same as the link):
 {"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
 ```
 
-### 2. HW-gemini-verify-20261122-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-29  (fix list #18)
+### 2. HW-gemini-story-check-20261123-1 · Fact-checker · Fact-check 2 coin stories · due 2026-11-30  (fix list #73)
 
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
+Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
 
-**Done when:** One change file; a fact you could not check is left out.
+**Done when:** One change file covering every story you could check.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-verify-20261122-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-story-check-20261123-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
 
 Items:
-- **period of C342 · South Korea · 2001 · 10 won · KRW** `type KR.X.10-won period` = `Republic` (written by Muse: «Numista N#978 https://en.numista.com/catalogue/pieces978.html: Period 'Republic (1948-date)'; differs from the record's 'Republic of Korea'»)
+- **C066 · Switzerland · 1976 · 5 francs · CHF**: «A 1976 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel).» Record: «{"country": "Switzerland", "year": "1976", "denom": "5 francs · CHF", "mint": "Bern (no B mark typical 1970–1984 circulation type)", "refs": "KM#40a.1 · Schön#36a · Numista#195", "metal": "CuNi 75/25 · 13.20 g · 31.45 mm · lettered edge · circulated · white 2×2 staple flip", "specs": "thickness 2.35 mm · coin alignment · edge DOMINUS PROVIDEBIT + stars · type specs shared with CuNi 5 Fr (KM#40a)"…»
+- **C344 · Japan · Heisei 14 (2002) · 10 yen · JPY**: «A Japanese 10 yen in bronze, dated Heisei 19 (2007), the nineteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.» Record: «{"country": "Japan", "year": "Heisei 14 (2002)", "denom": "10 yen · JPY", "mint": "Japan Mint (no mint mark on this type)", "refs": "Y#97 · Numista#3047", "metal": "Bronze (95% Copper, 3-4% Zinc, 1-2% Tin) · 4.50 g · 23.5 mm · Plain", "specs": "thickness 1.5 mm · medal alignment", "mintage": "unknown", "ruler": "Heisei", "period": "Heisei era"}»
 
 Answer sheet (the same as the link):
 
 ```jsonl
-{"ts": "2026-11-22T02:14:48Z", "by": "model:gemini", "entity": "type", "id": "KR.X.10-won", "op": "set", "field": "period", "old": "Republic", "new": "Republic", "source": "FILL (period of C342 · South Korea · 2001 · 10 won · KRW): YOUR own exact source for this value (not the one shown), e.g. https://en.numista.com/catalogue/pieces1234.html + the row you read", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-22", "workflow": "homework-verify", "assignment": "HW-gemini-verify-20261122-1", "run_id": "HW-gemini-verify-20261122-1", "inputs": []}}
+{"ts": "2026-11-23T22:35:22Z", "by": "model:gemini", "entity": "specimen", "id": "C066", "op": "set", "field": "story", "old": "A 1976 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel).", "new": "A 1976 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel).", "source": "FILL (C066 · Switzerland · 1976 · 5 francs · CHF): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-23", "workflow": "homework-story-check", "assignment": "HW-gemini-story-check-20261123-1", "run_id": "HW-gemini-story-check-20261123-1", "inputs": []}}
+{"ts": "2026-11-23T22:35:22Z", "by": "model:gemini", "entity": "specimen", "id": "C344", "op": "set", "field": "story", "old": "A Japanese 10 yen in bronze, dated Heisei 19 (2007), the nineteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.", "new": "A Japanese 10 yen in bronze, dated Heisei 19 (2007), the nineteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.", "source": "FILL (C344 · Japan · Heisei 14 (2002) · 10 yen · JPY): checked against <exact entry URL>: all claims hold (or: what was wrong + the entry that shows it)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-23", "workflow": "homework-story-check", "assignment": "HW-gemini-story-check-20261123-1", "run_id": "HW-gemini-story-check-20261123-1", "inputs": []}}
+```
+
+### 3. HW-gemini-plain-story-20261123-1 · Writer · Rewrite 1 stories in plain English · due 2026-11-30  (fix list #60)
+
+Joseph's dad reads these. Each story below still uses shorthand (·, +, &, slashes, metal codes like CuNi or .720 Ag, or a bare list of design elements). Rewrite it as 2 to 4 plain sentences, keeping every fact exactly: change the wording, never the facts. Source: 'plain-English rewrite of the existing story; no facts changed'.
+
+**Done when:** One change file; the stories pass the plain-English check.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-plain-story-20261123-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)**: «A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, and the words EJERCITO CONSTITUCIONALISTA and 1914 (the engraver name SALAZAR, when present, appears on the front). Made of copper.» (shorthand: `The back shows a large 5 pierced by an u`)
+
+Answer sheet (the same as the link):
+
+```jsonl
+{"ts": "2026-11-23T22:35:22Z", "by": "model:gemini", "entity": "specimen", "id": "C114", "op": "set", "field": "story", "old": "A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, and the words EJERCITO CONSTITUCIONALISTA and 1914 (the engraver name SALAZAR, when present, appears on the front). Made of copper.", "new": "A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, and the words EJERCITO CONSTITUCIONALISTA and 1914 (the engraver name SALAZAR, when present, appears on the front). Made of copper.", "source": "FILL (C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)): plain-English rewrite of the existing story; no facts changed", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-23", "workflow": "homework-plain-story", "assignment": "HW-gemini-plain-story-20261123-1", "run_id": "HW-gemini-plain-story-20261123-1", "inputs": []}}
 ```
 
 ## Projects (after the homework)
@@ -111,6 +132,6 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 78; expired: 12.
-- Your facts checked by another contributor: 1212 (1197 confirmed, 15 wrong; error rate 1.2 %, 95 % range 1-2 %). Checks you did for others: 677. Open disagreements you are part of: 71. Values planted wrong on purpose in your checks: you caught 22 of 22.
-- Share of your new facts that get checked first: 15 %.
+- Assignments answered: 79; expired: 12.
+- Your facts checked by another contributor: 1376 (1361 confirmed, 15 wrong; error rate 1.1 %, 95 % range 1-2 %). Checks you did for others: 678. Open disagreements you are part of: 74. Values planted wrong on purpose in your checks: you caught 22 of 22.
+- Share of your new facts that get checked first: 100 %.

@@ -1,6 +1,6 @@
 {
  "agent": "gemini",
- "updated": "2026-11-23T16:08:20Z",
+ "updated": "2026-11-23T22:36:01Z",
  "assignments": [
   {
    "id": "HW-gemini-fill-20261118-1",
@@ -49,50 +49,125 @@
    ]
   },
   {
-   "id": "HW-gemini-verify-20261122-1",
+   "id": "HW-gemini-story-check-20261123-1",
    "agent": "gemini",
-   "kind": "verify",
-   "issued": "2026-11-22T02:14:48Z",
-   "lease_until": "2026-11-29T02:14:48Z",
+   "kind": "story-check",
+   "issued": "2026-11-23T22:35:22Z",
+   "lease_until": "2026-11-30T22:35:22Z",
    "status": "open",
    "closed": null,
    "result": null,
    "items": [
     {
-     "item": "verify:type:KR.X.10-won:period",
-     "entity": "type",
-     "id": "KR.X.10-won",
-     "field": "period"
+     "item": "story:C066",
+     "entity": "specimen",
+     "id": "C066",
+     "field": "story"
+    },
+    {
+     "item": "story:C344",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "story"
     }
    ],
    "items_full": [
     {
-     "item": "verify:type:KR.X.10-won:period",
-     "kind": "verify",
-     "entity": "type",
-     "id": "KR.X.10-won",
-     "field": "period",
+     "item": "story:C066",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C066",
+     "field": "story",
      "coins": [
-      "C342"
+      "C066"
      ],
-     "label": "period of C342 · South Korea · 2001 · 10 won · KRW",
+     "label": "C066 · Switzerland · 1976 · 5 francs · CHF",
      "authors": [
-      "muse"
+      "claude"
      ],
      "payload": {
-      "fact": "period",
-      "author": "Muse",
-      "ledger": false,
-      "value": "Republic",
-      "their_source": "Numista N#978 https://en.numista.com/catalogue/pieces978.html: Period 'Republic (1948-date)'; differs from the record's 'Republic of Korea' ",
-      "links": [
-       "https://en.numista.com/catalogue/pieces978.html"
-      ],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": false,
-      "recheck": false,
-      "ai_guess": false
+      "story": "A 1976 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel).",
+      "record": {
+       "country": "Switzerland",
+       "year": "1976",
+       "denom": "5 francs · CHF",
+       "mint": "Bern (no B mark typical 1970–1984 circulation type)",
+       "refs": "KM#40a.1 · Schön#36a · Numista#195",
+       "metal": "CuNi 75/25 · 13.20 g · 31.45 mm · lettered edge · circulated · white 2×2 staple flip",
+       "specs": "thickness 2.35 mm · coin alignment · edge DOMINUS PROVIDEBIT + stars · type specs shared with CuNi 5 Fr (KM#40a)",
+       "mintage": "3,007,000",
+       "design": "herdsman / shepherd head (obv) · 5 FR. + Swiss Cross shield in alpine wreath (rev) · designer Paul Burkhard",
+       "period": "Federal State"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C344",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "story",
+     "coins": [
+      "C344"
+     ],
+     "label": "C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
+     "authors": [
+      "claude"
+     ],
+     "payload": {
+      "story": "A Japanese 10 yen in bronze, dated Heisei 19 (2007), the nineteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.",
+      "record": {
+       "country": "Japan",
+       "year": "Heisei 14 (2002)",
+       "denom": "10 yen · JPY",
+       "mint": "Japan Mint (no mint mark on this type)",
+       "refs": "Y#97 · Numista#3047",
+       "metal": "Bronze (95% Copper, 3-4% Zinc, 1-2% Tin) · 4.50 g · 23.5 mm · Plain",
+       "specs": "thickness 1.5 mm · medal alignment",
+       "mintage": "unknown",
+       "ruler": "Heisei",
+       "period": "Heisei era"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-plain-story-20261123-1",
+   "agent": "gemini",
+   "kind": "plain-story",
+   "issued": "2026-11-23T22:35:22Z",
+   "lease_until": "2026-11-30T22:35:22Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C114",
+     "entity": "specimen",
+     "id": "C114",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "plain:C114",
+     "kind": "plain-story",
+     "entity": "specimen",
+     "id": "C114",
+     "field": "story",
+     "coins": [
+      "C114"
+     ],
+     "label": "C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)",
+     "authors": [],
+     "payload": {
+      "story": "A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, and the words EJERCITO CONSTITUCIONALISTA and 1914 (the engraver name SALAZAR, when present, appears on the front). Made of copper.",
+      "shorthand": "The back shows a large 5 pierced by an u"
      },
      "blind": false,
      "inputs": []

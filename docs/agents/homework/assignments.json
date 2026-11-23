@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-23T16:08:20Z",
+ "updated": "2026-11-23T22:36:01Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -210,7 +210,9 @@
   "muse-verify-20261122": 2,
   "muse-arbitrate-20261122": 2,
   "muse-cite-20261123": 1,
-  "muse-story-check-20261123": 1
+  "muse-story-check-20261123": 1,
+  "gemini-story-check-20261123": 1,
+  "gemini-plain-story-20261123": 1
  },
  "assignments": [
   {
@@ -35108,9 +35110,13 @@
    "kind": "verify",
    "issued": "2026-11-22T02:14:48Z",
    "lease_until": "2026-11-29T02:14:48Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "done",
+   "closed": "2026-11-23T22:34:22Z",
+   "result": {
+    "items": 1,
+    "closed": 1,
+    "left": 0
+   },
    "items": [
     {
      "item": "verify:type:KR.X.10-won:period",
@@ -36018,6 +36024,48 @@
      "item": "story:C326",
      "entity": "specimen",
      "id": "C326",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-story-check-20261123-1",
+   "agent": "gemini",
+   "kind": "story-check",
+   "issued": "2026-11-23T22:35:22Z",
+   "lease_until": "2026-11-30T22:35:22Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C066",
+     "entity": "specimen",
+     "id": "C066",
+     "field": "story"
+    },
+    {
+     "item": "story:C344",
+     "entity": "specimen",
+     "id": "C344",
+     "field": "story"
+    }
+   ]
+  },
+  {
+   "id": "HW-gemini-plain-story-20261123-1",
+   "agent": "gemini",
+   "kind": "plain-story",
+   "issued": "2026-11-23T22:35:22Z",
+   "lease_until": "2026-11-30T22:35:22Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "plain:C114",
+     "entity": "specimen",
+     "id": "C114",
      "field": "story"
     }
    ]
@@ -43462,11 +43510,12 @@
   },
   "gemini": {
    "seen": [
-    "gemini"
+    "gemini",
+    "gemini-task-mode"
    ],
-   "current": "gemini",
-   "changed": null,
-   "from": null
+   "current": "gemini-task-mode",
+   "changed": "2026-11-23",
+   "from": "gemini"
   }
  }
 }

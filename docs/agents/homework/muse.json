@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-23T16:08:20Z",
+ "updated": "2026-11-23T22:36:01Z",
  "assignments": [
   {
    "id": "HW-muse-verify-20261118-1",
@@ -220,7 +220,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -258,7 +258,7 @@
        "https://en.numista.com/catalogue/pieces5044.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -290,7 +290,7 @@
        "https://en.numista.com/catalogue/pieces934.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -319,7 +319,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -357,7 +357,7 @@
        "https://en.numista.com/catalogue/pieces5524.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -389,7 +389,7 @@
        "https://en.numista.com/catalogue/pieces3136.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -418,7 +418,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -458,7 +458,7 @@
        "https://en.numista.com/catalogue/pieces3933.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -487,7 +487,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -527,7 +527,7 @@
        "https://en.numista.com/catalogue/pieces932.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -558,7 +558,7 @@
        "https://en.numista.com/catalogue/pieces1105.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -587,7 +587,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -623,7 +623,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -661,7 +661,7 @@
        "https://en.numista.com/catalogue/pieces480.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -692,7 +692,7 @@
        "https://en.numista.com/catalogue/pieces3756.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -723,7 +723,7 @@
        "https://en.numista.com/catalogue/pieces1439.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -760,7 +760,7 @@
         "drive": "https://drive.google.com/file/d/1vaYvyOGkgvnFf9KltOw6-IkKGqZG-3hr/view"
        }
       ],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -769,42 +769,6 @@
      "inputs": [
       "C287_rev.webp"
      ]
-    },
-    {
-     "item": "verify:type:JP.X.10-yen:issues.0.mintage",
-     "kind": "verify",
-     "entity": "type",
-     "id": "JP.X.10-yen",
-     "field": "issues.0.mintage",
-     "coins": [
-      "C344"
-     ],
-     "label": "mintage of C344 · Japan · Heisei 14 (2002) · 10 yen · JPY",
-     "authors": [
-      "gemini"
-     ],
-     "payload": {
-      "fact": "mintage",
-      "author": "Gemini",
-      "ledger": false,
-      "value": null,
-      "their_source": null,
-      "links": [],
-      "photos": [],
-      "audit": false,
-      "lookup_blind": true,
-      "recheck": false,
-      "ai_guess": false
-     },
-     "blind": false,
-     "inputs": [],
-     "issue_of": {
-      "issues.0.mintage": {
-       "year": 2002,
-       "mint": [],
-       "qualifier": null
-      }
-     }
     },
     {
      "item": "verify:type:JP.X.10-yen:issues.1.mintage",
@@ -827,7 +791,7 @@
       "their_source": null,
       "links": [],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": true,
       "recheck": false,
       "ai_guess": false
@@ -866,7 +830,7 @@
        "https://en.numista.com/catalogue/pieces3047.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -898,7 +862,7 @@
        "https://en.numista.com/catalogue/pieces3047.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false
@@ -929,7 +893,7 @@
        "https://en.numista.com/catalogue/pieces24942.html"
       ],
       "photos": [],
-      "audit": false,
+      "audit": true,
       "lookup_blind": false,
       "recheck": false,
       "ai_guess": false

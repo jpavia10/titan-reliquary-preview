@@ -1,10 +1,10 @@
 {
  "about": "Titan Reliquary full export (fix list #104): the master record of collection/ in one file, plus certainty per piece.",
- "generated_at": "2026-11-23T02:46:01Z",
- "content_hash": "f3393f1a6b29e37e",
+ "generated_at": "2026-11-23T22:36:01Z",
+ "content_hash": "c8ffe363e957d1f7",
  "schema": 2,
  "board": {
-  "ledger_version": "v3:f3393f1a6b29e37e",
+  "ledger_version": "v3:c8ffe363e957d1f7",
   "vault": 1636,
   "next_soft_beat": 1700,
   "grand": 5411.63,
@@ -1423,7 +1423,9 @@
     "value": 5
    },
    "design": {
-    "designers": [],
+    "designers": [
+     "Arnold Machin (reverse)"
+    ],
     "legend": null,
     "obverse": "The arms of the Bahamas with the issuer name above and the date below · COMMONWEALTH OF THE BAHAMAS · FORWARD, UPWARD, ONWARD TOGETHER · date",
     "reverse": "Pineapple (Ananas comosus) above garland and the denomination at the top · FIVE CENTS",
@@ -13016,6 +13018,14 @@
      "mintage_text": null,
      "qualifier": null,
      "year": 1996
+    },
+    {
+     "mint_marks": [],
+     "mint_text": "Japan Mint (no mint mark on this type)",
+     "mintage": 455425000,
+     "mintage_text": null,
+     "qualifier": null,
+     "year": 2007
     }
    ],
    "legal_tender": {
@@ -20051,8 +20061,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20144,8 +20154,8 @@
     "phase": 2,
     "phase1_at": "2026-10-28T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20228,8 +20238,8 @@
     "phase": 2,
     "phase1_at": "2026-10-02T04:46:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20504,8 +20514,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20591,8 +20601,8 @@
     "phase": 2,
     "phase1_at": "2026-10-08T18:15:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20677,8 +20687,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-16T05:49:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20850,8 +20860,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:31:05Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -20937,8 +20947,8 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:31:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21024,8 +21034,8 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21110,8 +21120,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:10:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21201,8 +21211,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:12:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21289,8 +21299,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:10:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-30T02:46:37Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21547,8 +21557,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:04Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21719,8 +21729,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:55Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21805,8 +21815,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:31:07Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21891,8 +21901,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T20:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-30T02:46:37Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -21977,8 +21987,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:31Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22519,8 +22529,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22702,8 +22712,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22794,8 +22804,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:13:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T22:50:00Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -22803,7 +22813,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "A 1978 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel).",
+   "story": "A 1976 Swiss 5-franc coin. The front shows the head of an alpine herdsman; the back shows the Swiss cross shield and 5 FR. inside an alpine wreath. Designed by Paul Burkhard and struck in copper-nickel (75% copper, 25% nickel).",
    "tags": [],
    "tax_lot": null,
    "type": "CH.KM.40a.1",
@@ -23158,8 +23168,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-19T17:36:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23345,8 +23355,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23437,8 +23447,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23617,8 +23627,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -23707,8 +23717,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -24248,8 +24258,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -24334,8 +24344,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:10:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -24508,8 +24518,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:57Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -24957,8 +24967,8 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -25852,8 +25862,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26122,8 +26132,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26213,8 +26223,8 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26301,8 +26311,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26663,8 +26673,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:34:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26843,8 +26853,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -26934,8 +26944,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27026,8 +27036,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27473,8 +27483,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27567,8 +27577,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27661,8 +27671,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-05T14:22:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -27846,8 +27856,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28124,8 +28134,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28218,8 +28228,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28305,8 +28315,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28392,8 +28402,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28479,8 +28489,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28566,8 +28576,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28653,8 +28663,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28740,8 +28750,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -28827,8 +28837,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -30866,8 +30876,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -30955,8 +30965,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31042,8 +31052,8 @@
     "phase": 2,
     "phase1_at": "2026-11-09T17:36:01Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T01:07:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31129,8 +31139,8 @@
     "phase": 2,
     "phase1_at": "2026-11-11T15:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31308,8 +31318,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31396,8 +31406,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31484,8 +31494,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31659,8 +31669,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31751,8 +31761,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31841,8 +31851,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -31930,8 +31940,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32020,8 +32030,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32112,8 +32122,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-10-17T04:39:36Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T22:50:00Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32121,7 +32131,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "A 1969 French half franc. The front shows the Sower — a woman scattering seeds at sunrise, one of France's most loved coin designs, designed by Oscar Roty in 1900. The back carries France's motto: liberty, equality, brotherhood.",
+   "story": "A 1969 French half franc. The front shows the Sower — a woman scattering seeds at sunrise, one of France's most loved coin designs, designed by Oscar Roty in 1897. The back carries France's motto: liberty, equality, brotherhood.",
    "tags": [],
    "tax_lot": null,
    "type": "FR.KM.931.1",
@@ -32295,8 +32305,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:36:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32655,8 +32665,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32745,8 +32755,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32837,8 +32847,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -32929,8 +32939,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33646,8 +33656,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33739,8 +33749,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:36:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33829,8 +33839,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:26:15Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -33919,8 +33929,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-05T14:45:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34008,8 +34018,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34097,8 +34107,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34185,8 +34195,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-10T19:01:17Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34628,8 +34638,8 @@
     "phase": 2,
     "phase1_at": "2026-10-06T03:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34714,8 +34724,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:14Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34800,8 +34810,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:41Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -34886,8 +34896,8 @@
     "phase": 2,
     "phase1_at": "2026-11-05T02:27:03Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35065,8 +35075,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:15:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -35245,8 +35255,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:13:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36134,8 +36144,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36222,8 +36232,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36310,8 +36320,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36398,8 +36408,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36842,8 +36852,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -36930,8 +36940,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37022,8 +37032,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -37110,8 +37120,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38441,8 +38451,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38529,8 +38539,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38617,8 +38627,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -38797,8 +38807,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39065,8 +39075,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39155,8 +39165,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39247,8 +39257,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-11-21T19:48:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39425,8 +39435,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39511,8 +39521,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T03:43:43Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39597,8 +39607,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-16T05:49:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39683,8 +39693,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T17:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-16T05:49:01Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39769,8 +39779,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T18:10:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-28T02:41:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39855,8 +39865,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T18:10:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-28T02:41:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -39941,8 +39951,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T23:55:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-28T02:41:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40027,8 +40037,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:11Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40113,8 +40123,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40199,8 +40209,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T22:00:17Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40285,8 +40295,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:31:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -40909,8 +40919,8 @@
     "phase": 2,
     "phase1_at": "2026-10-08T18:15:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41002,8 +41012,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41092,8 +41102,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:23:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-24T05:26:15Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41180,8 +41190,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-15T06:00:00Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41268,8 +41278,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41354,8 +41364,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:31:03Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41444,8 +41454,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-05T03:15:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41533,8 +41543,8 @@
     "phase": 2,
     "phase1_at": "2026-11-09T20:42:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T01:07:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41718,8 +41728,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41806,8 +41816,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41894,8 +41904,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -41980,8 +41990,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42072,8 +42082,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42164,8 +42174,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -42439,8 +42449,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43148,8 +43158,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-31T17:58:30Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43234,8 +43244,8 @@
     "phase": 2,
     "phase1_at": "2026-11-05T02:27:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:29:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43685,8 +43695,8 @@
     "phase": 2,
     "phase1_at": "2026-11-05T02:27:05Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:28:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43743,10 +43753,10 @@
    "issue": {
     "mint_marks": [],
     "mint_text": "Japan Mint (no mint mark on this type)",
-    "mintage": 455425000,
+    "mintage": null,
     "mintage_text": null,
     "qualifier": null,
-    "year": 2002
+    "year": 2007
    },
    "lifecycle": {
     "removed_on": null,
@@ -43770,10 +43780,10 @@
    "research": {
     "open_questions": [],
     "phase": 2,
-    "phase1_at": "2026-11-11T15:40:00Z",
+    "phase1_at": "2026-11-23T22:50:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T22:50:00Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -43781,7 +43791,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "A Japanese 10 yen in bronze, dated Heisei 14 (2002), the fourteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.",
+   "story": "A Japanese 10 yen in bronze, dated Heisei 19 (2007), the nineteenth year of Emperor Akihito's reign. One side shows the Phoenix Hall of Byodoin temple in Uji, a thousand-year-old building so loved that it also appears on the 10,000 yen note. The other side frames a big 10 in a wreath of evergreen leaves. Japan has struck this design, nearly unchanged, since 1951, and it is still the 10 yen in everyday pockets today. The collection already holds two Showa-era strikes of the same design from 1982 and 1988; this is its first Heisei one.",
    "tags": [],
    "tax_lot": null,
    "type": "JP.X.10-yen",
@@ -43859,8 +43869,8 @@
     "phase": 2,
     "phase1_at": "2026-11-09T20:39:01Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-19T18:12:30Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -44305,8 +44315,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T22:00:11Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -44391,8 +44401,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T22:00:12Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -44477,8 +44487,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:24Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -44563,8 +44573,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T22:00:13Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -44650,8 +44660,8 @@
     "phase": 2,
     "phase1_at": "2026-11-05T02:32:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:28:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45187,8 +45197,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-24T05:26:15Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45273,8 +45283,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45361,8 +45371,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45454,8 +45464,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T22:50:00Z",
+    "phase2_by": "model:claude"
    },
    "seller_type": null,
    "sentimental": null,
@@ -45463,7 +45473,7 @@
    "serial_number": null,
    "sort_weight": null,
    "storage_env": null,
-   "story": "A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, the words EJERCITO CONSTITUCIONALISTA and 1914, and often the name SALAZAR. Made of copper.",
+   "story": "A 1914 5-centavo coin from Mexico. The front shows a liberty cap with rays and the words REPUBLICA MEXICANA and E. DE CHIHA. The back shows a large 5 pierced by an upright arrow, a centavo monogram, and the words EJERCITO CONSTITUCIONALISTA and 1914 (the engraver name SALAZAR, when present, appears on the front). Made of copper.",
    "tags": [],
    "tax_lot": null,
    "type": "MX-CHI.KM.612",
@@ -45999,8 +46009,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T06:20:29Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -46719,8 +46729,8 @@
     "phase": 2,
     "phase1_at": "2026-10-14T18:10:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-30T02:43:06Z",
-    "phase2_by": "model:muse-spark"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -47423,8 +47433,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-28T02:48:10Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -47516,8 +47526,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-19T17:36:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -47699,8 +47709,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -47789,8 +47799,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -47879,8 +47889,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -48060,8 +48070,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:49:59Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -48874,8 +48884,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T20:40:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-10-31T17:58:30Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -48963,8 +48973,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-05T14:22:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -49049,8 +49059,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:44Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:27:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -49227,8 +49237,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -49579,8 +49589,8 @@
     "phase": 2,
     "phase1_at": "2026-11-18T17:10:00Z",
     "phase1_by": "model:gemini",
-    "phase2_at": "2026-10-28T02:46:02Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -49665,8 +49675,8 @@
     "phase": 2,
     "phase1_at": "2026-10-04T05:44:53Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-05T14:45:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -49934,8 +49944,8 @@
     "phase": 2,
     "phase1_at": "2026-11-17T15:15:00Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:50:43Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -50657,8 +50667,8 @@
     "phase": 2,
     "phase1_at": "2026-10-10T17:11:58Z",
     "phase1_by": "model:muse",
-    "phase2_at": "2026-11-18T17:10:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:55:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -50844,8 +50854,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-10-28T02:42:19Z",
-    "phase2_by": "model:grok-bot"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -51211,8 +51221,8 @@
     "phase": 2,
     "phase1_at": "2026-10-03T16:14:37Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T18:56:29Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -51297,8 +51307,8 @@
     "phase": 2,
     "phase1_at": "2026-11-04T17:30:02Z",
     "phase1_by": "model:muse-spark",
-    "phase2_at": "2026-11-06T23:26:00Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -51741,8 +51751,8 @@
     "phase": 2,
     "phase1_at": "2026-10-06T03:00:00Z",
     "phase1_by": "model:claude",
-    "phase2_at": "2026-11-21T19:59:54Z",
-    "phase2_by": "model:gemini"
+    "phase2_at": "2026-11-23T19:25:00Z",
+    "phase2_by": "model:gemini-task-mode"
    },
    "seller_type": null,
    "sentimental": null,
@@ -84182,13 +84192,16 @@
     ]
    },
    "design": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 and https://www.swissmint.ch/en/frequently-asked-question (uCoin KM",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
+     "https://www.swissmint.ch/en/frequently-asked-question",
      "https://en.numista.com/catalogue/pieces185.html"
-    ]
+    ],
+    "n": 2
    },
    "period": {
     "level": "checked",
@@ -84426,13 +84439,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces147.html: all claims hold (Beatrix profile with BEATRIX KONINGIN DER NEDERLANDEN, com",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (che",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces147.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -84527,13 +84543,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces4.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-20-centimes-1962-2001/?tid=7038 (checked France 1986 20 centimes KM#930: Marianne by Henri Lagriffou",
     "links": [
+     "https://en.ucoin.net/coin/france-20-centimes-1962-2001/?tid=7038",
      "https://en.numista.com/catalogue/pieces4.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -84717,13 +84735,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998 (checked France 1963 10 centimes KM#929: Marianne by Henri Lagriffou",
     "links": [
+     "https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -85218,13 +85238,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-24",
-    "source": "checked against https://en.numista.com/catalogue/pieces6.html (Numista N#6, KM#925.1): all claims hold. Obverse: The Sower, designed by Osca",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 (checked France 1962 1 franc KM#925: Sower obverse with RÉPUBLIQUE FRANÇ",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -85321,13 +85343,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces664.html: all claims hold (Machin portrait (designer Arnold Machin), Prince of Wales ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-2-new-pence-1971-1981/?tid=1819 (checked UK 1971 2 new pence KM#916: Arnold Machin Elizabeth",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-2-new-pence-1971-1981/?tid=1819",
      "https://en.numista.com/catalogue/pieces664.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -85383,10 +85407,15 @@
     "n": 3
    },
    "mint": {
-    "level": "photo",
-    "by": "Claude",
-    "ts": "2026-10-28",
-    "source": "photo photos/p1/C014_rev.webp (no letter below the wreath; see D0108)"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C014_Switzerland_1974_2Francs_rev.jpeg shows '2 Fr. 1974' with no mintmark; Swiss Federal Mint (Bern) omitted the B mintmark 197",
+    "links": [
+     "https://en.numista.com/189",
+     "https://en.numista.com/catalogue/pieces189.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -85698,13 +85727,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-24",
-    "source": "checked against https://en.numista.com/catalogue/pieces6.html (Numista N#6, KM#925.1): all claims hold. Obverse: The Sower, designed by Osca",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 (checked France 1999 1 franc KM#925: Sower obverse with RÉPUBLIQUE FRANÇ",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -86269,14 +86300,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Claude",
-    "ts": "2026-10-23",
-    "source": "Numista N#6133 (https://en.numista.com/catalogue/pieces6133.html): Austria 20 heller 1916-1918, KM#2826, Charles I, iron, 3.5 g, 21 mm, engr",
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/austria-20-hellers-1916-1918/?tid=44724 (checked Austria 1918 20 hellers KM#2826: Charles I, Iron, crowned ",
     "links": [
+     "https://en.ucoin.net/coin/austria-20-hellers-1916-1918/?tid=44724",
      "https://en.numista.com/catalogue/pieces6133.html",
      "https://numisquare.com/20-heller-1916-1918-1077918220.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -86379,13 +86412,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces664.html: all claims hold (Machin portrait (designer Arnold Machin), Prince of Wales ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-2-new-pence-1971-1981/?tid=1819 (checked UK 1977 2 new pence KM#916: Arnold Machin Elizabeth",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-2-new-pence-1971-1981/?tid=1819",
      "https://en.numista.com/catalogue/pieces664.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -86477,13 +86512,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-24",
-    "source": "checked against https://en.numista.com/catalogue/pieces6.html (Numista N#6, KM#925.1): all claims hold. Obverse: The Sower, designed by Osca",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 (checked France 1965 1 franc KM#925: Sower obverse with RÉPUBLIQUE FRANÇ",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -86568,13 +86605,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces110.html: all claims hold (Brandenburg Gate in the 12 stars by Reinhart Heinsdorff, c",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756 and https://www.ecb.europa.eu/euro/coins/c",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces110.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -86656,13 +86696,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces133.html: all claims hold (Boccioni's sculpture by Maria Angela Cassol, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666 and https://www.ecb.europa.eu/euro/coins/20c",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666",
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces133.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -86732,13 +86775,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces2183.html: all claims hold (Mnajdra temple altar with MALTA, common side Luc Luycx, c",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.centralbankmalta.org/euro-coins and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (checked Malta 5 cent:",
     "links": [
+     "https://www.centralbankmalta.org/euro-coins",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces2183.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87108,13 +87154,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces1124.html: all claims hold (arms of the Hungarian People's Republic with wreath and s",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/hungary-1-forint-1967-1989/?tid=2783 (checked Hungary 1967 1 forint KM#575: People's Republic coat of arms ",
     "links": [
+     "https://en.ucoin.net/coin/hungary-1-forint-1967-1989/?tid=2783",
      "https://en.numista.com/catalogue/pieces1124.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87192,11 +87240,11 @@
    },
    "story": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "checked against https://en.numista.com/catalogue/pieces5.html (N#5): corrected the Sower design date — the story said Oscar Roty first drew ",
+    "by": "Claude",
+    "ts": "2026-11-23",
+    "source": "Third reader (Claude): Oscar Roty's Semeuse (the Sower) dates from 1897, first struck on the 1897 50 centimes (https://www.pcgs.com/news/fra",
     "links": [
-     "https://en.numista.com/catalogue/pieces5.html"
+     "https://www.pcgs.com/news/france-1897-50-centimes"
     ]
    },
    "design": {
@@ -87363,13 +87411,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every claim checked against Numista N#847 (https://en.numista.com/catalogue/pieces847.html) (design, designer, sides, composition, d",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/germany-50-pfennig-1950-2001/?tid=5286 (checked Germany 1971 50 pfennig KM#109: Richard M. Werner oak-tree-",
     "links": [
+     "https://en.ucoin.net/coin/germany-50-pfennig-1950-2001/?tid=5286",
      "https://en.numista.com/catalogue/pieces847.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -87457,13 +87507,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces132.html: all claims hold (detail of Botticelli's Birth of Venus by Claudia Momoni, c",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666 and https://www.ecb.europa.eu/euro/coins/10c",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666",
+     "https://www.ecb.europa.eu/euro/coins/10cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces132.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87548,13 +87601,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces108.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff, common side Luc L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756 and https://www.ecb.europa.eu/euro/coins/1",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756",
+     "https://www.ecb.europa.eu/euro/coins/10cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces108.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87626,13 +87682,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces5085.html: all claims hold (Kriváň in the High Tatras with SLOVENSKO, engraver Drahom",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/slovakia-2-euro-cent-2009-2026/?tid=2090 (checked Slovakia 2009 2 euro cent KM#96: Kriváň in High Tatras wi",
     "links": [
+     "https://en.ucoin.net/coin/slovakia-2-euro-cent-2009-2026/?tid=2090",
      "https://en.numista.com/catalogue/pieces5085.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87713,13 +87771,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces130.html: all claims hold (Mole Antonelliana by Luciana De Simoni, common side Luc Lu",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666 and https://www.ecb.europa.eu/euro/coins/com",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces130.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87791,13 +87852,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces149.html: all claims hold (Beatrix profile with BEATRIX KONINGIN DER NEDERLANDEN, com",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (c",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces149.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -87900,13 +87964,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces4.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-20-centimes-1962-2001/?tid=7038 (checked France 1974 20 centimes KM#930: Marianne by Henri Lagriffou",
     "links": [
+     "https://en.ucoin.net/coin/france-20-centimes-1962-2001/?tid=7038",
      "https://en.numista.com/catalogue/pieces4.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -88078,13 +88144,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces2184.html: all claims hold (arms of Malta with MALTA, common side Luc Luycx, Nordic g",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/10cents/html/index.en.html and https://www.centralbankmalta.org/euro-coins (checked Malta 10 cen",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/10cents/html/index.en.html",
+     "https://www.centralbankmalta.org/euro-coins",
      "https://en.numista.com/catalogue/pieces2184.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -88126,10 +88195,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "photo C044_rev.webp: reverse checked at full zoom around КОПЕЙКА and the 1974 date; no mint mark appears on this side (only the reverse was "
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo C044_USSR_1974_1Kopek_rev.jpeg shows '1 КОПЕЙКА 1974' with no mintmark; Soviet 1974 1 kopek issues carry no mintmark per Numista",
+    "links": [
+     "https://en.numista.com/767",
+     "https://en.numista.com/catalogue/pieces767.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -88255,13 +88329,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — Willem-Alexander became king on 30 April 2013 (https://en.wikipedia.org/wiki/Willem-Alexander_of_the_Netherlands); 12 EU stars per N",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html (checked Netherlands 2nd series introduced 2014 showing King Willem-Ale",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
      "https://en.wikipedia.org/wiki/Willem-Alexander_of_the_Netherlands"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -88353,13 +88429,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces106.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756 and https://www.ecb.europa.eu/euro/coins/c",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces106.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -88398,10 +88477,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "photos C047_obv.webp and C047_rev.webp: both sides checked at full zoom (obverse portrait with BRASIL; reverse 5 CENTAVOS 2006 with stars) a"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos C047_Brazil_2006_5Centavos_obv.jpeg and C047_Brazil_2006_5Centavos_rev.jpeg show both sides (Tiradentes / '5 CENTAVOS 2006') wi",
+    "links": [
+     "https://en.numista.com/1049",
+     "https://en.numista.com/catalogue/pieces1049.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -88462,13 +88546,15 @@
     ]
    },
    "period": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#1049 https://en.numista.com/catalogue/pieces1049.html: Period 'Federative Republic of Brazil (1967-date)'; differs from the record",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/brazil-5-centavos-1998-2026/?tid=10571 (checked Brazil 2006 5 centavos KM#648, modern Brazilian Real 1994–d",
     "links": [
+     "https://en.ucoin.net/coin/brazil-5-centavos-1998-2026/?tid=10571",
      "https://en.numista.com/catalogue/pieces1049.html"
-    ]
+    ],
+    "n": 2
    }
   },
   "C048": {
@@ -88998,13 +89084,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces6319.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff in the 12 stars, ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756 and https://www.ecb.europa.eu/euro/coins/2",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/germany-623756",
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces6319.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -89161,13 +89250,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces134.html: all claims hold (equestrian statue of Marcus Aurelius on the patterned Camp",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/50cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (c",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/50cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces134.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89238,13 +89330,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces157.html: all claims hold (second royal seal of 1142 with seven castles and five shie",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html and https://en.ucoin.net/coin/portugal-20-euro-cent-2002-2007/?tid=75",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
+     "https://en.ucoin.net/coin/portugal-20-euro-cent-2002-2007/?tid=751",
      "https://en.numista.com/catalogue/pieces157.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89418,13 +89513,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every claim checked against Numista N#847 (https://en.numista.com/catalogue/pieces847.html) (design, designer, sides, composition, d",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/germany-50-pfennig-1950-2001/?tid=5286 (checked Germany 1985 50 pfennig KM#109: Richard M. Werner oak-sapli",
     "links": [
+     "https://en.ucoin.net/coin/germany-50-pfennig-1950-2001/?tid=5286",
      "https://en.numista.com/catalogue/pieces847.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89506,13 +89603,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every claim checked against Numista N#6 (https://en.numista.com/catalogue/pieces6.html) (design, designer, sides, composition, dates",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158 and https://www.pcgs.com/news/france-1897-50-centimes (checked France 19",
     "links": [
+     "https://en.ucoin.net/coin/france-1-franc-1960-2001/?tid=7158",
+     "https://www.pcgs.com/news/france-1897-50-centimes",
      "https://en.numista.com/catalogue/pieces6.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89594,13 +89694,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every claim checked against Numista N#5 (https://en.numista.com/catalogue/pieces5.html) (design, designer, sides, composition, dates",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-1-2-franc-1965-2001/?tid=7085 (checked France 1971 1/2 franc KM#931.1: circulation coin struck 1965–",
     "links": [
+     "https://en.ucoin.net/coin/france-1-2-franc-1965-2001/?tid=7085",
      "https://en.numista.com/catalogue/pieces5.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89685,13 +89787,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces133.html: all claims hold (Boccioni's sculpture by Maria Angela Cassol, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666 and https://www.ecb.europa.eu/euro/coins/20c",
     "links": [
+     "https://www.bundesbank.de/en/tasks/cash-management/euro-coins/regular-coins/italy-623666",
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces133.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89770,13 +89875,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998 (checked France 1998 10 centimes KM#929: Marianne by Henri Lagriffou",
     "links": [
+     "https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89855,13 +89962,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998 (checked France 1995 10 centimes KM#929: Marianne by Henri Lagriffou",
     "links": [
+     "https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -89945,13 +90054,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces2187.html: all claims hold (Maltese cross by Noel Galea Bason, common side Luc Luycx,",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/malta-1-euro-2008-2026/?tid=1025 and https://www.centralbankmalta.org/euro-coins (checked Malta 2008 1 euro",
     "links": [
+     "https://en.ucoin.net/coin/malta-1-euro-2008-2026/?tid=1025",
+     "https://www.centralbankmalta.org/euro-coins",
      "https://en.numista.com/catalogue/pieces2187.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -90043,13 +90155,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces195.html: all claims hold (herdsman's head (often mistaken for William Tell) and Swis",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-5-francs-1968-2026/?tid=1107 (uCoin KM# 40a: 2014 mintage 7,022,000, Paul Burkhard, 5 FR, Swiss",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-5-francs-1968-2026/?tid=1107",
+     "https://www.swissmint.ch/en/frequently-asked-question",
      "https://en.numista.com/catalogue/pieces195.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -90092,10 +90207,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "photo C066_rev.webp: the field below and beside the 1976 date, where a Bern B would sit, is smooth and empty in an enlarged crop; no mint ma"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo C066_Switzerland_1976_5Francs_rev.jpeg zoomed 4x confirms no 'B' above '5 FR.'; Swiss Federal Mint (Bern) omitted the B mintmark",
+    "links": [
+     "https://en.numista.com/195",
+     "https://en.numista.com/catalogue/pieces195.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -90142,11 +90262,11 @@
    },
    "story": {
     "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces195.html: all claims hold (herdsman's head (often mistaken for William Tell) and Swis",
+    "by": "Claude",
+    "ts": "2026-11-23",
+    "source": "Third reader (Claude): the record's own issue.year is 1976, so sentence 1's '1978' was a slip; Gemini's text fixes only that word. Swiss 5 f",
     "links": [
-     "https://en.numista.com/catalogue/pieces195.html"
+     "https://en.ucoin.net/coin/switzerland-5-francs-1968-2026/?tid=1107"
     ]
    },
    "design": {
@@ -90545,13 +90665,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces152.html: all claims hold (Beatrix facing left with vertical BEATRIX KONINGIN DER NED",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/2euro/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/2euro/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces152.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -90660,13 +90783,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces112.html: all claims hold (eagle by Heinz Hoyer and Sneschana Russewa-Hoyer, common s",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/2euro/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/2euro/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces112.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -90831,13 +90957,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every claim checked against Numista N#56 (https://en.numista.com/catalogue/pieces56.html) (design, designer, sides, composition, dat",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.usmint.gov/learn/coins-and-medals/bicentennial-coins-and-medals (U.S. Mint Bicentennial Coins and Medals: Washington obve",
     "links": [
+     "https://www.usmint.gov/learn/coins-and-medals/bicentennial-coins-and-medals",
      "https://en.numista.com/catalogue/pieces56.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -91053,13 +91181,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-15",
-    "source": "Agree — every claim checked against Numista N#178 (https://en.numista.com/catalogue/pieces178.html) (design, designer, sides, composition, d",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102 (uCoin KM# 29a: 1989 mintage 20,031,000, Libertas obverse by Karl",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
      "https://en.numista.com/catalogue/pieces178.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -91254,13 +91384,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces178.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102 (uCoin KM# 29a: 1969 mintage 39,875,000, Libertas obverse by Karl",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
      "https://en.numista.com/catalogue/pieces178.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -91348,13 +91480,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces178.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102 (uCoin KM# 29a: 1991 mintage 48,076,000, Libertas obverse by Karl",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
      "https://en.numista.com/catalogue/pieces178.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -91451,13 +91585,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces111.html: all claims hold (eagle by Heinz Hoyer and Sneschana Russewa-Hoyer, common s",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1euro/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1euro/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces111.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -91656,13 +91793,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces173.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103 (uCoin KM# 27: 1979 mintage 18,010,000, Libertas obverse by Karl ",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103",
      "https://en.numista.com/catalogue/pieces173.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -91761,13 +91900,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces173.html: all claims hold (Obverse Libertas facing right, Designer Karl Schwenzer; Re",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103 (uCoin KM# 27: 1981 mintage 30,140,000, Libertas obverse by Karl ",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-10-rappen-1879-2026/?tid=1103",
      "https://en.numista.com/catalogue/pieces173.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -91865,13 +92006,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces135.html: all claims hold (Vitruvian Man by Laura Cretara, common side Luc Luycx, cop",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1euro/html/index.en.html, https://www.ecb.europa.eu/euro/coins/common/html/index.en.html, and ht",
     "links": [
-     "https://en.numista.com/catalogue/pieces135.html"
-    ]
+     "https://www.ecb.europa.eu/euro/coins/1euro/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
+     "https://en.ucoin.net/catalog/?cl=LAURA-CRETARA"
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -92410,13 +92554,16 @@
     "n": 2
    },
    "design": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 and https://www.swissmint.ch/en/frequently-asked-question (uCoin KM",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
+     "https://www.swissmint.ch/en/frequently-asked-question",
      "https://en.numista.com/catalogue/pieces185.html"
-    ]
+    ],
+    "n": 2
    },
    "period": {
     "level": "checked",
@@ -92827,13 +92974,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces83.html: all claims hold (main facade of the Cathedral of Santiago de Compostela by G",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html, https://www.ecb.europa.eu/euro/coins/common/html/index.en.html, and h",
     "links": [
-     "https://en.numista.com/catalogue/pieces83.html"
-    ]
+     "https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
+     "https://en.ucoin.net/coin/spain-5-euro-cent-2010-2026/?tid=6485"
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -92924,13 +93074,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces107.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces107.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -93001,13 +93154,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces106.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces106.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -93086,13 +93242,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces121.html: all claims hold (Celtic harp with éire by Jarlath Hayes, common side Luc Lu",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces121.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -93171,13 +93330,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces6319.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff in the 12 stars, ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (E",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces6319.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -94200,12 +94362,12 @@
    },
    "story": {
     "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-17",
-    "source": "Plain-English rewrite of the existing story; no facts changed. Copper and design verified against KM-613 (PCGS 160224: https://www.greatcoll",
+    "by": "Claude",
+    "ts": "2026-11-23",
+    "source": "Third reader (Claude): Numista N#33961 (https://en.numista.com/33961) lists the obverse lettering as REPUBLICA MEXICANA / LIBERTAD / SALAZAR",
     "links": [
-     "https://www.greatcollections.com/Coin/1803133/Mexico--Chihuahua-Ejercito-Constitucionalista-1914-5-Centavos-KM-613-PCGS-Genuine-Unc-Details",
-     "https://mexicannumismatics.com/history/revolution/chihuahua/ejercito-constitucionalista"
+     "https://en.numista.com/33961",
+     "https://en.numista.com/catalogue/pieces33961.html"
     ]
    },
    "design": {
@@ -94706,13 +94868,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces123.html: all claims hold (Celtic harp with éire by Jarlath Hayes, common side Luc Lu",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces123.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -94793,13 +94958,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces107.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/5cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces107.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95069,13 +95237,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998 (uCoin KM# 929: 1967 mintage 196,728,001, Marianne by Henri Lagriffo",
     "links": [
+     "https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95165,13 +95335,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-10",
-    "source": "checked against https://en.numista.com/catalogue/pieces3.html: all claims hold (Marianne left by Lagriffoul, wheat ear + olive branch + mott",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998 (uCoin KM# 929: 1984 mintage 199,988,600, Marianne by Henri Lagriffo",
     "links": [
+     "https://en.ucoin.net/coin/france-10-centimes-1962-2001/?tid=6998",
      "https://en.numista.com/catalogue/pieces3.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95250,13 +95422,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces106.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common side L",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces106.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95328,13 +95503,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces98.html: all claims hold (Marianne by Fabienne Courtiade with RF and 12 stars, common",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces98.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95406,13 +95584,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces98.html: all claims hold (Marianne by Fabienne Courtiade with RF and 12 stars, common",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (EC",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/2cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces98.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95480,13 +95661,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces101.html: all claims hold (modern Sower by Laurent Jorio after Oscar Roty with RF and",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960 and https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html ",
     "links": [
+     "https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960",
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces101.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95554,13 +95738,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces101.html: all claims hold (modern Sower by Laurent Jorio after Oscar Roty with RF and",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960 and https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html ",
     "links": [
+     "https://en.ucoin.net/coin/france-20-euro-cent-1999-2006/?tid=960",
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
      "https://en.numista.com/catalogue/pieces101.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95642,13 +95829,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces109.html: all claims hold (Brandenburg Gate by Reinhart Heinsdorff in the 12 stars, c",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (E",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/20cents/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces109.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -95714,13 +95904,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95787,13 +95980,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95860,13 +96056,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -95933,13 +96132,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96006,13 +96208,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96079,13 +96284,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96152,13 +96360,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces105.html: all claims hold (oak twig by Rolf Lederbogen in the 12 stars, common globe ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces105.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96239,13 +96450,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces10856.html: all claims hold (main facade of the Cathedral of Santiago de Compostela b",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html, https://www.ecb.europa.eu/euro/coins/common/html/index.en.html, and ht",
     "links": [
-     "https://en.numista.com/catalogue/pieces10856.html"
-    ]
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
+     "https://en.ucoin.net/coin/spain-5-euro-cent-2010-2026/?tid=6485"
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96316,13 +96530,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces81.html: all claims hold (main facade of the Cathedral of Santiago de Compostela by G",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html, https://www.ecb.europa.eu/euro/coins/common/html/index.en.html, and ht",
     "links": [
-     "https://en.numista.com/catalogue/pieces81.html"
-    ]
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
+     "https://en.ucoin.net/coin/spain-5-euro-cent-2010-2026/?tid=6485"
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96400,13 +96617,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces97.html: all claims hold (Marianne by Fabienne Courtiade with RF and 12 stars, common",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces97.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96476,13 +96696,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces145.html: all claims hold (Beatrix profile with BEATRIX KONINGIN DER NEDERLANDEN, com",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (ECB",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces145.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96560,13 +96783,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "checked against https://en.numista.com/catalogue/pieces121.html: all claims hold (Celtic harp with éire by Jarlath Hayes, common side Luc Lu",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html and https://www.ecb.europa.eu/euro/coins/common/html/index.en.html (che",
     "links": [
+     "https://www.ecb.europa.eu/euro/coins/1cent/html/index.en.html",
+     "https://www.ecb.europa.eu/euro/coins/common/html/index.en.html",
      "https://en.numista.com/catalogue/pieces121.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -96911,13 +97137,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516 (checked UK 1992 10 pence KM#938b: Elizabeth II by Raphael Davi",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -96996,13 +97224,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516 (checked UK 1992 10 pence KM#938b: Elizabeth II by Raphael Davi",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -97081,13 +97311,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516 (checked UK 1992 10 pence KM#938b: Elizabeth II by Raphael Davi",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -97166,13 +97398,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-16",
-    "source": "checked against https://en.numista.com/catalogue/pieces879.html: all claims hold (N#879 10 Pence 1992-1997 small type, KM# 938b: Obverse thi",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516 (uCoin KM# 938b: 1992 10 pence, Raphael Maklouf obverse, Christ",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-10-pence-1992-1997/?tid=1516",
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces879.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -97625,13 +97860,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces25746.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/ (The Royal Mint 10p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces25746.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -97720,13 +97957,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces25746.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/ (The Royal Mint 10p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces25746.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -97827,13 +98066,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces25746.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/ (The Royal Mint 10p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces25746.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "review",
@@ -97919,13 +98160,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces70549.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/ (The Royal Mint 10p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/ten-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces70549.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -98032,13 +98275,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces5712.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/eastern_caribbean-10-cents-2002-2007/?tid=41620 (uCoin KM# 37: 2002-2007 issue incl. 2004, Elizabeth II obv",
     "links": [
+     "https://en.ucoin.net/coin/eastern_caribbean-10-cents-2002-2007/?tid=41620",
      "https://en.numista.com/catalogue/pieces5712.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -100025,13 +100270,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces25766.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/ (The Royal Mint 5p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces25766.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -100130,13 +100377,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces25766.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/ (The Royal Mint 5p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces25766.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -100235,13 +100484,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces25766.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/ (The Royal Mint 5p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces25766.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -100475,13 +100726,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces70547.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/ (The Royal Mint 5p specific",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/five-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces70547.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -101994,13 +102247,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces4461.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/nigeria-10-kobo-1973-1976/?tid=28454 (uCoin KM# 10.1: 1976 mintage 7,000,000, national coat of arms obverse",
     "links": [
+     "https://en.ucoin.net/coin/nigeria-10-kobo-1973-1976/?tid=28454",
      "https://en.numista.com/catalogue/pieces4461.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -102159,13 +102414,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-11-05",
-    "source": "checked against https://en.numista.com/catalogue/pieces1609.html (N#1609, India 1 Rupee 1992-2004, KM#92): all claims hold — stainless steel",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.wikipedia.org/wiki/Indian_1-rupee_coin (stainless steel 1 rupee since 1992 KM# 92.2, Noida mint small dot mark °, Ashoka L",
     "links": [
+     "https://en.wikipedia.org/wiki/Indian_1-rupee_coin",
      "https://en.numista.com/catalogue/pieces1609.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -103419,13 +103676,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces665.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/one-pence-coin-designs/ (The Royal Mint 1p specifica",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/one-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces665.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -103518,13 +103777,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces862.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/one-pence-coin-designs/ (The Royal Mint 1p specifica",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/one-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces862.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -103614,13 +103875,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces4038.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.royalmint.com/collect/collector-resources/designs-and-specifications/one-pence-coin-designs/ (The Royal Mint 1p specifica",
     "links": [
+     "https://www.royalmint.com/collect/collector-resources/designs-and-specifications/one-pence-coin-designs/",
      "https://en.numista.com/catalogue/pieces4038.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -104822,13 +105085,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces2940.html: Value-side sentence placed المملكة العربية السعودية on the value side's ri",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/saudi_arabia-1-qirsh-1957-1958/?tid=72287 (checked Saudi Arabia AH 1378/1958 1 qirsh KM#40: value side قرش ",
     "links": [
+     "https://en.ucoin.net/coin/saudi_arabia-1-qirsh-1957-1958/?tid=72287",
      "https://en.numista.com/catalogue/pieces2940.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -105229,13 +105494,15 @@
     ]
    },
    "period": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#5128 https://en.numista.com/catalogue/pieces5128.html: Period 'Republic (1841-date)'; differs from the record's 'Jorge Ubico era' ",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/guatemala-10-centavos-1925-1949/?tid=65852 (checked Guatemala 1934 10 centavos KM#239: Period Republic of G",
     "links": [
+     "https://en.ucoin.net/coin/guatemala-10-centavos-1925-1949/?tid=65852",
      "https://en.numista.com/catalogue/pieces5128.html"
-    ]
+    ],
+    "n": 2
    }
   },
   "C236": {
@@ -105634,10 +105901,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Muse",
-    "ts": "2026-10-30",
-    "source": "Photo read: C240_rev.webp - 100 lire Minerva reverse, date 1965 in the exergue; small R mintmark in the right field (Rome, the only mint for"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo C240_Italy_1965_100Lire_rev.jpeg clearly shows the 'R' (Rome Mint) mintmark to the right of Minerva's skirt at ~4 o'clock; match",
+    "links": [
+     "https://en.numista.com/304",
+     "https://en.numista.com/catalogue/pieces304.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -105760,13 +106032,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces860.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/united_kingdom-1-penny-1992-1997/?tid=1478 (checked UK 1997 1 penny KM#935a: Raphael David Maklouf Elizabet",
     "links": [
+     "https://en.ucoin.net/coin/united_kingdom-1-penny-1992-1997/?tid=1478",
      "https://en.numista.com/catalogue/pieces860.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -106422,13 +106696,15 @@
     "n": 2
    },
    "period": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#549 https://en.numista.com/catalogue/pieces549.html: Period 'Third Hellenic Republic (1974-date)'; differs from the record's 'Hell",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/greece-2-drachmas-1982-1986/?tid=4385 (checked Greece 1982 2 drachmas: Period Third Hellenic Republic); rea",
     "links": [
+     "https://en.ucoin.net/coin/greece-2-drachmas-1982-1986/?tid=4385",
      "https://en.numista.com/catalogue/pieces549.html"
-    ]
+    ],
+    "n": 2
    }
   },
   "C249": {
@@ -106491,13 +106767,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces1003.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/australia-20-cents-1966-1984/?tid=13450 (checked Australia 1966 20 cents KM#66: Elizabeth II obverse, Stuar",
     "links": [
+     "https://en.ucoin.net/coin/australia-20-cents-1966-1984/?tid=13450",
      "https://en.numista.com/catalogue/pieces1003.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -106870,14 +107148,16 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-31",
-    "source": "checked against https://en.numista.com/catalogue/pieces2617.html: all claims hold — composition row 'Nickel plated steel'; obverse 'Coat of ",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/jamaica-10-cents-1991-1994/?tid=24313 (checked Jamaica 1993 10 cents KM#146.1: coat of arms of Jamaica with",
     "links": [
+     "https://en.ucoin.net/coin/jamaica-10-cents-1991-1994/?tid=24313",
      "https://en.numista.com/catalogue/pieces2617.html",
      "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C253_obv.webp"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -106954,13 +107234,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces3935.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/vatican_city-10-lire-1951-1958/?tid=53216 (checked Vatican City 1951 10 lire KM#52: Pius XII obverse, stand",
     "links": [
+     "https://en.ucoin.net/coin/vatican_city-10-lire-1951-1958/?tid=53216",
      "https://en.numista.com/catalogue/pieces3935.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -107133,13 +107415,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://en.numista.com/catalogue/pieces178.html: all claims hold",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102 (checked Switzerland 1959 20 rappen KM#29a: Libertas right by Kar",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-20-rappen-1939-2026/?tid=1102",
      "https://en.numista.com/catalogue/pieces178.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -107224,13 +107508,15 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-31",
-    "source": "checked against https://en.numista.com/catalogue/pieces959.html: all claims hold — composition row 'Brass (95% Copper, 5% Zinc)' (brass is r",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/mexico-20-centavos-1955-1971/?tid=10759 (checked Mexico 1967 20 centavos KM#440: coat of arms obverse, Pyra",
     "links": [
+     "https://en.ucoin.net/coin/mexico-20-centavos-1955-1971/?tid=10759",
      "https://en.numista.com/catalogue/pieces959.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -107948,13 +108234,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-24",
-    "source": "checked against https://en.numista.com/catalogue/pieces1671.html (Numista N#1671, KM#3): all claims hold. Reverse: Crowned Seahorse; obverse",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/singapore-10-cents-1967-1985/?tid=20386 (checked Singapore 1973 10 cents KM#3: crowned seahorse Hippocampus",
     "links": [
+     "https://en.ucoin.net/coin/singapore-10-cents-1967-1985/?tid=20386",
      "https://en.numista.com/catalogue/pieces1671.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "checked",
@@ -108716,8 +109004,14 @@
     "source": "C272_rev.webp (\"Reverse photo C272_rev.webp shows large numeral '2' above 'GROSCHEN'\")"
    },
    "mint": {
-    "level": "ai",
-    "like": "country"
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photos C272_Austria_1925_2Groschen_obv.jpeg and C272_Austria_1925_2Groschen_rev.jpeg show both sides ('2 GROSCHEN' / cross-crutch shie",
+    "links": [
+     "https://en.numista.com/1944",
+     "https://en.numista.com/catalogue/pieces1944.html"
+    ]
    },
    "catalog": {
     "level": "checked",
@@ -109013,8 +109307,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo C275_United-Kingdom_1992_5Pence_obv.jpeg shows 1992 Maklouf obverse; Royal Mint Llantrisant 1992 5 pence carries no mintmark per",
+    "links": [
+     "https://en.numista.com/875",
+     "https://en.numista.com/catalogue/pieces875.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -109117,8 +109418,16 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C276_Bahamas_2015_1Cent_obv.jpg shows coat of arms '2015'; Royal Canadian Mint Winnipeg 2015 1 cent carries no mintmark per Numi",
+    "links": [
+     "https://en.numista.com/92216",
+     "https://en.ucoin.net/coin/bahamas-1-cent-2014-2015/?tid=75078",
+     "https://en.numista.com/catalogue/pieces92216.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -109211,8 +109520,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C277_Bermuda_2004_10Cents_rev.jpg shows Bermuda lily '2004 TEN CENTS' with no mintmark; Royal Mint Llantrisant 2004 row carries ",
+    "links": [
+     "https://en.numista.com/3214",
+     "https://en.numista.com/catalogue/pieces3214.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -109314,8 +109630,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C278_Switzerland_1980_20Rappen_obv.jpg shows Libertas '1980'; Swiss Federal Mint (Bern) omitted the B mintmark on 20 rappen from",
+    "links": [
+     "https://en.numista.com/178",
+     "https://en.numista.com/catalogue/pieces178.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -109415,8 +109738,16 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C279_Philippines_1997_1Piso_obv.jpg shows Jose Rizal '1997'; Bangko Sentral ng Pilipinas 1997 1 piso carries no mintmark per Num",
+    "links": [
+     "https://en.numista.com/1681",
+     "https://en.ucoin.net/coin/philippines-1-piso-1995-2003/?tid=18943",
+     "https://en.numista.com/catalogue/pieces1681.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -109456,13 +109787,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-31",
-    "source": "checked against https://en.numista.com/catalogue/pieces1681.html: all claims hold — obverse 'Head of Jose Rizal facing right' lettering 'REP",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/philippines-1-piso-1995-2003/?tid=18943 (checked Philippines 1997 1 piso KM#269: obverse José Rizal, REPUBL",
     "links": [
+     "https://en.ucoin.net/coin/philippines-1-piso-1995-2003/?tid=18943",
      "https://en.numista.com/catalogue/pieces1681.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -109506,8 +109839,16 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C280_Belize_2007_25Cents_rev.jpg shows 'BELIZE 25 CENTS 2007' with no mintmark; 2007 row carries no mintmark per Numista N#2238 ",
+    "links": [
+     "https://en.numista.com/2238",
+     "https://en.ucoin.net/coin/belize-25-cents-1974-2022/?tid=41973",
+     "https://en.numista.com/catalogue/pieces2238.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -109604,8 +109945,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C281_France_1994_5Francs_rev.jpg shows '5 FRANCS 1994' with no letter mintmark (Paris Mint cornucopia and engraver privy marks f",
+    "links": [
+     "https://en.numista.com/8",
+     "https://en.numista.com/catalogue/pieces8.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -109703,8 +110051,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C282_Yugoslavia_1965_50Para_rev.jpg shows '50 PARA' with no mintmark; Belgrade Mint 1965 50 para carries no mintmark per Numista",
+    "links": [
+     "https://en.numista.com/2006",
+     "https://en.numista.com/catalogue/pieces2006.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -110112,8 +110467,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C286_Honduras_2012_50Centavos_obv.jpg shows arms 'REPUBLICA DE HONDURAS 2012' with no mintmark; 2012 row carries no mintmark per",
+    "links": [
+     "https://en.numista.com/3190",
+     "https://en.numista.com/catalogue/pieces3190.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -110316,8 +110678,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photos C288_Australia_1983_1Cent_rev.jpg and C288_Australia_1983_2Cent_obv.jpg show glider '1' and 1983 Machin obverse with no mintmar",
+    "links": [
+     "https://en.numista.com/1559",
+     "https://en.numista.com/catalogue/pieces1559.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -110414,8 +110783,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C289_Argentina_1954_5Centavos_rev.jpg shows '5 CENTAVOS 1954' with no mintmark; Buenos Aires Mint 1954 row carries no mintmark p",
+    "links": [
+     "https://en.numista.com/4835",
+     "https://en.numista.com/catalogue/pieces4835.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -110510,8 +110886,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C290_UnitedKingdom_2013_1Penny_obv.jpg shows IRB Elizabeth II '2013'; Royal Mint Llantrisant 2013 1 penny carries no mintmark pe",
+    "links": [
+     "https://en.numista.com/4038",
+     "https://en.numista.com/catalogue/pieces4038.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -110687,14 +111070,10 @@
     "n": 2
    },
    "design": {
-    "level": "checked",
-    "by": "Gemini + Muse",
-    "ts": "2026-11-06",
-    "source": "https://en.numista.com/catalogue/pieces5010.html (\"Obverse: Coat of arms of the Bahamas, COMMONWEALTH OF THE BAHAMAS, FORWARD, UPWARD, ONWAR",
-    "links": [
-     "https://en.numista.com/catalogue/pieces5010.html"
-    ],
-    "n": 2
+    "level": "reference",
+    "by": "Gemini",
+    "ts": "2026-11-23",
+    "source": "uCoin.net, 5 cents 1974-2006 - Elizabeth II, Bahamas (KM# 60), Reverse Creators: Arnold Machin"
    },
    "ruler": {
     "level": "checked",
@@ -110726,8 +111105,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C292_UnitedKingdom_2002_1Penny_obv.jpg shows IRB Elizabeth II '2002'; Royal Mint Llantrisant 2002 1 penny carries no mintmark pe",
+    "links": [
+     "https://en.numista.com/862",
+     "https://en.numista.com/catalogue/pieces862.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -111034,8 +111420,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C295_Australia_2006_10Cents_obv.jpg shows IRB Elizabeth II 'AUSTRALIA 2006'; Royal Australian Mint 2006 10 cents carries no mint",
+    "links": [
+     "https://en.numista.com/1565",
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -111125,8 +111518,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C296_UnitedKingdom_1990_5Pence_obv.jpg shows Maklouf Elizabeth II '1990'; Royal Mint Llantrisant 1990 5 pence carries no mintmar",
+    "links": [
+     "https://en.numista.com/875",
+     "https://en.numista.com/catalogue/pieces875.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -111230,8 +111630,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C297_UnitedKingdom_1988_1Penny_obv.jpg shows Maklouf Elizabeth II '1988'; Royal Mint Llantrisant 1988 1 penny carries no mintmar",
+    "links": [
+     "https://en.numista.com/861",
+     "https://en.numista.com/catalogue/pieces861.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -111620,8 +112027,15 @@
     "source": "Muse's changes_muse_20261013-0852.jsonl (Mexico 1989 500 pesos, M°). Its photo NOID_Mexico_1989_500Pesos_obv.jpg (Drive id 1s1iNkkJldwYjZVtp"
    },
    "year": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C301_Mexico_1989_500Pesos_obv.jpeg clearly reads '1989' to the left of Madero ('Mo' right, '$500' below); matches Numista N#819 ",
+    "links": [
+     "https://en.numista.com/819",
+     "https://en.numista.com/catalogue/pieces819.html"
+    ],
+    "n": 2
    },
    "denomination": {
     "level": "checked",
@@ -111684,13 +112098,16 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-10-30",
-    "source": "corrected against https://en.numista.com/catalogue/pieces819.html: Reverse reads 'Portrait of Francisco Ignacio Madero facing right with the",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://www.banxico.org.mx/billetes-y-monedas/monedas-desmonetizadas-a-desm.html and https://en.ucoin.net/coin/mexico-500-pesos-1986-",
     "links": [
+     "https://www.banxico.org.mx/billetes-y-monedas/monedas-desmonetizadas-a-desm.html",
+     "https://en.ucoin.net/coin/mexico-500-pesos-1986-1992/?tid=10863",
      "https://en.numista.com/catalogue/pieces819.html"
-    ]
+    ],
+    "n": 2
    },
    "design": {
     "level": "reference",
@@ -111733,8 +112150,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Claude + Gemini",
+    "ts": "2026-11-23",
+    "source": "Blind photo C302_UnitedKingdom_1922_1Penny_rev.jpg shows Britannia 'ONE PENNY 1922' with no mintmark left of date (H/KN were only used in 19",
+    "links": [
+     "https://en.numista.com/578",
+     "https://en.numista.com/catalogue/pieces578.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -112025,8 +112449,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_VaticanCity_1958_20Lire_rev.jpeg zoomed 4x confirms 'CITTA DEL VATICANO 1958 L.20 CARITAS' with no letter mintmark (struck ",
+    "links": [
+     "https://en.numista.com/33337",
+     "https://en.numista.com/catalogue/pieces33337.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -112105,8 +112536,16 @@
     "source": "Muse photo C276_Bahamas_2015_1Cent_obv.jpg (owner chat photo 9f80a1a4..._1_8px0.jpg, 2026-10-03), re-filed by Claude from Muse's changes_mus"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Bahamas_2015_1Cent_obv.jpeg shows coat of arms '2015'; Royal Canadian Mint Winnipeg 2015 1 cent carries no mintmark per Num",
+    "links": [
+     "https://en.numista.com/92216",
+     "https://en.ucoin.net/coin/bahamas-1-cent-2014-2015/?tid=75078",
+     "https://en.numista.com/catalogue/pieces92216.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -112197,8 +112636,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_SouthKorea_1988_100Won_rev.jpeg shows '1988 100 한국은행' with no mintmark; KOMSCO 1988 100 won carries no mintmark per Numista",
+    "links": [
+     "https://en.numista.com/1052",
+     "https://en.numista.com/catalogue/pieces1052.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -112354,13 +112800,16 @@
     "n": 2
    },
    "design": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 and https://www.swissmint.ch/en/frequently-asked-question (uCoin KM",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
+     "https://www.swissmint.ch/en/frequently-asked-question",
      "https://en.numista.com/catalogue/pieces185.html"
-    ]
+    ],
+    "n": 2
    },
    "period": {
     "level": "checked",
@@ -112395,8 +112844,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_UnitedKingdom_1937_HalfPenny_rev.jpeg shows Golden Hind 'HALF PENNY 1937' with no mintmark; Royal Mint Tower Hill 1937 half",
+    "links": [
+     "https://en.numista.com/870",
+     "https://en.numista.com/catalogue/pieces870.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -112477,8 +112933,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_France_1979_2Francs_rev.jpeg shows '2 FRANCS 1979' with no letter mintmark (Paris cornucopia and dolphin privy marks flank ",
+    "links": [
+     "https://en.numista.com/7",
+     "https://en.numista.com/catalogue/pieces7.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -112559,8 +113022,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_SouthKorea_1997_100Won_rev.jpeg shows '1997 100 한국은행' with no mintmark; KOMSCO 1997 100 won carries no mintmark per Numista",
+    "links": [
+     "https://en.numista.com/1052",
+     "https://en.numista.com/catalogue/pieces1052.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -112822,8 +113292,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_SouthKorea_2012_10Won_rev.jpeg shows '2012 10 한국은행' with no mintmark; KOMSCO 2012 10 won carries no mintmark per Numista N#",
+    "links": [
+     "https://en.numista.com/1654",
+     "https://en.numista.com/catalogue/pieces1654.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -113017,8 +113494,15 @@
     "source": "photo NOID_UnitedKingdom_2014_20Pence_obv.jpeg (pen label: UNITED KINGDOM 2014 20 PENCE); new type for a chat-photo specimen, 2026-11-02"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_UnitedKingdom_2014_20Pence_obv.jpeg shows IRB Elizabeth II; Royal Mint Llantrisant 2014 20 pence carries no mintmark per Nu",
+    "links": [
+     "https://en.numista.com/5628",
+     "https://en.numista.com/catalogue/pieces5628.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -113099,8 +113583,16 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Belize_2015_25Cents_rev.jpeg shows 'BELIZE 25 CENTS 2015' with no mintmark; 2015 row carries no mintmark per Numista N#2238",
+    "links": [
+     "https://en.numista.com/2238",
+     "https://en.ucoin.net/coin/belize-25-cents-1974-2022/?tid=41973",
+     "https://en.numista.com/catalogue/pieces2238.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -113187,8 +113679,15 @@
     "like": "country"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_UnitedKingdom_2014_10Pence_obv.jpeg shows IRB Elizabeth II '2014'; Royal Mint Llantrisant 2014 10 pence carries no mintmark",
+    "links": [
+     "https://en.numista.com/25746",
+     "https://en.numista.com/catalogue/pieces25746.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -113472,8 +113971,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_France_1988_20Centimes_rev.jpeg shows '20 CENTIMES 1988' with no letter mintmark (Paris cornucopia and dolphin privy marks ",
+    "links": [
+     "https://en.numista.com/4",
+     "https://en.numista.com/catalogue/pieces4.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -113567,8 +114073,15 @@
     "source": "photo NOID_Portugal_1970_20Centavos_obv.jpeg (pen label: PORTUGAL 1970 20 CENTAVOS); new type for a chat-photo specimen, 2026-11-02"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Portugal_1970_20Centavos_obv.jpeg shows arms 'REPUBLICA PORTUGUESA 1970' with no mintmark; Lisbon Mint 1970 20 centavos car",
+    "links": [
+     "https://en.numista.com/3282",
+     "https://en.numista.com/catalogue/pieces3282.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -114008,8 +114521,16 @@
     "source": "Muse photo C276_Bahamas_2015_1Cent_obv.jpg (owner chat photo 9f80a1a4..._1_8px0.jpg, 2026-10-03), re-filed by Claude from Muse's changes_mus"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Bahamas_2015_1Cent_obv-2.jpeg shows coat of arms '2015'; Royal Canadian Mint Winnipeg 2015 1 cent carries no mintmark per N",
+    "links": [
+     "https://en.numista.com/92216",
+     "https://en.ucoin.net/coin/bahamas-1-cent-2014-2015/?tid=75078",
+     "https://en.numista.com/catalogue/pieces92216.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -114103,8 +114624,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Switzerland_1976_1Franc_rev.jpeg shows '1 Fr. 1976' with no mintmark; Swiss Federal Mint (Bern) omitted the B mintmark 1971",
+    "links": [
+     "https://en.numista.com/185",
+     "https://en.numista.com/catalogue/pieces185.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -114156,13 +114684,16 @@
     "n": 2
    },
    "design": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-09",
-    "source": "Numista N#185, https://en.numista.com/catalogue/pieces185.html - Obverse: Helvetia standing facing left, spear in right hand, shield in left",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105 and https://www.swissmint.ch/en/frequently-asked-question (uCoin KM",
     "links": [
+     "https://en.ucoin.net/coin/switzerland-1-franc-1968-2026/?tid=1105",
+     "https://www.swissmint.ch/en/frequently-asked-question",
      "https://en.numista.com/catalogue/pieces185.html"
-    ]
+    ],
+    "n": 2
    },
    "period": {
     "level": "checked",
@@ -114197,8 +114728,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_UnitedKingdom_1962_1Shilling_rev.jpeg shows English shield '1962 ONE SHILLING' with no mintmark; Royal Mint Tower Hill 1962",
+    "links": [
+     "https://en.numista.com/882",
+     "https://en.numista.com/catalogue/pieces882.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -114278,8 +114816,15 @@
     "source": "photo NOID_Ireland_1995_10Pence_obv.jpeg (pen label: IRELAND 1995 10 PENCE); new type for a chat-photo specimen, 2026-11-02"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Ireland_1995_10Pence_obv.jpeg shows harp '1995'; Currency Centre Dublin 1995 10 pence carries no mintmark per Numista N#145",
+    "links": [
+     "https://en.numista.com/1457",
+     "https://en.numista.com/catalogue/pieces1457.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -114360,8 +114905,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_Australia_1966_10Cent_obv.jpeg and NOID_Australia_1966_10Cent_rev.jpeg show both sides (1966 Machin / '10' lyrebird) with ",
+    "links": [
+     "https://en.numista.com/1282",
+     "https://en.numista.com/catalogue/pieces1282.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -114441,8 +114993,16 @@
     "source": "Muse photo C276_Bahamas_2015_1Cent_obv.jpg (owner chat photo 9f80a1a4..._1_8px0.jpg, 2026-10-03), re-filed by Claude from Muse's changes_mus"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Bahamas_2015_1Cent_obv-3.jpeg shows coat of arms '2015'; Royal Canadian Mint Winnipeg 2015 1 cent carries no mintmark per N",
+    "links": [
+     "https://en.numista.com/92216",
+     "https://en.ucoin.net/coin/bahamas-1-cent-2014-2015/?tid=75078",
+     "https://en.numista.com/catalogue/pieces92216.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -114688,8 +115248,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_SouthKorea_1994_100Won_rev.jpeg shows '1994 100 한국은행' with no mintmark; KOMSCO 1994 100 won carries no mintmark per Numista",
+    "links": [
+     "https://en.numista.com/1052",
+     "https://en.numista.com/catalogue/pieces1052.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -114973,8 +115540,16 @@
     "source": "photo NOID_Jamaica_1977_10Cents_obv.jpeg (pen label: JAMAICA 1977 10 CENTS); new type for a chat-photo specimen, 2026-11-04"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_Jamaica_1977_10Cents_obv.jpeg shows the wide-legend 'JAMAICA' coat-of-arms obverse of the Royal Mint circulation strike (no",
+    "links": [
+     "https://en.numista.com/934",
+     "https://en.numista.com/catalogue/pieces7362.html",
+     "https://en.numista.com/catalogue/pieces934.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -115058,8 +115633,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_France_1983_20Centimes_rev.jpeg shows '20 CENTIMES 1983' with no letter mintmark (Paris cornucopia and dolphin privy marks ",
+    "links": [
+     "https://en.numista.com/4",
+     "https://en.numista.com/catalogue/pieces4.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -115155,8 +115737,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_Japan_2015_100Yen_obv.jpeg and NOID_Japan_2015_100Yen_rev.jpeg show both sides ('日本国' sakura / '100 平成二十七年') with no mintm",
+    "links": [
+     "https://en.numista.com/2121",
+     "https://en.numista.com/catalogue/pieces2121.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -115331,8 +115920,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_SouthKorea_2001_10Won_obv.jpeg and NOID_SouthKorea_2001_10Won_rev.jpeg show both sides ('십원' Dabotap / '2001 10') with no ",
+    "links": [
+     "https://en.numista.com/978",
+     "https://en.numista.com/catalogue/pieces978.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -115381,13 +115977,16 @@
     "n": 2
    },
    "period": {
-    "level": "reference",
-    "by": "Muse",
-    "ts": "2026-11-17",
-    "source": "Numista N#978 https://en.numista.com/catalogue/pieces978.html: Period 'Republic (1948-date)'; differs from the record's 'Republic of Korea' ",
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "agree: https://en.ucoin.net/coin/south_korea-10-won-1983-2006/?tid=15905 (checked South Korea 2001 10 won KM#33: Period Republic of Korea / ",
     "links": [
+     "https://en.ucoin.net/coin/south_korea-10-won-1983-2006/?tid=15905",
+     "https://www.bok.or.kr/eng/main/contents.do?menuNo=400120",
      "https://en.numista.com/catalogue/pieces978.html"
-    ]
+    ],
+    "n": 2
    }
   },
   "C343": {
@@ -115412,10 +116011,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "by": "Claude",
-    "ts": "2026-11-11",
-    "source": "photos NOID_CostaRica_2008_10Colones_obv.jpeg + _rev.jpeg (cut as photos/p1/C343_obv.webp, C343_rev.webp; Claude, 2026-11-11): no mint mark "
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_CostaRica_2008_10Colones_obv.jpeg and NOID_CostaRica_2008_10Colones_rev.jpeg show both sides ('REPUBLICA DE COSTA RICA 200",
+    "links": [
+     "https://en.numista.com/3756",
+     "https://en.numista.com/catalogue/pieces3756.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -115486,7 +116090,9 @@
    },
    "year": {
     "level": "photo",
-    "like": "country"
+    "by": "Claude",
+    "ts": "2026-11-23",
+    "source": "Claude read the reverse photo (photos/cut/C344_rev.webp, enlarged 2x): the date under the 10 reads 平成十九年, Heisei 19 = 2007; the fourth chara"
    },
    "denomination": {
     "level": "checked",
@@ -115496,8 +116102,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_Japan_2002_10Yen_obv.jpeg and NOID_Japan_2002_10Yen_rev.jpeg show both sides (Byodoin / '10 平成十九年') with no mintmark; Japa",
+    "links": [
+     "https://en.numista.com/3047",
+     "https://en.numista.com/catalogue/pieces3047.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -115519,13 +116132,10 @@
     ]
    },
    "mintage": {
-    "level": "reference",
-    "by": "Gemini",
-    "ts": "2026-11-19",
-    "source": "Numista N#3047 https://en.numista.com/catalogue/pieces3047.html, Mintage table row 14 (2002) (Y# 97.2)",
-    "links": [
-     "https://en.numista.com/catalogue/pieces3047.html"
-    ]
+    "level": "ai",
+    "by": "Claude",
+    "ts": "2026-11-23",
+    "source": "Cleared: 455,425,000 is the 2002 mintage and the coin is dated 2007 (photos/cut/C344_rev.webp, 平成十九年); the 2007 figure is homework for the n"
    },
    "value": {
     "level": "checked",
@@ -115539,13 +116149,10 @@
     "n": 2
    },
    "story": {
-    "level": "reference",
-    "by": "Gemini",
-    "ts": "2026-11-19",
-    "source": "Numista N#3047 https://en.numista.com/catalogue/pieces3047.html, Features, Obverse, Reverse, and Mintage row 14 (2002) (Y# 97.2)",
-    "links": [
-     "https://en.numista.com/catalogue/pieces3047.html"
-    ]
+    "level": "photo",
+    "by": "Claude",
+    "ts": "2026-11-23",
+    "source": "The story follows the date read from the photo (photos/cut/C344_rev.webp: 平成十九年, Heisei 19 = 2007)."
    },
    "ruler": {
     "level": "reference",
@@ -115587,8 +116194,15 @@
     "source": "Muse photo NOID_Australia_2006_20Cent_obv.jpg (Drive STAGING id 1fLSzW-4qZNavkLfqa6HUFgfMru4d_Vo1), re-filed by Claude from Muse's changes_m"
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_Australia_2008_10Cents_obv.jpeg and NOID_Australia_2008_10Cents_rev.jpeg show both sides ('2008' IRB / '10' lyrebird) with",
+    "links": [
+     "https://en.numista.com/1565",
+     "https://en.numista.com/catalogue/pieces1565.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -115849,8 +116463,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_EastCaribbeanStates_2004_10Cents_obv.jpeg and NOID_EastCaribbeanStates_2004_10Cents_rev.jpeg show both sides ('2004' Golde",
+    "links": [
+     "https://en.numista.com/5712",
+     "https://en.numista.com/catalogue/pieces5712.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "checked",
@@ -115947,8 +116568,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_Australia_1977_50Cents_obv.jpeg and NOID_Australia_1977_50Cents_rev.jpeg show both sides ('1977' Machin / Silver Jubilee 5",
+    "links": [
+     "https://en.numista.com/5524",
+     "https://en.numista.com/catalogue/pieces5524.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -116028,8 +116656,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_EastCaribbeanStates_1991_10Cents_obv.jpeg and NOID_EastCaribbeanStates_1991_10Cents_rev.jpeg show both sides ('1991' Golde",
+    "links": [
+     "https://en.numista.com/932",
+     "https://en.numista.com/catalogue/pieces932.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -116274,8 +116909,15 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photos NOID_Japan_1996_10Yen_obv.jpeg and NOID_Japan_1996_10Yen_rev.jpeg show both sides (Byodoin / '10 平成八年' = 1996) with no mintmark",
+    "links": [
+     "https://en.numista.com/3047",
+     "https://en.numista.com/catalogue/pieces3047.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -116366,8 +117008,16 @@
     "n": 2
    },
    "mint": {
-    "level": "photo",
-    "like": "country"
+    "level": "checked",
+    "by": "Gemini + Muse",
+    "ts": "2026-11-23",
+    "source": "Blind photo NOID_India_2014_2Rupees_rev.jpeg ultra-zoom clearly shows the round dot ('•') mintmark of Noida Mint directly below '2014'; matc",
+    "links": [
+     "https://en.numista.com/24942",
+     "https://en.ucoin.net/coin/india-2-rupees-2011-2019/?tid=15786",
+     "https://en.numista.com/catalogue/pieces24942.html"
+    ],
+    "n": 2
    },
    "catalog": {
     "level": "reference",
@@ -116455,10 +117105,11 @@
   },
   "T002": {
    "mint": {
-    "level": "photo",
-    "by": "Grok",
-    "ts": "2026-10-11",
-    "source": "T002_obv.webp, T002_rev.webp: both sides read (GR monogram in ring of stars; 20 in wreath); no letter, initials or mark anywhere at full zoo"
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "Blind photos T002_Germany_ND_Spielmarke20_obv.jpeg and T002_Germany_ND_Spielmarke20_rev.jpeg show both sides (gothic monogram 'GR' in 12 sta",
+    "n": 2
    },
    "value": {
     "level": "checked",
@@ -116499,13 +117150,15 @@
     ]
    },
    "story": {
-    "level": "reference",
-    "by": "Grok",
-    "ts": "2026-10-28",
-    "source": "checked against https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp (and T003_rev.webp): all claims hold — sides read",
+    "level": "checked",
+    "by": "Gemini + Grok",
+    "ts": "2026-11-23",
+    "source": "agree: https://newsroom.meijer.com/2024-06-05-Sandy-the-Pony-Still-Brings-Joy-after-62-Years (checked Meijer USA Sandy the Pony ride history",
     "links": [
+     "https://newsroom.meijer.com/2024-06-05-Sandy-the-Pony-Still-Brings-Joy-after-62-Years",
      "https://jpavia10.github.io/titan-reliquary-preview/photos/p1/T003_obv.webp"
-    ]
+    ],
+    "n": 2
    }
   },
   "T004": {

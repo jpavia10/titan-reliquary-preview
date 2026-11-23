@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-23] Gemini's run 6, Titan part: 163 events merged, 4 corrections settled (Claude)
+- GT-SECOND round 3 (108 stories), the blind photo read (90 photos), verify and fill sheets merged; 0 rejected. Three story slips fixed by Gemini and settled by Claude as third reader (C066 1978 -> 1976, C114 SALAZAR on the front, C033 Roty's Sower 1897). C344 is dated 平成十九年 (2007), not 2002: Gemini's blind read, confirmed by Claude at 2x; year, story and the stale mintage corrected (2007 mintage is homework).
+- Open for a third reader: C312, C313, C333, C347 mint marks (D0241-D0243, D0245). C293 still shows C301's photo (already rejected; it needs its own). Scored row 79 (9/10).
+
 ### 2026-11-23 Claude: catch-up and roster change (homework only; app unchanged)
 - Owner: "Rely on gemini mostly im lazy to use others now. Muse can do a modest amount if you want. Im planning to cancel grok in 1 month its gonna phase out." `roles.json`: Grok `leaving` (capacity 0; its 6 open sheets and 12 open tasks withdrawn, the third-reader ones to Claude, the two spot-checks folded into Muse task 15); Muse capacity 3, second-reader kinds only (14 sheets withdrawn, 3 kept; task 14 cut to its first 25 items); Gemini unchanged (projects 44, 51-54). Test sandbox pins the roster the loop tests were written for.
 - Gemini's blind photo test of Nov 21 scored and recorded (main 83 %, locked 78 %; `MODEL_ACCURACY.md`, `calibration.jsonl`). The verify pool (331 items, mostly Gemini's own facts) now waits on Muse's 3 sheets and Claude: Checked will rise more slowly.
