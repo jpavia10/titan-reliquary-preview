@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### 2026-11-23 Claude: catch-up and roster change (homework only; app unchanged)
+- Owner: "Rely on gemini mostly im lazy to use others now. Muse can do a modest amount if you want. Im planning to cancel grok in 1 month its gonna phase out." `roles.json`: Grok `leaving` (capacity 0; its 6 open sheets and 12 open tasks withdrawn, the third-reader ones to Claude, the two spot-checks folded into Muse task 15); Muse capacity 3, second-reader kinds only (14 sheets withdrawn, 3 kept; task 14 cut to its first 25 items); Gemini unchanged (projects 44, 51-54). Test sandbox pins the roster the loop tests were written for.
+- Gemini's blind photo test of Nov 21 scored and recorded (main 83 %, locked 78 %; `MODEL_ACCURACY.md`, `calibration.jsonl`). The verify pool (331 items, mostly Gemini's own facts) now waits on Muse's 3 sheets and Claude: Checked will rise more slowly.
+
 ### 2026-11-22 Claude: intake 5, Gemini's overnight run 4, Titan part (data and homework only; app unchanged)
 - Merged `changes_gemini_20261121-1145..1159` (469 lines; originals and the remap script in `collection/_incoming/originals-20261122/`): 150 events, 145 facts to Checked (2,166 to 2,311, 57.9 %), 35 value/catalogue differences filed for a third reader (Muse's arbitrate homework took them), D0228 (JP.Y.73a bronze, same alloy) settled by Claude. Score #78 (9/10).
 - Pipeline: a second value now agrees with the record within 30 % or 30 cents (`VALUE_BAND`, `check_verdict`; test added, 56/56, parity OK). The round-2 sheet had no field paths (Claude's fault): lines were mapped to `value.est_usd`, `issue.mint_marks`, the type's `catalogs`/`denomination.value`/`composition.text`/`ruler`; free text went to round 3.

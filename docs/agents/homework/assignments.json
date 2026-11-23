@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-23T02:46:01Z",
+ "updated": "2026-11-23T16:08:20Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -32286,9 +32286,14 @@
    "kind": "value",
    "issued": "2026-11-15T01:56:48Z",
    "lease_until": "2026-11-25T01:56:48Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1,
+    "reason": "Grok is being phased out (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "value:C300",
@@ -33960,9 +33965,14 @@
    "kind": "research",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-28T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1,
+    "reason": "Grok is being phased out (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "research:C300:35aac561",
@@ -33978,9 +33988,14 @@
    "kind": "fill",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-28T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 9,
+    "closed": 0,
+    "left": 9,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "fill:AU.X.50-cents",
@@ -34044,9 +34059,14 @@
    "kind": "cite",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 9,
+    "closed": 0,
+    "left": 9,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "cite:EC.X.10-cents",
@@ -34110,9 +34130,14 @@
    "kind": "arbitrate",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 3,
+    "closed": 0,
+    "left": 3,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "arb:D0172",
@@ -34140,9 +34165,14 @@
    "kind": "arbitrate",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 15,
+    "closed": 0,
+    "left": 15,
+    "reason": "Grok is being phased out (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "arb:D0151",
@@ -34392,9 +34422,14 @@
    "kind": "arbitrate",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 2,
+    "closed": 0,
+    "left": 2,
+    "reason": "Grok is being phased out (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "arb:D0188",
@@ -34416,9 +34451,14 @@
    "kind": "verify",
    "issued": "2026-11-18T20:53:03Z",
    "lease_until": "2026-11-25T20:53:03Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 25,
+    "closed": 0,
+    "left": 25,
+    "reason": "Grok is being phased out (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:specimen:C352:issue.year",
@@ -34600,9 +34640,14 @@
    "kind": "verify",
    "issued": "2026-11-19T01:19:57Z",
    "lease_until": "2026-11-26T01:19:57Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 17,
+    "closed": 0,
+    "left": 17,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:type:GG.X.8-doubles:catalogs",
@@ -34714,9 +34759,14 @@
    "kind": "arbitrate",
    "issued": "2026-11-19T01:19:57Z",
    "lease_until": "2026-11-26T01:19:57Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 2,
+    "closed": 0,
+    "left": 2,
+    "reason": "Grok is being phased out (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "arb:D0200",
@@ -34782,9 +34832,14 @@
    "kind": "arbitrate",
    "issued": "2026-11-19T20:53:38Z",
    "lease_until": "2026-11-26T20:53:38Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 8,
+    "closed": 0,
+    "left": 8,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "arb:D0164",
@@ -34842,9 +34897,14 @@
    "kind": "verify",
    "issued": "2026-11-19T20:53:38Z",
    "lease_until": "2026-11-26T20:53:38Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 9,
+    "closed": 0,
+    "left": 9,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:type:FR.KM.929:issues.5.mintage",
@@ -34908,9 +34968,14 @@
    "kind": "verify",
    "issued": "2026-11-19T20:54:21Z",
    "lease_until": "2026-11-26T20:54:21Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 8,
+    "closed": 0,
+    "left": 8,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:type:GT.KM.239.2:design.text",
@@ -34968,9 +35033,14 @@
    "kind": "verify",
    "issued": "2026-11-21T03:14:24Z",
    "lease_until": "2026-11-28T03:14:24Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:specimen:C298:issue.mint_marks",
@@ -34986,9 +35056,14 @@
    "kind": "story-check",
    "issued": "2026-11-21T09:39:26Z",
    "lease_until": "2026-11-28T09:39:26Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "story:C347",
@@ -35004,9 +35079,14 @@
    "kind": "verify",
    "issued": "2026-11-21T09:39:26Z",
    "lease_until": "2026-11-28T09:39:26Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 2,
+    "closed": 0,
+    "left": 2,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:type:SU.Y.126a:design.text",
@@ -35142,9 +35222,14 @@
    "kind": "verify",
    "issued": "2026-11-22T02:14:48Z",
    "lease_until": "2026-11-29T02:14:48Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 80,
+    "closed": 0,
+    "left": 80,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:type:CH.KM.24a.1:issues.4.mintage",
@@ -35634,9 +35719,14 @@
    "kind": "verify",
    "issued": "2026-11-22T02:14:48Z",
    "lease_until": "2026-11-29T02:14:48Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 4,
+    "closed": 0,
+    "left": 4,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "verify:type:SE.X.1-krona:issues.0.mintage",
@@ -35868,9 +35958,14 @@
    "kind": "cite",
    "issued": "2026-11-23T02:46:01Z",
    "lease_until": "2026-11-30T02:46:01Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 1,
+    "closed": 0,
+    "left": 1,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "cite:RU.X.20-roubles",
@@ -35886,9 +35981,14 @@
    "kind": "story-check",
    "issued": "2026-11-23T02:46:01Z",
    "lease_until": "2026-11-30T02:46:01Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "withdrawn",
+   "closed": "2026-11-23T16:30:00Z",
+   "result": {
+    "items": 5,
+    "closed": 0,
+    "left": 5,
+    "reason": "Muse's load cut to a modest 3 sheets (Joseph, 2026-11-23); items back to the pool"
+   },
    "items": [
     {
      "item": "story:C305",

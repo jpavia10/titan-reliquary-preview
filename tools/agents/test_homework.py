@@ -29,6 +29,10 @@ def sandbox():
     # the tests check the loop's rules, not today's load: a live 'priority' (owner 2026-11-05: Gemini first) would let one AI take every item
     p = os.path.join(tmp, "docs", "agents", "roles.json"); roles = json.load(open(p, encoding="utf-8"))
     for ag in roles["agents"].values(): ag.pop("priority", None)
+    # nor today's roster (2026-11-23: Grok leaving, Muse cut to 3 second-reader sheets): the tests run on the roster they were written for
+    roles["agents"]["grok"].update(status="active", capacity=6)
+    roles["agents"]["muse"].update(capacity=40, per_kind=8, kinds=["fill", "research", "cite", "catno", "value", "contradiction", "story-check",
+                                                                    "arbitrate", "verify", "plain-story", "read-mint"])
     with open(p, "w", encoding="utf-8") as fh: json.dump(roles, fh, ensure_ascii=False, indent=2)
     return tmp
 

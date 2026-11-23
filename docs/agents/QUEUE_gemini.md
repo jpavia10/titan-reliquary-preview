@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-23 02:46 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-23 16:08 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -89,9 +89,9 @@ Answer sheet (the same as the link):
 
 ## Projects (after the homework)
 
-### Read new coin photos as the third blind reader  [ALWAYS]  (fix list #55)
+### Read new coin photos as a blind reader (with Muse)  [ALWAYS]  (fix list #55)
 
-Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Grok's or Muse's reads first.
+Whenever NOID photos appear in Drive STAGING, write a Phase 1 change file for them per AI_START_HERE (section 2b), without looking at Muse's read first.
 
 **Done when:** Ongoing.
 

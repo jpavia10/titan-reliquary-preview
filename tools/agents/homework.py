@@ -932,7 +932,9 @@ def agent_page(agent, roles, queues, state, pool, metrics, now):
     ag = roles["agents"][agent]
     q = next((x for x in queues.get("agents", []) if x["id"] == agent), {"tasks": []})
     L = [f"<!-- doc-status: current; normative: yes (for {ag['name']}) -->", f"# WORK QUEUE for {ag['name']} (updated {now[:16].replace('T', ' ')} UTC)", "",
-         (f"PROBATION (Joseph, 2026-11-19: {ag.get('pace_note', 'one assignment at a time')}): do ONE assignment per session, and only when Joseph asks you to. "
+         (f"PHASING OUT ({ag.get('leaving_rule', 'Joseph')}): there is no Titan work for you. Start nothing on this page and send no Titan change files. The list below is kept for the record."
+          if ag.get("status") == "leaving" else      # 2026-11-23: an AI on its way out is told so first, not handed the usual 'work top to bottom'
+          f"PROBATION (Joseph, 2026-11-19: {ag.get('pace_note', 'one assignment at a time')}): do ONE assignment per session, and only when Joseph asks you to. "
           f"Save its one file, say what you saved, then STOP: do not start the next one, do not run in the background, do not re-read this page on your own. Rules that always apply:"
           if ag.get("pace") == "one" else
           f"From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next "
