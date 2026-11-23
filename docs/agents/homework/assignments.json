@@ -1,7 +1,7 @@
 {
  "schema": "titan-homework/1",
  "about": "Assignment state of the research loop (tools/agents/homework.py; docs/agents/RESEARCH_LOOP.md). Generated: do not edit by hand. Assignments keep their items until answered or past the lease; `tried` remembers who could not do an item.",
- "updated": "2026-11-22T03:34:17Z",
+ "updated": "2026-11-23T02:46:01Z",
  "seq": {
   "grok-cite-20261009": 1,
   "grok-catno-20261009": 1,
@@ -208,7 +208,9 @@
   "gemini-verify-20261122": 1,
   "gemini-api-verify-20261122": 1,
   "muse-verify-20261122": 2,
-  "muse-arbitrate-20261122": 2
+  "muse-arbitrate-20261122": 2,
+  "muse-cite-20261123": 1,
+  "muse-story-check-20261123": 1
  },
  "assignments": [
   {
@@ -33036,9 +33038,13 @@
    "kind": "cite",
    "issued": "2026-11-16T02:10:27Z",
    "lease_until": "2026-11-23T02:10:27Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-23T02:46:01Z",
+   "result": {
+    "items": 2,
+    "closed": 1,
+    "left": 1
+   },
    "items": [
     {
      "item": "cite:FR.KM.930",
@@ -33060,9 +33066,13 @@
    "kind": "story-check",
    "issued": "2026-11-16T02:10:27Z",
    "lease_until": "2026-11-23T02:10:27Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-23T02:46:01Z",
+   "result": {
+    "items": 6,
+    "closed": 0,
+    "left": 6
+   },
    "items": [
     {
      "item": "story:C305",
@@ -33136,9 +33146,13 @@
    "kind": "verify",
    "issued": "2026-11-16T02:10:27Z",
    "lease_until": "2026-11-23T02:10:27Z",
-   "status": "open",
-   "closed": null,
-   "result": null,
+   "status": "expired",
+   "closed": "2026-11-23T02:46:01Z",
+   "result": {
+    "items": 80,
+    "closed": 24,
+    "left": 56
+   },
    "items": [
     {
      "item": "verify:type:DE.KM.214:period",
@@ -35845,6 +35859,66 @@
      "entity": "specimen",
      "id": "T003",
      "field": "value.est_usd"
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-cite-20261123-1",
+   "agent": "muse",
+   "kind": "cite",
+   "issued": "2026-11-23T02:46:01Z",
+   "lease_until": "2026-11-30T02:46:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:RU.X.20-roubles",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261123-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-11-23T02:46:01Z",
+   "lease_until": "2026-11-30T02:46:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C305",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "story"
+    },
+    {
+     "item": "story:C320",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "story"
+    },
+    {
+     "item": "story:C322",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "story"
+    },
+    {
+     "item": "story:C323",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "story"
+    },
+    {
+     "item": "story:C326",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "story"
     }
    ]
   }

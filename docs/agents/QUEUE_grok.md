@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-22 03:34 UTC)
+# WORK QUEUE for Grok (updated 2026-11-23 02:46 UTC)
 
 PROBATION (Joseph, 2026-11-19: "grok is on probation because it used 84.6 of my quota without being prompted and likely no results"): do ONE assignment per session, and only when Joseph asks you to. Save its one file, say what you saved, then STOP: do not start the next one, do not run in the background, do not re-read this page on your own. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -64,100 +64,7 @@ For each coin, find the retail value for its type, date and mint in the grade it
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD**: now $0.25 (low)
 
-### 2. HW-grok-cite-20261116-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-23  (fix list #72)
-
-For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
-
-**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-cite-20261116-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **RU 20 roubles (RU.X.20-roubles)** coins C313. Ask: issues.0.mintage: 1992
-
-### 3. HW-grok-story-check-20261116-1 · Fact-checker · Fact-check 6 coin stories · due 2026-11-23  (fix list #73)
-
-Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
-
-**Done when:** One change file covering every story you could check.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-story-check-20261116-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **C305 · Vatican City · 1958 · 20 lire · VAL**: «A 1958 Vatican 20 lire showing Charity (Caritas) standing with children. It was struck in Rome for Pope Pius XII as a standard circulation issue with a mintage of 60,000.» Record: «{"country": "Vatican City", "year": "1958", "denom": "20 lire · VAL", "mint": "no mint letter visible on the shown reverse; Rome mint", "refs": "KM#A52 · Berman#3409 · Numista#33337", "metal": "Aluminium bronze · 3.60 g · 21.25 mm · Reeded", "specs": "thickness unknown · coin alignment", "mintage": "60,000", "ruler": "Pius XII"}»
-- **C320 · Sweden · 1991 · 1 krona · SEK**: «A 1991 Swedish 1 krona with the stylized portrait of Carl XVI Gustaf. This copper-nickel design, used from 1982 to 2000, was succeeded by a new portrait in 2001 before the smaller modern coin arrived in 2016.» Record: «{"country": "Sweden", "year": "1991", "denom": "1 krona · SEK", "mint": "Eskilstuna mint", "refs": "KM#852a · Schön#74a · Numista#6862", "metal": "Copper-nickel (75% Copper, 25% Nickel) · 7.00 g · 25 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "34,179,398", "ruler": "Carl XVI Gustaf"}»
-- **C322 · Portugal · 1970 · 20 centavos · PTE**: «A 1970 Portuguese 20 centavos with the five escutcheons (quinas) of the Portuguese shield forming a cross.» Record: «{"country": "Portugal", "year": "1970", "denom": "20 centavos · PTE", "mint": "Lisbon mint (no mint mark on type)", "refs": "KM#595 · Gomes#R 17 · Schön#54 · Numista#3282", "metal": "Bronze (Cu 950 + Sn 30 + Zn 20) · 1.80 g · 16 mm · Plain", "specs": "thickness 1.15 mm · coin alignment", "mintage": "16,120,000", "period": "Second Republic"}»
-- **C323 · Mexico · 1994 · 10 centavos · MXN**: «A 1994 Mexican 10 centavos - the small stainless-steel coin with the Ring of the Sacrifice from the Aztec calendar stone on this side.» Record: «{"country": "Mexico", "year": "1994", "denom": "10 centavos · MXN", "mint": "Mo", "refs": "KM#547 · Schön#143 · Numista#581", "metal": "stainless steel · 2.08 g · 17 mm · plain", "specs": "thickness 1.33 mm · coin alignment", "mintage": "557,000,000", "design": "Obverse: The national emblem of Mexico depicting a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-…»
-- **C326 · Bahamas · 1974 · 1 cent · BSD**: «A 1974 Bahamian cent - the first year the newly independent Bahamas put its own coat of arms on the cent. A starfish is on the other side.» Record: «{"country": "Bahamas", "year": "1974", "denom": "1 cent · BSD", "mint": "no mint mark on type", "refs": "KM#59 · Schön#34 · Numista#3159", "metal": "nickel brass (79% copper, 20% zinc, 1% nickel) · 3.16 g · 19.05 mm · Plain", "specs": "thickness 1.4 mm · medal alignment", "mintage": "11,000", "ruler": "Elizabeth II"}»
-- **C334 · Spain · 1989 · 5 pesetas · ESP**: «A 1989 Spanish 5 pesetas with King Juan Carlos I on this side. The other side carries the king's personal coat of arms.» Record: «{"country": "Spain", "year": "1989", "denom": "5 pesetas · ESP", "mint": "Madrid mint (no mint mark on type)", "refs": "KM#833 · Schön#63 · Numista#1262", "metal": "aluminium bronze (88.4% copper, 5% nickel, 5% aluminium, 1% iron, 0.6% manganese) · 3.00 g · 17.5 mm · Plain", "specs": "thickness 1.5 mm · coin alignment", "mintage": "109,270,000", "ruler": "Juan Carlos I"}»
-
-### 4. HW-grok-verify-20261116-1 · Second reader · Check 56 facts another AI wrote · due 2026-11-23  (fix list #18)
-
-Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
-
-**Done when:** One change file; a fact you could not check is left out.
-
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-grok-verify-20261116-1.jsonl (save your edited copy as changes_grok_YYYYMMDD-HHMM.jsonl)
-
-Items:
-- **period of C164 · United Kingdom · 1932 · ½ penny · GBP** `type GB.KM.837 period` = `British pre-decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces4004.html ("Issuer: United Kingdom · King: George V (1910-1936) · Currency: Pound sterling (1158-1970») [audit sample]
-- **period of C219 · Jamaica · 2015 · 1 dollar · JMD** `type JM.KM.189 period` = `Independent Jamaica` (written by Gemini: «https://en.numista.com/catalogue/pieces14369.html ("Issuer: Jamaica · Period: Commonwealth realm (1962-date)")») [audit sample]
-- **denomination of C338 · Jamaica · 1977** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type JM.X.10-cents denomination.value`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C338_obv.webp (original: https://drive.google.com/file/d/1GTmo23WUktnhbRZjeXcO6eJVzuBgZqfJ/view)
-- **period of C180 · United Kingdom · 2012 · 5 pence · GBP** `type GB.KM.1109d period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces25766.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (dec») [audit sample]
-- **period of C213 · United Kingdom · 1991 · 2 pence · GBP** `type GB.KM.936 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces867.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim») [audit sample]
-- **period of C105 · United Kingdom · 1971 · 1 penny · GBP (decimal)** `type GB.KM.915 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces665.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim») [audit sample]
-- **period of C010 · Netherlands · 1996 · 25 cents · NLG** `type NL.KM.204 period` = `Kingdom of the Netherlands` (written by Gemini: «https://en.numista.com/catalogue/pieces731.html ("Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Gulden (1817-2001)")») [audit sample]
-- **period of C167 · United Kingdom · 1990 · 5 pence · GBP** `type GB.KM.937b period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces875.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim») [audit sample]
-- **period of C158 · United Kingdom · 2016 · 10 pence · GBP** `type GB.KM.1335 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces70549.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (dec») [audit sample]
-- **period of C112 · United Kingdom · 2003 · 1 penny · GBP (decimal)** `type GB.KM.986 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces862.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim») [audit sample]
-- **mint of C273 · Germany · 2005 · 1 euro cent · EUR** (blind: read it yourself; `new` = the mint letters as a list, e.g. ["D"], or [] when the coin has none) `specimen C273 issue.mint_marks`. Photos: none
-- **denomination of C273 · Germany · 2005** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type DE.KM.207 denomination.value`. Photos: none
-- **period of C114 · Mexico (Chihuahua) · 1914 · 5 centavos · MXN revolutionary peso (Chihuahua · 1913–1915)** `type MX-CHI.KM.612 period` = `Mexican Revolution` (written by Gemini: «https://en.numista.com/catalogue/pieces32634.html ("Issuer: Chihuahua (Mexican revolutionary states) · Period: Mexican Revolution (1913-1917»)
-- **period of C235 · Guatemala · 1934 · 10 centavos · GTQ** `type GT.KM.239.2 period` = `Republic` (written by Muse: «Numista N#5128 https://en.numista.com/catalogue/pieces5128.html: Period 'Republic (1841-date)'; differs from the record's 'Jorge Ubico era'»)
-- **period of C223 · Netherlands · 1967 · 1 gulden · NLG** `type NL.KM.184 period` = `Kingdom of the Netherlands` (written by Gemini: «https://en.numista.com/catalogue/pieces737.html ("Issuer: Netherlands · Queen: Juliana (1948-1980) · Currency: Gulden (1817-2001)")»)
-- **period of C258 · Vietnam (State of Vietnam) · 1953 · 20 su · VND (State of Vietnam đồng)** `type VN-SOV.KM.1 period` = `State of Vietnam` (written by Gemini: «https://en.numista.com/catalogue/pieces5904.html ("Issuer: Vietnam · Period: State of Vietnam (1949-1955) · Emperor: Bảo Đại")»)
-- **period of C070 · Netherlands · 2002 · 2 euro · EUR** `type NL.KM.241 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces152.html ("Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Euro (1999-date)")»)
-- **period of C255 · Netherlands · 1892 · 1 cent · NLG** `type NL.KM.107.2 period` = `Kingdom of the Netherlands` (written by Gemini: «https://en.numista.com/catalogue/pieces1070.html ("Issuer: Netherlands · Queen: Wilhelmina (1890-1948) · KONINGRIJK DER NEDERLANDEN")»)
-- **period of C254 · Vatican City · 1951 · 10 lire · VAL** `type VA.KM.52.1 period` = `Vatican City` (written by Gemini: «https://en.numista.com/catalogue/pieces3935.html ("Issuer: Vatican City · Pope: Pius XII (1939-1958) · CITTA' DEL VATICANO")»)
-- **period of C231 · Saudi Arabia · AH 1378 (1958) · 1 qirsh · SAR** `type SA.KM.20 period` = `Kingdom of Saudi Arabia` (written by Gemini: «https://en.numista.com/catalogue/pieces2940.html ("Issuer: Saudi Arabia · King: Saud (1953-1964) · المملكة العربية السعودية (Kingdom of Saud»)
-- **period of C186 · Cayman Islands · 2002 · 5 cents · KYD** `type KY.KM.132 period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces2698.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)")»)
-- **period of C146 · Hong Kong · 1998 · $1 · HKD** `type HK.KM.69a period` = `Hong Kong SAR` (written by Gemini: «https://en.numista.com/catalogue/pieces2118.html ("Issuer: Hong Kong (China) · Period: Special Administrative Region (1997-date)")»)
-- **period of C069 · Jamaica · 1975 · 50 cents · JMD** `type JM.KM.65 period` = `Independent Jamaica` (written by Gemini: «https://en.numista.com/catalogue/pieces7457.html ("Issuer: Jamaica · Period: Commonwealth realm (1962-date)")»)
-- **period of C253 · Jamaica · 1993 · 10 cents · JMD** `type JM.KM.146 period` = `Independent Jamaica` (written by Gemini: «https://en.numista.com/catalogue/pieces2617.html ("Issuer: Jamaica · Period: Commonwealth realm (1962-date)")»)
-- **period of C185 · Cayman Islands · 1996 · 5 cents · KYD** `type KY.KM.88a period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces10222.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)"»)
-- **period of C205 · United Kingdom · 1982 · 20 pence · GBP** `type GB.KM.931 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces865.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **design of C249 · Australia · 1966 · 20 cents · AUD** `type AU.KM.66 design.text` = `value side two rice (paddy) stalks · big 10 · CENTS · 1973 · SINGAPORE · crowned seahorse…` (written by Gemini: «https://en.numista.com/catalogue/pieces1003.html ("Obverse: Second portrait of Queen Elizabeth II right, ELIZABETH II AUSTRALIA (Arnold Mach»)
-- **period of C152 · United Kingdom · 2001 · 10 pence · GBP** `type GB.KM.989 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces2236.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (deci»)
-- **period of C269 · Cayman Islands · 1990 · 1 cent · KYD** `type KY.KM.87 period` = `Cayman Islands (British Overseas Territory)` (written by Gemini: «https://en.numista.com/catalogue/pieces7364.html ("Issuer: Cayman Islands (British Overseas Territories) · Queen: Elizabeth II (1952-2022)")»)
-- **year of C272 · Austria · 2 groschen · ATS** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C272 issue.year`. Photos: none
-- **denomination of C272 · Austria · 1925** (blind: read it yourself; `new` = the face value as a number, e.g. 50 for 50 centavos, 0.5 for a half franc) `type AT.X.2-groschen denomination.value`. Photos: none
-- **period of C144 · Norway · 1998 · 50 øre · NOK** `type NO.KM.460 period` = `Kingdom of Norway` (written by Gemini: «https://en.numista.com/catalogue/pieces1442.html ("Issuer: Norway · King: Harald V (1991-date) · KONGERIKET NORGE")»)
-- **period of C165 · Sweden · 1973 · 1 krona · SEK** `type SE.KM.826a period` = `Kingdom of Sweden` (written by Gemini: «https://en.numista.com/catalogue/pieces1516.html ("Issuer: Sweden · King: Gustaf VI Adolf (1950-1973) · SVERIGE")»)
-- **period of C173 · United Kingdom · 1998 · 5 pence · GBP** `type GB.KM.988 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces876.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C155 · United Kingdom · 2013 · 10 pence · GBP** `type GB.KM.1110d period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces25746.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (dec»)
-- **period of C220 · Japan · 1982 · 10 yen · JPY** `type JP.Y.73a period` = `Showa era` (written by Gemini: «https://en.numista.com/catalogue/pieces922.html ("Issuer: Japan · Emperor: Shōwa (Hirohito, 1926-1989) · 昭和五十七年 (Year 57 = 1982)")»)
-- **period of C198 · Netherlands · 1948 · 1 cent · NLG** `type NL.KM.170 period` = `Kingdom of the Netherlands` (written by Gemini: «https://en.numista.com/catalogue/pieces2562.html ("Issuer: Netherlands · Queen: Wilhelmina (1890-1948) · KONINGRIJK DER NEDERLANDEN")»)
-- **period of C040 · Netherlands · 2001 · 20 euro cent · EUR** `type NL.KM.239 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces149.html ("Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Euro (1999-date)")»)
-- **period of C234 · United Kingdom · 1968 · 10 new pence · GBP (large module)** `type GB.KM.912 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces878.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C206 · Japan · 1971 · 1 yen · JPY** `type JP.Y.74 period` = `Showa era` (written by Gemini: «https://en.numista.com/catalogue/pieces1590.html ("Issuer: Japan · Emperor: Shōwa (Hirohito, 1926-1989) · 昭和四十六年 (Year 46 = 1971)")»)
-- **period of C013 · United Kingdom · 1971 · 2 new pence · GBP** `type GB.KM.916 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces664.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C147 · United Kingdom · 1992 · 10 pence · GBP** `type GB.KM.938b period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces879.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C248 · Greece · 1982 · 2 drachmes · GRD** `type GR.KM.117 period` = `Third Hellenic Republic` (written by Muse: «Numista N#549 https://en.numista.com/catalogue/pieces549.html: Period 'Third Hellenic Republic (1974-date)'; differs from the record's 'Hell»)
-- **period of C245 · Greece · 1970 · 2 drachmai · GRD** `type GR.KM.90 period` = `Second Republic` (written by Gemini: «https://en.numista.com/catalogue/pieces545.html ("Issuer: Greece · Period: Military Junta (1967-1974) / Reign of Constantine II (1964-1973)"»)
-- **period of C177 · United Kingdom · 2009 · 5 pence · GBP** `type GB.KM.1109 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces6612.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (deci»)
-- **period of C183 · United Kingdom · 2015 · 5 pence · GBP** `type GB.KM.1334 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces70547.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (dec»)
-- **period of C020 · United Kingdom · 1973 · ½ new penny · GBP** `type GB.KM.914 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces856.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C154 · United Kingdom · 2010 · 10 pence · GBP** `type GB.KM.1110 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces7350.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (deci»)
-- **period of C162 · Thailand · 2006 · 1 baht · THB** `type TH.KM.183 period` = `Kingdom of Thailand` (written by Gemini: «https://en.numista.com/catalogue/pieces1106.html ("Issuer: Thailand · King: Rama IX (Bhumibol Adulyadej, 1946-2016) · ประเทศไทย")»)
-- **period of C218 · United Kingdom · 2010 · 1 penny · GBP (decimal)** `type GB.KM.1107 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces4038.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (deci»)
-- **period of C047 · Brazil · 2006 · 5 centavos · BRL** `type BR.KM.648.1 period` = `Federative Republic of Brazil` (written by Muse: «Numista N#1049 https://en.numista.com/catalogue/pieces1049.html: Period 'Federative Republic of Brazil (1967-date)'; differs from the record»)
-- **period of C107 · United Kingdom · 1987 · 1 penny · GBP (decimal)** `type GB.KM.935 period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces861.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C109 · United Kingdom · 1995 · 1 penny · GBP (decimal)** `type GB.KM.935a period` = `British decimal` (written by Gemini: «https://en.numista.com/catalogue/pieces860.html ("Issuer: United Kingdom · Queen: Elizabeth II (1952-2022) · Currency: Pound sterling (decim»)
-- **period of C098 · Spain · 2000 · 5 euro cent · EUR** `type ES.KM.1042 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces83.html ("Issuer: Spain · King: Juan Carlos I (1975-2014) · Currency: Euro (2002-date)")»)
-- **period of C004 · Netherlands · 2000 · 5 euro cent · EUR** `type NL.KM.236 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces147.html ("Issuer: Netherlands · Queen: Beatrix (1980-2013) · Currency: Euro (1999-date)")»)
-- **period of C045 · Netherlands · 2014 · 5 euro cent · EUR** `type NL.KM.346 period` = `Eurozone` (written by Gemini: «https://en.numista.com/catalogue/pieces54953.html ("Issuer: Netherlands · King: Willem-Alexander (2013-date) · Currency: Euro (1999-date)")»)
-
-### 5. HW-grok-research-20261118-1 · Researcher · Answer 1 open research questions · due 2026-11-28  (fix list #3)
+### 2. HW-grok-research-20261118-1 · Researcher · Answer 1 open research questions · due 2026-11-28  (fix list #3)
 
 Each item is a question the record still carries ('Still being checked' in the app). Find the answer in an exact source. Send the corrected fact (if it needs one) AND the question-removal line (research.open_questions without that question), both with the exact source. If the answer needs the coin in Joseph's hand, leave it out and say so in your note.
 
@@ -168,7 +75,7 @@ Each item is a question the record still carries ('Still being checked' in the a
 Items:
 - **C300 · Bahamas · 1984 · 25 cents · BSD** (BS.X.25-cents): «Numista N#9352 (Bahamas 25 cents 1974-1989, KM#63.1) lists 1984 only as a Franklin Mint proof (1,036 struck), with no circulation coins dated 1984 (uCoin agrees). C300 may be a proof from a 1984 set, or its year may be misread. Check the year and the finish when its photo arrives (found by Gemini, HW-gemini-value-20261015-1).» Record: «{"country": "Bahamas", "year": "1984", "denom": "25 cents · BSD", "mint": "not read (no photo of this coin yet)", "refs": "KM#63.1 · Schön#38 · Numista#9352", "metal": "nickel · 6.90 g · 24.26 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "unknown", "design": "obverse coat…»
 
-### 6. HW-grok-arbitrate-20261118-1 · Arbiter · Settle 15 disagreements between two AIs · due 2026-11-25  (fix list #18)
+### 3. HW-grok-arbitrate-20261118-1 · Arbiter · Settle 15 disagreements between two AIs · due 2026-11-25  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -193,7 +100,7 @@ Items:
 - **D0186 MX.X.10-centavos design.text**: record `The obverse shows the Mexican coat of arms, a golden eagle perched on a prickly pear cact…` (model:gemini: «Standard Catalog of World Coins (Krause-Mishler Schön# 143, Obverse/Reverse description) & NGC World Coin Price Guide h…») vs claim `The obverse shows the national emblem of Mexico, a Mexican golden eagle perched on a pric…` (model:muse-spark: «https://en.numista.com/catalogue/pieces581.html (KM# 547, 10 centavos large type) — Obverse: 'The national emblem of Me…»)
 - **D0187 BR.KM.648.1 design.text**: record `obverse Tiradentes portrait · BRASIL · dove & Inconfidência triangle · reverse Southern C…` (model:gemini: «Standard Catalog of World Coins (Krause-Mishler Schön# 156, Obverse/Reverse description) & NGC World Coin Price Guide h…») vs claim `obverse portrait of Joaquím José da Silva Xavier (Tiradentes) · BRASIL · TIRADENTES · rev…` (model:muse-spark: «https://en.numista.com/catalogue/pieces1049.html — Obverse: 'Portrait of Joaquím José da Silva Xavier (Tiradentes)'. Le…»)
 
-### 7. HW-grok-arbitrate-20261118-2 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-25  (fix list #18)
+### 4. HW-grok-arbitrate-20261118-2 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-25  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -205,7 +112,7 @@ Items:
 - **D0188 IN.KM.92.2 design.text**: record `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · wheat ears flanking · Ashoka Lion C…` (model:gemini: «Standard Catalog of World Coins (Krause-Mishler Schön# 216, Obverse/Reverse description) & NGC World Coin Price Guide h…») vs claim `value side रुपया · big 1 · RUPEE · 2001 · Noida dot · corn stalks flanking · Ashoka Lion …` (model:muse-spark: «https://en.numista.com/catalogue/pieces1609.html — Reverse: 'Value flanked by corn stalks and the denomination in Devan…»)
 - **D0189 MX-CHI.KM.612 design.text**: record `reverse large 5 pierced by vertical sword/spear · centavo monogram · EJERCITO CONSTITUCIO…` (model:gemini: «Standard Catalog of World Coins (Krause-Mishler KM# 612, Obverse/Reverse description) & NGC World Coin Price Guide http…») vs claim `obverse cap and rays surrounded by legend · REPUBLICA MEXICANA · LIBERTAD · E. DE CHIHA ·…` (model:muse-spark: «https://en.numista.com/catalogue/pieces32634.html — Obverse: 'Cap and rays surrounded by legend.' Lettering: 'REPUBLICA…»)
 
-### 8. HW-grok-verify-20261118-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-25  (fix list #18)
+### 5. HW-grok-verify-20261118-1 · Second reader · Check 1 facts another AI wrote · due 2026-11-25  (fix list #18)
 
 Each fact was written by ANOTHER contributor with one source. Find your own source for it: a different page is best, the same entry read again is fine. If your source agrees, send the value back unchanged with YOUR source: the fact becomes 'Checked' (two independent sources). If it disagrees, put your value in `new` with your source: nothing is overwritten; it is filed as a disagreement for a third reader or Joseph. Blind items (photo readings) do not show the current value: read the photo yourself.
 
@@ -216,7 +123,7 @@ Each fact was written by ANOTHER contributor with one source. Find your own sour
 Items:
 - **year of C351 · France · 10 centimes · FRF** (blind: read it yourself; `new` = the year as a number (the Western year: convert a Hijri, Showa or ROC date)) `specimen C351 issue.year`. Photos: obv: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_obv.webp (original: https://drive.google.com/file/d/1kQH2ehDb_zFhY8CcHWn8aSuk3ih6tlr5/view); rev: https://jpavia10.github.io/titan-reliquary-preview/photos/p1/C351_rev.webp (original: https://drive.google.com/file/d/1Cno86aZ6OXDTW2UU8AuGcHCnY68GJEKG/view)
 
-### 9. HW-grok-arbitrate-20261119-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-26  (fix list #18)
+### 6. HW-grok-arbitrate-20261119-1 · Arbiter · Settle 2 disagreements between two AIs · due 2026-11-26  (fix list #18)
 
 Two contributors disagree; you are neither of them. Read both sources and find a third if you can. Send the field with the value your source supports (the record's, the other claim's, or a third value), with your exact source. Leave it out if the sources really disagree and say so in your note.
 
@@ -276,6 +183,6 @@ When Gemini's GT-SECOND-p1..p3 files are in, open 30 lines at random (10 per par
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 47; expired: 26.
+- Assignments answered: 47; expired: 29.
 - Your facts checked by another contributor: 1278 (1262 confirmed, 16 wrong; error rate 1.3 %, 95 % range 1-2 %). Checks you did for others: 364. Open disagreements you are part of: 27. Values planted wrong on purpose in your checks: you caught 6 of 6.
 - Share of your new facts that get checked first: 100 %.

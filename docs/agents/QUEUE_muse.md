@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Muse) -->
-# WORK QUEUE for Muse (updated 2026-11-22 03:34 UTC)
+# WORK QUEUE for Muse (updated 2026-11-23 02:46 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -370,6 +370,32 @@ Items:
 - **D0233 C292 value.est_usd**: record `0.11` (model:grok-bot: «Numista N#862 (https://en.numista.com/catalogue/pieces862.html) value table, row '2002', VF column = $0.11 (grade VF gi…») vs claim `0.43` (model:gemini: «Foronum UK 1 Penny Elizabeth II 2002 KM#986 FO#429 (https://en.foronum.com/coins-catalog/united-kingdom/n-429-1-penny-e…»)
 - **D0234 C295 value.est_usd**: record `0.25` (model:grok-bot: «Numista N#1565 (https://en.numista.com/catalogue/pieces1565.html) value table, row '2006', XF column = $0.25 (grade XF …») vs claim `0.86` (model:gemini: «Foronum Australia 10 Cents Elizabeth II 2006 KM#402 FO#2986 (https://en.foronum.com/coins-catalog/australia/n-2986-10-c…»)
 - **D0235 T003 value.est_usd**: record `0.42` (model:grok-bot: «https://www.icollector.com/Pony-Ride-Tokens-Approx-45ct-196554_i56902289 — iCollector lot 196554, approx. 45 'Meijer is…») vs claim `11.99` (model:gemini: «eBay dealer listing TJ's Premium Products (https://www.ebay.com/itm/126574946259, read 2026-11-21): Free Pony Ride Meij…»)
+
+### 16. HW-muse-cite-20261123-1 · Cataloguer · Cite the catalogue facts of 1 coin types · due 2026-11-30  (fix list #72)
+
+For each coin type below, open its Numista entry (or find it) and send the facts listed under `ask`, each as its own line with the exact entry URL and the table row you read in `source`. Where the record is already right, send the same value back with your source (a re-citation is how a guess becomes Reference). Leave a line out when the entry does not give that fact; leave a whole type out when there is no entry (say why in one line of your note).
+
+**Done when:** One change file answering this assignment; everything you left out goes back to the pool.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-cite-20261123-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **RU 20 roubles (RU.X.20-roubles)** coins C313. Ask: issues.0.mintage: 1992
+
+### 17. HW-muse-story-check-20261123-1 · Fact-checker · Fact-check 5 coin stories · due 2026-11-30  (fix list #73)
+
+Check each story against its own record (below) and the exact catalogue entry. If every claim holds, send the story back unchanged with source 'checked against <entry URL>: all claims hold'. If a claim is wrong, change only that sentence and say in source what was wrong and which entry shows it. You never get a story you wrote.
+
+**Done when:** One change file covering every story you could check.
+
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-muse-story-check-20261123-1.jsonl (save your edited copy as changes_muse_YYYYMMDD-HHMM.jsonl)
+
+Items:
+- **C305 · Vatican City · 1958 · 20 lire · VAL**: «A 1958 Vatican 20 lire showing Charity (Caritas) standing with children. It was struck in Rome for Pope Pius XII as a standard circulation issue with a mintage of 60,000.» Record: «{"country": "Vatican City", "year": "1958", "denom": "20 lire · VAL", "mint": "no mint letter visible on the shown reverse; Rome mint", "refs": "KM#A52 · Berman#3409 · Numista#33337", "metal": "Aluminium bronze · 3.60 g · 21.25 mm · Reeded", "specs": "thickness unknown · coin alignment", "mintage": "60,000", "ruler": "Pius XII"}»
+- **C320 · Sweden · 1991 · 1 krona · SEK**: «A 1991 Swedish 1 krona with the stylized portrait of Carl XVI Gustaf. This copper-nickel design, used from 1982 to 2000, was succeeded by a new portrait in 2001 before the smaller modern coin arrived in 2016.» Record: «{"country": "Sweden", "year": "1991", "denom": "1 krona · SEK", "mint": "Eskilstuna mint", "refs": "KM#852a · Schön#74a · Numista#6862", "metal": "Copper-nickel (75% Copper, 25% Nickel) · 7.00 g · 25 mm · Reeded", "specs": "thickness 1.9 mm · medal alignment", "mintage": "34,179,398", "ruler": "Carl XVI Gustaf"}»
+- **C322 · Portugal · 1970 · 20 centavos · PTE**: «A 1970 Portuguese 20 centavos with the five escutcheons (quinas) of the Portuguese shield forming a cross.» Record: «{"country": "Portugal", "year": "1970", "denom": "20 centavos · PTE", "mint": "Lisbon mint (no mint mark on type)", "refs": "KM#595 · Gomes#R 17 · Schön#54 · Numista#3282", "metal": "Bronze (Cu 950 + Sn 30 + Zn 20) · 1.80 g · 16 mm · Plain", "specs": "thickness 1.15 mm · coin alignment", "mintage": "16,120,000", "period": "Second Republic"}»
+- **C323 · Mexico · 1994 · 10 centavos · MXN**: «A 1994 Mexican 10 centavos - the small stainless-steel coin with the Ring of the Sacrifice from the Aztec calendar stone on this side.» Record: «{"country": "Mexico", "year": "1994", "denom": "10 centavos · MXN", "mint": "Mo", "refs": "KM#547 · Schön#143 · Numista#581", "metal": "stainless steel · 2.08 g · 17 mm · plain", "specs": "thickness 1.33 mm · coin alignment", "mintage": "557,000,000", "design": "Obverse: The national emblem of Mexico depicting a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-…»
+- **C326 · Bahamas · 1974 · 1 cent · BSD**: «A 1974 Bahamian cent - the first year the newly independent Bahamas put its own coat of arms on the cent. A starfish is on the other side.» Record: «{"country": "Bahamas", "year": "1974", "denom": "1 cent · BSD", "mint": "no mint mark on type", "refs": "KM#59 · Schön#34 · Numista#3159", "metal": "nickel brass (79% copper, 20% zinc, 1% nickel) · 3.16 g · 19.05 mm · Plain", "specs": "thickness 1.4 mm · medal alignment", "mintage": "11,000", "ruler": "Elizabeth II"}»
 
 ## Projects (after the homework)
 

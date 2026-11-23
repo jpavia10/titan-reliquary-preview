@@ -1,6 +1,6 @@
 {
  "agent": "muse",
- "updated": "2026-11-22T03:34:17Z",
+ "updated": "2026-11-23T02:46:01Z",
  "assignments": [
   {
    "id": "HW-muse-fill-20261118-1",
@@ -7743,6 +7743,278 @@
        "by": "model:gemini",
        "source": "eBay dealer listing TJ's Premium Products (https://www.ebay.com/itm/126574946259, read 2026-11-21): Free Pony Ride Meijer Is For Kids Token Buy It Now = $11.99 USD (grade assumed circulated/XF).",
        "ts": "2026-11-21T19:59:54Z"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-cite-20261123-1",
+   "agent": "muse",
+   "kind": "cite",
+   "issued": "2026-11-23T02:46:01Z",
+   "lease_until": "2026-11-30T02:46:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "cite:RU.X.20-roubles",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null
+    }
+   ],
+   "items_full": [
+    {
+     "item": "cite:RU.X.20-roubles",
+     "kind": "cite",
+     "entity": "type",
+     "id": "RU.X.20-roubles",
+     "field": null,
+     "coins": [
+      "C313"
+     ],
+     "label": "RU 20 roubles (RU.X.20-roubles)",
+     "authors": [],
+     "payload": {
+      "issues": [
+       {
+        "N": 0,
+        "year": 1992,
+        "mint_marks": [],
+        "coins": [
+         "C313"
+        ],
+        "mintage": null,
+        "mintage_label": null,
+        "mint_read": true
+       }
+      ],
+      "catalogs": [
+       {
+        "system": "Y",
+        "number": "314"
+       },
+       {
+        "system": "Schön",
+        "number": "256"
+       },
+       {
+        "system": "Numista",
+        "number": "4077"
+       }
+      ],
+      "weight_g": 5.25,
+      "diameter_mm": 24,
+      "composition": "Copper-nickel",
+      "ask": [
+       "issues.0.mintage: 1992"
+      ],
+      "note": null
+     },
+     "blind": false,
+     "inputs": [],
+     "issue_of": {
+      "issues.0.mintage": {
+       "year": 1992,
+       "mint": [],
+       "qualifier": null
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "HW-muse-story-check-20261123-1",
+   "agent": "muse",
+   "kind": "story-check",
+   "issued": "2026-11-23T02:46:01Z",
+   "lease_until": "2026-11-30T02:46:01Z",
+   "status": "open",
+   "closed": null,
+   "result": null,
+   "items": [
+    {
+     "item": "story:C305",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "story"
+    },
+    {
+     "item": "story:C320",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "story"
+    },
+    {
+     "item": "story:C322",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "story"
+    },
+    {
+     "item": "story:C323",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "story"
+    },
+    {
+     "item": "story:C326",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "story"
+    }
+   ],
+   "items_full": [
+    {
+     "item": "story:C305",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C305",
+     "field": "story",
+     "coins": [
+      "C305"
+     ],
+     "label": "C305 · Vatican City · 1958 · 20 lire · VAL",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1958 Vatican 20 lire showing Charity (Caritas) standing with children. It was struck in Rome for Pope Pius XII as a standard circulation issue with a mintage of 60,000.",
+      "record": {
+       "country": "Vatican City",
+       "year": "1958",
+       "denom": "20 lire · VAL",
+       "mint": "no mint letter visible on the shown reverse; Rome mint",
+       "refs": "KM#A52 · Berman#3409 · Numista#33337",
+       "metal": "Aluminium bronze · 3.60 g · 21.25 mm · Reeded",
+       "specs": "thickness unknown · coin alignment",
+       "mintage": "60,000",
+       "ruler": "Pius XII"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C320",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C320",
+     "field": "story",
+     "coins": [
+      "C320"
+     ],
+     "label": "C320 · Sweden · 1991 · 1 krona · SEK",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1991 Swedish 1 krona with the stylized portrait of Carl XVI Gustaf. This copper-nickel design, used from 1982 to 2000, was succeeded by a new portrait in 2001 before the smaller modern coin arrived in 2016.",
+      "record": {
+       "country": "Sweden",
+       "year": "1991",
+       "denom": "1 krona · SEK",
+       "mint": "Eskilstuna mint",
+       "refs": "KM#852a · Schön#74a · Numista#6862",
+       "metal": "Copper-nickel (75% Copper, 25% Nickel) · 7.00 g · 25 mm · Reeded",
+       "specs": "thickness 1.9 mm · medal alignment",
+       "mintage": "34,179,398",
+       "ruler": "Carl XVI Gustaf"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C322",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C322",
+     "field": "story",
+     "coins": [
+      "C322"
+     ],
+     "label": "C322 · Portugal · 1970 · 20 centavos · PTE",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1970 Portuguese 20 centavos with the five escutcheons (quinas) of the Portuguese shield forming a cross.",
+      "record": {
+       "country": "Portugal",
+       "year": "1970",
+       "denom": "20 centavos · PTE",
+       "mint": "Lisbon mint (no mint mark on type)",
+       "refs": "KM#595 · Gomes#R 17 · Schön#54 · Numista#3282",
+       "metal": "Bronze (Cu 950 + Sn 30 + Zn 20) · 1.80 g · 16 mm · Plain",
+       "specs": "thickness 1.15 mm · coin alignment",
+       "mintage": "16,120,000",
+       "period": "Second Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C323",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C323",
+     "field": "story",
+     "coins": [
+      "C323"
+     ],
+     "label": "C323 · Mexico · 1994 · 10 centavos · MXN",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1994 Mexican 10 centavos - the small stainless-steel coin with the Ring of the Sacrifice from the Aztec calendar stone on this side.",
+      "record": {
+       "country": "Mexico",
+       "year": "1994",
+       "denom": "10 centavos · MXN",
+       "mint": "Mo",
+       "refs": "KM#547 · Schön#143 · Numista#581",
+       "metal": "stainless steel · 2.08 g · 17 mm · plain",
+       "specs": "thickness 1.33 mm · coin alignment",
+       "mintage": "557,000,000",
+       "design": "Obverse: The national emblem of Mexico depicting a Mexican golden eagle perched on a prickly pear cactus devouring a snake above a half-wreath of oak and laurel below and the legend “ESTADOS UNIDOS MEXICANOS” forming the upper semicircle. Reverse: On a six-sided field, at center, the denomination 10¢ with the date above and the mint mark Ṁ below. To the right and below, a partial border of stylized solar rays of the Ring on the Sacrifice (Anillo del Sacrificio) on the Aztec calendar stone (Piedra del Sol).",
+       "period": "United Mexican States/Mexican Republic"
+      }
+     },
+     "blind": false,
+     "inputs": []
+    },
+    {
+     "item": "story:C326",
+     "kind": "story-check",
+     "entity": "specimen",
+     "id": "C326",
+     "field": "story",
+     "coins": [
+      "C326"
+     ],
+     "label": "C326 · Bahamas · 1974 · 1 cent · BSD",
+     "authors": [
+      "gemini"
+     ],
+     "payload": {
+      "story": "A 1974 Bahamian cent - the first year the newly independent Bahamas put its own coat of arms on the cent. A starfish is on the other side.",
+      "record": {
+       "country": "Bahamas",
+       "year": "1974",
+       "denom": "1 cent · BSD",
+       "mint": "no mint mark on type",
+       "refs": "KM#59 · Schön#34 · Numista#3159",
+       "metal": "nickel brass (79% copper, 20% zinc, 1% nickel) · 3.16 g · 19.05 mm · Plain",
+       "specs": "thickness 1.4 mm · medal alignment",
+       "mintage": "11,000",
+       "ruler": "Elizabeth II"
       }
      },
      "blind": false,
