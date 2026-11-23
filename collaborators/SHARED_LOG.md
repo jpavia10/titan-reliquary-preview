@@ -5,6 +5,9 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-23] Gemini homework after run 6 (Claude)
+- Closed Gemini projects 44 and 51-54 (delivered in run 6). The loop has nothing left Gemini may take: the last 36 items it could do (17 cite, 16 photo reads, 3 story checks) were each tried by two AIs. New hand-written project 55: price the 11 album holes nobody has priced (want list 847 of 858).
+
 ### [2026-11-23] Gemini's run 6, Titan part: 163 events merged, 4 corrections settled (Claude)
 - GT-SECOND round 3 (108 stories), the blind photo read (90 photos), verify and fill sheets merged; 0 rejected. Three story slips fixed by Gemini and settled by Claude as third reader (C066 1978 -> 1976, C114 SALAZAR on the front, C033 Roty's Sower 1897). C344 is dated 平成十九年 (2007), not 2002: Gemini's blind read, confirmed by Claude at 2x; year, story and the stale mintage corrected (2007 mintage is homework).
 - Open for a third reader: C312, C313, C333, C347 mint marks (D0241-D0243, D0245). C293 still shows C301's photo (already rejected; it needs its own). Scored row 79 (9/10).
