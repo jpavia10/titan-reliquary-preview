@@ -3,4 +3,18 @@
 
 Drafted from the merge and the cross-checks since (rubric: top of `collaborators/CONTRIBUTOR_SCORES.md`). For each row: check it, adjust (a file you edited before merging is accepted 1, not 2), add what it did right and the initiative note, then move it into the scorecard and the AI's FEEDBACK doc. A file named in the scorecard drops off this page on the next publish.
 
-Nothing waiting: every outside AI's file is scored.
+## Gemini
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_gemini_20261125-0430.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 0 in the change log, 0 filed as disagreements, 1 left blank; answered 2 of 2 items of HW-gemini-fill-20261118-1 (with its other files for the same sheet); nothing cross-checked yet |
+| `changes_gemini_20261125-0431.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 2 lines: 2 in the change log, 0 filed as disagreements; answered 2 of 2 items of HW-gemini-story-check-20261123-1 (with its other files for the same sheet); cross-checked so far: 1 held, 0 wrong |
+| `changes_gemini_20261125-0432.jsonl` | **7 / 7** + accuracy ? | 2 | 2 | ? | 2 | 1 | 1 lines: 1 in the change log, 0 filed as disagreements; answered 1 of 1 items of HW-gemini-plain-story-20261123-1 (with its other files for the same sheet); nothing cross-checked yet |
+
+## Muse
+
+| File | Draft | Place | Accepted | Accurate | Complete | Tier | Found by the pipeline |
+|---|---|---|---|---|---|---|---|
+| `changes_muse_20261125-0526.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 23 lines: 21 in the change log, 0 filed as disagreements, 2 left blank; answered 21 of 23 items of HW-muse-verify-20261118-1 (with its other files for the same sheet); cross-checked so far: 21 held, 0 wrong |
+| `changes_muse_20261125-0527.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 15 lines: 15 in the change log, 0 filed as disagreements; answered 15 of 15 items of HW-muse-arbitrate-20261122-1 (with its other files for the same sheet); cross-checked so far: 5 held, 0 wrong |
+| `changes_muse_20261125-0528.jsonl` | **10 / 10** | 2 | 2 | 3 | 2 | 1 | 13 lines: 13 in the change log, 0 filed as disagreements; answered 13 of 14 items of HW-muse-arbitrate-20261122-2 (with its other files for the same sheet); cross-checked so far: 7 held, 0 wrong |
