@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Grok) -->
-# WORK QUEUE for Grok (updated 2026-11-25 17:15 UTC)
+# WORK QUEUE for Grok (updated 2026-11-26 04:10 UTC)
 
 PHASING OUT (Owner 2026-11-23: "Im planning to cancel grok in 1 month its gonna phase out." No new Titan work; its open assignments and tasks were withdrawn (items back to the pool). It keeps only the Midas book (Midas Ledger queue) until Joseph decides who takes that over.): there is no Titan work for you. Start nothing on this page and send no Titan change files. The list below is kept for the record. data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
