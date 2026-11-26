@@ -5,6 +5,10 @@
 > 2. When you complete a task or change code, append a concise dated entry here.
 > 3. Keep entries short and actionable so subsequent agents can get up to speed instantly without burning compute.
 
+### [2026-11-26] Drive clean-up: Titan's AI inboxes sorted (Claude)
+- Every file in Titan's Drive inboxes was checked against the repo: collection-incoming (209 change files, all merged; copies in `collection/_incoming/applied`), art-requests, design-incoming, reviews-incoming, sound-incoming, music-requests, motion-lab-incoming, `_raw_capture/_DUPLICATES` and STAGING's photos_grok. Nothing unprocessed is listed for trash.
+- Drive only lets Claude trash files it created, so Joseph has the step-by-step list (Drive Clean-Up artifact). Keep: art-incoming, photos, bakeoff, `_locked`, Claude's Corner and every README / START HERE / WORK QUEUE / FEEDBACK / API KEYS file. The app stays paused; nothing in the repo changed.
+
 ### [2026-11-23] Gemini homework after run 6 (Claude)
 - Closed Gemini projects 44 and 51-54 (delivered in run 6). The loop has nothing left Gemini may take: the last 36 items it could do (17 cite, 16 photo reads, 3 story checks) were each tried by two AIs. New hand-written project 55: price the 11 album holes nobody has priced (want list 847 of 858).
 
