@@ -1,13 +1,13 @@
 {
  "agent": "gemini",
- "updated": "2026-11-27T04:16:02Z",
+ "updated": "2026-11-28T03:55:09Z",
  "assignments": [
   {
-   "id": "HW-gemini-fill-20261118-1",
+   "id": "HW-gemini-fill-20261128-1",
    "agent": "gemini",
    "kind": "fill",
-   "issued": "2026-11-18T03:42:57Z",
-   "lease_until": "2026-11-28T03:42:57Z",
+   "issued": "2026-11-28T03:55:09Z",
+   "lease_until": "2026-12-08T03:55:09Z",
    "status": "open",
    "closed": null,
    "result": null,
@@ -16,12 +16,6 @@
      "item": "fill:GT.KM.277.6a",
      "entity": "type",
      "id": "GT.KM.277.6a",
-     "field": null
-    },
-    {
-     "item": "fill:JM.KM.190",
-     "entity": "type",
-     "id": "JM.KM.190",
      "field": null
     }
    ],

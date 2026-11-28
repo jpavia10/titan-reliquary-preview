@@ -1,5 +1,5 @@
 <!-- doc-status: current; normative: yes (for Gemini) -->
-# WORK QUEUE for Gemini (updated 2026-11-27 04:16 UTC)
+# WORK QUEUE for Gemini (updated 2026-11-28 03:55 UTC)
 
 From Claude (integrator), on Joseph's instruction: there is always work queued for you. Work top to bottom; when one task is done, start the next without waiting. Rules that always apply: data only as change files (AI_START_HERE.md, collection/templates/INSTRUCTIONS.md); an exact source on every fact; provenance on every line; never open Drive `_locked (answer keys: Claude only)`.
 
@@ -31,13 +31,13 @@ How homework works (read once):
 9. A type id (e.g. MX.KM.433) is a permanent name, not always the catalogue number: find the coin by its country, year, denomination and the record's `catalogs` (MX.KM.433 is KM#432). A line on `issues.N` is one year (and mint): the sheet names it; read that row only.
 10. Keep the sheet's lines as they are: `provenance.assignment` stays, `old` stays as the sheet has it, `verified` stays false. Work you were not assigned (a bonus pass) goes in its own file without an assignment id, never on facts another AI is checking, and never changes the style of a field (stories stay short) without asking Claude first.
 
-### 1. HW-gemini-fill-20261118-1 · Cataloguer · Fill the blank facts of 1 coin types · due 2026-11-28  (fix list #72)
+### 1. HW-gemini-fill-20261128-1 · Cataloguer · Fill the blank facts of 1 coin types · due 2026-12-08  (fix list #72)
 
 Each coin type below has Phase 2 facts that are still blank (listed per type). Open the Numista entry for the coin we hold (the sheet names the coin and its year: check the year is in the entry's range) and fill each blank line the entry states: edge, thickness, alignment, legal tender, era (period / ruler), designers with their side, and a short description of each side. One line per fact with the exact entry URL in `source`; leave a line as FILL when the entry does not give it. Never copy from a neighbouring type or from `design.text`.
 
 **Done when:** One change file answering this assignment; the lines you left as FILL go back to the pool.
 
-**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261118-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
+**Answer sheet:** https://raw.githubusercontent.com/jpavia10/titan-reliquary-preview/main/docs/agents/homework/sheets/HW-gemini-fill-20261128-1.jsonl (save your edited copy as changes_gemini_YYYYMMDD-HHMM.jsonl)
 
 Items:
 - **C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)**: blank: designers. Entry on record: https://en.numista.com/catalogue/pieces42670.html
@@ -45,7 +45,7 @@ Items:
 Answer sheet (the same as the link):
 
 ```jsonl
-{"ts": "2026-11-18T03:42:57Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-18", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261118-1", "run_id": "HW-gemini-fill-20261118-1", "inputs": []}}
+{"ts": "2026-11-28T03:55:09Z", "by": "model:gemini", "entity": "type", "id": "GT.KM.277.6a", "op": "set", "field": "design.designers", "old": [], "new": [], "source": "FILL (C202 · Guatemala · 2010 · 10 centavos · GTQ (GT.KM.277.6a)): the exact entry URL for the coin we hold + the line you read (`new` = a list with each side in brackets, e.g. [\"Arnold Machin (obverse)\", \"Stuart Devlin (reverse)\"]; leave FILL when the entry does not say)", "verified": false, "phase": 2, "confidence": "high", "provenance": {"model": "gemini", "prompt_version": "HOMEWORK@2026-11-28", "workflow": "homework-fill", "assignment": "HW-gemini-fill-20261128-1", "run_id": "HW-gemini-fill-20261128-1", "inputs": []}}
 ```
 
 ## Projects (after the homework)
@@ -72,6 +72,6 @@ Parked (2026-10-29): Claude now builds the depth and 3D work in the app itself (
 
 ## Your numbers (measured, not self-reported)
 
-- Assignments answered: 81; expired: 12.
+- Assignments answered: 81; expired: 13.
 - Your facts checked by another contributor: 1407 (1380 confirmed, 27 wrong; error rate 1.9 %, 95 % range 1-3 %). Checks you did for others: 678. Open disagreements you are part of: 45. Values planted wrong on purpose in your checks: you caught 22 of 22.
 - Share of your new facts that get checked first: 100 %.
